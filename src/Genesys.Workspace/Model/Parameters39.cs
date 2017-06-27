@@ -33,7 +33,7 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="Parameters39" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public Parameters39(TargetsunsubscribeData Data = default(TargetsunsubscribeData))
+        public Parameters39(ReportingunsubscribeData Data = default(ReportingunsubscribeData))
         {
             this.Data = Data;
         }
@@ -42,7 +42,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public TargetsunsubscribeData Data { get; set; }
+        public ReportingunsubscribeData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

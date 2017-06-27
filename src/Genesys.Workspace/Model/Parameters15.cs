@@ -33,7 +33,7 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="Parameters15" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public Parameters15(VoicecallsidreconnectcallData Data = default(VoicecallsidreconnectcallData))
+        public Parameters15(VoicecallsidreconnectData Data = default(VoicecallsidreconnectData))
         {
             this.Data = Data;
         }
@@ -42,7 +42,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public VoicecallsidreconnectcallData Data { get; set; }
+        public VoicecallsidreconnectData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

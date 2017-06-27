@@ -33,7 +33,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse PauseCallRecording (string id);
+        ApiSuccessResponse PauseRecording (string id);
 
         /// <summary>
         /// Pauses call recording.
@@ -44,7 +44,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> PauseCallRecordingWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> PauseRecordingWithHttpInfo (string id);
         /// <summary>
         /// Resumes call recording.
         /// </summary>
@@ -54,7 +54,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse ResumeCallRecording (string id);
+        ApiSuccessResponse ResumeRecording (string id);
 
         /// <summary>
         /// Resumes call recording.
@@ -65,7 +65,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ResumeCallRecordingWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> ResumeRecordingWithHttpInfo (string id);
         /// <summary>
         /// Starts call recording.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse StartCallRecording (string id);
+        ApiSuccessResponse StartRecording (string id);
 
         /// <summary>
         /// Starts call recording.
@@ -86,7 +86,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> StartCallRecordingWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> StartRecordingWithHttpInfo (string id);
         /// <summary>
         /// Stops call recording.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse StopCallRecording (string id);
+        ApiSuccessResponse StopRecording (string id);
 
         /// <summary>
         /// Stops call recording.
@@ -107,7 +107,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> StopCallRecordingWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> StopRecordingWithHttpInfo (string id);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -119,7 +119,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> PauseCallRecordingAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> PauseRecordingAsync (string id);
 
         /// <summary>
         /// Pauses call recording.
@@ -130,7 +130,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PauseCallRecordingAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PauseRecordingAsyncWithHttpInfo (string id);
         /// <summary>
         /// Resumes call recording.
         /// </summary>
@@ -140,7 +140,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ResumeCallRecordingAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ResumeRecordingAsync (string id);
 
         /// <summary>
         /// Resumes call recording.
@@ -151,7 +151,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ResumeCallRecordingAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ResumeRecordingAsyncWithHttpInfo (string id);
         /// <summary>
         /// Starts call recording.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> StartCallRecordingAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> StartRecordingAsync (string id);
 
         /// <summary>
         /// Starts call recording.
@@ -172,7 +172,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartCallRecordingAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartRecordingAsyncWithHttpInfo (string id);
         /// <summary>
         /// Stops call recording.
         /// </summary>
@@ -182,7 +182,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> StopCallRecordingAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> StopRecordingAsync (string id);
 
         /// <summary>
         /// Stops call recording.
@@ -193,7 +193,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopCallRecordingAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopRecordingAsyncWithHttpInfo (string id);
         #endregion Asynchronous Operations
     }
 
@@ -312,9 +312,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse PauseCallRecording (string id)
+        public ApiSuccessResponse PauseRecording (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = PauseCallRecordingWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = PauseRecordingWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -324,13 +324,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > PauseCallRecordingWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > PauseRecordingWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->PauseCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->PauseRecording");
 
-            var localVarPath = "/voice/calls/{id}/pause-call-recording";
+            var localVarPath = "/voice/calls/{id}/pause-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -367,7 +367,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PauseCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("PauseRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -383,9 +383,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> PauseCallRecordingAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> PauseRecordingAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await PauseCallRecordingAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await PauseRecordingAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -396,13 +396,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PauseCallRecordingAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PauseRecordingAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->PauseCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->PauseRecording");
 
-            var localVarPath = "/voice/calls/{id}/pause-call-recording";
+            var localVarPath = "/voice/calls/{id}/pause-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -439,7 +439,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("PauseCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("PauseRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -455,9 +455,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse ResumeCallRecording (string id)
+        public ApiSuccessResponse ResumeRecording (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ResumeCallRecordingWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ResumeRecordingWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -467,13 +467,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ResumeCallRecordingWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > ResumeRecordingWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->ResumeCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->ResumeRecording");
 
-            var localVarPath = "/voice/calls/{id}/resume-call-recording";
+            var localVarPath = "/voice/calls/{id}/resume-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -510,7 +510,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ResumeCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("ResumeRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -526,9 +526,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ResumeCallRecordingAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ResumeRecordingAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ResumeCallRecordingAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ResumeRecordingAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -539,13 +539,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ResumeCallRecordingAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ResumeRecordingAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->ResumeCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->ResumeRecording");
 
-            var localVarPath = "/voice/calls/{id}/resume-call-recording";
+            var localVarPath = "/voice/calls/{id}/resume-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -582,7 +582,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ResumeCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("ResumeRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -598,9 +598,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse StartCallRecording (string id)
+        public ApiSuccessResponse StartRecording (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = StartCallRecordingWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = StartRecordingWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -610,13 +610,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > StartCallRecordingWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > StartRecordingWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StartCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StartRecording");
 
-            var localVarPath = "/voice/calls/{id}/start-call-recording";
+            var localVarPath = "/voice/calls/{id}/start-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -653,7 +653,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("StartCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("StartRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -669,9 +669,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> StartCallRecordingAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> StartRecordingAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await StartCallRecordingAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await StartRecordingAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -682,13 +682,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartCallRecordingAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartRecordingAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StartCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StartRecording");
 
-            var localVarPath = "/voice/calls/{id}/start-call-recording";
+            var localVarPath = "/voice/calls/{id}/start-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -725,7 +725,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("StartCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("StartRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -741,9 +741,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse StopCallRecording (string id)
+        public ApiSuccessResponse StopRecording (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = StopCallRecordingWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = StopRecordingWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -753,13 +753,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > StopCallRecordingWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > StopRecordingWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StopCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StopRecording");
 
-            var localVarPath = "/voice/calls/{id}/stop-call-recording";
+            var localVarPath = "/voice/calls/{id}/stop-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -796,7 +796,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("StopCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("StopRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -812,9 +812,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> StopCallRecordingAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> StopRecordingAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await StopCallRecordingAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await StopRecordingAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -825,13 +825,13 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopCallRecordingAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopRecordingAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StopCallRecording");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceCallRecordingApi->StopRecording");
 
-            var localVarPath = "/voice/calls/{id}/stop-call-recording";
+            var localVarPath = "/voice/calls/{id}/stop-recording";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -868,7 +868,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("StopCallRecording", localVarResponse);
+                Exception exception = ExceptionFactory("StopRecording", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -25,6 +25,48 @@ namespace Genesys.Workspace.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Get peek values for subscriptionId
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse Peek (string subscriptionId);
+
+        /// <summary>
+        /// Get peek values for subscriptionId
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> PeekWithHttpInfo (string subscriptionId);
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse Register (Statistics1 statistics);
+
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> RegisterWithHttpInfo (Statistics1 statistics);
+        /// <summary>
         /// Subscribe to Statistics
         /// </summary>
         /// <remarks>
@@ -54,7 +96,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Unsubscribe (Parameters40 parameters);
+        ApiSuccessResponse Unsubscribe (Parameters39 parameters);
 
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
@@ -65,9 +107,51 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (Parameters40 parameters);
+        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (Parameters39 parameters);
         #endregion Synchronous Operations
         #region Asynchronous Operations
+        /// <summary>
+        /// Get peek values for subscriptionId
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> PeekAsync (string subscriptionId);
+
+        /// <summary>
+        /// Get peek values for subscriptionId
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PeekAsyncWithHttpInfo (string subscriptionId);
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> RegisterAsync (Statistics1 statistics);
+
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RegisterAsyncWithHttpInfo (Statistics1 statistics);
         /// <summary>
         /// Subscribe to Statistics
         /// </summary>
@@ -98,7 +182,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters40 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters39 parameters);
 
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
@@ -109,7 +193,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters40 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters39 parameters);
         #endregion Asynchronous Operations
     }
 
@@ -220,6 +304,306 @@ namespace Genesys.Workspace.Api
         public void AddDefaultHeader(string key, string value)
         {
             this.Configuration.AddDefaultHeader(key, value);
+        }
+
+        /// <summary>
+        /// Get peek values for subscriptionId 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse Peek (string subscriptionId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = PeekWithHttpInfo(subscriptionId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get peek values for subscriptionId 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > PeekWithHttpInfo (string subscriptionId)
+        {
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Peek");
+
+            var localVarPath = "/reporting/{subscriptionId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Peek", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get peek values for subscriptionId 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> PeekAsync (string subscriptionId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await PeekAsyncWithHttpInfo(subscriptionId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get peek values for subscriptionId 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">id of the subscription</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PeekAsyncWithHttpInfo (string subscriptionId)
+        {
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Peek");
+
+            var localVarPath = "/reporting/{subscriptionId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Peek", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse Register (Statistics1 statistics)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = RegisterWithHttpInfo(statistics);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > RegisterWithHttpInfo (Statistics1 statistics)
+        {
+            // verify the required parameter 'statistics' is set
+            if (statistics == null)
+                throw new ApiException(400, "Missing required parameter 'statistics' when calling ReportingApi->Register");
+
+            var localVarPath = "/reporting/register";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (statistics != null && statistics.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(statistics); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = statistics; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Register", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RegisterAsync (Statistics1 statistics)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RegisterAsyncWithHttpInfo(statistics);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statistics">Requested Statistics</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RegisterAsyncWithHttpInfo (Statistics1 statistics)
+        {
+            // verify the required parameter 'statistics' is set
+            if (statistics == null)
+                throw new ApiException(400, "Missing required parameter 'statistics' when calling ReportingApi->Register");
+
+            var localVarPath = "/reporting/register";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (statistics != null && statistics.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(statistics); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = statistics; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Register", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
         /// <summary>
@@ -385,7 +769,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Unsubscribe (Parameters40 parameters)
+        public ApiSuccessResponse Unsubscribe (Parameters39 parameters)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeWithHttpInfo(parameters);
              return localVarResponse.Data;
@@ -397,7 +781,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (Parameters40 parameters)
+        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (Parameters39 parameters)
         {
             // verify the required parameter 'parameters' is set
             if (parameters == null)
@@ -463,7 +847,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters40 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters39 parameters)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeAsyncWithHttpInfo(parameters);
              return localVarResponse.Data;
@@ -476,7 +860,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters40 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters39 parameters)
         {
             // verify the required parameter 'parameters' is set
             if (parameters == null)

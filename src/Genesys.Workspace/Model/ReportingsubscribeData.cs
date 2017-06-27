@@ -37,18 +37,18 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingsubscribeData" /> class.
         /// </summary>
-        /// <param name="SocketId">SocketId (required).</param>
+        /// <param name="ConnectionId">ConnectionId (required).</param>
         /// <param name="Statistics">Statistics (required).</param>
-        public ReportingsubscribeData(string SocketId = default(string), List<string> Statistics = default(List<string>))
+        public ReportingsubscribeData(string ConnectionId = default(string), List<string> Statistics = default(List<string>))
         {
-            // to ensure "SocketId" is required (not null)
-            if (SocketId == null)
+            // to ensure "ConnectionId" is required (not null)
+            if (ConnectionId == null)
             {
-                throw new InvalidDataException("SocketId is a required property for ReportingsubscribeData and cannot be null");
+                throw new InvalidDataException("ConnectionId is a required property for ReportingsubscribeData and cannot be null");
             }
             else
             {
-                this.SocketId = SocketId;
+                this.ConnectionId = ConnectionId;
             }
             // to ensure "Statistics" is required (not null)
             if (Statistics == null)
@@ -62,10 +62,10 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets SocketId
+        /// Gets or Sets ConnectionId
         /// </summary>
-        [DataMember(Name="socketId", EmitDefaultValue=false)]
-        public string SocketId { get; set; }
+        [DataMember(Name="connectionId", EmitDefaultValue=false)]
+        public string ConnectionId { get; set; }
         /// <summary>
         /// Gets or Sets Statistics
         /// </summary>
@@ -79,7 +79,7 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ReportingsubscribeData {\n");
-            sb.Append("  SocketId: ").Append(SocketId).Append("\n");
+            sb.Append("  ConnectionId: ").Append(ConnectionId).Append("\n");
             sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -118,9 +118,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.SocketId == other.SocketId ||
-                    this.SocketId != null &&
-                    this.SocketId.Equals(other.SocketId)
+                    this.ConnectionId == other.ConnectionId ||
+                    this.ConnectionId != null &&
+                    this.ConnectionId.Equals(other.ConnectionId)
                 ) && 
                 (
                     this.Statistics == other.Statistics ||
@@ -140,8 +140,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SocketId != null)
-                    hash = hash * 59 + this.SocketId.GetHashCode();
+                if (this.ConnectionId != null)
+                    hash = hash * 59 + this.ConnectionId.GetHashCode();
                 if (this.Statistics != null)
                     hash = hash * 59 + this.Statistics.GetHashCode();
                 return hash;

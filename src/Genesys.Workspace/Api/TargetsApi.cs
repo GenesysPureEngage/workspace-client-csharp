@@ -35,9 +35,8 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Get (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null);
+        ApiSuccessResponse Get (string searchTerm, string types = null, string sort = null, decimal? limit = null);
 
         /// <summary>
         /// Search for targets
@@ -50,9 +49,8 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null);
+        ApiResponse<ApiSuccessResponse> GetWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null);
         /// <summary>
         /// Get a target
         /// </summary>
@@ -62,9 +60,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetTarget (decimal? id, string type, string socketId = null);
+        ApiSuccessResponse GetTarget (decimal? id, string type);
 
         /// <summary>
         /// Get a target
@@ -75,30 +72,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetTargetWithHttpInfo (decimal? id, string type, string socketId = null);
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse TargetUnsubscribe (Parameters39 parameters);
-
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> TargetUnsubscribeWithHttpInfo (Parameters39 parameters);
+        ApiResponse<ApiSuccessResponse> GetTargetWithHttpInfo (decimal? id, string type);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -112,9 +87,8 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string types = null, string sort = null, decimal? limit = null);
 
         /// <summary>
         /// Search for targets
@@ -127,9 +101,8 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null);
         /// <summary>
         /// Get a target
         /// </summary>
@@ -139,9 +112,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetTargetAsync (decimal? id, string type, string socketId = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetTargetAsync (decimal? id, string type);
 
         /// <summary>
         /// Get a target
@@ -152,30 +124,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type, string socketId = null);
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> TargetUnsubscribeAsync (Parameters39 parameters);
-
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TargetUnsubscribeAsyncWithHttpInfo (Parameters39 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type);
         #endregion Asynchronous Operations
     }
 
@@ -296,11 +246,10 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Get (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null)
+        public ApiSuccessResponse Get (string searchTerm, string types = null, string sort = null, decimal? limit = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetWithHttpInfo(searchTerm, types, sort, limit, socketId);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetWithHttpInfo(searchTerm, types, sort, limit);
              return localVarResponse.Data;
         }
 
@@ -312,9 +261,8 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null)
+        public ApiResponse< ApiSuccessResponse > GetWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -349,7 +297,6 @@ namespace Genesys.Workspace.Api
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (socketId != null) localVarQueryParams.Add("socketId", Configuration.ApiClient.ParameterToString(socketId)); // query parameter
 
 
             // make the HTTP request
@@ -379,11 +326,10 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string types = null, string sort = null, decimal? limit = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, types, sort, limit, socketId);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, types, sort, limit);
              return localVarResponse.Data;
 
         }
@@ -396,9 +342,8 @@ namespace Genesys.Workspace.Api
         /// <param name="types">Comma separated list of types to include in the search (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null, string socketId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string types = null, string sort = null, decimal? limit = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -433,7 +378,6 @@ namespace Genesys.Workspace.Api
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
-            if (socketId != null) localVarQueryParams.Add("socketId", Configuration.ApiClient.ParameterToString(socketId)); // query parameter
 
 
             // make the HTTP request
@@ -461,11 +405,10 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetTarget (decimal? id, string type, string socketId = null)
+        public ApiSuccessResponse GetTarget (decimal? id, string type)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetTargetWithHttpInfo(id, type, socketId);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetTargetWithHttpInfo(id, type);
              return localVarResponse.Data;
         }
 
@@ -475,9 +418,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetTargetWithHttpInfo (decimal? id, string type, string socketId = null)
+        public ApiResponse< ApiSuccessResponse > GetTargetWithHttpInfo (decimal? id, string type)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -513,7 +455,6 @@ namespace Genesys.Workspace.Api
             localVarPathParams.Add("format", "json");
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
-            if (socketId != null) localVarQueryParams.Add("socketId", Configuration.ApiClient.ParameterToString(socketId)); // query parameter
 
 
             // make the HTTP request
@@ -541,11 +482,10 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetTargetAsync (decimal? id, string type, string socketId = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetTargetAsync (decimal? id, string type)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetTargetAsyncWithHttpInfo(id, type, socketId);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetTargetAsyncWithHttpInfo(id, type);
              return localVarResponse.Data;
 
         }
@@ -556,9 +496,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <param name="socketId">socketId for subscription to availability statistics. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type, string socketId = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -594,7 +533,6 @@ namespace Genesys.Workspace.Api
             localVarPathParams.Add("format", "json");
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
-            if (socketId != null) localVarQueryParams.Add("socketId", Configuration.ApiClient.ParameterToString(socketId)); // query parameter
 
 
             // make the HTTP request
@@ -607,163 +545,6 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetTarget", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-            
-        }
-
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse TargetUnsubscribe (Parameters39 parameters)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = TargetUnsubscribeWithHttpInfo(parameters);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > TargetUnsubscribeWithHttpInfo (Parameters39 parameters)
-        {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling TargetsApi->TargetUnsubscribe");
-
-            var localVarPath = "/targets/unsubscribe";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = parameters; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("TargetUnsubscribe", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-            
-        }
-
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> TargetUnsubscribeAsync (Parameters39 parameters)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await TargetUnsubscribeAsyncWithHttpInfo(parameters);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Unsubscribe to availability notifications for previous search result 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TargetUnsubscribeAsyncWithHttpInfo (Parameters39 parameters)
-        {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling TargetsApi->TargetUnsubscribe");
-
-            var localVarPath = "/targets/unsubscribe";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            // set "format" to json by default
-            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
-            localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = parameters; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("TargetUnsubscribe", localVarResponse);
                 if (exception != null) throw exception;
             }
 

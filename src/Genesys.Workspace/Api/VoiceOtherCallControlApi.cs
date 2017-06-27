@@ -34,7 +34,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AlternateCall (string id, Parameters16 parameters);
+        ApiSuccessResponse Alternate (string id, Parameters16 parameters);
 
         /// <summary>
         /// Alternate between calls
@@ -46,7 +46,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AlternateCallWithHttpInfo (string id, Parameters16 parameters);
+        ApiResponse<ApiSuccessResponse> AlternateWithHttpInfo (string id, Parameters16 parameters);
         /// <summary>
         /// Clear all the parties in the call.
         /// </summary>
@@ -57,7 +57,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse ClearCall (string id, Parameters17 parameters);
+        ApiSuccessResponse Clear (string id, Parameters17 parameters);
 
         /// <summary>
         /// Clear all the parties in the call.
@@ -69,7 +69,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ClearCallWithHttpInfo (string id, Parameters17 parameters);
+        ApiResponse<ApiSuccessResponse> ClearWithHttpInfo (string id, Parameters17 parameters);
         /// <summary>
         /// Reconnect a call
         /// </summary>
@@ -80,7 +80,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse ReconnectCall (string id, Parameters15 parameters);
+        ApiSuccessResponse Reconnect (string id, Parameters15 parameters);
 
         /// <summary>
         /// Reconnect a call
@@ -92,7 +92,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ReconnectCallWithHttpInfo (string id, Parameters15 parameters);
+        ApiResponse<ApiSuccessResponse> ReconnectWithHttpInfo (string id, Parameters15 parameters);
         /// <summary>
         /// Redirect the call.
         /// </summary>
@@ -103,7 +103,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse RedirectCall (string id, Parameters18 parameters);
+        ApiSuccessResponse Redirect (string id, Parameters18 parameters);
 
         /// <summary>
         /// Redirect the call.
@@ -115,7 +115,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> RedirectCallWithHttpInfo (string id, Parameters18 parameters);
+        ApiResponse<ApiSuccessResponse> RedirectWithHttpInfo (string id, Parameters18 parameters);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -128,7 +128,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AlternateCallAsync (string id, Parameters16 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AlternateAsync (string id, Parameters16 parameters);
 
         /// <summary>
         /// Alternate between calls
@@ -140,7 +140,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AlternateCallAsyncWithHttpInfo (string id, Parameters16 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AlternateAsyncWithHttpInfo (string id, Parameters16 parameters);
         /// <summary>
         /// Clear all the parties in the call.
         /// </summary>
@@ -151,7 +151,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ClearCallAsync (string id, Parameters17 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ClearAsync (string id, Parameters17 parameters);
 
         /// <summary>
         /// Clear all the parties in the call.
@@ -163,7 +163,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ClearCallAsyncWithHttpInfo (string id, Parameters17 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ClearAsyncWithHttpInfo (string id, Parameters17 parameters);
         /// <summary>
         /// Reconnect a call
         /// </summary>
@@ -174,7 +174,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ReconnectCallAsync (string id, Parameters15 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ReconnectAsync (string id, Parameters15 parameters);
 
         /// <summary>
         /// Reconnect a call
@@ -186,7 +186,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReconnectCallAsyncWithHttpInfo (string id, Parameters15 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReconnectAsyncWithHttpInfo (string id, Parameters15 parameters);
         /// <summary>
         /// Redirect the call.
         /// </summary>
@@ -197,7 +197,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> RedirectCallAsync (string id, Parameters18 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> RedirectAsync (string id, Parameters18 parameters);
 
         /// <summary>
         /// Redirect the call.
@@ -209,7 +209,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RedirectCallAsyncWithHttpInfo (string id, Parameters18 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RedirectAsyncWithHttpInfo (string id, Parameters18 parameters);
         #endregion Asynchronous Operations
     }
 
@@ -329,9 +329,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AlternateCall (string id, Parameters16 parameters)
+        public ApiSuccessResponse Alternate (string id, Parameters16 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AlternateCallWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = AlternateWithHttpInfo(id, parameters);
              return localVarResponse.Data;
         }
 
@@ -342,16 +342,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AlternateCallWithHttpInfo (string id, Parameters16 parameters)
+        public ApiResponse< ApiSuccessResponse > AlternateWithHttpInfo (string id, Parameters16 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->AlternateCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Alternate");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->AlternateCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Alternate");
 
-            var localVarPath = "/voice/calls/{id}/alternate-call";
+            var localVarPath = "/voice/calls/{id}/alternate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -396,7 +396,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AlternateCall", localVarResponse);
+                Exception exception = ExceptionFactory("Alternate", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -413,9 +413,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AlternateCallAsync (string id, Parameters16 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AlternateAsync (string id, Parameters16 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AlternateCallAsyncWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AlternateAsyncWithHttpInfo(id, parameters);
              return localVarResponse.Data;
 
         }
@@ -427,16 +427,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call that is requested to be connected.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AlternateCallAsyncWithHttpInfo (string id, Parameters16 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AlternateAsyncWithHttpInfo (string id, Parameters16 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->AlternateCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Alternate");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->AlternateCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Alternate");
 
-            var localVarPath = "/voice/calls/{id}/alternate-call";
+            var localVarPath = "/voice/calls/{id}/alternate";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -481,7 +481,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AlternateCall", localVarResponse);
+                Exception exception = ExceptionFactory("Alternate", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -498,9 +498,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse ClearCall (string id, Parameters17 parameters)
+        public ApiSuccessResponse Clear (string id, Parameters17 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ClearCallWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ClearWithHttpInfo(id, parameters);
              return localVarResponse.Data;
         }
 
@@ -511,16 +511,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ClearCallWithHttpInfo (string id, Parameters17 parameters)
+        public ApiResponse< ApiSuccessResponse > ClearWithHttpInfo (string id, Parameters17 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->ClearCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Clear");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->ClearCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Clear");
 
-            var localVarPath = "/voice/calls/{id}/clear-call";
+            var localVarPath = "/voice/calls/{id}/clear";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -565,7 +565,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ClearCall", localVarResponse);
+                Exception exception = ExceptionFactory("Clear", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -582,9 +582,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ClearCallAsync (string id, Parameters17 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ClearAsync (string id, Parameters17 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ClearCallAsyncWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ClearAsyncWithHttpInfo(id, parameters);
              return localVarResponse.Data;
 
         }
@@ -596,16 +596,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the call, from which the telephony object in question is requested to be released.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ClearCallAsyncWithHttpInfo (string id, Parameters17 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ClearAsyncWithHttpInfo (string id, Parameters17 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->ClearCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Clear");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->ClearCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Clear");
 
-            var localVarPath = "/voice/calls/{id}/clear-call";
+            var localVarPath = "/voice/calls/{id}/clear";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -650,7 +650,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ClearCall", localVarResponse);
+                Exception exception = ExceptionFactory("Clear", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -667,9 +667,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse ReconnectCall (string id, Parameters15 parameters)
+        public ApiSuccessResponse Reconnect (string id, Parameters15 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ReconnectCallWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ReconnectWithHttpInfo(id, parameters);
              return localVarResponse.Data;
         }
 
@@ -680,16 +680,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ReconnectCallWithHttpInfo (string id, Parameters15 parameters)
+        public ApiResponse< ApiSuccessResponse > ReconnectWithHttpInfo (string id, Parameters15 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->ReconnectCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Reconnect");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->ReconnectCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Reconnect");
 
-            var localVarPath = "/voice/calls/{id}/reconnect-call";
+            var localVarPath = "/voice/calls/{id}/reconnect";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -734,7 +734,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconnectCall", localVarResponse);
+                Exception exception = ExceptionFactory("Reconnect", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -751,9 +751,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ReconnectCallAsync (string id, Parameters15 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ReconnectAsync (string id, Parameters15 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ReconnectCallAsyncWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ReconnectAsyncWithHttpInfo(id, parameters);
              return localVarResponse.Data;
 
         }
@@ -765,16 +765,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection identifier of the original call that should be retrieved.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReconnectCallAsyncWithHttpInfo (string id, Parameters15 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReconnectAsyncWithHttpInfo (string id, Parameters15 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->ReconnectCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Reconnect");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->ReconnectCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Reconnect");
 
-            var localVarPath = "/voice/calls/{id}/reconnect-call";
+            var localVarPath = "/voice/calls/{id}/reconnect";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -819,7 +819,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("ReconnectCall", localVarResponse);
+                Exception exception = ExceptionFactory("Reconnect", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -836,9 +836,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse RedirectCall (string id, Parameters18 parameters)
+        public ApiSuccessResponse Redirect (string id, Parameters18 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = RedirectCallWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = RedirectWithHttpInfo(id, parameters);
              return localVarResponse.Data;
         }
 
@@ -849,16 +849,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > RedirectCallWithHttpInfo (string id, Parameters18 parameters)
+        public ApiResponse< ApiSuccessResponse > RedirectWithHttpInfo (string id, Parameters18 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->RedirectCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Redirect");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->RedirectCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Redirect");
 
-            var localVarPath = "/voice/calls/{id}/redirect-call";
+            var localVarPath = "/voice/calls/{id}/redirect";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -903,7 +903,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RedirectCall", localVarResponse);
+                Exception exception = ExceptionFactory("Redirect", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -920,9 +920,9 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> RedirectCallAsync (string id, Parameters18 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RedirectAsync (string id, Parameters18 parameters)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await RedirectCallAsyncWithHttpInfo(id, parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RedirectAsyncWithHttpInfo(id, parameters);
              return localVarResponse.Data;
 
         }
@@ -934,16 +934,16 @@ namespace Genesys.Workspace.Api
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="parameters"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RedirectCallAsyncWithHttpInfo (string id, Parameters18 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RedirectAsyncWithHttpInfo (string id, Parameters18 parameters)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->RedirectCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling VoiceOtherCallControlApi->Redirect");
             // verify the required parameter 'parameters' is set
             if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->RedirectCall");
+                throw new ApiException(400, "Missing required parameter 'parameters' when calling VoiceOtherCallControlApi->Redirect");
 
-            var localVarPath = "/voice/calls/{id}/redirect-call";
+            var localVarPath = "/voice/calls/{id}/redirect";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -988,7 +988,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RedirectCall", localVarResponse);
+                Exception exception = ExceptionFactory("Redirect", localVarResponse);
                 if (exception != null) throw exception;
             }
 
