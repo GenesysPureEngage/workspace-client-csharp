@@ -96,7 +96,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Unsubscribe (Parameters39 parameters);
+        ApiSuccessResponse Unsubscribe (Parameters40 parameters);
 
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
@@ -107,7 +107,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (Parameters39 parameters);
+        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (Parameters40 parameters);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -182,7 +182,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters39 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters40 parameters);
 
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
@@ -193,7 +193,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters39 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters40 parameters);
         #endregion Asynchronous Operations
     }
 
@@ -769,7 +769,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Unsubscribe (Parameters39 parameters)
+        public ApiSuccessResponse Unsubscribe (Parameters40 parameters)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeWithHttpInfo(parameters);
              return localVarResponse.Data;
@@ -781,7 +781,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (Parameters39 parameters)
+        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (Parameters40 parameters)
         {
             // verify the required parameter 'parameters' is set
             if (parameters == null)
@@ -847,7 +847,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters39 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters40 parameters)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeAsyncWithHttpInfo(parameters);
              return localVarResponse.Data;
@@ -860,7 +860,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="parameters">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters39 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters40 parameters)
         {
             // verify the required parameter 'parameters' is set
             if (parameters == null)

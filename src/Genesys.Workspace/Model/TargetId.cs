@@ -24,25 +24,32 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// Parameters40
+    /// TargetId
     /// </summary>
     [DataContract]
-    public partial class Parameters40 :  IEquatable<Parameters40>, IValidatableObject
+    public partial class TargetId :  IEquatable<TargetId>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Parameters40" /> class.
+        /// Initializes a new instance of the <see cref="TargetId" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public Parameters40(ReportingunsubscribeData Data = default(ReportingunsubscribeData))
+        /// <param name="Type">Type.</param>
+        /// <param name="Id">Id.</param>
+        public TargetId(string Type = default(string), string Id = default(string))
         {
-            this.Data = Data;
+            this.Type = Type;
+            this.Id = Id;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Type
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public ReportingunsubscribeData Data { get; set; }
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+        /// <summary>
+        /// Gets or Sets Id
+        /// </summary>
+        [DataMember(Name="id", EmitDefaultValue=false)]
+        public string Id { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -50,8 +57,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Parameters40 {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class TargetId {\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Id: ").Append(Id).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,15 +81,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Parameters40);
+            return this.Equals(obj as TargetId);
         }
 
         /// <summary>
-        /// Returns true if Parameters40 instances are equal
+        /// Returns true if TargetId instances are equal
         /// </summary>
-        /// <param name="other">Instance of Parameters40 to be compared</param>
+        /// <param name="other">Instance of TargetId to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Parameters40 other)
+        public bool Equals(TargetId other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -89,9 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 );
         }
 
@@ -106,8 +119,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Id != null)
+                    hash = hash * 59 + this.Id.GetHashCode();
                 return hash;
             }
         }

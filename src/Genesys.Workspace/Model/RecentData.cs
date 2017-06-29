@@ -24,25 +24,32 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// Parameters40
+    /// RecentData
     /// </summary>
     [DataContract]
-    public partial class Parameters40 :  IEquatable<Parameters40>, IValidatableObject
+    public partial class RecentData :  IEquatable<RecentData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Parameters40" /> class.
+        /// Initializes a new instance of the <see cref="RecentData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public Parameters40(ReportingunsubscribeData Data = default(ReportingunsubscribeData))
+        /// <param name="Media">Media.</param>
+        /// <param name="TimeStamp">TimeStamp.</param>
+        public RecentData(string Media = default(string), decimal? TimeStamp = default(decimal?))
         {
-            this.Data = Data;
+            this.Media = Media;
+            this.TimeStamp = TimeStamp;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Media
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public ReportingunsubscribeData Data { get; set; }
+        [DataMember(Name="media", EmitDefaultValue=false)]
+        public string Media { get; set; }
+        /// <summary>
+        /// Gets or Sets TimeStamp
+        /// </summary>
+        [DataMember(Name="timeStamp", EmitDefaultValue=false)]
+        public decimal? TimeStamp { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -50,8 +57,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Parameters40 {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class RecentData {\n");
+            sb.Append("  Media: ").Append(Media).Append("\n");
+            sb.Append("  TimeStamp: ").Append(TimeStamp).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,15 +81,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Parameters40);
+            return this.Equals(obj as RecentData);
         }
 
         /// <summary>
-        /// Returns true if Parameters40 instances are equal
+        /// Returns true if RecentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of Parameters40 to be compared</param>
+        /// <param name="other">Instance of RecentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Parameters40 other)
+        public bool Equals(RecentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -89,9 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Media == other.Media ||
+                    this.Media != null &&
+                    this.Media.Equals(other.Media)
+                ) && 
+                (
+                    this.TimeStamp == other.TimeStamp ||
+                    this.TimeStamp != null &&
+                    this.TimeStamp.Equals(other.TimeStamp)
                 );
         }
 
@@ -106,8 +119,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Media != null)
+                    hash = hash * 59 + this.Media.GetHashCode();
+                if (this.TimeStamp != null)
+                    hash = hash * 59 + this.TimeStamp.GetHashCode();
                 return hash;
             }
         }
