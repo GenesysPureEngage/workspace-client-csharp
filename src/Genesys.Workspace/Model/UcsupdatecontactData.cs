@@ -41,7 +41,7 @@ namespace Genesys.Workspace.Model
         /// <param name="AddedProperties">The list of contact attributes to be added to the contact (required).</param>
         /// <param name="ChangedProperties">The list of contact attributes to be updated for the contact (required).</param>
         /// <param name="DeletedProperties">The list of contact attributes to be deleted for the contact (required).</param>
-        public UcsupdatecontactData(string ContactId = default(string), List<string> AddedProperties = default(List<string>), List<string> ChangedProperties = default(List<string>), List<string> DeletedProperties = default(List<string>))
+        public UcsupdatecontactData(string ContactId = default(string), List<Object> AddedProperties = default(List<Object>), List<Object> ChangedProperties = default(List<Object>), List<Object> DeletedProperties = default(List<Object>))
         {
             // to ensure "ContactId" is required (not null)
             if (ContactId == null)
@@ -92,19 +92,19 @@ namespace Genesys.Workspace.Model
         /// </summary>
         /// <value>The list of contact attributes to be added to the contact</value>
         [DataMember(Name="addedProperties", EmitDefaultValue=false)]
-        public List<string> AddedProperties { get; set; }
+        public List<Object> AddedProperties { get; set; }
         /// <summary>
         /// The list of contact attributes to be updated for the contact
         /// </summary>
         /// <value>The list of contact attributes to be updated for the contact</value>
         [DataMember(Name="changedProperties", EmitDefaultValue=false)]
-        public List<string> ChangedProperties { get; set; }
+        public List<Object> ChangedProperties { get; set; }
         /// <summary>
         /// The list of contact attributes to be deleted for the contact
         /// </summary>
         /// <value>The list of contact attributes to be deleted for the contact</value>
         [DataMember(Name="deletedProperties", EmitDefaultValue=false)]
-        public List<string> DeletedProperties { get; set; }
+        public List<Object> DeletedProperties { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

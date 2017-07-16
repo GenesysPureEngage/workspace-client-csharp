@@ -24,33 +24,47 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataUserActiveSession
+    /// MonitoringScopeDataData
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataUserActiveSession :  IEquatable<CurrentUserDataUserActiveSession>, IValidatableObject
+    public partial class MonitoringScopeDataData :  IEquatable<MonitoringScopeDataData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUserActiveSession" /> class.
+        /// The monitoring scope (Call/Agent).
         /// </summary>
-        /// <param name="Dn">Dn.</param>
-        /// <param name="Calls">An array containing any active calls..</param>
-        public CurrentUserDataUserActiveSession(CurrentUserDataUserActiveSessionDn Dn = default(CurrentUserDataUserActiveSessionDn), List<Call> Calls = default(List<Call>))
+        /// <value>The monitoring scope (Call/Agent).</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MonitoringScopeEnum
         {
-            this.Dn = Dn;
-            this.Calls = Calls;
+            
+            /// <summary>
+            /// Enum Call for "Call"
+            /// </summary>
+            [EnumMember(Value = "Call")]
+            Call,
+            
+            /// <summary>
+            /// Enum Agent for "Agent"
+            /// </summary>
+            [EnumMember(Value = "Agent")]
+            Agent
+        }
+
+        /// <summary>
+        /// The monitoring scope (Call/Agent).
+        /// </summary>
+        /// <value>The monitoring scope (Call/Agent).</value>
+        [DataMember(Name="monitoringScope", EmitDefaultValue=false)]
+        public MonitoringScopeEnum? MonitoringScope { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MonitoringScopeDataData" /> class.
+        /// </summary>
+        /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
+        public MonitoringScopeDataData(MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
+        {
+            this.MonitoringScope = MonitoringScope;
         }
         
-        /// <summary>
-        /// Gets or Sets Dn
-        /// </summary>
-        [DataMember(Name="dn", EmitDefaultValue=false)]
-        public CurrentUserDataUserActiveSessionDn Dn { get; set; }
-        /// <summary>
-        /// An array containing any active calls.
-        /// </summary>
-        /// <value>An array containing any active calls.</value>
-        [DataMember(Name="calls", EmitDefaultValue=false)]
-        public List<Call> Calls { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +72,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataUserActiveSession {\n");
-            sb.Append("  Dn: ").Append(Dn).Append("\n");
-            sb.Append("  Calls: ").Append(Calls).Append("\n");
+            sb.Append("class MonitoringScopeDataData {\n");
+            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +95,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataUserActiveSession);
+            return this.Equals(obj as MonitoringScopeDataData);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataUserActiveSession instances are equal
+        /// Returns true if MonitoringScopeDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataUserActiveSession to be compared</param>
+        /// <param name="other">Instance of MonitoringScopeDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataUserActiveSession other)
+        public bool Equals(MonitoringScopeDataData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -98,14 +111,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
-                ) && 
-                (
-                    this.Calls == other.Calls ||
-                    this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
+                    this.MonitoringScope == other.MonitoringScope ||
+                    this.MonitoringScope != null &&
+                    this.MonitoringScope.Equals(other.MonitoringScope)
                 );
         }
 
@@ -120,10 +128,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
-                if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
+                if (this.MonitoringScope != null)
+                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
                 return hash;
             }
         }

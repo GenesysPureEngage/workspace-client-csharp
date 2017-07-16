@@ -37,19 +37,19 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidalternateData" /> class.
         /// </summary>
-        /// <param name="CurrentConnId">Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch. (required).</param>
+        /// <param name="HeldConnId">Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch. (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicecallsidalternateData(string CurrentConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        public VoicecallsidalternateData(string HeldConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
-            // to ensure "CurrentConnId" is required (not null)
-            if (CurrentConnId == null)
+            // to ensure "HeldConnId" is required (not null)
+            if (HeldConnId == null)
             {
-                throw new InvalidDataException("CurrentConnId is a required property for VoicecallsidalternateData and cannot be null");
+                throw new InvalidDataException("HeldConnId is a required property for VoicecallsidalternateData and cannot be null");
             }
             else
             {
-                this.CurrentConnId = CurrentConnId;
+                this.HeldConnId = HeldConnId;
             }
             this.Reasons = Reasons;
             this.Extensions = Extensions;
@@ -59,8 +59,8 @@ namespace Genesys.Workspace.Model
         /// Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.
         /// </summary>
         /// <value>Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.</value>
-        [DataMember(Name="currentConnId", EmitDefaultValue=false)]
-        public string CurrentConnId { get; set; }
+        [DataMember(Name="heldConnId", EmitDefaultValue=false)]
+        public string HeldConnId { get; set; }
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
@@ -81,7 +81,7 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidalternateData {\n");
-            sb.Append("  CurrentConnId: ").Append(CurrentConnId).Append("\n");
+            sb.Append("  HeldConnId: ").Append(HeldConnId).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
@@ -121,9 +121,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.CurrentConnId == other.CurrentConnId ||
-                    this.CurrentConnId != null &&
-                    this.CurrentConnId.Equals(other.CurrentConnId)
+                    this.HeldConnId == other.HeldConnId ||
+                    this.HeldConnId != null &&
+                    this.HeldConnId.Equals(other.HeldConnId)
                 ) && 
                 (
                     this.Reasons == other.Reasons ||
@@ -148,8 +148,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.CurrentConnId != null)
-                    hash = hash * 59 + this.CurrentConnId.GetHashCode();
+                if (this.HeldConnId != null)
+                    hash = hash * 59 + this.HeldConnId.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)

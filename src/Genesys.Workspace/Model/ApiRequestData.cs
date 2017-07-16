@@ -24,33 +24,19 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataUserActiveSession
+    /// ApiRequestData
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataUserActiveSession :  IEquatable<CurrentUserDataUserActiveSession>, IValidatableObject
+    public partial class ApiRequestData :  IEquatable<ApiRequestData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUserActiveSession" /> class.
+        /// Initializes a new instance of the <see cref="ApiRequestData" /> class.
         /// </summary>
-        /// <param name="Dn">Dn.</param>
-        /// <param name="Calls">An array containing any active calls..</param>
-        public CurrentUserDataUserActiveSession(CurrentUserDataUserActiveSessionDn Dn = default(CurrentUserDataUserActiveSessionDn), List<Call> Calls = default(List<Call>))
+        [JsonConstructorAttribute]
+        public ApiRequestData()
         {
-            this.Dn = Dn;
-            this.Calls = Calls;
         }
         
-        /// <summary>
-        /// Gets or Sets Dn
-        /// </summary>
-        [DataMember(Name="dn", EmitDefaultValue=false)]
-        public CurrentUserDataUserActiveSessionDn Dn { get; set; }
-        /// <summary>
-        /// An array containing any active calls.
-        /// </summary>
-        /// <value>An array containing any active calls.</value>
-        [DataMember(Name="calls", EmitDefaultValue=false)]
-        public List<Call> Calls { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +44,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataUserActiveSession {\n");
-            sb.Append("  Dn: ").Append(Dn).Append("\n");
-            sb.Append("  Calls: ").Append(Calls).Append("\n");
+            sb.Append("class ApiRequestData {\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,31 +66,21 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataUserActiveSession);
+            return this.Equals(obj as ApiRequestData);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataUserActiveSession instances are equal
+        /// Returns true if ApiRequestData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataUserActiveSession to be compared</param>
+        /// <param name="other">Instance of ApiRequestData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataUserActiveSession other)
+        public bool Equals(ApiRequestData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
-            return 
-                (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
-                ) && 
-                (
-                    this.Calls == other.Calls ||
-                    this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
-                );
+            return false;
         }
 
         /// <summary>
@@ -120,10 +94,6 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
-                if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
                 return hash;
             }
         }

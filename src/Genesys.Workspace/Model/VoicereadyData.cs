@@ -24,33 +24,34 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataUserActiveSession
+    /// VoicereadyData
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataUserActiveSession :  IEquatable<CurrentUserDataUserActiveSession>, IValidatableObject
+    public partial class VoicereadyData :  IEquatable<VoicereadyData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUserActiveSession" /> class.
+        /// Initializes a new instance of the <see cref="VoicereadyData" /> class.
         /// </summary>
-        /// <param name="Dn">Dn.</param>
-        /// <param name="Calls">An array containing any active calls..</param>
-        public CurrentUserDataUserActiveSession(CurrentUserDataUserActiveSessionDn Dn = default(CurrentUserDataUserActiveSessionDn), List<Call> Calls = default(List<Call>))
+        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
+        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        public VoicereadyData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
-            this.Dn = Dn;
-            this.Calls = Calls;
+            this.Reasons = Reasons;
+            this.Extensions = Extensions;
         }
         
         /// <summary>
-        /// Gets or Sets Dn
+        /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
-        [DataMember(Name="dn", EmitDefaultValue=false)]
-        public CurrentUserDataUserActiveSessionDn Dn { get; set; }
+        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        [DataMember(Name="reasons", EmitDefaultValue=false)]
+        public List<Kvpair> Reasons { get; set; }
         /// <summary>
-        /// An array containing any active calls.
+        /// A key/value pairs list of additional data.
         /// </summary>
-        /// <value>An array containing any active calls.</value>
-        [DataMember(Name="calls", EmitDefaultValue=false)]
-        public List<Call> Calls { get; set; }
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extensions", EmitDefaultValue=false)]
+        public List<Kvpair> Extensions { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +59,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataUserActiveSession {\n");
-            sb.Append("  Dn: ").Append(Dn).Append("\n");
-            sb.Append("  Calls: ").Append(Calls).Append("\n");
+            sb.Append("class VoicereadyData {\n");
+            sb.Append("  Reasons: ").Append(Reasons).Append("\n");
+            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +83,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataUserActiveSession);
+            return this.Equals(obj as VoicereadyData);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataUserActiveSession instances are equal
+        /// Returns true if VoicereadyData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataUserActiveSession to be compared</param>
+        /// <param name="other">Instance of VoicereadyData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataUserActiveSession other)
+        public bool Equals(VoicereadyData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -98,14 +99,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
+                    this.Reasons == other.Reasons ||
+                    this.Reasons != null &&
+                    this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
-                    this.Calls == other.Calls ||
-                    this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
+                    this.Extensions == other.Extensions ||
+                    this.Extensions != null &&
+                    this.Extensions.SequenceEqual(other.Extensions)
                 );
         }
 
@@ -120,10 +121,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
-                if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
+                if (this.Reasons != null)
+                    hash = hash * 59 + this.Reasons.GetHashCode();
+                if (this.Extensions != null)
+                    hash = hash * 59 + this.Extensions.GetHashCode();
                 return hash;
             }
         }

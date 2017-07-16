@@ -52,9 +52,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Register (Statistics1 statistics);
+        ApiSuccessResponse Register (StatisticsData statisticsData);
 
         /// <summary>
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
@@ -63,9 +63,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> RegisterWithHttpInfo (Statistics1 statistics);
+        ApiResponse<ApiSuccessResponse> RegisterWithHttpInfo (StatisticsData statisticsData);
         /// <summary>
         /// Subscribe to Statistics
         /// </summary>
@@ -73,9 +73,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Subscribe (Statistics statistics);
+        ApiSuccessResponse Subscribe (StatisticsData statisticsData);
 
         /// <summary>
         /// Subscribe to Statistics
@@ -84,9 +84,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SubscribeWithHttpInfo (Statistics statistics);
+        ApiResponse<ApiSuccessResponse> SubscribeWithHttpInfo (StatisticsData statisticsData);
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
         /// </summary>
@@ -94,9 +94,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Unsubscribe (Parameters40 parameters);
+        ApiSuccessResponse Unsubscribe (UnsubscribeData unsubscribeData);
 
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
@@ -105,9 +105,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (Parameters40 parameters);
+        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (UnsubscribeData unsubscribeData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -138,9 +138,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> RegisterAsync (Statistics1 statistics);
+        System.Threading.Tasks.Task<ApiSuccessResponse> RegisterAsync (StatisticsData statisticsData);
 
         /// <summary>
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId}
@@ -149,9 +149,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RegisterAsyncWithHttpInfo (Statistics1 statistics);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RegisterAsyncWithHttpInfo (StatisticsData statisticsData);
         /// <summary>
         /// Subscribe to Statistics
         /// </summary>
@@ -159,9 +159,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SubscribeAsync (Statistics statistics);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SubscribeAsync (StatisticsData statisticsData);
 
         /// <summary>
         /// Subscribe to Statistics
@@ -170,9 +170,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeAsyncWithHttpInfo (Statistics statistics);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeAsyncWithHttpInfo (StatisticsData statisticsData);
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
         /// </summary>
@@ -180,9 +180,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters40 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (UnsubscribeData unsubscribeData);
 
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result
@@ -191,9 +191,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters40 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (UnsubscribeData unsubscribeData);
         #endregion Asynchronous Operations
     }
 
@@ -453,11 +453,11 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Register (Statistics1 statistics)
+        public ApiSuccessResponse Register (StatisticsData statisticsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = RegisterWithHttpInfo(statistics);
+             ApiResponse<ApiSuccessResponse> localVarResponse = RegisterWithHttpInfo(statisticsData);
              return localVarResponse.Data;
         }
 
@@ -465,13 +465,13 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > RegisterWithHttpInfo (Statistics1 statistics)
+        public ApiResponse< ApiSuccessResponse > RegisterWithHttpInfo (StatisticsData statisticsData)
         {
-            // verify the required parameter 'statistics' is set
-            if (statistics == null)
-                throw new ApiException(400, "Missing required parameter 'statistics' when calling ReportingApi->Register");
+            // verify the required parameter 'statisticsData' is set
+            if (statisticsData == null)
+                throw new ApiException(400, "Missing required parameter 'statisticsData' when calling ReportingApi->Register");
 
             var localVarPath = "/reporting/register";
             var localVarPathParams = new Dictionary<String, String>();
@@ -498,13 +498,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (statistics != null && statistics.GetType() != typeof(byte[]))
+            if (statisticsData != null && statisticsData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(statistics); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(statisticsData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = statistics; // byte array
+                localVarPostBody = statisticsData; // byte array
             }
 
 
@@ -531,11 +531,11 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> RegisterAsync (Statistics1 statistics)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RegisterAsync (StatisticsData statisticsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await RegisterAsyncWithHttpInfo(statistics);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RegisterAsyncWithHttpInfo(statisticsData);
              return localVarResponse.Data;
 
         }
@@ -544,13 +544,13 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RegisterAsyncWithHttpInfo (Statistics1 statistics)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RegisterAsyncWithHttpInfo (StatisticsData statisticsData)
         {
-            // verify the required parameter 'statistics' is set
-            if (statistics == null)
-                throw new ApiException(400, "Missing required parameter 'statistics' when calling ReportingApi->Register");
+            // verify the required parameter 'statisticsData' is set
+            if (statisticsData == null)
+                throw new ApiException(400, "Missing required parameter 'statisticsData' when calling ReportingApi->Register");
 
             var localVarPath = "/reporting/register";
             var localVarPathParams = new Dictionary<String, String>();
@@ -577,13 +577,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (statistics != null && statistics.GetType() != typeof(byte[]))
+            if (statisticsData != null && statisticsData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(statistics); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(statisticsData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = statistics; // byte array
+                localVarPostBody = statisticsData; // byte array
             }
 
 
@@ -610,11 +610,11 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Subscribe (Statistics statistics)
+        public ApiSuccessResponse Subscribe (StatisticsData statisticsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SubscribeWithHttpInfo(statistics);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SubscribeWithHttpInfo(statisticsData);
              return localVarResponse.Data;
         }
 
@@ -622,13 +622,13 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SubscribeWithHttpInfo (Statistics statistics)
+        public ApiResponse< ApiSuccessResponse > SubscribeWithHttpInfo (StatisticsData statisticsData)
         {
-            // verify the required parameter 'statistics' is set
-            if (statistics == null)
-                throw new ApiException(400, "Missing required parameter 'statistics' when calling ReportingApi->Subscribe");
+            // verify the required parameter 'statisticsData' is set
+            if (statisticsData == null)
+                throw new ApiException(400, "Missing required parameter 'statisticsData' when calling ReportingApi->Subscribe");
 
             var localVarPath = "/reporting/subscribe";
             var localVarPathParams = new Dictionary<String, String>();
@@ -655,13 +655,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (statistics != null && statistics.GetType() != typeof(byte[]))
+            if (statisticsData != null && statisticsData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(statistics); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(statisticsData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = statistics; // byte array
+                localVarPostBody = statisticsData; // byte array
             }
 
 
@@ -688,11 +688,11 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SubscribeAsync (Statistics statistics)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SubscribeAsync (StatisticsData statisticsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SubscribeAsyncWithHttpInfo(statistics);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SubscribeAsyncWithHttpInfo(statisticsData);
              return localVarResponse.Data;
 
         }
@@ -701,13 +701,13 @@ namespace Genesys.Workspace.Api
         /// Subscribe to Statistics 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statistics">Requested Statistics</param>
+        /// <param name="statisticsData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeAsyncWithHttpInfo (Statistics statistics)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeAsyncWithHttpInfo (StatisticsData statisticsData)
         {
-            // verify the required parameter 'statistics' is set
-            if (statistics == null)
-                throw new ApiException(400, "Missing required parameter 'statistics' when calling ReportingApi->Subscribe");
+            // verify the required parameter 'statisticsData' is set
+            if (statisticsData == null)
+                throw new ApiException(400, "Missing required parameter 'statisticsData' when calling ReportingApi->Subscribe");
 
             var localVarPath = "/reporting/subscribe";
             var localVarPathParams = new Dictionary<String, String>();
@@ -734,13 +734,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (statistics != null && statistics.GetType() != typeof(byte[]))
+            if (statisticsData != null && statisticsData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(statistics); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(statisticsData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = statistics; // byte array
+                localVarPostBody = statisticsData; // byte array
             }
 
 
@@ -767,11 +767,11 @@ namespace Genesys.Workspace.Api
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Unsubscribe (Parameters40 parameters)
+        public ApiSuccessResponse Unsubscribe (UnsubscribeData unsubscribeData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeWithHttpInfo(parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeWithHttpInfo(unsubscribeData);
              return localVarResponse.Data;
         }
 
@@ -779,13 +779,13 @@ namespace Genesys.Workspace.Api
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (Parameters40 parameters)
+        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (UnsubscribeData unsubscribeData)
         {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling ReportingApi->Unsubscribe");
+            // verify the required parameter 'unsubscribeData' is set
+            if (unsubscribeData == null)
+                throw new ApiException(400, "Missing required parameter 'unsubscribeData' when calling ReportingApi->Unsubscribe");
 
             var localVarPath = "/reporting/unsubscribe";
             var localVarPathParams = new Dictionary<String, String>();
@@ -812,13 +812,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
+            if (unsubscribeData != null && unsubscribeData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(unsubscribeData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = parameters; // byte array
+                localVarPostBody = unsubscribeData; // byte array
             }
 
 
@@ -845,11 +845,11 @@ namespace Genesys.Workspace.Api
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (Parameters40 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (UnsubscribeData unsubscribeData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeAsyncWithHttpInfo(parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeAsyncWithHttpInfo(unsubscribeData);
              return localVarResponse.Data;
 
         }
@@ -858,13 +858,13 @@ namespace Genesys.Workspace.Api
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters">Request parameters.</param>
+        /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (Parameters40 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (UnsubscribeData unsubscribeData)
         {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling ReportingApi->Unsubscribe");
+            // verify the required parameter 'unsubscribeData' is set
+            if (unsubscribeData == null)
+                throw new ApiException(400, "Missing required parameter 'unsubscribeData' when calling ReportingApi->Unsubscribe");
 
             var localVarPath = "/reporting/unsubscribe";
             var localVarPathParams = new Dictionary<String, String>();
@@ -891,13 +891,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
+            if (unsubscribeData != null && unsubscribeData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(unsubscribeData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = parameters; // byte array
+                localVarPostBody = unsubscribeData; // byte array
             }
 
 

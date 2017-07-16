@@ -30,14 +30,63 @@ namespace Genesys.Workspace.Model
     public partial class VoicenotreadyData :  IEquatable<VoicenotreadyData>, IValidatableObject
     {
         /// <summary>
+        /// the agent workmode.
+        /// </summary>
+        /// <value>the agent workmode.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AgentWorkModeEnum
+        {
+            
+            /// <summary>
+            /// Enum AfterCallWork for "AfterCallWork"
+            /// </summary>
+            [EnumMember(Value = "AfterCallWork")]
+            AfterCallWork,
+            
+            /// <summary>
+            /// Enum AuxWork for "AuxWork"
+            /// </summary>
+            [EnumMember(Value = "AuxWork")]
+            AuxWork,
+            
+            /// <summary>
+            /// Enum LegalGuard for "LegalGuard"
+            /// </summary>
+            [EnumMember(Value = "LegalGuard")]
+            LegalGuard,
+            
+            /// <summary>
+            /// Enum NoCallDisconnect for "NoCallDisconnect"
+            /// </summary>
+            [EnumMember(Value = "NoCallDisconnect")]
+            NoCallDisconnect,
+            
+            /// <summary>
+            /// Enum WalkAway for "WalkAway"
+            /// </summary>
+            [EnumMember(Value = "WalkAway")]
+            WalkAway
+        }
+
+        /// <summary>
+        /// the agent workmode.
+        /// </summary>
+        /// <value>the agent workmode.</value>
+        [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
+        public AgentWorkModeEnum? AgentWorkMode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="VoicenotreadyData" /> class.
         /// </summary>
         /// <param name="ReasonCode">the reason code.</param>
         /// <param name="AgentWorkMode">the agent workmode..</param>
-        public VoicenotreadyData(string ReasonCode = default(string), string AgentWorkMode = default(string))
+        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
+        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        public VoicenotreadyData(string ReasonCode = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             this.ReasonCode = ReasonCode;
             this.AgentWorkMode = AgentWorkMode;
+            this.Reasons = Reasons;
+            this.Extensions = Extensions;
         }
         
         /// <summary>
@@ -47,11 +96,17 @@ namespace Genesys.Workspace.Model
         [DataMember(Name="reasonCode", EmitDefaultValue=false)]
         public string ReasonCode { get; set; }
         /// <summary>
-        /// the agent workmode.
+        /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
-        /// <value>the agent workmode.</value>
-        [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
-        public string AgentWorkMode { get; set; }
+        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        [DataMember(Name="reasons", EmitDefaultValue=false)]
+        public List<Kvpair> Reasons { get; set; }
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extensions", EmitDefaultValue=false)]
+        public List<Kvpair> Extensions { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -62,6 +117,8 @@ namespace Genesys.Workspace.Model
             sb.Append("class VoicenotreadyData {\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
             sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
+            sb.Append("  Reasons: ").Append(Reasons).Append("\n");
+            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -107,6 +164,16 @@ namespace Genesys.Workspace.Model
                     this.AgentWorkMode == other.AgentWorkMode ||
                     this.AgentWorkMode != null &&
                     this.AgentWorkMode.Equals(other.AgentWorkMode)
+                ) && 
+                (
+                    this.Reasons == other.Reasons ||
+                    this.Reasons != null &&
+                    this.Reasons.SequenceEqual(other.Reasons)
+                ) && 
+                (
+                    this.Extensions == other.Extensions ||
+                    this.Extensions != null &&
+                    this.Extensions.SequenceEqual(other.Extensions)
                 );
         }
 
@@ -125,6 +192,10 @@ namespace Genesys.Workspace.Model
                     hash = hash * 59 + this.ReasonCode.GetHashCode();
                 if (this.AgentWorkMode != null)
                     hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                if (this.Reasons != null)
+                    hash = hash * 59 + this.Reasons.GetHashCode();
+                if (this.Extensions != null)
+                    hash = hash * 59 + this.Extensions.GetHashCode();
                 return hash;
             }
         }

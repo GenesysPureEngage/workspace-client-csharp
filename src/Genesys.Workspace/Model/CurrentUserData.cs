@@ -32,12 +32,19 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentUserData" /> class.
         /// </summary>
+        /// <param name="PendingLoginAsync">PendingLoginAsync.</param>
         /// <param name="User">User.</param>
-        public CurrentUserData(CurrentUserDataUser User = default(CurrentUserDataUser))
+        public CurrentUserData(CurrentUserDataPendingloginasync PendingLoginAsync = default(CurrentUserDataPendingloginasync), CurrentUserDataUser User = default(CurrentUserDataUser))
         {
+            this.PendingLoginAsync = PendingLoginAsync;
             this.User = User;
         }
         
+        /// <summary>
+        /// Gets or Sets PendingLoginAsync
+        /// </summary>
+        [DataMember(Name="pending-login-async", EmitDefaultValue=false)]
+        public CurrentUserDataPendingloginasync PendingLoginAsync { get; set; }
         /// <summary>
         /// Gets or Sets User
         /// </summary>
@@ -51,6 +58,7 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentUserData {\n");
+            sb.Append("  PendingLoginAsync: ").Append(PendingLoginAsync).Append("\n");
             sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -89,6 +97,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.PendingLoginAsync == other.PendingLoginAsync ||
+                    this.PendingLoginAsync != null &&
+                    this.PendingLoginAsync.Equals(other.PendingLoginAsync)
+                ) && 
+                (
                     this.User == other.User ||
                     this.User != null &&
                     this.User.Equals(other.User)
@@ -106,6 +119,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.PendingLoginAsync != null)
+                    hash = hash * 59 + this.PendingLoginAsync.GetHashCode();
                 if (this.User != null)
                     hash = hash * 59 + this.User.GetHashCode();
                 return hash;

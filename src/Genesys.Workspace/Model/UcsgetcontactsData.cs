@@ -42,7 +42,7 @@ namespace Genesys.Workspace.Model
         /// <param name="StartIndex">The start index (required).</param>
         /// <param name="MaxCount">The maximum number of contacts to be returned (required).</param>
         /// <param name="SortCriteria">The sorting criteria.</param>
-        public UcsgetcontactsData(Object SearchCriteria = default(Object), List<string> AttributeList = default(List<string>), int? StartIndex = default(int?), int? MaxCount = default(int?), List<string> SortCriteria = default(List<string>))
+        public UcsgetcontactsData(Object SearchCriteria = default(Object), List<string> AttributeList = default(List<string>), int? StartIndex = default(int?), int? MaxCount = default(int?), List<Object> SortCriteria = default(List<Object>))
         {
             // to ensure "SearchCriteria" is required (not null)
             if (SearchCriteria == null)
@@ -112,7 +112,7 @@ namespace Genesys.Workspace.Model
         /// </summary>
         /// <value>The sorting criteria</value>
         [DataMember(Name="sortCriteria", EmitDefaultValue=false)]
-        public List<string> SortCriteria { get; set; }
+        public List<Object> SortCriteria { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

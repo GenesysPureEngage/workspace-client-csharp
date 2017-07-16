@@ -32,12 +32,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Call" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
         /// <param name="Type">Type.</param>
         /// <param name="Id">Id.</param>
-        /// <param name="PreviousCallId">PreviousCallId.</param>
-        /// <param name="ParentCallPath">ParentCallPath.</param>
-        /// <param name="ParentCallUri">ParentCallUri.</param>
+        /// <param name="PreviousConnId">PreviousConnId.</param>
+        /// <param name="ParentConnId">ParentConnId.</param>
         /// <param name="PhoneNumber">PhoneNumber.</param>
         /// <param name="ConnId">ConnId.</param>
         /// <param name="CallUuid">CallUuid.</param>
@@ -50,14 +48,12 @@ namespace Genesys.Workspace.Model
         /// <param name="RecordingState">RecordingState.</param>
         /// <param name="UserData">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        public Call(string Key = default(string), string Type = default(string), string Id = default(string), string PreviousCallId = default(string), string ParentCallPath = default(string), string ParentCallUri = default(string), string PhoneNumber = default(string), string ConnId = default(string), string CallUuid = default(string), string CallType = default(string), string State = default(string), List<string> Capabilities = default(List<string>), List<CallParticipants> Participants = default(List<CallParticipants>), string Dnis = default(string), string Ani = default(string), string RecordingState = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        public Call(string Type = default(string), string Id = default(string), string PreviousConnId = default(string), string ParentConnId = default(string), string PhoneNumber = default(string), string ConnId = default(string), string CallUuid = default(string), string CallType = default(string), string State = default(string), List<string> Capabilities = default(List<string>), List<CallParticipants> Participants = default(List<CallParticipants>), string Dnis = default(string), string Ani = default(string), string RecordingState = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
-            this.Key = Key;
             this.Type = Type;
             this.Id = Id;
-            this.PreviousCallId = PreviousCallId;
-            this.ParentCallPath = ParentCallPath;
-            this.ParentCallUri = ParentCallUri;
+            this.PreviousConnId = PreviousConnId;
+            this.ParentConnId = ParentConnId;
             this.PhoneNumber = PhoneNumber;
             this.ConnId = ConnId;
             this.CallUuid = CallUuid;
@@ -73,11 +69,6 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Key
-        /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-        /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
@@ -88,20 +79,15 @@ namespace Genesys.Workspace.Model
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
         /// <summary>
-        /// Gets or Sets PreviousCallId
+        /// Gets or Sets PreviousConnId
         /// </summary>
-        [DataMember(Name="previousCallId", EmitDefaultValue=false)]
-        public string PreviousCallId { get; set; }
+        [DataMember(Name="previousConnId", EmitDefaultValue=false)]
+        public string PreviousConnId { get; set; }
         /// <summary>
-        /// Gets or Sets ParentCallPath
+        /// Gets or Sets ParentConnId
         /// </summary>
-        [DataMember(Name="parentCallPath", EmitDefaultValue=false)]
-        public string ParentCallPath { get; set; }
-        /// <summary>
-        /// Gets or Sets ParentCallUri
-        /// </summary>
-        [DataMember(Name="parentCallUri", EmitDefaultValue=false)]
-        public string ParentCallUri { get; set; }
+        [DataMember(Name="parentConnId", EmitDefaultValue=false)]
+        public string ParentConnId { get; set; }
         /// <summary>
         /// Gets or Sets PhoneNumber
         /// </summary>
@@ -172,12 +158,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Call {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
-            sb.Append("  PreviousCallId: ").Append(PreviousCallId).Append("\n");
-            sb.Append("  ParentCallPath: ").Append(ParentCallPath).Append("\n");
-            sb.Append("  ParentCallUri: ").Append(ParentCallUri).Append("\n");
+            sb.Append("  PreviousConnId: ").Append(PreviousConnId).Append("\n");
+            sb.Append("  ParentConnId: ").Append(ParentConnId).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  ConnId: ").Append(ConnId).Append("\n");
             sb.Append("  CallUuid: ").Append(CallUuid).Append("\n");
@@ -227,11 +211,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Key == other.Key ||
-                    this.Key != null &&
-                    this.Key.Equals(other.Key)
-                ) && 
-                (
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
@@ -242,19 +221,14 @@ namespace Genesys.Workspace.Model
                     this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.PreviousCallId == other.PreviousCallId ||
-                    this.PreviousCallId != null &&
-                    this.PreviousCallId.Equals(other.PreviousCallId)
+                    this.PreviousConnId == other.PreviousConnId ||
+                    this.PreviousConnId != null &&
+                    this.PreviousConnId.Equals(other.PreviousConnId)
                 ) && 
                 (
-                    this.ParentCallPath == other.ParentCallPath ||
-                    this.ParentCallPath != null &&
-                    this.ParentCallPath.Equals(other.ParentCallPath)
-                ) && 
-                (
-                    this.ParentCallUri == other.ParentCallUri ||
-                    this.ParentCallUri != null &&
-                    this.ParentCallUri.Equals(other.ParentCallUri)
+                    this.ParentConnId == other.ParentConnId ||
+                    this.ParentConnId != null &&
+                    this.ParentConnId.Equals(other.ParentConnId)
                 ) && 
                 (
                     this.PhoneNumber == other.PhoneNumber ||
@@ -329,18 +303,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Key != null)
-                    hash = hash * 59 + this.Key.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
-                if (this.PreviousCallId != null)
-                    hash = hash * 59 + this.PreviousCallId.GetHashCode();
-                if (this.ParentCallPath != null)
-                    hash = hash * 59 + this.ParentCallPath.GetHashCode();
-                if (this.ParentCallUri != null)
-                    hash = hash * 59 + this.ParentCallUri.GetHashCode();
+                if (this.PreviousConnId != null)
+                    hash = hash * 59 + this.PreviousConnId.GetHashCode();
+                if (this.ParentConnId != null)
+                    hash = hash * 59 + this.ParentConnId.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.ConnId != null)

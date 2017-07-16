@@ -33,7 +33,7 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="UserData" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public UserData(VoicecallsidattachuserdataData Data = default(VoicecallsidattachuserdataData))
+        public UserData(UserDataData Data = default(UserDataData))
         {
             this.Data = Data;
         }
@@ -42,7 +42,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public VoicecallsidattachuserdataData Data { get; set; }
+        public UserDataData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>

@@ -25,15 +25,34 @@ namespace Genesys.Workspace.Api
     {
         #region Synchronous Operations
         /// <summary>
+        /// Ack the missed calls in recent target
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AckRecentMissedCalls ();
+
+        /// <summary>
+        /// Ack the missed calls in recent target
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AckRecentMissedCallsWithHttpInfo ();
+        /// <summary>
         /// Add a recent target
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AddRecentTarget (Parameters39 parameters);
+        ApiSuccessResponse AddRecentTarget (RecentTargetData recentTargetData);
 
         /// <summary>
         /// Add a recent target
@@ -42,9 +61,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AddRecentTargetWithHttpInfo (Parameters39 parameters);
+        ApiResponse<ApiSuccessResponse> AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData);
         /// <summary>
         /// Search for targets
         /// </summary>
@@ -54,11 +73,12 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null);
+        ApiSuccessResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets
@@ -69,11 +89,12 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null);
+        ApiResponse<ApiSuccessResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Get recent targets
         /// </summary>
@@ -121,15 +142,34 @@ namespace Genesys.Workspace.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
+        /// Ack the missed calls in recent target
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AckRecentMissedCallsAsync ();
+
+        /// <summary>
+        /// Ack the missed calls in recent target
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AckRecentMissedCallsAsyncWithHttpInfo ();
+        /// <summary>
         /// Add a recent target
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (Parameters39 parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (RecentTargetData recentTargetData);
 
         /// <summary>
         /// Add a recent target
@@ -138,9 +178,9 @@ namespace Genesys.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (Parameters39 parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData);
         /// <summary>
         /// Search for targets
         /// </summary>
@@ -150,11 +190,12 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets
@@ -165,11 +206,12 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Get recent targets
         /// </summary>
@@ -327,14 +369,145 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
+        /// Ack the missed calls in recent target 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse AckRecentMissedCalls ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = AckRecentMissedCallsWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Ack the missed calls in recent target 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > AckRecentMissedCallsWithHttpInfo ()
+        {
+
+            var localVarPath = "/targets/recents/ack-missed-calls";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AckRecentMissedCalls", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Ack the missed calls in recent target 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AckRecentMissedCallsAsync ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AckRecentMissedCallsAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Ack the missed calls in recent target 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AckRecentMissedCallsAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/targets/recents/ack-missed-calls";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AckRecentMissedCalls", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
         /// Add a recent target 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AddRecentTarget (Parameters39 parameters)
+        public ApiSuccessResponse AddRecentTarget (RecentTargetData recentTargetData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AddRecentTargetWithHttpInfo(parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = AddRecentTargetWithHttpInfo(recentTargetData);
              return localVarResponse.Data;
         }
 
@@ -342,13 +515,13 @@ namespace Genesys.Workspace.Api
         /// Add a recent target 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AddRecentTargetWithHttpInfo (Parameters39 parameters)
+        public ApiResponse< ApiSuccessResponse > AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData)
         {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling TargetsApi->AddRecentTarget");
+            // verify the required parameter 'recentTargetData' is set
+            if (recentTargetData == null)
+                throw new ApiException(400, "Missing required parameter 'recentTargetData' when calling TargetsApi->AddRecentTarget");
 
             var localVarPath = "/targets/recents/add";
             var localVarPathParams = new Dictionary<String, String>();
@@ -375,13 +548,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
+            if (recentTargetData != null && recentTargetData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(recentTargetData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = parameters; // byte array
+                localVarPostBody = recentTargetData; // byte array
             }
 
 
@@ -408,11 +581,11 @@ namespace Genesys.Workspace.Api
         /// Add a recent target 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (Parameters39 parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (RecentTargetData recentTargetData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AddRecentTargetAsyncWithHttpInfo(parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AddRecentTargetAsyncWithHttpInfo(recentTargetData);
              return localVarResponse.Data;
 
         }
@@ -421,13 +594,13 @@ namespace Genesys.Workspace.Api
         /// Add a recent target 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (Parameters39 parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData)
         {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling TargetsApi->AddRecentTarget");
+            // verify the required parameter 'recentTargetData' is set
+            if (recentTargetData == null)
+                throw new ApiException(400, "Missing required parameter 'recentTargetData' when calling TargetsApi->AddRecentTarget");
 
             var localVarPath = "/targets/recents/add";
             var localVarPathParams = new Dictionary<String, String>();
@@ -454,13 +627,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
+            if (recentTargetData != null && recentTargetData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(recentTargetData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = parameters; // byte array
+                localVarPostBody = recentTargetData; // byte array
             }
 
 
@@ -489,13 +662,14 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null)
+        public ApiSuccessResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, sort, limit);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
              return localVarResponse.Data;
         }
 
@@ -505,11 +679,12 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null)
+        public ApiResponse< ApiSuccessResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -545,6 +720,7 @@ namespace Genesys.Workspace.Api
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (matchType != null) localVarQueryParams.Add("matchType", Configuration.ApiClient.ParameterToString(matchType)); // query parameter
 
 
             // make the HTTP request
@@ -572,13 +748,14 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, sort, limit);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
              return localVarResponse.Data;
 
         }
@@ -589,11 +766,12 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
-        /// <param name="types">Comma separated list of types to include in the search (optional)</param>
+        /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
+        /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -629,6 +807,7 @@ namespace Genesys.Workspace.Api
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+            if (matchType != null) localVarQueryParams.Add("matchType", Configuration.ApiClient.ParameterToString(matchType)); // query parameter
 
 
             // make the HTTP request

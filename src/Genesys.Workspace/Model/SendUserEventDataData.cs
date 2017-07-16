@@ -24,33 +24,45 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataUserActiveSession
+    /// SendUserEventDataData
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataUserActiveSession :  IEquatable<CurrentUserDataUserActiveSession>, IValidatableObject
+    public partial class SendUserEventDataData :  IEquatable<SendUserEventDataData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUserActiveSession" /> class.
+        /// Initializes a new instance of the <see cref="SendUserEventDataData" /> class.
         /// </summary>
-        /// <param name="Dn">Dn.</param>
-        /// <param name="Calls">An array containing any active calls..</param>
-        public CurrentUserDataUserActiveSession(CurrentUserDataUserActiveSessionDn Dn = default(CurrentUserDataUserActiveSessionDn), List<Call> Calls = default(List<Call>))
+        [JsonConstructorAttribute]
+        protected SendUserEventDataData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SendUserEventDataData" /> class.
+        /// </summary>
+        /// <param name="UserData">UserData (required).</param>
+        /// <param name="CallUuid">CallUuid.</param>
+        public SendUserEventDataData(List<Kvpair> UserData = default(List<Kvpair>), string CallUuid = default(string))
         {
-            this.Dn = Dn;
-            this.Calls = Calls;
+            // to ensure "UserData" is required (not null)
+            if (UserData == null)
+            {
+                throw new InvalidDataException("UserData is a required property for SendUserEventDataData and cannot be null");
+            }
+            else
+            {
+                this.UserData = UserData;
+            }
+            this.CallUuid = CallUuid;
         }
         
         /// <summary>
-        /// Gets or Sets Dn
+        /// Gets or Sets UserData
         /// </summary>
-        [DataMember(Name="dn", EmitDefaultValue=false)]
-        public CurrentUserDataUserActiveSessionDn Dn { get; set; }
+        [DataMember(Name="userData", EmitDefaultValue=false)]
+        public List<Kvpair> UserData { get; set; }
         /// <summary>
-        /// An array containing any active calls.
+        /// Gets or Sets CallUuid
         /// </summary>
-        /// <value>An array containing any active calls.</value>
-        [DataMember(Name="calls", EmitDefaultValue=false)]
-        public List<Call> Calls { get; set; }
+        [DataMember(Name="callUuid", EmitDefaultValue=false)]
+        public string CallUuid { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -58,9 +70,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataUserActiveSession {\n");
-            sb.Append("  Dn: ").Append(Dn).Append("\n");
-            sb.Append("  Calls: ").Append(Calls).Append("\n");
+            sb.Append("class SendUserEventDataData {\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
+            sb.Append("  CallUuid: ").Append(CallUuid).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -82,15 +94,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataUserActiveSession);
+            return this.Equals(obj as SendUserEventDataData);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataUserActiveSession instances are equal
+        /// Returns true if SendUserEventDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataUserActiveSession to be compared</param>
+        /// <param name="other">Instance of SendUserEventDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataUserActiveSession other)
+        public bool Equals(SendUserEventDataData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -98,14 +110,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
+                    this.UserData == other.UserData ||
+                    this.UserData != null &&
+                    this.UserData.SequenceEqual(other.UserData)
                 ) && 
                 (
-                    this.Calls == other.Calls ||
-                    this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
+                    this.CallUuid == other.CallUuid ||
+                    this.CallUuid != null &&
+                    this.CallUuid.Equals(other.CallUuid)
                 );
         }
 
@@ -120,10 +132,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
-                if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
+                if (this.UserData != null)
+                    hash = hash * 59 + this.UserData.GetHashCode();
+                if (this.CallUuid != null)
+                    hash = hash * 59 + this.CallUuid.GetHashCode();
                 return hash;
             }
         }

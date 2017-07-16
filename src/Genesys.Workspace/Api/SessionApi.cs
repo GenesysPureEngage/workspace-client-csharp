@@ -31,9 +31,9 @@ namespace Genesys.Workspace.Api
         /// The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse ActivateChannels (Parameters parameters);
+        ApiSuccessResponse ActivateChannels (ChannelsData channelsData);
 
         /// <summary>
         /// Activate channels for the user with the specified resources
@@ -42,9 +42,9 @@ namespace Genesys.Workspace.Api
         /// The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ActivateChannelsWithHttpInfo (Parameters parameters);
+        ApiResponse<ApiSuccessResponse> ActivateChannelsWithHttpInfo (ChannelsData channelsData);
         /// <summary>
         /// Get the business attribute hierarchy
         /// </summary>
@@ -54,7 +54,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse BusinessAttributeHierarchy (int? id);
+        ApiSuccessResponse GetBusinessAttributeHierarchy (int? id);
 
         /// <summary>
         /// Get the business attribute hierarchy
@@ -65,7 +65,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> BusinessAttributeHierarchyWithHttpInfo (int? id);
+        ApiResponse<ApiSuccessResponse> GetBusinessAttributeHierarchyWithHttpInfo (int? id);
         /// <summary>
         /// Read settings, action codes, business attributes and other configuration.
         /// </summary>
@@ -73,9 +73,9 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ConfigResponse</returns>
-        ConfigResponse Configuration (string types = null);
+        ConfigResponse GetConfiguration (string types = null);
 
         /// <summary>
         /// Read settings, action codes, business attributes and other configuration.
@@ -84,9 +84,9 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ApiResponse of ConfigResponse</returns>
-        ApiResponse<ConfigResponse> ConfigurationWithHttpInfo (string types = null);
+        ApiResponse<ConfigResponse> GetConfigurationWithHttpInfo (string types = null);
         /// <summary>
         /// Read information about the logged in user including any existing media logins and calls
         /// </summary>
@@ -113,9 +113,9 @@ namespace Genesys.Workspace.Api
         /// The login request authenticates the user and creates the HTTP session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Login (Login body);
+        ApiSuccessResponse Login (LoginData loginData);
 
         /// <summary>
         /// login the specified user (HTTP session only)
@@ -124,9 +124,9 @@ namespace Genesys.Workspace.Api
         /// The login request authenticates the user and creates the HTTP session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo (Login body);
+        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo (LoginData loginData);
         /// <summary>
         /// Logout of media and end the session
         /// </summary>
@@ -155,9 +155,9 @@ namespace Genesys.Workspace.Api
         /// The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ActivateChannelsAsync (Parameters parameters);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ActivateChannelsAsync (ChannelsData channelsData);
 
         /// <summary>
         /// Activate channels for the user with the specified resources
@@ -166,9 +166,9 @@ namespace Genesys.Workspace.Api
         /// The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ActivateChannelsAsyncWithHttpInfo (Parameters parameters);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ActivateChannelsAsyncWithHttpInfo (ChannelsData channelsData);
         /// <summary>
         /// Get the business attribute hierarchy
         /// </summary>
@@ -178,7 +178,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> BusinessAttributeHierarchyAsync (int? id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetBusinessAttributeHierarchyAsync (int? id);
 
         /// <summary>
         /// Get the business attribute hierarchy
@@ -189,7 +189,7 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> BusinessAttributeHierarchyAsyncWithHttpInfo (int? id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetBusinessAttributeHierarchyAsyncWithHttpInfo (int? id);
         /// <summary>
         /// Read settings, action codes, business attributes and other configuration.
         /// </summary>
@@ -197,9 +197,9 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ConfigResponse</returns>
-        System.Threading.Tasks.Task<ConfigResponse> ConfigurationAsync (string types = null);
+        System.Threading.Tasks.Task<ConfigResponse> GetConfigurationAsync (string types = null);
 
         /// <summary>
         /// Read settings, action codes, business attributes and other configuration.
@@ -208,9 +208,9 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> ConfigurationAsyncWithHttpInfo (string types = null);
+        System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetConfigurationAsyncWithHttpInfo (string types = null);
         /// <summary>
         /// Read information about the logged in user including any existing media logins and calls
         /// </summary>
@@ -237,9 +237,9 @@ namespace Genesys.Workspace.Api
         /// The login request authenticates the user and creates the HTTP session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (Login body);
+        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (LoginData loginData);
 
         /// <summary>
         /// login the specified user (HTTP session only)
@@ -248,9 +248,9 @@ namespace Genesys.Workspace.Api
         /// The login request authenticates the user and creates the HTTP session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (Login body);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (LoginData loginData);
         /// <summary>
         /// Logout of media and end the session
         /// </summary>
@@ -386,11 +386,11 @@ namespace Genesys.Workspace.Api
         /// Activate channels for the user with the specified resources The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse ActivateChannels (Parameters parameters)
+        public ApiSuccessResponse ActivateChannels (ChannelsData channelsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ActivateChannelsWithHttpInfo(parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ActivateChannelsWithHttpInfo(channelsData);
              return localVarResponse.Data;
         }
 
@@ -398,13 +398,13 @@ namespace Genesys.Workspace.Api
         /// Activate channels for the user with the specified resources The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ActivateChannelsWithHttpInfo (Parameters parameters)
+        public ApiResponse< ApiSuccessResponse > ActivateChannelsWithHttpInfo (ChannelsData channelsData)
         {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling SessionApi->ActivateChannels");
+            // verify the required parameter 'channelsData' is set
+            if (channelsData == null)
+                throw new ApiException(400, "Missing required parameter 'channelsData' when calling SessionApi->ActivateChannels");
 
             var localVarPath = "/activate-channels";
             var localVarPathParams = new Dictionary<String, String>();
@@ -431,13 +431,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
+            if (channelsData != null && channelsData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(channelsData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = parameters; // byte array
+                localVarPostBody = channelsData; // byte array
             }
 
 
@@ -464,11 +464,11 @@ namespace Genesys.Workspace.Api
         /// Activate channels for the user with the specified resources The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ActivateChannelsAsync (Parameters parameters)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ActivateChannelsAsync (ChannelsData channelsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ActivateChannelsAsyncWithHttpInfo(parameters);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ActivateChannelsAsyncWithHttpInfo(channelsData);
              return localVarResponse.Data;
 
         }
@@ -477,13 +477,13 @@ namespace Genesys.Workspace.Api
         /// Activate channels for the user with the specified resources The activate-channels request is used to activate voice/media for the user by declaring the channels and resources that should be used. If the channels are is successfully activated, additional information about the state of active resources (dns, channels) will be received via events. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameters"></param>
+        /// <param name="channelsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ActivateChannelsAsyncWithHttpInfo (Parameters parameters)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ActivateChannelsAsyncWithHttpInfo (ChannelsData channelsData)
         {
-            // verify the required parameter 'parameters' is set
-            if (parameters == null)
-                throw new ApiException(400, "Missing required parameter 'parameters' when calling SessionApi->ActivateChannels");
+            // verify the required parameter 'channelsData' is set
+            if (channelsData == null)
+                throw new ApiException(400, "Missing required parameter 'channelsData' when calling SessionApi->ActivateChannels");
 
             var localVarPath = "/activate-channels";
             var localVarPathParams = new Dictionary<String, String>();
@@ -510,13 +510,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (parameters != null && parameters.GetType() != typeof(byte[]))
+            if (channelsData != null && channelsData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(parameters); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(channelsData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = parameters; // byte array
+                localVarPostBody = channelsData; // byte array
             }
 
 
@@ -545,9 +545,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse BusinessAttributeHierarchy (int? id)
+        public ApiSuccessResponse GetBusinessAttributeHierarchy (int? id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = BusinessAttributeHierarchyWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetBusinessAttributeHierarchyWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -557,11 +557,11 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > BusinessAttributeHierarchyWithHttpInfo (int? id)
+        public ApiResponse< ApiSuccessResponse > GetBusinessAttributeHierarchyWithHttpInfo (int? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling SessionApi->BusinessAttributeHierarchy");
+                throw new ApiException(400, "Missing required parameter 'id' when calling SessionApi->GetBusinessAttributeHierarchy");
 
             var localVarPath = "/configuration/business-attribute/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -600,7 +600,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("BusinessAttributeHierarchy", localVarResponse);
+                Exception exception = ExceptionFactory("GetBusinessAttributeHierarchy", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -616,9 +616,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> BusinessAttributeHierarchyAsync (int? id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetBusinessAttributeHierarchyAsync (int? id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await BusinessAttributeHierarchyAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetBusinessAttributeHierarchyAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -629,11 +629,11 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> BusinessAttributeHierarchyAsyncWithHttpInfo (int? id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetBusinessAttributeHierarchyAsyncWithHttpInfo (int? id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling SessionApi->BusinessAttributeHierarchy");
+                throw new ApiException(400, "Missing required parameter 'id' when calling SessionApi->GetBusinessAttributeHierarchy");
 
             var localVarPath = "/configuration/business-attribute/{id}";
             var localVarPathParams = new Dictionary<String, String>();
@@ -672,7 +672,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("BusinessAttributeHierarchy", localVarResponse);
+                Exception exception = ExceptionFactory("GetBusinessAttributeHierarchy", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -686,11 +686,11 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ConfigResponse</returns>
-        public ConfigResponse Configuration (string types = null)
+        public ConfigResponse GetConfiguration (string types = null)
         {
-             ApiResponse<ConfigResponse> localVarResponse = ConfigurationWithHttpInfo(types);
+             ApiResponse<ConfigResponse> localVarResponse = GetConfigurationWithHttpInfo(types);
              return localVarResponse.Data;
         }
 
@@ -698,9 +698,9 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ApiResponse of ConfigResponse</returns>
-        public ApiResponse< ConfigResponse > ConfigurationWithHttpInfo (string types = null)
+        public ApiResponse< ConfigResponse > GetConfigurationWithHttpInfo (string types = null)
         {
 
             var localVarPath = "/configuration";
@@ -740,7 +740,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Configuration", localVarResponse);
+                Exception exception = ExceptionFactory("GetConfiguration", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -754,11 +754,11 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ConfigResponse</returns>
-        public async System.Threading.Tasks.Task<ConfigResponse> ConfigurationAsync (string types = null)
+        public async System.Threading.Tasks.Task<ConfigResponse> GetConfigurationAsync (string types = null)
         {
-             ApiResponse<ConfigResponse> localVarResponse = await ConfigurationAsyncWithHttpInfo(types);
+             ApiResponse<ConfigResponse> localVarResponse = await GetConfigurationAsyncWithHttpInfo(types);
              return localVarResponse.Data;
 
         }
@@ -767,9 +767,9 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">use to return transactions having this particular key in userProperties (optional)</param>
+        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> ConfigurationAsyncWithHttpInfo (string types = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetConfigurationAsyncWithHttpInfo (string types = null)
         {
 
             var localVarPath = "/configuration";
@@ -809,7 +809,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Configuration", localVarResponse);
+                Exception exception = ExceptionFactory("GetConfiguration", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -954,11 +954,11 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Login (Login body)
+        public ApiSuccessResponse Login (LoginData loginData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo(body);
+             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo(loginData);
              return localVarResponse.Data;
         }
 
@@ -966,13 +966,13 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo (Login body)
+        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo (LoginData loginData)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SessionApi->Login");
+            // verify the required parameter 'loginData' is set
+            if (loginData == null)
+                throw new ApiException(400, "Missing required parameter 'loginData' when calling SessionApi->Login");
 
             var localVarPath = "/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -999,13 +999,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (loginData != null && loginData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(loginData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = loginData; // byte array
             }
 
 
@@ -1032,11 +1032,11 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (Login body)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (LoginData loginData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo(body);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo(loginData);
              return localVarResponse.Data;
 
         }
@@ -1045,13 +1045,13 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body">Authentication Data</param>
+        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (Login body)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (LoginData loginData)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
-                throw new ApiException(400, "Missing required parameter 'body' when calling SessionApi->Login");
+            // verify the required parameter 'loginData' is set
+            if (loginData == null)
+                throw new ApiException(400, "Missing required parameter 'loginData' when calling SessionApi->Login");
 
             var localVarPath = "/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1078,13 +1078,13 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (body != null && body.GetType() != typeof(byte[]))
+            if (loginData != null && loginData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(body); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(loginData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = body; // byte array
+                localVarPostBody = loginData; // byte array
             }
 
 
