@@ -24,55 +24,53 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// LoginData
+    /// StatisticsSubscribeDataData
     /// </summary>
     [DataContract]
-    public partial class LoginData :  IEquatable<LoginData>, IValidatableObject
+    public partial class StatisticsSubscribeDataData :  IEquatable<StatisticsSubscribeDataData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoginData" /> class.
+        /// Initializes a new instance of the <see cref="StatisticsSubscribeDataData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LoginData() { }
+        protected StatisticsSubscribeDataData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LoginData" /> class.
+        /// Initializes a new instance of the <see cref="StatisticsSubscribeDataData" /> class.
         /// </summary>
-        /// <param name="Username">The username of the user, including domain if appropiate (domain\\username) (required).</param>
-        /// <param name="Password">Password to use for authentication (required).</param>
-        public LoginData(string Username = default(string), string Password = default(string))
+        /// <param name="ConnectionId">ConnectionId (required).</param>
+        /// <param name="Statistics">Statistics (required).</param>
+        public StatisticsSubscribeDataData(string ConnectionId = default(string), List<Object> Statistics = default(List<Object>))
         {
-            // to ensure "Username" is required (not null)
-            if (Username == null)
+            // to ensure "ConnectionId" is required (not null)
+            if (ConnectionId == null)
             {
-                throw new InvalidDataException("Username is a required property for LoginData and cannot be null");
+                throw new InvalidDataException("ConnectionId is a required property for StatisticsSubscribeDataData and cannot be null");
             }
             else
             {
-                this.Username = Username;
+                this.ConnectionId = ConnectionId;
             }
-            // to ensure "Password" is required (not null)
-            if (Password == null)
+            // to ensure "Statistics" is required (not null)
+            if (Statistics == null)
             {
-                throw new InvalidDataException("Password is a required property for LoginData and cannot be null");
+                throw new InvalidDataException("Statistics is a required property for StatisticsSubscribeDataData and cannot be null");
             }
             else
             {
-                this.Password = Password;
+                this.Statistics = Statistics;
             }
         }
         
         /// <summary>
-        /// The username of the user, including domain if appropiate (domain\\username)
+        /// Gets or Sets ConnectionId
         /// </summary>
-        /// <value>The username of the user, including domain if appropiate (domain\\username)</value>
-        [DataMember(Name="username", EmitDefaultValue=false)]
-        public string Username { get; set; }
+        [DataMember(Name="connectionId", EmitDefaultValue=false)]
+        public string ConnectionId { get; set; }
         /// <summary>
-        /// Password to use for authentication
+        /// Gets or Sets Statistics
         /// </summary>
-        /// <value>Password to use for authentication</value>
-        [DataMember(Name="password", EmitDefaultValue=false)]
-        public string Password { get; set; }
+        [DataMember(Name="statistics", EmitDefaultValue=false)]
+        public List<Object> Statistics { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -80,9 +78,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class LoginData {\n");
-            sb.Append("  Username: ").Append(Username).Append("\n");
-            sb.Append("  Password: ").Append(Password).Append("\n");
+            sb.Append("class StatisticsSubscribeDataData {\n");
+            sb.Append("  ConnectionId: ").Append(ConnectionId).Append("\n");
+            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,15 +102,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as LoginData);
+            return this.Equals(obj as StatisticsSubscribeDataData);
         }
 
         /// <summary>
-        /// Returns true if LoginData instances are equal
+        /// Returns true if StatisticsSubscribeDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of LoginData to be compared</param>
+        /// <param name="other">Instance of StatisticsSubscribeDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LoginData other)
+        public bool Equals(StatisticsSubscribeDataData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -120,14 +118,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Username == other.Username ||
-                    this.Username != null &&
-                    this.Username.Equals(other.Username)
+                    this.ConnectionId == other.ConnectionId ||
+                    this.ConnectionId != null &&
+                    this.ConnectionId.Equals(other.ConnectionId)
                 ) && 
                 (
-                    this.Password == other.Password ||
-                    this.Password != null &&
-                    this.Password.Equals(other.Password)
+                    this.Statistics == other.Statistics ||
+                    this.Statistics != null &&
+                    this.Statistics.SequenceEqual(other.Statistics)
                 );
         }
 
@@ -142,10 +140,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Username != null)
-                    hash = hash * 59 + this.Username.GetHashCode();
-                if (this.Password != null)
-                    hash = hash * 59 + this.Password.GetHashCode();
+                if (this.ConnectionId != null)
+                    hash = hash * 59 + this.ConnectionId.GetHashCode();
+                if (this.Statistics != null)
+                    hash = hash * 59 + this.Statistics.GetHashCode();
                 return hash;
             }
         }

@@ -24,32 +24,33 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserStatus
+    /// CurrentSessionDataUserActiveSession
     /// </summary>
     [DataContract]
-    public partial class CurrentUserStatus :  IEquatable<CurrentUserStatus>, IValidatableObject
+    public partial class CurrentSessionDataUserActiveSession :  IEquatable<CurrentSessionDataUserActiveSession>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserStatus" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSession" /> class.
         /// </summary>
-        /// <param name="Code">Code.</param>
-        /// <param name="Message">Message.</param>
-        public CurrentUserStatus(int? Code = default(int?), string Message = default(string))
+        /// <param name="Dn">Dn.</param>
+        /// <param name="Calls">An array containing any active calls..</param>
+        public CurrentSessionDataUserActiveSession(CurrentSessionDataUserActiveSessionDn Dn = default(CurrentSessionDataUserActiveSessionDn), List<Call> Calls = default(List<Call>))
         {
-            this.Code = Code;
-            this.Message = Message;
+            this.Dn = Dn;
+            this.Calls = Calls;
         }
         
         /// <summary>
-        /// Gets or Sets Code
+        /// Gets or Sets Dn
         /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int? Code { get; set; }
+        [DataMember(Name="dn", EmitDefaultValue=false)]
+        public CurrentSessionDataUserActiveSessionDn Dn { get; set; }
         /// <summary>
-        /// Gets or Sets Message
+        /// An array containing any active calls.
         /// </summary>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
+        /// <value>An array containing any active calls.</value>
+        [DataMember(Name="calls", EmitDefaultValue=false)]
+        public List<Call> Calls { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -57,9 +58,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserStatus {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("class CurrentSessionDataUserActiveSession {\n");
+            sb.Append("  Dn: ").Append(Dn).Append("\n");
+            sb.Append("  Calls: ").Append(Calls).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,15 +82,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserStatus);
+            return this.Equals(obj as CurrentSessionDataUserActiveSession);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserStatus instances are equal
+        /// Returns true if CurrentSessionDataUserActiveSession instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserStatus to be compared</param>
+        /// <param name="other">Instance of CurrentSessionDataUserActiveSession to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserStatus other)
+        public bool Equals(CurrentSessionDataUserActiveSession other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -97,14 +98,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.Dn == other.Dn ||
+                    this.Dn != null &&
+                    this.Dn.Equals(other.Dn)
                 ) && 
                 (
-                    this.Message == other.Message ||
-                    this.Message != null &&
-                    this.Message.Equals(other.Message)
+                    this.Calls == other.Calls ||
+                    this.Calls != null &&
+                    this.Calls.SequenceEqual(other.Calls)
                 );
         }
 
@@ -119,10 +120,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
-                if (this.Message != null)
-                    hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Dn != null)
+                    hash = hash * 59 + this.Dn.GetHashCode();
+                if (this.Calls != null)
+                    hash = hash * 59 + this.Calls.GetHashCode();
                 return hash;
             }
         }

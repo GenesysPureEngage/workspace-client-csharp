@@ -24,32 +24,38 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserData
+    /// StatisticsRegisterDataData
     /// </summary>
     [DataContract]
-    public partial class CurrentUserData :  IEquatable<CurrentUserData>, IValidatableObject
+    public partial class StatisticsRegisterDataData :  IEquatable<StatisticsRegisterDataData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserData" /> class.
+        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
         /// </summary>
-        /// <param name="PendingLoginAsync">PendingLoginAsync.</param>
-        /// <param name="User">User.</param>
-        public CurrentUserData(CurrentUserDataPendingloginasync PendingLoginAsync = default(CurrentUserDataPendingloginasync), CurrentUserDataUser User = default(CurrentUserDataUser))
+        [JsonConstructorAttribute]
+        protected StatisticsRegisterDataData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// </summary>
+        /// <param name="Statistics">Statistics (required).</param>
+        public StatisticsRegisterDataData(List<Object> Statistics = default(List<Object>))
         {
-            this.PendingLoginAsync = PendingLoginAsync;
-            this.User = User;
+            // to ensure "Statistics" is required (not null)
+            if (Statistics == null)
+            {
+                throw new InvalidDataException("Statistics is a required property for StatisticsRegisterDataData and cannot be null");
+            }
+            else
+            {
+                this.Statistics = Statistics;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets PendingLoginAsync
+        /// Gets or Sets Statistics
         /// </summary>
-        [DataMember(Name="pending-login-async", EmitDefaultValue=false)]
-        public CurrentUserDataPendingloginasync PendingLoginAsync { get; set; }
-        /// <summary>
-        /// Gets or Sets User
-        /// </summary>
-        [DataMember(Name="user", EmitDefaultValue=false)]
-        public CurrentUserDataUser User { get; set; }
+        [DataMember(Name="statistics", EmitDefaultValue=false)]
+        public List<Object> Statistics { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -57,9 +63,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserData {\n");
-            sb.Append("  PendingLoginAsync: ").Append(PendingLoginAsync).Append("\n");
-            sb.Append("  User: ").Append(User).Append("\n");
+            sb.Append("class StatisticsRegisterDataData {\n");
+            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,15 +86,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserData);
+            return this.Equals(obj as StatisticsRegisterDataData);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserData instances are equal
+        /// Returns true if StatisticsRegisterDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserData to be compared</param>
+        /// <param name="other">Instance of StatisticsRegisterDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserData other)
+        public bool Equals(StatisticsRegisterDataData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -97,14 +102,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.PendingLoginAsync == other.PendingLoginAsync ||
-                    this.PendingLoginAsync != null &&
-                    this.PendingLoginAsync.Equals(other.PendingLoginAsync)
-                ) && 
-                (
-                    this.User == other.User ||
-                    this.User != null &&
-                    this.User.Equals(other.User)
+                    this.Statistics == other.Statistics ||
+                    this.Statistics != null &&
+                    this.Statistics.SequenceEqual(other.Statistics)
                 );
         }
 
@@ -119,10 +119,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.PendingLoginAsync != null)
-                    hash = hash * 59 + this.PendingLoginAsync.GetHashCode();
-                if (this.User != null)
-                    hash = hash * 59 + this.User.GetHashCode();
+                if (this.Statistics != null)
+                    hash = hash * 59 + this.Statistics.GetHashCode();
                 return hash;
             }
         }

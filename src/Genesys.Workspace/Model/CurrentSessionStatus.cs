@@ -24,25 +24,32 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// StatisticsData
+    /// CurrentSessionStatus
     /// </summary>
     [DataContract]
-    public partial class StatisticsData :  IEquatable<StatisticsData>, IValidatableObject
+    public partial class CurrentSessionStatus :  IEquatable<CurrentSessionStatus>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsData" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionStatus" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public StatisticsData(StatisticsDataData Data = default(StatisticsDataData))
+        /// <param name="Code">Code.</param>
+        /// <param name="Message">Message.</param>
+        public CurrentSessionStatus(int? Code = default(int?), string Message = default(string))
         {
-            this.Data = Data;
+            this.Code = Code;
+            this.Message = Message;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public StatisticsDataData Data { get; set; }
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public int? Code { get; set; }
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -50,8 +57,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticsData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class CurrentSessionStatus {\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,15 +81,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticsData);
+            return this.Equals(obj as CurrentSessionStatus);
         }
 
         /// <summary>
-        /// Returns true if StatisticsData instances are equal
+        /// Returns true if CurrentSessionStatus instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticsData to be compared</param>
+        /// <param name="other">Instance of CurrentSessionStatus to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsData other)
+        public bool Equals(CurrentSessionStatus other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -89,9 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
+                ) && 
+                (
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 );
         }
 
@@ -106,8 +119,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.Message != null)
+                    hash = hash * 59 + this.Message.GetHashCode();
                 return hash;
             }
         }

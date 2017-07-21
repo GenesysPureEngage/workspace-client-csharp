@@ -24,10 +24,10 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataPendingloginasync
+    /// CurrentSessionDataPendingloginasync
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataPendingloginasync :  IEquatable<CurrentUserDataPendingloginasync>, IValidatableObject
+    public partial class CurrentSessionDataPendingloginasync :  IEquatable<CurrentSessionDataPendingloginasync>, IValidatableObject
     {
         /// <summary>
         /// Gets or Sets State
@@ -67,23 +67,23 @@ namespace Genesys.Workspace.Model
         [DataMember(Name="state", EmitDefaultValue=false)]
         public StateEnum? State { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataPendingloginasync" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionDataPendingloginasync" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CurrentUserDataPendingloginasync() { }
+        protected CurrentSessionDataPendingloginasync() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataPendingloginasync" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionDataPendingloginasync" /> class.
         /// </summary>
         /// <param name="State">State (required).</param>
         /// <param name="ActualWaitTime">ActualWaitTime (required).</param>
         /// <param name="SubmittedAt">SubmittedAt (required).</param>
         /// <param name="Errors">Errors.</param>
-        public CurrentUserDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), Object Errors = default(Object))
+        public CurrentSessionDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), Object Errors = default(Object))
         {
             // to ensure "State" is required (not null)
             if (State == null)
             {
-                throw new InvalidDataException("State is a required property for CurrentUserDataPendingloginasync and cannot be null");
+                throw new InvalidDataException("State is a required property for CurrentSessionDataPendingloginasync and cannot be null");
             }
             else
             {
@@ -92,7 +92,7 @@ namespace Genesys.Workspace.Model
             // to ensure "ActualWaitTime" is required (not null)
             if (ActualWaitTime == null)
             {
-                throw new InvalidDataException("ActualWaitTime is a required property for CurrentUserDataPendingloginasync and cannot be null");
+                throw new InvalidDataException("ActualWaitTime is a required property for CurrentSessionDataPendingloginasync and cannot be null");
             }
             else
             {
@@ -101,7 +101,7 @@ namespace Genesys.Workspace.Model
             // to ensure "SubmittedAt" is required (not null)
             if (SubmittedAt == null)
             {
-                throw new InvalidDataException("SubmittedAt is a required property for CurrentUserDataPendingloginasync and cannot be null");
+                throw new InvalidDataException("SubmittedAt is a required property for CurrentSessionDataPendingloginasync and cannot be null");
             }
             else
             {
@@ -132,7 +132,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataPendingloginasync {\n");
+            sb.Append("class CurrentSessionDataPendingloginasync {\n");
             sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  ActualWaitTime: ").Append(ActualWaitTime).Append("\n");
             sb.Append("  SubmittedAt: ").Append(SubmittedAt).Append("\n");
@@ -158,15 +158,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataPendingloginasync);
+            return this.Equals(obj as CurrentSessionDataPendingloginasync);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataPendingloginasync instances are equal
+        /// Returns true if CurrentSessionDataPendingloginasync instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataPendingloginasync to be compared</param>
+        /// <param name="other">Instance of CurrentSessionDataPendingloginasync to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataPendingloginasync other)
+        public bool Equals(CurrentSessionDataPendingloginasync other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

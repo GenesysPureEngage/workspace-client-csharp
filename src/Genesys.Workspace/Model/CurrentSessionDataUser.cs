@@ -24,18 +24,18 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataUser
+    /// CurrentSessionDataUser
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataUser :  IEquatable<CurrentUserDataUser>, IValidatableObject
+    public partial class CurrentSessionDataUser :  IEquatable<CurrentSessionDataUser>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUser" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionDataUser" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected CurrentUserDataUser() { }
+        protected CurrentSessionDataUser() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUser" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionDataUser" /> class.
         /// </summary>
         /// <param name="Dbid">Dbid.</param>
         /// <param name="FirstName">FirstName.</param>
@@ -46,12 +46,12 @@ namespace Genesys.Workspace.Model
         /// <param name="AgentLogin">AgentLogin.</param>
         /// <param name="UserProperties">UserProperties.</param>
         /// <param name="ActiveSession">ActiveSession.</param>
-        public CurrentUserDataUser(int? Dbid = default(int?), string FirstName = default(string), string LastName = default(string), string UserName = default(string), string EmployeeId = default(string), string DefaultPlace = default(string), string AgentLogin = default(string), List<Kvpair> UserProperties = default(List<Kvpair>), CurrentUserDataUserActiveSession ActiveSession = default(CurrentUserDataUserActiveSession))
+        public CurrentSessionDataUser(int? Dbid = default(int?), string FirstName = default(string), string LastName = default(string), string UserName = default(string), string EmployeeId = default(string), string DefaultPlace = default(string), string AgentLogin = default(string), List<Kvpair> UserProperties = default(List<Kvpair>), CurrentSessionDataUserActiveSession ActiveSession = default(CurrentSessionDataUserActiveSession))
         {
             // to ensure "UserName" is required (not null)
             if (UserName == null)
             {
-                throw new InvalidDataException("UserName is a required property for CurrentUserDataUser and cannot be null");
+                throw new InvalidDataException("UserName is a required property for CurrentSessionDataUser and cannot be null");
             }
             else
             {
@@ -60,7 +60,7 @@ namespace Genesys.Workspace.Model
             // to ensure "EmployeeId" is required (not null)
             if (EmployeeId == null)
             {
-                throw new InvalidDataException("EmployeeId is a required property for CurrentUserDataUser and cannot be null");
+                throw new InvalidDataException("EmployeeId is a required property for CurrentSessionDataUser and cannot be null");
             }
             else
             {
@@ -119,7 +119,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets ActiveSession
         /// </summary>
         [DataMember(Name="activeSession", EmitDefaultValue=false)]
-        public CurrentUserDataUserActiveSession ActiveSession { get; set; }
+        public CurrentSessionDataUserActiveSession ActiveSession { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -127,7 +127,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataUser {\n");
+            sb.Append("class CurrentSessionDataUser {\n");
             sb.Append("  Dbid: ").Append(Dbid).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
@@ -158,15 +158,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataUser);
+            return this.Equals(obj as CurrentSessionDataUser);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataUser instances are equal
+        /// Returns true if CurrentSessionDataUser instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataUser to be compared</param>
+        /// <param name="other">Instance of CurrentSessionDataUser to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataUser other)
+        public bool Equals(CurrentSessionDataUser other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

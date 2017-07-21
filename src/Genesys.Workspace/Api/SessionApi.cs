@@ -49,7 +49,7 @@ namespace Genesys.Workspace.Api
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the business attribute hierarchy
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -60,7 +60,7 @@ namespace Genesys.Workspace.Api
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the business attribute hierarchy
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -94,8 +94,8 @@ namespace Genesys.Workspace.Api
         /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CurrentUser</returns>
-        CurrentUser GetCurrentUser ();
+        /// <returns>CurrentSession</returns>
+        CurrentSession GetCurrentSession ();
 
         /// <summary>
         /// Read information about the logged in user including any existing media logins and calls
@@ -104,29 +104,27 @@ namespace Genesys.Workspace.Api
         /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CurrentUser</returns>
-        ApiResponse<CurrentUser> GetCurrentUserWithHttpInfo ();
+        /// <returns>ApiResponse of CurrentSession</returns>
+        ApiResponse<CurrentSession> GetCurrentSessionWithHttpInfo ();
         /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and creates the HTTP session. 
+        /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Login (LoginData loginData);
+        ApiSuccessResponse Login ();
 
         /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and creates the HTTP session. 
+        /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo (LoginData loginData);
+        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo ();
         /// <summary>
         /// Logout of media and end the session
         /// </summary>
@@ -173,7 +171,7 @@ namespace Genesys.Workspace.Api
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the business attribute hierarchy
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -184,7 +182,7 @@ namespace Genesys.Workspace.Api
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get the business attribute hierarchy
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -218,8 +216,8 @@ namespace Genesys.Workspace.Api
         /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of CurrentUser</returns>
-        System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync ();
+        /// <returns>Task of CurrentSession</returns>
+        System.Threading.Tasks.Task<CurrentSession> GetCurrentSessionAsync ();
 
         /// <summary>
         /// Read information about the logged in user including any existing media logins and calls
@@ -228,29 +226,27 @@ namespace Genesys.Workspace.Api
         /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        System.Threading.Tasks.Task<ApiResponse<CurrentUser>> GetCurrentUserAsyncWithHttpInfo ();
+        /// <returns>Task of ApiResponse (CurrentSession)</returns>
+        System.Threading.Tasks.Task<ApiResponse<CurrentSession>> GetCurrentSessionAsyncWithHttpInfo ();
         /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and creates the HTTP session. 
+        /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (LoginData loginData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync ();
 
         /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and creates the HTTP session. 
+        /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (LoginData loginData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo ();
         /// <summary>
         /// Logout of media and end the session
         /// </summary>
@@ -540,7 +536,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy 
+        /// Get the business attribute hierarchy Get the business attribute hierarchy
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -552,7 +548,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy 
+        /// Get the business attribute hierarchy Get the business attribute hierarchy
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -611,7 +607,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy 
+        /// Get the business attribute hierarchy Get the business attribute hierarchy
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -624,7 +620,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy 
+        /// Get the business attribute hierarchy Get the business attribute hierarchy
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the business attribute</param>
@@ -823,10 +819,10 @@ namespace Genesys.Workspace.Api
         /// Read information about the logged in user including any existing media logins and calls This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>CurrentUser</returns>
-        public CurrentUser GetCurrentUser ()
+        /// <returns>CurrentSession</returns>
+        public CurrentSession GetCurrentSession ()
         {
-             ApiResponse<CurrentUser> localVarResponse = GetCurrentUserWithHttpInfo();
+             ApiResponse<CurrentSession> localVarResponse = GetCurrentSessionWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -834,11 +830,11 @@ namespace Genesys.Workspace.Api
         /// Read information about the logged in user including any existing media logins and calls This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of CurrentUser</returns>
-        public ApiResponse< CurrentUser > GetCurrentUserWithHttpInfo ()
+        /// <returns>ApiResponse of CurrentSession</returns>
+        public ApiResponse< CurrentSession > GetCurrentSessionWithHttpInfo ()
         {
 
-            var localVarPath = "/current-user";
+            var localVarPath = "/current-session";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -874,13 +870,13 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCurrentUser", localVarResponse);
+                Exception exception = ExceptionFactory("GetCurrentSession", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CurrentUser>(localVarStatusCode,
+            return new ApiResponse<CurrentSession>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CurrentUser) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CurrentUser)));
+                (CurrentSession) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CurrentSession)));
             
         }
 
@@ -888,10 +884,10 @@ namespace Genesys.Workspace.Api
         /// Read information about the logged in user including any existing media logins and calls This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of CurrentUser</returns>
-        public async System.Threading.Tasks.Task<CurrentUser> GetCurrentUserAsync ()
+        /// <returns>Task of CurrentSession</returns>
+        public async System.Threading.Tasks.Task<CurrentSession> GetCurrentSessionAsync ()
         {
-             ApiResponse<CurrentUser> localVarResponse = await GetCurrentUserAsyncWithHttpInfo();
+             ApiResponse<CurrentSession> localVarResponse = await GetCurrentSessionAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -900,11 +896,11 @@ namespace Genesys.Workspace.Api
         /// Read information about the logged in user including any existing media logins and calls This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (CurrentUser)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<CurrentUser>> GetCurrentUserAsyncWithHttpInfo ()
+        /// <returns>Task of ApiResponse (CurrentSession)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<CurrentSession>> GetCurrentSessionAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/current-user";
+            var localVarPath = "/current-session";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -940,39 +936,34 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCurrentUser", localVarResponse);
+                Exception exception = ExceptionFactory("GetCurrentSession", localVarResponse);
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<CurrentUser>(localVarStatusCode,
+            return new ApiResponse<CurrentSession>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (CurrentUser) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CurrentUser)));
+                (CurrentSession) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CurrentSession)));
             
         }
 
         /// <summary>
-        /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
+        /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Login (LoginData loginData)
+        public ApiSuccessResponse Login ()
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo(loginData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo();
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
+        /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo (LoginData loginData)
+        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo ()
         {
-            // verify the required parameter 'loginData' is set
-            if (loginData == null)
-                throw new ApiException(400, "Missing required parameter 'loginData' when calling SessionApi->Login");
 
             var localVarPath = "/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -999,14 +990,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (loginData != null && loginData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(loginData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = loginData; // byte array
-            }
 
 
             // make the HTTP request
@@ -1029,29 +1012,24 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
+        /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (LoginData loginData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync ()
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo(loginData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// login the specified user (HTTP session only) The login request authenticates the user and creates the HTTP session. 
+        /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="loginData">Authentication Data</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (LoginData loginData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo ()
         {
-            // verify the required parameter 'loginData' is set
-            if (loginData == null)
-                throw new ApiException(400, "Missing required parameter 'loginData' when calling SessionApi->Login");
 
             var localVarPath = "/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1078,14 +1056,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (loginData != null && loginData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(loginData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = loginData; // byte array
-            }
 
 
             // make the HTTP request

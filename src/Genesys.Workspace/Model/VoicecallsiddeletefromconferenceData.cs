@@ -37,7 +37,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsiddeletefromconferenceData" /> class.
         /// </summary>
-        /// <param name="DnToDrop">Reference to the telephony object that is requested to be deleted from the conference call. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch. (required).</param>
+        /// <param name="DnToDrop">The party to be deleted from the conference (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
         public VoicecallsiddeletefromconferenceData(string DnToDrop = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
@@ -56,9 +56,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Reference to the telephony object that is requested to be deleted from the conference call. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.
+        /// The party to be deleted from the conference
         /// </summary>
-        /// <value>Reference to the telephony object that is requested to be deleted from the conference call. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.</value>
+        /// <value>The party to be deleted from the conference</value>
         [DataMember(Name="dnToDrop", EmitDefaultValue=false)]
         public string DnToDrop { get; set; }
         /// <summary>

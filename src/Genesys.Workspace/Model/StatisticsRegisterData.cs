@@ -24,19 +24,25 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// ApiRequestData
+    /// StatisticsRegisterData
     /// </summary>
     [DataContract]
-    public partial class ApiRequestData :  IEquatable<ApiRequestData>, IValidatableObject
+    public partial class StatisticsRegisterData :  IEquatable<StatisticsRegisterData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ApiRequestData" /> class.
+        /// Initializes a new instance of the <see cref="StatisticsRegisterData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public ApiRequestData()
+        /// <param name="Data">Data.</param>
+        public StatisticsRegisterData(StatisticsRegisterDataData Data = default(StatisticsRegisterDataData))
         {
+            this.Data = Data;
         }
         
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public StatisticsRegisterDataData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -44,7 +50,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ApiRequestData {\n");
+            sb.Append("class StatisticsRegisterData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -66,21 +73,26 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ApiRequestData);
+            return this.Equals(obj as StatisticsRegisterData);
         }
 
         /// <summary>
-        /// Returns true if ApiRequestData instances are equal
+        /// Returns true if StatisticsRegisterData instances are equal
         /// </summary>
-        /// <param name="other">Instance of ApiRequestData to be compared</param>
+        /// <param name="other">Instance of StatisticsRegisterData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApiRequestData other)
+        public bool Equals(StatisticsRegisterData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
+                );
         }
 
         /// <summary>
@@ -94,6 +106,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }

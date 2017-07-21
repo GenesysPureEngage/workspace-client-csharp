@@ -37,7 +37,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidreconnectData" /> class.
         /// </summary>
-        /// <param name="HeldConnId">Connection identifier of the active call from which the telephony object in question should be released. (required).</param>
+        /// <param name="HeldConnId">The id of the held call that should be retrieved (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
         public VoicecallsidreconnectData(string HeldConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
@@ -56,9 +56,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Connection identifier of the active call from which the telephony object in question should be released.
+        /// The id of the held call that should be retrieved
         /// </summary>
-        /// <value>Connection identifier of the active call from which the telephony object in question should be released.</value>
+        /// <value>The id of the held call that should be retrieved</value>
         [DataMember(Name="heldConnId", EmitDefaultValue=false)]
         public string HeldConnId { get; set; }
         /// <summary>

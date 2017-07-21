@@ -37,7 +37,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidinitiateconferenceData" /> class.
         /// </summary>
-        /// <param name="Destination">Directory number of the party to be dialed. (required).</param>
+        /// <param name="Destination">The number to be dialed (required).</param>
         /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
@@ -62,9 +62,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Directory number of the party to be dialed.
+        /// The number to be dialed
         /// </summary>
-        /// <value>Directory number of the party to be dialed.</value>
+        /// <value>The number to be dialed</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
         /// <summary>

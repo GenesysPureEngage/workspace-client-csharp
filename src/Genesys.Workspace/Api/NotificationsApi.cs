@@ -14,7 +14,6 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
 
 namespace Genesys.Workspace.Api
 {
@@ -31,9 +30,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        void Notifications (ApiRequestData notificationsData = null);
+        void Notifications ();
 
         /// <summary>
         /// Enables subscription to CometD notification API
@@ -42,9 +40,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> NotificationsWithHttpInfo (ApiRequestData notificationsData = null);
+        ApiResponse<Object> NotificationsWithHttpInfo ();
         /// <summary>
         /// Subscribes to CometD notifications
         /// </summary>
@@ -52,9 +49,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        void NotificationsConnect (ApiRequestData notificationsData = null);
+        void NotificationsConnect ();
 
         /// <summary>
         /// Subscribes to CometD notifications
@@ -63,9 +59,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> NotificationsConnectWithHttpInfo (ApiRequestData notificationsData = null);
+        ApiResponse<Object> NotificationsConnectWithHttpInfo ();
         /// <summary>
         /// Close CometD notification subscriptions
         /// </summary>
@@ -73,9 +68,8 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        void NotificationsDisconnect (ApiRequestData notificationsData = null);
+        void NotificationsDisconnect ();
 
         /// <summary>
         /// Close CometD notification subscriptions
@@ -84,9 +78,8 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> NotificationsDisconnectWithHttpInfo (ApiRequestData notificationsData = null);
+        ApiResponse<Object> NotificationsDisconnectWithHttpInfo ();
         /// <summary>
         /// Subscribes to CometD notifications
         /// </summary>
@@ -94,9 +87,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        void NotificationsHandshake (ApiRequestData notificationsData = null);
+        void NotificationsHandshake ();
 
         /// <summary>
         /// Subscribes to CometD notifications
@@ -105,9 +97,46 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> NotificationsHandshakeWithHttpInfo (ApiRequestData notificationsData = null);
+        ApiResponse<Object> NotificationsHandshakeWithHttpInfo ();
+        /// <summary>
+        /// Subscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Subscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void NotificationsSubscribe ();
+
+        /// <summary>
+        /// Subscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Subscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> NotificationsSubscribeWithHttpInfo ();
+        /// <summary>
+        /// Unsubscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        void NotificationsUnsubscribe ();
+
+        /// <summary>
+        /// Unsubscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> NotificationsUnsubscribeWithHttpInfo ();
         /// <summary>
         /// Enables subscription to SocketIO notifications
         /// </summary>
@@ -115,9 +144,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to SocketIO notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns></returns>
-        void Socketio (ApiRequestData socketIOData = null);
+        void Socketio ();
 
         /// <summary>
         /// Enables subscription to SocketIO notifications
@@ -126,9 +154,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to SocketIO notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> SocketioWithHttpInfo (ApiRequestData socketIOData = null);
+        ApiResponse<Object> SocketioWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -138,9 +165,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task NotificationsAsync (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task NotificationsAsync ();
 
         /// <summary>
         /// Enables subscription to CometD notification API
@@ -149,9 +175,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsAsyncWithHttpInfo (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsAsyncWithHttpInfo ();
         /// <summary>
         /// Subscribes to CometD notifications
         /// </summary>
@@ -159,9 +184,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task NotificationsConnectAsync (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task NotificationsConnectAsync ();
 
         /// <summary>
         /// Subscribes to CometD notifications
@@ -170,9 +194,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsConnectAsyncWithHttpInfo (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsConnectAsyncWithHttpInfo ();
         /// <summary>
         /// Close CometD notification subscriptions
         /// </summary>
@@ -180,9 +203,8 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task NotificationsDisconnectAsync (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task NotificationsDisconnectAsync ();
 
         /// <summary>
         /// Close CometD notification subscriptions
@@ -191,9 +213,8 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsDisconnectAsyncWithHttpInfo (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsDisconnectAsyncWithHttpInfo ();
         /// <summary>
         /// Subscribes to CometD notifications
         /// </summary>
@@ -201,9 +222,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task NotificationsHandshakeAsync (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task NotificationsHandshakeAsync ();
 
         /// <summary>
         /// Subscribes to CometD notifications
@@ -212,9 +232,46 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsHandshakeAsyncWithHttpInfo (ApiRequestData notificationsData = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsHandshakeAsyncWithHttpInfo ();
+        /// <summary>
+        /// Subscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Subscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task NotificationsSubscribeAsync ();
+
+        /// <summary>
+        /// Subscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Subscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsSubscribeAsyncWithHttpInfo ();
+        /// <summary>
+        /// Unsubscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task NotificationsUnsubscribeAsync ();
+
+        /// <summary>
+        /// Unsubscribes CometD channel notification
+        /// </summary>
+        /// <remarks>
+        /// Unsubscribes CometD channel notification
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsUnsubscribeAsyncWithHttpInfo ();
         /// <summary>
         /// Enables subscription to SocketIO notifications
         /// </summary>
@@ -222,9 +279,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to SocketIO notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task SocketioAsync (ApiRequestData socketIOData = null);
+        System.Threading.Tasks.Task SocketioAsync ();
 
         /// <summary>
         /// Enables subscription to SocketIO notifications
@@ -233,9 +289,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to SocketIO notifications
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> SocketioAsyncWithHttpInfo (ApiRequestData socketIOData = null);
+        System.Threading.Tasks.Task<ApiResponse<Object>> SocketioAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -352,20 +407,18 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API Enables subscription to CometD notification API
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        public void Notifications (ApiRequestData notificationsData = null)
+        public void Notifications ()
         {
-             NotificationsWithHttpInfo(notificationsData);
+             NotificationsWithHttpInfo();
         }
 
         /// <summary>
         /// Enables subscription to CometD notification API Enables subscription to CometD notification API
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> NotificationsWithHttpInfo (ApiRequestData notificationsData = null)
+        public ApiResponse<Object> NotificationsWithHttpInfo ()
         {
 
             var localVarPath = "/notifications";
@@ -393,14 +446,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -426,11 +471,10 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API Enables subscription to CometD notification API
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task NotificationsAsync (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task NotificationsAsync ()
         {
-             await NotificationsAsyncWithHttpInfo(notificationsData);
+             await NotificationsAsyncWithHttpInfo();
 
         }
 
@@ -438,9 +482,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to CometD notification API Enables subscription to CometD notification API
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsAsyncWithHttpInfo (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/notifications";
@@ -468,14 +511,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -501,20 +536,18 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        public void NotificationsConnect (ApiRequestData notificationsData = null)
+        public void NotificationsConnect ()
         {
-             NotificationsConnectWithHttpInfo(notificationsData);
+             NotificationsConnectWithHttpInfo();
         }
 
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> NotificationsConnectWithHttpInfo (ApiRequestData notificationsData = null)
+        public ApiResponse<Object> NotificationsConnectWithHttpInfo ()
         {
 
             var localVarPath = "/notifications/connect";
@@ -542,14 +575,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -575,11 +600,10 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task NotificationsConnectAsync (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task NotificationsConnectAsync ()
         {
-             await NotificationsConnectAsyncWithHttpInfo(notificationsData);
+             await NotificationsConnectAsyncWithHttpInfo();
 
         }
 
@@ -587,9 +611,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsConnectAsyncWithHttpInfo (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsConnectAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/notifications/connect";
@@ -617,14 +640,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -650,20 +665,18 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        public void NotificationsDisconnect (ApiRequestData notificationsData = null)
+        public void NotificationsDisconnect ()
         {
-             NotificationsDisconnectWithHttpInfo(notificationsData);
+             NotificationsDisconnectWithHttpInfo();
         }
 
         /// <summary>
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> NotificationsDisconnectWithHttpInfo (ApiRequestData notificationsData = null)
+        public ApiResponse<Object> NotificationsDisconnectWithHttpInfo ()
         {
 
             var localVarPath = "/notifications/disconnect";
@@ -691,14 +704,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -724,11 +729,10 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task NotificationsDisconnectAsync (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task NotificationsDisconnectAsync ()
         {
-             await NotificationsDisconnectAsyncWithHttpInfo(notificationsData);
+             await NotificationsDisconnectAsyncWithHttpInfo();
 
         }
 
@@ -736,9 +740,8 @@ namespace Genesys.Workspace.Api
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsDisconnectAsyncWithHttpInfo (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsDisconnectAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/notifications/disconnect";
@@ -766,14 +769,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -799,20 +794,18 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns></returns>
-        public void NotificationsHandshake (ApiRequestData notificationsData = null)
+        public void NotificationsHandshake ()
         {
-             NotificationsHandshakeWithHttpInfo(notificationsData);
+             NotificationsHandshakeWithHttpInfo();
         }
 
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> NotificationsHandshakeWithHttpInfo (ApiRequestData notificationsData = null)
+        public ApiResponse<Object> NotificationsHandshakeWithHttpInfo ()
         {
 
             var localVarPath = "/notifications/handshake";
@@ -840,14 +833,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -873,11 +858,10 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task NotificationsHandshakeAsync (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task NotificationsHandshakeAsync ()
         {
-             await NotificationsHandshakeAsyncWithHttpInfo(notificationsData);
+             await NotificationsHandshakeAsyncWithHttpInfo();
 
         }
 
@@ -885,9 +869,8 @@ namespace Genesys.Workspace.Api
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="notificationsData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsHandshakeAsyncWithHttpInfo (ApiRequestData notificationsData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsHandshakeAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/notifications/handshake";
@@ -915,14 +898,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (notificationsData != null && notificationsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(notificationsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = notificationsData; // byte array
-            }
 
 
             // make the HTTP request
@@ -945,23 +920,279 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
+        /// Subscribes CometD channel notification Subscribes CometD channel notification
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns></returns>
-        public void Socketio (ApiRequestData socketIOData = null)
+        public void NotificationsSubscribe ()
         {
-             SocketioWithHttpInfo(socketIOData);
+             NotificationsSubscribeWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Subscribes CometD channel notification Subscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> NotificationsSubscribeWithHttpInfo ()
+        {
+
+            var localVarPath = "/notifications/subscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NotificationsSubscribe", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Subscribes CometD channel notification Subscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task NotificationsSubscribeAsync ()
+        {
+             await NotificationsSubscribeAsyncWithHttpInfo();
+
+        }
+
+        /// <summary>
+        /// Subscribes CometD channel notification Subscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsSubscribeAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/notifications/subscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NotificationsSubscribe", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns></returns>
+        public void NotificationsUnsubscribe ()
+        {
+             NotificationsUnsubscribeWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> NotificationsUnsubscribeWithHttpInfo ()
+        {
+
+            var localVarPath = "/notifications/unsubscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NotificationsUnsubscribe", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task NotificationsUnsubscribeAsync ()
+        {
+             await NotificationsUnsubscribeAsyncWithHttpInfo();
+
+        }
+
+        /// <summary>
+        /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsUnsubscribeAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/notifications/unsubscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("NotificationsUnsubscribe", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
         /// <summary>
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
+        /// <returns></returns>
+        public void Socketio ()
+        {
+             SocketioWithHttpInfo();
+        }
+
+        /// <summary>
+        /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
-        public ApiResponse<Object> SocketioWithHttpInfo (ApiRequestData socketIOData = null)
+        public ApiResponse<Object> SocketioWithHttpInfo ()
         {
 
             var localVarPath = "/socket.io";
@@ -989,14 +1220,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (socketIOData != null && socketIOData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(socketIOData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = socketIOData; // byte array
-            }
 
 
             // make the HTTP request
@@ -1022,11 +1245,10 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task SocketioAsync (ApiRequestData socketIOData = null)
+        public async System.Threading.Tasks.Task SocketioAsync ()
         {
-             await SocketioAsyncWithHttpInfo(socketIOData);
+             await SocketioAsyncWithHttpInfo();
 
         }
 
@@ -1034,9 +1256,8 @@ namespace Genesys.Workspace.Api
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="socketIOData"> (optional)</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Object>> SocketioAsyncWithHttpInfo (ApiRequestData socketIOData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> SocketioAsyncWithHttpInfo ()
         {
 
             var localVarPath = "/socket.io";
@@ -1064,14 +1285,6 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
-            if (socketIOData != null && socketIOData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(socketIOData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = socketIOData; // byte array
-            }
 
 
             // make the HTTP request

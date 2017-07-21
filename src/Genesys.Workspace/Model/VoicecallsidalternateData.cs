@@ -37,7 +37,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidalternateData" /> class.
         /// </summary>
-        /// <param name="HeldConnId">Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch. (required).</param>
+        /// <param name="HeldConnId">ConnId of the held call that should be retrieved. (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
         public VoicecallsidalternateData(string HeldConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
@@ -56,9 +56,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.
+        /// ConnId of the held call that should be retrieved.
         /// </summary>
-        /// <value>Connection identifier of the active call that is requested to be placed on hold. This parameter can be either a dn or a party_id, where party_id is the party identifier given by the switch.</value>
+        /// <value>ConnId of the held call that should be retrieved.</value>
         [DataMember(Name="heldConnId", EmitDefaultValue=false)]
         public string HeldConnId { get; set; }
         /// <summary>

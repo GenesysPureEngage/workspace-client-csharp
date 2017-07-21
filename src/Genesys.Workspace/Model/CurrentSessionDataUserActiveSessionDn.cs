@@ -24,19 +24,19 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUserDataUserActiveSessionDn
+    /// CurrentSessionDataUserActiveSessionDn
     /// </summary>
     [DataContract]
-    public partial class CurrentUserDataUserActiveSessionDn :  IEquatable<CurrentUserDataUserActiveSessionDn>, IValidatableObject
+    public partial class CurrentSessionDataUserActiveSessionDn :  IEquatable<CurrentSessionDataUserActiveSessionDn>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUserDataUserActiveSessionDn" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSessionDn" /> class.
         /// </summary>
         /// <param name="Number">Number.</param>
         /// <param name="AgentId">AgentId.</param>
         /// <param name="AgentState">AgentState.</param>
         /// <param name="AgentWorkMode">AgentWorkMode.</param>
-        public CurrentUserDataUserActiveSessionDn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
+        public CurrentSessionDataUserActiveSessionDn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
         {
             this.Number = Number;
             this.AgentId = AgentId;
@@ -71,7 +71,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUserDataUserActiveSessionDn {\n");
+            sb.Append("class CurrentSessionDataUserActiveSessionDn {\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("  AgentState: ").Append(AgentState).Append("\n");
@@ -97,15 +97,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUserDataUserActiveSessionDn);
+            return this.Equals(obj as CurrentSessionDataUserActiveSessionDn);
         }
 
         /// <summary>
-        /// Returns true if CurrentUserDataUserActiveSessionDn instances are equal
+        /// Returns true if CurrentSessionDataUserActiveSessionDn instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUserDataUserActiveSessionDn to be compared</param>
+        /// <param name="other">Instance of CurrentSessionDataUserActiveSessionDn to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUserDataUserActiveSessionDn other)
+        public bool Equals(CurrentSessionDataUserActiveSessionDn other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

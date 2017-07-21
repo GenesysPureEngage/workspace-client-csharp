@@ -37,7 +37,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidsinglestepconferenceData" /> class.
         /// </summary>
-        /// <param name="Destination">Directory number of the party to which the call will be conferenced. (required).</param>
+        /// <param name="Destination">Number of the party to conference. (required).</param>
         /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
@@ -60,9 +60,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Directory number of the party to which the call will be conferenced.
+        /// Number of the party to conference.
         /// </summary>
-        /// <value>Directory number of the party to which the call will be conferenced.</value>
+        /// <value>Number of the party to conference.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
         /// <summary>

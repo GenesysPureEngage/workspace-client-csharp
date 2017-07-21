@@ -24,32 +24,32 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentUser
+    /// CurrentSessionData
     /// </summary>
     [DataContract]
-    public partial class CurrentUser :  IEquatable<CurrentUser>, IValidatableObject
+    public partial class CurrentSessionData :  IEquatable<CurrentSessionData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentUser" /> class.
+        /// Initializes a new instance of the <see cref="CurrentSessionData" /> class.
         /// </summary>
-        /// <param name="Status">Status.</param>
-        /// <param name="Data">Data.</param>
-        public CurrentUser(CurrentUserStatus Status = default(CurrentUserStatus), CurrentUserData Data = default(CurrentUserData))
+        /// <param name="PendingLoginAsync">PendingLoginAsync.</param>
+        /// <param name="User">User.</param>
+        public CurrentSessionData(CurrentSessionDataPendingloginasync PendingLoginAsync = default(CurrentSessionDataPendingloginasync), CurrentSessionDataUser User = default(CurrentSessionDataUser))
         {
-            this.Status = Status;
-            this.Data = Data;
+            this.PendingLoginAsync = PendingLoginAsync;
+            this.User = User;
         }
         
         /// <summary>
-        /// Gets or Sets Status
+        /// Gets or Sets PendingLoginAsync
         /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public CurrentUserStatus Status { get; set; }
+        [DataMember(Name="pending-login-async", EmitDefaultValue=false)]
+        public CurrentSessionDataPendingloginasync PendingLoginAsync { get; set; }
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets User
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public CurrentUserData Data { get; set; }
+        [DataMember(Name="user", EmitDefaultValue=false)]
+        public CurrentSessionDataUser User { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -57,9 +57,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentUser {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class CurrentSessionData {\n");
+            sb.Append("  PendingLoginAsync: ").Append(PendingLoginAsync).Append("\n");
+            sb.Append("  User: ").Append(User).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -81,15 +81,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentUser);
+            return this.Equals(obj as CurrentSessionData);
         }
 
         /// <summary>
-        /// Returns true if CurrentUser instances are equal
+        /// Returns true if CurrentSessionData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentUser to be compared</param>
+        /// <param name="other">Instance of CurrentSessionData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentUser other)
+        public bool Equals(CurrentSessionData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -97,14 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.PendingLoginAsync == other.PendingLoginAsync ||
+                    this.PendingLoginAsync != null &&
+                    this.PendingLoginAsync.Equals(other.PendingLoginAsync)
                 ) && 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.User == other.User ||
+                    this.User != null &&
+                    this.User.Equals(other.User)
                 );
         }
 
@@ -119,10 +119,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.PendingLoginAsync != null)
+                    hash = hash * 59 + this.PendingLoginAsync.GetHashCode();
+                if (this.User != null)
+                    hash = hash * 59 + this.User.GetHashCode();
                 return hash;
             }
         }

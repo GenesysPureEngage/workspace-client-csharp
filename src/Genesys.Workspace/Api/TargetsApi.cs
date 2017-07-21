@@ -28,7 +28,7 @@ namespace Genesys.Workspace.Api
         /// Ack the missed calls in recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ack the missed calls in recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -38,7 +38,7 @@ namespace Genesys.Workspace.Api
         /// Ack the missed calls in recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ack the missed calls in recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -47,7 +47,7 @@ namespace Genesys.Workspace.Api
         /// Add a recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Add a recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -58,7 +58,7 @@ namespace Genesys.Workspace.Api
         /// Add a recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Add a recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -68,7 +68,7 @@ namespace Genesys.Workspace.Api
         /// Search for targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -84,7 +84,7 @@ namespace Genesys.Workspace.Api
         /// Search for targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -99,7 +99,7 @@ namespace Genesys.Workspace.Api
         /// Get recent targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get recent targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -110,7 +110,7 @@ namespace Genesys.Workspace.Api
         /// Get recent targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get recent targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -120,7 +120,7 @@ namespace Genesys.Workspace.Api
         /// Get a target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a specific target by type and id
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -132,7 +132,7 @@ namespace Genesys.Workspace.Api
         /// Get a target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a specific target by type and id
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -145,7 +145,7 @@ namespace Genesys.Workspace.Api
         /// Ack the missed calls in recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ack the missed calls in recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -155,7 +155,7 @@ namespace Genesys.Workspace.Api
         /// Ack the missed calls in recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Ack the missed calls in recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -164,7 +164,7 @@ namespace Genesys.Workspace.Api
         /// Add a recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Add a recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -175,7 +175,7 @@ namespace Genesys.Workspace.Api
         /// Add a recent target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Add a recent target
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -185,7 +185,7 @@ namespace Genesys.Workspace.Api
         /// Search for targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -201,7 +201,7 @@ namespace Genesys.Workspace.Api
         /// Search for targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -216,7 +216,7 @@ namespace Genesys.Workspace.Api
         /// Get recent targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get recent targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -227,7 +227,7 @@ namespace Genesys.Workspace.Api
         /// Get recent targets
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get recent targets
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -237,7 +237,7 @@ namespace Genesys.Workspace.Api
         /// Get a target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a specific target by type and id
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -249,7 +249,7 @@ namespace Genesys.Workspace.Api
         /// Get a target
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a specific target by type and id
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -369,7 +369,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Ack the missed calls in recent target 
+        /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -380,7 +380,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Ack the missed calls in recent target 
+        /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -434,7 +434,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Ack the missed calls in recent target 
+        /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -446,7 +446,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Ack the missed calls in recent target 
+        /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -500,7 +500,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Add a recent target 
+        /// Add a recent target Add a recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -512,7 +512,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Add a recent target 
+        /// Add a recent target Add a recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -578,7 +578,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Add a recent target 
+        /// Add a recent target Add a recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -591,7 +591,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Add a recent target 
+        /// Add a recent target Add a recent target
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
@@ -657,7 +657,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Search for targets 
+        /// Search for targets Search for targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -674,7 +674,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Search for targets 
+        /// Search for targets Search for targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -743,7 +743,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Search for targets 
+        /// Search for targets Search for targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -761,7 +761,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Search for targets 
+        /// Search for targets Search for targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
@@ -830,7 +830,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get recent targets 
+        /// Get recent targets Get recent targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -842,7 +842,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get recent targets 
+        /// Get recent targets Get recent targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -898,7 +898,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get recent targets 
+        /// Get recent targets Get recent targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -911,7 +911,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get recent targets 
+        /// Get recent targets Get recent targets
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
@@ -967,7 +967,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get a target 
+        /// Get a target Get a specific target by type and id
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -980,7 +980,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get a target 
+        /// Get a target Get a specific target by type and id
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -1044,7 +1044,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get a target 
+        /// Get a target Get a specific target by type and id
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
@@ -1058,7 +1058,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Get a target 
+        /// Get a target Get a specific target by type and id
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>

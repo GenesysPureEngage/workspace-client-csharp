@@ -37,7 +37,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidsinglesteptransferData" /> class.
         /// </summary>
-        /// <param name="Destination">Directory number of the party the call will be transferred to. (required).</param>
+        /// <param name="Destination">The number to transfer the call to. (required).</param>
         /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
@@ -60,9 +60,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Directory number of the party the call will be transferred to.
+        /// The number to transfer the call to.
         /// </summary>
-        /// <value>Directory number of the party the call will be transferred to.</value>
+        /// <value>The number to transfer the call to.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
         /// <summary>
