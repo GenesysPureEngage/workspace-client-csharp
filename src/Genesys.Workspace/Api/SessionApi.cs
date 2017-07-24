@@ -107,14 +107,38 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of CurrentSession</returns>
         ApiResponse<CurrentSession> GetCurrentSessionWithHttpInfo ();
         /// <summary>
+        /// Retrieves authorization token and registers it
+        /// </summary>
+        /// <remarks>
+        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null);
+
+        /// <summary>
+        /// Retrieves authorization token and registers it
+        /// </summary>
+        /// <remarks>
+        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null);
+        /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
         /// <remarks>
         /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Login ();
+        ApiSuccessResponse Login (string redirectUri);
 
         /// <summary>
         /// login the specified user (HTTP session only)
@@ -123,8 +147,9 @@ namespace Genesys.Workspace.Api
         /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo ();
+        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo (string redirectUri);
         /// <summary>
         /// Logout of media and end the session
         /// </summary>
@@ -229,14 +254,38 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (CurrentSession)</returns>
         System.Threading.Tasks.Task<ApiResponse<CurrentSession>> GetCurrentSessionAsyncWithHttpInfo ();
         /// <summary>
+        /// Retrieves authorization token and registers it
+        /// </summary>
+        /// <remarks>
+        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null);
+
+        /// <summary>
+        /// Retrieves authorization token and registers it
+        /// </summary>
+        /// <remarks>
+        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null);
+        /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
         /// <remarks>
         /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync ();
+        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (string redirectUri);
 
         /// <summary>
         /// login the specified user (HTTP session only)
@@ -245,8 +294,9 @@ namespace Genesys.Workspace.Api
         /// The login request authenticates the user and retrieves the authorization code. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (string redirectUri);
         /// <summary>
         /// Logout of media and end the session
         /// </summary>
@@ -947,13 +997,157 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = InitializeWorkspaceWithHttpInfo(code, redirectUri);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null)
+        {
+
+            var localVarPath = "/initialize-workspace";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (code != null) localVarQueryParams.Add("code", Configuration.ApiClient.ParameterToString(code)); // query parameter
+            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InitializeWorkspace", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await InitializeWorkspaceAsyncWithHttpInfo(code, redirectUri);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="code">the authorization code (optional)</param>
+        /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null)
+        {
+
+            var localVarPath = "/initialize-workspace";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (code != null) localVarQueryParams.Add("code", Configuration.ApiClient.ParameterToString(code)); // query parameter
+            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InitializeWorkspace", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
         /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Login ()
+        public ApiSuccessResponse Login (string redirectUri)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo(redirectUri);
              return localVarResponse.Data;
         }
 
@@ -961,9 +1155,13 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo ()
+        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo (string redirectUri)
         {
+            // verify the required parameter 'redirectUri' is set
+            if (redirectUri == null)
+                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling SessionApi->Login");
 
             var localVarPath = "/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -990,6 +1188,7 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
 
 
             // make the HTTP request
@@ -1015,10 +1214,11 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync ()
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (string redirectUri)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo(redirectUri);
              return localVarResponse.Data;
 
         }
@@ -1027,9 +1227,13 @@ namespace Genesys.Workspace.Api
         /// login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (string redirectUri)
         {
+            // verify the required parameter 'redirectUri' is set
+            if (redirectUri == null)
+                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling SessionApi->Login");
 
             var localVarPath = "/login";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1056,6 +1260,7 @@ namespace Genesys.Workspace.Api
             // set "format" to json by default
             // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
             localVarPathParams.Add("format", "json");
+            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
 
 
             // make the HTTP request
