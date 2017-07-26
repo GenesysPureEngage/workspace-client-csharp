@@ -115,8 +115,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null);
+        ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null, string authorization = null);
 
         /// <summary>
         /// Retrieves authorization token and registers it
@@ -127,8 +128,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null);
+        ApiResponse<ApiSuccessResponse> InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null, string authorization = null);
         /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
@@ -262,8 +264,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null, string authorization = null);
 
         /// <summary>
         /// Retrieves authorization token and registers it
@@ -274,8 +277,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null, string authorization = null);
         /// <summary>
         /// login the specified user (HTTP session only)
         /// </summary>
@@ -1002,10 +1006,11 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null)
+        public ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null, string authorization = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = InitializeWorkspaceWithHttpInfo(code, redirectUri);
+             ApiResponse<ApiSuccessResponse> localVarResponse = InitializeWorkspaceWithHttpInfo(code, redirectUri, authorization);
              return localVarResponse.Data;
         }
 
@@ -1015,8 +1020,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null)
+        public ApiResponse< ApiSuccessResponse > InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null, string authorization = null)
         {
 
             var localVarPath = "/initialize-workspace";
@@ -1046,6 +1052,7 @@ namespace Genesys.Workspace.Api
             localVarPathParams.Add("format", "json");
             if (code != null) localVarQueryParams.Add("code", Configuration.ApiClient.ParameterToString(code)); // query parameter
             if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
             // make the HTTP request
@@ -1073,10 +1080,11 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null, string authorization = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await InitializeWorkspaceAsyncWithHttpInfo(code, redirectUri);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await InitializeWorkspaceAsyncWithHttpInfo(code, redirectUri, authorization);
              return localVarResponse.Data;
 
         }
@@ -1087,8 +1095,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
         /// <param name="redirectUri">the same redirect_uri used in the initial login step (optional)</param>
+        /// <param name="authorization">For OAuth resource owner password credentials grant should contains Bearer authorization. Example: &#39;Authorization: Bearer access_token&#39; (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null, string authorization = null)
         {
 
             var localVarPath = "/initialize-workspace";
@@ -1118,6 +1127,7 @@ namespace Genesys.Workspace.Api
             localVarPathParams.Add("format", "json");
             if (code != null) localVarQueryParams.Add("code", Configuration.ApiClient.ParameterToString(code)); // query parameter
             if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+            if (authorization != null) localVarHeaderParams.Add("Authorization", Configuration.ApiClient.ParameterToString(authorization)); // header parameter
 
 
             // make the HTTP request
