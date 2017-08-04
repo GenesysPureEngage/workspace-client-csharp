@@ -78,7 +78,7 @@ namespace Genesys.Workspace.Model
         /// <param name="ActualWaitTime">ActualWaitTime (required).</param>
         /// <param name="SubmittedAt">SubmittedAt (required).</param>
         /// <param name="Errors">Errors.</param>
-        public CurrentSessionDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), Object Errors = default(Object))
+        public CurrentSessionDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
         {
             // to ensure "State" is required (not null)
             if (State == null)
@@ -124,7 +124,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Errors
         /// </summary>
         [DataMember(Name="errors", EmitDefaultValue=false)]
-        public Object Errors { get; set; }
+        public List<Kvpair> Errors { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -191,7 +191,7 @@ namespace Genesys.Workspace.Model
                 (
                     this.Errors == other.Errors ||
                     this.Errors != null &&
-                    this.Errors.Equals(other.Errors)
+                    this.Errors.SequenceEqual(other.Errors)
                 );
         }
 

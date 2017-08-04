@@ -24,25 +24,38 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// UserData
+    /// VoicecallsidcompleteData
     /// </summary>
     [DataContract]
-    public partial class UserData :  IEquatable<UserData>, IValidatableObject
+    public partial class VoicecallsidcompleteData :  IEquatable<VoicecallsidcompleteData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserData" /> class.
+        /// Initializes a new instance of the <see cref="VoicecallsidcompleteData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public UserData(VoicecallsidcompleteData Data = default(VoicecallsidcompleteData))
+        [JsonConstructorAttribute]
+        protected VoicecallsidcompleteData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="VoicecallsidcompleteData" /> class.
+        /// </summary>
+        /// <param name="UserData">UserData (required).</param>
+        public VoicecallsidcompleteData(List<Kvpair> UserData = default(List<Kvpair>))
         {
-            this.Data = Data;
+            // to ensure "UserData" is required (not null)
+            if (UserData == null)
+            {
+                throw new InvalidDataException("UserData is a required property for VoicecallsidcompleteData and cannot be null");
+            }
+            else
+            {
+                this.UserData = UserData;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Gets or Sets UserData
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public VoicecallsidcompleteData Data { get; set; }
+        [DataMember(Name="userData", EmitDefaultValue=false)]
+        public List<Kvpair> UserData { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -50,8 +63,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class VoicecallsidcompleteData {\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,15 +86,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UserData);
+            return this.Equals(obj as VoicecallsidcompleteData);
         }
 
         /// <summary>
-        /// Returns true if UserData instances are equal
+        /// Returns true if VoicecallsidcompleteData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UserData to be compared</param>
+        /// <param name="other">Instance of VoicecallsidcompleteData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserData other)
+        public bool Equals(VoicecallsidcompleteData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -89,9 +102,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.UserData == other.UserData ||
+                    this.UserData != null &&
+                    this.UserData.SequenceEqual(other.UserData)
                 );
         }
 
@@ -106,8 +119,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.UserData != null)
+                    hash = hash * 59 + this.UserData.GetHashCode();
                 return hash;
             }
         }

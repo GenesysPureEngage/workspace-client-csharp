@@ -77,8 +77,8 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        /// <returns>TargetsResponse</returns>
+        TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets
@@ -93,8 +93,8 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        ApiResponse<TargetsResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Get recent targets
         /// </summary>
@@ -194,8 +194,8 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        /// <returns>Task of TargetsResponse</returns>
+        System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets
@@ -210,8 +210,8 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Get recent targets
         /// </summary>
@@ -666,10 +666,10 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        /// <returns>TargetsResponse</returns>
+        public TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
+             ApiResponse<TargetsResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
              return localVarResponse.Data;
         }
 
@@ -683,8 +683,8 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        public ApiResponse< TargetsResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -736,9 +736,9 @@ namespace Genesys.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
             
         }
 
@@ -752,10 +752,10 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        /// <returns>Task of TargetsResponse</returns>
+        public async System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
+             ApiResponse<TargetsResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
              return localVarResponse.Data;
 
         }
@@ -770,8 +770,8 @@ namespace Genesys.Workspace.Api
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -823,9 +823,9 @@ namespace Genesys.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
             
         }
 

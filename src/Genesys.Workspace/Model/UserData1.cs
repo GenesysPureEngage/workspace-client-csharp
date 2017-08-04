@@ -24,38 +24,25 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// UserDataData
+    /// UserData1
     /// </summary>
     [DataContract]
-    public partial class UserDataData :  IEquatable<UserDataData>, IValidatableObject
+    public partial class UserData1 :  IEquatable<UserData1>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserDataData" /> class.
+        /// Initializes a new instance of the <see cref="UserData1" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UserDataData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UserDataData" /> class.
-        /// </summary>
-        /// <param name="UserData">UserData (required).</param>
-        public UserDataData(List<Kvpair> UserData = default(List<Kvpair>))
+        /// <param name="Data">Data.</param>
+        public UserData1(VoicecallsidcompleteData Data = default(VoicecallsidcompleteData))
         {
-            // to ensure "UserData" is required (not null)
-            if (UserData == null)
-            {
-                throw new InvalidDataException("UserData is a required property for UserDataData and cannot be null");
-            }
-            else
-            {
-                this.UserData = UserData;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// Gets or Sets UserData
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="userData", EmitDefaultValue=false)]
-        public List<Kvpair> UserData { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public VoicecallsidcompleteData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -63,8 +50,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserDataData {\n");
-            sb.Append("  UserData: ").Append(UserData).Append("\n");
+            sb.Append("class UserData1 {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -86,15 +73,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UserDataData);
+            return this.Equals(obj as UserData1);
         }
 
         /// <summary>
-        /// Returns true if UserDataData instances are equal
+        /// Returns true if UserData1 instances are equal
         /// </summary>
-        /// <param name="other">Instance of UserDataData to be compared</param>
+        /// <param name="other">Instance of UserData1 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserDataData other)
+        public bool Equals(UserData1 other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -102,9 +89,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.UserData == other.UserData ||
-                    this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -119,8 +106,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }

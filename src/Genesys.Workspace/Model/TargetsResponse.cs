@@ -24,25 +24,32 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// UserData
+    /// TargetsResponse
     /// </summary>
     [DataContract]
-    public partial class UserData :  IEquatable<UserData>, IValidatableObject
+    public partial class TargetsResponse :  IEquatable<TargetsResponse>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserData" /> class.
+        /// Initializes a new instance of the <see cref="TargetsResponse" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public UserData(VoicecallsidcompleteData Data = default(VoicecallsidcompleteData))
+        /// <param name="Status">Status.</param>
+        public TargetsResponse(TargetsResponseData Data = default(TargetsResponseData), InlineResponse200Status Status = default(InlineResponse200Status))
         {
             this.Data = Data;
+            this.Status = Status;
         }
         
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public VoicecallsidcompleteData Data { get; set; }
+        public TargetsResponseData Data { get; set; }
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public InlineResponse200Status Status { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -50,8 +57,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserData {\n");
+            sb.Append("class TargetsResponse {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,15 +81,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UserData);
+            return this.Equals(obj as TargetsResponse);
         }
 
         /// <summary>
-        /// Returns true if UserData instances are equal
+        /// Returns true if TargetsResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of UserData to be compared</param>
+        /// <param name="other">Instance of TargetsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserData other)
+        public bool Equals(TargetsResponse other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -92,6 +100,11 @@ namespace Genesys.Workspace.Model
                     this.Data == other.Data ||
                     this.Data != null &&
                     this.Data.Equals(other.Data)
+                ) && 
+                (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 );
         }
 
@@ -108,6 +121,8 @@ namespace Genesys.Workspace.Model
                 // Suitable nullity checks etc, of course :)
                 if (this.Data != null)
                     hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 return hash;
             }
         }

@@ -73,7 +73,7 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ConfigResponse</returns>
         ConfigResponse GetConfiguration (string types = null);
 
@@ -84,7 +84,7 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ApiResponse of ConfigResponse</returns>
         ApiResponse<ConfigResponse> GetConfigurationWithHttpInfo (string types = null);
         /// <summary>
@@ -222,7 +222,7 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ConfigResponse</returns>
         System.Threading.Tasks.Task<ConfigResponse> GetConfigurationAsync (string types = null);
 
@@ -233,7 +233,7 @@ namespace Genesys.Workspace.Api
         /// This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetConfigurationAsyncWithHttpInfo (string types = null);
         /// <summary>
@@ -736,7 +736,7 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ConfigResponse</returns>
         public ConfigResponse GetConfiguration (string types = null)
         {
@@ -748,7 +748,7 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>ApiResponse of ConfigResponse</returns>
         public ApiResponse< ConfigResponse > GetConfigurationWithHttpInfo (string types = null)
         {
@@ -804,7 +804,7 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ConfigResponse</returns>
         public async System.Threading.Tasks.Task<ConfigResponse> GetConfigurationAsync (string types = null)
         {
@@ -817,7 +817,7 @@ namespace Genesys.Workspace.Api
         /// Read settings, action codes, business attributes and other configuration. This request returns all necessary configuration items to be used by the UI. This includes action codes, business attributes, transactions and settings at the moment. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="types">An undercore delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
+        /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is  actionCodes, agentGroups, and settings. Valid values are actionCodes, agentGroups, settings, workspaceTransactions, and businessAttributes. (optional)</param>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetConfigurationAsyncWithHttpInfo (string types = null)
         {

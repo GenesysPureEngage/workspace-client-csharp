@@ -24,25 +24,34 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// UserData
+    /// TargetsResponseData
     /// </summary>
     [DataContract]
-    public partial class UserData :  IEquatable<UserData>, IValidatableObject
+    public partial class TargetsResponseData :  IEquatable<TargetsResponseData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserData" /> class.
+        /// Initializes a new instance of the <see cref="TargetsResponseData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public UserData(VoicecallsidcompleteData Data = default(VoicecallsidcompleteData))
+        /// <param name="Targets">An array containing target results.</param>
+        /// <param name="TotalMatches">The total number of matches to the query..</param>
+        public TargetsResponseData(List<Target> Targets = default(List<Target>), int? TotalMatches = default(int?))
         {
-            this.Data = Data;
+            this.Targets = Targets;
+            this.TotalMatches = TotalMatches;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// An array containing target results
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public VoicecallsidcompleteData Data { get; set; }
+        /// <value>An array containing target results</value>
+        [DataMember(Name="targets", EmitDefaultValue=false)]
+        public List<Target> Targets { get; set; }
+        /// <summary>
+        /// The total number of matches to the query.
+        /// </summary>
+        /// <value>The total number of matches to the query.</value>
+        [DataMember(Name="totalMatches", EmitDefaultValue=false)]
+        public int? TotalMatches { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -50,8 +59,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UserData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class TargetsResponseData {\n");
+            sb.Append("  Targets: ").Append(Targets).Append("\n");
+            sb.Append("  TotalMatches: ").Append(TotalMatches).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -73,15 +83,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UserData);
+            return this.Equals(obj as TargetsResponseData);
         }
 
         /// <summary>
-        /// Returns true if UserData instances are equal
+        /// Returns true if TargetsResponseData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UserData to be compared</param>
+        /// <param name="other">Instance of TargetsResponseData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UserData other)
+        public bool Equals(TargetsResponseData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -89,9 +99,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Targets == other.Targets ||
+                    this.Targets != null &&
+                    this.Targets.SequenceEqual(other.Targets)
+                ) && 
+                (
+                    this.TotalMatches == other.TotalMatches ||
+                    this.TotalMatches != null &&
+                    this.TotalMatches.Equals(other.TotalMatches)
                 );
         }
 
@@ -106,8 +121,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Targets != null)
+                    hash = hash * 59 + this.Targets.GetHashCode();
+                if (this.TotalMatches != null)
+                    hash = hash * 59 + this.TotalMatches.GetHashCode();
                 return hash;
             }
         }
