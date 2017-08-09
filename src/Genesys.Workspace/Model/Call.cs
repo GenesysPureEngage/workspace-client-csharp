@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -73,83 +74,99 @@ namespace Genesys.Workspace.Model
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
         /// <summary>
         /// Gets or Sets Id
         /// </summary>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
+
         /// <summary>
         /// Gets or Sets PreviousConnId
         /// </summary>
         [DataMember(Name="previousConnId", EmitDefaultValue=false)]
         public string PreviousConnId { get; set; }
+
         /// <summary>
         /// Gets or Sets ParentConnId
         /// </summary>
         [DataMember(Name="parentConnId", EmitDefaultValue=false)]
         public string ParentConnId { get; set; }
+
         /// <summary>
         /// Gets or Sets PhoneNumber
         /// </summary>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
         /// <summary>
         /// Gets or Sets ConnId
         /// </summary>
         [DataMember(Name="connId", EmitDefaultValue=false)]
         public string ConnId { get; set; }
+
         /// <summary>
         /// Gets or Sets CallUuid
         /// </summary>
         [DataMember(Name="callUuid", EmitDefaultValue=false)]
         public string CallUuid { get; set; }
+
         /// <summary>
         /// Gets or Sets CallType
         /// </summary>
         [DataMember(Name="callType", EmitDefaultValue=false)]
         public string CallType { get; set; }
+
         /// <summary>
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; set; }
+
         /// <summary>
         /// Gets or Sets Capabilities
         /// </summary>
         [DataMember(Name="capabilities", EmitDefaultValue=false)]
         public List<string> Capabilities { get; set; }
+
         /// <summary>
         /// Gets or Sets Participants
         /// </summary>
         [DataMember(Name="participants", EmitDefaultValue=false)]
         public List<CallParticipants> Participants { get; set; }
+
         /// <summary>
         /// Gets or Sets Dnis
         /// </summary>
         [DataMember(Name="dnis", EmitDefaultValue=false)]
         public string Dnis { get; set; }
+
         /// <summary>
         /// Gets or Sets Ani
         /// </summary>
         [DataMember(Name="ani", EmitDefaultValue=false)]
         public string Ani { get; set; }
+
         /// <summary>
         /// Gets or Sets RecordingState
         /// </summary>
         [DataMember(Name="recordingState", EmitDefaultValue=false)]
         public string RecordingState { get; set; }
+
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
+
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -339,8 +356,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

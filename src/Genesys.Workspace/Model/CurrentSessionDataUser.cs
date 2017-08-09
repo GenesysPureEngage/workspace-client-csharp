@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -80,46 +81,55 @@ namespace Genesys.Workspace.Model
         /// </summary>
         [DataMember(Name="dbid", EmitDefaultValue=false)]
         public int? Dbid { get; set; }
+
         /// <summary>
         /// Gets or Sets FirstName
         /// </summary>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
+
         /// <summary>
         /// Gets or Sets LastName
         /// </summary>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
         /// <summary>
         /// Gets or Sets UserName
         /// </summary>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
+
         /// <summary>
         /// Gets or Sets EmployeeId
         /// </summary>
         [DataMember(Name="employeeId", EmitDefaultValue=false)]
         public string EmployeeId { get; set; }
+
         /// <summary>
         /// Gets or Sets DefaultPlace
         /// </summary>
         [DataMember(Name="defaultPlace", EmitDefaultValue=false)]
         public string DefaultPlace { get; set; }
+
         /// <summary>
         /// Gets or Sets AgentLogin
         /// </summary>
         [DataMember(Name="agentLogin", EmitDefaultValue=false)]
         public string AgentLogin { get; set; }
+
         /// <summary>
         /// Gets or Sets UserProperties
         /// </summary>
         [DataMember(Name="userProperties", EmitDefaultValue=false)]
         public List<Kvpair> UserProperties { get; set; }
+
         /// <summary>
         /// Gets or Sets ActiveSession
         /// </summary>
         [DataMember(Name="activeSession", EmitDefaultValue=false)]
         public CurrentSessionDataUserActiveSession ActiveSession { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -253,8 +263,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }
