@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,12 +37,21 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsupdatecontactData" /> class.
         /// </summary>
+        /// <param name="ChangedProperties">The list of contact attributes to be updated for the contact (required).</param>
         /// <param name="ContactId">The id of the contact (required).</param>
         /// <param name="AddedProperties">The list of contact attributes to be added to the contact (required).</param>
-        /// <param name="ChangedProperties">The list of contact attributes to be updated for the contact (required).</param>
         /// <param name="DeletedProperties">The list of contact attributes to be deleted for the contact (required).</param>
-        public UcsupdatecontactData(string ContactId = default(string), List<Object> AddedProperties = default(List<Object>), List<Object> ChangedProperties = default(List<Object>), List<Object> DeletedProperties = default(List<Object>))
+        public UcsupdatecontactData(List<Object> ChangedProperties = default(List<Object>), string ContactId = default(string), List<Object> AddedProperties = default(List<Object>), List<Object> DeletedProperties = default(List<Object>))
         {
+            // to ensure "ChangedProperties" is required (not null)
+            if (ChangedProperties == null)
+            {
+                throw new InvalidDataException("ChangedProperties is a required property for UcsupdatecontactData and cannot be null");
+            }
+            else
+            {
+                this.ChangedProperties = ChangedProperties;
+            }
             // to ensure "ContactId" is required (not null)
             if (ContactId == null)
             {
@@ -62,15 +70,6 @@ namespace Genesys.Workspace.Model
             {
                 this.AddedProperties = AddedProperties;
             }
-            // to ensure "ChangedProperties" is required (not null)
-            if (ChangedProperties == null)
-            {
-                throw new InvalidDataException("ChangedProperties is a required property for UcsupdatecontactData and cannot be null");
-            }
-            else
-            {
-                this.ChangedProperties = ChangedProperties;
-            }
             // to ensure "DeletedProperties" is required (not null)
             if (DeletedProperties == null)
             {
@@ -83,33 +82,29 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
+        /// The list of contact attributes to be updated for the contact
+        /// </summary>
+        /// <value>The list of contact attributes to be updated for the contact</value>
+        [DataMember(Name="changedProperties", EmitDefaultValue=false)]
+        public List<Object> ChangedProperties { get; set; }
+        /// <summary>
         /// The id of the contact
         /// </summary>
         /// <value>The id of the contact</value>
         [DataMember(Name="contactId", EmitDefaultValue=false)]
         public string ContactId { get; set; }
-
         /// <summary>
         /// The list of contact attributes to be added to the contact
         /// </summary>
         /// <value>The list of contact attributes to be added to the contact</value>
         [DataMember(Name="addedProperties", EmitDefaultValue=false)]
         public List<Object> AddedProperties { get; set; }
-
-        /// <summary>
-        /// The list of contact attributes to be updated for the contact
-        /// </summary>
-        /// <value>The list of contact attributes to be updated for the contact</value>
-        [DataMember(Name="changedProperties", EmitDefaultValue=false)]
-        public List<Object> ChangedProperties { get; set; }
-
         /// <summary>
         /// The list of contact attributes to be deleted for the contact
         /// </summary>
         /// <value>The list of contact attributes to be deleted for the contact</value>
         [DataMember(Name="deletedProperties", EmitDefaultValue=false)]
         public List<Object> DeletedProperties { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -118,9 +113,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsupdatecontactData {\n");
+            sb.Append("  ChangedProperties: ").Append(ChangedProperties).Append("\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("  AddedProperties: ").Append(AddedProperties).Append("\n");
-            sb.Append("  ChangedProperties: ").Append(ChangedProperties).Append("\n");
             sb.Append("  DeletedProperties: ").Append(DeletedProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -159,6 +154,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.ChangedProperties == other.ChangedProperties ||
+                    this.ChangedProperties != null &&
+                    this.ChangedProperties.SequenceEqual(other.ChangedProperties)
+                ) && 
+                (
                     this.ContactId == other.ContactId ||
                     this.ContactId != null &&
                     this.ContactId.Equals(other.ContactId)
@@ -167,11 +167,6 @@ namespace Genesys.Workspace.Model
                     this.AddedProperties == other.AddedProperties ||
                     this.AddedProperties != null &&
                     this.AddedProperties.SequenceEqual(other.AddedProperties)
-                ) && 
-                (
-                    this.ChangedProperties == other.ChangedProperties ||
-                    this.ChangedProperties != null &&
-                    this.ChangedProperties.SequenceEqual(other.ChangedProperties)
                 ) && 
                 (
                     this.DeletedProperties == other.DeletedProperties ||
@@ -191,25 +186,20 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ChangedProperties != null)
+                    hash = hash * 59 + this.ChangedProperties.GetHashCode();
                 if (this.ContactId != null)
                     hash = hash * 59 + this.ContactId.GetHashCode();
                 if (this.AddedProperties != null)
                     hash = hash * 59 + this.AddedProperties.GetHashCode();
-                if (this.ChangedProperties != null)
-                    hash = hash * 59 + this.ChangedProperties.GetHashCode();
                 if (this.DeletedProperties != null)
                     hash = hash * 59 + this.DeletedProperties.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

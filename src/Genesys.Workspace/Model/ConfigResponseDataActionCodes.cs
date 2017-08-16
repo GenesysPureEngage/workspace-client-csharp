@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,34 +32,31 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponseDataActionCodes" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="Code">Code.</param>
         /// <param name="UserProperties">UserProperties.</param>
-        public ConfigResponseDataActionCodes(string Name = default(string), string Code = default(string), List<Kvpair> UserProperties = default(List<Kvpair>))
+        /// <param name="Code">Code.</param>
+        /// <param name="Name">Name.</param>
+        public ConfigResponseDataActionCodes(List<Kvpair> UserProperties = default(List<Kvpair>), string Code = default(string), string Name = default(string))
         {
-            this.Name = Name;
-            this.Code = Code;
             this.UserProperties = UserProperties;
+            this.Code = Code;
+            this.Name = Name;
         }
         
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Code
-        /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public string Code { get; set; }
-
         /// <summary>
         /// Gets or Sets UserProperties
         /// </summary>
         [DataMember(Name="userProperties", EmitDefaultValue=false)]
         public List<Kvpair> UserProperties { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Code
+        /// </summary>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public string Code { get; set; }
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -69,9 +65,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponseDataActionCodes {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,9 +105,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.UserProperties == other.UserProperties ||
+                    this.UserProperties != null &&
+                    this.UserProperties.SequenceEqual(other.UserProperties)
                 ) && 
                 (
                     this.Code == other.Code ||
@@ -119,9 +115,9 @@ namespace Genesys.Workspace.Model
                     this.Code.Equals(other.Code)
                 ) && 
                 (
-                    this.UserProperties == other.UserProperties ||
-                    this.UserProperties != null &&
-                    this.UserProperties.SequenceEqual(other.UserProperties)
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
                 );
         }
 
@@ -136,23 +132,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
                 if (this.UserProperties != null)
                     hash = hash * 59 + this.UserProperties.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
+                if (this.Name != null)
+                    hash = hash * 59 + this.Name.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

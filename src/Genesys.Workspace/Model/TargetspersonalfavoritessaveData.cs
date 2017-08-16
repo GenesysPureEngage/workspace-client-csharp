@@ -24,55 +24,55 @@ using System.ComponentModel.DataAnnotations;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// UcssetcallnoteData
+    /// TargetspersonalfavoritessaveData
     /// </summary>
     [DataContract]
-    public partial class UcssetcallnoteData :  IEquatable<UcssetcallnoteData>, IValidatableObject
+    public partial class TargetspersonalfavoritessaveData :  IEquatable<TargetspersonalfavoritessaveData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcssetcallnoteData" /> class.
+        /// Initializes a new instance of the <see cref="TargetspersonalfavoritessaveData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcssetcallnoteData() { }
+        protected TargetspersonalfavoritessaveData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcssetcallnoteData" /> class.
+        /// Initializes a new instance of the <see cref="TargetspersonalfavoritessaveData" /> class.
         /// </summary>
-        /// <param name="Note">The note to be set (required).</param>
-        /// <param name="InteractionId">The id of the interaction (required).</param>
-        public UcssetcallnoteData(string Note = default(string), string InteractionId = default(string))
+        /// <param name="Category">category of the favorite target (required).</param>
+        /// <param name="Target">The personal favorite target (required).</param>
+        public TargetspersonalfavoritessaveData(string Category = default(string), TargetInformation Target = default(TargetInformation))
         {
-            // to ensure "Note" is required (not null)
-            if (Note == null)
+            // to ensure "Category" is required (not null)
+            if (Category == null)
             {
-                throw new InvalidDataException("Note is a required property for UcssetcallnoteData and cannot be null");
+                throw new InvalidDataException("Category is a required property for TargetspersonalfavoritessaveData and cannot be null");
             }
             else
             {
-                this.Note = Note;
+                this.Category = Category;
             }
-            // to ensure "InteractionId" is required (not null)
-            if (InteractionId == null)
+            // to ensure "Target" is required (not null)
+            if (Target == null)
             {
-                throw new InvalidDataException("InteractionId is a required property for UcssetcallnoteData and cannot be null");
+                throw new InvalidDataException("Target is a required property for TargetspersonalfavoritessaveData and cannot be null");
             }
             else
             {
-                this.InteractionId = InteractionId;
+                this.Target = Target;
             }
         }
         
         /// <summary>
-        /// The note to be set
+        /// category of the favorite target
         /// </summary>
-        /// <value>The note to be set</value>
-        [DataMember(Name="note", EmitDefaultValue=false)]
-        public string Note { get; set; }
+        /// <value>category of the favorite target</value>
+        [DataMember(Name="category", EmitDefaultValue=false)]
+        public string Category { get; set; }
         /// <summary>
-        /// The id of the interaction
+        /// The personal favorite target
         /// </summary>
-        /// <value>The id of the interaction</value>
-        [DataMember(Name="interactionId", EmitDefaultValue=false)]
-        public string InteractionId { get; set; }
+        /// <value>The personal favorite target</value>
+        [DataMember(Name="target", EmitDefaultValue=false)]
+        public TargetInformation Target { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -80,9 +80,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcssetcallnoteData {\n");
-            sb.Append("  Note: ").Append(Note).Append("\n");
-            sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
+            sb.Append("class TargetspersonalfavoritessaveData {\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -104,15 +104,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcssetcallnoteData);
+            return this.Equals(obj as TargetspersonalfavoritessaveData);
         }
 
         /// <summary>
-        /// Returns true if UcssetcallnoteData instances are equal
+        /// Returns true if TargetspersonalfavoritessaveData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcssetcallnoteData to be compared</param>
+        /// <param name="other">Instance of TargetspersonalfavoritessaveData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcssetcallnoteData other)
+        public bool Equals(TargetspersonalfavoritessaveData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -120,14 +120,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Note == other.Note ||
-                    this.Note != null &&
-                    this.Note.Equals(other.Note)
+                    this.Category == other.Category ||
+                    this.Category != null &&
+                    this.Category.Equals(other.Category)
                 ) && 
                 (
-                    this.InteractionId == other.InteractionId ||
-                    this.InteractionId != null &&
-                    this.InteractionId.Equals(other.InteractionId)
+                    this.Target == other.Target ||
+                    this.Target != null &&
+                    this.Target.Equals(other.Target)
                 );
         }
 
@@ -142,10 +142,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Note != null)
-                    hash = hash * 59 + this.Note.GetHashCode();
-                if (this.InteractionId != null)
-                    hash = hash * 59 + this.InteractionId.GetHashCode();
+                if (this.Category != null)
+                    hash = hash * 59 + this.Category.GetHashCode();
+                if (this.Target != null)
+                    hash = hash * 59 + this.Target.GetHashCode();
                 return hash;
             }
         }

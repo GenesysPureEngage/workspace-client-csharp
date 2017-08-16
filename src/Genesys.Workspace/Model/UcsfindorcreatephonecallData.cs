@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,17 +37,35 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsfindorcreatephonecallData" /> class.
         /// </summary>
-        /// <param name="CallId">The id of the call (required).</param>
-        /// <param name="ContactId">The id of the contact (required).</param>
-        /// <param name="Type">The type of the call (required).</param>
         /// <param name="Status">The status of the call (required).</param>
+        /// <param name="UserData">A key/value pairs list of the user data of the call. (required).</param>
+        /// <param name="CallId">The id of the call (required).</param>
+        /// <param name="ThreadId">The thread id.</param>
+        /// <param name="ContactId">The id of the contact (required).</param>
         /// <param name="PhoneNumber">The phone number of the call.</param>
         /// <param name="ParentId">The id of the parent interaction.</param>
-        /// <param name="ThreadId">The thread id.</param>
+        /// <param name="Type">The type of the call (required).</param>
         /// <param name="Subject">The subject of the call.</param>
-        /// <param name="UserData">A key/value pairs list of the user data of the call. (required).</param>
-        public UcsfindorcreatephonecallData(string CallId = default(string), string ContactId = default(string), string Type = default(string), string Status = default(string), string PhoneNumber = default(string), string ParentId = default(string), string ThreadId = default(string), string Subject = default(string), List<Kvpair> UserData = default(List<Kvpair>))
+        public UcsfindorcreatephonecallData(string Status = default(string), List<Kvpair> UserData = default(List<Kvpair>), string CallId = default(string), string ThreadId = default(string), string ContactId = default(string), string PhoneNumber = default(string), string ParentId = default(string), string Type = default(string), string Subject = default(string))
         {
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for UcsfindorcreatephonecallData and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
+            // to ensure "UserData" is required (not null)
+            if (UserData == null)
+            {
+                throw new InvalidDataException("UserData is a required property for UcsfindorcreatephonecallData and cannot be null");
+            }
+            else
+            {
+                this.UserData = UserData;
+            }
             // to ensure "CallId" is required (not null)
             if (CallId == null)
             {
@@ -76,93 +93,66 @@ namespace Genesys.Workspace.Model
             {
                 this.Type = Type;
             }
-            // to ensure "Status" is required (not null)
-            if (Status == null)
-            {
-                throw new InvalidDataException("Status is a required property for UcsfindorcreatephonecallData and cannot be null");
-            }
-            else
-            {
-                this.Status = Status;
-            }
-            // to ensure "UserData" is required (not null)
-            if (UserData == null)
-            {
-                throw new InvalidDataException("UserData is a required property for UcsfindorcreatephonecallData and cannot be null");
-            }
-            else
-            {
-                this.UserData = UserData;
-            }
+            this.ThreadId = ThreadId;
             this.PhoneNumber = PhoneNumber;
             this.ParentId = ParentId;
-            this.ThreadId = ThreadId;
             this.Subject = Subject;
         }
         
-        /// <summary>
-        /// The id of the call
-        /// </summary>
-        /// <value>The id of the call</value>
-        [DataMember(Name="callId", EmitDefaultValue=false)]
-        public string CallId { get; set; }
-
-        /// <summary>
-        /// The id of the contact
-        /// </summary>
-        /// <value>The id of the contact</value>
-        [DataMember(Name="contactId", EmitDefaultValue=false)]
-        public string ContactId { get; set; }
-
-        /// <summary>
-        /// The type of the call
-        /// </summary>
-        /// <value>The type of the call</value>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// The status of the call
         /// </summary>
         /// <value>The status of the call</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
-
-        /// <summary>
-        /// The phone number of the call
-        /// </summary>
-        /// <value>The phone number of the call</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
-
-        /// <summary>
-        /// The id of the parent interaction
-        /// </summary>
-        /// <value>The id of the parent interaction</value>
-        [DataMember(Name="parentId", EmitDefaultValue=false)]
-        public string ParentId { get; set; }
-
-        /// <summary>
-        /// The thread id
-        /// </summary>
-        /// <value>The thread id</value>
-        [DataMember(Name="threadId", EmitDefaultValue=false)]
-        public string ThreadId { get; set; }
-
-        /// <summary>
-        /// The subject of the call
-        /// </summary>
-        /// <value>The subject of the call</value>
-        [DataMember(Name="subject", EmitDefaultValue=false)]
-        public string Subject { get; set; }
-
         /// <summary>
         /// A key/value pairs list of the user data of the call.
         /// </summary>
         /// <value>A key/value pairs list of the user data of the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
-
+        /// <summary>
+        /// The id of the call
+        /// </summary>
+        /// <value>The id of the call</value>
+        [DataMember(Name="callId", EmitDefaultValue=false)]
+        public string CallId { get; set; }
+        /// <summary>
+        /// The thread id
+        /// </summary>
+        /// <value>The thread id</value>
+        [DataMember(Name="threadId", EmitDefaultValue=false)]
+        public string ThreadId { get; set; }
+        /// <summary>
+        /// The id of the contact
+        /// </summary>
+        /// <value>The id of the contact</value>
+        [DataMember(Name="contactId", EmitDefaultValue=false)]
+        public string ContactId { get; set; }
+        /// <summary>
+        /// The phone number of the call
+        /// </summary>
+        /// <value>The phone number of the call</value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
+        /// <summary>
+        /// The id of the parent interaction
+        /// </summary>
+        /// <value>The id of the parent interaction</value>
+        [DataMember(Name="parentId", EmitDefaultValue=false)]
+        public string ParentId { get; set; }
+        /// <summary>
+        /// The type of the call
+        /// </summary>
+        /// <value>The type of the call</value>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
+        /// <summary>
+        /// The subject of the call
+        /// </summary>
+        /// <value>The subject of the call</value>
+        [DataMember(Name="subject", EmitDefaultValue=false)]
+        public string Subject { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -171,15 +161,15 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsfindorcreatephonecallData {\n");
-            sb.Append("  CallId: ").Append(CallId).Append("\n");
-            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
+            sb.Append("  CallId: ").Append(CallId).Append("\n");
+            sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
+            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  ParentId: ").Append(ParentId).Append("\n");
-            sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
-            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -217,24 +207,29 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.UserData == other.UserData ||
+                    this.UserData != null &&
+                    this.UserData.SequenceEqual(other.UserData)
+                ) && 
+                (
                     this.CallId == other.CallId ||
                     this.CallId != null &&
                     this.CallId.Equals(other.CallId)
                 ) && 
                 (
+                    this.ThreadId == other.ThreadId ||
+                    this.ThreadId != null &&
+                    this.ThreadId.Equals(other.ThreadId)
+                ) && 
+                (
                     this.ContactId == other.ContactId ||
                     this.ContactId != null &&
                     this.ContactId.Equals(other.ContactId)
-                ) && 
-                (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
                 ) && 
                 (
                     this.PhoneNumber == other.PhoneNumber ||
@@ -247,19 +242,14 @@ namespace Genesys.Workspace.Model
                     this.ParentId.Equals(other.ParentId)
                 ) && 
                 (
-                    this.ThreadId == other.ThreadId ||
-                    this.ThreadId != null &&
-                    this.ThreadId.Equals(other.ThreadId)
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
                     this.Subject == other.Subject ||
                     this.Subject != null &&
                     this.Subject.Equals(other.Subject)
-                ) && 
-                (
-                    this.UserData == other.UserData ||
-                    this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
                 );
         }
 
@@ -274,35 +264,30 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.CallId != null)
-                    hash = hash * 59 + this.CallId.GetHashCode();
-                if (this.ContactId != null)
-                    hash = hash * 59 + this.ContactId.GetHashCode();
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.UserData != null)
+                    hash = hash * 59 + this.UserData.GetHashCode();
+                if (this.CallId != null)
+                    hash = hash * 59 + this.CallId.GetHashCode();
+                if (this.ThreadId != null)
+                    hash = hash * 59 + this.ThreadId.GetHashCode();
+                if (this.ContactId != null)
+                    hash = hash * 59 + this.ContactId.GetHashCode();
                 if (this.PhoneNumber != null)
                     hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.ParentId != null)
                     hash = hash * 59 + this.ParentId.GetHashCode();
-                if (this.ThreadId != null)
-                    hash = hash * 59 + this.ThreadId.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Subject != null)
                     hash = hash * 59 + this.Subject.GetHashCode();
-                if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

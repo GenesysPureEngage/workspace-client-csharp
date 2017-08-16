@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,19 +37,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetsrecentsaddData" /> class.
         /// </summary>
-        /// <param name="Target">The recent target (required).</param>
         /// <param name="RecentInformation">data about recent interaction with the target (required).</param>
-        public TargetsrecentsaddData(TargetId Target = default(TargetId), RecentData RecentInformation = default(RecentData))
+        /// <param name="Target">The recent target (required).</param>
+        public TargetsrecentsaddData(RecentData RecentInformation = default(RecentData), TargetInformation Target = default(TargetInformation))
         {
-            // to ensure "Target" is required (not null)
-            if (Target == null)
-            {
-                throw new InvalidDataException("Target is a required property for TargetsrecentsaddData and cannot be null");
-            }
-            else
-            {
-                this.Target = Target;
-            }
             // to ensure "RecentInformation" is required (not null)
             if (RecentInformation == null)
             {
@@ -60,22 +50,29 @@ namespace Genesys.Workspace.Model
             {
                 this.RecentInformation = RecentInformation;
             }
+            // to ensure "Target" is required (not null)
+            if (Target == null)
+            {
+                throw new InvalidDataException("Target is a required property for TargetsrecentsaddData and cannot be null");
+            }
+            else
+            {
+                this.Target = Target;
+            }
         }
         
-        /// <summary>
-        /// The recent target
-        /// </summary>
-        /// <value>The recent target</value>
-        [DataMember(Name="target", EmitDefaultValue=false)]
-        public TargetId Target { get; set; }
-
         /// <summary>
         /// data about recent interaction with the target
         /// </summary>
         /// <value>data about recent interaction with the target</value>
         [DataMember(Name="recentInformation", EmitDefaultValue=false)]
         public RecentData RecentInformation { get; set; }
-
+        /// <summary>
+        /// The recent target
+        /// </summary>
+        /// <value>The recent target</value>
+        [DataMember(Name="target", EmitDefaultValue=false)]
+        public TargetInformation Target { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -84,8 +81,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TargetsrecentsaddData {\n");
-            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("  RecentInformation: ").Append(RecentInformation).Append("\n");
+            sb.Append("  Target: ").Append(Target).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,14 +120,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Target == other.Target ||
-                    this.Target != null &&
-                    this.Target.Equals(other.Target)
-                ) && 
-                (
                     this.RecentInformation == other.RecentInformation ||
                     this.RecentInformation != null &&
                     this.RecentInformation.Equals(other.RecentInformation)
+                ) && 
+                (
+                    this.Target == other.Target ||
+                    this.Target != null &&
+                    this.Target.Equals(other.Target)
                 );
         }
 
@@ -145,21 +142,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Target != null)
-                    hash = hash * 59 + this.Target.GetHashCode();
                 if (this.RecentInformation != null)
                     hash = hash * 59 + this.RecentInformation.GetHashCode();
+                if (this.Target != null)
+                    hash = hash * 59 + this.Target.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

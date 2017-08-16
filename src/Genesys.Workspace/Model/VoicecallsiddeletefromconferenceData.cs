@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,10 +37,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsiddeletefromconferenceData" /> class.
         /// </summary>
-        /// <param name="DnToDrop">The party to be deleted from the conference (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicecallsiddeletefromconferenceData(string DnToDrop = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        /// <param name="DnToDrop">The party to be deleted from the conference (required).</param>
+        public VoicecallsiddeletefromconferenceData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string DnToDrop = default(string))
         {
             // to ensure "DnToDrop" is required (not null)
             if (DnToDrop == null)
@@ -57,26 +56,23 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// The party to be deleted from the conference
-        /// </summary>
-        /// <value>The party to be deleted from the conference</value>
-        [DataMember(Name="dnToDrop", EmitDefaultValue=false)]
-        public string DnToDrop { get; set; }
-
-        /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
-
         /// <summary>
         /// A key/value pairs list of additional data.
         /// </summary>
         /// <value>A key/value pairs list of additional data.</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
-
+        /// <summary>
+        /// The party to be deleted from the conference
+        /// </summary>
+        /// <value>The party to be deleted from the conference</value>
+        [DataMember(Name="dnToDrop", EmitDefaultValue=false)]
+        public string DnToDrop { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,9 +81,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsiddeletefromconferenceData {\n");
-            sb.Append("  DnToDrop: ").Append(DnToDrop).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
+            sb.Append("  DnToDrop: ").Append(DnToDrop).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,11 +121,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.DnToDrop == other.DnToDrop ||
-                    this.DnToDrop != null &&
-                    this.DnToDrop.Equals(other.DnToDrop)
-                ) && 
-                (
                     this.Reasons == other.Reasons ||
                     this.Reasons != null &&
                     this.Reasons.SequenceEqual(other.Reasons)
@@ -138,6 +129,11 @@ namespace Genesys.Workspace.Model
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
+                ) && 
+                (
+                    this.DnToDrop == other.DnToDrop ||
+                    this.DnToDrop != null &&
+                    this.DnToDrop.Equals(other.DnToDrop)
                 );
         }
 
@@ -152,23 +148,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.DnToDrop != null)
-                    hash = hash * 59 + this.DnToDrop.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
+                if (this.DnToDrop != null)
+                    hash = hash * 59 + this.DnToDrop.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

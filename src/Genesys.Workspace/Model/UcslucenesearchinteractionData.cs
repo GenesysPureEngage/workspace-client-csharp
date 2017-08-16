@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,11 +37,11 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcslucenesearchinteractionData" /> class.
         /// </summary>
-        /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
-        /// <param name="SearchMyHistory">Indicates if the search is performed among the history of interactions of the logged in agent.</param>
-        /// <param name="Query">The query to do the lucene search for contacts (required).</param>
         /// <param name="ContactAttributes">The list of contact attributes to be returned for each contact in response.</param>
-        public UcslucenesearchinteractionData(int? MaxResults = default(int?), bool? SearchMyHistory = default(bool?), string Query = default(string), List<string> ContactAttributes = default(List<string>))
+        /// <param name="Query">The query to do the lucene search for contacts (required).</param>
+        /// <param name="SearchMyHistory">Indicates if the search is performed among the history of interactions of the logged in agent.</param>
+        /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
+        public UcslucenesearchinteractionData(List<string> ContactAttributes = default(List<string>), string Query = default(string), bool? SearchMyHistory = default(bool?), int? MaxResults = default(int?))
         {
             // to ensure "Query" is required (not null)
             if (Query == null)
@@ -53,39 +52,35 @@ namespace Genesys.Workspace.Model
             {
                 this.Query = Query;
             }
-            this.MaxResults = MaxResults;
-            this.SearchMyHistory = SearchMyHistory;
             this.ContactAttributes = ContactAttributes;
+            this.SearchMyHistory = SearchMyHistory;
+            this.MaxResults = MaxResults;
         }
         
-        /// <summary>
-        /// The maximum number of contacts to be returned
-        /// </summary>
-        /// <value>The maximum number of contacts to be returned</value>
-        [DataMember(Name="maxResults", EmitDefaultValue=false)]
-        public int? MaxResults { get; set; }
-
-        /// <summary>
-        /// Indicates if the search is performed among the history of interactions of the logged in agent
-        /// </summary>
-        /// <value>Indicates if the search is performed among the history of interactions of the logged in agent</value>
-        [DataMember(Name="searchMyHistory", EmitDefaultValue=false)]
-        public bool? SearchMyHistory { get; set; }
-
-        /// <summary>
-        /// The query to do the lucene search for contacts
-        /// </summary>
-        /// <value>The query to do the lucene search for contacts</value>
-        [DataMember(Name="query", EmitDefaultValue=false)]
-        public string Query { get; set; }
-
         /// <summary>
         /// The list of contact attributes to be returned for each contact in response
         /// </summary>
         /// <value>The list of contact attributes to be returned for each contact in response</value>
         [DataMember(Name="contactAttributes", EmitDefaultValue=false)]
         public List<string> ContactAttributes { get; set; }
-
+        /// <summary>
+        /// The query to do the lucene search for contacts
+        /// </summary>
+        /// <value>The query to do the lucene search for contacts</value>
+        [DataMember(Name="query", EmitDefaultValue=false)]
+        public string Query { get; set; }
+        /// <summary>
+        /// Indicates if the search is performed among the history of interactions of the logged in agent
+        /// </summary>
+        /// <value>Indicates if the search is performed among the history of interactions of the logged in agent</value>
+        [DataMember(Name="searchMyHistory", EmitDefaultValue=false)]
+        public bool? SearchMyHistory { get; set; }
+        /// <summary>
+        /// The maximum number of contacts to be returned
+        /// </summary>
+        /// <value>The maximum number of contacts to be returned</value>
+        [DataMember(Name="maxResults", EmitDefaultValue=false)]
+        public int? MaxResults { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -94,10 +89,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcslucenesearchinteractionData {\n");
-            sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
-            sb.Append("  SearchMyHistory: ").Append(SearchMyHistory).Append("\n");
-            sb.Append("  Query: ").Append(Query).Append("\n");
             sb.Append("  ContactAttributes: ").Append(ContactAttributes).Append("\n");
+            sb.Append("  Query: ").Append(Query).Append("\n");
+            sb.Append("  SearchMyHistory: ").Append(SearchMyHistory).Append("\n");
+            sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,14 +130,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.MaxResults == other.MaxResults ||
-                    this.MaxResults != null &&
-                    this.MaxResults.Equals(other.MaxResults)
-                ) && 
-                (
-                    this.SearchMyHistory == other.SearchMyHistory ||
-                    this.SearchMyHistory != null &&
-                    this.SearchMyHistory.Equals(other.SearchMyHistory)
+                    this.ContactAttributes == other.ContactAttributes ||
+                    this.ContactAttributes != null &&
+                    this.ContactAttributes.SequenceEqual(other.ContactAttributes)
                 ) && 
                 (
                     this.Query == other.Query ||
@@ -150,9 +140,14 @@ namespace Genesys.Workspace.Model
                     this.Query.Equals(other.Query)
                 ) && 
                 (
-                    this.ContactAttributes == other.ContactAttributes ||
-                    this.ContactAttributes != null &&
-                    this.ContactAttributes.SequenceEqual(other.ContactAttributes)
+                    this.SearchMyHistory == other.SearchMyHistory ||
+                    this.SearchMyHistory != null &&
+                    this.SearchMyHistory.Equals(other.SearchMyHistory)
+                ) && 
+                (
+                    this.MaxResults == other.MaxResults ||
+                    this.MaxResults != null &&
+                    this.MaxResults.Equals(other.MaxResults)
                 );
         }
 
@@ -167,25 +162,20 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.MaxResults != null)
-                    hash = hash * 59 + this.MaxResults.GetHashCode();
-                if (this.SearchMyHistory != null)
-                    hash = hash * 59 + this.SearchMyHistory.GetHashCode();
-                if (this.Query != null)
-                    hash = hash * 59 + this.Query.GetHashCode();
                 if (this.ContactAttributes != null)
                     hash = hash * 59 + this.ContactAttributes.GetHashCode();
+                if (this.Query != null)
+                    hash = hash * 59 + this.Query.GetHashCode();
+                if (this.SearchMyHistory != null)
+                    hash = hash * 59 + this.SearchMyHistory.GetHashCode();
+                if (this.MaxResults != null)
+                    hash = hash * 59 + this.MaxResults.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

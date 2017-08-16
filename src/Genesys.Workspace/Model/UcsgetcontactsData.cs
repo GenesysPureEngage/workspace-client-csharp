@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,31 +37,13 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsgetcontactsData" /> class.
         /// </summary>
-        /// <param name="SearchCriteria">The search criteria (required).</param>
-        /// <param name="AttributeList">The list of contact attributes to be returned for each contact in response (required).</param>
+        /// <param name="SortCriteria">The sorting criteria.</param>
         /// <param name="StartIndex">The start index (required).</param>
         /// <param name="MaxCount">The maximum number of contacts to be returned (required).</param>
-        /// <param name="SortCriteria">The sorting criteria.</param>
-        public UcsgetcontactsData(Object SearchCriteria = default(Object), List<string> AttributeList = default(List<string>), int? StartIndex = default(int?), int? MaxCount = default(int?), List<Object> SortCriteria = default(List<Object>))
+        /// <param name="SearchCriteria">The search criteria (required).</param>
+        /// <param name="AttributeList">The list of contact attributes to be returned for each contact in response (required).</param>
+        public UcsgetcontactsData(List<Object> SortCriteria = default(List<Object>), int? StartIndex = default(int?), int? MaxCount = default(int?), Object SearchCriteria = default(Object), List<string> AttributeList = default(List<string>))
         {
-            // to ensure "SearchCriteria" is required (not null)
-            if (SearchCriteria == null)
-            {
-                throw new InvalidDataException("SearchCriteria is a required property for UcsgetcontactsData and cannot be null");
-            }
-            else
-            {
-                this.SearchCriteria = SearchCriteria;
-            }
-            // to ensure "AttributeList" is required (not null)
-            if (AttributeList == null)
-            {
-                throw new InvalidDataException("AttributeList is a required property for UcsgetcontactsData and cannot be null");
-            }
-            else
-            {
-                this.AttributeList = AttributeList;
-            }
             // to ensure "StartIndex" is required (not null)
             if (StartIndex == null)
             {
@@ -81,44 +62,57 @@ namespace Genesys.Workspace.Model
             {
                 this.MaxCount = MaxCount;
             }
+            // to ensure "SearchCriteria" is required (not null)
+            if (SearchCriteria == null)
+            {
+                throw new InvalidDataException("SearchCriteria is a required property for UcsgetcontactsData and cannot be null");
+            }
+            else
+            {
+                this.SearchCriteria = SearchCriteria;
+            }
+            // to ensure "AttributeList" is required (not null)
+            if (AttributeList == null)
+            {
+                throw new InvalidDataException("AttributeList is a required property for UcsgetcontactsData and cannot be null");
+            }
+            else
+            {
+                this.AttributeList = AttributeList;
+            }
             this.SortCriteria = SortCriteria;
         }
         
-        /// <summary>
-        /// The search criteria
-        /// </summary>
-        /// <value>The search criteria</value>
-        [DataMember(Name="searchCriteria", EmitDefaultValue=false)]
-        public Object SearchCriteria { get; set; }
-
-        /// <summary>
-        /// The list of contact attributes to be returned for each contact in response
-        /// </summary>
-        /// <value>The list of contact attributes to be returned for each contact in response</value>
-        [DataMember(Name="attributeList", EmitDefaultValue=false)]
-        public List<string> AttributeList { get; set; }
-
-        /// <summary>
-        /// The start index
-        /// </summary>
-        /// <value>The start index</value>
-        [DataMember(Name="startIndex", EmitDefaultValue=false)]
-        public int? StartIndex { get; set; }
-
-        /// <summary>
-        /// The maximum number of contacts to be returned
-        /// </summary>
-        /// <value>The maximum number of contacts to be returned</value>
-        [DataMember(Name="maxCount", EmitDefaultValue=false)]
-        public int? MaxCount { get; set; }
-
         /// <summary>
         /// The sorting criteria
         /// </summary>
         /// <value>The sorting criteria</value>
         [DataMember(Name="sortCriteria", EmitDefaultValue=false)]
         public List<Object> SortCriteria { get; set; }
-
+        /// <summary>
+        /// The start index
+        /// </summary>
+        /// <value>The start index</value>
+        [DataMember(Name="startIndex", EmitDefaultValue=false)]
+        public int? StartIndex { get; set; }
+        /// <summary>
+        /// The maximum number of contacts to be returned
+        /// </summary>
+        /// <value>The maximum number of contacts to be returned</value>
+        [DataMember(Name="maxCount", EmitDefaultValue=false)]
+        public int? MaxCount { get; set; }
+        /// <summary>
+        /// The search criteria
+        /// </summary>
+        /// <value>The search criteria</value>
+        [DataMember(Name="searchCriteria", EmitDefaultValue=false)]
+        public Object SearchCriteria { get; set; }
+        /// <summary>
+        /// The list of contact attributes to be returned for each contact in response
+        /// </summary>
+        /// <value>The list of contact attributes to be returned for each contact in response</value>
+        [DataMember(Name="attributeList", EmitDefaultValue=false)]
+        public List<string> AttributeList { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -127,11 +121,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsgetcontactsData {\n");
-            sb.Append("  SearchCriteria: ").Append(SearchCriteria).Append("\n");
-            sb.Append("  AttributeList: ").Append(AttributeList).Append("\n");
+            sb.Append("  SortCriteria: ").Append(SortCriteria).Append("\n");
             sb.Append("  StartIndex: ").Append(StartIndex).Append("\n");
             sb.Append("  MaxCount: ").Append(MaxCount).Append("\n");
-            sb.Append("  SortCriteria: ").Append(SortCriteria).Append("\n");
+            sb.Append("  SearchCriteria: ").Append(SearchCriteria).Append("\n");
+            sb.Append("  AttributeList: ").Append(AttributeList).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -169,14 +163,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.SearchCriteria == other.SearchCriteria ||
-                    this.SearchCriteria != null &&
-                    this.SearchCriteria.Equals(other.SearchCriteria)
-                ) && 
-                (
-                    this.AttributeList == other.AttributeList ||
-                    this.AttributeList != null &&
-                    this.AttributeList.SequenceEqual(other.AttributeList)
+                    this.SortCriteria == other.SortCriteria ||
+                    this.SortCriteria != null &&
+                    this.SortCriteria.SequenceEqual(other.SortCriteria)
                 ) && 
                 (
                     this.StartIndex == other.StartIndex ||
@@ -189,9 +178,14 @@ namespace Genesys.Workspace.Model
                     this.MaxCount.Equals(other.MaxCount)
                 ) && 
                 (
-                    this.SortCriteria == other.SortCriteria ||
-                    this.SortCriteria != null &&
-                    this.SortCriteria.SequenceEqual(other.SortCriteria)
+                    this.SearchCriteria == other.SearchCriteria ||
+                    this.SearchCriteria != null &&
+                    this.SearchCriteria.Equals(other.SearchCriteria)
+                ) && 
+                (
+                    this.AttributeList == other.AttributeList ||
+                    this.AttributeList != null &&
+                    this.AttributeList.SequenceEqual(other.AttributeList)
                 );
         }
 
@@ -206,27 +200,22 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.SearchCriteria != null)
-                    hash = hash * 59 + this.SearchCriteria.GetHashCode();
-                if (this.AttributeList != null)
-                    hash = hash * 59 + this.AttributeList.GetHashCode();
+                if (this.SortCriteria != null)
+                    hash = hash * 59 + this.SortCriteria.GetHashCode();
                 if (this.StartIndex != null)
                     hash = hash * 59 + this.StartIndex.GetHashCode();
                 if (this.MaxCount != null)
                     hash = hash * 59 + this.MaxCount.GetHashCode();
-                if (this.SortCriteria != null)
-                    hash = hash * 59 + this.SortCriteria.GetHashCode();
+                if (this.SearchCriteria != null)
+                    hash = hash * 59 + this.SearchCriteria.GetHashCode();
+                if (this.AttributeList != null)
+                    hash = hash * 59 + this.AttributeList.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

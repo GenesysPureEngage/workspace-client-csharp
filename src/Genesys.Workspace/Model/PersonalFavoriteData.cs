@@ -20,39 +20,29 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// TargetId
+    /// PersonalFavoriteData
     /// </summary>
     [DataContract]
-    public partial class TargetId :  IEquatable<TargetId>, IValidatableObject
+    public partial class PersonalFavoriteData :  IEquatable<PersonalFavoriteData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetId" /> class.
+        /// Initializes a new instance of the <see cref="PersonalFavoriteData" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Id">Id.</param>
-        public TargetId(string Type = default(string), string Id = default(string))
+        /// <param name="Data">Data.</param>
+        public PersonalFavoriteData(TargetspersonalfavoritessaveData Data = default(TargetspersonalfavoritessaveData))
         {
-            this.Type = Type;
-            this.Id = Id;
+            this.Data = Data;
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Id
-        /// </summary>
-        [DataMember(Name="id", EmitDefaultValue=false)]
-        public string Id { get; set; }
-
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public TargetspersonalfavoritessaveData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -60,9 +50,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TargetId {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("class PersonalFavoriteData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -84,15 +73,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TargetId);
+            return this.Equals(obj as PersonalFavoriteData);
         }
 
         /// <summary>
-        /// Returns true if TargetId instances are equal
+        /// Returns true if PersonalFavoriteData instances are equal
         /// </summary>
-        /// <param name="other">Instance of TargetId to be compared</param>
+        /// <param name="other">Instance of PersonalFavoriteData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetId other)
+        public bool Equals(PersonalFavoriteData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -100,14 +89,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -122,21 +106,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
-                if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

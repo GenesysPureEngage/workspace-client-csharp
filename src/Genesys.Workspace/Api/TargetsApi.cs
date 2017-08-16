@@ -65,6 +65,29 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData);
         /// <summary>
+        /// delete a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// delete a personal favorite by type and id
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse DeletePersonalFavorite (decimal? id, string type);
+
+        /// <summary>
+        /// delete a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// delete a personal favorite by type and id
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> DeletePersonalFavoriteWithHttpInfo (decimal? id, string type);
+        /// <summary>
         /// Search for targets
         /// </summary>
         /// <remarks>
@@ -96,6 +119,27 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of TargetsResponse</returns>
         ApiResponse<TargetsResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
+        /// Get personal favorites
+        /// </summary>
+        /// <remarks>
+        /// Get personal favorites
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>TargetsResponse</returns>
+        TargetsResponse GetPersonalFavorites (decimal? limit = null);
+
+        /// <summary>
+        /// Get personal favorites
+        /// </summary>
+        /// <remarks>
+        /// Get personal favorites
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        ApiResponse<TargetsResponse> GetPersonalFavoritesWithHttpInfo (decimal? limit = null);
+        /// <summary>
         /// Get recent targets
         /// </summary>
         /// <remarks>
@@ -103,8 +147,8 @@ namespace Genesys.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetRecentTargets (decimal? limit = null);
+        /// <returns>TargetsResponse</returns>
+        TargetsResponse GetRecentTargets (decimal? limit = null);
 
         /// <summary>
         /// Get recent targets
@@ -114,8 +158,8 @@ namespace Genesys.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetRecentTargetsWithHttpInfo (decimal? limit = null);
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        ApiResponse<TargetsResponse> GetRecentTargetsWithHttpInfo (decimal? limit = null);
         /// <summary>
         /// Get a target
         /// </summary>
@@ -139,6 +183,27 @@ namespace Genesys.Workspace.Api
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetTargetWithHttpInfo (decimal? id, string type);
+        /// <summary>
+        /// Save a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// Save a personal favorite
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SavePersonalFavorite (PersonalFavoriteData personalFavoriteData);
+
+        /// <summary>
+        /// Save a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// Save a personal favorite
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SavePersonalFavoriteWithHttpInfo (PersonalFavoriteData personalFavoriteData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -182,6 +247,29 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData);
         /// <summary>
+        /// delete a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// delete a personal favorite by type and id
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (decimal? id, string type);
+
+        /// <summary>
+        /// delete a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// delete a personal favorite by type and id
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (decimal? id, string type);
+        /// <summary>
         /// Search for targets
         /// </summary>
         /// <remarks>
@@ -213,6 +301,27 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
+        /// Get personal favorites
+        /// </summary>
+        /// <remarks>
+        /// Get personal favorites
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>Task of TargetsResponse</returns>
+        System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null);
+
+        /// <summary>
+        /// Get personal favorites
+        /// </summary>
+        /// <remarks>
+        /// Get personal favorites
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetPersonalFavoritesAsyncWithHttpInfo (decimal? limit = null);
+        /// <summary>
         /// Get recent targets
         /// </summary>
         /// <remarks>
@@ -220,8 +329,8 @@ namespace Genesys.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetRecentTargetsAsync (decimal? limit = null);
+        /// <returns>Task of TargetsResponse</returns>
+        System.Threading.Tasks.Task<TargetsResponse> GetRecentTargetsAsync (decimal? limit = null);
 
         /// <summary>
         /// Get recent targets
@@ -231,8 +340,8 @@ namespace Genesys.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null);
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null);
         /// <summary>
         /// Get a target
         /// </summary>
@@ -256,6 +365,27 @@ namespace Genesys.Workspace.Api
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type);
+        /// <summary>
+        /// Save a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// Save a personal favorite
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SavePersonalFavoriteAsync (PersonalFavoriteData personalFavoriteData);
+
+        /// <summary>
+        /// Save a personal favorite
+        /// </summary>
+        /// <remarks>
+        /// Save a personal favorite
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SavePersonalFavoriteAsyncWithHttpInfo (PersonalFavoriteData personalFavoriteData);
         #endregion Asynchronous Operations
     }
 
@@ -409,6 +539,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
 
 
             // make the HTTP request
@@ -427,6 +560,7 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
         /// <summary>
@@ -471,6 +605,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
 
 
             // make the HTTP request
@@ -489,6 +626,7 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
         /// <summary>
@@ -537,6 +675,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (recentTargetData != null && recentTargetData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(recentTargetData); // http body (model) parameter
@@ -563,6 +704,7 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
         /// <summary>
@@ -612,6 +754,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (recentTargetData != null && recentTargetData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(recentTargetData); // http body (model) parameter
@@ -638,6 +783,162 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// delete a personal favorite delete a personal favorite by type and id
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse DeletePersonalFavorite (decimal? id, string type)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = DeletePersonalFavoriteWithHttpInfo(id, type);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// delete a personal favorite delete a personal favorite by type and id
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > DeletePersonalFavoriteWithHttpInfo (decimal? id, string type)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling TargetsApi->DeletePersonalFavorite");
+            // verify the required parameter 'type' is set
+            if (type == null)
+                throw new ApiException(400, "Missing required parameter 'type' when calling TargetsApi->DeletePersonalFavorite");
+
+            var localVarPath = "/targets/personal-favorites/delete/{type}/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePersonalFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// delete a personal favorite delete a personal favorite by type and id
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (decimal? id, string type)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await DeletePersonalFavoriteAsyncWithHttpInfo(id, type);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// delete a personal favorite delete a personal favorite by type and id
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The id of the target</param>
+        /// <param name="type">the type of the target</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (decimal? id, string type)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling TargetsApi->DeletePersonalFavorite");
+            // verify the required parameter 'type' is set
+            if (type == null)
+                throw new ApiException(400, "Missing required parameter 'type' when calling TargetsApi->DeletePersonalFavorite");
+
+            var localVarPath = "/targets/personal-favorites/delete/{type}/{id}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeletePersonalFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
         /// <summary>
@@ -696,6 +997,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (searchTerm != null) localVarQueryParams.Add("searchTerm", Configuration.ApiClient.ParameterToString(searchTerm)); // query parameter
             if (filterName != null) localVarQueryParams.Add("filterName", Configuration.ApiClient.ParameterToString(filterName)); // query parameter
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
@@ -720,6 +1024,7 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+            
         }
 
         /// <summary>
@@ -779,6 +1084,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (searchTerm != null) localVarQueryParams.Add("searchTerm", Configuration.ApiClient.ParameterToString(searchTerm)); // query parameter
             if (filterName != null) localVarQueryParams.Add("filterName", Configuration.ApiClient.ParameterToString(filterName)); // query parameter
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
@@ -803,6 +1111,144 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get personal favorites Get personal favorites
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>TargetsResponse</returns>
+        public TargetsResponse GetPersonalFavorites (decimal? limit = null)
+        {
+             ApiResponse<TargetsResponse> localVarResponse = GetPersonalFavoritesWithHttpInfo(limit);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get personal favorites Get personal favorites
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        public ApiResponse< TargetsResponse > GetPersonalFavoritesWithHttpInfo (decimal? limit = null)
+        {
+
+            var localVarPath = "/targets/personal-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPersonalFavorites", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+            
+        }
+
+        /// <summary>
+        /// Get personal favorites Get personal favorites
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>Task of TargetsResponse</returns>
+        public async System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null)
+        {
+             ApiResponse<TargetsResponse> localVarResponse = await GetPersonalFavoritesAsyncWithHttpInfo(limit);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get personal favorites Get personal favorites
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetPersonalFavoritesAsyncWithHttpInfo (decimal? limit = null)
+        {
+
+            var localVarPath = "/targets/personal-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetPersonalFavorites", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+            
         }
 
         /// <summary>
@@ -810,10 +1256,10 @@ namespace Genesys.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetRecentTargets (decimal? limit = null)
+        /// <returns>TargetsResponse</returns>
+        public TargetsResponse GetRecentTargets (decimal? limit = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetRecentTargetsWithHttpInfo(limit);
+             ApiResponse<TargetsResponse> localVarResponse = GetRecentTargetsWithHttpInfo(limit);
              return localVarResponse.Data;
         }
 
@@ -822,8 +1268,8 @@ namespace Genesys.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetRecentTargetsWithHttpInfo (decimal? limit = null)
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        public ApiResponse< TargetsResponse > GetRecentTargetsWithHttpInfo (decimal? limit = null)
         {
 
             var localVarPath = "/targets/recents";
@@ -848,6 +1294,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
 
 
@@ -864,9 +1313,10 @@ namespace Genesys.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+            
         }
 
         /// <summary>
@@ -874,10 +1324,10 @@ namespace Genesys.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetRecentTargetsAsync (decimal? limit = null)
+        /// <returns>Task of TargetsResponse</returns>
+        public async System.Threading.Tasks.Task<TargetsResponse> GetRecentTargetsAsync (decimal? limit = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetRecentTargetsAsyncWithHttpInfo(limit);
+             ApiResponse<TargetsResponse> localVarResponse = await GetRecentTargetsAsyncWithHttpInfo(limit);
              return localVarResponse.Data;
 
         }
@@ -887,8 +1337,8 @@ namespace Genesys.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null)
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null)
         {
 
             var localVarPath = "/targets/recents";
@@ -913,6 +1363,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
 
 
@@ -929,9 +1382,10 @@ namespace Genesys.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+            
         }
 
         /// <summary>
@@ -985,6 +1439,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
 
@@ -1005,6 +1462,7 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
         /// <summary>
@@ -1059,6 +1517,9 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
 
@@ -1079,6 +1540,164 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Save a personal favorite Save a personal favorite
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SavePersonalFavorite (PersonalFavoriteData personalFavoriteData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SavePersonalFavoriteWithHttpInfo(personalFavoriteData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save a personal favorite Save a personal favorite
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SavePersonalFavoriteWithHttpInfo (PersonalFavoriteData personalFavoriteData)
+        {
+            // verify the required parameter 'personalFavoriteData' is set
+            if (personalFavoriteData == null)
+                throw new ApiException(400, "Missing required parameter 'personalFavoriteData' when calling TargetsApi->SavePersonalFavorite");
+
+            var localVarPath = "/targets/personal-favorites/save";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (personalFavoriteData != null && personalFavoriteData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(personalFavoriteData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = personalFavoriteData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SavePersonalFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
+        }
+
+        /// <summary>
+        /// Save a personal favorite Save a personal favorite
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SavePersonalFavoriteAsync (PersonalFavoriteData personalFavoriteData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SavePersonalFavoriteAsyncWithHttpInfo(personalFavoriteData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Save a personal favorite Save a personal favorite
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="personalFavoriteData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SavePersonalFavoriteAsyncWithHttpInfo (PersonalFavoriteData personalFavoriteData)
+        {
+            // verify the required parameter 'personalFavoriteData' is set
+            if (personalFavoriteData == null)
+                throw new ApiException(400, "Missing required parameter 'personalFavoriteData' when calling TargetsApi->SavePersonalFavorite");
+
+            var localVarPath = "/targets/personal-favorites/save";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            // set "format" to json by default
+            // e.g. /pet/{petId}.{format} becomes /pet/{petId}.json
+            localVarPathParams.Add("format", "json");
+            if (personalFavoriteData != null && personalFavoriteData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(personalFavoriteData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = personalFavoriteData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SavePersonalFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+            
         }
 
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,26 +32,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CallParticipants" /> class.
         /// </summary>
-        /// <param name="Number">Number.</param>
         /// <param name="Role">Role.</param>
-        public CallParticipants(string Number = default(string), string Role = default(string))
+        /// <param name="Number">Number.</param>
+        public CallParticipants(string Role = default(string), string Number = default(string))
         {
-            this.Number = Number;
             this.Role = Role;
+            this.Number = Number;
         }
         
-        /// <summary>
-        /// Gets or Sets Number
-        /// </summary>
-        [DataMember(Name="number", EmitDefaultValue=false)]
-        public string Number { get; set; }
-
         /// <summary>
         /// Gets or Sets Role
         /// </summary>
         [DataMember(Name="role", EmitDefaultValue=false)]
         public string Role { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Number
+        /// </summary>
+        [DataMember(Name="number", EmitDefaultValue=false)]
+        public string Number { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -61,8 +58,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CallParticipants {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  Role: ").Append(Role).Append("\n");
+            sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Number == other.Number ||
-                    this.Number != null &&
-                    this.Number.Equals(other.Number)
-                ) && 
-                (
                     this.Role == other.Role ||
                     this.Role != null &&
                     this.Role.Equals(other.Role)
+                ) && 
+                (
+                    this.Number == other.Number ||
+                    this.Number != null &&
+                    this.Number.Equals(other.Number)
                 );
         }
 
@@ -122,21 +119,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Number != null)
-                    hash = hash * 59 + this.Number.GetHashCode();
                 if (this.Role != null)
                     hash = hash * 59 + this.Role.GetHashCode();
+                if (this.Number != null)
+                    hash = hash * 59 + this.Number.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

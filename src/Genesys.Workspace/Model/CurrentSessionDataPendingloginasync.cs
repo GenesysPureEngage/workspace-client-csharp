@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -75,21 +74,12 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataPendingloginasync" /> class.
         /// </summary>
-        /// <param name="State">State (required).</param>
         /// <param name="ActualWaitTime">ActualWaitTime (required).</param>
+        /// <param name="State">State (required).</param>
         /// <param name="SubmittedAt">SubmittedAt (required).</param>
         /// <param name="Errors">Errors.</param>
-        public CurrentSessionDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
+        public CurrentSessionDataPendingloginasync(int? ActualWaitTime = default(int?), StateEnum? State = default(StateEnum?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
         {
-            // to ensure "State" is required (not null)
-            if (State == null)
-            {
-                throw new InvalidDataException("State is a required property for CurrentSessionDataPendingloginasync and cannot be null");
-            }
-            else
-            {
-                this.State = State;
-            }
             // to ensure "ActualWaitTime" is required (not null)
             if (ActualWaitTime == null)
             {
@@ -98,6 +88,15 @@ namespace Genesys.Workspace.Model
             else
             {
                 this.ActualWaitTime = ActualWaitTime;
+            }
+            // to ensure "State" is required (not null)
+            if (State == null)
+            {
+                throw new InvalidDataException("State is a required property for CurrentSessionDataPendingloginasync and cannot be null");
+            }
+            else
+            {
+                this.State = State;
             }
             // to ensure "SubmittedAt" is required (not null)
             if (SubmittedAt == null)
@@ -111,25 +110,21 @@ namespace Genesys.Workspace.Model
             this.Errors = Errors;
         }
         
-
         /// <summary>
         /// Gets or Sets ActualWaitTime
         /// </summary>
         [DataMember(Name="actualWaitTime", EmitDefaultValue=false)]
         public int? ActualWaitTime { get; set; }
-
         /// <summary>
         /// Gets or Sets SubmittedAt
         /// </summary>
         [DataMember(Name="submittedAt", EmitDefaultValue=false)]
         public string SubmittedAt { get; set; }
-
         /// <summary>
         /// Gets or Sets Errors
         /// </summary>
         [DataMember(Name="errors", EmitDefaultValue=false)]
         public List<Kvpair> Errors { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -138,8 +133,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionDataPendingloginasync {\n");
-            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  ActualWaitTime: ").Append(ActualWaitTime).Append("\n");
+            sb.Append("  State: ").Append(State).Append("\n");
             sb.Append("  SubmittedAt: ").Append(SubmittedAt).Append("\n");
             sb.Append("  Errors: ").Append(Errors).Append("\n");
             sb.Append("}\n");
@@ -179,14 +174,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
-                ) && 
-                (
                     this.ActualWaitTime == other.ActualWaitTime ||
                     this.ActualWaitTime != null &&
                     this.ActualWaitTime.Equals(other.ActualWaitTime)
+                ) && 
+                (
+                    this.State == other.State ||
+                    this.State != null &&
+                    this.State.Equals(other.State)
                 ) && 
                 (
                     this.SubmittedAt == other.SubmittedAt ||
@@ -211,10 +206,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
                 if (this.ActualWaitTime != null)
                     hash = hash * 59 + this.ActualWaitTime.GetHashCode();
+                if (this.State != null)
+                    hash = hash * 59 + this.State.GetHashCode();
                 if (this.SubmittedAt != null)
                     hash = hash * 59 + this.SubmittedAt.GetHashCode();
                 if (this.Errors != null)
@@ -223,13 +218,8 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,13 +37,13 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidinitiatetransferData" /> class.
         /// </summary>
-        /// <param name="Destination">Directory number of the party to be called. (required).</param>
-        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="Extensions">A key/value pairs list of additional data..</param>
         /// <param name="OutboundCallerId">value to be set as CPN_DIGITS..</param>
-        public VoicecallsidinitiatetransferData(string Destination = default(string), string Location = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string OutboundCallerId = default(string))
+        /// <param name="Destination">Directory number of the party to be called. (required).</param>
+        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
+        public VoicecallsidinitiatetransferData(List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), string OutboundCallerId = default(string), string Destination = default(string), List<Kvpair> Extensions = default(List<Kvpair>), string Location = default(string))
         {
             // to ensure "Destination" is required (not null)
             if (Destination == null)
@@ -55,55 +54,49 @@ namespace Genesys.Workspace.Model
             {
                 this.Destination = Destination;
             }
-            this.Location = Location;
             this.UserData = UserData;
             this.Reasons = Reasons;
-            this.Extensions = Extensions;
             this.OutboundCallerId = OutboundCallerId;
+            this.Extensions = Extensions;
+            this.Location = Location;
         }
         
-        /// <summary>
-        /// Directory number of the party to be called.
-        /// </summary>
-        /// <value>Directory number of the party to be called.</value>
-        [DataMember(Name="destination", EmitDefaultValue=false)]
-        public string Destination { get; set; }
-
-        /// <summary>
-        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
-        /// </summary>
-        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
-        [DataMember(Name="location", EmitDefaultValue=false)]
-        public string Location { get; set; }
-
         /// <summary>
         /// A key/value pairs list of the user data that should be attached to the call.
         /// </summary>
         /// <value>A key/value pairs list of the user data that should be attached to the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
-
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
-
-        /// <summary>
-        /// A key/value pairs list of additional data.
-        /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
-        [DataMember(Name="extensions", EmitDefaultValue=false)]
-        public List<Kvpair> Extensions { get; set; }
-
         /// <summary>
         /// value to be set as CPN_DIGITS.
         /// </summary>
         /// <value>value to be set as CPN_DIGITS.</value>
         [DataMember(Name="outboundCallerId", EmitDefaultValue=false)]
         public string OutboundCallerId { get; set; }
-
+        /// <summary>
+        /// Directory number of the party to be called.
+        /// </summary>
+        /// <value>Directory number of the party to be called.</value>
+        [DataMember(Name="destination", EmitDefaultValue=false)]
+        public string Destination { get; set; }
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extensions", EmitDefaultValue=false)]
+        public List<Kvpair> Extensions { get; set; }
+        /// <summary>
+        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+        /// </summary>
+        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
+        [DataMember(Name="location", EmitDefaultValue=false)]
+        public string Location { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -112,12 +105,12 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidinitiatetransferData {\n");
-            sb.Append("  Destination: ").Append(Destination).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
-            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("  OutboundCallerId: ").Append(OutboundCallerId).Append("\n");
+            sb.Append("  Destination: ").Append(Destination).Append("\n");
+            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
+            sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,16 +148,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Destination == other.Destination ||
-                    this.Destination != null &&
-                    this.Destination.Equals(other.Destination)
-                ) && 
-                (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
-                ) && 
-                (
                     this.UserData == other.UserData ||
                     this.UserData != null &&
                     this.UserData.SequenceEqual(other.UserData)
@@ -175,14 +158,24 @@ namespace Genesys.Workspace.Model
                     this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
+                    this.OutboundCallerId == other.OutboundCallerId ||
+                    this.OutboundCallerId != null &&
+                    this.OutboundCallerId.Equals(other.OutboundCallerId)
+                ) && 
+                (
+                    this.Destination == other.Destination ||
+                    this.Destination != null &&
+                    this.Destination.Equals(other.Destination)
+                ) && 
+                (
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
                 ) && 
                 (
-                    this.OutboundCallerId == other.OutboundCallerId ||
-                    this.OutboundCallerId != null &&
-                    this.OutboundCallerId.Equals(other.OutboundCallerId)
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
                 );
         }
 
@@ -197,29 +190,24 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Destination != null)
-                    hash = hash * 59 + this.Destination.GetHashCode();
-                if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
                 if (this.UserData != null)
                     hash = hash * 59 + this.UserData.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
-                if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
                 if (this.OutboundCallerId != null)
                     hash = hash * 59 + this.OutboundCallerId.GetHashCode();
+                if (this.Destination != null)
+                    hash = hash * 59 + this.Destination.GetHashCode();
+                if (this.Extensions != null)
+                    hash = hash * 59 + this.Extensions.GetHashCode();
+                if (this.Location != null)
+                    hash = hash * 59 + this.Location.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

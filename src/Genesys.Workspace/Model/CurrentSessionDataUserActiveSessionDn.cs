@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,42 +32,38 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSessionDn" /> class.
         /// </summary>
-        /// <param name="Number">Number.</param>
+        /// <param name="AgentWorkMode">AgentWorkMode.</param>
         /// <param name="AgentId">AgentId.</param>
         /// <param name="AgentState">AgentState.</param>
-        /// <param name="AgentWorkMode">AgentWorkMode.</param>
-        public CurrentSessionDataUserActiveSessionDn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
+        /// <param name="Number">Number.</param>
+        public CurrentSessionDataUserActiveSessionDn(string AgentWorkMode = default(string), string AgentId = default(string), string AgentState = default(string), string Number = default(string))
         {
-            this.Number = Number;
+            this.AgentWorkMode = AgentWorkMode;
             this.AgentId = AgentId;
             this.AgentState = AgentState;
-            this.AgentWorkMode = AgentWorkMode;
+            this.Number = Number;
         }
         
-        /// <summary>
-        /// Gets or Sets Number
-        /// </summary>
-        [DataMember(Name="number", EmitDefaultValue=false)]
-        public string Number { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AgentId
-        /// </summary>
-        [DataMember(Name="agentId", EmitDefaultValue=false)]
-        public string AgentId { get; set; }
-
-        /// <summary>
-        /// Gets or Sets AgentState
-        /// </summary>
-        [DataMember(Name="agentState", EmitDefaultValue=false)]
-        public string AgentState { get; set; }
-
         /// <summary>
         /// Gets or Sets AgentWorkMode
         /// </summary>
         [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
         public string AgentWorkMode { get; set; }
-
+        /// <summary>
+        /// Gets or Sets AgentId
+        /// </summary>
+        [DataMember(Name="agentId", EmitDefaultValue=false)]
+        public string AgentId { get; set; }
+        /// <summary>
+        /// Gets or Sets AgentState
+        /// </summary>
+        [DataMember(Name="agentState", EmitDefaultValue=false)]
+        public string AgentState { get; set; }
+        /// <summary>
+        /// Gets or Sets Number
+        /// </summary>
+        [DataMember(Name="number", EmitDefaultValue=false)]
+        public string Number { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -77,10 +72,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionDataUserActiveSessionDn {\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
+            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
             sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("  AgentState: ").Append(AgentState).Append("\n");
-            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
+            sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,9 +113,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Number == other.Number ||
-                    this.Number != null &&
-                    this.Number.Equals(other.Number)
+                    this.AgentWorkMode == other.AgentWorkMode ||
+                    this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(other.AgentWorkMode)
                 ) && 
                 (
                     this.AgentId == other.AgentId ||
@@ -133,9 +128,9 @@ namespace Genesys.Workspace.Model
                     this.AgentState.Equals(other.AgentState)
                 ) && 
                 (
-                    this.AgentWorkMode == other.AgentWorkMode ||
-                    this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(other.AgentWorkMode)
+                    this.Number == other.Number ||
+                    this.Number != null &&
+                    this.Number.Equals(other.Number)
                 );
         }
 
@@ -150,25 +145,20 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Number != null)
-                    hash = hash * 59 + this.Number.GetHashCode();
+                if (this.AgentWorkMode != null)
+                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.AgentId != null)
                     hash = hash * 59 + this.AgentId.GetHashCode();
                 if (this.AgentState != null)
                     hash = hash * 59 + this.AgentState.GetHashCode();
-                if (this.AgentWorkMode != null)
-                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                if (this.Number != null)
+                    hash = hash * 59 + this.Number.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

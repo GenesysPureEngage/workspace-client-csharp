@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,26 +32,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionStatus" /> class.
         /// </summary>
-        /// <param name="Code">Code.</param>
         /// <param name="Message">Message.</param>
-        public CurrentSessionStatus(int? Code = default(int?), string Message = default(string))
+        /// <param name="Code">Code.</param>
+        public CurrentSessionStatus(string Message = default(string), int? Code = default(int?))
         {
-            this.Code = Code;
             this.Message = Message;
+            this.Code = Code;
         }
         
-        /// <summary>
-        /// Gets or Sets Code
-        /// </summary>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int? Code { get; set; }
-
         /// <summary>
         /// Gets or Sets Message
         /// </summary>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Code
+        /// </summary>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public int? Code { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -61,8 +58,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionStatus {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
-                ) && 
-                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
+                ) && 
+                (
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 );
         }
 
@@ -122,21 +119,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

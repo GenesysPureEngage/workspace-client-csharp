@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,10 +37,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidreconnectData" /> class.
         /// </summary>
-        /// <param name="HeldConnId">The id of the held call that should be retrieved (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicecallsidreconnectData(string HeldConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        /// <param name="HeldConnId">The id of the held call that should be retrieved (required).</param>
+        public VoicecallsidreconnectData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string HeldConnId = default(string))
         {
             // to ensure "HeldConnId" is required (not null)
             if (HeldConnId == null)
@@ -57,26 +56,23 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// The id of the held call that should be retrieved
-        /// </summary>
-        /// <value>The id of the held call that should be retrieved</value>
-        [DataMember(Name="heldConnId", EmitDefaultValue=false)]
-        public string HeldConnId { get; set; }
-
-        /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
-
         /// <summary>
         /// A key/value pairs list of additional data.
         /// </summary>
         /// <value>A key/value pairs list of additional data.</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
-
+        /// <summary>
+        /// The id of the held call that should be retrieved
+        /// </summary>
+        /// <value>The id of the held call that should be retrieved</value>
+        [DataMember(Name="heldConnId", EmitDefaultValue=false)]
+        public string HeldConnId { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,9 +81,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidreconnectData {\n");
-            sb.Append("  HeldConnId: ").Append(HeldConnId).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
+            sb.Append("  HeldConnId: ").Append(HeldConnId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,11 +121,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.HeldConnId == other.HeldConnId ||
-                    this.HeldConnId != null &&
-                    this.HeldConnId.Equals(other.HeldConnId)
-                ) && 
-                (
                     this.Reasons == other.Reasons ||
                     this.Reasons != null &&
                     this.Reasons.SequenceEqual(other.Reasons)
@@ -138,6 +129,11 @@ namespace Genesys.Workspace.Model
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
+                ) && 
+                (
+                    this.HeldConnId == other.HeldConnId ||
+                    this.HeldConnId != null &&
+                    this.HeldConnId.Equals(other.HeldConnId)
                 );
         }
 
@@ -152,23 +148,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.HeldConnId != null)
-                    hash = hash * 59 + this.HeldConnId.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
+                if (this.HeldConnId != null)
+                    hash = hash * 59 + this.HeldConnId.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

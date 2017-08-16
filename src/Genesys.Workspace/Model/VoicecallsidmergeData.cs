@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,10 +37,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidmergeData" /> class.
         /// </summary>
-        /// <param name="OtherConnId">Connection id of the other call to merge with (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicecallsidmergeData(string OtherConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        /// <param name="OtherConnId">Connection id of the other call to merge with (required).</param>
+        public VoicecallsidmergeData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string OtherConnId = default(string))
         {
             // to ensure "OtherConnId" is required (not null)
             if (OtherConnId == null)
@@ -57,26 +56,23 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Connection id of the other call to merge with
-        /// </summary>
-        /// <value>Connection id of the other call to merge with</value>
-        [DataMember(Name="otherConnId", EmitDefaultValue=false)]
-        public string OtherConnId { get; set; }
-
-        /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
-
         /// <summary>
         /// A key/value pairs list of additional data.
         /// </summary>
         /// <value>A key/value pairs list of additional data.</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
-
+        /// <summary>
+        /// Connection id of the other call to merge with
+        /// </summary>
+        /// <value>Connection id of the other call to merge with</value>
+        [DataMember(Name="otherConnId", EmitDefaultValue=false)]
+        public string OtherConnId { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,9 +81,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidmergeData {\n");
-            sb.Append("  OtherConnId: ").Append(OtherConnId).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
+            sb.Append("  OtherConnId: ").Append(OtherConnId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,11 +121,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.OtherConnId == other.OtherConnId ||
-                    this.OtherConnId != null &&
-                    this.OtherConnId.Equals(other.OtherConnId)
-                ) && 
-                (
                     this.Reasons == other.Reasons ||
                     this.Reasons != null &&
                     this.Reasons.SequenceEqual(other.Reasons)
@@ -138,6 +129,11 @@ namespace Genesys.Workspace.Model
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
+                ) && 
+                (
+                    this.OtherConnId == other.OtherConnId ||
+                    this.OtherConnId != null &&
+                    this.OtherConnId.Equals(other.OtherConnId)
                 );
         }
 
@@ -152,23 +148,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.OtherConnId != null)
-                    hash = hash * 59 + this.OtherConnId.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
+                if (this.OtherConnId != null)
+                    hash = hash * 59 + this.OtherConnId.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

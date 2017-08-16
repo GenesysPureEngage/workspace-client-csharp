@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,50 +32,45 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponseDataValues" /> class.
         /// </summary>
-        /// <param name="Name">Name.</param>
-        /// <param name="DisplayName">DisplayName.</param>
-        /// <param name="Description">Description.</param>
         /// <param name="_Default">_Default.</param>
         /// <param name="UserProperties">UserProperties.</param>
-        public ConfigResponseDataValues(string Name = default(string), string DisplayName = default(string), string Description = default(string), bool? _Default = default(bool?), List<Kvpair> UserProperties = default(List<Kvpair>))
+        /// <param name="DisplayName">DisplayName.</param>
+        /// <param name="Name">Name.</param>
+        /// <param name="Description">Description.</param>
+        public ConfigResponseDataValues(bool? _Default = default(bool?), List<Kvpair> UserProperties = default(List<Kvpair>), string DisplayName = default(string), string Name = default(string), string Description = default(string))
         {
-            this.Name = Name;
-            this.DisplayName = DisplayName;
-            this.Description = Description;
             this._Default = _Default;
             this.UserProperties = UserProperties;
+            this.DisplayName = DisplayName;
+            this.Name = Name;
+            this.Description = Description;
         }
         
-        /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or Sets DisplayName
-        /// </summary>
-        [DataMember(Name="displayName", EmitDefaultValue=false)]
-        public string DisplayName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Description
-        /// </summary>
-        [DataMember(Name="description", EmitDefaultValue=false)]
-        public string Description { get; set; }
-
         /// <summary>
         /// Gets or Sets _Default
         /// </summary>
         [DataMember(Name="default", EmitDefaultValue=false)]
         public bool? _Default { get; set; }
-
         /// <summary>
         /// Gets or Sets UserProperties
         /// </summary>
         [DataMember(Name="userProperties", EmitDefaultValue=false)]
         public List<Kvpair> UserProperties { get; set; }
-
+        /// <summary>
+        /// Gets or Sets DisplayName
+        /// </summary>
+        [DataMember(Name="displayName", EmitDefaultValue=false)]
+        public string DisplayName { get; set; }
+        /// <summary>
+        /// Gets or Sets Name
+        /// </summary>
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
+        /// <summary>
+        /// Gets or Sets Description
+        /// </summary>
+        [DataMember(Name="description", EmitDefaultValue=false)]
+        public string Description { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,11 +79,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponseDataValues {\n");
-            sb.Append("  Name: ").Append(Name).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
-            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  _Default: ").Append(_Default).Append("\n");
             sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
+            sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,21 +121,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
-                ) && 
-                (
-                    this.DisplayName == other.DisplayName ||
-                    this.DisplayName != null &&
-                    this.DisplayName.Equals(other.DisplayName)
-                ) && 
-                (
-                    this.Description == other.Description ||
-                    this.Description != null &&
-                    this.Description.Equals(other.Description)
-                ) && 
-                (
                     this._Default == other._Default ||
                     this._Default != null &&
                     this._Default.Equals(other._Default)
@@ -150,6 +129,21 @@ namespace Genesys.Workspace.Model
                     this.UserProperties == other.UserProperties ||
                     this.UserProperties != null &&
                     this.UserProperties.SequenceEqual(other.UserProperties)
+                ) && 
+                (
+                    this.DisplayName == other.DisplayName ||
+                    this.DisplayName != null &&
+                    this.DisplayName.Equals(other.DisplayName)
+                ) && 
+                (
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.Description == other.Description ||
+                    this.Description != null &&
+                    this.Description.Equals(other.Description)
                 );
         }
 
@@ -164,27 +158,22 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
-                if (this.DisplayName != null)
-                    hash = hash * 59 + this.DisplayName.GetHashCode();
-                if (this.Description != null)
-                    hash = hash * 59 + this.Description.GetHashCode();
                 if (this._Default != null)
                     hash = hash * 59 + this._Default.GetHashCode();
                 if (this.UserProperties != null)
                     hash = hash * 59 + this.UserProperties.GetHashCode();
+                if (this.DisplayName != null)
+                    hash = hash * 59 + this.DisplayName.GetHashCode();
+                if (this.Name != null)
+                    hash = hash * 59 + this.Name.GetHashCode();
+                if (this.Description != null)
+                    hash = hash * 59 + this.Description.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

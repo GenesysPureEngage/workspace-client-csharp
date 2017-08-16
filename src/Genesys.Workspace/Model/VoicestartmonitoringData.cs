@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -30,27 +29,6 @@ namespace Genesys.Workspace.Model
     [DataContract]
     public partial class VoicestartmonitoringData :  IEquatable<VoicestartmonitoringData>, IValidatableObject
     {
-        /// <summary>
-        /// The monitoring mode (Mute,Coach)
-        /// </summary>
-        /// <value>The monitoring mode (Mute,Coach)</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringModeEnum
-        {
-            
-            /// <summary>
-            /// Enum Mute for "Mute"
-            /// </summary>
-            [EnumMember(Value = "Mute")]
-            Mute,
-            
-            /// <summary>
-            /// Enum Coach for "Coach"
-            /// </summary>
-            [EnumMember(Value = "Coach")]
-            Coach
-        }
-
         /// <summary>
         /// The monitoring call type (NextCall/AllCalls).
         /// </summary>
@@ -70,6 +48,27 @@ namespace Genesys.Workspace.Model
             /// </summary>
             [EnumMember(Value = "AllCalls")]
             AllCalls
+        }
+
+        /// <summary>
+        /// The monitoring mode (Mute,Coach)
+        /// </summary>
+        /// <value>The monitoring mode (Mute,Coach)</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MonitoringModeEnum
+        {
+            
+            /// <summary>
+            /// Enum Mute for "Mute"
+            /// </summary>
+            [EnumMember(Value = "Mute")]
+            Mute,
+            
+            /// <summary>
+            /// Enum Coach for "Coach"
+            /// </summary>
+            [EnumMember(Value = "Coach")]
+            Coach
         }
 
         /// <summary>
@@ -94,17 +93,17 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// The monitoring mode (Mute,Coach)
-        /// </summary>
-        /// <value>The monitoring mode (Mute,Coach)</value>
-        [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
-        public MonitoringModeEnum? MonitoringMode { get; set; }
-        /// <summary>
         /// The monitoring call type (NextCall/AllCalls).
         /// </summary>
         /// <value>The monitoring call type (NextCall/AllCalls).</value>
         [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
         public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
+        /// <summary>
+        /// The monitoring mode (Mute,Coach)
+        /// </summary>
+        /// <value>The monitoring mode (Mute,Coach)</value>
+        [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
+        public MonitoringModeEnum? MonitoringMode { get; set; }
         /// <summary>
         /// The monitoring scope (Call/Agent).
         /// </summary>
@@ -119,12 +118,12 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicestartmonitoringData" /> class.
         /// </summary>
-        /// <param name="PhoneNumberToMonitor">The phone number that should be monitored (required).</param>
-        /// <param name="MonitoringMode">The monitoring mode (Mute,Coach).</param>
-        /// <param name="MonitoringNextCallType">The monitoring call type (NextCall/AllCalls)..</param>
-        /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
         /// <param name="Location">The switch name where the phone number to be monitored is located (optional).</param>
-        public VoicestartmonitoringData(string PhoneNumberToMonitor = default(string), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringNextCallTypeEnum? MonitoringNextCallType = default(MonitoringNextCallTypeEnum?), MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?), string Location = default(string))
+        /// <param name="PhoneNumberToMonitor">The phone number that should be monitored (required).</param>
+        /// <param name="MonitoringNextCallType">The monitoring call type (NextCall/AllCalls)..</param>
+        /// <param name="MonitoringMode">The monitoring mode (Mute,Coach).</param>
+        /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
+        public VoicestartmonitoringData(string Location = default(string), string PhoneNumberToMonitor = default(string), MonitoringNextCallTypeEnum? MonitoringNextCallType = default(MonitoringNextCallTypeEnum?), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
         {
             // to ensure "PhoneNumberToMonitor" is required (not null)
             if (PhoneNumberToMonitor == null)
@@ -135,29 +134,24 @@ namespace Genesys.Workspace.Model
             {
                 this.PhoneNumberToMonitor = PhoneNumberToMonitor;
             }
-            this.MonitoringMode = MonitoringMode;
-            this.MonitoringNextCallType = MonitoringNextCallType;
-            this.MonitoringScope = MonitoringScope;
             this.Location = Location;
+            this.MonitoringNextCallType = MonitoringNextCallType;
+            this.MonitoringMode = MonitoringMode;
+            this.MonitoringScope = MonitoringScope;
         }
         
-        /// <summary>
-        /// The phone number that should be monitored
-        /// </summary>
-        /// <value>The phone number that should be monitored</value>
-        [DataMember(Name="phoneNumberToMonitor", EmitDefaultValue=false)]
-        public string PhoneNumberToMonitor { get; set; }
-
-
-
-
         /// <summary>
         /// The switch name where the phone number to be monitored is located (optional)
         /// </summary>
         /// <value>The switch name where the phone number to be monitored is located (optional)</value>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
-
+        /// <summary>
+        /// The phone number that should be monitored
+        /// </summary>
+        /// <value>The phone number that should be monitored</value>
+        [DataMember(Name="phoneNumberToMonitor", EmitDefaultValue=false)]
+        public string PhoneNumberToMonitor { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -166,11 +160,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicestartmonitoringData {\n");
-            sb.Append("  PhoneNumberToMonitor: ").Append(PhoneNumberToMonitor).Append("\n");
-            sb.Append("  MonitoringMode: ").Append(MonitoringMode).Append("\n");
-            sb.Append("  MonitoringNextCallType: ").Append(MonitoringNextCallType).Append("\n");
-            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  PhoneNumberToMonitor: ").Append(PhoneNumberToMonitor).Append("\n");
+            sb.Append("  MonitoringNextCallType: ").Append(MonitoringNextCallType).Append("\n");
+            sb.Append("  MonitoringMode: ").Append(MonitoringMode).Append("\n");
+            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,14 +202,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
+                ) && 
+                (
                     this.PhoneNumberToMonitor == other.PhoneNumberToMonitor ||
                     this.PhoneNumberToMonitor != null &&
                     this.PhoneNumberToMonitor.Equals(other.PhoneNumberToMonitor)
-                ) && 
-                (
-                    this.MonitoringMode == other.MonitoringMode ||
-                    this.MonitoringMode != null &&
-                    this.MonitoringMode.Equals(other.MonitoringMode)
                 ) && 
                 (
                     this.MonitoringNextCallType == other.MonitoringNextCallType ||
@@ -223,14 +217,14 @@ namespace Genesys.Workspace.Model
                     this.MonitoringNextCallType.Equals(other.MonitoringNextCallType)
                 ) && 
                 (
+                    this.MonitoringMode == other.MonitoringMode ||
+                    this.MonitoringMode != null &&
+                    this.MonitoringMode.Equals(other.MonitoringMode)
+                ) && 
+                (
                     this.MonitoringScope == other.MonitoringScope ||
                     this.MonitoringScope != null &&
                     this.MonitoringScope.Equals(other.MonitoringScope)
-                ) && 
-                (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
                 );
         }
 
@@ -245,27 +239,22 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.PhoneNumberToMonitor != null)
-                    hash = hash * 59 + this.PhoneNumberToMonitor.GetHashCode();
-                if (this.MonitoringMode != null)
-                    hash = hash * 59 + this.MonitoringMode.GetHashCode();
-                if (this.MonitoringNextCallType != null)
-                    hash = hash * 59 + this.MonitoringNextCallType.GetHashCode();
-                if (this.MonitoringScope != null)
-                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
                 if (this.Location != null)
                     hash = hash * 59 + this.Location.GetHashCode();
+                if (this.PhoneNumberToMonitor != null)
+                    hash = hash * 59 + this.PhoneNumberToMonitor.GetHashCode();
+                if (this.MonitoringNextCallType != null)
+                    hash = hash * 59 + this.MonitoringNextCallType.GetHashCode();
+                if (this.MonitoringMode != null)
+                    hash = hash * 59 + this.MonitoringMode.GetHashCode();
+                if (this.MonitoringScope != null)
+                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

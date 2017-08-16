@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,46 +32,42 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivatechannelsData" /> class.
         /// </summary>
-        /// <param name="AgentId">agentId (switch login code) that should be used to log the agent in.</param>
-        /// <param name="PlaceName">The name of the place that should be used to log the agent in. Either placeName or dn must be provided..</param>
         /// <param name="Dn">The dn (number) that should be used to login the agent..</param>
+        /// <param name="PlaceName">The name of the place that should be used to log the agent in. Either placeName or dn must be provided..</param>
+        /// <param name="AgentId">agentId (switch login code) that should be used to log the agent in.</param>
         /// <param name="QueueName">The queue name that should be used to login the agent..</param>
-        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string))
+        public ActivatechannelsData(string Dn = default(string), string PlaceName = default(string), string AgentId = default(string), string QueueName = default(string))
         {
-            this.AgentId = AgentId;
-            this.PlaceName = PlaceName;
             this.Dn = Dn;
+            this.PlaceName = PlaceName;
+            this.AgentId = AgentId;
             this.QueueName = QueueName;
         }
         
-        /// <summary>
-        /// agentId (switch login code) that should be used to log the agent in
-        /// </summary>
-        /// <value>agentId (switch login code) that should be used to log the agent in</value>
-        [DataMember(Name="agentId", EmitDefaultValue=false)]
-        public string AgentId { get; set; }
-
-        /// <summary>
-        /// The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
-        /// </summary>
-        /// <value>The name of the place that should be used to log the agent in. Either placeName or dn must be provided.</value>
-        [DataMember(Name="placeName", EmitDefaultValue=false)]
-        public string PlaceName { get; set; }
-
         /// <summary>
         /// The dn (number) that should be used to login the agent.
         /// </summary>
         /// <value>The dn (number) that should be used to login the agent.</value>
         [DataMember(Name="dn", EmitDefaultValue=false)]
         public string Dn { get; set; }
-
+        /// <summary>
+        /// The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
+        /// </summary>
+        /// <value>The name of the place that should be used to log the agent in. Either placeName or dn must be provided.</value>
+        [DataMember(Name="placeName", EmitDefaultValue=false)]
+        public string PlaceName { get; set; }
+        /// <summary>
+        /// agentId (switch login code) that should be used to log the agent in
+        /// </summary>
+        /// <value>agentId (switch login code) that should be used to log the agent in</value>
+        [DataMember(Name="agentId", EmitDefaultValue=false)]
+        public string AgentId { get; set; }
         /// <summary>
         /// The queue name that should be used to login the agent.
         /// </summary>
         /// <value>The queue name that should be used to login the agent.</value>
         [DataMember(Name="queueName", EmitDefaultValue=false)]
         public string QueueName { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -81,9 +76,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ActivatechannelsData {\n");
-            sb.Append("  AgentId: ").Append(AgentId).Append("\n");
-            sb.Append("  PlaceName: ").Append(PlaceName).Append("\n");
             sb.Append("  Dn: ").Append(Dn).Append("\n");
+            sb.Append("  PlaceName: ").Append(PlaceName).Append("\n");
+            sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("  QueueName: ").Append(QueueName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,9 +117,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.AgentId == other.AgentId ||
-                    this.AgentId != null &&
-                    this.AgentId.Equals(other.AgentId)
+                    this.Dn == other.Dn ||
+                    this.Dn != null &&
+                    this.Dn.Equals(other.Dn)
                 ) && 
                 (
                     this.PlaceName == other.PlaceName ||
@@ -132,9 +127,9 @@ namespace Genesys.Workspace.Model
                     this.PlaceName.Equals(other.PlaceName)
                 ) && 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
+                    this.AgentId == other.AgentId ||
+                    this.AgentId != null &&
+                    this.AgentId.Equals(other.AgentId)
                 ) && 
                 (
                     this.QueueName == other.QueueName ||
@@ -154,25 +149,20 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.AgentId != null)
-                    hash = hash * 59 + this.AgentId.GetHashCode();
-                if (this.PlaceName != null)
-                    hash = hash * 59 + this.PlaceName.GetHashCode();
                 if (this.Dn != null)
                     hash = hash * 59 + this.Dn.GetHashCode();
+                if (this.PlaceName != null)
+                    hash = hash * 59 + this.PlaceName.GetHashCode();
+                if (this.AgentId != null)
+                    hash = hash * 59 + this.AgentId.GetHashCode();
                 if (this.QueueName != null)
                     hash = hash * 59 + this.QueueName.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

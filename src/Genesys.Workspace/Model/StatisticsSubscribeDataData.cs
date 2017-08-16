@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -38,19 +37,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticsSubscribeDataData" /> class.
         /// </summary>
-        /// <param name="ConnectionId">ConnectionId (required).</param>
         /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsSubscribeDataData(string ConnectionId = default(string), List<Object> Statistics = default(List<Object>))
+        /// <param name="ConnectionId">ConnectionId (required).</param>
+        public StatisticsSubscribeDataData(List<Object> Statistics = default(List<Object>), string ConnectionId = default(string))
         {
-            // to ensure "ConnectionId" is required (not null)
-            if (ConnectionId == null)
-            {
-                throw new InvalidDataException("ConnectionId is a required property for StatisticsSubscribeDataData and cannot be null");
-            }
-            else
-            {
-                this.ConnectionId = ConnectionId;
-            }
             // to ensure "Statistics" is required (not null)
             if (Statistics == null)
             {
@@ -60,20 +50,27 @@ namespace Genesys.Workspace.Model
             {
                 this.Statistics = Statistics;
             }
+            // to ensure "ConnectionId" is required (not null)
+            if (ConnectionId == null)
+            {
+                throw new InvalidDataException("ConnectionId is a required property for StatisticsSubscribeDataData and cannot be null");
+            }
+            else
+            {
+                this.ConnectionId = ConnectionId;
+            }
         }
         
-        /// <summary>
-        /// Gets or Sets ConnectionId
-        /// </summary>
-        [DataMember(Name="connectionId", EmitDefaultValue=false)]
-        public string ConnectionId { get; set; }
-
         /// <summary>
         /// Gets or Sets Statistics
         /// </summary>
         [DataMember(Name="statistics", EmitDefaultValue=false)]
         public List<Object> Statistics { get; set; }
-
+        /// <summary>
+        /// Gets or Sets ConnectionId
+        /// </summary>
+        [DataMember(Name="connectionId", EmitDefaultValue=false)]
+        public string ConnectionId { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -82,8 +79,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class StatisticsSubscribeDataData {\n");
-            sb.Append("  ConnectionId: ").Append(ConnectionId).Append("\n");
             sb.Append("  Statistics: ").Append(Statistics).Append("\n");
+            sb.Append("  ConnectionId: ").Append(ConnectionId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,14 +118,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.ConnectionId == other.ConnectionId ||
-                    this.ConnectionId != null &&
-                    this.ConnectionId.Equals(other.ConnectionId)
-                ) && 
-                (
                     this.Statistics == other.Statistics ||
                     this.Statistics != null &&
                     this.Statistics.SequenceEqual(other.Statistics)
+                ) && 
+                (
+                    this.ConnectionId == other.ConnectionId ||
+                    this.ConnectionId != null &&
+                    this.ConnectionId.Equals(other.ConnectionId)
                 );
         }
 
@@ -143,21 +140,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ConnectionId != null)
-                    hash = hash * 59 + this.ConnectionId.GetHashCode();
                 if (this.Statistics != null)
                     hash = hash * 59 + this.Statistics.GetHashCode();
+                if (this.ConnectionId != null)
+                    hash = hash * 59 + this.ConnectionId.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

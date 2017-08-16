@@ -20,22 +20,21 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicereadyData
+    /// VoicecallsidholdData
     /// </summary>
     [DataContract]
-    public partial class VoicereadyData :  IEquatable<VoicereadyData>, IValidatableObject
+    public partial class VoicecallsidholdData :  IEquatable<VoicecallsidholdData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicereadyData" /> class.
+        /// Initializes a new instance of the <see cref="VoicecallsidholdData" /> class.
         /// </summary>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicereadyData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        public VoicecallsidholdData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             this.Reasons = Reasons;
             this.Extensions = Extensions;
@@ -47,14 +46,12 @@ namespace Genesys.Workspace.Model
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
-
         /// <summary>
         /// A key/value pairs list of additional data.
         /// </summary>
         /// <value>A key/value pairs list of additional data.</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -62,7 +59,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicereadyData {\n");
+            sb.Append("class VoicecallsidholdData {\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
@@ -86,15 +83,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicereadyData);
+            return this.Equals(obj as VoicecallsidholdData);
         }
 
         /// <summary>
-        /// Returns true if VoicereadyData instances are equal
+        /// Returns true if VoicecallsidholdData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicereadyData to be compared</param>
+        /// <param name="other">Instance of VoicecallsidholdData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicereadyData other)
+        public bool Equals(VoicecallsidholdData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -132,13 +129,8 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

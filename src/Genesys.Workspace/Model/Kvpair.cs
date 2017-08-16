@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,26 +32,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Kvpair" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
         /// <param name="Type">Type.</param>
-        public Kvpair(string Key = default(string), string Type = default(string))
+        /// <param name="Key">Key.</param>
+        public Kvpair(string Type = default(string), string Key = default(string))
         {
-            this.Key = Key;
             this.Type = Type;
+            this.Key = Key;
         }
         
-        /// <summary>
-        /// Gets or Sets Key
-        /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Key
+        /// </summary>
+        [DataMember(Name="key", EmitDefaultValue=false)]
+        public string Key { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -61,8 +58,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Kvpair {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Key == other.Key ||
-                    this.Key != null &&
-                    this.Key.Equals(other.Key)
-                ) && 
-                (
                     this.Type == other.Type ||
                     this.Type != null &&
                     this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Key == other.Key ||
+                    this.Key != null &&
+                    this.Key.Equals(other.Key)
                 );
         }
 
@@ -122,21 +119,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Key != null)
-                    hash = hash * 59 + this.Key.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
+                if (this.Key != null)
+                    hash = hash * 59 + this.Key.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

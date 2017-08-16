@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,26 +32,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponse" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
         /// <param name="Status">Status.</param>
-        public ConfigResponse(ConfigResponseData Data = default(ConfigResponseData), InlineResponse200Status Status = default(InlineResponse200Status))
+        /// <param name="Data">Data.</param>
+        public ConfigResponse(InlineResponse200Status Status = default(InlineResponse200Status), ConfigResponseData Data = default(ConfigResponseData))
         {
-            this.Data = Data;
             this.Status = Status;
+            this.Data = Data;
         }
         
-        /// <summary>
-        /// Gets or Sets Data
-        /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public ConfigResponseData Data { get; set; }
-
         /// <summary>
         /// Gets or Sets Status
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public InlineResponse200Status Status { get; set; }
-
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public ConfigResponseData Data { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -61,8 +58,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponse {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +97,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
-                ) && 
-                (
                     this.Status == other.Status ||
                     this.Status != null &&
                     this.Status.Equals(other.Status)
+                ) && 
+                (
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -122,21 +119,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
                 if (this.Status != null)
                     hash = hash * 59 + this.Status.GetHashCode();
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -46,13 +45,11 @@ namespace Genesys.Workspace.Model
         /// </summary>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public InlineResponse200Status Status { get; set; }
-
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
         public InlineResponse200Data Data { get; set; }
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -130,13 +127,8 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

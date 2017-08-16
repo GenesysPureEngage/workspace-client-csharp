@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,28 +32,26 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200Status" /> class.
         /// </summary>
-        /// <param name="Code">On error will provide a code that can be used to get more detail about the error..</param>
         /// <param name="Message">On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed..</param>
-        public InlineResponse200Status(int? Code = default(int?), string Message = default(string))
+        /// <param name="Code">On error will provide a code that can be used to get more detail about the error..</param>
+        public InlineResponse200Status(string Message = default(string), int? Code = default(int?))
         {
-            this.Code = Code;
             this.Message = Message;
+            this.Code = Code;
         }
         
-        /// <summary>
-        /// On error will provide a code that can be used to get more detail about the error.
-        /// </summary>
-        /// <value>On error will provide a code that can be used to get more detail about the error.</value>
-        [DataMember(Name="code", EmitDefaultValue=false)]
-        public int? Code { get; set; }
-
         /// <summary>
         /// On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.
         /// </summary>
         /// <value>On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
-
+        /// <summary>
+        /// On error will provide a code that can be used to get more detail about the error.
+        /// </summary>
+        /// <value>On error will provide a code that can be used to get more detail about the error.</value>
+        [DataMember(Name="code", EmitDefaultValue=false)]
+        public int? Code { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -63,8 +60,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse200Status {\n");
-            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Code: ").Append(Code).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -102,14 +99,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
-                ) && 
-                (
                     this.Message == other.Message ||
                     this.Message != null &&
                     this.Message.Equals(other.Message)
+                ) && 
+                (
+                    this.Code == other.Code ||
+                    this.Code != null &&
+                    this.Code.Equals(other.Code)
                 );
         }
 
@@ -124,21 +121,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
                 if (this.Message != null)
                     hash = hash * 59 + this.Message.GetHashCode();
+                if (this.Code != null)
+                    hash = hash * 59 + this.Code.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }

@@ -20,7 +20,6 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -33,34 +32,31 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponseData" /> class.
         /// </summary>
-        /// <param name="ActionCodes">ActionCodes.</param>
         /// <param name="Transactions">Transactions.</param>
         /// <param name="BusinessAttributes">BusinessAttributes.</param>
-        public ConfigResponseData(List<ConfigResponseDataActionCodes> ActionCodes = default(List<ConfigResponseDataActionCodes>), List<ConfigResponseDataTransactions> Transactions = default(List<ConfigResponseDataTransactions>), List<ConfigResponseDataBusinessAttributes> BusinessAttributes = default(List<ConfigResponseDataBusinessAttributes>))
+        /// <param name="ActionCodes">ActionCodes.</param>
+        public ConfigResponseData(List<ConfigResponseDataTransactions> Transactions = default(List<ConfigResponseDataTransactions>), List<ConfigResponseDataBusinessAttributes> BusinessAttributes = default(List<ConfigResponseDataBusinessAttributes>), List<ConfigResponseDataActionCodes> ActionCodes = default(List<ConfigResponseDataActionCodes>))
         {
-            this.ActionCodes = ActionCodes;
             this.Transactions = Transactions;
             this.BusinessAttributes = BusinessAttributes;
+            this.ActionCodes = ActionCodes;
         }
         
-        /// <summary>
-        /// Gets or Sets ActionCodes
-        /// </summary>
-        [DataMember(Name="actionCodes", EmitDefaultValue=false)]
-        public List<ConfigResponseDataActionCodes> ActionCodes { get; set; }
-
         /// <summary>
         /// Gets or Sets Transactions
         /// </summary>
         [DataMember(Name="transactions", EmitDefaultValue=false)]
         public List<ConfigResponseDataTransactions> Transactions { get; set; }
-
         /// <summary>
         /// Gets or Sets BusinessAttributes
         /// </summary>
         [DataMember(Name="businessAttributes", EmitDefaultValue=false)]
         public List<ConfigResponseDataBusinessAttributes> BusinessAttributes { get; set; }
-
+        /// <summary>
+        /// Gets or Sets ActionCodes
+        /// </summary>
+        [DataMember(Name="actionCodes", EmitDefaultValue=false)]
+        public List<ConfigResponseDataActionCodes> ActionCodes { get; set; }
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -69,9 +65,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponseData {\n");
-            sb.Append("  ActionCodes: ").Append(ActionCodes).Append("\n");
             sb.Append("  Transactions: ").Append(Transactions).Append("\n");
             sb.Append("  BusinessAttributes: ").Append(BusinessAttributes).Append("\n");
+            sb.Append("  ActionCodes: ").Append(ActionCodes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -109,11 +105,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.ActionCodes == other.ActionCodes ||
-                    this.ActionCodes != null &&
-                    this.ActionCodes.SequenceEqual(other.ActionCodes)
-                ) && 
-                (
                     this.Transactions == other.Transactions ||
                     this.Transactions != null &&
                     this.Transactions.SequenceEqual(other.Transactions)
@@ -122,6 +113,11 @@ namespace Genesys.Workspace.Model
                     this.BusinessAttributes == other.BusinessAttributes ||
                     this.BusinessAttributes != null &&
                     this.BusinessAttributes.SequenceEqual(other.BusinessAttributes)
+                ) && 
+                (
+                    this.ActionCodes == other.ActionCodes ||
+                    this.ActionCodes != null &&
+                    this.ActionCodes.SequenceEqual(other.ActionCodes)
                 );
         }
 
@@ -136,23 +132,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ActionCodes != null)
-                    hash = hash * 59 + this.ActionCodes.GetHashCode();
                 if (this.Transactions != null)
                     hash = hash * 59 + this.Transactions.GetHashCode();
                 if (this.BusinessAttributes != null)
                     hash = hash * 59 + this.BusinessAttributes.GetHashCode();
+                if (this.ActionCodes != null)
+                    hash = hash * 59 + this.ActionCodes.GetHashCode();
                 return hash;
             }
         }
 
-        /// <summary>
-        /// To validate all properties of the instance
-        /// </summary>
-        /// <param name="validationContext">Validation context</param>
-        /// <returns>Validation Result</returns>
-        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
-        {
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        { 
             yield break;
         }
     }
