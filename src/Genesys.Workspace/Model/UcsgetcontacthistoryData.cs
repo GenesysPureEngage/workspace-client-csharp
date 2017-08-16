@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -63,24 +64,28 @@ namespace Genesys.Workspace.Model
         /// <value>The date to which the interactions should be retrieved (UCS format)</value>
         [DataMember(Name="toDate", EmitDefaultValue=false)]
         public string ToDate { get; set; }
+
         /// <summary>
         /// The id of the contact
         /// </summary>
         /// <value>The id of the contact</value>
         [DataMember(Name="contactId", EmitDefaultValue=false)]
         public string ContactId { get; set; }
+
         /// <summary>
         /// The date from which the interactions should be retrieved (UCS format)
         /// </summary>
         /// <value>The date from which the interactions should be retrieved (UCS format)</value>
         [DataMember(Name="fromDate", EmitDefaultValue=false)]
         public string FromDate { get; set; }
+
         /// <summary>
         /// The list of custom contact attributes to be returned for each interaction of the contact
         /// </summary>
         /// <value>The list of custom contact attributes to be returned for each interaction of the contact</value>
         [DataMember(Name="customAttributes", EmitDefaultValue=false)]
         public List<string> CustomAttributes { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -174,8 +179,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

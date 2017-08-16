@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -113,54 +114,64 @@ namespace Genesys.Workspace.Model
         /// <value>Username - only applicable to agents.</value>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
+
         /// <summary>
         /// Employee id - only applicable to agents.
         /// </summary>
         /// <value>Employee id - only applicable to agents.</value>
         [DataMember(Name="employeeID", EmitDefaultValue=false)]
         public string EmployeeID { get; set; }
+
         /// <summary>
         /// First name - only applicable to agents.
         /// </summary>
         /// <value>First name - only applicable to agents.</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
+
         /// <summary>
         /// DBID of the object
         /// </summary>
         /// <value>DBID of the object</value>
         [DataMember(Name="DBID", EmitDefaultValue=false)]
         public int? DBID { get; set; }
+
         /// <summary>
         /// Only applicable to acd-queue and route-point
         /// </summary>
         /// <value>Only applicable to acd-queue and route-point</value>
         [DataMember(Name="switchName", EmitDefaultValue=false)]
         public string SwitchName { get; set; }
+
         /// <summary>
         /// Only applicable to acd-queue and route-point
         /// </summary>
         /// <value>Only applicable to acd-queue and route-point</value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
+
         /// <summary>
         /// Last name - only applicable to agents.
         /// </summary>
         /// <value>Last name - only applicable to agents.</value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
+
+
         /// <summary>
         /// The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.
         /// </summary>
         /// <value>The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.</value>
         [DataMember(Name="availability", EmitDefaultValue=false)]
         public Object Availability { get; set; }
+
         /// <summary>
         /// For agents firstname and lastname (or username if neither is defined), for other types the name field is used.
         /// </summary>
         /// <value>For agents firstname and lastname (or username if neither is defined), for other types the name field is used.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -302,8 +313,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

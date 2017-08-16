@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -46,12 +47,14 @@ namespace Genesys.Workspace.Model
         /// <value>An array containing target results</value>
         [DataMember(Name="targets", EmitDefaultValue=false)]
         public List<Target> Targets { get; set; }
+
         /// <summary>
         /// The total number of matches to the query.
         /// </summary>
         /// <value>The total number of matches to the query.</value>
         [DataMember(Name="totalMatches", EmitDefaultValue=false)]
         public int? TotalMatches { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -129,8 +132,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

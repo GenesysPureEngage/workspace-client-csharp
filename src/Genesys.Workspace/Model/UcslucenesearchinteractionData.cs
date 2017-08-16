@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -63,24 +64,28 @@ namespace Genesys.Workspace.Model
         /// <value>The list of contact attributes to be returned for each contact in response</value>
         [DataMember(Name="contactAttributes", EmitDefaultValue=false)]
         public List<string> ContactAttributes { get; set; }
+
         /// <summary>
         /// The query to do the lucene search for contacts
         /// </summary>
         /// <value>The query to do the lucene search for contacts</value>
         [DataMember(Name="query", EmitDefaultValue=false)]
         public string Query { get; set; }
+
         /// <summary>
         /// Indicates if the search is performed among the history of interactions of the logged in agent
         /// </summary>
         /// <value>Indicates if the search is performed among the history of interactions of the logged in agent</value>
         [DataMember(Name="searchMyHistory", EmitDefaultValue=false)]
         public bool? SearchMyHistory { get; set; }
+
         /// <summary>
         /// The maximum number of contacts to be returned
         /// </summary>
         /// <value>The maximum number of contacts to be returned</value>
         [DataMember(Name="maxResults", EmitDefaultValue=false)]
         public int? MaxResults { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -174,8 +179,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

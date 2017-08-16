@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -105,54 +106,63 @@ namespace Genesys.Workspace.Model
         /// <value>The status of the call</value>
         [DataMember(Name="status", EmitDefaultValue=false)]
         public string Status { get; set; }
+
         /// <summary>
         /// A key/value pairs list of the user data of the call.
         /// </summary>
         /// <value>A key/value pairs list of the user data of the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
+
         /// <summary>
         /// The id of the call
         /// </summary>
         /// <value>The id of the call</value>
         [DataMember(Name="callId", EmitDefaultValue=false)]
         public string CallId { get; set; }
+
         /// <summary>
         /// The thread id
         /// </summary>
         /// <value>The thread id</value>
         [DataMember(Name="threadId", EmitDefaultValue=false)]
         public string ThreadId { get; set; }
+
         /// <summary>
         /// The id of the contact
         /// </summary>
         /// <value>The id of the contact</value>
         [DataMember(Name="contactId", EmitDefaultValue=false)]
         public string ContactId { get; set; }
+
         /// <summary>
         /// The phone number of the call
         /// </summary>
         /// <value>The phone number of the call</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
         /// <summary>
         /// The id of the parent interaction
         /// </summary>
         /// <value>The id of the parent interaction</value>
         [DataMember(Name="parentId", EmitDefaultValue=false)]
         public string ParentId { get; set; }
+
         /// <summary>
         /// The type of the call
         /// </summary>
         /// <value>The type of the call</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
+
         /// <summary>
         /// The subject of the call
         /// </summary>
         /// <value>The subject of the call</value>
         [DataMember(Name="subject", EmitDefaultValue=false)]
         public string Subject { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -286,8 +296,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

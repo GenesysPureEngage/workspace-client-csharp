@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -67,36 +68,42 @@ namespace Genesys.Workspace.Model
         /// <value>A key/value pairs list of the user data that should be attached to the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
+
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
+
         /// <summary>
         /// value to be set as CPN_DIGITS.
         /// </summary>
         /// <value>value to be set as CPN_DIGITS.</value>
         [DataMember(Name="outboundCallerId", EmitDefaultValue=false)]
         public string OutboundCallerId { get; set; }
+
         /// <summary>
         /// The number to be dialed
         /// </summary>
         /// <value>The number to be dialed</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
+
         /// <summary>
         /// A key/value pairs list of additional data.
         /// </summary>
         /// <value>A key/value pairs list of additional data.</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
+
         /// <summary>
         /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
         /// </summary>
         /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -206,8 +213,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }

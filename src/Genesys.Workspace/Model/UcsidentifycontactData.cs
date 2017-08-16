@@ -20,6 +20,7 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
+using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 
 namespace Genesys.Workspace.Model
 {
@@ -73,30 +74,35 @@ namespace Genesys.Workspace.Model
         /// <value>The email address of the interaction, if interaction is an email</value>
         [DataMember(Name="emailAddress", EmitDefaultValue=false)]
         public string EmailAddress { get; set; }
+
         /// <summary>
         /// A key/value pairs list of the user data of the call.
         /// </summary>
         /// <value>A key/value pairs list of the user data of the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
+
         /// <summary>
         /// The phone number of the interaction, if interaction is a voice call
         /// </summary>
         /// <value>The phone number of the interaction, if interaction is a voice call</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
+
         /// <summary>
         /// The media type of the interaction
         /// </summary>
         /// <value>The media type of the interaction</value>
         [DataMember(Name="mediaType", EmitDefaultValue=false)]
         public string MediaType { get; set; }
+
         /// <summary>
         /// Indicates if a contact should be created if no matching contact found
         /// </summary>
         /// <value>Indicates if a contact should be created if no matching contact found</value>
         [DataMember(Name="createContactEnabled", EmitDefaultValue=false)]
         public bool? CreateContactEnabled { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -198,8 +204,13 @@ namespace Genesys.Workspace.Model
             }
         }
 
-        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
-        { 
+        /// <summary>
+        /// To validate all properties of the instance
+        /// </summary>
+        /// <param name="validationContext">Validation context</param>
+        /// <returns>Validation Result</returns>
+        IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
+        {
             yield break;
         }
     }
