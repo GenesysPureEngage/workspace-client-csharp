@@ -38,12 +38,12 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidsinglesteptransferData" /> class.
         /// </summary>
-        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Destination">The number to transfer the call to. (required).</param>
-        /// <param name="Extensions">A key/value pairs list of additional data..</param>
         /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
-        public VoicecallsidsinglesteptransferData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> UserData = default(List<Kvpair>), string Destination = default(string), List<Kvpair> Extensions = default(List<Kvpair>), string Location = default(string))
+        /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
+        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
+        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        public VoicecallsidsinglesteptransferData(string Destination = default(string), string Location = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             // to ensure "Destination" is required (not null)
             if (Destination == null)
@@ -54,39 +54,18 @@ namespace Genesys.Workspace.Model
             {
                 this.Destination = Destination;
             }
-            this.Reasons = Reasons;
-            this.UserData = UserData;
-            this.Extensions = Extensions;
             this.Location = Location;
+            this.UserData = UserData;
+            this.Reasons = Reasons;
+            this.Extensions = Extensions;
         }
         
-        /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
-        /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
-        [DataMember(Name="reasons", EmitDefaultValue=false)]
-        public List<Kvpair> Reasons { get; set; }
-
-        /// <summary>
-        /// A key/value pairs list of the user data that should be attached to the call.
-        /// </summary>
-        /// <value>A key/value pairs list of the user data that should be attached to the call.</value>
-        [DataMember(Name="userData", EmitDefaultValue=false)]
-        public List<Kvpair> UserData { get; set; }
-
         /// <summary>
         /// The number to transfer the call to.
         /// </summary>
         /// <value>The number to transfer the call to.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
-
-        /// <summary>
-        /// A key/value pairs list of additional data.
-        /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
-        [DataMember(Name="extensions", EmitDefaultValue=false)]
-        public List<Kvpair> Extensions { get; set; }
 
         /// <summary>
         /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
@@ -96,6 +75,27 @@ namespace Genesys.Workspace.Model
         public string Location { get; set; }
 
         /// <summary>
+        /// A key/value pairs list of the user data that should be attached to the call.
+        /// </summary>
+        /// <value>A key/value pairs list of the user data that should be attached to the call.</value>
+        [DataMember(Name="userData", EmitDefaultValue=false)]
+        public List<Kvpair> UserData { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// </summary>
+        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        [DataMember(Name="reasons", EmitDefaultValue=false)]
+        public List<Kvpair> Reasons { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extensions", EmitDefaultValue=false)]
+        public List<Kvpair> Extensions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -103,11 +103,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidsinglesteptransferData {\n");
-            sb.Append("  Reasons: ").Append(Reasons).Append("\n");
-            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("  Destination: ").Append(Destination).Append("\n");
-            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
+            sb.Append("  Reasons: ").Append(Reasons).Append("\n");
+            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -145,9 +145,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Reasons == other.Reasons ||
-                    this.Reasons != null &&
-                    this.Reasons.SequenceEqual(other.Reasons)
+                    this.Destination == other.Destination ||
+                    this.Destination != null &&
+                    this.Destination.Equals(other.Destination)
+                ) && 
+                (
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
                 ) && 
                 (
                     this.UserData == other.UserData ||
@@ -155,19 +160,14 @@ namespace Genesys.Workspace.Model
                     this.UserData.SequenceEqual(other.UserData)
                 ) && 
                 (
-                    this.Destination == other.Destination ||
-                    this.Destination != null &&
-                    this.Destination.Equals(other.Destination)
+                    this.Reasons == other.Reasons ||
+                    this.Reasons != null &&
+                    this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
-                ) && 
-                (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
                 );
         }
 
@@ -182,16 +182,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Reasons != null)
-                    hash = hash * 59 + this.Reasons.GetHashCode();
-                if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
                 if (this.Destination != null)
                     hash = hash * 59 + this.Destination.GetHashCode();
-                if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
                 if (this.Location != null)
                     hash = hash * 59 + this.Location.GetHashCode();
+                if (this.UserData != null)
+                    hash = hash * 59 + this.UserData.GetHashCode();
+                if (this.Reasons != null)
+                    hash = hash * 59 + this.Reasons.GetHashCode();
+                if (this.Extensions != null)
+                    hash = hash * 59 + this.Extensions.GetHashCode();
                 return hash;
             }
         }

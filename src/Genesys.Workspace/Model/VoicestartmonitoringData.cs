@@ -31,27 +31,6 @@ namespace Genesys.Workspace.Model
     public partial class VoicestartmonitoringData :  IEquatable<VoicestartmonitoringData>, IValidatableObject
     {
         /// <summary>
-        /// The monitoring call type (NextCall/AllCalls).
-        /// </summary>
-        /// <value>The monitoring call type (NextCall/AllCalls).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringNextCallTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum OneCall for "OneCall"
-            /// </summary>
-            [EnumMember(Value = "OneCall")]
-            OneCall,
-            
-            /// <summary>
-            /// Enum AllCalls for "AllCalls"
-            /// </summary>
-            [EnumMember(Value = "AllCalls")]
-            AllCalls
-        }
-
-        /// <summary>
         /// The monitoring mode (Mute,Coach)
         /// </summary>
         /// <value>The monitoring mode (Mute,Coach)</value>
@@ -70,6 +49,27 @@ namespace Genesys.Workspace.Model
             /// </summary>
             [EnumMember(Value = "Coach")]
             Coach
+        }
+
+        /// <summary>
+        /// The monitoring call type (NextCall/AllCalls).
+        /// </summary>
+        /// <value>The monitoring call type (NextCall/AllCalls).</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MonitoringNextCallTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum OneCall for "OneCall"
+            /// </summary>
+            [EnumMember(Value = "OneCall")]
+            OneCall,
+            
+            /// <summary>
+            /// Enum AllCalls for "AllCalls"
+            /// </summary>
+            [EnumMember(Value = "AllCalls")]
+            AllCalls
         }
 
         /// <summary>
@@ -94,17 +94,17 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// The monitoring call type (NextCall/AllCalls).
-        /// </summary>
-        /// <value>The monitoring call type (NextCall/AllCalls).</value>
-        [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
-        public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
-        /// <summary>
         /// The monitoring mode (Mute,Coach)
         /// </summary>
         /// <value>The monitoring mode (Mute,Coach)</value>
         [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
         public MonitoringModeEnum? MonitoringMode { get; set; }
+        /// <summary>
+        /// The monitoring call type (NextCall/AllCalls).
+        /// </summary>
+        /// <value>The monitoring call type (NextCall/AllCalls).</value>
+        [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
+        public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
         /// <summary>
         /// The monitoring scope (Call/Agent).
         /// </summary>
@@ -119,12 +119,12 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicestartmonitoringData" /> class.
         /// </summary>
-        /// <param name="Location">The switch name where the phone number to be monitored is located (optional).</param>
         /// <param name="PhoneNumberToMonitor">The phone number that should be monitored (required).</param>
-        /// <param name="MonitoringNextCallType">The monitoring call type (NextCall/AllCalls)..</param>
         /// <param name="MonitoringMode">The monitoring mode (Mute,Coach).</param>
+        /// <param name="MonitoringNextCallType">The monitoring call type (NextCall/AllCalls)..</param>
         /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
-        public VoicestartmonitoringData(string Location = default(string), string PhoneNumberToMonitor = default(string), MonitoringNextCallTypeEnum? MonitoringNextCallType = default(MonitoringNextCallTypeEnum?), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
+        /// <param name="Location">The switch name where the phone number to be monitored is located (optional).</param>
+        public VoicestartmonitoringData(string PhoneNumberToMonitor = default(string), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringNextCallTypeEnum? MonitoringNextCallType = default(MonitoringNextCallTypeEnum?), MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?), string Location = default(string))
         {
             // to ensure "PhoneNumberToMonitor" is required (not null)
             if (PhoneNumberToMonitor == null)
@@ -135,19 +135,12 @@ namespace Genesys.Workspace.Model
             {
                 this.PhoneNumberToMonitor = PhoneNumberToMonitor;
             }
-            this.Location = Location;
-            this.MonitoringNextCallType = MonitoringNextCallType;
             this.MonitoringMode = MonitoringMode;
+            this.MonitoringNextCallType = MonitoringNextCallType;
             this.MonitoringScope = MonitoringScope;
+            this.Location = Location;
         }
         
-        /// <summary>
-        /// The switch name where the phone number to be monitored is located (optional)
-        /// </summary>
-        /// <value>The switch name where the phone number to be monitored is located (optional)</value>
-        [DataMember(Name="location", EmitDefaultValue=false)]
-        public string Location { get; set; }
-
         /// <summary>
         /// The phone number that should be monitored
         /// </summary>
@@ -159,6 +152,13 @@ namespace Genesys.Workspace.Model
 
 
         /// <summary>
+        /// The switch name where the phone number to be monitored is located (optional)
+        /// </summary>
+        /// <value>The switch name where the phone number to be monitored is located (optional)</value>
+        [DataMember(Name="location", EmitDefaultValue=false)]
+        public string Location { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -166,11 +166,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicestartmonitoringData {\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  PhoneNumberToMonitor: ").Append(PhoneNumberToMonitor).Append("\n");
-            sb.Append("  MonitoringNextCallType: ").Append(MonitoringNextCallType).Append("\n");
             sb.Append("  MonitoringMode: ").Append(MonitoringMode).Append("\n");
+            sb.Append("  MonitoringNextCallType: ").Append(MonitoringNextCallType).Append("\n");
             sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
+            sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -208,19 +208,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
-                ) && 
-                (
                     this.PhoneNumberToMonitor == other.PhoneNumberToMonitor ||
                     this.PhoneNumberToMonitor != null &&
                     this.PhoneNumberToMonitor.Equals(other.PhoneNumberToMonitor)
-                ) && 
-                (
-                    this.MonitoringNextCallType == other.MonitoringNextCallType ||
-                    this.MonitoringNextCallType != null &&
-                    this.MonitoringNextCallType.Equals(other.MonitoringNextCallType)
                 ) && 
                 (
                     this.MonitoringMode == other.MonitoringMode ||
@@ -228,9 +218,19 @@ namespace Genesys.Workspace.Model
                     this.MonitoringMode.Equals(other.MonitoringMode)
                 ) && 
                 (
+                    this.MonitoringNextCallType == other.MonitoringNextCallType ||
+                    this.MonitoringNextCallType != null &&
+                    this.MonitoringNextCallType.Equals(other.MonitoringNextCallType)
+                ) && 
+                (
                     this.MonitoringScope == other.MonitoringScope ||
                     this.MonitoringScope != null &&
                     this.MonitoringScope.Equals(other.MonitoringScope)
+                ) && 
+                (
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
                 );
         }
 
@@ -245,16 +245,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
                 if (this.PhoneNumberToMonitor != null)
                     hash = hash * 59 + this.PhoneNumberToMonitor.GetHashCode();
-                if (this.MonitoringNextCallType != null)
-                    hash = hash * 59 + this.MonitoringNextCallType.GetHashCode();
                 if (this.MonitoringMode != null)
                     hash = hash * 59 + this.MonitoringMode.GetHashCode();
+                if (this.MonitoringNextCallType != null)
+                    hash = hash * 59 + this.MonitoringNextCallType.GetHashCode();
                 if (this.MonitoringScope != null)
                     hash = hash * 59 + this.MonitoringScope.GetHashCode();
+                if (this.Location != null)
+                    hash = hash * 59 + this.Location.GetHashCode();
                 return hash;
             }
         }

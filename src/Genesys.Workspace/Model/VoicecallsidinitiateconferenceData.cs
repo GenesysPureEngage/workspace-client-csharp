@@ -38,13 +38,13 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidinitiateconferenceData" /> class.
         /// </summary>
+        /// <param name="Destination">The number to be dialed (required).</param>
+        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="OutboundCallerId">value to be set as CPN_DIGITS..</param>
-        /// <param name="Destination">The number to be dialed (required).</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
-        public VoicecallsidinitiateconferenceData(List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), string OutboundCallerId = default(string), string Destination = default(string), List<Kvpair> Extensions = default(List<Kvpair>), string Location = default(string))
+        /// <param name="OutboundCallerId">value to be set as CPN_DIGITS..</param>
+        public VoicecallsidinitiateconferenceData(string Destination = default(string), string Location = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string OutboundCallerId = default(string))
         {
             // to ensure "Destination" is required (not null)
             if (Destination == null)
@@ -55,13 +55,27 @@ namespace Genesys.Workspace.Model
             {
                 this.Destination = Destination;
             }
+            this.Location = Location;
             this.UserData = UserData;
             this.Reasons = Reasons;
-            this.OutboundCallerId = OutboundCallerId;
             this.Extensions = Extensions;
-            this.Location = Location;
+            this.OutboundCallerId = OutboundCallerId;
         }
         
+        /// <summary>
+        /// The number to be dialed
+        /// </summary>
+        /// <value>The number to be dialed</value>
+        [DataMember(Name="destination", EmitDefaultValue=false)]
+        public string Destination { get; set; }
+
+        /// <summary>
+        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+        /// </summary>
+        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
+        [DataMember(Name="location", EmitDefaultValue=false)]
+        public string Location { get; set; }
+
         /// <summary>
         /// A key/value pairs list of the user data that should be attached to the call.
         /// </summary>
@@ -77,20 +91,6 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> Reasons { get; set; }
 
         /// <summary>
-        /// value to be set as CPN_DIGITS.
-        /// </summary>
-        /// <value>value to be set as CPN_DIGITS.</value>
-        [DataMember(Name="outboundCallerId", EmitDefaultValue=false)]
-        public string OutboundCallerId { get; set; }
-
-        /// <summary>
-        /// The number to be dialed
-        /// </summary>
-        /// <value>The number to be dialed</value>
-        [DataMember(Name="destination", EmitDefaultValue=false)]
-        public string Destination { get; set; }
-
-        /// <summary>
         /// A key/value pairs list of additional data.
         /// </summary>
         /// <value>A key/value pairs list of additional data.</value>
@@ -98,11 +98,11 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> Extensions { get; set; }
 
         /// <summary>
-        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+        /// value to be set as CPN_DIGITS.
         /// </summary>
-        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
-        [DataMember(Name="location", EmitDefaultValue=false)]
-        public string Location { get; set; }
+        /// <value>value to be set as CPN_DIGITS.</value>
+        [DataMember(Name="outboundCallerId", EmitDefaultValue=false)]
+        public string OutboundCallerId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -112,12 +112,12 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidinitiateconferenceData {\n");
+            sb.Append("  Destination: ").Append(Destination).Append("\n");
+            sb.Append("  Location: ").Append(Location).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
-            sb.Append("  OutboundCallerId: ").Append(OutboundCallerId).Append("\n");
-            sb.Append("  Destination: ").Append(Destination).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
-            sb.Append("  Location: ").Append(Location).Append("\n");
+            sb.Append("  OutboundCallerId: ").Append(OutboundCallerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -155,6 +155,16 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.Destination == other.Destination ||
+                    this.Destination != null &&
+                    this.Destination.Equals(other.Destination)
+                ) && 
+                (
+                    this.Location == other.Location ||
+                    this.Location != null &&
+                    this.Location.Equals(other.Location)
+                ) && 
+                (
                     this.UserData == other.UserData ||
                     this.UserData != null &&
                     this.UserData.SequenceEqual(other.UserData)
@@ -165,24 +175,14 @@ namespace Genesys.Workspace.Model
                     this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
-                    this.OutboundCallerId == other.OutboundCallerId ||
-                    this.OutboundCallerId != null &&
-                    this.OutboundCallerId.Equals(other.OutboundCallerId)
-                ) && 
-                (
-                    this.Destination == other.Destination ||
-                    this.Destination != null &&
-                    this.Destination.Equals(other.Destination)
-                ) && 
-                (
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
                 ) && 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
+                    this.OutboundCallerId == other.OutboundCallerId ||
+                    this.OutboundCallerId != null &&
+                    this.OutboundCallerId.Equals(other.OutboundCallerId)
                 );
         }
 
@@ -197,18 +197,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Destination != null)
+                    hash = hash * 59 + this.Destination.GetHashCode();
+                if (this.Location != null)
+                    hash = hash * 59 + this.Location.GetHashCode();
                 if (this.UserData != null)
                     hash = hash * 59 + this.UserData.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
-                if (this.OutboundCallerId != null)
-                    hash = hash * 59 + this.OutboundCallerId.GetHashCode();
-                if (this.Destination != null)
-                    hash = hash * 59 + this.Destination.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
-                if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
+                if (this.OutboundCallerId != null)
+                    hash = hash * 59 + this.OutboundCallerId.GetHashCode();
                 return hash;
             }
         }

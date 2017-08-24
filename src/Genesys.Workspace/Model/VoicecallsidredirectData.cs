@@ -38,10 +38,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidredirectData" /> class.
         /// </summary>
-        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Destination">The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call. (required).</param>
+        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicecallsidredirectData(List<Kvpair> Reasons = default(List<Kvpair>), string Destination = default(string), List<Kvpair> Extensions = default(List<Kvpair>))
+        public VoicecallsidredirectData(string Destination = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             // to ensure "Destination" is required (not null)
             if (Destination == null)
@@ -57,18 +57,18 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
-        /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
-        [DataMember(Name="reasons", EmitDefaultValue=false)]
-        public List<Kvpair> Reasons { get; set; }
-
-        /// <summary>
         /// The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call.
         /// </summary>
         /// <value>The other main Directory Number (which your application did not register) involved in this request or event. For instance, the DN of the main party of the call.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// </summary>
+        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        [DataMember(Name="reasons", EmitDefaultValue=false)]
+        public List<Kvpair> Reasons { get; set; }
 
         /// <summary>
         /// A key/value pairs list of additional data.
@@ -85,8 +85,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidredirectData {\n");
-            sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Destination: ").Append(Destination).Append("\n");
+            sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -125,14 +125,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Reasons == other.Reasons ||
-                    this.Reasons != null &&
-                    this.Reasons.SequenceEqual(other.Reasons)
-                ) && 
-                (
                     this.Destination == other.Destination ||
                     this.Destination != null &&
                     this.Destination.Equals(other.Destination)
+                ) && 
+                (
+                    this.Reasons == other.Reasons ||
+                    this.Reasons != null &&
+                    this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
                     this.Extensions == other.Extensions ||
@@ -152,10 +152,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Reasons != null)
-                    hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Destination != null)
                     hash = hash * 59 + this.Destination.GetHashCode();
+                if (this.Reasons != null)
+                    hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
                 return hash;

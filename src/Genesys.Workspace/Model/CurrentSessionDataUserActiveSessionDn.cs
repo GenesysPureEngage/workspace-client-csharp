@@ -33,23 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSessionDn" /> class.
         /// </summary>
-        /// <param name="AgentWorkMode">AgentWorkMode.</param>
+        /// <param name="Number">Number.</param>
         /// <param name="AgentId">AgentId.</param>
         /// <param name="AgentState">AgentState.</param>
-        /// <param name="Number">Number.</param>
-        public CurrentSessionDataUserActiveSessionDn(string AgentWorkMode = default(string), string AgentId = default(string), string AgentState = default(string), string Number = default(string))
+        /// <param name="AgentWorkMode">AgentWorkMode.</param>
+        public CurrentSessionDataUserActiveSessionDn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
         {
-            this.AgentWorkMode = AgentWorkMode;
+            this.Number = Number;
             this.AgentId = AgentId;
             this.AgentState = AgentState;
-            this.Number = Number;
+            this.AgentWorkMode = AgentWorkMode;
         }
         
         /// <summary>
-        /// Gets or Sets AgentWorkMode
+        /// Gets or Sets Number
         /// </summary>
-        [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
-        public string AgentWorkMode { get; set; }
+        [DataMember(Name="number", EmitDefaultValue=false)]
+        public string Number { get; set; }
 
         /// <summary>
         /// Gets or Sets AgentId
@@ -64,10 +64,10 @@ namespace Genesys.Workspace.Model
         public string AgentState { get; set; }
 
         /// <summary>
-        /// Gets or Sets Number
+        /// Gets or Sets AgentWorkMode
         /// </summary>
-        [DataMember(Name="number", EmitDefaultValue=false)]
-        public string Number { get; set; }
+        [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
+        public string AgentWorkMode { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,10 +77,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionDataUserActiveSessionDn {\n");
-            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
+            sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("  AgentState: ").Append(AgentState).Append("\n");
-            sb.Append("  Number: ").Append(Number).Append("\n");
+            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,9 +118,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.AgentWorkMode == other.AgentWorkMode ||
-                    this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(other.AgentWorkMode)
+                    this.Number == other.Number ||
+                    this.Number != null &&
+                    this.Number.Equals(other.Number)
                 ) && 
                 (
                     this.AgentId == other.AgentId ||
@@ -133,9 +133,9 @@ namespace Genesys.Workspace.Model
                     this.AgentState.Equals(other.AgentState)
                 ) && 
                 (
-                    this.Number == other.Number ||
-                    this.Number != null &&
-                    this.Number.Equals(other.Number)
+                    this.AgentWorkMode == other.AgentWorkMode ||
+                    this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(other.AgentWorkMode)
                 );
         }
 
@@ -150,14 +150,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.AgentWorkMode != null)
-                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                if (this.Number != null)
+                    hash = hash * 59 + this.Number.GetHashCode();
                 if (this.AgentId != null)
                     hash = hash * 59 + this.AgentId.GetHashCode();
                 if (this.AgentState != null)
                     hash = hash * 59 + this.AgentState.GetHashCode();
-                if (this.Number != null)
-                    hash = hash * 59 + this.Number.GetHashCode();
+                if (this.AgentWorkMode != null)
+                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
                 return hash;
             }
         }

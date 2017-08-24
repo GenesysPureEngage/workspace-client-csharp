@@ -33,24 +33,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivatechannelsData" /> class.
         /// </summary>
-        /// <param name="Dn">The dn (number) that should be used to login the agent..</param>
-        /// <param name="PlaceName">The name of the place that should be used to log the agent in. Either placeName or dn must be provided..</param>
         /// <param name="AgentId">agentId (switch login code) that should be used to log the agent in.</param>
+        /// <param name="PlaceName">The name of the place that should be used to log the agent in. Either placeName or dn must be provided..</param>
+        /// <param name="Dn">The dn (number) that should be used to login the agent..</param>
         /// <param name="QueueName">The queue name that should be used to login the agent..</param>
-        public ActivatechannelsData(string Dn = default(string), string PlaceName = default(string), string AgentId = default(string), string QueueName = default(string))
+        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string))
         {
-            this.Dn = Dn;
-            this.PlaceName = PlaceName;
             this.AgentId = AgentId;
+            this.PlaceName = PlaceName;
+            this.Dn = Dn;
             this.QueueName = QueueName;
         }
         
         /// <summary>
-        /// The dn (number) that should be used to login the agent.
+        /// agentId (switch login code) that should be used to log the agent in
         /// </summary>
-        /// <value>The dn (number) that should be used to login the agent.</value>
-        [DataMember(Name="dn", EmitDefaultValue=false)]
-        public string Dn { get; set; }
+        /// <value>agentId (switch login code) that should be used to log the agent in</value>
+        [DataMember(Name="agentId", EmitDefaultValue=false)]
+        public string AgentId { get; set; }
 
         /// <summary>
         /// The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
@@ -60,11 +60,11 @@ namespace Genesys.Workspace.Model
         public string PlaceName { get; set; }
 
         /// <summary>
-        /// agentId (switch login code) that should be used to log the agent in
+        /// The dn (number) that should be used to login the agent.
         /// </summary>
-        /// <value>agentId (switch login code) that should be used to log the agent in</value>
-        [DataMember(Name="agentId", EmitDefaultValue=false)]
-        public string AgentId { get; set; }
+        /// <value>The dn (number) that should be used to login the agent.</value>
+        [DataMember(Name="dn", EmitDefaultValue=false)]
+        public string Dn { get; set; }
 
         /// <summary>
         /// The queue name that should be used to login the agent.
@@ -81,9 +81,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ActivatechannelsData {\n");
-            sb.Append("  Dn: ").Append(Dn).Append("\n");
-            sb.Append("  PlaceName: ").Append(PlaceName).Append("\n");
             sb.Append("  AgentId: ").Append(AgentId).Append("\n");
+            sb.Append("  PlaceName: ").Append(PlaceName).Append("\n");
+            sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  QueueName: ").Append(QueueName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -122,9 +122,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
+                    this.AgentId == other.AgentId ||
+                    this.AgentId != null &&
+                    this.AgentId.Equals(other.AgentId)
                 ) && 
                 (
                     this.PlaceName == other.PlaceName ||
@@ -132,9 +132,9 @@ namespace Genesys.Workspace.Model
                     this.PlaceName.Equals(other.PlaceName)
                 ) && 
                 (
-                    this.AgentId == other.AgentId ||
-                    this.AgentId != null &&
-                    this.AgentId.Equals(other.AgentId)
+                    this.Dn == other.Dn ||
+                    this.Dn != null &&
+                    this.Dn.Equals(other.Dn)
                 ) && 
                 (
                     this.QueueName == other.QueueName ||
@@ -154,12 +154,12 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
-                if (this.PlaceName != null)
-                    hash = hash * 59 + this.PlaceName.GetHashCode();
                 if (this.AgentId != null)
                     hash = hash * 59 + this.AgentId.GetHashCode();
+                if (this.PlaceName != null)
+                    hash = hash * 59 + this.PlaceName.GetHashCode();
+                if (this.Dn != null)
+                    hash = hash * 59 + this.Dn.GetHashCode();
                 if (this.QueueName != null)
                     hash = hash * 59 + this.QueueName.GetHashCode();
                 return hash;

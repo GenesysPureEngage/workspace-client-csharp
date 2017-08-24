@@ -38,19 +38,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetspersonalfavoritessaveData" /> class.
         /// </summary>
-        /// <param name="Category">category of the favorite target (required).</param>
         /// <param name="Target">The personal favorite target (required).</param>
-        public TargetspersonalfavoritessaveData(string Category = default(string), TargetInformation Target = default(TargetInformation))
+        /// <param name="Category">category of the favorite target (required).</param>
+        public TargetspersonalfavoritessaveData(TargetInformation Target = default(TargetInformation), string Category = default(string))
         {
-            // to ensure "Category" is required (not null)
-            if (Category == null)
-            {
-                throw new InvalidDataException("Category is a required property for TargetspersonalfavoritessaveData and cannot be null");
-            }
-            else
-            {
-                this.Category = Category;
-            }
             // to ensure "Target" is required (not null)
             if (Target == null)
             {
@@ -60,21 +51,30 @@ namespace Genesys.Workspace.Model
             {
                 this.Target = Target;
             }
+            // to ensure "Category" is required (not null)
+            if (Category == null)
+            {
+                throw new InvalidDataException("Category is a required property for TargetspersonalfavoritessaveData and cannot be null");
+            }
+            else
+            {
+                this.Category = Category;
+            }
         }
         
-        /// <summary>
-        /// category of the favorite target
-        /// </summary>
-        /// <value>category of the favorite target</value>
-        [DataMember(Name="category", EmitDefaultValue=false)]
-        public string Category { get; set; }
-
         /// <summary>
         /// The personal favorite target
         /// </summary>
         /// <value>The personal favorite target</value>
         [DataMember(Name="target", EmitDefaultValue=false)]
         public TargetInformation Target { get; set; }
+
+        /// <summary>
+        /// category of the favorite target
+        /// </summary>
+        /// <value>category of the favorite target</value>
+        [DataMember(Name="category", EmitDefaultValue=false)]
+        public string Category { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,8 +84,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TargetspersonalfavoritessaveData {\n");
-            sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("  Target: ").Append(Target).Append("\n");
+            sb.Append("  Category: ").Append(Category).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,14 +123,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Category == other.Category ||
-                    this.Category != null &&
-                    this.Category.Equals(other.Category)
-                ) && 
-                (
                     this.Target == other.Target ||
                     this.Target != null &&
                     this.Target.Equals(other.Target)
+                ) && 
+                (
+                    this.Category == other.Category ||
+                    this.Category != null &&
+                    this.Category.Equals(other.Category)
                 );
         }
 
@@ -145,10 +145,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Category != null)
-                    hash = hash * 59 + this.Category.GetHashCode();
                 if (this.Target != null)
                     hash = hash * 59 + this.Target.GetHashCode();
+                if (this.Category != null)
+                    hash = hash * 59 + this.Category.GetHashCode();
                 return hash;
             }
         }

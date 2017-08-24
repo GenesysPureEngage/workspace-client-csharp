@@ -38,11 +38,11 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsgetcontacthistoryData" /> class.
         /// </summary>
-        /// <param name="ToDate">The date to which the interactions should be retrieved (UCS format).</param>
         /// <param name="ContactId">The id of the contact (required).</param>
-        /// <param name="FromDate">The date from which the interactions should be retrieved (UCS format).</param>
         /// <param name="CustomAttributes">The list of custom contact attributes to be returned for each interaction of the contact.</param>
-        public UcsgetcontacthistoryData(string ToDate = default(string), string ContactId = default(string), string FromDate = default(string), List<string> CustomAttributes = default(List<string>))
+        /// <param name="FromDate">The date from which the interactions should be retrieved (UCS format).</param>
+        /// <param name="ToDate">The date to which the interactions should be retrieved (UCS format).</param>
+        public UcsgetcontacthistoryData(string ContactId = default(string), List<string> CustomAttributes = default(List<string>), string FromDate = default(string), string ToDate = default(string))
         {
             // to ensure "ContactId" is required (not null)
             if (ContactId == null)
@@ -53,31 +53,17 @@ namespace Genesys.Workspace.Model
             {
                 this.ContactId = ContactId;
             }
-            this.ToDate = ToDate;
-            this.FromDate = FromDate;
             this.CustomAttributes = CustomAttributes;
+            this.FromDate = FromDate;
+            this.ToDate = ToDate;
         }
         
-        /// <summary>
-        /// The date to which the interactions should be retrieved (UCS format)
-        /// </summary>
-        /// <value>The date to which the interactions should be retrieved (UCS format)</value>
-        [DataMember(Name="toDate", EmitDefaultValue=false)]
-        public string ToDate { get; set; }
-
         /// <summary>
         /// The id of the contact
         /// </summary>
         /// <value>The id of the contact</value>
         [DataMember(Name="contactId", EmitDefaultValue=false)]
         public string ContactId { get; set; }
-
-        /// <summary>
-        /// The date from which the interactions should be retrieved (UCS format)
-        /// </summary>
-        /// <value>The date from which the interactions should be retrieved (UCS format)</value>
-        [DataMember(Name="fromDate", EmitDefaultValue=false)]
-        public string FromDate { get; set; }
 
         /// <summary>
         /// The list of custom contact attributes to be returned for each interaction of the contact
@@ -87,6 +73,20 @@ namespace Genesys.Workspace.Model
         public List<string> CustomAttributes { get; set; }
 
         /// <summary>
+        /// The date from which the interactions should be retrieved (UCS format)
+        /// </summary>
+        /// <value>The date from which the interactions should be retrieved (UCS format)</value>
+        [DataMember(Name="fromDate", EmitDefaultValue=false)]
+        public string FromDate { get; set; }
+
+        /// <summary>
+        /// The date to which the interactions should be retrieved (UCS format)
+        /// </summary>
+        /// <value>The date to which the interactions should be retrieved (UCS format)</value>
+        [DataMember(Name="toDate", EmitDefaultValue=false)]
+        public string ToDate { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -94,10 +94,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsgetcontacthistoryData {\n");
-            sb.Append("  ToDate: ").Append(ToDate).Append("\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
-            sb.Append("  FromDate: ").Append(FromDate).Append("\n");
             sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
+            sb.Append("  FromDate: ").Append(FromDate).Append("\n");
+            sb.Append("  ToDate: ").Append(ToDate).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,14 +135,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.ToDate == other.ToDate ||
-                    this.ToDate != null &&
-                    this.ToDate.Equals(other.ToDate)
-                ) && 
-                (
                     this.ContactId == other.ContactId ||
                     this.ContactId != null &&
                     this.ContactId.Equals(other.ContactId)
+                ) && 
+                (
+                    this.CustomAttributes == other.CustomAttributes ||
+                    this.CustomAttributes != null &&
+                    this.CustomAttributes.SequenceEqual(other.CustomAttributes)
                 ) && 
                 (
                     this.FromDate == other.FromDate ||
@@ -150,9 +150,9 @@ namespace Genesys.Workspace.Model
                     this.FromDate.Equals(other.FromDate)
                 ) && 
                 (
-                    this.CustomAttributes == other.CustomAttributes ||
-                    this.CustomAttributes != null &&
-                    this.CustomAttributes.SequenceEqual(other.CustomAttributes)
+                    this.ToDate == other.ToDate ||
+                    this.ToDate != null &&
+                    this.ToDate.Equals(other.ToDate)
                 );
         }
 
@@ -167,14 +167,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ToDate != null)
-                    hash = hash * 59 + this.ToDate.GetHashCode();
                 if (this.ContactId != null)
                     hash = hash * 59 + this.ContactId.GetHashCode();
-                if (this.FromDate != null)
-                    hash = hash * 59 + this.FromDate.GetHashCode();
                 if (this.CustomAttributes != null)
                     hash = hash * 59 + this.CustomAttributes.GetHashCode();
+                if (this.FromDate != null)
+                    hash = hash * 59 + this.FromDate.GetHashCode();
+                if (this.ToDate != null)
+                    hash = hash * 59 + this.ToDate.GetHashCode();
                 return hash;
             }
         }

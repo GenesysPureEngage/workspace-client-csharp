@@ -34,7 +34,7 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="ReadyData" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public ReadyData(VoicecallsidholdData Data = default(VoicecallsidholdData))
+        public ReadyData(VoicereadyData Data = default(VoicereadyData))
         {
             this.Data = Data;
         }
@@ -43,7 +43,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public VoicecallsidholdData Data { get; set; }
+        public VoicereadyData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -78,19 +78,18 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicenotreadyData" /> class.
         /// </summary>
-        /// <param name="AgentWorkMode">the agent workmode..</param>
         /// <param name="ReasonCode">the reason code.</param>
-        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        /// <param name="AgentWorkMode">the agent workmode..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        public VoicenotreadyData(AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), string ReasonCode = default(string), List<Kvpair> Extensions = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>))
+        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        public VoicenotreadyData(string ReasonCode = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
-            this.AgentWorkMode = AgentWorkMode;
             this.ReasonCode = ReasonCode;
-            this.Extensions = Extensions;
+            this.AgentWorkMode = AgentWorkMode;
             this.Reasons = Reasons;
+            this.Extensions = Extensions;
         }
         
-
         /// <summary>
         /// the reason code
         /// </summary>
@@ -98,12 +97,6 @@ namespace Genesys.Workspace.Model
         [DataMember(Name="reasonCode", EmitDefaultValue=false)]
         public string ReasonCode { get; set; }
 
-        /// <summary>
-        /// A key/value pairs list of additional data.
-        /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
-        [DataMember(Name="extensions", EmitDefaultValue=false)]
-        public List<Kvpair> Extensions { get; set; }
 
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
@@ -113,6 +106,13 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> Reasons { get; set; }
 
         /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extensions", EmitDefaultValue=false)]
+        public List<Kvpair> Extensions { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -120,10 +120,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicenotreadyData {\n");
-            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
             sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
+            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
+            sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -161,24 +161,24 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.AgentWorkMode == other.AgentWorkMode ||
-                    this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(other.AgentWorkMode)
-                ) && 
-                (
                     this.ReasonCode == other.ReasonCode ||
                     this.ReasonCode != null &&
                     this.ReasonCode.Equals(other.ReasonCode)
                 ) && 
                 (
-                    this.Extensions == other.Extensions ||
-                    this.Extensions != null &&
-                    this.Extensions.SequenceEqual(other.Extensions)
+                    this.AgentWorkMode == other.AgentWorkMode ||
+                    this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(other.AgentWorkMode)
                 ) && 
                 (
                     this.Reasons == other.Reasons ||
                     this.Reasons != null &&
                     this.Reasons.SequenceEqual(other.Reasons)
+                ) && 
+                (
+                    this.Extensions == other.Extensions ||
+                    this.Extensions != null &&
+                    this.Extensions.SequenceEqual(other.Extensions)
                 );
         }
 
@@ -193,14 +193,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.AgentWorkMode != null)
-                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.ReasonCode != null)
                     hash = hash * 59 + this.ReasonCode.GetHashCode();
-                if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
+                if (this.AgentWorkMode != null)
+                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
+                if (this.Extensions != null)
+                    hash = hash * 59 + this.Extensions.GetHashCode();
                 return hash;
             }
         }

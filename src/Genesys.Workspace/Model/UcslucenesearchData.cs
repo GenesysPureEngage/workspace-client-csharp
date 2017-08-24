@@ -38,10 +38,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcslucenesearchData" /> class.
         /// </summary>
+        /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
         /// <param name="Query">The query to do the lucene search for contacts (required).</param>
         /// <param name="CustomAttributes">The list of custom contact attributes to be returned for each contact in response.</param>
-        /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
-        public UcslucenesearchData(string Query = default(string), List<string> CustomAttributes = default(List<string>), int? MaxResults = default(int?))
+        public UcslucenesearchData(int? MaxResults = default(int?), string Query = default(string), List<string> CustomAttributes = default(List<string>))
         {
             // to ensure "Query" is required (not null)
             if (Query == null)
@@ -52,10 +52,17 @@ namespace Genesys.Workspace.Model
             {
                 this.Query = Query;
             }
-            this.CustomAttributes = CustomAttributes;
             this.MaxResults = MaxResults;
+            this.CustomAttributes = CustomAttributes;
         }
         
+        /// <summary>
+        /// The maximum number of contacts to be returned
+        /// </summary>
+        /// <value>The maximum number of contacts to be returned</value>
+        [DataMember(Name="maxResults", EmitDefaultValue=false)]
+        public int? MaxResults { get; set; }
+
         /// <summary>
         /// The query to do the lucene search for contacts
         /// </summary>
@@ -71,13 +78,6 @@ namespace Genesys.Workspace.Model
         public List<string> CustomAttributes { get; set; }
 
         /// <summary>
-        /// The maximum number of contacts to be returned
-        /// </summary>
-        /// <value>The maximum number of contacts to be returned</value>
-        [DataMember(Name="maxResults", EmitDefaultValue=false)]
-        public int? MaxResults { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,9 +85,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcslucenesearchData {\n");
+            sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
             sb.Append("  Query: ").Append(Query).Append("\n");
             sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
-            sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +125,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.MaxResults == other.MaxResults ||
+                    this.MaxResults != null &&
+                    this.MaxResults.Equals(other.MaxResults)
+                ) && 
+                (
                     this.Query == other.Query ||
                     this.Query != null &&
                     this.Query.Equals(other.Query)
@@ -133,11 +138,6 @@ namespace Genesys.Workspace.Model
                     this.CustomAttributes == other.CustomAttributes ||
                     this.CustomAttributes != null &&
                     this.CustomAttributes.SequenceEqual(other.CustomAttributes)
-                ) && 
-                (
-                    this.MaxResults == other.MaxResults ||
-                    this.MaxResults != null &&
-                    this.MaxResults.Equals(other.MaxResults)
                 );
         }
 
@@ -152,12 +152,12 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.MaxResults != null)
+                    hash = hash * 59 + this.MaxResults.GetHashCode();
                 if (this.Query != null)
                     hash = hash * 59 + this.Query.GetHashCode();
                 if (this.CustomAttributes != null)
                     hash = hash * 59 + this.CustomAttributes.GetHashCode();
-                if (this.MaxResults != null)
-                    hash = hash * 59 + this.MaxResults.GetHashCode();
                 return hash;
             }
         }

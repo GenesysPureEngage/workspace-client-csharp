@@ -38,22 +38,13 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsidentifycontactData" /> class.
         /// </summary>
+        /// <param name="CreateContactEnabled">Indicates if a contact should be created if no matching contact found.</param>
+        /// <param name="MediaType">The media type of the interaction (required).</param>
+        /// <param name="PhoneNumber">The phone number of the interaction, if interaction is a voice call.</param>
         /// <param name="EmailAddress">The email address of the interaction, if interaction is an email.</param>
         /// <param name="UserData">A key/value pairs list of the user data of the call. (required).</param>
-        /// <param name="PhoneNumber">The phone number of the interaction, if interaction is a voice call.</param>
-        /// <param name="MediaType">The media type of the interaction (required).</param>
-        /// <param name="CreateContactEnabled">Indicates if a contact should be created if no matching contact found.</param>
-        public UcsidentifycontactData(string EmailAddress = default(string), List<Kvpair> UserData = default(List<Kvpair>), string PhoneNumber = default(string), string MediaType = default(string), bool? CreateContactEnabled = default(bool?))
+        public UcsidentifycontactData(bool? CreateContactEnabled = default(bool?), string MediaType = default(string), string PhoneNumber = default(string), string EmailAddress = default(string), List<Kvpair> UserData = default(List<Kvpair>))
         {
-            // to ensure "UserData" is required (not null)
-            if (UserData == null)
-            {
-                throw new InvalidDataException("UserData is a required property for UcsidentifycontactData and cannot be null");
-            }
-            else
-            {
-                this.UserData = UserData;
-            }
             // to ensure "MediaType" is required (not null)
             if (MediaType == null)
             {
@@ -63,11 +54,41 @@ namespace Genesys.Workspace.Model
             {
                 this.MediaType = MediaType;
             }
-            this.EmailAddress = EmailAddress;
-            this.PhoneNumber = PhoneNumber;
+            // to ensure "UserData" is required (not null)
+            if (UserData == null)
+            {
+                throw new InvalidDataException("UserData is a required property for UcsidentifycontactData and cannot be null");
+            }
+            else
+            {
+                this.UserData = UserData;
+            }
             this.CreateContactEnabled = CreateContactEnabled;
+            this.PhoneNumber = PhoneNumber;
+            this.EmailAddress = EmailAddress;
         }
         
+        /// <summary>
+        /// Indicates if a contact should be created if no matching contact found
+        /// </summary>
+        /// <value>Indicates if a contact should be created if no matching contact found</value>
+        [DataMember(Name="createContactEnabled", EmitDefaultValue=false)]
+        public bool? CreateContactEnabled { get; set; }
+
+        /// <summary>
+        /// The media type of the interaction
+        /// </summary>
+        /// <value>The media type of the interaction</value>
+        [DataMember(Name="mediaType", EmitDefaultValue=false)]
+        public string MediaType { get; set; }
+
+        /// <summary>
+        /// The phone number of the interaction, if interaction is a voice call
+        /// </summary>
+        /// <value>The phone number of the interaction, if interaction is a voice call</value>
+        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
+        public string PhoneNumber { get; set; }
+
         /// <summary>
         /// The email address of the interaction, if interaction is an email
         /// </summary>
@@ -83,27 +104,6 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> UserData { get; set; }
 
         /// <summary>
-        /// The phone number of the interaction, if interaction is a voice call
-        /// </summary>
-        /// <value>The phone number of the interaction, if interaction is a voice call</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
-
-        /// <summary>
-        /// The media type of the interaction
-        /// </summary>
-        /// <value>The media type of the interaction</value>
-        [DataMember(Name="mediaType", EmitDefaultValue=false)]
-        public string MediaType { get; set; }
-
-        /// <summary>
-        /// Indicates if a contact should be created if no matching contact found
-        /// </summary>
-        /// <value>Indicates if a contact should be created if no matching contact found</value>
-        [DataMember(Name="createContactEnabled", EmitDefaultValue=false)]
-        public bool? CreateContactEnabled { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -111,11 +111,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsidentifycontactData {\n");
+            sb.Append("  CreateContactEnabled: ").Append(CreateContactEnabled).Append("\n");
+            sb.Append("  MediaType: ").Append(MediaType).Append("\n");
+            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
             sb.Append("  EmailAddress: ").Append(EmailAddress).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
-            sb.Append("  MediaType: ").Append(MediaType).Append("\n");
-            sb.Append("  CreateContactEnabled: ").Append(CreateContactEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -153,6 +153,21 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.CreateContactEnabled == other.CreateContactEnabled ||
+                    this.CreateContactEnabled != null &&
+                    this.CreateContactEnabled.Equals(other.CreateContactEnabled)
+                ) && 
+                (
+                    this.MediaType == other.MediaType ||
+                    this.MediaType != null &&
+                    this.MediaType.Equals(other.MediaType)
+                ) && 
+                (
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
+                ) && 
+                (
                     this.EmailAddress == other.EmailAddress ||
                     this.EmailAddress != null &&
                     this.EmailAddress.Equals(other.EmailAddress)
@@ -161,21 +176,6 @@ namespace Genesys.Workspace.Model
                     this.UserData == other.UserData ||
                     this.UserData != null &&
                     this.UserData.SequenceEqual(other.UserData)
-                ) && 
-                (
-                    this.PhoneNumber == other.PhoneNumber ||
-                    this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(other.PhoneNumber)
-                ) && 
-                (
-                    this.MediaType == other.MediaType ||
-                    this.MediaType != null &&
-                    this.MediaType.Equals(other.MediaType)
-                ) && 
-                (
-                    this.CreateContactEnabled == other.CreateContactEnabled ||
-                    this.CreateContactEnabled != null &&
-                    this.CreateContactEnabled.Equals(other.CreateContactEnabled)
                 );
         }
 
@@ -190,16 +190,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.CreateContactEnabled != null)
+                    hash = hash * 59 + this.CreateContactEnabled.GetHashCode();
+                if (this.MediaType != null)
+                    hash = hash * 59 + this.MediaType.GetHashCode();
+                if (this.PhoneNumber != null)
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.EmailAddress != null)
                     hash = hash * 59 + this.EmailAddress.GetHashCode();
                 if (this.UserData != null)
                     hash = hash * 59 + this.UserData.GetHashCode();
-                if (this.PhoneNumber != null)
-                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
-                if (this.MediaType != null)
-                    hash = hash * 59 + this.MediaType.GetHashCode();
-                if (this.CreateContactEnabled != null)
-                    hash = hash * 59 + this.CreateContactEnabled.GetHashCode();
                 return hash;
             }
         }

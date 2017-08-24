@@ -25,17 +25,17 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicecallsidholdData
+    /// VoicereadyData
     /// </summary>
     [DataContract]
-    public partial class VoicecallsidholdData :  IEquatable<VoicecallsidholdData>, IValidatableObject
+    public partial class VoicereadyData :  IEquatable<VoicereadyData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicecallsidholdData" /> class.
+        /// Initializes a new instance of the <see cref="VoicereadyData" /> class.
         /// </summary>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        public VoicecallsidholdData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
+        public VoicereadyData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             this.Reasons = Reasons;
             this.Extensions = Extensions;
@@ -62,7 +62,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicecallsidholdData {\n");
+            sb.Append("class VoicereadyData {\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
             sb.Append("}\n");
@@ -86,15 +86,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicecallsidholdData);
+            return this.Equals(obj as VoicereadyData);
         }
 
         /// <summary>
-        /// Returns true if VoicecallsidholdData instances are equal
+        /// Returns true if VoicereadyData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicecallsidholdData to be compared</param>
+        /// <param name="other">Instance of VoicereadyData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicecallsidholdData other)
+        public bool Equals(VoicereadyData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)

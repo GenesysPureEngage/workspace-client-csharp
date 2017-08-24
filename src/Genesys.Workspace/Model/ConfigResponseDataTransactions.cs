@@ -33,25 +33,25 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponseDataTransactions" /> class.
         /// </summary>
-        /// <param name="UserProperties">UserProperties.</param>
         /// <param name="Name">Name.</param>
-        public ConfigResponseDataTransactions(List<Kvpair> UserProperties = default(List<Kvpair>), string Name = default(string))
+        /// <param name="UserProperties">UserProperties.</param>
+        public ConfigResponseDataTransactions(string Name = default(string), List<Kvpair> UserProperties = default(List<Kvpair>))
         {
-            this.UserProperties = UserProperties;
             this.Name = Name;
+            this.UserProperties = UserProperties;
         }
         
-        /// <summary>
-        /// Gets or Sets UserProperties
-        /// </summary>
-        [DataMember(Name="userProperties", EmitDefaultValue=false)]
-        public List<Kvpair> UserProperties { get; set; }
-
         /// <summary>
         /// Gets or Sets Name
         /// </summary>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserProperties
+        /// </summary>
+        [DataMember(Name="userProperties", EmitDefaultValue=false)]
+        public List<Kvpair> UserProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +61,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponseDataTransactions {\n");
-            sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +100,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.UserProperties == other.UserProperties ||
-                    this.UserProperties != null &&
-                    this.UserProperties.SequenceEqual(other.UserProperties)
-                ) && 
-                (
                     this.Name == other.Name ||
                     this.Name != null &&
                     this.Name.Equals(other.Name)
+                ) && 
+                (
+                    this.UserProperties == other.UserProperties ||
+                    this.UserProperties != null &&
+                    this.UserProperties.SequenceEqual(other.UserProperties)
                 );
         }
 
@@ -122,10 +122,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.UserProperties != null)
-                    hash = hash * 59 + this.UserProperties.GetHashCode();
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.UserProperties != null)
+                    hash = hash * 59 + this.UserProperties.GetHashCode();
                 return hash;
             }
         }

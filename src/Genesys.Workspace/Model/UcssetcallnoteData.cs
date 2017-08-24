@@ -38,19 +38,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcssetcallnoteData" /> class.
         /// </summary>
-        /// <param name="Note">The note to be set (required).</param>
         /// <param name="InteractionId">The id of the interaction (required).</param>
-        public UcssetcallnoteData(string Note = default(string), string InteractionId = default(string))
+        /// <param name="Note">The note to be set (required).</param>
+        public UcssetcallnoteData(string InteractionId = default(string), string Note = default(string))
         {
-            // to ensure "Note" is required (not null)
-            if (Note == null)
-            {
-                throw new InvalidDataException("Note is a required property for UcssetcallnoteData and cannot be null");
-            }
-            else
-            {
-                this.Note = Note;
-            }
             // to ensure "InteractionId" is required (not null)
             if (InteractionId == null)
             {
@@ -60,21 +51,30 @@ namespace Genesys.Workspace.Model
             {
                 this.InteractionId = InteractionId;
             }
+            // to ensure "Note" is required (not null)
+            if (Note == null)
+            {
+                throw new InvalidDataException("Note is a required property for UcssetcallnoteData and cannot be null");
+            }
+            else
+            {
+                this.Note = Note;
+            }
         }
         
-        /// <summary>
-        /// The note to be set
-        /// </summary>
-        /// <value>The note to be set</value>
-        [DataMember(Name="note", EmitDefaultValue=false)]
-        public string Note { get; set; }
-
         /// <summary>
         /// The id of the interaction
         /// </summary>
         /// <value>The id of the interaction</value>
         [DataMember(Name="interactionId", EmitDefaultValue=false)]
         public string InteractionId { get; set; }
+
+        /// <summary>
+        /// The note to be set
+        /// </summary>
+        /// <value>The note to be set</value>
+        [DataMember(Name="note", EmitDefaultValue=false)]
+        public string Note { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,8 +84,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcssetcallnoteData {\n");
-            sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
+            sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -123,14 +123,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Note == other.Note ||
-                    this.Note != null &&
-                    this.Note.Equals(other.Note)
-                ) && 
-                (
                     this.InteractionId == other.InteractionId ||
                     this.InteractionId != null &&
                     this.InteractionId.Equals(other.InteractionId)
+                ) && 
+                (
+                    this.Note == other.Note ||
+                    this.Note != null &&
+                    this.Note.Equals(other.Note)
                 );
         }
 
@@ -145,10 +145,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Note != null)
-                    hash = hash * 59 + this.Note.GetHashCode();
                 if (this.InteractionId != null)
                     hash = hash * 59 + this.InteractionId.GetHashCode();
+                if (this.Note != null)
+                    hash = hash * 59 + this.Note.GetHashCode();
                 return hash;
             }
         }

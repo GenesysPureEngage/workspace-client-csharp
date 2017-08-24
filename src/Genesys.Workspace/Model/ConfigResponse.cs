@@ -33,25 +33,25 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponse" /> class.
         /// </summary>
-        /// <param name="Status">Status.</param>
         /// <param name="Data">Data.</param>
-        public ConfigResponse(InlineResponse200Status Status = default(InlineResponse200Status), ConfigResponseData Data = default(ConfigResponseData))
+        /// <param name="Status">Status.</param>
+        public ConfigResponse(ConfigResponseData Data = default(ConfigResponseData), InlineResponse200Status Status = default(InlineResponse200Status))
         {
-            this.Status = Status;
             this.Data = Data;
+            this.Status = Status;
         }
         
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name="status", EmitDefaultValue=false)]
-        public InlineResponse200Status Status { get; set; }
-
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
         public ConfigResponseData Data { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public InlineResponse200Status Status { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +61,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponse {\n");
-            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +100,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
-                ) && 
-                (
                     this.Data == other.Data ||
                     this.Data != null &&
                     this.Data.Equals(other.Data)
+                ) && 
+                (
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 );
         }
 
@@ -122,10 +122,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
                 if (this.Data != null)
                     hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Status != null)
+                    hash = hash * 59 + this.Status.GetHashCode();
                 return hash;
             }
         }

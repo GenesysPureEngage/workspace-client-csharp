@@ -33,25 +33,25 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Kvpair" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
         /// <param name="Key">Key.</param>
-        public Kvpair(string Type = default(string), string Key = default(string))
+        /// <param name="Type">Type.</param>
+        public Kvpair(string Key = default(string), string Type = default(string))
         {
-            this.Type = Type;
             this.Key = Key;
+            this.Type = Type;
         }
         
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
-
         /// <summary>
         /// Gets or Sets Key
         /// </summary>
         [DataMember(Name="key", EmitDefaultValue=false)]
         public string Key { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Type
+        /// </summary>
+        [DataMember(Name="type", EmitDefaultValue=false)]
+        public string Type { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,8 +61,8 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class Kvpair {\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -100,14 +100,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
                     this.Key == other.Key ||
                     this.Key != null &&
                     this.Key.Equals(other.Key)
+                ) && 
+                (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 );
         }
 
@@ -122,10 +122,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Key != null)
                     hash = hash * 59 + this.Key.GetHashCode();
+                if (this.Type != null)
+                    hash = hash * 59 + this.Type.GetHashCode();
                 return hash;
             }
         }

@@ -38,11 +38,11 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcslucenesearchinteractionData" /> class.
         /// </summary>
-        /// <param name="ContactAttributes">The list of contact attributes to be returned for each contact in response.</param>
-        /// <param name="Query">The query to do the lucene search for contacts (required).</param>
-        /// <param name="SearchMyHistory">Indicates if the search is performed among the history of interactions of the logged in agent.</param>
         /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
-        public UcslucenesearchinteractionData(List<string> ContactAttributes = default(List<string>), string Query = default(string), bool? SearchMyHistory = default(bool?), int? MaxResults = default(int?))
+        /// <param name="SearchMyHistory">Indicates if the search is performed among the history of interactions of the logged in agent.</param>
+        /// <param name="Query">The query to do the lucene search for contacts (required).</param>
+        /// <param name="ContactAttributes">The list of contact attributes to be returned for each contact in response.</param>
+        public UcslucenesearchinteractionData(int? MaxResults = default(int?), bool? SearchMyHistory = default(bool?), string Query = default(string), List<string> ContactAttributes = default(List<string>))
         {
             // to ensure "Query" is required (not null)
             if (Query == null)
@@ -53,24 +53,17 @@ namespace Genesys.Workspace.Model
             {
                 this.Query = Query;
             }
-            this.ContactAttributes = ContactAttributes;
-            this.SearchMyHistory = SearchMyHistory;
             this.MaxResults = MaxResults;
+            this.SearchMyHistory = SearchMyHistory;
+            this.ContactAttributes = ContactAttributes;
         }
         
         /// <summary>
-        /// The list of contact attributes to be returned for each contact in response
+        /// The maximum number of contacts to be returned
         /// </summary>
-        /// <value>The list of contact attributes to be returned for each contact in response</value>
-        [DataMember(Name="contactAttributes", EmitDefaultValue=false)]
-        public List<string> ContactAttributes { get; set; }
-
-        /// <summary>
-        /// The query to do the lucene search for contacts
-        /// </summary>
-        /// <value>The query to do the lucene search for contacts</value>
-        [DataMember(Name="query", EmitDefaultValue=false)]
-        public string Query { get; set; }
+        /// <value>The maximum number of contacts to be returned</value>
+        [DataMember(Name="maxResults", EmitDefaultValue=false)]
+        public int? MaxResults { get; set; }
 
         /// <summary>
         /// Indicates if the search is performed among the history of interactions of the logged in agent
@@ -80,11 +73,18 @@ namespace Genesys.Workspace.Model
         public bool? SearchMyHistory { get; set; }
 
         /// <summary>
-        /// The maximum number of contacts to be returned
+        /// The query to do the lucene search for contacts
         /// </summary>
-        /// <value>The maximum number of contacts to be returned</value>
-        [DataMember(Name="maxResults", EmitDefaultValue=false)]
-        public int? MaxResults { get; set; }
+        /// <value>The query to do the lucene search for contacts</value>
+        [DataMember(Name="query", EmitDefaultValue=false)]
+        public string Query { get; set; }
+
+        /// <summary>
+        /// The list of contact attributes to be returned for each contact in response
+        /// </summary>
+        /// <value>The list of contact attributes to be returned for each contact in response</value>
+        [DataMember(Name="contactAttributes", EmitDefaultValue=false)]
+        public List<string> ContactAttributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -94,10 +94,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcslucenesearchinteractionData {\n");
-            sb.Append("  ContactAttributes: ").Append(ContactAttributes).Append("\n");
-            sb.Append("  Query: ").Append(Query).Append("\n");
-            sb.Append("  SearchMyHistory: ").Append(SearchMyHistory).Append("\n");
             sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
+            sb.Append("  SearchMyHistory: ").Append(SearchMyHistory).Append("\n");
+            sb.Append("  Query: ").Append(Query).Append("\n");
+            sb.Append("  ContactAttributes: ").Append(ContactAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -135,14 +135,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.ContactAttributes == other.ContactAttributes ||
-                    this.ContactAttributes != null &&
-                    this.ContactAttributes.SequenceEqual(other.ContactAttributes)
-                ) && 
-                (
-                    this.Query == other.Query ||
-                    this.Query != null &&
-                    this.Query.Equals(other.Query)
+                    this.MaxResults == other.MaxResults ||
+                    this.MaxResults != null &&
+                    this.MaxResults.Equals(other.MaxResults)
                 ) && 
                 (
                     this.SearchMyHistory == other.SearchMyHistory ||
@@ -150,9 +145,14 @@ namespace Genesys.Workspace.Model
                     this.SearchMyHistory.Equals(other.SearchMyHistory)
                 ) && 
                 (
-                    this.MaxResults == other.MaxResults ||
-                    this.MaxResults != null &&
-                    this.MaxResults.Equals(other.MaxResults)
+                    this.Query == other.Query ||
+                    this.Query != null &&
+                    this.Query.Equals(other.Query)
+                ) && 
+                (
+                    this.ContactAttributes == other.ContactAttributes ||
+                    this.ContactAttributes != null &&
+                    this.ContactAttributes.SequenceEqual(other.ContactAttributes)
                 );
         }
 
@@ -167,14 +167,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ContactAttributes != null)
-                    hash = hash * 59 + this.ContactAttributes.GetHashCode();
-                if (this.Query != null)
-                    hash = hash * 59 + this.Query.GetHashCode();
-                if (this.SearchMyHistory != null)
-                    hash = hash * 59 + this.SearchMyHistory.GetHashCode();
                 if (this.MaxResults != null)
                     hash = hash * 59 + this.MaxResults.GetHashCode();
+                if (this.SearchMyHistory != null)
+                    hash = hash * 59 + this.SearchMyHistory.GetHashCode();
+                if (this.Query != null)
+                    hash = hash * 59 + this.Query.GetHashCode();
+                if (this.ContactAttributes != null)
+                    hash = hash * 59 + this.ContactAttributes.GetHashCode();
                 return hash;
             }
         }

@@ -33,46 +33,22 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetInformation" /> class.
         /// </summary>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="LastName">LastName.</param>
-        /// <param name="Numbers">Numbers.</param>
-        /// <param name="EmailAddresses">EmailAddresses.</param>
         /// <param name="Type">Type.</param>
         /// <param name="Id">Id.</param>
-        public TargetInformation(string FirstName = default(string), string LastName = default(string), List<string> Numbers = default(List<string>), List<string> EmailAddresses = default(List<string>), string Type = default(string), string Id = default(string))
+        /// <param name="FirstName">FirstName.</param>
+        /// <param name="LastName">LastName.</param>
+        /// <param name="EmailAddresses">EmailAddresses.</param>
+        /// <param name="Numbers">Numbers.</param>
+        public TargetInformation(string Type = default(string), string Id = default(string), string FirstName = default(string), string LastName = default(string), List<string> EmailAddresses = default(List<string>), List<string> Numbers = default(List<string>))
         {
-            this.FirstName = FirstName;
-            this.LastName = LastName;
-            this.Numbers = Numbers;
-            this.EmailAddresses = EmailAddresses;
             this.Type = Type;
             this.Id = Id;
+            this.FirstName = FirstName;
+            this.LastName = LastName;
+            this.EmailAddresses = EmailAddresses;
+            this.Numbers = Numbers;
         }
         
-        /// <summary>
-        /// Gets or Sets FirstName
-        /// </summary>
-        [DataMember(Name="firstName", EmitDefaultValue=false)]
-        public string FirstName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets LastName
-        /// </summary>
-        [DataMember(Name="lastName", EmitDefaultValue=false)]
-        public string LastName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Numbers
-        /// </summary>
-        [DataMember(Name="numbers", EmitDefaultValue=false)]
-        public List<string> Numbers { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EmailAddresses
-        /// </summary>
-        [DataMember(Name="emailAddresses", EmitDefaultValue=false)]
-        public List<string> EmailAddresses { get; set; }
-
         /// <summary>
         /// Gets or Sets Type
         /// </summary>
@@ -86,6 +62,30 @@ namespace Genesys.Workspace.Model
         public string Id { get; set; }
 
         /// <summary>
+        /// Gets or Sets FirstName
+        /// </summary>
+        [DataMember(Name="firstName", EmitDefaultValue=false)]
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets LastName
+        /// </summary>
+        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmailAddresses
+        /// </summary>
+        [DataMember(Name="emailAddresses", EmitDefaultValue=false)]
+        public List<string> EmailAddresses { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Numbers
+        /// </summary>
+        [DataMember(Name="numbers", EmitDefaultValue=false)]
+        public List<string> Numbers { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -93,12 +93,12 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class TargetInformation {\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
-            sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  Numbers: ").Append(Numbers).Append("\n");
-            sb.Append("  EmailAddresses: ").Append(EmailAddresses).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
+            sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  EmailAddresses: ").Append(EmailAddresses).Append("\n");
+            sb.Append("  Numbers: ").Append(Numbers).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,6 +136,16 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
+                ) && 
+                (
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
+                ) && 
+                (
                     this.FirstName == other.FirstName ||
                     this.FirstName != null &&
                     this.FirstName.Equals(other.FirstName)
@@ -146,24 +156,14 @@ namespace Genesys.Workspace.Model
                     this.LastName.Equals(other.LastName)
                 ) && 
                 (
-                    this.Numbers == other.Numbers ||
-                    this.Numbers != null &&
-                    this.Numbers.SequenceEqual(other.Numbers)
-                ) && 
-                (
                     this.EmailAddresses == other.EmailAddresses ||
                     this.EmailAddresses != null &&
                     this.EmailAddresses.SequenceEqual(other.EmailAddresses)
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
-                ) && 
-                (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Numbers == other.Numbers ||
+                    this.Numbers != null &&
+                    this.Numbers.SequenceEqual(other.Numbers)
                 );
         }
 
@@ -178,18 +178,18 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
-                if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
-                if (this.Numbers != null)
-                    hash = hash * 59 + this.Numbers.GetHashCode();
-                if (this.EmailAddresses != null)
-                    hash = hash * 59 + this.EmailAddresses.GetHashCode();
                 if (this.Type != null)
                     hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Id != null)
                     hash = hash * 59 + this.Id.GetHashCode();
+                if (this.FirstName != null)
+                    hash = hash * 59 + this.FirstName.GetHashCode();
+                if (this.LastName != null)
+                    hash = hash * 59 + this.LastName.GetHashCode();
+                if (this.EmailAddresses != null)
+                    hash = hash * 59 + this.EmailAddresses.GetHashCode();
+                if (this.Numbers != null)
+                    hash = hash * 59 + this.Numbers.GetHashCode();
                 return hash;
             }
         }

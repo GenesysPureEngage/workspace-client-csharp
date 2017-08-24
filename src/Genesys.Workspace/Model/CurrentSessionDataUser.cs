@@ -38,16 +38,16 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUser" /> class.
         /// </summary>
-        /// <param name="UserName">UserName (required).</param>
-        /// <param name="UserProperties">UserProperties.</param>
-        /// <param name="EmployeeId">EmployeeId (required).</param>
-        /// <param name="FirstName">FirstName.</param>
         /// <param name="Dbid">Dbid.</param>
-        /// <param name="ActiveSession">ActiveSession.</param>
-        /// <param name="DefaultPlace">DefaultPlace.</param>
+        /// <param name="FirstName">FirstName.</param>
         /// <param name="LastName">LastName.</param>
+        /// <param name="UserName">UserName (required).</param>
+        /// <param name="EmployeeId">EmployeeId (required).</param>
+        /// <param name="DefaultPlace">DefaultPlace.</param>
         /// <param name="AgentLogin">AgentLogin.</param>
-        public CurrentSessionDataUser(string UserName = default(string), List<Kvpair> UserProperties = default(List<Kvpair>), string EmployeeId = default(string), string FirstName = default(string), int? Dbid = default(int?), CurrentSessionDataUserActiveSession ActiveSession = default(CurrentSessionDataUserActiveSession), string DefaultPlace = default(string), string LastName = default(string), string AgentLogin = default(string))
+        /// <param name="UserProperties">UserProperties.</param>
+        /// <param name="ActiveSession">ActiveSession.</param>
+        public CurrentSessionDataUser(int? Dbid = default(int?), string FirstName = default(string), string LastName = default(string), string UserName = default(string), string EmployeeId = default(string), string DefaultPlace = default(string), string AgentLogin = default(string), List<Kvpair> UserProperties = default(List<Kvpair>), CurrentSessionDataUserActiveSession ActiveSession = default(CurrentSessionDataUserActiveSession))
         {
             // to ensure "UserName" is required (not null)
             if (UserName == null)
@@ -67,32 +67,20 @@ namespace Genesys.Workspace.Model
             {
                 this.EmployeeId = EmployeeId;
             }
-            this.UserProperties = UserProperties;
-            this.FirstName = FirstName;
             this.Dbid = Dbid;
-            this.ActiveSession = ActiveSession;
-            this.DefaultPlace = DefaultPlace;
+            this.FirstName = FirstName;
             this.LastName = LastName;
+            this.DefaultPlace = DefaultPlace;
             this.AgentLogin = AgentLogin;
+            this.UserProperties = UserProperties;
+            this.ActiveSession = ActiveSession;
         }
         
         /// <summary>
-        /// Gets or Sets UserName
+        /// Gets or Sets Dbid
         /// </summary>
-        [DataMember(Name="userName", EmitDefaultValue=false)]
-        public string UserName { get; set; }
-
-        /// <summary>
-        /// Gets or Sets UserProperties
-        /// </summary>
-        [DataMember(Name="userProperties", EmitDefaultValue=false)]
-        public List<Kvpair> UserProperties { get; set; }
-
-        /// <summary>
-        /// Gets or Sets EmployeeId
-        /// </summary>
-        [DataMember(Name="employeeId", EmitDefaultValue=false)]
-        public string EmployeeId { get; set; }
+        [DataMember(Name="dbid", EmitDefaultValue=false)]
+        public int? Dbid { get; set; }
 
         /// <summary>
         /// Gets or Sets FirstName
@@ -101,16 +89,22 @@ namespace Genesys.Workspace.Model
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Dbid
+        /// Gets or Sets LastName
         /// </summary>
-        [DataMember(Name="dbid", EmitDefaultValue=false)]
-        public int? Dbid { get; set; }
+        [DataMember(Name="lastName", EmitDefaultValue=false)]
+        public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets ActiveSession
+        /// Gets or Sets UserName
         /// </summary>
-        [DataMember(Name="activeSession", EmitDefaultValue=false)]
-        public CurrentSessionDataUserActiveSession ActiveSession { get; set; }
+        [DataMember(Name="userName", EmitDefaultValue=false)]
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// Gets or Sets EmployeeId
+        /// </summary>
+        [DataMember(Name="employeeId", EmitDefaultValue=false)]
+        public string EmployeeId { get; set; }
 
         /// <summary>
         /// Gets or Sets DefaultPlace
@@ -119,16 +113,22 @@ namespace Genesys.Workspace.Model
         public string DefaultPlace { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
-        /// </summary>
-        [DataMember(Name="lastName", EmitDefaultValue=false)]
-        public string LastName { get; set; }
-
-        /// <summary>
         /// Gets or Sets AgentLogin
         /// </summary>
         [DataMember(Name="agentLogin", EmitDefaultValue=false)]
         public string AgentLogin { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserProperties
+        /// </summary>
+        [DataMember(Name="userProperties", EmitDefaultValue=false)]
+        public List<Kvpair> UserProperties { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ActiveSession
+        /// </summary>
+        [DataMember(Name="activeSession", EmitDefaultValue=false)]
+        public CurrentSessionDataUserActiveSession ActiveSession { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -138,15 +138,15 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionDataUser {\n");
-            sb.Append("  UserName: ").Append(UserName).Append("\n");
-            sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
-            sb.Append("  EmployeeId: ").Append(EmployeeId).Append("\n");
-            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  Dbid: ").Append(Dbid).Append("\n");
-            sb.Append("  ActiveSession: ").Append(ActiveSession).Append("\n");
-            sb.Append("  DefaultPlace: ").Append(DefaultPlace).Append("\n");
+            sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
+            sb.Append("  UserName: ").Append(UserName).Append("\n");
+            sb.Append("  EmployeeId: ").Append(EmployeeId).Append("\n");
+            sb.Append("  DefaultPlace: ").Append(DefaultPlace).Append("\n");
             sb.Append("  AgentLogin: ").Append(AgentLogin).Append("\n");
+            sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
+            sb.Append("  ActiveSession: ").Append(ActiveSession).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -184,19 +184,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.UserName == other.UserName ||
-                    this.UserName != null &&
-                    this.UserName.Equals(other.UserName)
-                ) && 
-                (
-                    this.UserProperties == other.UserProperties ||
-                    this.UserProperties != null &&
-                    this.UserProperties.SequenceEqual(other.UserProperties)
-                ) && 
-                (
-                    this.EmployeeId == other.EmployeeId ||
-                    this.EmployeeId != null &&
-                    this.EmployeeId.Equals(other.EmployeeId)
+                    this.Dbid == other.Dbid ||
+                    this.Dbid != null &&
+                    this.Dbid.Equals(other.Dbid)
                 ) && 
                 (
                     this.FirstName == other.FirstName ||
@@ -204,14 +194,19 @@ namespace Genesys.Workspace.Model
                     this.FirstName.Equals(other.FirstName)
                 ) && 
                 (
-                    this.Dbid == other.Dbid ||
-                    this.Dbid != null &&
-                    this.Dbid.Equals(other.Dbid)
+                    this.LastName == other.LastName ||
+                    this.LastName != null &&
+                    this.LastName.Equals(other.LastName)
                 ) && 
                 (
-                    this.ActiveSession == other.ActiveSession ||
-                    this.ActiveSession != null &&
-                    this.ActiveSession.Equals(other.ActiveSession)
+                    this.UserName == other.UserName ||
+                    this.UserName != null &&
+                    this.UserName.Equals(other.UserName)
+                ) && 
+                (
+                    this.EmployeeId == other.EmployeeId ||
+                    this.EmployeeId != null &&
+                    this.EmployeeId.Equals(other.EmployeeId)
                 ) && 
                 (
                     this.DefaultPlace == other.DefaultPlace ||
@@ -219,14 +214,19 @@ namespace Genesys.Workspace.Model
                     this.DefaultPlace.Equals(other.DefaultPlace)
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
-                ) && 
-                (
                     this.AgentLogin == other.AgentLogin ||
                     this.AgentLogin != null &&
                     this.AgentLogin.Equals(other.AgentLogin)
+                ) && 
+                (
+                    this.UserProperties == other.UserProperties ||
+                    this.UserProperties != null &&
+                    this.UserProperties.SequenceEqual(other.UserProperties)
+                ) && 
+                (
+                    this.ActiveSession == other.ActiveSession ||
+                    this.ActiveSession != null &&
+                    this.ActiveSession.Equals(other.ActiveSession)
                 );
         }
 
@@ -241,24 +241,24 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.UserName != null)
-                    hash = hash * 59 + this.UserName.GetHashCode();
-                if (this.UserProperties != null)
-                    hash = hash * 59 + this.UserProperties.GetHashCode();
-                if (this.EmployeeId != null)
-                    hash = hash * 59 + this.EmployeeId.GetHashCode();
-                if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
                 if (this.Dbid != null)
                     hash = hash * 59 + this.Dbid.GetHashCode();
-                if (this.ActiveSession != null)
-                    hash = hash * 59 + this.ActiveSession.GetHashCode();
-                if (this.DefaultPlace != null)
-                    hash = hash * 59 + this.DefaultPlace.GetHashCode();
+                if (this.FirstName != null)
+                    hash = hash * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
+                if (this.UserName != null)
+                    hash = hash * 59 + this.UserName.GetHashCode();
+                if (this.EmployeeId != null)
+                    hash = hash * 59 + this.EmployeeId.GetHashCode();
+                if (this.DefaultPlace != null)
+                    hash = hash * 59 + this.DefaultPlace.GetHashCode();
                 if (this.AgentLogin != null)
                     hash = hash * 59 + this.AgentLogin.GetHashCode();
+                if (this.UserProperties != null)
+                    hash = hash * 59 + this.UserProperties.GetHashCode();
+                if (this.ActiveSession != null)
+                    hash = hash * 59 + this.ActiveSession.GetHashCode();
                 return hash;
             }
         }

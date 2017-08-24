@@ -38,10 +38,10 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidalternateData" /> class.
         /// </summary>
+        /// <param name="HeldConnId">ConnId of the held call that should be retrieved. (required).</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        /// <param name="HeldConnId">ConnId of the held call that should be retrieved. (required).</param>
-        public VoicecallsidalternateData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string HeldConnId = default(string))
+        public VoicecallsidalternateData(string HeldConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             // to ensure "HeldConnId" is required (not null)
             if (HeldConnId == null)
@@ -57,6 +57,13 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
+        /// ConnId of the held call that should be retrieved.
+        /// </summary>
+        /// <value>ConnId of the held call that should be retrieved.</value>
+        [DataMember(Name="heldConnId", EmitDefaultValue=false)]
+        public string HeldConnId { get; set; }
+
+        /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
         /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
@@ -71,13 +78,6 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> Extensions { get; set; }
 
         /// <summary>
-        /// ConnId of the held call that should be retrieved.
-        /// </summary>
-        /// <value>ConnId of the held call that should be retrieved.</value>
-        [DataMember(Name="heldConnId", EmitDefaultValue=false)]
-        public string HeldConnId { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -85,9 +85,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidalternateData {\n");
+            sb.Append("  HeldConnId: ").Append(HeldConnId).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
-            sb.Append("  HeldConnId: ").Append(HeldConnId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -125,6 +125,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.HeldConnId == other.HeldConnId ||
+                    this.HeldConnId != null &&
+                    this.HeldConnId.Equals(other.HeldConnId)
+                ) && 
+                (
                     this.Reasons == other.Reasons ||
                     this.Reasons != null &&
                     this.Reasons.SequenceEqual(other.Reasons)
@@ -133,11 +138,6 @@ namespace Genesys.Workspace.Model
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
-                ) && 
-                (
-                    this.HeldConnId == other.HeldConnId ||
-                    this.HeldConnId != null &&
-                    this.HeldConnId.Equals(other.HeldConnId)
                 );
         }
 
@@ -152,12 +152,12 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.HeldConnId != null)
+                    hash = hash * 59 + this.HeldConnId.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
-                if (this.HeldConnId != null)
-                    hash = hash * 59 + this.HeldConnId.GetHashCode();
                 return hash;
             }
         }

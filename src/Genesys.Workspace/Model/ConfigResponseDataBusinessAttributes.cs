@@ -33,31 +33,25 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigResponseDataBusinessAttributes" /> class.
         /// </summary>
-        /// <param name="UserProperties">UserProperties.</param>
-        /// <param name="Values">Values.</param>
-        /// <param name="DisplayName">DisplayName.</param>
         /// <param name="Name">Name.</param>
+        /// <param name="DisplayName">DisplayName.</param>
         /// <param name="Description">Description.</param>
-        public ConfigResponseDataBusinessAttributes(List<Kvpair> UserProperties = default(List<Kvpair>), List<ConfigResponseDataValues> Values = default(List<ConfigResponseDataValues>), string DisplayName = default(string), string Name = default(string), string Description = default(string))
+        /// <param name="Values">Values.</param>
+        /// <param name="UserProperties">UserProperties.</param>
+        public ConfigResponseDataBusinessAttributes(string Name = default(string), string DisplayName = default(string), string Description = default(string), List<ConfigResponseDataValues> Values = default(List<ConfigResponseDataValues>), List<Kvpair> UserProperties = default(List<Kvpair>))
         {
-            this.UserProperties = UserProperties;
-            this.Values = Values;
-            this.DisplayName = DisplayName;
             this.Name = Name;
+            this.DisplayName = DisplayName;
             this.Description = Description;
+            this.Values = Values;
+            this.UserProperties = UserProperties;
         }
         
         /// <summary>
-        /// Gets or Sets UserProperties
+        /// Gets or Sets Name
         /// </summary>
-        [DataMember(Name="userProperties", EmitDefaultValue=false)]
-        public List<Kvpair> UserProperties { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Values
-        /// </summary>
-        [DataMember(Name="values", EmitDefaultValue=false)]
-        public List<ConfigResponseDataValues> Values { get; set; }
+        [DataMember(Name="name", EmitDefaultValue=false)]
+        public string Name { get; set; }
 
         /// <summary>
         /// Gets or Sets DisplayName
@@ -66,16 +60,22 @@ namespace Genesys.Workspace.Model
         public string DisplayName { get; set; }
 
         /// <summary>
-        /// Gets or Sets Name
-        /// </summary>
-        [DataMember(Name="name", EmitDefaultValue=false)]
-        public string Name { get; set; }
-
-        /// <summary>
         /// Gets or Sets Description
         /// </summary>
         [DataMember(Name="description", EmitDefaultValue=false)]
         public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Values
+        /// </summary>
+        [DataMember(Name="values", EmitDefaultValue=false)]
+        public List<ConfigResponseDataValues> Values { get; set; }
+
+        /// <summary>
+        /// Gets or Sets UserProperties
+        /// </summary>
+        [DataMember(Name="userProperties", EmitDefaultValue=false)]
+        public List<Kvpair> UserProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -85,11 +85,11 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class ConfigResponseDataBusinessAttributes {\n");
-            sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
-            sb.Append("  Values: ").Append(Values).Append("\n");
-            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
+            sb.Append("  DisplayName: ").Append(DisplayName).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  Values: ").Append(Values).Append("\n");
+            sb.Append("  UserProperties: ").Append(UserProperties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -127,14 +127,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.UserProperties == other.UserProperties ||
-                    this.UserProperties != null &&
-                    this.UserProperties.SequenceEqual(other.UserProperties)
-                ) && 
-                (
-                    this.Values == other.Values ||
-                    this.Values != null &&
-                    this.Values.SequenceEqual(other.Values)
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
                 ) && 
                 (
                     this.DisplayName == other.DisplayName ||
@@ -142,14 +137,19 @@ namespace Genesys.Workspace.Model
                     this.DisplayName.Equals(other.DisplayName)
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
-                ) && 
-                (
                     this.Description == other.Description ||
                     this.Description != null &&
                     this.Description.Equals(other.Description)
+                ) && 
+                (
+                    this.Values == other.Values ||
+                    this.Values != null &&
+                    this.Values.SequenceEqual(other.Values)
+                ) && 
+                (
+                    this.UserProperties == other.UserProperties ||
+                    this.UserProperties != null &&
+                    this.UserProperties.SequenceEqual(other.UserProperties)
                 );
         }
 
@@ -164,16 +164,16 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.UserProperties != null)
-                    hash = hash * 59 + this.UserProperties.GetHashCode();
-                if (this.Values != null)
-                    hash = hash * 59 + this.Values.GetHashCode();
-                if (this.DisplayName != null)
-                    hash = hash * 59 + this.DisplayName.GetHashCode();
                 if (this.Name != null)
                     hash = hash * 59 + this.Name.GetHashCode();
+                if (this.DisplayName != null)
+                    hash = hash * 59 + this.DisplayName.GetHashCode();
                 if (this.Description != null)
                     hash = hash * 59 + this.Description.GetHashCode();
+                if (this.Values != null)
+                    hash = hash * 59 + this.Values.GetHashCode();
+                if (this.UserProperties != null)
+                    hash = hash * 59 + this.UserProperties.GetHashCode();
                 return hash;
             }
         }

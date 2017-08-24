@@ -38,20 +38,11 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcssetcallcompletedData" /> class.
         /// </summary>
-        /// <param name="UserData">A key/value pairs list of the user data of the call. (required).</param>
         /// <param name="InteractionId">The id of the interaction (required).</param>
         /// <param name="CallDuration">The duration of the call (required).</param>
-        public UcssetcallcompletedData(List<Kvpair> UserData = default(List<Kvpair>), string InteractionId = default(string), int? CallDuration = default(int?))
+        /// <param name="UserData">A key/value pairs list of the user data of the call. (required).</param>
+        public UcssetcallcompletedData(string InteractionId = default(string), int? CallDuration = default(int?), List<Kvpair> UserData = default(List<Kvpair>))
         {
-            // to ensure "UserData" is required (not null)
-            if (UserData == null)
-            {
-                throw new InvalidDataException("UserData is a required property for UcssetcallcompletedData and cannot be null");
-            }
-            else
-            {
-                this.UserData = UserData;
-            }
             // to ensure "InteractionId" is required (not null)
             if (InteractionId == null)
             {
@@ -70,15 +61,17 @@ namespace Genesys.Workspace.Model
             {
                 this.CallDuration = CallDuration;
             }
+            // to ensure "UserData" is required (not null)
+            if (UserData == null)
+            {
+                throw new InvalidDataException("UserData is a required property for UcssetcallcompletedData and cannot be null");
+            }
+            else
+            {
+                this.UserData = UserData;
+            }
         }
         
-        /// <summary>
-        /// A key/value pairs list of the user data of the call.
-        /// </summary>
-        /// <value>A key/value pairs list of the user data of the call.</value>
-        [DataMember(Name="userData", EmitDefaultValue=false)]
-        public List<Kvpair> UserData { get; set; }
-
         /// <summary>
         /// The id of the interaction
         /// </summary>
@@ -94,6 +87,13 @@ namespace Genesys.Workspace.Model
         public int? CallDuration { get; set; }
 
         /// <summary>
+        /// A key/value pairs list of the user data of the call.
+        /// </summary>
+        /// <value>A key/value pairs list of the user data of the call.</value>
+        [DataMember(Name="userData", EmitDefaultValue=false)]
+        public List<Kvpair> UserData { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -101,9 +101,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcssetcallcompletedData {\n");
-            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
             sb.Append("  CallDuration: ").Append(CallDuration).Append("\n");
+            sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -141,11 +141,6 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.UserData == other.UserData ||
-                    this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
-                ) && 
-                (
                     this.InteractionId == other.InteractionId ||
                     this.InteractionId != null &&
                     this.InteractionId.Equals(other.InteractionId)
@@ -154,6 +149,11 @@ namespace Genesys.Workspace.Model
                     this.CallDuration == other.CallDuration ||
                     this.CallDuration != null &&
                     this.CallDuration.Equals(other.CallDuration)
+                ) && 
+                (
+                    this.UserData == other.UserData ||
+                    this.UserData != null &&
+                    this.UserData.SequenceEqual(other.UserData)
                 );
         }
 
@@ -168,12 +168,12 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
                 if (this.InteractionId != null)
                     hash = hash * 59 + this.InteractionId.GetHashCode();
                 if (this.CallDuration != null)
                     hash = hash * 59 + this.CallDuration.GetHashCode();
+                if (this.UserData != null)
+                    hash = hash * 59 + this.UserData.GetHashCode();
                 return hash;
             }
         }

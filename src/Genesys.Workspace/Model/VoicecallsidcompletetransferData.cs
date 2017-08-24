@@ -33,16 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidcompletetransferData" /> class.
         /// </summary>
+        /// <param name="ParentConnId">The connId of the parent call can optionally be specified. In most cases this is not required..</param>
         /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
         /// <param name="Extensions">A key/value pairs list of additional data..</param>
-        /// <param name="ParentConnId">The connId of the parent call can optionally be specified. In most cases this is not required..</param>
-        public VoicecallsidcompletetransferData(List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string ParentConnId = default(string))
+        public VoicecallsidcompletetransferData(string ParentConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
+            this.ParentConnId = ParentConnId;
             this.Reasons = Reasons;
             this.Extensions = Extensions;
-            this.ParentConnId = ParentConnId;
         }
         
+        /// <summary>
+        /// The connId of the parent call can optionally be specified. In most cases this is not required.
+        /// </summary>
+        /// <value>The connId of the parent call can optionally be specified. In most cases this is not required.</value>
+        [DataMember(Name="parentConnId", EmitDefaultValue=false)]
+        public string ParentConnId { get; set; }
+
         /// <summary>
         /// A key/value pairs list of a data structure that provides additional information associated with this action.
         /// </summary>
@@ -58,13 +65,6 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> Extensions { get; set; }
 
         /// <summary>
-        /// The connId of the parent call can optionally be specified. In most cases this is not required.
-        /// </summary>
-        /// <value>The connId of the parent call can optionally be specified. In most cases this is not required.</value>
-        [DataMember(Name="parentConnId", EmitDefaultValue=false)]
-        public string ParentConnId { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -72,9 +72,9 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class VoicecallsidcompletetransferData {\n");
+            sb.Append("  ParentConnId: ").Append(ParentConnId).Append("\n");
             sb.Append("  Reasons: ").Append(Reasons).Append("\n");
             sb.Append("  Extensions: ").Append(Extensions).Append("\n");
-            sb.Append("  ParentConnId: ").Append(ParentConnId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -112,6 +112,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.ParentConnId == other.ParentConnId ||
+                    this.ParentConnId != null &&
+                    this.ParentConnId.Equals(other.ParentConnId)
+                ) && 
+                (
                     this.Reasons == other.Reasons ||
                     this.Reasons != null &&
                     this.Reasons.SequenceEqual(other.Reasons)
@@ -120,11 +125,6 @@ namespace Genesys.Workspace.Model
                     this.Extensions == other.Extensions ||
                     this.Extensions != null &&
                     this.Extensions.SequenceEqual(other.Extensions)
-                ) && 
-                (
-                    this.ParentConnId == other.ParentConnId ||
-                    this.ParentConnId != null &&
-                    this.ParentConnId.Equals(other.ParentConnId)
                 );
         }
 
@@ -139,12 +139,12 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.ParentConnId != null)
+                    hash = hash * 59 + this.ParentConnId.GetHashCode();
                 if (this.Reasons != null)
                     hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
                     hash = hash * 59 + this.Extensions.GetHashCode();
-                if (this.ParentConnId != null)
-                    hash = hash * 59 + this.ParentConnId.GetHashCode();
                 return hash;
             }
         }

@@ -33,34 +33,20 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsgetagenthistoryData" /> class.
         /// </summary>
-        /// <param name="Sort">The sorting order (desc or asc).</param>
-        /// <param name="ToDate">The date to which the interactions should be retrieved (UCS format).</param>
         /// <param name="CustomAttributes">The list of custom contact attributes to be returned for each interaction.</param>
+        /// <param name="Sort">The sorting order (desc or asc).</param>
         /// <param name="FromDate">The date from which the interactions should be retrieved (UCS format).</param>
+        /// <param name="ToDate">The date to which the interactions should be retrieved (UCS format).</param>
         /// <param name="UserId">The id of the agent for which the interactions should be retrieved (if not set, current user is used).</param>
-        public UcsgetagenthistoryData(string Sort = default(string), string ToDate = default(string), List<string> CustomAttributes = default(List<string>), string FromDate = default(string), string UserId = default(string))
+        public UcsgetagenthistoryData(List<string> CustomAttributes = default(List<string>), string Sort = default(string), string FromDate = default(string), string ToDate = default(string), string UserId = default(string))
         {
-            this.Sort = Sort;
-            this.ToDate = ToDate;
             this.CustomAttributes = CustomAttributes;
+            this.Sort = Sort;
             this.FromDate = FromDate;
+            this.ToDate = ToDate;
             this.UserId = UserId;
         }
         
-        /// <summary>
-        /// The sorting order (desc or asc)
-        /// </summary>
-        /// <value>The sorting order (desc or asc)</value>
-        [DataMember(Name="sort", EmitDefaultValue=false)]
-        public string Sort { get; set; }
-
-        /// <summary>
-        /// The date to which the interactions should be retrieved (UCS format)
-        /// </summary>
-        /// <value>The date to which the interactions should be retrieved (UCS format)</value>
-        [DataMember(Name="toDate", EmitDefaultValue=false)]
-        public string ToDate { get; set; }
-
         /// <summary>
         /// The list of custom contact attributes to be returned for each interaction
         /// </summary>
@@ -69,11 +55,25 @@ namespace Genesys.Workspace.Model
         public List<string> CustomAttributes { get; set; }
 
         /// <summary>
+        /// The sorting order (desc or asc)
+        /// </summary>
+        /// <value>The sorting order (desc or asc)</value>
+        [DataMember(Name="sort", EmitDefaultValue=false)]
+        public string Sort { get; set; }
+
+        /// <summary>
         /// The date from which the interactions should be retrieved (UCS format)
         /// </summary>
         /// <value>The date from which the interactions should be retrieved (UCS format)</value>
         [DataMember(Name="fromDate", EmitDefaultValue=false)]
         public string FromDate { get; set; }
+
+        /// <summary>
+        /// The date to which the interactions should be retrieved (UCS format)
+        /// </summary>
+        /// <value>The date to which the interactions should be retrieved (UCS format)</value>
+        [DataMember(Name="toDate", EmitDefaultValue=false)]
+        public string ToDate { get; set; }
 
         /// <summary>
         /// The id of the agent for which the interactions should be retrieved (if not set, current user is used)
@@ -90,10 +90,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsgetagenthistoryData {\n");
-            sb.Append("  Sort: ").Append(Sort).Append("\n");
-            sb.Append("  ToDate: ").Append(ToDate).Append("\n");
             sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
+            sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  FromDate: ").Append(FromDate).Append("\n");
+            sb.Append("  ToDate: ").Append(ToDate).Append("\n");
             sb.Append("  UserId: ").Append(UserId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -132,24 +132,24 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Sort == other.Sort ||
-                    this.Sort != null &&
-                    this.Sort.Equals(other.Sort)
-                ) && 
-                (
-                    this.ToDate == other.ToDate ||
-                    this.ToDate != null &&
-                    this.ToDate.Equals(other.ToDate)
-                ) && 
-                (
                     this.CustomAttributes == other.CustomAttributes ||
                     this.CustomAttributes != null &&
                     this.CustomAttributes.SequenceEqual(other.CustomAttributes)
                 ) && 
                 (
+                    this.Sort == other.Sort ||
+                    this.Sort != null &&
+                    this.Sort.Equals(other.Sort)
+                ) && 
+                (
                     this.FromDate == other.FromDate ||
                     this.FromDate != null &&
                     this.FromDate.Equals(other.FromDate)
+                ) && 
+                (
+                    this.ToDate == other.ToDate ||
+                    this.ToDate != null &&
+                    this.ToDate.Equals(other.ToDate)
                 ) && 
                 (
                     this.UserId == other.UserId ||
@@ -169,14 +169,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Sort != null)
-                    hash = hash * 59 + this.Sort.GetHashCode();
-                if (this.ToDate != null)
-                    hash = hash * 59 + this.ToDate.GetHashCode();
                 if (this.CustomAttributes != null)
                     hash = hash * 59 + this.CustomAttributes.GetHashCode();
+                if (this.Sort != null)
+                    hash = hash * 59 + this.Sort.GetHashCode();
                 if (this.FromDate != null)
                     hash = hash * 59 + this.FromDate.GetHashCode();
+                if (this.ToDate != null)
+                    hash = hash * 59 + this.ToDate.GetHashCode();
                 if (this.UserId != null)
                     hash = hash * 59 + this.UserId.GetHashCode();
                 return hash;
