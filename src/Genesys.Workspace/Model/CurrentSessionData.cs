@@ -1,7 +1,7 @@
 /* 
  * Workspace API
  *
- * Application API used by Workspace Web Edition
+ * Agent API
  *
  * OpenAPI spec version: 1.0.0
  * 
