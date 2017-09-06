@@ -25,34 +25,26 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentSessionDataUserActiveSession
+    /// DevicesData
     /// </summary>
     [DataContract]
-    public partial class CurrentSessionDataUserActiveSession :  IEquatable<CurrentSessionDataUserActiveSession>, IValidatableObject
+    public partial class DevicesData :  IEquatable<DevicesData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSession" /> class.
+        /// Initializes a new instance of the <see cref="DevicesData" /> class.
         /// </summary>
-        /// <param name="Dn">Dn.</param>
-        /// <param name="Calls">An array containing any active calls..</param>
-        public CurrentSessionDataUserActiveSession(Dn Dn = default(Dn), List<Call> Calls = default(List<Call>))
+        /// <param name="Devices">An array containing devices..</param>
+        public DevicesData(List<Dn> Devices = default(List<Dn>))
         {
-            this.Dn = Dn;
-            this.Calls = Calls;
+            this.Devices = Devices;
         }
         
         /// <summary>
-        /// Gets or Sets Dn
+        /// An array containing devices.
         /// </summary>
-        [DataMember(Name="dn", EmitDefaultValue=false)]
-        public Dn Dn { get; set; }
-
-        /// <summary>
-        /// An array containing any active calls.
-        /// </summary>
-        /// <value>An array containing any active calls.</value>
-        [DataMember(Name="calls", EmitDefaultValue=false)]
-        public List<Call> Calls { get; set; }
+        /// <value>An array containing devices.</value>
+        [DataMember(Name="devices", EmitDefaultValue=false)]
+        public List<Dn> Devices { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -61,9 +53,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentSessionDataUserActiveSession {\n");
-            sb.Append("  Dn: ").Append(Dn).Append("\n");
-            sb.Append("  Calls: ").Append(Calls).Append("\n");
+            sb.Append("class DevicesData {\n");
+            sb.Append("  Devices: ").Append(Devices).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -85,15 +76,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentSessionDataUserActiveSession);
+            return this.Equals(obj as DevicesData);
         }
 
         /// <summary>
-        /// Returns true if CurrentSessionDataUserActiveSession instances are equal
+        /// Returns true if DevicesData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentSessionDataUserActiveSession to be compared</param>
+        /// <param name="other">Instance of DevicesData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionDataUserActiveSession other)
+        public bool Equals(DevicesData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -101,14 +92,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
-                ) && 
-                (
-                    this.Calls == other.Calls ||
-                    this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
+                    this.Devices == other.Devices ||
+                    this.Devices != null &&
+                    this.Devices.SequenceEqual(other.Devices)
                 );
         }
 
@@ -123,10 +109,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
-                if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
+                if (this.Devices != null)
+                    hash = hash * 59 + this.Devices.GetHashCode();
                 return hash;
             }
         }

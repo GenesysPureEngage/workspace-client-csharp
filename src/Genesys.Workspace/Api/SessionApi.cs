@@ -107,6 +107,27 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of CurrentSession</returns>
         ApiResponse<CurrentSession> GetCurrentSessionWithHttpInfo ();
         /// <summary>
+        /// get devices from place
+        /// </summary>
+        /// <remarks>
+        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>Devices</returns>
+        Devices GetDevices (string place);
+
+        /// <summary>
+        /// get devices from place
+        /// </summary>
+        /// <remarks>
+        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>ApiResponse of Devices</returns>
+        ApiResponse<Devices> GetDevicesWithHttpInfo (string place);
+        /// <summary>
         /// Retrieves authorization token and registers it
         /// </summary>
         /// <remarks>
@@ -255,6 +276,27 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CurrentSession)</returns>
         System.Threading.Tasks.Task<ApiResponse<CurrentSession>> GetCurrentSessionAsyncWithHttpInfo ();
+        /// <summary>
+        /// get devices from place
+        /// </summary>
+        /// <remarks>
+        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>Task of Devices</returns>
+        System.Threading.Tasks.Task<Devices> GetDevicesAsync (string place);
+
+        /// <summary>
+        /// get devices from place
+        /// </summary>
+        /// <remarks>
+        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>Task of ApiResponse (Devices)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesAsyncWithHttpInfo (string place);
         /// <summary>
         /// Retrieves authorization token and registers it
         /// </summary>
@@ -966,6 +1008,141 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<CurrentSession>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (CurrentSession) Configuration.ApiClient.Deserialize(localVarResponse, typeof(CurrentSession)));
+        }
+
+        /// <summary>
+        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>Devices</returns>
+        public Devices GetDevices (string place)
+        {
+             ApiResponse<Devices> localVarResponse = GetDevicesWithHttpInfo(place);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>ApiResponse of Devices</returns>
+        public ApiResponse< Devices > GetDevicesWithHttpInfo (string place)
+        {
+            // verify the required parameter 'place' is set
+            if (place == null)
+                throw new ApiException(400, "Missing required parameter 'place' when calling SessionApi->GetDevices");
+
+            var localVarPath = "/devices/{place}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (place != null) localVarPathParams.Add("place", Configuration.ApiClient.ParameterToString(place)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDevices", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Devices>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Devices) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Devices)));
+        }
+
+        /// <summary>
+        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>Task of Devices</returns>
+        public async System.Threading.Tasks.Task<Devices> GetDevicesAsync (string place)
+        {
+             ApiResponse<Devices> localVarResponse = await GetDevicesAsyncWithHttpInfo(place);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="place">The name of the place</param>
+        /// <returns>Task of ApiResponse (Devices)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesAsyncWithHttpInfo (string place)
+        {
+            // verify the required parameter 'place' is set
+            if (place == null)
+                throw new ApiException(400, "Missing required parameter 'place' when calling SessionApi->GetDevices");
+
+            var localVarPath = "/devices/{place}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (place != null) localVarPathParams.Add("place", Configuration.ApiClient.ParameterToString(place)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetDevices", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Devices>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Devices) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Devices)));
         }
 
         /// <summary>

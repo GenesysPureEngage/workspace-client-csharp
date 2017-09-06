@@ -25,19 +25,19 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// CurrentSessionDataUserActiveSessionDn
+    /// Dn
     /// </summary>
     [DataContract]
-    public partial class CurrentSessionDataUserActiveSessionDn :  IEquatable<CurrentSessionDataUserActiveSessionDn>, IValidatableObject
+    public partial class Dn :  IEquatable<Dn>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSessionDn" /> class.
+        /// Initializes a new instance of the <see cref="Dn" /> class.
         /// </summary>
         /// <param name="Number">Number.</param>
         /// <param name="AgentId">AgentId.</param>
         /// <param name="AgentState">AgentState.</param>
         /// <param name="AgentWorkMode">AgentWorkMode.</param>
-        public CurrentSessionDataUserActiveSessionDn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
+        public Dn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
         {
             this.Number = Number;
             this.AgentId = AgentId;
@@ -76,7 +76,7 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CurrentSessionDataUserActiveSessionDn {\n");
+            sb.Append("class Dn {\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("  AgentState: ").Append(AgentState).Append("\n");
@@ -102,15 +102,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentSessionDataUserActiveSessionDn);
+            return this.Equals(obj as Dn);
         }
 
         /// <summary>
-        /// Returns true if CurrentSessionDataUserActiveSessionDn instances are equal
+        /// Returns true if Dn instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentSessionDataUserActiveSessionDn to be compared</param>
+        /// <param name="other">Instance of Dn to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionDataUserActiveSessionDn other)
+        public bool Equals(Dn other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
