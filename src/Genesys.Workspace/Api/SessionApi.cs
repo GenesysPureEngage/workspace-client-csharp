@@ -46,6 +46,27 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ActivateChannelsWithHttpInfo (ChannelsData channelsData);
         /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only)
+        /// </summary>
+        /// <remarks>
+        /// The login request authenticates the user and retrieves the authorization code. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse DeprecatedLogin (string redirectUri);
+
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only)
+        /// </summary>
+        /// <remarks>
+        /// The login request authenticates the user and retrieves the authorization code. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> DeprecatedLoginWithHttpInfo (string redirectUri);
+        /// <summary>
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
@@ -215,6 +236,27 @@ namespace Genesys.Workspace.Api
         /// <param name="channelsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ActivateChannelsAsyncWithHttpInfo (ChannelsData channelsData);
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only)
+        /// </summary>
+        /// <remarks>
+        /// The login request authenticates the user and retrieves the authorization code. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> DeprecatedLoginAsync (string redirectUri);
+
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only)
+        /// </summary>
+        /// <remarks>
+        /// The login request authenticates the user and retrieves the authorization code. 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeprecatedLoginAsyncWithHttpInfo (string redirectUri);
         /// <summary>
         /// Get the business attribute hierarchy
         /// </summary>
@@ -615,6 +657,141 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ActivateChannels", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse DeprecatedLogin (string redirectUri)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = DeprecatedLoginWithHttpInfo(redirectUri);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > DeprecatedLoginWithHttpInfo (string redirectUri)
+        {
+            // verify the required parameter 'redirectUri' is set
+            if (redirectUri == null)
+                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling SessionApi->DeprecatedLogin");
+
+            var localVarPath = "/login";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeprecatedLogin", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeprecatedLoginAsync (string redirectUri)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await DeprecatedLoginAsyncWithHttpInfo(redirectUri);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeprecatedLoginAsyncWithHttpInfo (string redirectUri)
+        {
+            // verify the required parameter 'redirectUri' is set
+            if (redirectUri == null)
+                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling SessionApi->DeprecatedLogin");
+
+            var localVarPath = "/login";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeprecatedLogin", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1337,7 +1514,7 @@ namespace Genesys.Workspace.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -1405,7 +1582,7 @@ namespace Genesys.Workspace.Api
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;

@@ -31,9 +31,9 @@ namespace Genesys.Workspace.Model
     public partial class VoicestartmonitoringData :  IEquatable<VoicestartmonitoringData>, IValidatableObject
     {
         /// <summary>
-        /// The monitoring mode (Mute,Coach)
+        /// The monitoring mode (Mute,Coach,Connect)
         /// </summary>
-        /// <value>The monitoring mode (Mute,Coach)</value>
+        /// <value>The monitoring mode (Mute,Coach,Connect)</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MonitoringModeEnum
         {
@@ -48,13 +48,19 @@ namespace Genesys.Workspace.Model
             /// Enum Coach for "Coach"
             /// </summary>
             [EnumMember(Value = "Coach")]
-            Coach
+            Coach,
+            
+            /// <summary>
+            /// Enum Connect for "Connect"
+            /// </summary>
+            [EnumMember(Value = "Connect")]
+            Connect
         }
 
         /// <summary>
-        /// The monitoring call type (NextCall/AllCalls).
+        /// The monitoring call type (OneCall/AllCalls).
         /// </summary>
-        /// <value>The monitoring call type (NextCall/AllCalls).</value>
+        /// <value>The monitoring call type (OneCall/AllCalls).</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MonitoringNextCallTypeEnum
         {
@@ -94,15 +100,15 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// The monitoring mode (Mute,Coach)
+        /// The monitoring mode (Mute,Coach,Connect)
         /// </summary>
-        /// <value>The monitoring mode (Mute,Coach)</value>
+        /// <value>The monitoring mode (Mute,Coach,Connect)</value>
         [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
         public MonitoringModeEnum? MonitoringMode { get; set; }
         /// <summary>
-        /// The monitoring call type (NextCall/AllCalls).
+        /// The monitoring call type (OneCall/AllCalls).
         /// </summary>
-        /// <value>The monitoring call type (NextCall/AllCalls).</value>
+        /// <value>The monitoring call type (OneCall/AllCalls).</value>
         [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
         public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
         /// <summary>
@@ -120,8 +126,8 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="VoicestartmonitoringData" /> class.
         /// </summary>
         /// <param name="PhoneNumberToMonitor">The phone number that should be monitored (required).</param>
-        /// <param name="MonitoringMode">The monitoring mode (Mute,Coach).</param>
-        /// <param name="MonitoringNextCallType">The monitoring call type (NextCall/AllCalls)..</param>
+        /// <param name="MonitoringMode">The monitoring mode (Mute,Coach,Connect).</param>
+        /// <param name="MonitoringNextCallType">The monitoring call type (OneCall/AllCalls)..</param>
         /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
         /// <param name="Location">The switch name where the phone number to be monitored is located (optional).</param>
         public VoicestartmonitoringData(string PhoneNumberToMonitor = default(string), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringNextCallTypeEnum? MonitoringNextCallType = default(MonitoringNextCallTypeEnum?), MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?), string Location = default(string))
