@@ -46,27 +46,6 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ActivateChannelsWithHttpInfo (ChannelsData channelsData);
         /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only)
-        /// </summary>
-        /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code. 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse DeprecatedLogin (string redirectUri);
-
-        /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only)
-        /// </summary>
-        /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code. 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> DeprecatedLoginWithHttpInfo (string redirectUri);
-        /// <summary>
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
@@ -131,28 +110,28 @@ namespace Genesys.Workspace.Api
         /// get devices from place
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>Devices</returns>
-        Devices GetDevices (string place);
+        Devices GetDevicesForPlace (string placeName);
 
         /// <summary>
         /// get devices from place
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>ApiResponse of Devices</returns>
-        ApiResponse<Devices> GetDevicesWithHttpInfo (string place);
+        ApiResponse<Devices> GetDevicesForPlaceWithHttpInfo (string placeName);
         /// <summary>
         /// Retrieves authorization token and registers it
         /// </summary>
         /// <remarks>
-        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -165,7 +144,7 @@ namespace Genesys.Workspace.Api
         /// Retrieves authorization token and registers it
         /// </summary>
         /// <remarks>
-        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -237,27 +216,6 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ActivateChannelsAsyncWithHttpInfo (ChannelsData channelsData);
         /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only)
-        /// </summary>
-        /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code. 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> DeprecatedLoginAsync (string redirectUri);
-
-        /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only)
-        /// </summary>
-        /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code. 
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeprecatedLoginAsyncWithHttpInfo (string redirectUri);
-        /// <summary>
         /// Get the business attribute hierarchy
         /// </summary>
         /// <remarks>
@@ -322,28 +280,28 @@ namespace Genesys.Workspace.Api
         /// get devices from place
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>Task of Devices</returns>
-        System.Threading.Tasks.Task<Devices> GetDevicesAsync (string place);
+        System.Threading.Tasks.Task<Devices> GetDevicesForPlaceAsync (string placeName);
 
         /// <summary>
         /// get devices from place
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>Task of ApiResponse (Devices)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesAsyncWithHttpInfo (string place);
+        System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesForPlaceAsyncWithHttpInfo (string placeName);
         /// <summary>
         /// Retrieves authorization token and registers it
         /// </summary>
         /// <remarks>
-        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -356,7 +314,7 @@ namespace Genesys.Workspace.Api
         /// Retrieves authorization token and registers it
         /// </summary>
         /// <remarks>
-        /// The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -657,141 +615,6 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ActivateChannels", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse DeprecatedLogin (string redirectUri)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = DeprecatedLoginWithHttpInfo(redirectUri);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > DeprecatedLoginWithHttpInfo (string redirectUri)
-        {
-            // verify the required parameter 'redirectUri' is set
-            if (redirectUri == null)
-                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling SessionApi->DeprecatedLogin");
-
-            var localVarPath = "/login";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeprecatedLogin", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeprecatedLoginAsync (string redirectUri)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await DeprecatedLoginAsyncWithHttpInfo(redirectUri);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// DEPRECATED login the specified user (HTTP session only) The login request authenticates the user and retrieves the authorization code. 
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="redirectUri">this the URI the AUTH service uses to redirect the user after authentication</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeprecatedLoginAsyncWithHttpInfo (string redirectUri)
-        {
-            // verify the required parameter 'redirectUri' is set
-            if (redirectUri == null)
-                throw new ApiException(400, "Missing required parameter 'redirectUri' when calling SessionApi->DeprecatedLogin");
-
-            var localVarPath = "/login";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (redirectUri != null) localVarQueryParams.Add("redirect_uri", Configuration.ApiClient.ParameterToString(redirectUri)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("DeprecatedLogin", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1188,30 +1011,30 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// get devices from place This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>Devices</returns>
-        public Devices GetDevices (string place)
+        public Devices GetDevicesForPlace (string placeName)
         {
-             ApiResponse<Devices> localVarResponse = GetDevicesWithHttpInfo(place);
+             ApiResponse<Devices> localVarResponse = GetDevicesForPlaceWithHttpInfo(placeName);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// get devices from place This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>ApiResponse of Devices</returns>
-        public ApiResponse< Devices > GetDevicesWithHttpInfo (string place)
+        public ApiResponse< Devices > GetDevicesForPlaceWithHttpInfo (string placeName)
         {
-            // verify the required parameter 'place' is set
-            if (place == null)
-                throw new ApiException(400, "Missing required parameter 'place' when calling SessionApi->GetDevices");
+            // verify the required parameter 'placeName' is set
+            if (placeName == null)
+                throw new ApiException(400, "Missing required parameter 'placeName' when calling SessionApi->GetDevicesForPlace");
 
-            var localVarPath = "/devices/{place}";
+            var localVarPath = "/configuration/places/{placeName}/dns";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1233,7 +1056,7 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (place != null) localVarPathParams.Add("place", Configuration.ApiClient.ParameterToString(place)); // path parameter
+            if (placeName != null) localVarPathParams.Add("placeName", Configuration.ApiClient.ParameterToString(placeName)); // path parameter
 
 
             // make the HTTP request
@@ -1245,7 +1068,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDevices", localVarResponse);
+                Exception exception = ExceptionFactory("GetDevicesForPlace", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1255,31 +1078,31 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// get devices from place This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>Task of Devices</returns>
-        public async System.Threading.Tasks.Task<Devices> GetDevicesAsync (string place)
+        public async System.Threading.Tasks.Task<Devices> GetDevicesForPlaceAsync (string placeName)
         {
-             ApiResponse<Devices> localVarResponse = await GetDevicesAsyncWithHttpInfo(place);
+             ApiResponse<Devices> localVarResponse = await GetDevicesForPlaceAsyncWithHttpInfo(placeName);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// get devices from place This request can be used to retrieve information about the devices of the user. The returned devices are the devices attached to the place where the user logs in. 
+        /// get devices from place This request can be used to retrieve information about the devices of a place. The returned devices are the devices attached to the place where the user logs in. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="place">The name of the place</param>
+        /// <param name="placeName">The name of the place</param>
         /// <returns>Task of ApiResponse (Devices)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesAsyncWithHttpInfo (string place)
+        public async System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesForPlaceAsyncWithHttpInfo (string placeName)
         {
-            // verify the required parameter 'place' is set
-            if (place == null)
-                throw new ApiException(400, "Missing required parameter 'place' when calling SessionApi->GetDevices");
+            // verify the required parameter 'placeName' is set
+            if (placeName == null)
+                throw new ApiException(400, "Missing required parameter 'placeName' when calling SessionApi->GetDevicesForPlace");
 
-            var localVarPath = "/devices/{place}";
+            var localVarPath = "/configuration/places/{placeName}/dns";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new Dictionary<String, String>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1301,7 +1124,7 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (place != null) localVarPathParams.Add("place", Configuration.ApiClient.ParameterToString(place)); // path parameter
+            if (placeName != null) localVarPathParams.Add("placeName", Configuration.ApiClient.ParameterToString(placeName)); // path parameter
 
 
             // make the HTTP request
@@ -1313,7 +1136,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetDevices", localVarResponse);
+                Exception exception = ExceptionFactory("GetDevicesForPlace", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1323,7 +1146,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -1337,7 +1160,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -1393,7 +1216,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>
@@ -1408,7 +1231,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code.  The token is then registered and the user&#39;s environment is prepared. 
+        /// Retrieves authorization token and registers it The initialize-workspace request retrieves the authorization token using the authorization code. The token is then registered and the user&#39;s environment is prepared. 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="code">the authorization code (optional)</param>

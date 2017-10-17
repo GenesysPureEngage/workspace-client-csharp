@@ -31,9 +31,9 @@ namespace Genesys.Workspace.Model
     public partial class Target :  IEquatable<Target>, IValidatableObject
     {
         /// <summary>
-        /// The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
+        /// The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
         /// </summary>
-        /// <value>The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.</value>
+        /// <value>The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -72,13 +72,19 @@ namespace Genesys.Workspace.Model
             /// Enum Customcontact for "custom-contact"
             /// </summary>
             [EnumMember(Value = "custom-contact")]
-            Customcontact
+            Customcontact,
+            
+            /// <summary>
+            /// Enum Contact for "contact"
+            /// </summary>
+            [EnumMember(Value = "contact")]
+            Contact
         }
 
         /// <summary>
-        /// The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.
+        /// The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
         /// </summary>
-        /// <value>The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact.</value>
+        /// <value>The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
@@ -86,7 +92,7 @@ namespace Genesys.Workspace.Model
         /// </summary>
         /// <param name="DBID">DBID of the object.</param>
         /// <param name="Name">For agents firstname and lastname (or username if neither is defined), for other types the name field is used..</param>
-        /// <param name="Type">The type of the target - agent, agent-group, acd-queue, route-point, skill or custom-contact..</param>
+        /// <param name="Type">The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact..</param>
         /// <param name="FirstName">First name - only applicable to agents..</param>
         /// <param name="LastName">Last name - only applicable to agents..</param>
         /// <param name="EmployeeID">Employee id - only applicable to agents..</param>

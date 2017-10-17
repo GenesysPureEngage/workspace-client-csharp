@@ -31,18 +31,49 @@ namespace Genesys.Workspace.Model
     public partial class ActivatechannelsData :  IEquatable<ActivatechannelsData>, IValidatableObject
     {
         /// <summary>
+        /// the agent workmode.
+        /// </summary>
+        /// <value>the agent workmode.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum AgentWorkModeEnum
+        {
+            
+            /// <summary>
+            /// Enum AutoIn for "AutoIn"
+            /// </summary>
+            [EnumMember(Value = "AutoIn")]
+            AutoIn,
+            
+            /// <summary>
+            /// Enum ManualIn for "ManualIn"
+            /// </summary>
+            [EnumMember(Value = "ManualIn")]
+            ManualIn
+        }
+
+        /// <summary>
+        /// the agent workmode.
+        /// </summary>
+        /// <value>the agent workmode.</value>
+        [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
+        public AgentWorkModeEnum? AgentWorkMode { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="ActivatechannelsData" /> class.
         /// </summary>
         /// <param name="AgentId">agentId (switch login code) that should be used to log the agent in.</param>
         /// <param name="PlaceName">The name of the place that should be used to log the agent in. Either placeName or dn must be provided..</param>
         /// <param name="Dn">The dn (number) that should be used to login the agent..</param>
         /// <param name="QueueName">The queue name that should be used to login the agent..</param>
-        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string))
+        /// <param name="AgentWorkMode">the agent workmode..</param>
+        /// <param name="Channels">array of string that corresponding to the medias to login.</param>
+        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), List<string> Channels = default(List<string>))
         {
             this.AgentId = AgentId;
             this.PlaceName = PlaceName;
             this.Dn = Dn;
             this.QueueName = QueueName;
+            this.AgentWorkMode = AgentWorkMode;
+            this.Channels = Channels;
         }
         
         /// <summary>
@@ -73,6 +104,14 @@ namespace Genesys.Workspace.Model
         [DataMember(Name="queueName", EmitDefaultValue=false)]
         public string QueueName { get; set; }
 
+
+        /// <summary>
+        /// array of string that corresponding to the medias to login
+        /// </summary>
+        /// <value>array of string that corresponding to the medias to login</value>
+        [DataMember(Name="channels", EmitDefaultValue=false)]
+        public List<string> Channels { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -85,6 +124,8 @@ namespace Genesys.Workspace.Model
             sb.Append("  PlaceName: ").Append(PlaceName).Append("\n");
             sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  QueueName: ").Append(QueueName).Append("\n");
+            sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
+            sb.Append("  Channels: ").Append(Channels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -140,6 +181,16 @@ namespace Genesys.Workspace.Model
                     this.QueueName == other.QueueName ||
                     this.QueueName != null &&
                     this.QueueName.Equals(other.QueueName)
+                ) && 
+                (
+                    this.AgentWorkMode == other.AgentWorkMode ||
+                    this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(other.AgentWorkMode)
+                ) && 
+                (
+                    this.Channels == other.Channels ||
+                    this.Channels != null &&
+                    this.Channels.SequenceEqual(other.Channels)
                 );
         }
 
@@ -162,6 +213,10 @@ namespace Genesys.Workspace.Model
                     hash = hash * 59 + this.Dn.GetHashCode();
                 if (this.QueueName != null)
                     hash = hash * 59 + this.QueueName.GetHashCode();
+                if (this.AgentWorkMode != null)
+                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                if (this.Channels != null)
+                    hash = hash * 59 + this.Channels.GetHashCode();
                 return hash;
             }
         }

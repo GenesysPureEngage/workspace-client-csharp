@@ -74,7 +74,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse DeletePersonalFavorite (decimal? id, string type);
+        ApiSuccessResponse DeletePersonalFavorite (string id, string type);
 
         /// <summary>
         /// delete a personal favorite
@@ -86,7 +86,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> DeletePersonalFavoriteWithHttpInfo (decimal? id, string type);
+        ApiResponse<ApiSuccessResponse> DeletePersonalFavoriteWithHttpInfo (string id, string type);
         /// <summary>
         /// Search for targets
         /// </summary>
@@ -97,11 +97,14 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>TargetsResponse</returns>
-        TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets
@@ -113,11 +116,14 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        ApiResponse<TargetsResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Get personal favorites
         /// </summary>
@@ -169,8 +175,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetTarget (decimal? id, string type);
+        /// <returns>TargetsResponse</returns>
+        TargetsResponse GetTarget (decimal? id, string type);
 
         /// <summary>
         /// Get a target
@@ -181,8 +187,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetTargetWithHttpInfo (decimal? id, string type);
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        ApiResponse<TargetsResponse> GetTargetWithHttpInfo (decimal? id, string type);
         /// <summary>
         /// Save a personal favorite
         /// </summary>
@@ -256,7 +262,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (decimal? id, string type);
+        System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (string id, string type);
 
         /// <summary>
         /// delete a personal favorite
@@ -268,7 +274,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (decimal? id, string type);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (string id, string type);
         /// <summary>
         /// Search for targets
         /// </summary>
@@ -279,11 +285,14 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets
@@ -295,11 +304,14 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null);
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Get personal favorites
         /// </summary>
@@ -351,8 +363,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetTargetAsync (decimal? id, string type);
+        /// <returns>Task of TargetsResponse</returns>
+        System.Threading.Tasks.Task<TargetsResponse> GetTargetAsync (decimal? id, string type);
 
         /// <summary>
         /// Get a target
@@ -363,8 +375,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type);
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type);
         /// <summary>
         /// Save a personal favorite
         /// </summary>
@@ -777,7 +789,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse DeletePersonalFavorite (decimal? id, string type)
+        public ApiSuccessResponse DeletePersonalFavorite (string id, string type)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = DeletePersonalFavoriteWithHttpInfo(id, type);
              return localVarResponse.Data;
@@ -790,7 +802,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > DeletePersonalFavoriteWithHttpInfo (decimal? id, string type)
+        public ApiResponse< ApiSuccessResponse > DeletePersonalFavoriteWithHttpInfo (string id, string type)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -850,7 +862,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (decimal? id, string type)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (string id, string type)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await DeletePersonalFavoriteAsyncWithHttpInfo(id, type);
              return localVarResponse.Data;
@@ -864,7 +876,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (decimal? id, string type)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (string id, string type)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -924,13 +936,16 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>TargetsResponse</returns>
-        public TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        public TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<TargetsResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
+             ApiResponse<TargetsResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
              return localVarResponse.Data;
         }
 
@@ -941,11 +956,14 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        public ApiResponse< TargetsResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -976,6 +994,9 @@ namespace Genesys.Workspace.Api
             if (searchTerm != null) localVarQueryParams.Add("searchTerm", Configuration.ApiClient.ParameterToString(searchTerm)); // query parameter
             if (filterName != null) localVarQueryParams.Add("filterName", Configuration.ApiClient.ParameterToString(filterName)); // query parameter
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
+            if (excludeGroup != null) localVarQueryParams.Add("excludeGroup", Configuration.ApiClient.ParameterToString(excludeGroup)); // query parameter
+            if (excludeFromGroup != null) localVarQueryParams.Add("excludeFromGroup", Configuration.ApiClient.ParameterToString(excludeFromGroup)); // query parameter
+            if (restrictToGroup != null) localVarQueryParams.Add("restrictToGroup", Configuration.ApiClient.ParameterToString(restrictToGroup)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             if (matchType != null) localVarQueryParams.Add("matchType", Configuration.ApiClient.ParameterToString(matchType)); // query parameter
@@ -1006,13 +1027,16 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        public async System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<TargetsResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, sort, limit, matchType);
+             ApiResponse<TargetsResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
              return localVarResponse.Data;
 
         }
@@ -1024,11 +1048,14 @@ namespace Genesys.Workspace.Api
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">Comma separated list of types of groups to exclude agent groups from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="excludeFromGroup">Comma separated list of types of groups to exclude agents from search. Valid values are any agent group names. (optional)</param>
+        /// <param name="restrictToGroup">Comma separated list of groups to limit the search of agents from. Valid values are any agent group names. (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
         /// <param name="limit">Number of results. 100 if not specified. (optional)</param>
         /// <param name="matchType">Type of behavior for the field matching (exact for exact match search). (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string sort = null, decimal? limit = null, string matchType = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -1059,6 +1086,9 @@ namespace Genesys.Workspace.Api
             if (searchTerm != null) localVarQueryParams.Add("searchTerm", Configuration.ApiClient.ParameterToString(searchTerm)); // query parameter
             if (filterName != null) localVarQueryParams.Add("filterName", Configuration.ApiClient.ParameterToString(filterName)); // query parameter
             if (types != null) localVarQueryParams.Add("types", Configuration.ApiClient.ParameterToString(types)); // query parameter
+            if (excludeGroup != null) localVarQueryParams.Add("excludeGroup", Configuration.ApiClient.ParameterToString(excludeGroup)); // query parameter
+            if (excludeFromGroup != null) localVarQueryParams.Add("excludeFromGroup", Configuration.ApiClient.ParameterToString(excludeFromGroup)); // query parameter
+            if (restrictToGroup != null) localVarQueryParams.Add("restrictToGroup", Configuration.ApiClient.ParameterToString(restrictToGroup)); // query parameter
             if (sort != null) localVarQueryParams.Add("sort", Configuration.ApiClient.ParameterToString(sort)); // query parameter
             if (limit != null) localVarQueryParams.Add("limit", Configuration.ApiClient.ParameterToString(limit)); // query parameter
             if (matchType != null) localVarQueryParams.Add("matchType", Configuration.ApiClient.ParameterToString(matchType)); // query parameter
@@ -1346,10 +1376,10 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetTarget (decimal? id, string type)
+        /// <returns>TargetsResponse</returns>
+        public TargetsResponse GetTarget (decimal? id, string type)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetTargetWithHttpInfo(id, type);
+             ApiResponse<TargetsResponse> localVarResponse = GetTargetWithHttpInfo(id, type);
              return localVarResponse.Data;
         }
 
@@ -1359,8 +1389,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetTargetWithHttpInfo (decimal? id, string type)
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        public ApiResponse< TargetsResponse > GetTargetWithHttpInfo (decimal? id, string type)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1408,9 +1438,9 @@ namespace Genesys.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
         }
 
         /// <summary>
@@ -1419,10 +1449,10 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetTargetAsync (decimal? id, string type)
+        /// <returns>Task of TargetsResponse</returns>
+        public async System.Threading.Tasks.Task<TargetsResponse> GetTargetAsync (decimal? id, string type)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetTargetAsyncWithHttpInfo(id, type);
+             ApiResponse<TargetsResponse> localVarResponse = await GetTargetAsyncWithHttpInfo(id, type);
              return localVarResponse.Data;
 
         }
@@ -1433,8 +1463,8 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type)
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -1482,9 +1512,9 @@ namespace Genesys.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
         }
 
         /// <summary>

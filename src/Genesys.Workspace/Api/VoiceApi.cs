@@ -466,7 +466,7 @@ namespace Genesys.Workspace.Api
         /// Reconnect a call
         /// </summary>
         /// <remarks>
-        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -478,7 +478,7 @@ namespace Genesys.Workspace.Api
         /// Reconnect a call
         /// </summary>
         /// <remarks>
-        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -1365,7 +1365,7 @@ namespace Genesys.Workspace.Api
         /// Reconnect a call
         /// </summary>
         /// <remarks>
-        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -1377,7 +1377,7 @@ namespace Genesys.Workspace.Api
         /// Reconnect a call
         /// </summary>
         /// <remarks>
-        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -4939,7 +4939,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -4952,7 +4952,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -5019,7 +5019,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
@@ -5033,7 +5033,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step. 
+        /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>

@@ -33,14 +33,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSession" /> class.
         /// </summary>
+        /// <param name="CurrentPlace">CurrentPlace.</param>
         /// <param name="Dn">Dn.</param>
         /// <param name="Calls">An array containing any active calls..</param>
-        public CurrentSessionDataUserActiveSession(Dn Dn = default(Dn), List<Call> Calls = default(List<Call>))
+        /// <param name="Media">Media.</param>
+        public CurrentSessionDataUserActiveSession(string CurrentPlace = default(string), Dn Dn = default(Dn), List<Call> Calls = default(List<Call>), Media Media = default(Media))
         {
+            this.CurrentPlace = CurrentPlace;
             this.Dn = Dn;
             this.Calls = Calls;
+            this.Media = Media;
         }
         
+        /// <summary>
+        /// Gets or Sets CurrentPlace
+        /// </summary>
+        [DataMember(Name="currentPlace", EmitDefaultValue=false)]
+        public string CurrentPlace { get; set; }
+
         /// <summary>
         /// Gets or Sets Dn
         /// </summary>
@@ -55,6 +65,12 @@ namespace Genesys.Workspace.Model
         public List<Call> Calls { get; set; }
 
         /// <summary>
+        /// Gets or Sets Media
+        /// </summary>
+        [DataMember(Name="media", EmitDefaultValue=false)]
+        public Media Media { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -62,8 +78,10 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionDataUserActiveSession {\n");
+            sb.Append("  CurrentPlace: ").Append(CurrentPlace).Append("\n");
             sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  Calls: ").Append(Calls).Append("\n");
+            sb.Append("  Media: ").Append(Media).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -101,6 +119,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.CurrentPlace == other.CurrentPlace ||
+                    this.CurrentPlace != null &&
+                    this.CurrentPlace.Equals(other.CurrentPlace)
+                ) && 
+                (
                     this.Dn == other.Dn ||
                     this.Dn != null &&
                     this.Dn.Equals(other.Dn)
@@ -109,6 +132,11 @@ namespace Genesys.Workspace.Model
                     this.Calls == other.Calls ||
                     this.Calls != null &&
                     this.Calls.SequenceEqual(other.Calls)
+                ) && 
+                (
+                    this.Media == other.Media ||
+                    this.Media != null &&
+                    this.Media.Equals(other.Media)
                 );
         }
 
@@ -123,10 +151,14 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.CurrentPlace != null)
+                    hash = hash * 59 + this.CurrentPlace.GetHashCode();
                 if (this.Dn != null)
                     hash = hash * 59 + this.Dn.GetHashCode();
                 if (this.Calls != null)
                     hash = hash * 59 + this.Calls.GetHashCode();
+                if (this.Media != null)
+                    hash = hash * 59 + this.Media.GetHashCode();
                 return hash;
             }
         }
