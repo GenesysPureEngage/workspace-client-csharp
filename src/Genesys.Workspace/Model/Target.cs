@@ -95,19 +95,19 @@ namespace Genesys.Workspace.Model
         /// <param name="Type">The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact..</param>
         /// <param name="FirstName">First name - only applicable to agents..</param>
         /// <param name="LastName">Last name - only applicable to agents..</param>
-        /// <param name="EmployeeID">Employee id - only applicable to agents..</param>
+        /// <param name="EmployeeId">Employee id - only applicable to agents..</param>
         /// <param name="UserName">Username - only applicable to agents..</param>
         /// <param name="Number">Only applicable to acd-queue and route-point.</param>
         /// <param name="SwitchName">Only applicable to acd-queue and route-point.</param>
         /// <param name="Availability">The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents..</param>
-        public Target(int? DBID = default(int?), string Name = default(string), TypeEnum? Type = default(TypeEnum?), string FirstName = default(string), string LastName = default(string), string EmployeeID = default(string), string UserName = default(string), string Number = default(string), string SwitchName = default(string), Object Availability = default(Object))
+        public Target(int? DBID = default(int?), string Name = default(string), TypeEnum? Type = default(TypeEnum?), string FirstName = default(string), string LastName = default(string), string EmployeeId = default(string), string UserName = default(string), string Number = default(string), string SwitchName = default(string), Object Availability = default(Object))
         {
             this.DBID = DBID;
             this.Name = Name;
             this.Type = Type;
             this.FirstName = FirstName;
             this.LastName = LastName;
-            this.EmployeeID = EmployeeID;
+            this.EmployeeId = EmployeeId;
             this.UserName = UserName;
             this.Number = Number;
             this.SwitchName = SwitchName;
@@ -147,8 +147,8 @@ namespace Genesys.Workspace.Model
         /// Employee id - only applicable to agents.
         /// </summary>
         /// <value>Employee id - only applicable to agents.</value>
-        [DataMember(Name="employeeID", EmitDefaultValue=false)]
-        public string EmployeeID { get; set; }
+        [DataMember(Name="employeeId", EmitDefaultValue=false)]
+        public string EmployeeId { get; set; }
 
         /// <summary>
         /// Username - only applicable to agents.
@@ -191,7 +191,7 @@ namespace Genesys.Workspace.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  FirstName: ").Append(FirstName).Append("\n");
             sb.Append("  LastName: ").Append(LastName).Append("\n");
-            sb.Append("  EmployeeID: ").Append(EmployeeID).Append("\n");
+            sb.Append("  EmployeeId: ").Append(EmployeeId).Append("\n");
             sb.Append("  UserName: ").Append(UserName).Append("\n");
             sb.Append("  Number: ").Append(Number).Append("\n");
             sb.Append("  SwitchName: ").Append(SwitchName).Append("\n");
@@ -258,9 +258,9 @@ namespace Genesys.Workspace.Model
                     this.LastName.Equals(other.LastName)
                 ) && 
                 (
-                    this.EmployeeID == other.EmployeeID ||
-                    this.EmployeeID != null &&
-                    this.EmployeeID.Equals(other.EmployeeID)
+                    this.EmployeeId == other.EmployeeId ||
+                    this.EmployeeId != null &&
+                    this.EmployeeId.Equals(other.EmployeeId)
                 ) && 
                 (
                     this.UserName == other.UserName ||
@@ -305,8 +305,8 @@ namespace Genesys.Workspace.Model
                     hash = hash * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
                     hash = hash * 59 + this.LastName.GetHashCode();
-                if (this.EmployeeID != null)
-                    hash = hash * 59 + this.EmployeeID.GetHashCode();
+                if (this.EmployeeId != null)
+                    hash = hash * 59 + this.EmployeeId.GetHashCode();
                 if (this.UserName != null)
                     hash = hash * 59 + this.UserName.GetHashCode();
                 if (this.Number != null)

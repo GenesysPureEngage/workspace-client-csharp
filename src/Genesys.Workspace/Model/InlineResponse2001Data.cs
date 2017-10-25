@@ -25,26 +25,36 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// StatisticsRegisterDataData
+    /// InlineResponse2001Data
     /// </summary>
     [DataContract]
-    public partial class StatisticsRegisterDataData :  IEquatable<StatisticsRegisterDataData>, IValidatableObject
+    public partial class InlineResponse2001Data :  IEquatable<InlineResponse2001Data>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2001Data" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StatisticsRegisterDataData() { }
+        protected InlineResponse2001Data() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2001Data" /> class.
         /// </summary>
-        /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsRegisterDataData(List<StatisticValueForRegister> Statistics = default(List<StatisticValueForRegister>))
+        /// <param name="SubscriptionId">ID used to fetch statistics values from /reporting/{subscriptionId} (required).</param>
+        /// <param name="Statistics">The list of all the registered statitstics. (required).</param>
+        public InlineResponse2001Data(string SubscriptionId = default(string), List<StatisticValueForRegisterResponse> Statistics = default(List<StatisticValueForRegisterResponse>))
         {
+            // to ensure "SubscriptionId" is required (not null)
+            if (SubscriptionId == null)
+            {
+                throw new InvalidDataException("SubscriptionId is a required property for InlineResponse2001Data and cannot be null");
+            }
+            else
+            {
+                this.SubscriptionId = SubscriptionId;
+            }
             // to ensure "Statistics" is required (not null)
             if (Statistics == null)
             {
-                throw new InvalidDataException("Statistics is a required property for StatisticsRegisterDataData and cannot be null");
+                throw new InvalidDataException("Statistics is a required property for InlineResponse2001Data and cannot be null");
             }
             else
             {
@@ -53,10 +63,18 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Statistics
+        /// ID used to fetch statistics values from /reporting/{subscriptionId}
         /// </summary>
+        /// <value>ID used to fetch statistics values from /reporting/{subscriptionId}</value>
+        [DataMember(Name="subscriptionId", EmitDefaultValue=false)]
+        public string SubscriptionId { get; set; }
+
+        /// <summary>
+        /// The list of all the registered statitstics.
+        /// </summary>
+        /// <value>The list of all the registered statitstics.</value>
         [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegister> Statistics { get; set; }
+        public List<StatisticValueForRegisterResponse> Statistics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +83,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticsRegisterDataData {\n");
+            sb.Append("class InlineResponse2001Data {\n");
+            sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
             sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -88,21 +107,26 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticsRegisterDataData);
+            return this.Equals(obj as InlineResponse2001Data);
         }
 
         /// <summary>
-        /// Returns true if StatisticsRegisterDataData instances are equal
+        /// Returns true if InlineResponse2001Data instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticsRegisterDataData to be compared</param>
+        /// <param name="other">Instance of InlineResponse2001Data to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsRegisterDataData other)
+        public bool Equals(InlineResponse2001Data other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
             return 
+                (
+                    this.SubscriptionId == other.SubscriptionId ||
+                    this.SubscriptionId != null &&
+                    this.SubscriptionId.Equals(other.SubscriptionId)
+                ) && 
                 (
                     this.Statistics == other.Statistics ||
                     this.Statistics != null &&
@@ -121,6 +145,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.SubscriptionId != null)
+                    hash = hash * 59 + this.SubscriptionId.GetHashCode();
                 if (this.Statistics != null)
                     hash = hash * 59 + this.Statistics.GetHashCode();
                 return hash;

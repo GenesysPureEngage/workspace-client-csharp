@@ -25,38 +25,56 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// StatisticsRegisterDataData
+    /// StatisticValue
     /// </summary>
     [DataContract]
-    public partial class StatisticsRegisterDataData :  IEquatable<StatisticsRegisterDataData>, IValidatableObject
+    public partial class StatisticValue :  IEquatable<StatisticValue>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// Initializes a new instance of the <see cref="StatisticValue" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StatisticsRegisterDataData() { }
+        protected StatisticValue() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// Initializes a new instance of the <see cref="StatisticValue" /> class.
         /// </summary>
-        /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsRegisterDataData(List<StatisticValueForRegister> Statistics = default(List<StatisticValueForRegister>))
+        /// <param name="Timestamp">Timestamp for given value of the statistic (required).</param>
+        /// <param name="Value">Value of the statistic (required).</param>
+        public StatisticValue(int? Timestamp = default(int?), int? Value = default(int?))
         {
-            // to ensure "Statistics" is required (not null)
-            if (Statistics == null)
+            // to ensure "Timestamp" is required (not null)
+            if (Timestamp == null)
             {
-                throw new InvalidDataException("Statistics is a required property for StatisticsRegisterDataData and cannot be null");
+                throw new InvalidDataException("Timestamp is a required property for StatisticValue and cannot be null");
             }
             else
             {
-                this.Statistics = Statistics;
+                this.Timestamp = Timestamp;
+            }
+            // to ensure "Value" is required (not null)
+            if (Value == null)
+            {
+                throw new InvalidDataException("Value is a required property for StatisticValue and cannot be null");
+            }
+            else
+            {
+                this.Value = Value;
             }
         }
         
         /// <summary>
-        /// Gets or Sets Statistics
+        /// Timestamp for given value of the statistic
         /// </summary>
-        [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegister> Statistics { get; set; }
+        /// <value>Timestamp for given value of the statistic</value>
+        [DataMember(Name="timestamp", EmitDefaultValue=false)]
+        public int? Timestamp { get; set; }
+
+        /// <summary>
+        /// Value of the statistic
+        /// </summary>
+        /// <value>Value of the statistic</value>
+        [DataMember(Name="value", EmitDefaultValue=false)]
+        public int? Value { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +83,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticsRegisterDataData {\n");
-            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
+            sb.Append("class StatisticValue {\n");
+            sb.Append("  Timestamp: ").Append(Timestamp).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +107,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticsRegisterDataData);
+            return this.Equals(obj as StatisticValue);
         }
 
         /// <summary>
-        /// Returns true if StatisticsRegisterDataData instances are equal
+        /// Returns true if StatisticValue instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticsRegisterDataData to be compared</param>
+        /// <param name="other">Instance of StatisticValue to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsRegisterDataData other)
+        public bool Equals(StatisticValue other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -104,9 +123,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Statistics == other.Statistics ||
-                    this.Statistics != null &&
-                    this.Statistics.SequenceEqual(other.Statistics)
+                    this.Timestamp == other.Timestamp ||
+                    this.Timestamp != null &&
+                    this.Timestamp.Equals(other.Timestamp)
+                ) && 
+                (
+                    this.Value == other.Value ||
+                    this.Value != null &&
+                    this.Value.Equals(other.Value)
                 );
         }
 
@@ -121,8 +145,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Statistics != null)
-                    hash = hash * 59 + this.Statistics.GetHashCode();
+                if (this.Timestamp != null)
+                    hash = hash * 59 + this.Timestamp.GetHashCode();
+                if (this.Value != null)
+                    hash = hash * 59 + this.Value.GetHashCode();
                 return hash;
             }
         }

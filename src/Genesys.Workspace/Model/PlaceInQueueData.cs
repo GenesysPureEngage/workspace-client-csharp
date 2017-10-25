@@ -25,38 +25,25 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// StatisticsRegisterDataData
+    /// PlaceInQueueData
     /// </summary>
     [DataContract]
-    public partial class StatisticsRegisterDataData :  IEquatable<StatisticsRegisterDataData>, IValidatableObject
+    public partial class PlaceInQueueData :  IEquatable<PlaceInQueueData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// Initializes a new instance of the <see cref="PlaceInQueueData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticsRegisterDataData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
-        /// </summary>
-        /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsRegisterDataData(List<StatisticValueForRegister> Statistics = default(List<StatisticValueForRegister>))
+        /// <param name="Data">Data.</param>
+        public PlaceInQueueData(MediamediatypeinteractionsidplaceinqueueData Data = default(MediamediatypeinteractionsidplaceinqueueData))
         {
-            // to ensure "Statistics" is required (not null)
-            if (Statistics == null)
-            {
-                throw new InvalidDataException("Statistics is a required property for StatisticsRegisterDataData and cannot be null");
-            }
-            else
-            {
-                this.Statistics = Statistics;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// Gets or Sets Statistics
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegister> Statistics { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediamediatypeinteractionsidplaceinqueueData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +52,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticsRegisterDataData {\n");
-            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
+            sb.Append("class PlaceInQueueData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +75,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticsRegisterDataData);
+            return this.Equals(obj as PlaceInQueueData);
         }
 
         /// <summary>
-        /// Returns true if StatisticsRegisterDataData instances are equal
+        /// Returns true if PlaceInQueueData instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticsRegisterDataData to be compared</param>
+        /// <param name="other">Instance of PlaceInQueueData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsRegisterDataData other)
+        public bool Equals(PlaceInQueueData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -104,9 +91,9 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Statistics == other.Statistics ||
-                    this.Statistics != null &&
-                    this.Statistics.SequenceEqual(other.Statistics)
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -121,8 +108,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Statistics != null)
-                    hash = hash * 59 + this.Statistics.GetHashCode();
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }

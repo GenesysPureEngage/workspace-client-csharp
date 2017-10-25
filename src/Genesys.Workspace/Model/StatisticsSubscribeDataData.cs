@@ -40,7 +40,7 @@ namespace Genesys.Workspace.Model
         /// </summary>
         /// <param name="ConnectionId">ConnectionId (required).</param>
         /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsSubscribeDataData(string ConnectionId = default(string), List<Object> Statistics = default(List<Object>))
+        public StatisticsSubscribeDataData(string ConnectionId = default(string), List<StatisticValueForRegister> Statistics = default(List<StatisticValueForRegister>))
         {
             // to ensure "ConnectionId" is required (not null)
             if (ConnectionId == null)
@@ -72,7 +72,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Statistics
         /// </summary>
         [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<Object> Statistics { get; set; }
+        public List<StatisticValueForRegister> Statistics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

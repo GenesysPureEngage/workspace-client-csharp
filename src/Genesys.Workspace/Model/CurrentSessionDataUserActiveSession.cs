@@ -33,18 +33,26 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSession" /> class.
         /// </summary>
+        /// <param name="AutoCompleteCall">AutoCompleteCall.</param>
         /// <param name="CurrentPlace">CurrentPlace.</param>
         /// <param name="Dn">Dn.</param>
         /// <param name="Calls">An array containing any active calls..</param>
         /// <param name="Media">Media.</param>
-        public CurrentSessionDataUserActiveSession(string CurrentPlace = default(string), Dn Dn = default(Dn), List<Call> Calls = default(List<Call>), Media Media = default(Media))
+        public CurrentSessionDataUserActiveSession(bool? AutoCompleteCall = default(bool?), string CurrentPlace = default(string), Dn Dn = default(Dn), List<Call> Calls = default(List<Call>), Media Media = default(Media))
         {
+            this.AutoCompleteCall = AutoCompleteCall;
             this.CurrentPlace = CurrentPlace;
             this.Dn = Dn;
             this.Calls = Calls;
             this.Media = Media;
         }
         
+        /// <summary>
+        /// Gets or Sets AutoCompleteCall
+        /// </summary>
+        [DataMember(Name="autoCompleteCall", EmitDefaultValue=false)]
+        public bool? AutoCompleteCall { get; set; }
+
         /// <summary>
         /// Gets or Sets CurrentPlace
         /// </summary>
@@ -78,6 +86,7 @@ namespace Genesys.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class CurrentSessionDataUserActiveSession {\n");
+            sb.Append("  AutoCompleteCall: ").Append(AutoCompleteCall).Append("\n");
             sb.Append("  CurrentPlace: ").Append(CurrentPlace).Append("\n");
             sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  Calls: ").Append(Calls).Append("\n");
@@ -119,6 +128,11 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
+                    this.AutoCompleteCall == other.AutoCompleteCall ||
+                    this.AutoCompleteCall != null &&
+                    this.AutoCompleteCall.Equals(other.AutoCompleteCall)
+                ) && 
+                (
                     this.CurrentPlace == other.CurrentPlace ||
                     this.CurrentPlace != null &&
                     this.CurrentPlace.Equals(other.CurrentPlace)
@@ -151,6 +165,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.AutoCompleteCall != null)
+                    hash = hash * 59 + this.AutoCompleteCall.GetHashCode();
                 if (this.CurrentPlace != null)
                     hash = hash * 59 + this.CurrentPlace.GetHashCode();
                 if (this.Dn != null)

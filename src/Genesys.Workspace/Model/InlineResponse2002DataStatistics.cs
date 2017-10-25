@@ -25,38 +25,33 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// StatisticsRegisterDataData
+    /// The list of all the statitstics in given subscription as kvp.
     /// </summary>
     [DataContract]
-    public partial class StatisticsRegisterDataData :  IEquatable<StatisticsRegisterDataData>, IValidatableObject
+    public partial class InlineResponse2002DataStatistics :  IEquatable<InlineResponse2002DataStatistics>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2002DataStatistics" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticsRegisterDataData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterDataData" /> class.
-        /// </summary>
-        /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsRegisterDataData(List<StatisticValueForRegister> Statistics = default(List<StatisticValueForRegister>))
+        /// <param name="StatisticId1">StatisticId1.</param>
+        /// <param name="___">___.</param>
+        public InlineResponse2002DataStatistics(StatisticValueForPeekResponse StatisticId1 = default(StatisticValueForPeekResponse), StatisticValueForPeekResponse ___ = default(StatisticValueForPeekResponse))
         {
-            // to ensure "Statistics" is required (not null)
-            if (Statistics == null)
-            {
-                throw new InvalidDataException("Statistics is a required property for StatisticsRegisterDataData and cannot be null");
-            }
-            else
-            {
-                this.Statistics = Statistics;
-            }
+            this.StatisticId1 = StatisticId1;
+            this.___ = ___;
         }
         
         /// <summary>
-        /// Gets or Sets Statistics
+        /// Gets or Sets StatisticId1
         /// </summary>
-        [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegister> Statistics { get; set; }
+        [DataMember(Name="statisticId1", EmitDefaultValue=false)]
+        public StatisticValueForPeekResponse StatisticId1 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ___
+        /// </summary>
+        [DataMember(Name="...", EmitDefaultValue=false)]
+        public StatisticValueForPeekResponse ___ { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +60,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticsRegisterDataData {\n");
-            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
+            sb.Append("class InlineResponse2002DataStatistics {\n");
+            sb.Append("  StatisticId1: ").Append(StatisticId1).Append("\n");
+            sb.Append("  ___: ").Append(___).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,15 +84,15 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticsRegisterDataData);
+            return this.Equals(obj as InlineResponse2002DataStatistics);
         }
 
         /// <summary>
-        /// Returns true if StatisticsRegisterDataData instances are equal
+        /// Returns true if InlineResponse2002DataStatistics instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticsRegisterDataData to be compared</param>
+        /// <param name="other">Instance of InlineResponse2002DataStatistics to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsRegisterDataData other)
+        public bool Equals(InlineResponse2002DataStatistics other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -104,9 +100,14 @@ namespace Genesys.Workspace.Model
 
             return 
                 (
-                    this.Statistics == other.Statistics ||
-                    this.Statistics != null &&
-                    this.Statistics.SequenceEqual(other.Statistics)
+                    this.StatisticId1 == other.StatisticId1 ||
+                    this.StatisticId1 != null &&
+                    this.StatisticId1.Equals(other.StatisticId1)
+                ) && 
+                (
+                    this.___ == other.___ ||
+                    this.___ != null &&
+                    this.___.Equals(other.___)
                 );
         }
 
@@ -121,8 +122,10 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Statistics != null)
-                    hash = hash * 59 + this.Statistics.GetHashCode();
+                if (this.StatisticId1 != null)
+                    hash = hash * 59 + this.StatisticId1.GetHashCode();
+                if (this.___ != null)
+                    hash = hash * 59 + this.___.GetHashCode();
                 return hash;
             }
         }

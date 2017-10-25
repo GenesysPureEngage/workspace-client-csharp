@@ -224,6 +224,31 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> NotReadyForMediaWithHttpInfo (string mediatype, NotReadyForMediaData notReadyForMediaData);
         /// <summary>
+        /// Place the interaction in queue
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse PlaceInQueue (string mediatype, string id, PlaceInQueueData placeInQueueData);
+
+        /// <summary>
+        /// Place the interaction in queue
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> PlaceInQueueWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData);
+        /// <summary>
         /// Change to the ready state for all open media channels
         /// </summary>
         /// <remarks>
@@ -514,6 +539,31 @@ namespace Genesys.Workspace.Api
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyForMediaAsyncWithHttpInfo (string mediatype, NotReadyForMediaData notReadyForMediaData);
+        /// <summary>
+        /// Place the interaction in queue
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> PlaceInQueueAsync (string mediatype, string id, PlaceInQueueData placeInQueueData);
+
+        /// <summary>
+        /// Place the interaction in queue
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PlaceInQueueAsyncWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData);
         /// <summary>
         /// Change to the ready state for all open media channels
         /// </summary>
@@ -2047,6 +2097,179 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("NotReadyForMedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse PlaceInQueue (string mediatype, string id, PlaceInQueueData placeInQueueData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = PlaceInQueueWithHttpInfo(mediatype, id, placeInQueueData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > PlaceInQueueWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->PlaceInQueue");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->PlaceInQueue");
+            // verify the required parameter 'placeInQueueData' is set
+            if (placeInQueueData == null)
+                throw new ApiException(400, "Missing required parameter 'placeInQueueData' when calling MediaApi->PlaceInQueue");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/place-in-queue";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (placeInQueueData != null && placeInQueueData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(placeInQueueData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = placeInQueueData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PlaceInQueue", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> PlaceInQueueAsync (string mediatype, string id, PlaceInQueueData placeInQueueData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await PlaceInQueueAsyncWithHttpInfo(mediatype, id, placeInQueueData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="placeInQueueData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PlaceInQueueAsyncWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->PlaceInQueue");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->PlaceInQueue");
+            // verify the required parameter 'placeInQueueData' is set
+            if (placeInQueueData == null)
+                throw new ApiException(400, "Missing required parameter 'placeInQueueData' when calling MediaApi->PlaceInQueue");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/place-in-queue";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (placeInQueueData != null && placeInQueueData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(placeInQueueData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = placeInQueueData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PlaceInQueue", localVarResponse);
                 if (exception != null) throw exception;
             }
 
