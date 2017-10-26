@@ -204,6 +204,37 @@ OpenAPI spec version: 1.0.0
     <Compile Include="KeyValueCollection.cs" />
     <Compile Include="KeyValuePair.cs" />
     <Compile Include="Models.cs" />
+    <Compile Include="Api\GroupsApi.cs" />
+    <Compile Include="Api\MediaApi.cs" />
+    <Compile Include="Api\UsersApi.cs" />
+    <Compile Include="Model\AcceptData.cs" />
+    <Compile Include="Model\AcceptData1.cs" />
+    <Compile Include="Model\GetCategoryData.cs" />
+    <Compile Include="Model\GetStandardResponseData.cs" />
+    <Compile Include="Model\InlineResponse2001.cs" />
+    <Compile Include="Model\InlineResponse2001Data.cs" />
+    <Compile Include="Model\InlineResponse2002.cs" />
+    <Compile Include="Model\InlineResponse2002Data.cs" />
+    <Compile Include="Model\InlineResponse2002DataStatistics.cs" />
+    <Compile Include="Model\IxnReasonCode.cs" />
+    <Compile Include="Model\LogoutMediaData.cs" />
+    <Compile Include="Model\Media.cs" />
+    <Compile Include="Model\MediamediatypeinteractionsidacceptData.cs" />
+    <Compile Include="Model\MediamediatypeinteractionsiddeleteuserdataData.cs" />
+    <Compile Include="Model\MediamediatypeinteractionsidplaceinqueueData.cs" />
+    <Compile Include="Model\MediamediatypelogoutData.cs" />
+    <Compile Include="Model\MediamediatypenotreadyData.cs" />
+    <Compile Include="Model\NotReadyForMediaData.cs" />
+    <Compile Include="Model\OpenMediaChannel.cs" />
+    <Compile Include="Model\PlaceInQueueData.cs" />
+    <Compile Include="Model\ReadyForMediaData.cs" />
+    <Compile Include="Model\StatisticValue.cs" />
+    <Compile Include="Model\StatisticValueForPeekResponse.cs" />
+    <Compile Include="Model\StatisticValueForRegister.cs" />
+    <Compile Include="Model\StatisticValueForRegisterResponse.cs" />
+    <Compile Include="Model\UcsresponsescategoriesidgetdetailsData.cs" />
+    <Compile Include="Model\UcsresponsesidgetdetailsData.cs" />
+    <Compile Include="Model\UserData2.cs" />
   </ItemGroup>
   <ItemGroup>
       <None Include="packages.config" />
