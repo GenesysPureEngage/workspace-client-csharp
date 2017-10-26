@@ -1,0 +1,15 @@
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/Genesys.Workspace.dll
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/Genesys.Workspace.pdb
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/CometD.NET.dll
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/log4net.dll
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/Newtonsoft.Json.dll
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/RestSharp.dll
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/Newtonsoft.Json.xml
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/RestSharp.xml
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/CometD.NET.pdb
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/CometD.NET.xml
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Debug/log4net.xml
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Debug/Genesys.Workspace.csproj.CoreCompileInputs.cache
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Debug/Genesys.Workspace.dll
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Debug/Genesys.Workspace.pdb
+/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Debug/Genesys.Workspace.csprojResolveAssemblyReference.cache
