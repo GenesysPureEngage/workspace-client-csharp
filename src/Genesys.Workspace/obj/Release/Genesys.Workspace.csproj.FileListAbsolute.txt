@@ -1,9 +1,0 @@
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Release/Genesys.Workspace.dll
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Release/Genesys.Workspace.pdb
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Release/Newtonsoft.Json.dll
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Release/RestSharp.dll
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Release/Newtonsoft.Json.xml
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/bin/Release/RestSharp.xml
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Release/Genesys.Workspace.csproj.CoreCompileInputs.cache
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Release/Genesys.Workspace.dll
-/Users/jcrespin/Development/DevFoundry/GWS9/workspace-client-csharp/src/Genesys.Workspace/obj/Release/Genesys.Workspace.pdb

@@ -1,0 +1,34 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workbench ActiveDocument="src/Genesys.Workspace/WorkspaceApi.cs">
+    <Files>
+      <File FileName="src/Genesys.Workspace/Api/DocumentationApi.cs" Line="13" Column="38" />
+      <File FileName="src/Genesys.Workspace/Client/ApiClient.cs" Line="285" Column="14" />
+      <File FileName="src/Genesys.Workspace/Api/SessionApi.cs" Line="24" Column="8" />
+      <File FileName="src/Genesys.Workspace/Api/VoiceApi.cs" Line="19" Column="32" />
+      <File FileName="src/Genesys.Workspace/Api/NotificationsApi.cs" Line="17" Column="1" />
+      <File FileName="src/Genesys.Workspace/Client/Configuration.cs" Line="1" Column="1" />
+      <File FileName="src/Genesys.Workspace/Model/Dn.cs" Line="31" Column="66" />
+      <File FileName="src/Genesys.Workspace/WorkspaceApi.cs" Line="96" Column="15" />
+      <File FileName="src/Genesys.Workspace/WorkspaceClientTransport.cs" Line="6" Column="28" />
+      <File FileName="src/Genesys.Workspace/Notifications.cs" Line="39" Column="9" />
+      <File FileName="src/Genesys.Workspace/WorkspaceApiException.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Genesys.Workspace" expanded="True">
+            <Node name="Genesys.Workspace" expanded="True">
+              <Node name="WorkspaceApi.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
