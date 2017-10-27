@@ -146,11 +146,6 @@ namespace Genesys.Workspace.Client
                     request.AddParameter(contentType, postBody, ParameterType.RequestBody);
                 }
             }
-            else
-            {
-                // empty body, but GWS expects content type to be set.
-                request.AddHeader("Content-type", contentType);
-            }
 
             return request;
         }
