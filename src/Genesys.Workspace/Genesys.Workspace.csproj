@@ -12,7 +12,7 @@ OpenAPI spec version: 1.0.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B6A710BF-E543-430A-939A-2F9CB8EA69DD}</ProjectGuid>
+    <ProjectGuid>{1586E313-2B7E-493C-87C7-9415B55E5160}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Genesys.Workspace</RootNamespace>
