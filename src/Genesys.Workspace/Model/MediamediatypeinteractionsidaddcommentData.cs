@@ -25,19 +25,40 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// MediamediatypeinteractionsidaddcommentData
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class MediamediatypeinteractionsidaddcommentData :  IEquatable<MediamediatypeinteractionsidaddcommentData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidaddcommentData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public Kvpair()
+        protected MediamediatypeinteractionsidaddcommentData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidaddcommentData" /> class.
+        /// </summary>
+        /// <param name="Comment">The comment to be set (required).</param>
+        public MediamediatypeinteractionsidaddcommentData(string Comment = default(string))
         {
+            // to ensure "Comment" is required (not null)
+            if (Comment == null)
+            {
+                throw new InvalidDataException("Comment is a required property for MediamediatypeinteractionsidaddcommentData and cannot be null");
+            }
+            else
+            {
+                this.Comment = Comment;
+            }
         }
         
+        /// <summary>
+        /// The comment to be set
+        /// </summary>
+        /// <value>The comment to be set</value>
+        [DataMember(Name="comment", EmitDefaultValue=false)]
+        public string Comment { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -45,7 +66,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
+            sb.Append("class MediamediatypeinteractionsidaddcommentData {\n");
+            sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -67,21 +89,26 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Kvpair);
+            return this.Equals(obj as MediamediatypeinteractionsidaddcommentData);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if MediamediatypeinteractionsidaddcommentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of Kvpair to be compared</param>
+        /// <param name="other">Instance of MediamediatypeinteractionsidaddcommentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair other)
+        public bool Equals(MediamediatypeinteractionsidaddcommentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.Comment == other.Comment ||
+                    this.Comment != null &&
+                    this.Comment.Equals(other.Comment)
+                );
         }
 
         /// <summary>
@@ -95,6 +122,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Comment != null)
+                    hash = hash * 59 + this.Comment.GetHashCode();
                 return hash;
             }
         }

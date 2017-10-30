@@ -25,19 +25,26 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// AddCommentData
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class AddCommentData :  IEquatable<AddCommentData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="AddCommentData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        public Kvpair()
+        /// <param name="Data">Data.</param>
+        public AddCommentData(MediamediatypeinteractionsidaddcommentData Data = default(MediamediatypeinteractionsidaddcommentData))
         {
+            this.Data = Data;
         }
         
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediamediatypeinteractionsidaddcommentData Data { get; set; }
+
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -45,7 +52,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
+            sb.Append("class AddCommentData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -67,21 +75,26 @@ namespace Genesys.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Kvpair);
+            return this.Equals(obj as AddCommentData);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if AddCommentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of Kvpair to be compared</param>
+        /// <param name="other">Instance of AddCommentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair other)
+        public bool Equals(AddCommentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
                 return false;
 
-            return false;
+            return 
+                (
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
+                );
         }
 
         /// <summary>
@@ -95,6 +108,8 @@ namespace Genesys.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }

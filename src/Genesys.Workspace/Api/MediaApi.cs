@@ -50,6 +50,79 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData acceptData = null);
         /// <summary>
+        /// Set the comment for the interaction
+        /// </summary>
+        /// <remarks>
+        /// Set the comment for the interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AddComment (string mediatype, string id, AddCommentData addCommentData);
+
+        /// <summary>
+        /// Set the comment for the interaction
+        /// </summary>
+        /// <remarks>
+        /// Set the comment for the interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AddCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
+        /// <summary>
+        /// Create the interaction in UCS database
+        /// </summary>
+        /// <remarks>
+        /// Create the interaction in UCS database
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AddContent (string mediatype, string id, AddContentData addContentData = null);
+
+        /// <summary>
+        /// Create the interaction in UCS database
+        /// </summary>
+        /// <remarks>
+        /// Create the interaction in UCS database
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AddContentWithHttpInfo (string mediatype, string id, AddContentData addContentData = null);
+        /// <summary>
+        /// Complete open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Complete the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse Complete (string mediatype, string id);
+
+        /// <summary>
+        /// Complete open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Complete the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> CompleteWithHttpInfo (string mediatype, string id);
+        /// <summary>
         /// Remove key/value pair from user data
         /// </summary>
         /// <remarks>
@@ -365,6 +438,79 @@ namespace Genesys.Workspace.Api
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData acceptData = null);
+        /// <summary>
+        /// Set the comment for the interaction
+        /// </summary>
+        /// <remarks>
+        /// Set the comment for the interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AddCommentAsync (string mediatype, string id, AddCommentData addCommentData);
+
+        /// <summary>
+        /// Set the comment for the interaction
+        /// </summary>
+        /// <remarks>
+        /// Set the comment for the interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
+        /// <summary>
+        /// Create the interaction in UCS database
+        /// </summary>
+        /// <remarks>
+        /// Create the interaction in UCS database
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AddContentAsync (string mediatype, string id, AddContentData addContentData = null);
+
+        /// <summary>
+        /// Create the interaction in UCS database
+        /// </summary>
+        /// <remarks>
+        /// Create the interaction in UCS database
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddContentAsyncWithHttpInfo (string mediatype, string id, AddContentData addContentData = null);
+        /// <summary>
+        /// Complete open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Complete the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> CompleteAsync (string mediatype, string id);
+
+        /// <summary>
+        /// Complete open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Complete the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CompleteAsyncWithHttpInfo (string mediatype, string id);
         /// <summary>
         /// Remove key/value pair from user data
         /// </summary>
@@ -925,6 +1071,493 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("Accept", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Set the comment for the interaction Set the comment for the interaction
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse AddComment (string mediatype, string id, AddCommentData addCommentData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = AddCommentWithHttpInfo(mediatype, id, addCommentData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the comment for the interaction Set the comment for the interaction
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > AddCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddComment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddComment");
+            // verify the required parameter 'addCommentData' is set
+            if (addCommentData == null)
+                throw new ApiException(400, "Missing required parameter 'addCommentData' when calling MediaApi->AddComment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/add-comment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (addCommentData != null && addCommentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addCommentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addCommentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddComment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Set the comment for the interaction Set the comment for the interaction
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddCommentAsync (string mediatype, string id, AddCommentData addCommentData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AddCommentAsyncWithHttpInfo(mediatype, id, addCommentData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set the comment for the interaction Set the comment for the interaction
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddComment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddComment");
+            // verify the required parameter 'addCommentData' is set
+            if (addCommentData == null)
+                throw new ApiException(400, "Missing required parameter 'addCommentData' when calling MediaApi->AddComment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/add-comment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (addCommentData != null && addCommentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addCommentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addCommentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddComment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Create the interaction in UCS database Create the interaction in UCS database
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse AddContent (string mediatype, string id, AddContentData addContentData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = AddContentWithHttpInfo(mediatype, id, addContentData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create the interaction in UCS database Create the interaction in UCS database
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > AddContentWithHttpInfo (string mediatype, string id, AddContentData addContentData = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddContent");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddContent");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/add-content";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (addContentData != null && addContentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addContentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addContentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddContent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Create the interaction in UCS database Create the interaction in UCS database
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddContentAsync (string mediatype, string id, AddContentData addContentData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AddContentAsyncWithHttpInfo(mediatype, id, addContentData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create the interaction in UCS database Create the interaction in UCS database
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="addContentData"> (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddContentAsyncWithHttpInfo (string mediatype, string id, AddContentData addContentData = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddContent");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddContent");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/add-content";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (addContentData != null && addContentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addContentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addContentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddContent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse Complete (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = CompleteWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > CompleteWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->Complete");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Complete");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/complete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Complete", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> CompleteAsync (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await CompleteAsyncWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to complete</param>
+        /// <param name="id">id of interaction to complete</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CompleteAsyncWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->Complete");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Complete");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/complete";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Complete", localVarResponse);
                 if (exception != null) throw exception;
             }
 
