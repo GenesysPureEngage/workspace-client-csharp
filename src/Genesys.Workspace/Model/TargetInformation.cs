@@ -115,55 +115,53 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TargetInformation);
+            return this.Equals(input as TargetInformation);
         }
 
         /// <summary>
         /// Returns true if TargetInformation instances are equal
         /// </summary>
-        /// <param name="other">Instance of TargetInformation to be compared</param>
+        /// <param name="input">Instance of TargetInformation to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetInformation other)
+        public bool Equals(TargetInformation input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.Id == other.Id ||
-                    this.Id != null &&
-                    this.Id.Equals(other.Id)
+                    this.Id == input.Id ||
+                    (this.Id != null &&
+                    this.Id.Equals(input.Id))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.EmailAddresses == other.EmailAddresses ||
+                    this.EmailAddresses == input.EmailAddresses ||
                     this.EmailAddresses != null &&
-                    this.EmailAddresses.SequenceEqual(other.EmailAddresses)
+                    this.EmailAddresses.SequenceEqual(input.EmailAddresses)
                 ) && 
                 (
-                    this.Numbers == other.Numbers ||
+                    this.Numbers == input.Numbers ||
                     this.Numbers != null &&
-                    this.Numbers.SequenceEqual(other.Numbers)
+                    this.Numbers.SequenceEqual(input.Numbers)
                 );
         }
 
@@ -173,24 +171,22 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.Id != null)
-                    hash = hash * 59 + this.Id.GetHashCode();
+                    hashCode = hashCode * 59 + this.Id.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.EmailAddresses != null)
-                    hash = hash * 59 + this.EmailAddresses.GetHashCode();
+                    hashCode = hashCode * 59 + this.EmailAddresses.GetHashCode();
                 if (this.Numbers != null)
-                    hash = hash * 59 + this.Numbers.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Numbers.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -81,35 +81,33 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TargetsResponseData);
+            return this.Equals(input as TargetsResponseData);
         }
 
         /// <summary>
         /// Returns true if TargetsResponseData instances are equal
         /// </summary>
-        /// <param name="other">Instance of TargetsResponseData to be compared</param>
+        /// <param name="input">Instance of TargetsResponseData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetsResponseData other)
+        public bool Equals(TargetsResponseData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Targets == other.Targets ||
+                    this.Targets == input.Targets ||
                     this.Targets != null &&
-                    this.Targets.SequenceEqual(other.Targets)
+                    this.Targets.SequenceEqual(input.Targets)
                 ) && 
                 (
-                    this.TotalMatches == other.TotalMatches ||
-                    this.TotalMatches != null &&
-                    this.TotalMatches.Equals(other.TotalMatches)
+                    this.TotalMatches == input.TotalMatches ||
+                    (this.TotalMatches != null &&
+                    this.TotalMatches.Equals(input.TotalMatches))
                 );
         }
 
@@ -119,16 +117,14 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Targets != null)
-                    hash = hash * 59 + this.Targets.GetHashCode();
+                    hashCode = hashCode * 59 + this.Targets.GetHashCode();
                 if (this.TotalMatches != null)
-                    hash = hash * 59 + this.TotalMatches.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.TotalMatches.GetHashCode();
+                return hashCode;
             }
         }
 

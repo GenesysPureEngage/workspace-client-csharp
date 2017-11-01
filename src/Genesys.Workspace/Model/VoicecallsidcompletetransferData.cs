@@ -91,40 +91,38 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicecallsidcompletetransferData);
+            return this.Equals(input as VoicecallsidcompletetransferData);
         }
 
         /// <summary>
         /// Returns true if VoicecallsidcompletetransferData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicecallsidcompletetransferData to be compared</param>
+        /// <param name="input">Instance of VoicecallsidcompletetransferData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicecallsidcompletetransferData other)
+        public bool Equals(VoicecallsidcompletetransferData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ParentConnId == other.ParentConnId ||
-                    this.ParentConnId != null &&
-                    this.ParentConnId.Equals(other.ParentConnId)
+                    this.ParentConnId == input.ParentConnId ||
+                    (this.ParentConnId != null &&
+                    this.ParentConnId.Equals(input.ParentConnId))
                 ) && 
                 (
-                    this.Reasons == other.Reasons ||
+                    this.Reasons == input.Reasons ||
                     this.Reasons != null &&
-                    this.Reasons.SequenceEqual(other.Reasons)
+                    this.Reasons.SequenceEqual(input.Reasons)
                 ) && 
                 (
-                    this.Extensions == other.Extensions ||
+                    this.Extensions == input.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(other.Extensions)
+                    this.Extensions.SequenceEqual(input.Extensions)
                 );
         }
 
@@ -134,18 +132,16 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ParentConnId != null)
-                    hash = hash * 59 + this.ParentConnId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ParentConnId.GetHashCode();
                 if (this.Reasons != null)
-                    hash = hash * 59 + this.Reasons.GetHashCode();
+                    hashCode = hashCode * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
+                return hashCode;
             }
         }
 

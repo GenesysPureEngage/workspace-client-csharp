@@ -138,45 +138,43 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticValueForRegisterResponse);
+            return this.Equals(input as StatisticValueForRegisterResponse);
         }
 
         /// <summary>
         /// Returns true if StatisticValueForRegisterResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticValueForRegisterResponse to be compared</param>
+        /// <param name="input">Instance of StatisticValueForRegisterResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticValueForRegisterResponse other)
+        public bool Equals(StatisticValueForRegisterResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ObjectId == other.ObjectId ||
-                    this.ObjectId != null &&
-                    this.ObjectId.Equals(other.ObjectId)
+                    this.ObjectId == input.ObjectId ||
+                    (this.ObjectId != null &&
+                    this.ObjectId.Equals(input.ObjectId))
                 ) && 
                 (
-                    this.ObjectType == other.ObjectType ||
-                    this.ObjectType != null &&
-                    this.ObjectType.Equals(other.ObjectType)
+                    this.ObjectType == input.ObjectType ||
+                    (this.ObjectType != null &&
+                    this.ObjectType.Equals(input.ObjectType))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.StatisticId == other.StatisticId ||
-                    this.StatisticId != null &&
-                    this.StatisticId.Equals(other.StatisticId)
+                    this.StatisticId == input.StatisticId ||
+                    (this.StatisticId != null &&
+                    this.StatisticId.Equals(input.StatisticId))
                 );
         }
 
@@ -186,20 +184,18 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ObjectId != null)
-                    hash = hash * 59 + this.ObjectId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
                 if (this.ObjectType != null)
-                    hash = hash * 59 + this.ObjectType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.StatisticId != null)
-                    hash = hash * 59 + this.StatisticId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.StatisticId.GetHashCode();
+                return hashCode;
             }
         }
 

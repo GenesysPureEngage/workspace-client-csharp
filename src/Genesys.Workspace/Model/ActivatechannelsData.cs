@@ -142,55 +142,53 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ActivatechannelsData);
+            return this.Equals(input as ActivatechannelsData);
         }
 
         /// <summary>
         /// Returns true if ActivatechannelsData instances are equal
         /// </summary>
-        /// <param name="other">Instance of ActivatechannelsData to be compared</param>
+        /// <param name="input">Instance of ActivatechannelsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ActivatechannelsData other)
+        public bool Equals(ActivatechannelsData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AgentId == other.AgentId ||
-                    this.AgentId != null &&
-                    this.AgentId.Equals(other.AgentId)
+                    this.AgentId == input.AgentId ||
+                    (this.AgentId != null &&
+                    this.AgentId.Equals(input.AgentId))
                 ) && 
                 (
-                    this.PlaceName == other.PlaceName ||
-                    this.PlaceName != null &&
-                    this.PlaceName.Equals(other.PlaceName)
+                    this.PlaceName == input.PlaceName ||
+                    (this.PlaceName != null &&
+                    this.PlaceName.Equals(input.PlaceName))
                 ) && 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
+                    this.Dn == input.Dn ||
+                    (this.Dn != null &&
+                    this.Dn.Equals(input.Dn))
                 ) && 
                 (
-                    this.QueueName == other.QueueName ||
-                    this.QueueName != null &&
-                    this.QueueName.Equals(other.QueueName)
+                    this.QueueName == input.QueueName ||
+                    (this.QueueName != null &&
+                    this.QueueName.Equals(input.QueueName))
                 ) && 
                 (
-                    this.AgentWorkMode == other.AgentWorkMode ||
-                    this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(other.AgentWorkMode)
+                    this.AgentWorkMode == input.AgentWorkMode ||
+                    (this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(input.AgentWorkMode))
                 ) && 
                 (
-                    this.Channels == other.Channels ||
+                    this.Channels == input.Channels ||
                     this.Channels != null &&
-                    this.Channels.SequenceEqual(other.Channels)
+                    this.Channels.SequenceEqual(input.Channels)
                 );
         }
 
@@ -200,24 +198,22 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AgentId != null)
-                    hash = hash * 59 + this.AgentId.GetHashCode();
+                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
                 if (this.PlaceName != null)
-                    hash = hash * 59 + this.PlaceName.GetHashCode();
+                    hashCode = hashCode * 59 + this.PlaceName.GetHashCode();
                 if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
+                    hashCode = hashCode * 59 + this.Dn.GetHashCode();
                 if (this.QueueName != null)
-                    hash = hash * 59 + this.QueueName.GetHashCode();
+                    hashCode = hashCode * 59 + this.QueueName.GetHashCode();
                 if (this.AgentWorkMode != null)
-                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                    hashCode = hashCode * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.Channels != null)
-                    hash = hash * 59 + this.Channels.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Channels.GetHashCode();
+                return hashCode;
             }
         }
 

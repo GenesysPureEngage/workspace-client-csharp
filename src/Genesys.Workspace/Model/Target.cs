@@ -45,22 +45,22 @@ namespace Genesys.Workspace.Model
             Agent,
             
             /// <summary>
-            /// Enum Agentgroup for "agent-group"
+            /// Enum AgentGroup for "agent-group"
             /// </summary>
             [EnumMember(Value = "agent-group")]
-            Agentgroup,
+            AgentGroup,
             
             /// <summary>
-            /// Enum Acdqueue for "acd-queue"
+            /// Enum AcdQueue for "acd-queue"
             /// </summary>
             [EnumMember(Value = "acd-queue")]
-            Acdqueue,
+            AcdQueue,
             
             /// <summary>
-            /// Enum Routepoint for "route-point"
+            /// Enum RoutePoint for "route-point"
             /// </summary>
             [EnumMember(Value = "route-point")]
-            Routepoint,
+            RoutePoint,
             
             /// <summary>
             /// Enum Skill for "skill"
@@ -69,10 +69,10 @@ namespace Genesys.Workspace.Model
             Skill,
             
             /// <summary>
-            /// Enum Customcontact for "custom-contact"
+            /// Enum CustomContact for "custom-contact"
             /// </summary>
             [EnumMember(Value = "custom-contact")]
-            Customcontact,
+            CustomContact,
             
             /// <summary>
             /// Enum Contact for "contact"
@@ -212,75 +212,73 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Target);
+            return this.Equals(input as Target);
         }
 
         /// <summary>
         /// Returns true if Target instances are equal
         /// </summary>
-        /// <param name="other">Instance of Target to be compared</param>
+        /// <param name="input">Instance of Target to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Target other)
+        public bool Equals(Target input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.DBID == other.DBID ||
-                    this.DBID != null &&
-                    this.DBID.Equals(other.DBID)
+                    this.DBID == input.DBID ||
+                    (this.DBID != null &&
+                    this.DBID.Equals(input.DBID))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Type == other.Type ||
-                    this.Type != null &&
-                    this.Type.Equals(other.Type)
+                    this.Type == input.Type ||
+                    (this.Type != null &&
+                    this.Type.Equals(input.Type))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.EmployeeId == other.EmployeeId ||
-                    this.EmployeeId != null &&
-                    this.EmployeeId.Equals(other.EmployeeId)
+                    this.EmployeeId == input.EmployeeId ||
+                    (this.EmployeeId != null &&
+                    this.EmployeeId.Equals(input.EmployeeId))
                 ) && 
                 (
-                    this.UserName == other.UserName ||
-                    this.UserName != null &&
-                    this.UserName.Equals(other.UserName)
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 ) && 
                 (
-                    this.Number == other.Number ||
-                    this.Number != null &&
-                    this.Number.Equals(other.Number)
+                    this.Number == input.Number ||
+                    (this.Number != null &&
+                    this.Number.Equals(input.Number))
                 ) && 
                 (
-                    this.SwitchName == other.SwitchName ||
-                    this.SwitchName != null &&
-                    this.SwitchName.Equals(other.SwitchName)
+                    this.SwitchName == input.SwitchName ||
+                    (this.SwitchName != null &&
+                    this.SwitchName.Equals(input.SwitchName))
                 ) && 
                 (
-                    this.Availability == other.Availability ||
-                    this.Availability != null &&
-                    this.Availability.Equals(other.Availability)
+                    this.Availability == input.Availability ||
+                    (this.Availability != null &&
+                    this.Availability.Equals(input.Availability))
                 );
         }
 
@@ -290,32 +288,30 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.DBID != null)
-                    hash = hash * 59 + this.DBID.GetHashCode();
+                    hashCode = hashCode * 59 + this.DBID.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Type != null)
-                    hash = hash * 59 + this.Type.GetHashCode();
+                    hashCode = hashCode * 59 + this.Type.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.EmployeeId != null)
-                    hash = hash * 59 + this.EmployeeId.GetHashCode();
+                    hashCode = hashCode * 59 + this.EmployeeId.GetHashCode();
                 if (this.UserName != null)
-                    hash = hash * 59 + this.UserName.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 if (this.Number != null)
-                    hash = hash * 59 + this.Number.GetHashCode();
+                    hashCode = hashCode * 59 + this.Number.GetHashCode();
                 if (this.SwitchName != null)
-                    hash = hash * 59 + this.SwitchName.GetHashCode();
+                    hashCode = hashCode * 59 + this.SwitchName.GetHashCode();
                 if (this.Availability != null)
-                    hash = hash * 59 + this.Availability.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Availability.GetHashCode();
+                return hashCode;
             }
         }
 

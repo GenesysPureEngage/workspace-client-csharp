@@ -114,45 +114,43 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsgetcontacthistoryData);
+            return this.Equals(input as UcsgetcontacthistoryData);
         }
 
         /// <summary>
         /// Returns true if UcsgetcontacthistoryData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsgetcontacthistoryData to be compared</param>
+        /// <param name="input">Instance of UcsgetcontacthistoryData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsgetcontacthistoryData other)
+        public bool Equals(UcsgetcontacthistoryData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ContactId == other.ContactId ||
-                    this.ContactId != null &&
-                    this.ContactId.Equals(other.ContactId)
+                    this.ContactId == input.ContactId ||
+                    (this.ContactId != null &&
+                    this.ContactId.Equals(input.ContactId))
                 ) && 
                 (
-                    this.CustomAttributes == other.CustomAttributes ||
+                    this.CustomAttributes == input.CustomAttributes ||
                     this.CustomAttributes != null &&
-                    this.CustomAttributes.SequenceEqual(other.CustomAttributes)
+                    this.CustomAttributes.SequenceEqual(input.CustomAttributes)
                 ) && 
                 (
-                    this.FromDate == other.FromDate ||
-                    this.FromDate != null &&
-                    this.FromDate.Equals(other.FromDate)
+                    this.FromDate == input.FromDate ||
+                    (this.FromDate != null &&
+                    this.FromDate.Equals(input.FromDate))
                 ) && 
                 (
-                    this.ToDate == other.ToDate ||
-                    this.ToDate != null &&
-                    this.ToDate.Equals(other.ToDate)
+                    this.ToDate == input.ToDate ||
+                    (this.ToDate != null &&
+                    this.ToDate.Equals(input.ToDate))
                 );
         }
 
@@ -162,20 +160,18 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ContactId != null)
-                    hash = hash * 59 + this.ContactId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
                 if (this.CustomAttributes != null)
-                    hash = hash * 59 + this.CustomAttributes.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
                 if (this.FromDate != null)
-                    hash = hash * 59 + this.FromDate.GetHashCode();
+                    hashCode = hashCode * 59 + this.FromDate.GetHashCode();
                 if (this.ToDate != null)
-                    hash = hash * 59 + this.ToDate.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ToDate.GetHashCode();
+                return hashCode;
             }
         }
 

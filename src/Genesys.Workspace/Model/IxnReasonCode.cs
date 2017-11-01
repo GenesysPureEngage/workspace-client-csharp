@@ -88,40 +88,38 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as IxnReasonCode);
+            return this.Equals(input as IxnReasonCode);
         }
 
         /// <summary>
         /// Returns true if IxnReasonCode instances are equal
         /// </summary>
-        /// <param name="other">Instance of IxnReasonCode to be compared</param>
+        /// <param name="input">Instance of IxnReasonCode to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(IxnReasonCode other)
+        public bool Equals(IxnReasonCode input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReasonSystemName == other.ReasonSystemName ||
-                    this.ReasonSystemName != null &&
-                    this.ReasonSystemName.Equals(other.ReasonSystemName)
+                    this.ReasonSystemName == input.ReasonSystemName ||
+                    (this.ReasonSystemName != null &&
+                    this.ReasonSystemName.Equals(input.ReasonSystemName))
                 ) && 
                 (
-                    this.ReasonDescription == other.ReasonDescription ||
-                    this.ReasonDescription != null &&
-                    this.ReasonDescription.Equals(other.ReasonDescription)
+                    this.ReasonDescription == input.ReasonDescription ||
+                    (this.ReasonDescription != null &&
+                    this.ReasonDescription.Equals(input.ReasonDescription))
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 );
         }
 
@@ -131,18 +129,16 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ReasonSystemName != null)
-                    hash = hash * 59 + this.ReasonSystemName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReasonSystemName.GetHashCode();
                 if (this.ReasonDescription != null)
-                    hash = hash * 59 + this.ReasonDescription.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReasonDescription.GetHashCode();
                 if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                return hashCode;
             }
         }
 

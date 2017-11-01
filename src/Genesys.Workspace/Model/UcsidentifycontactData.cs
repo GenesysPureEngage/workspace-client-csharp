@@ -132,50 +132,48 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsidentifycontactData);
+            return this.Equals(input as UcsidentifycontactData);
         }
 
         /// <summary>
         /// Returns true if UcsidentifycontactData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsidentifycontactData to be compared</param>
+        /// <param name="input">Instance of UcsidentifycontactData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsidentifycontactData other)
+        public bool Equals(UcsidentifycontactData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CreateContactEnabled == other.CreateContactEnabled ||
-                    this.CreateContactEnabled != null &&
-                    this.CreateContactEnabled.Equals(other.CreateContactEnabled)
+                    this.CreateContactEnabled == input.CreateContactEnabled ||
+                    (this.CreateContactEnabled != null &&
+                    this.CreateContactEnabled.Equals(input.CreateContactEnabled))
                 ) && 
                 (
-                    this.MediaType == other.MediaType ||
-                    this.MediaType != null &&
-                    this.MediaType.Equals(other.MediaType)
+                    this.MediaType == input.MediaType ||
+                    (this.MediaType != null &&
+                    this.MediaType.Equals(input.MediaType))
                 ) && 
                 (
-                    this.PhoneNumber == other.PhoneNumber ||
-                    this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(other.PhoneNumber)
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
                 ) && 
                 (
-                    this.EmailAddress == other.EmailAddress ||
-                    this.EmailAddress != null &&
-                    this.EmailAddress.Equals(other.EmailAddress)
+                    this.EmailAddress == input.EmailAddress ||
+                    (this.EmailAddress != null &&
+                    this.EmailAddress.Equals(input.EmailAddress))
                 ) && 
                 (
-                    this.UserData == other.UserData ||
+                    this.UserData == input.UserData ||
                     this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
+                    this.UserData.SequenceEqual(input.UserData)
                 );
         }
 
@@ -185,22 +183,20 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CreateContactEnabled != null)
-                    hash = hash * 59 + this.CreateContactEnabled.GetHashCode();
+                    hashCode = hashCode * 59 + this.CreateContactEnabled.GetHashCode();
                 if (this.MediaType != null)
-                    hash = hash * 59 + this.MediaType.GetHashCode();
+                    hashCode = hashCode * 59 + this.MediaType.GetHashCode();
                 if (this.PhoneNumber != null)
-                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
                 if (this.EmailAddress != null)
-                    hash = hash * 59 + this.EmailAddress.GetHashCode();
+                    hashCode = hashCode * 59 + this.EmailAddress.GetHashCode();
                 if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
+                return hashCode;
             }
         }
 

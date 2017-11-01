@@ -100,35 +100,33 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as StatisticsSubscribeDataData);
+            return this.Equals(input as StatisticsSubscribeDataData);
         }
 
         /// <summary>
         /// Returns true if StatisticsSubscribeDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of StatisticsSubscribeDataData to be compared</param>
+        /// <param name="input">Instance of StatisticsSubscribeDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsSubscribeDataData other)
+        public bool Equals(StatisticsSubscribeDataData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ConnectionId == other.ConnectionId ||
-                    this.ConnectionId != null &&
-                    this.ConnectionId.Equals(other.ConnectionId)
+                    this.ConnectionId == input.ConnectionId ||
+                    (this.ConnectionId != null &&
+                    this.ConnectionId.Equals(input.ConnectionId))
                 ) && 
                 (
-                    this.Statistics == other.Statistics ||
+                    this.Statistics == input.Statistics ||
                     this.Statistics != null &&
-                    this.Statistics.SequenceEqual(other.Statistics)
+                    this.Statistics.SequenceEqual(input.Statistics)
                 );
         }
 
@@ -138,16 +136,14 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ConnectionId != null)
-                    hash = hash * 59 + this.ConnectionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ConnectionId.GetHashCode();
                 if (this.Statistics != null)
-                    hash = hash * 59 + this.Statistics.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Statistics.GetHashCode();
+                return hashCode;
             }
         }
 

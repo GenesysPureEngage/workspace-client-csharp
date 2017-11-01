@@ -83,30 +83,28 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ReportingunsubscribeData);
+            return this.Equals(input as ReportingunsubscribeData);
         }
 
         /// <summary>
         /// Returns true if ReportingunsubscribeData instances are equal
         /// </summary>
-        /// <param name="other">Instance of ReportingunsubscribeData to be compared</param>
+        /// <param name="input">Instance of ReportingunsubscribeData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReportingunsubscribeData other)
+        public bool Equals(ReportingunsubscribeData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.SubscriptionId == other.SubscriptionId ||
-                    this.SubscriptionId != null &&
-                    this.SubscriptionId.Equals(other.SubscriptionId)
+                    this.SubscriptionId == input.SubscriptionId ||
+                    (this.SubscriptionId != null &&
+                    this.SubscriptionId.Equals(input.SubscriptionId))
                 );
         }
 
@@ -116,14 +114,12 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.SubscriptionId != null)
-                    hash = hash * 59 + this.SubscriptionId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.SubscriptionId.GetHashCode();
+                return hashCode;
             }
         }
 

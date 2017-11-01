@@ -120,40 +120,38 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcssetcallcompletedData);
+            return this.Equals(input as UcssetcallcompletedData);
         }
 
         /// <summary>
         /// Returns true if UcssetcallcompletedData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcssetcallcompletedData to be compared</param>
+        /// <param name="input">Instance of UcssetcallcompletedData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcssetcallcompletedData other)
+        public bool Equals(UcssetcallcompletedData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.InteractionId == other.InteractionId ||
-                    this.InteractionId != null &&
-                    this.InteractionId.Equals(other.InteractionId)
+                    this.InteractionId == input.InteractionId ||
+                    (this.InteractionId != null &&
+                    this.InteractionId.Equals(input.InteractionId))
                 ) && 
                 (
-                    this.CallDuration == other.CallDuration ||
-                    this.CallDuration != null &&
-                    this.CallDuration.Equals(other.CallDuration)
+                    this.CallDuration == input.CallDuration ||
+                    (this.CallDuration != null &&
+                    this.CallDuration.Equals(input.CallDuration))
                 ) && 
                 (
-                    this.UserData == other.UserData ||
+                    this.UserData == input.UserData ||
                     this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
+                    this.UserData.SequenceEqual(input.UserData)
                 );
         }
 
@@ -163,18 +161,16 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.InteractionId != null)
-                    hash = hash * 59 + this.InteractionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
                 if (this.CallDuration != null)
-                    hash = hash * 59 + this.CallDuration.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallDuration.GetHashCode();
                 if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
+                return hashCode;
             }
         }
 

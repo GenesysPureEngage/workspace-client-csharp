@@ -134,55 +134,53 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicecallsidinitiateconferenceData);
+            return this.Equals(input as VoicecallsidinitiateconferenceData);
         }
 
         /// <summary>
         /// Returns true if VoicecallsidinitiateconferenceData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicecallsidinitiateconferenceData to be compared</param>
+        /// <param name="input">Instance of VoicecallsidinitiateconferenceData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicecallsidinitiateconferenceData other)
+        public bool Equals(VoicecallsidinitiateconferenceData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Destination == other.Destination ||
-                    this.Destination != null &&
-                    this.Destination.Equals(other.Destination)
+                    this.Destination == input.Destination ||
+                    (this.Destination != null &&
+                    this.Destination.Equals(input.Destination))
                 ) && 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
+                    this.Location == input.Location ||
+                    (this.Location != null &&
+                    this.Location.Equals(input.Location))
                 ) && 
                 (
-                    this.UserData == other.UserData ||
+                    this.UserData == input.UserData ||
                     this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
+                    this.UserData.SequenceEqual(input.UserData)
                 ) && 
                 (
-                    this.Reasons == other.Reasons ||
+                    this.Reasons == input.Reasons ||
                     this.Reasons != null &&
-                    this.Reasons.SequenceEqual(other.Reasons)
+                    this.Reasons.SequenceEqual(input.Reasons)
                 ) && 
                 (
-                    this.Extensions == other.Extensions ||
+                    this.Extensions == input.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(other.Extensions)
+                    this.Extensions.SequenceEqual(input.Extensions)
                 ) && 
                 (
-                    this.OutboundCallerId == other.OutboundCallerId ||
-                    this.OutboundCallerId != null &&
-                    this.OutboundCallerId.Equals(other.OutboundCallerId)
+                    this.OutboundCallerId == input.OutboundCallerId ||
+                    (this.OutboundCallerId != null &&
+                    this.OutboundCallerId.Equals(input.OutboundCallerId))
                 );
         }
 
@@ -192,24 +190,22 @@ namespace Genesys.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Destination != null)
-                    hash = hash * 59 + this.Destination.GetHashCode();
+                    hashCode = hashCode * 59 + this.Destination.GetHashCode();
                 if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
+                    hashCode = hashCode * 59 + this.Location.GetHashCode();
                 if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 if (this.Reasons != null)
-                    hash = hash * 59 + this.Reasons.GetHashCode();
+                    hashCode = hashCode * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
+                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
                 if (this.OutboundCallerId != null)
-                    hash = hash * 59 + this.OutboundCallerId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.OutboundCallerId.GetHashCode();
+                return hashCode;
             }
         }
 
