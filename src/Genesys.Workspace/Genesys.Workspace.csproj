@@ -1,15 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-Workspace API
-
-Agent API
-
-OpenAPI spec version: 1.0.0
-
--->
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{B45B2CC4-D4B3-4E35-A913-D19D81215F4E}</ProjectGuid>
@@ -233,15 +223,13 @@ OpenAPI spec version: 1.0.0
     <Compile Include="Notifications.cs" />
     <Compile Include="SessionApi.cs" />
     <Compile Include="TargetsApi.cs" />
-    <Compile Include="TargetsModel.cs" />
     <Compile Include="VoiceApi.cs" />
     <Compile Include="WorkspaceApi.cs" />
     <Compile Include="Common\ClientTransport.cs" />
     <Compile Include="Common\WorkspaceApiException.cs" />
-    <Compile Include="Models\Models.cs" />
+    <Compile Include="Model\KeyValuePair.cs" />
     <Compile Include="Common\Util.cs" />
-    <Compile Include="Models\KeyValueCollection.cs" />
-    <Compile Include="Models\KeyValuePair.cs" />
+    <Compile Include="Model\KeyValueCollection.cs" />
     <Compile Include="CometD.NET\Bayeux\ChannelId.cs" />
     <Compile Include="CometD.NET\Bayeux\IBayeux.cs" />
     <Compile Include="CometD.NET\Bayeux\IChannel.cs" />
@@ -271,18 +259,29 @@ OpenAPI spec version: 1.0.0
     <Compile Include="CometD.NET\Common\ObjectConverter.cs" />
     <Compile Include="CometD.NET\Common\TransportException.cs" />
     <Compile Include="Common\WorkspaceApiClient.cs" />
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Model\ActionCode.cs" />
+    <Compile Include="Model\SubCode.cs" />
+    <Compile Include="Model\AgentGroup.cs" />
+    <Compile Include="Model\Transaction.cs" />
+    <Compile Include="Model\BusinessAttribute.cs" />
+    <Compile Include="Model\Dn.cs" />
+    <Compile Include="Model\Call.cs" />
+    <Compile Include="Model\TargetSearchResult.cs" />
+    <Compile Include="Model\TargetsSearchOptions.cs" />
+    <Compile Include="Model\Target.cs" />
+    <Compile Include="Model\BusinessAttributeValue.cs" />
   </ItemGroup>
   <ItemGroup>
-      <None Include="packages.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Internal\" />
     <Folder Include="Internal\Api\" />
     <Folder Include="Internal\Client\" />
     <Folder Include="Internal\Model\" />
-    <Folder Include="Models\" />
+    <Folder Include="Model\" />
     <Folder Include="Common\" />
   </ItemGroup>
   <Import Project="$(MsBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
-

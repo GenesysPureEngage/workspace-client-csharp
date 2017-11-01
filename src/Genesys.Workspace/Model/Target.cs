@@ -1,19 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using Genesys.Workspace.Internal.Model;
+using Genesys.Workspace.Common;
 
-namespace Genesys.Workspace
+namespace Genesys.Workspace.Model
 {
-    public enum TargetType
-    {
-        AGENT,
-        AGENT_GROUP,
-        ACD_QUEUE,
-        ROUTE_POINT,
-        SKILL,
-        CUSTOM_CONTACT
-    }
-
     public class Target
     {
         public string Name { get; protected set; }
@@ -177,24 +166,4 @@ namespace Genesys.Workspace
         }
     }
 
-    public class TargetsSearchOptions
-    {
-        public string FilterName { get; set; }
-        public TargetType[] Types { get; set; }
-        public bool Desc { get; set; }
-        public int? Limit { get; set; }
-        public bool Exact { get; set; }
-    }
-
-    public class TargetSearchResult
-    {
-        public long TotalMatches { get; protected set; }
-        public List<Target> Targets { get; protected set; }
-
-        public TargetSearchResult(long totalMatches, List<Target> targets)
-        {
-            this.TotalMatches = totalMatches;
-            this.Targets = targets;
-        }
-    }
 }

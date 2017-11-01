@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Genesys.Workspace.Common;
 using Genesys.Workspace.Internal.Client;
 using Genesys.Workspace.Internal.Model;
+using Genesys.Workspace.Model;
 
 namespace Genesys.Workspace
 {
@@ -37,12 +38,12 @@ namespace Genesys.Workspace
 
                 TargetsResponseData data = response.Data;
 
-                List<Target> targets = new List<Target>();
+                List<Genesys.Workspace.Model.Target> targets = new List<Genesys.Workspace.Model.Target>();
                 if (data.Targets != null)
                 {
                     foreach (Genesys.Workspace.Internal.Model.Target t in data.Targets)
                     {
-                        targets.Add(new Target(t));
+                        targets.Add(new Genesys.Workspace.Model.Target(t));
                     }
                 }
                 return new TargetSearchResult((long)data.TotalMatches, targets);

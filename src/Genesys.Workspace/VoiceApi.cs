@@ -16,22 +16,22 @@ namespace Genesys.Workspace
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public delegate void DnStateChangedEventHandler(Model.Dn dn, IMessage message);
+        public delegate void DnStateChangedEventHandler(Genesys.Workspace.Model.Dn dn, IMessage message);
         public event DnStateChangedEventHandler DnStateChanged;
 
-        public delegate void CallStateChangedEventHandler(Model.Call call, IMessage message);
+        public delegate void CallStateChangedEventHandler(Genesys.Workspace.Model.Call call, IMessage message);
         public event CallStateChangedEventHandler CallStateChanged;
 
         public delegate void VoiceErrorEventHandler(string msg, string code, IMessage message);
         public event VoiceErrorEventHandler VoiceErrorReceived;
 
         private Genesys.Workspace.Internal.Api.VoiceApi voiceApi;
-        public Model.Dn Dn { get; protected set; }
-        public Dictionary<string, Model.Call> Calls { get; protected set; }
+        public Genesys.Workspace.Model.Dn Dn { get; protected set; }
+        public Dictionary<string, Genesys.Workspace.Model.Call> Calls { get; protected set; }
 
         public VoiceApi()
         {
-            Calls = new Dictionary<string, Model.Call>();
+            Calls = new Dictionary<string, Genesys.Workspace.Model.Call>();
         }
 
         public void Initialize(ApiClient apiClient)
@@ -77,7 +77,7 @@ namespace Genesys.Workspace
         {
             if (this.Dn == null)
             {
-                this.Dn = new Model.Dn();
+                this.Dn = new Genesys.Workspace.Model.Dn();
             }
 
             IDictionary<string, object> data = message.DataAsDictionary;

@@ -380,9 +380,6 @@ namespace Genesys.Workspace
         {
             try
             {
-                //apiClient.Configuration.DefaultHeader.Add(HttpRequestHeader.Authorization.ToString(), "bearer " + token);
-                //apiClient.RestClient.AddDefaultHeader(HttpRequestHeader.Authorization.ToString(), "bearer " + token);
-
                 ApiResponse<ApiSuccessResponse> response = sessionApi.InitializeWorkspaceWithHttpInfo(authCode, redirectUri, "bearer " + token);
 
                 log.Debug("SessionApi.InitializeWorkspace Response: " + response.Data.ToJson());
