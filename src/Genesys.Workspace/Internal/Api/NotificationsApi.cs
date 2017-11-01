@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,9 +13,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
+using Genesys.Workspace.Internal.Client;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -29,7 +29,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void Notifications ();
 
@@ -39,7 +39,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationsWithHttpInfo ();
         /// <summary>
@@ -48,7 +48,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void NotificationsConnect ();
 
@@ -58,7 +58,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationsConnectWithHttpInfo ();
         /// <summary>
@@ -67,7 +67,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Close CometD notification subscriptions
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void NotificationsDisconnect ();
 
@@ -77,7 +77,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Close CometD notification subscriptions
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationsDisconnectWithHttpInfo ();
         /// <summary>
@@ -86,7 +86,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void NotificationsHandshake ();
 
@@ -96,7 +96,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationsHandshakeWithHttpInfo ();
         /// <summary>
@@ -105,7 +105,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void NotificationsSubscribe ();
 
@@ -115,7 +115,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationsSubscribeWithHttpInfo ();
         /// <summary>
@@ -124,7 +124,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Unsubscribes CometD channel notification
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void NotificationsUnsubscribe ();
 
@@ -134,7 +134,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Unsubscribes CometD channel notification
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> NotificationsUnsubscribeWithHttpInfo ();
         /// <summary>
@@ -143,7 +143,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Enables subscription to SocketIO notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void Socketio ();
 
@@ -153,7 +153,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Enables subscription to SocketIO notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SocketioWithHttpInfo ();
         #endregion Synchronous Operations
@@ -164,7 +164,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task NotificationsAsync ();
 
@@ -174,7 +174,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsAsyncWithHttpInfo ();
         /// <summary>
@@ -183,7 +183,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task NotificationsConnectAsync ();
 
@@ -193,7 +193,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsConnectAsyncWithHttpInfo ();
         /// <summary>
@@ -202,7 +202,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Close CometD notification subscriptions
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task NotificationsDisconnectAsync ();
 
@@ -212,7 +212,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Close CometD notification subscriptions
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsDisconnectAsyncWithHttpInfo ();
         /// <summary>
@@ -221,7 +221,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task NotificationsHandshakeAsync ();
 
@@ -231,7 +231,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes to CometD notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsHandshakeAsyncWithHttpInfo ();
         /// <summary>
@@ -240,7 +240,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task NotificationsSubscribeAsync ();
 
@@ -250,7 +250,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsSubscribeAsyncWithHttpInfo ();
         /// <summary>
@@ -259,7 +259,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Unsubscribes CometD channel notification
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task NotificationsUnsubscribeAsync ();
 
@@ -269,7 +269,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Unsubscribes CometD channel notification
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsUnsubscribeAsyncWithHttpInfo ();
         /// <summary>
@@ -278,7 +278,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Enables subscription to SocketIO notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SocketioAsync ();
 
@@ -288,7 +288,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Enables subscription to SocketIO notifications
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SocketioAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
@@ -299,7 +299,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class NotificationsApi : INotificationsApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="NotificationsApi"/> class.
@@ -309,7 +309,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -331,7 +331,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -368,7 +368,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -406,7 +406,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to CometD notification API Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void Notifications ()
         {
@@ -416,7 +416,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to CometD notification API Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> NotificationsWithHttpInfo ()
         {
@@ -466,7 +466,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to CometD notification API Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task NotificationsAsync ()
         {
@@ -477,7 +477,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to CometD notification API Receives one of CometD notification events The following events are available&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/initialization&lt;/h5&gt; Value:&lt;br&gt;   {&lt;br&gt;     data : {&lt;br&gt;       state:  &#39;initialization state&#39;&lt;br&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;Complete\&quot;&lt;/b&gt; Initialization was completed successfully&lt;/li&gt;   &lt;li&gt;&lt;b&gt;\&quot;Failed\&quot;&lt;/b&gt;   Initialization failed&lt;/li&gt;         &lt;/ul&gt;&lt;br&gt;     }&lt;br&gt;   }&lt;br&gt; &lt;h5&gt;Channel: /workspace/v3/voice&lt;/h5&gt; Type: &lt;ul&gt;   &lt;li&gt;&lt;b&gt;\&quot;CallStateChanged\&quot;&lt;/b&gt;  Call status or state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         call: {&lt;br&gt;           id: &#39;016202a673223196&#39;,&lt;br&gt;           phoneNumber: &#39;7504772884&#39;,&lt;br&gt;           connId: &#39;016202a673223196&#39;,&lt;br&gt;           callUuid: &#39;00PJ6OJ3OSCMR24QETB382LAES000CIG&#39;,&lt;br&gt;           extensions: [ [list of DN extensions] ],&lt;br&gt;           dnis: &#39;7504772885&#39;,&lt;br&gt;           callType: &#39;Internal&#39;,&lt;br&gt;           state: &#39;state&#39;,&lt;br&gt;   &lt;ul&gt;     &lt;li&gt;&lt;b&gt;\&quot;Ringing\&quot;&lt;/b&gt;  Ringing in progress     &lt;li&gt;&lt;b&gt;\&quot;Dialing\&quot;&lt;/b&gt;  Dialing in progress     &lt;li&gt;&lt;b&gt;\&quot;Established&lt;/b&gt;  Call established     &lt;li&gt;&lt;b&gt;\&quot;Released&lt;/b&gt;  Call released             &lt;/ul&gt; &lt;br&gt;           participants: [ [list of participants] ],&lt;br&gt;           capabilities:&lt;br&gt;             [ &#39;release&#39;,&lt;br&gt;               &#39;clear&#39;,&lt;br&gt;               &#39;attach-user-data&#39;,&lt;br&gt;               &#39;update-user-data&#39;,&lt;br&gt;               &#39;delete-user-data-pair&#39;,&lt;br&gt;               &#39;send-dtmf&#39;,&lt;br&gt;               &#39;start-recording&#39;&lt;br&gt;             ],&lt;br&gt;           duration: 0 &lt;br&gt;         },&lt;br&gt;         type: &#39;CallStateChanged&#39; &lt;br&gt;       }&lt;br&gt;   &lt;li&gt;&lt;b&gt;\&quot;DnStateChanged\&quot;&lt;/b&gt;  DN state changed&lt;/li&gt;     Value:&lt;br&gt;       {&lt;br&gt;         dn: { &lt;br&gt;           number: &#39;7504772884&#39;,&lt;br&gt;           switchName: &#39;ap-southeast-2&#39;,&lt;br&gt;           agentId: &#39;7504772884&#39;,&lt;br&gt;           capabilities: [ &#39;ready&#39;, &#39;not-ready&#39;, &#39;dnd-on&#39;, &#39;set-forward&#39; ],&lt;br&gt;           agentState: &#39;LoggedOut&#39;,&lt;br&gt;           agentWorkMode: &#39;Unknown&#39; &lt;br&gt;         },&lt;br&gt;         type: &#39;DnStateChanged&#39; &lt;br&gt;       } &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsAsyncWithHttpInfo ()
         {
@@ -527,7 +527,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void NotificationsConnect ()
         {
@@ -537,7 +537,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> NotificationsConnectWithHttpInfo ()
         {
@@ -587,7 +587,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task NotificationsConnectAsync ()
         {
@@ -598,7 +598,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsConnectAsyncWithHttpInfo ()
         {
@@ -648,7 +648,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void NotificationsDisconnect ()
         {
@@ -658,7 +658,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> NotificationsDisconnectWithHttpInfo ()
         {
@@ -708,7 +708,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task NotificationsDisconnectAsync ()
         {
@@ -719,7 +719,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Close CometD notification subscriptions Close CometD notification subscriptions
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsDisconnectAsyncWithHttpInfo ()
         {
@@ -769,7 +769,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void NotificationsHandshake ()
         {
@@ -779,7 +779,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> NotificationsHandshakeWithHttpInfo ()
         {
@@ -829,7 +829,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task NotificationsHandshakeAsync ()
         {
@@ -840,7 +840,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes to CometD notifications Subscribes to CometD notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsHandshakeAsyncWithHttpInfo ()
         {
@@ -890,7 +890,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes CometD channel notification Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void NotificationsSubscribe ()
         {
@@ -900,7 +900,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes CometD channel notification Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> NotificationsSubscribeWithHttpInfo ()
         {
@@ -950,7 +950,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes CometD channel notification Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task NotificationsSubscribeAsync ()
         {
@@ -961,7 +961,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribes CometD channel notification Subscribes CometD channel notification.&lt;br&gt; &lt;h5&gt;The following channels are available right now:&lt;/h5&gt; &lt;ul&gt;   &lt;li&gt;&lt;b&gt;/workspace/v3/initialization&lt;/b&gt; Subscribe for initialization (login) event&lt;/li&gt; &lt;li&gt;&lt;b&gt;/workspace/v3/voice&lt;/b&gt; Subscribe for call state change notification event&lt;/li&gt; &lt;/ul&gt; 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsSubscribeAsyncWithHttpInfo ()
         {
@@ -1011,7 +1011,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void NotificationsUnsubscribe ()
         {
@@ -1021,7 +1021,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> NotificationsUnsubscribeWithHttpInfo ()
         {
@@ -1071,7 +1071,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task NotificationsUnsubscribeAsync ()
         {
@@ -1082,7 +1082,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribes CometD channel notification Unsubscribes CometD channel notification
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> NotificationsUnsubscribeAsyncWithHttpInfo ()
         {
@@ -1132,7 +1132,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void Socketio ()
         {
@@ -1142,7 +1142,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SocketioWithHttpInfo ()
         {
@@ -1192,7 +1192,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SocketioAsync ()
         {
@@ -1203,7 +1203,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Enables subscription to SocketIO notifications Enables subscription to SocketIO notifications
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SocketioAsyncWithHttpInfo ()
         {

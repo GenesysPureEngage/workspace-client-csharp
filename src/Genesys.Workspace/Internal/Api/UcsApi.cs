@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse AddStandardResponseFavorite (string id);
@@ -41,7 +41,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddStandardResponseFavoriteWithHttpInfo (string id);
@@ -51,7 +51,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse AssignInteractionToContact (AssignInteractionToContactData assignInteractionToContactData);
@@ -62,7 +62,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AssignInteractionToContactWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData);
@@ -72,7 +72,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse CreateContact ();
 
@@ -82,7 +82,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> CreateContactWithHttpInfo ();
         /// <summary>
@@ -91,7 +91,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DeleteContact (DeleteContactData deleteContactData);
@@ -102,7 +102,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DeleteContactWithHttpInfo (DeleteContactData deleteContactData);
@@ -112,7 +112,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DeleteStandardResponseFavorite (string id);
@@ -123,7 +123,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DeleteStandardResponseFavoriteWithHttpInfo (string id);
@@ -133,7 +133,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse FindOrCreatePhoneCall (PhoneCallData phoneCallData);
@@ -144,7 +144,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> FindOrCreatePhoneCallWithHttpInfo (PhoneCallData phoneCallData);
@@ -154,7 +154,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetAgentHistory (AgentHistoryData agentHistoryData = null);
@@ -165,7 +165,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetAgentHistoryWithHttpInfo (AgentHistoryData agentHistoryData = null);
@@ -175,7 +175,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -187,7 +187,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -198,7 +198,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetContactDetails (ContactDetailsData contactDetailsData);
@@ -209,7 +209,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetContactDetailsWithHttpInfo (ContactDetailsData contactDetailsData);
@@ -219,7 +219,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetContactHistory (ContactHistoryData contactHistoryData);
@@ -230,7 +230,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetContactHistoryWithHttpInfo (ContactHistoryData contactHistoryData);
@@ -240,7 +240,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetContacts (GetContactsData getContactsData);
@@ -251,7 +251,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetContactsWithHttpInfo (GetContactsData getContactsData);
@@ -261,7 +261,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// This request returns all the lucene indexes for contact 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ConfigResponse</returns>
         ConfigResponse GetIndexProperties ();
 
@@ -271,7 +271,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// This request returns all the lucene indexes for contact 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ConfigResponse</returns>
         ApiResponse<ConfigResponse> GetIndexPropertiesWithHttpInfo ();
         /// <summary>
@@ -280,7 +280,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetInteractionContent (InteractionContentData interactionContentData);
@@ -291,7 +291,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetInteractionContentWithHttpInfo (InteractionContentData interactionContentData);
@@ -301,7 +301,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get all Root Categories information.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetRootCategories ();
 
@@ -311,7 +311,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get all Root Categories information.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetRootCategoriesWithHttpInfo ();
         /// <summary>
@@ -320,7 +320,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -332,7 +332,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -343,7 +343,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse GetStandardResponseFavorites ();
 
@@ -353,7 +353,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> GetStandardResponseFavoritesWithHttpInfo ();
         /// <summary>
@@ -362,7 +362,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse IdentifyContact (IdentifyContactData identifyContactData);
@@ -373,7 +373,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> IdentifyContactWithHttpInfo (IdentifyContactData identifyContactData);
@@ -383,7 +383,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse LuceneSearch (LuceneSearchData luceneSearchData);
@@ -394,7 +394,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LuceneSearchWithHttpInfo (LuceneSearchData luceneSearchData);
@@ -404,7 +404,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse LuceneSearchInteraction (LuceneSearchInteractionData luceneSearchInteractionData);
@@ -415,7 +415,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LuceneSearchInteractionWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
@@ -425,7 +425,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetCallCompleted (CallCompletedData callCompletedData);
@@ -436,7 +436,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetCallCompletedWithHttpInfo (CallCompletedData callCompletedData);
@@ -446,7 +446,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetCallNote (CallNoteData callNoteData);
@@ -457,7 +457,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetCallNoteWithHttpInfo (CallNoteData callNoteData);
@@ -467,7 +467,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse UpdateContact (UpdateContactData updateContactData);
@@ -478,7 +478,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> UpdateContactWithHttpInfo (UpdateContactData updateContactData);
@@ -490,7 +490,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> AddStandardResponseFavoriteAsync (string id);
@@ -501,7 +501,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddStandardResponseFavoriteAsyncWithHttpInfo (string id);
@@ -511,7 +511,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (AssignInteractionToContactData assignInteractionToContactData);
@@ -522,7 +522,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData);
@@ -532,7 +532,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync ();
 
@@ -542,7 +542,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo ();
         /// <summary>
@@ -551,7 +551,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (DeleteContactData deleteContactData);
@@ -562,7 +562,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (DeleteContactData deleteContactData);
@@ -572,7 +572,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DeleteStandardResponseFavoriteAsync (string id);
@@ -583,7 +583,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteStandardResponseFavoriteAsyncWithHttpInfo (string id);
@@ -593,7 +593,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (PhoneCallData phoneCallData);
@@ -604,7 +604,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (PhoneCallData phoneCallData);
@@ -614,7 +614,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetAgentHistoryAsync (AgentHistoryData agentHistoryData = null);
@@ -625,7 +625,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAgentHistoryAsyncWithHttpInfo (AgentHistoryData agentHistoryData = null);
@@ -635,7 +635,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -647,7 +647,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -658,7 +658,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (ContactDetailsData contactDetailsData);
@@ -669,7 +669,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (ContactDetailsData contactDetailsData);
@@ -679,7 +679,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (ContactHistoryData contactHistoryData);
@@ -690,7 +690,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (ContactHistoryData contactHistoryData);
@@ -700,7 +700,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetContactsAsync (GetContactsData getContactsData);
@@ -711,7 +711,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactsAsyncWithHttpInfo (GetContactsData getContactsData);
@@ -721,7 +721,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// This request returns all the lucene indexes for contact 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ConfigResponse</returns>
         System.Threading.Tasks.Task<ConfigResponse> GetIndexPropertiesAsync ();
 
@@ -731,7 +731,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// This request returns all the lucene indexes for contact 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetIndexPropertiesAsyncWithHttpInfo ();
         /// <summary>
@@ -740,7 +740,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionContentAsync (InteractionContentData interactionContentData);
@@ -751,7 +751,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionContentAsyncWithHttpInfo (InteractionContentData interactionContentData);
@@ -761,7 +761,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get all Root Categories information.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync ();
 
@@ -771,7 +771,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get all Root Categories information.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo ();
         /// <summary>
@@ -780,7 +780,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -792,7 +792,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -803,7 +803,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> GetStandardResponseFavoritesAsync ();
 
@@ -813,7 +813,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetStandardResponseFavoritesAsyncWithHttpInfo ();
         /// <summary>
@@ -822,7 +822,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (IdentifyContactData identifyContactData);
@@ -833,7 +833,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (IdentifyContactData identifyContactData);
@@ -843,7 +843,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchAsync (LuceneSearchData luceneSearchData);
@@ -854,7 +854,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchAsyncWithHttpInfo (LuceneSearchData luceneSearchData);
@@ -864,7 +864,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchInteractionAsync (LuceneSearchInteractionData luceneSearchInteractionData);
@@ -875,7 +875,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchInteractionAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
@@ -885,7 +885,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (CallCompletedData callCompletedData);
@@ -896,7 +896,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (CallCompletedData callCompletedData);
@@ -906,7 +906,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (CallNoteData callNoteData);
@@ -917,7 +917,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (CallNoteData callNoteData);
@@ -927,7 +927,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (UpdateContactData updateContactData);
@@ -938,7 +938,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (UpdateContactData updateContactData);
@@ -950,7 +950,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class UcsApi : IUcsApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsApi"/> class.
@@ -960,7 +960,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -982,7 +982,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -1019,7 +1019,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -1057,7 +1057,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a Standard Response to Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse AddStandardResponseFavorite (string id)
@@ -1069,7 +1069,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a Standard Response to Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > AddStandardResponseFavoriteWithHttpInfo (string id)
@@ -1124,7 +1124,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a Standard Response to Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> AddStandardResponseFavoriteAsync (string id)
@@ -1137,7 +1137,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a Standard Response to Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddStandardResponseFavoriteAsyncWithHttpInfo (string id)
@@ -1192,7 +1192,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Assign the interaction to a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse AssignInteractionToContact (AssignInteractionToContactData assignInteractionToContactData)
@@ -1204,7 +1204,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Assign the interaction to a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > AssignInteractionToContactWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData)
@@ -1266,7 +1266,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Assign the interaction to a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (AssignInteractionToContactData assignInteractionToContactData)
@@ -1279,7 +1279,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Assign the interaction to a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData)
@@ -1341,7 +1341,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a new contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse CreateContact ()
         {
@@ -1352,7 +1352,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a new contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > CreateContactWithHttpInfo ()
         {
@@ -1402,7 +1402,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a new contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync ()
         {
@@ -1414,7 +1414,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a new contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo ()
         {
@@ -1464,7 +1464,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse DeleteContact (DeleteContactData deleteContactData)
@@ -1476,7 +1476,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > DeleteContactWithHttpInfo (DeleteContactData deleteContactData)
@@ -1538,7 +1538,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (DeleteContactData deleteContactData)
@@ -1551,7 +1551,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="deleteContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (DeleteContactData deleteContactData)
@@ -1613,7 +1613,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove a Standard Response from Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse DeleteStandardResponseFavorite (string id)
@@ -1625,7 +1625,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove a Standard Response from Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > DeleteStandardResponseFavoriteWithHttpInfo (string id)
@@ -1680,7 +1680,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove a Standard Response from Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteStandardResponseFavoriteAsync (string id)
@@ -1693,7 +1693,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove a Standard Response from Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteStandardResponseFavoriteAsyncWithHttpInfo (string id)
@@ -1748,7 +1748,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Find or create phone call in UCS 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse FindOrCreatePhoneCall (PhoneCallData phoneCallData)
@@ -1760,7 +1760,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Find or create phone call in UCS 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > FindOrCreatePhoneCallWithHttpInfo (PhoneCallData phoneCallData)
@@ -1822,7 +1822,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Find or create phone call in UCS 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (PhoneCallData phoneCallData)
@@ -1835,7 +1835,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Find or create phone call in UCS 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="phoneCallData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (PhoneCallData phoneCallData)
@@ -1897,7 +1897,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for the agent 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetAgentHistory (AgentHistoryData agentHistoryData = null)
@@ -1909,7 +1909,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for the agent 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetAgentHistoryWithHttpInfo (AgentHistoryData agentHistoryData = null)
@@ -1968,7 +1968,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for the agent 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAgentHistoryAsync (AgentHistoryData agentHistoryData = null)
@@ -1981,7 +1981,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for the agent 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="agentHistoryData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAgentHistoryAsyncWithHttpInfo (AgentHistoryData agentHistoryData = null)
@@ -2040,7 +2040,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2053,7 +2053,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2120,7 +2120,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2134,7 +2134,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2201,7 +2201,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetContactDetails (ContactDetailsData contactDetailsData)
@@ -2213,7 +2213,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetContactDetailsWithHttpInfo (ContactDetailsData contactDetailsData)
@@ -2275,7 +2275,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (ContactDetailsData contactDetailsData)
@@ -2288,7 +2288,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (ContactDetailsData contactDetailsData)
@@ -2350,7 +2350,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetContactHistory (ContactHistoryData contactHistoryData)
@@ -2362,7 +2362,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetContactHistoryWithHttpInfo (ContactHistoryData contactHistoryData)
@@ -2424,7 +2424,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (ContactHistoryData contactHistoryData)
@@ -2437,7 +2437,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the history of interactions for a contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (ContactHistoryData contactHistoryData)
@@ -2499,7 +2499,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get contacts based on search criteria. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetContacts (GetContactsData getContactsData)
@@ -2511,7 +2511,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get contacts based on search criteria. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetContactsWithHttpInfo (GetContactsData getContactsData)
@@ -2573,7 +2573,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get contacts based on search criteria. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactsAsync (GetContactsData getContactsData)
@@ -2586,7 +2586,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get contacts based on search criteria. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="getContactsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactsAsyncWithHttpInfo (GetContactsData getContactsData)
@@ -2648,7 +2648,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ConfigResponse</returns>
         public ConfigResponse GetIndexProperties ()
         {
@@ -2659,7 +2659,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ConfigResponse</returns>
         public ApiResponse< ConfigResponse > GetIndexPropertiesWithHttpInfo ()
         {
@@ -2709,7 +2709,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ConfigResponse</returns>
         public async System.Threading.Tasks.Task<ConfigResponse> GetIndexPropertiesAsync ()
         {
@@ -2721,7 +2721,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetIndexPropertiesAsyncWithHttpInfo ()
         {
@@ -2771,7 +2771,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the content of the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetInteractionContent (InteractionContentData interactionContentData)
@@ -2783,7 +2783,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the content of the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetInteractionContentWithHttpInfo (InteractionContentData interactionContentData)
@@ -2845,7 +2845,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the content of the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionContentAsync (InteractionContentData interactionContentData)
@@ -2858,7 +2858,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the content of the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="interactionContentData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionContentAsyncWithHttpInfo (InteractionContentData interactionContentData)
@@ -2920,7 +2920,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetRootCategories ()
         {
@@ -2931,7 +2931,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetRootCategoriesWithHttpInfo ()
         {
@@ -2981,7 +2981,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync ()
         {
@@ -2993,7 +2993,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo ()
         {
@@ -3043,7 +3043,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Standard Response. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3056,7 +3056,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Standard Response. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3123,7 +3123,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Standard Response. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3137,7 +3137,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get the details of a Standard Response. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
         /// <param name="getStandardResponseData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3204,7 +3204,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get Standard Response Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse GetStandardResponseFavorites ()
         {
@@ -3215,7 +3215,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get Standard Response Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > GetStandardResponseFavoritesWithHttpInfo ()
         {
@@ -3265,7 +3265,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get Standard Response Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> GetStandardResponseFavoritesAsync ()
         {
@@ -3277,7 +3277,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get Standard Response Favorites 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetStandardResponseFavoritesAsyncWithHttpInfo ()
         {
@@ -3327,7 +3327,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Identify the contact for the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse IdentifyContact (IdentifyContactData identifyContactData)
@@ -3339,7 +3339,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Identify the contact for the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > IdentifyContactWithHttpInfo (IdentifyContactData identifyContactData)
@@ -3401,7 +3401,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Identify the contact for the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (IdentifyContactData identifyContactData)
@@ -3414,7 +3414,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Identify the contact for the interaction 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (IdentifyContactData identifyContactData)
@@ -3476,7 +3476,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for contacts based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse LuceneSearch (LuceneSearchData luceneSearchData)
@@ -3488,7 +3488,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for contacts based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > LuceneSearchWithHttpInfo (LuceneSearchData luceneSearchData)
@@ -3550,7 +3550,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for contacts based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchAsync (LuceneSearchData luceneSearchData)
@@ -3563,7 +3563,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for contacts based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchAsyncWithHttpInfo (LuceneSearchData luceneSearchData)
@@ -3625,7 +3625,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for interactions based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse LuceneSearchInteraction (LuceneSearchInteractionData luceneSearchInteractionData)
@@ -3637,7 +3637,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for interactions based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > LuceneSearchInteractionWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
@@ -3699,7 +3699,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for interactions based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchInteractionAsync (LuceneSearchInteractionData luceneSearchInteractionData)
@@ -3712,7 +3712,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for interactions based on search query, using lucene search 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchInteractionAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
@@ -3774,7 +3774,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the call as being completed 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SetCallCompleted (CallCompletedData callCompletedData)
@@ -3786,7 +3786,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the call as being completed 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SetCallCompletedWithHttpInfo (CallCompletedData callCompletedData)
@@ -3848,7 +3848,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the call as being completed 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (CallCompletedData callCompletedData)
@@ -3861,7 +3861,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the call as being completed 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (CallCompletedData callCompletedData)
@@ -3923,7 +3923,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the note for the call 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SetCallNote (CallNoteData callNoteData)
@@ -3935,7 +3935,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the note for the call 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SetCallNoteWithHttpInfo (CallNoteData callNoteData)
@@ -3997,7 +3997,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the note for the call 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (CallNoteData callNoteData)
@@ -4010,7 +4010,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the note for the call 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (CallNoteData callNoteData)
@@ -4072,7 +4072,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update attributes of an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse UpdateContact (UpdateContactData updateContactData)
@@ -4084,7 +4084,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update attributes of an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > UpdateContactWithHttpInfo (UpdateContactData updateContactData)
@@ -4146,7 +4146,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update attributes of an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (UpdateContactData updateContactData)
@@ -4159,7 +4159,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update attributes of an existing contact 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (UpdateContactData updateContactData)

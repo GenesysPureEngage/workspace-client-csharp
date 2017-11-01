@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using CometD.Client.Transport;
 
-namespace Genesys.Workspace
+namespace Genesys.Workspace.Common
 {
     public class ClientTransport : LongPollingTransport
     {

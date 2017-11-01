@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using Genesys.Workspace.Common;
 
-namespace Genesys.Workspace
+namespace Genesys.Workspace.Model
 {
     public class User
     {

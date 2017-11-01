@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Ack the missed calls in recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse AckRecentMissedCalls ();
 
@@ -40,7 +40,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Ack the missed calls in recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AckRecentMissedCallsWithHttpInfo ();
         /// <summary>
@@ -49,7 +49,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Add a recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse AddRecentTarget (RecentTargetData recentTargetData);
@@ -60,7 +60,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Add a recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData);
@@ -70,7 +70,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// delete a personal favorite by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -82,7 +82,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// delete a personal favorite by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -93,7 +93,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Search for targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -112,7 +112,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Search for targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -130,7 +130,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get personal favorites
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>TargetsResponse</returns>
         TargetsResponse GetPersonalFavorites (decimal? limit = null);
@@ -141,7 +141,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get personal favorites
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
         ApiResponse<TargetsResponse> GetPersonalFavoritesWithHttpInfo (decimal? limit = null);
@@ -151,7 +151,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get recent targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>TargetsResponse</returns>
         TargetsResponse GetRecentTargets (decimal? limit = null);
@@ -162,7 +162,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get recent targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
         ApiResponse<TargetsResponse> GetRecentTargetsWithHttpInfo (decimal? limit = null);
@@ -172,7 +172,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get a specific target by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>TargetsResponse</returns>
@@ -184,7 +184,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get a specific target by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
@@ -195,7 +195,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Save a personal favorite
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SavePersonalFavorite (PersonalFavoriteData personalFavoriteData);
@@ -206,7 +206,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Save a personal favorite
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SavePersonalFavoriteWithHttpInfo (PersonalFavoriteData personalFavoriteData);
@@ -218,7 +218,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Ack the missed calls in recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> AckRecentMissedCallsAsync ();
 
@@ -228,7 +228,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Ack the missed calls in recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AckRecentMissedCallsAsyncWithHttpInfo ();
         /// <summary>
@@ -237,7 +237,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Add a recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (RecentTargetData recentTargetData);
@@ -248,7 +248,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Add a recent target
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData);
@@ -258,7 +258,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// delete a personal favorite by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -270,7 +270,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// delete a personal favorite by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -281,7 +281,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Search for targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -300,7 +300,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Search for targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -318,7 +318,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get personal favorites
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
         System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null);
@@ -329,7 +329,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get personal favorites
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetPersonalFavoritesAsyncWithHttpInfo (decimal? limit = null);
@@ -339,7 +339,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get recent targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
         System.Threading.Tasks.Task<TargetsResponse> GetRecentTargetsAsync (decimal? limit = null);
@@ -350,7 +350,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get recent targets
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null);
@@ -360,7 +360,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get a specific target by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of TargetsResponse</returns>
@@ -372,7 +372,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Get a specific target by type and id
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
@@ -383,7 +383,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Save a personal favorite
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SavePersonalFavoriteAsync (PersonalFavoriteData personalFavoriteData);
@@ -394,7 +394,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Save a personal favorite
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SavePersonalFavoriteAsyncWithHttpInfo (PersonalFavoriteData personalFavoriteData);
@@ -406,7 +406,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class TargetsApi : ITargetsApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetsApi"/> class.
@@ -416,7 +416,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -438,7 +438,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -475,7 +475,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -513,7 +513,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse AckRecentMissedCalls ()
         {
@@ -524,7 +524,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > AckRecentMissedCallsWithHttpInfo ()
         {
@@ -574,7 +574,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> AckRecentMissedCallsAsync ()
         {
@@ -586,7 +586,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Ack the missed calls in recent target Ack the missed calls in recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AckRecentMissedCallsAsyncWithHttpInfo ()
         {
@@ -636,7 +636,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a recent target Add a recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse AddRecentTarget (RecentTargetData recentTargetData)
@@ -648,7 +648,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a recent target Add a recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData)
@@ -710,7 +710,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a recent target Add a recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (RecentTargetData recentTargetData)
@@ -723,7 +723,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Add a recent target Add a recent target
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="recentTargetData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData)
@@ -785,7 +785,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// delete a personal favorite delete a personal favorite by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -798,7 +798,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// delete a personal favorite delete a personal favorite by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -858,7 +858,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// delete a personal favorite delete a personal favorite by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -872,7 +872,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// delete a personal favorite delete a personal favorite by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -932,7 +932,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for targets Search for targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -952,7 +952,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for targets Search for targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -1023,7 +1023,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for targets Search for targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -1044,7 +1044,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for targets Search for targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search for</param>
         /// <param name="filterName">The filter to specify on which fields the search is applied (optional)</param>
         /// <param name="types">Comma separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
@@ -1115,7 +1115,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get personal favorites Get personal favorites
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>TargetsResponse</returns>
         public TargetsResponse GetPersonalFavorites (decimal? limit = null)
@@ -1127,7 +1127,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get personal favorites Get personal favorites
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
         public ApiResponse< TargetsResponse > GetPersonalFavoritesWithHttpInfo (decimal? limit = null)
@@ -1179,7 +1179,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get personal favorites Get personal favorites
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
         public async System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null)
@@ -1192,7 +1192,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get personal favorites Get personal favorites
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetPersonalFavoritesAsyncWithHttpInfo (decimal? limit = null)
@@ -1244,7 +1244,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get recent targets Get recent targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>TargetsResponse</returns>
         public TargetsResponse GetRecentTargets (decimal? limit = null)
@@ -1256,7 +1256,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get recent targets Get recent targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
         public ApiResponse< TargetsResponse > GetRecentTargetsWithHttpInfo (decimal? limit = null)
@@ -1308,7 +1308,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get recent targets Get recent targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
         public async System.Threading.Tasks.Task<TargetsResponse> GetRecentTargetsAsync (decimal? limit = null)
@@ -1321,7 +1321,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get recent targets Get recent targets
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results. 50 if not specified. (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null)
@@ -1373,7 +1373,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get a target Get a specific target by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>TargetsResponse</returns>
@@ -1386,7 +1386,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get a target Get a specific target by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
@@ -1446,7 +1446,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get a target Get a specific target by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of TargetsResponse</returns>
@@ -1460,7 +1460,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get a target Get a specific target by type and id
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the target</param>
         /// <param name="type">the type of the target</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
@@ -1520,7 +1520,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Save a personal favorite Save a personal favorite
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SavePersonalFavorite (PersonalFavoriteData personalFavoriteData)
@@ -1532,7 +1532,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Save a personal favorite Save a personal favorite
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SavePersonalFavoriteWithHttpInfo (PersonalFavoriteData personalFavoriteData)
@@ -1594,7 +1594,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Save a personal favorite Save a personal favorite
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SavePersonalFavoriteAsync (PersonalFavoriteData personalFavoriteData)
@@ -1607,7 +1607,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Save a personal favorite Save a personal favorite
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="personalFavoriteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SavePersonalFavoriteAsyncWithHttpInfo (PersonalFavoriteData personalFavoriteData)

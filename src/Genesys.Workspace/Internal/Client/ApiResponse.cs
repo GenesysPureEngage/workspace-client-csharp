@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -11,7 +11,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Genesys.Workspace.Client
+namespace Genesys.Workspace.Internal.Client
 {
     /// <summary>
     /// API Response

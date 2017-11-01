@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace
+namespace Genesys.Workspace.Model
 {
     public class KeyValueCollection 
     {

@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -10,7 +10,7 @@
 
 using System;
 
-namespace Genesys.Workspace.Client
+namespace Genesys.Workspace.Internal.Client
 {
     /// <summary>
     /// API Exception

@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -12,7 +12,7 @@
 using System;
 using RestSharp;
 
-namespace Genesys.Workspace.Client
+namespace Genesys.Workspace.Internal.Client
 {
     /// <summary>
     /// A delegate to ExceptionFactory method

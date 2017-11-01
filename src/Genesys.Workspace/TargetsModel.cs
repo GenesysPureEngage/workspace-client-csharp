@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Model;
 
 namespace Genesys.Workspace
 {
@@ -21,43 +21,43 @@ namespace Genesys.Workspace
         public TargetType Type { get; protected set; }
         public object availability { get; protected set; }
 
-        public Target(Model.Target target)
+        public Target(Internal.Model.Target target)
         {
             this.Name = target.Name;
             this.Number = target.Number;
             switch (target.Type)
             {
-                case Model.Target.TypeEnum.Agent:
+                case Internal.Model.Target.TypeEnum.Agent:
                     this.Type = TargetType.AGENT;
                     this.extractAgentAvailability(target);
                     break;
 
-                case Model.Target.TypeEnum.Acdqueue:
+                case Internal.Model.Target.TypeEnum.Acdqueue:
                     this.Type = TargetType.ACD_QUEUE;
                     this.extractDNAvailability(target);
                     break;
 
-                case Model.Target.TypeEnum.Agentgroup:
+                case Internal.Model.Target.TypeEnum.Agentgroup:
                     this.Type = TargetType.AGENT_GROUP;
                     this.extractAgentGroupAvailability(target);
                     break;
 
-                case Model.Target.TypeEnum.Routepoint:
+                case Internal.Model.Target.TypeEnum.Routepoint:
                     this.Type = TargetType.ROUTE_POINT;
                     this.extractDNAvailability(target);
                     break;
 
-                case Model.Target.TypeEnum.Skill:
+                case Internal.Model.Target.TypeEnum.Skill:
                     this.Type = TargetType.SKILL;
                     break;
 
-                case Model.Target.TypeEnum.Customcontact:
+                case Internal.Model.Target.TypeEnum.Customcontact:
                     this.Type = TargetType.CUSTOM_CONTACT;
                     break;
             }
         }
 
-        private void extractAgentAvailability(Genesys.Workspace.Model.Target target)
+        private void extractAgentAvailability(Genesys.Workspace.Internal.Model.Target target)
         {
             var availabilityData = target.Availability;
             if (availabilityData == null)
@@ -92,7 +92,7 @@ namespace Genesys.Workspace
             //this.availability = new AgentAvailability(channels);
         }
 
-        private void extractAgentGroupAvailability(Genesys.Workspace.Model.Target target)
+        private void extractAgentGroupAvailability(Genesys.Workspace.Internal.Model.Target target)
         {
             //LinkedTreeMap availabilityData = (LinkedTreeMap)target.getAvailability();
             //if (availabilityData == null)
@@ -104,7 +104,7 @@ namespace Genesys.Workspace
             //this.availability = new AgentGroupAvailability(readyAgents);
         }
 
-        private void extractDNAvailability(Genesys.Workspace.Model.Target target)
+        private void extractDNAvailability(Genesys.Workspace.Internal.Model.Target target)
         {
             //LinkedTreeMap availabilityData = (LinkedTreeMap)target.getAvailability();
             //if (availabilityData == null)

@@ -5,7 +5,8 @@ using System.Net;
 using CometD.Bayeux;
 using CometD.Bayeux.Client;
 using CometD.Client;
-using Genesys.Workspace.Client;
+using Genesys.Workspace.Common;
+using Genesys.Workspace.Internal.Client;
 using RestSharp;
 
 namespace Genesys.Workspace

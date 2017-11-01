@@ -1,5 +1,6 @@
 ﻿using System;
-namespace Genesys.Workspace
+
+namespace Genesys.Workspace.Model
 {
     public enum ValueType
     {

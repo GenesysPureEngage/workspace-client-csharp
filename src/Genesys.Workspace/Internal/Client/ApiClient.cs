@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -21,7 +21,7 @@ using System.Text;
 using Newtonsoft.Json;
 using RestSharp;
 
-namespace Genesys.Workspace.Client
+namespace Genesys.Workspace.Internal.Client
 {
     /// <summary>
     /// API client is mainly responsible for making the HTTP call to the API backend.

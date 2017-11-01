@@ -4,7 +4,9 @@ using System.Collections.Generic;
 using CometD.Bayeux;
 using CometD.Bayeux.Client;
 using CometD.Client;
-using Genesys.Workspace.Client;
+using Genesys.Workspace.Common;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 using Genesys.Workspace.Model;
 using RestSharp;
 
@@ -14,27 +16,27 @@ namespace Genesys.Workspace
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        public delegate void DnStateChangedEventHandler(Dn dn, IMessage message);
+        public delegate void DnStateChangedEventHandler(Model.Dn dn, IMessage message);
         public event DnStateChangedEventHandler DnStateChanged;
 
-        public delegate void CallStateChangedEventHandler(Call call, IMessage message);
+        public delegate void CallStateChangedEventHandler(Model.Call call, IMessage message);
         public event CallStateChangedEventHandler CallStateChanged;
 
         public delegate void VoiceErrorEventHandler(string msg, string code, IMessage message);
         public event VoiceErrorEventHandler VoiceErrorReceived;
 
-        private Genesys.Workspace.Api.VoiceApi voiceApi;
-        public Dn Dn { get; protected set; }
-        public Dictionary<string, Call> Calls { get; protected set; }
+        private Genesys.Workspace.Internal.Api.VoiceApi voiceApi;
+        public Model.Dn Dn { get; protected set; }
+        public Dictionary<string, Model.Call> Calls { get; protected set; }
 
         public VoiceApi()
         {
-            Calls = new Dictionary<string, Call>();
+            Calls = new Dictionary<string, Model.Call>();
         }
 
         public void Initialize(ApiClient apiClient)
         {
-            this.voiceApi = new Api.VoiceApi(apiClient.RestClient.BaseUrl.ToString());
+            this.voiceApi = new Internal.Api.VoiceApi(apiClient.RestClient.BaseUrl.ToString());
             voiceApi.Configuration.ApiClient = apiClient;
         }
 
@@ -75,7 +77,7 @@ namespace Genesys.Workspace
         {
             if (this.Dn == null)
             {
-                this.Dn = new Dn();
+                this.Dn = new Model.Dn();
             }
 
             IDictionary<string, object> data = message.DataAsDictionary;
@@ -127,7 +129,9 @@ namespace Genesys.Workspace
 
             log.Debug("Dn updated: " + Dn.ToString());
 
-            DnStateChanged?.Invoke(this.Dn, message);
+            // JC: Use the longer form of obj?.Invoke() so it will work on older .NET Framework releases
+            if ( DnStateChanged != null )
+                DnStateChanged.Invoke(this.Dn, message);
         }
 
         private void onCallStateChanged(IClientSessionChannel channel, IMessage message, BayeuxClient client)
@@ -146,47 +150,24 @@ namespace Genesys.Workspace
             string dnis = (string)callData.GetValue("dnis");
 
 
-            var userdataTemp = callData.GetValue("userdata");
-
-            // .NET Framework returns an object[]
-            // Mono on Mac returns an ArrayList
-            ArrayList userdataData = null;
-            if (userdataTemp is ArrayList)
-                userdataData = (ArrayList)userdataTemp;
-            else if (userdataTemp is object[])
-                userdataData = new ArrayList((object[])userdataTemp);
-            else
-                userdataData = new ArrayList();
-            
+            var userPropertyData = callData.GetValue("userdata");
             KeyValueCollection userData = new KeyValueCollection();
-            Util.extractKeyValueData(userData, userdataData);
+            Util.extractKeyValueData(userData, userPropertyData);
 
-
-            var participantsTemp = callData.GetValue("participants");
-
-            // .NET Framework returns an object[]
-            // Mono on Mac returns an ArrayList
-            ArrayList participantData = null;
-            if (participantsTemp is ArrayList)
-                participantData = (ArrayList)participantsTemp;
-            else if (participantsTemp is object[])
-                participantData = new ArrayList((object[])participantsTemp);
-            else
-                participantData = new ArrayList();
-            
-            String[] participants = Util.extractParticipants(participantData);
+            var participantsData = callData.GetValue("participants");
+            String[] participants = Util.extractParticipants(participantsData);
 
             bool connIdChanged = false;
             String callType = (string)callData.GetValue("callType");
 
-            Call call;
+            Model.Call call;
             if (this.Calls.ContainsKey(id))
             {
                 call = this.Calls[id];
             }
             else
             {
-                call = new Call()
+                call = new Model.Call()
                 {
                     id = id,
                     callType = callType,
@@ -244,7 +225,9 @@ namespace Genesys.Workspace
             }
             call.capabilities = caps.ToArray();
 
-            CallStateChanged?.Invoke(call, message);
+            // JC: Use the longer form of obj?.Invoke() so it will work on older .NET Framework releases
+            if ( CallStateChanged != null )
+                CallStateChanged.Invoke(call, message);
         }
 
         private void onEventError(IClientSessionChannel channel, IMessage message, BayeuxClient client)
@@ -255,7 +238,9 @@ namespace Genesys.Workspace
             string msg = (string)errorDetails.GetValue("errorMessage");
             string code = errorDetails.GetValue("errorCode") == null ? "" : errorDetails.GetValue("errorCode").ToString();
 
-            VoiceErrorReceived?.Invoke(msg, code, message);
+            // JC: Use the longer form of obj?.Invoke() so it will work on older .NET Framework releases
+            if ( VoiceErrorReceived != null )
+                VoiceErrorReceived.Invoke(msg, code, message);
         }
 
         /**
@@ -1545,7 +1530,7 @@ namespace Genesys.Workspace
             }
         }
 
-        void setVoiceApi(Genesys.Workspace.Api.VoiceApi api)
+        void setVoiceApi(Genesys.Workspace.Internal.Api.VoiceApi api)
         {
             voiceApi = api;
         }

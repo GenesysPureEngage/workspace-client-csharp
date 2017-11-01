@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -10,7 +10,7 @@
 
 using Newtonsoft.Json.Converters;
 
-namespace Genesys.Workspace.Client
+namespace Genesys.Workspace.Internal.Client
 {
     /// <summary>
     /// Formatter for 'date' swagger formats ss defined by full-date - RFC3339

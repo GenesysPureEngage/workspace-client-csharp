@@ -1,12 +1,12 @@
 ﻿using System;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
 namespace Genesys.Workspace
 {
     public class SessionApi
     {
-        private Genesys.Workspace.Api.SessionApi sessionApi;
+        private Genesys.Workspace.Internal.Api.SessionApi sessionApi;
 
         public SessionApi()
         {
@@ -16,7 +16,7 @@ namespace Genesys.Workspace
         {
             //this.sessionApi = new Api.SessionApi(apiClient.RestClient.BaseUrl.ToString());
             //sessionApi.Configuration.ApiClient = apiClient;
-            this.sessionApi = new Api.SessionApi(apiClient.Configuration);
+            this.sessionApi = new Internal.Api.SessionApi(apiClient.Configuration);
         }
 
         public ApiResponse<ApiSuccessResponse> InitializeWorkspaceWithHttpInfo(string authCode, string redirectUri, string authorization)

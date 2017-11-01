@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>InlineResponse2002</returns>
         InlineResponse2002 Peek (string subscriptionId);
@@ -41,7 +41,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         ApiResponse<InlineResponse2002> PeekWithHttpInfo (string subscriptionId);
@@ -51,7 +51,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>InlineResponse2001</returns>
         InlineResponse2001 Register (StatisticsRegisterData statisticsRegisterData);
@@ -62,7 +62,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         ApiResponse<InlineResponse2001> RegisterWithHttpInfo (StatisticsRegisterData statisticsRegisterData);
@@ -72,7 +72,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>InlineResponse2001</returns>
         InlineResponse2001 Subscribe (StatisticsSubscribeData statisticsSubscribeData);
@@ -83,7 +83,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         ApiResponse<InlineResponse2001> SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
@@ -93,7 +93,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse Unsubscribe (UnsubscribeData unsubscribeData);
@@ -104,7 +104,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (UnsubscribeData unsubscribeData);
@@ -116,7 +116,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>Task of InlineResponse2002</returns>
         System.Threading.Tasks.Task<InlineResponse2002> PeekAsync (string subscriptionId);
@@ -127,7 +127,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PeekAsyncWithHttpInfo (string subscriptionId);
@@ -137,7 +137,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>Task of InlineResponse2001</returns>
         System.Threading.Tasks.Task<InlineResponse2001> RegisterAsync (StatisticsRegisterData statisticsRegisterData);
@@ -148,7 +148,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> RegisterAsyncWithHttpInfo (StatisticsRegisterData statisticsRegisterData);
@@ -158,7 +158,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>Task of InlineResponse2001</returns>
         System.Threading.Tasks.Task<InlineResponse2001> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData);
@@ -169,7 +169,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
@@ -179,7 +179,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (UnsubscribeData unsubscribeData);
@@ -190,7 +190,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (UnsubscribeData unsubscribeData);
@@ -202,7 +202,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class ReportingApi : IReportingApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ReportingApi"/> class.
@@ -212,7 +212,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -234,7 +234,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -271,7 +271,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -309,7 +309,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get peek values for subscriptionId 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>InlineResponse2002</returns>
         public InlineResponse2002 Peek (string subscriptionId)
@@ -321,7 +321,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get peek values for subscriptionId 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         public ApiResponse< InlineResponse2002 > PeekWithHttpInfo (string subscriptionId)
@@ -376,7 +376,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get peek values for subscriptionId 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>Task of InlineResponse2002</returns>
         public async System.Threading.Tasks.Task<InlineResponse2002> PeekAsync (string subscriptionId)
@@ -389,7 +389,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get peek values for subscriptionId 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">id of the subscription</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PeekAsyncWithHttpInfo (string subscriptionId)
@@ -444,7 +444,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 Register (StatisticsRegisterData statisticsRegisterData)
@@ -456,7 +456,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         public ApiResponse< InlineResponse2001 > RegisterWithHttpInfo (StatisticsRegisterData statisticsRegisterData)
@@ -518,7 +518,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>Task of InlineResponse2001</returns>
         public async System.Threading.Tasks.Task<InlineResponse2001> RegisterAsync (StatisticsRegisterData statisticsRegisterData)
@@ -531,7 +531,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics and store values server side. Values will only be returned on GET /reporting/{subscriptionId} 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsRegisterData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> RegisterAsyncWithHttpInfo (StatisticsRegisterData statisticsRegisterData)
@@ -593,7 +593,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 Subscribe (StatisticsSubscribeData statisticsSubscribeData)
@@ -605,7 +605,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         public ApiResponse< InlineResponse2001 > SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData)
@@ -667,7 +667,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>Task of InlineResponse2001</returns>
         public async System.Threading.Tasks.Task<InlineResponse2001> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData)
@@ -680,7 +680,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Subscribe to Statistics 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">Requested Statistics</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData)
@@ -742,7 +742,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse Unsubscribe (UnsubscribeData unsubscribeData)
@@ -754,7 +754,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (UnsubscribeData unsubscribeData)
@@ -816,7 +816,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (UnsubscribeData unsubscribeData)
@@ -829,7 +829,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Unsubscribe to availability notifications for previous search result 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="unsubscribeData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (UnsubscribeData unsubscribeData)

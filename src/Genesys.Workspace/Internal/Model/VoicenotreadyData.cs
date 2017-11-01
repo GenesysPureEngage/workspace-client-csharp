@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -20,9 +20,9 @@ using System.Runtime.Serialization;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.ComponentModel.DataAnnotations;
-using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
+using SwaggerDateConverter = Genesys.Workspace.Internal.Client.SwaggerDateConverter;
 
-namespace Genesys.Workspace.Model
+namespace Genesys.Workspace.Internal.Model
 {
     /// <summary>
     /// VoicenotreadyData

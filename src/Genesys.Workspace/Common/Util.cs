@@ -2,9 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Genesys.Workspace.Internal.Model;
 using Genesys.Workspace.Model;
 
-namespace Genesys.Workspace
+namespace Genesys.Workspace.Common
 {
     public enum StatusCode : int
     {
@@ -199,13 +200,24 @@ namespace Genesys.Workspace
             return type;
         }
 
-
-        public static void extractKeyValueData(KeyValueCollection userData, ArrayList data)
+        public static void extractKeyValueData(KeyValueCollection userData, object dataObj)
         {
-            if (data == null)
+            if (dataObj == null)
             {
                 return;
             }
+
+            //JC: .NET Framework will return dataObj as an object[]
+            //    Mono will return dataObj as an ArrayList
+            //    Do the translation here to support both frameworks.
+            ArrayList data = null;
+
+            if ( dataObj is ArrayList )
+                data = (ArrayList)dataObj;    
+            else if ( dataObj is object[] )
+                data = new ArrayList((object[])dataObj);
+            else
+                data = new ArrayList();
 
             for (int i = 0; i < data.Count; i++)
             {
@@ -225,16 +237,34 @@ namespace Genesys.Workspace
 
                     case "kvlist":
                         KeyValueCollection list = new KeyValueCollection();
-                        Util.extractKeyValueData(list, (ArrayList)pair["value"]);
+                        Util.extractKeyValueData(list, pair["value"]);
                         userData.addList(key, list);
                         break;
                 }
             }
         }
 
-        public static String[] extractParticipants(ArrayList data)
+        public static String[] extractParticipants(object dataObj)
         {
-            String[] participants = new String[data.Count];
+            if ( dataObj == null )
+            {
+                return null;    
+            }
+
+            //JC: .NET Framework will return dataObj as an object[]
+            //    Mono will return dataObj as an ArrayList
+            //    Do the translation here to support both frameworks.
+            ArrayList data = null; 
+
+            if ( dataObj is ArrayList )
+                data = (ArrayList)dataObj;
+            else if (dataObj is object[])
+                data = new ArrayList((object[])dataObj);
+            else
+                data = new ArrayList();
+
+            String[] participants = new String[data.Count];    
+
             for (int i = 0; i < data.Count; i++)
             {
                 IDictionary<String, Object> p = (IDictionary<String, Object>)data[i];

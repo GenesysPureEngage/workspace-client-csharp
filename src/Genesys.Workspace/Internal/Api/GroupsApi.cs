@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -45,7 +45,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -61,7 +61,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -76,7 +76,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -92,7 +92,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class GroupsApi : IGroupsApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="GroupsApi"/> class.
@@ -102,7 +102,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -124,7 +124,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -161,7 +161,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -199,7 +199,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for users by specific group ID 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -215,7 +215,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for users by specific group ID 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -278,7 +278,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for users by specific group ID 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>
@@ -295,7 +295,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Search for users by specific group ID 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="groupId">The id of the group to get users for</param>
         /// <param name="searchTerm">The text to search for (optional)</param>
         /// <param name="sort">Desired sort order (asc or desc). asc if not specified (optional)</param>

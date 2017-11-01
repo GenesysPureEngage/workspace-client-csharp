@@ -10,9 +10,11 @@ using System.Windows;
 using Newtonsoft.Json.Linq;
 using CometD.Client;
 using System.Collections;
-using Genesys.Workspace.Api;
-using Genesys.Workspace.Client;
+using Genesys.Workspace.Internal.Api;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 using Genesys.Workspace.Model;
+using Genesys.Workspace.Common;
 
 namespace Genesys.Workspace
 {
@@ -106,7 +108,7 @@ namespace Genesys.Workspace
                         IDictionary<String, Object> initData = (IDictionary<String, Object>)data.GetValue("data");
                         IDictionary<String, Object> userData = (IDictionary<String, Object>)initData.GetValue("user");
 
-                        ArrayList annexData = (ArrayList)userData.GetValue("userProperties");
+                        var annexData = userData.GetValue("userdata");
                         KeyValueCollection userProperties = new KeyValueCollection();
                         Util.extractKeyValueData(userProperties, annexData);
 
@@ -160,9 +162,10 @@ namespace Genesys.Workspace
                     {
                         //log.Debug("Action Code: " + actionCode.ToDebugString());
 
-                        ArrayList userPropertyData = (ArrayList)actionCode.GetValue("userProperties");
+                        var userPropertyData = actionCode.GetValue("userProperties");
                         KeyValueCollection userProperties = new KeyValueCollection();
                         Util.extractKeyValueData(userProperties, userPropertyData);
+
 
                         ArrayList subCodesData = (ArrayList)actionCode.GetValue("subCodes");
                         List<SubCode> subCodes = new List<SubCode>();
@@ -203,7 +206,7 @@ namespace Genesys.Workspace
             {
                 //log.Debug("Processing Settings");
 
-                ArrayList settingsData = (ArrayList)configData.GetValue("settings");
+                var settingsData = configData.GetValue("settings");
                 this.Settings = new KeyValueCollection();
                 Util.extractKeyValueData(this.Settings, settingsData);
             }
@@ -282,7 +285,7 @@ namespace Genesys.Workspace
                     {
                         //log.Debug("Transaction: " + transaction.ToDebugString());
 
-                        ArrayList userPropertyData = (ArrayList)transaction.GetValue("userProperties");
+                        var userPropertyData = transaction.GetValue("userProperties");
                         KeyValueCollection userProperties = new KeyValueCollection();
                         Util.extractKeyValueData(userProperties, userPropertyData);
 

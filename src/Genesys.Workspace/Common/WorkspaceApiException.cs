@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Genesys.Workspace
+namespace Genesys.Workspace.Common
 {
     public class WorkspaceApiException : Exception
     {

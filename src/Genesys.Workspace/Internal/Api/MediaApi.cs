@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -43,7 +43,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -55,7 +55,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Set the comment for the interaction
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -68,7 +68,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Set the comment for the interaction
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -80,7 +80,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Create the interaction in UCS database
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -93,7 +93,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Create the interaction in UCS database
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -105,7 +105,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -117,7 +117,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -128,7 +128,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the interaction data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -141,7 +141,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the interaction data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -153,7 +153,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DndOff ();
 
@@ -163,7 +163,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DndOffWithHttpInfo ();
         /// <summary>
@@ -172,7 +172,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for open media channels
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DndOn ();
 
@@ -182,7 +182,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for open media channels
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DndOnWithHttpInfo ();
         /// <summary>
@@ -191,7 +191,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse LogoutAgentState ();
 
@@ -201,7 +201,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LogoutAgentStateWithHttpInfo ();
         /// <summary>
@@ -210,7 +210,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -223,7 +223,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -235,7 +235,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -248,7 +248,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -260,7 +260,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse NotReadyAgentState ();
 
@@ -270,7 +270,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> NotReadyAgentStateWithHttpInfo ();
         /// <summary>
@@ -279,7 +279,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -291,7 +291,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -302,7 +302,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the interaction in queue with modification of properties pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -315,7 +315,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the interaction in queue with modification of properties pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -327,7 +327,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse ReadyAgentState ();
 
@@ -337,7 +337,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ReadyAgentStateWithHttpInfo ();
         /// <summary>
@@ -346,7 +346,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -358,7 +358,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -369,7 +369,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Reject the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -382,7 +382,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Reject the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -394,7 +394,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout the open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -406,7 +406,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout the open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -419,7 +419,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -432,7 +432,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -444,7 +444,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Set the comment for the interaction
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -457,7 +457,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Set the comment for the interaction
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -469,7 +469,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Create the interaction in UCS database
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -482,7 +482,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Create the interaction in UCS database
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -494,7 +494,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -506,7 +506,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -517,7 +517,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the interaction data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -530,7 +530,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the interaction data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -542,7 +542,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DndOffAsync ();
 
@@ -552,7 +552,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOffAsyncWithHttpInfo ();
         /// <summary>
@@ -561,7 +561,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for open media channels
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DndOnAsync ();
 
@@ -571,7 +571,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for open media channels
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOnAsyncWithHttpInfo ();
         /// <summary>
@@ -580,7 +580,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> LogoutAgentStateAsync ();
 
@@ -590,7 +590,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutAgentStateAsyncWithHttpInfo ();
         /// <summary>
@@ -599,7 +599,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -612,7 +612,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -624,7 +624,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -637,7 +637,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -649,7 +649,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync ();
 
@@ -659,7 +659,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo ();
         /// <summary>
@@ -668,7 +668,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -680,7 +680,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -691,7 +691,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the interaction in queue with modification of properties pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -704,7 +704,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the interaction in queue with modification of properties pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -716,7 +716,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> ReadyAgentStateAsync ();
 
@@ -726,7 +726,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReadyAgentStateAsyncWithHttpInfo ();
         /// <summary>
@@ -735,7 +735,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -747,7 +747,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -758,7 +758,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Reject the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -771,7 +771,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Reject the interaction specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -783,7 +783,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout the open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -795,7 +795,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout the open media channel
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -808,7 +808,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class MediaApi : IMediaApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaApi"/> class.
@@ -818,7 +818,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -840,7 +840,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -877,7 +877,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -915,7 +915,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Accept an open-media interaction Accept the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -929,7 +929,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Accept an open-media interaction Accept the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -998,7 +998,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Accept an open-media interaction Accept the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -1013,7 +1013,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Accept an open-media interaction Accept the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to accept</param>
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -1082,7 +1082,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the comment for the interaction Set the comment for the interaction
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -1096,7 +1096,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the comment for the interaction Set the comment for the interaction
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -1168,7 +1168,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the comment for the interaction Set the comment for the interaction
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -1183,7 +1183,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Set the comment for the interaction Set the comment for the interaction
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addCommentData"></param>
@@ -1255,7 +1255,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create the interaction in UCS database Create the interaction in UCS database
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -1269,7 +1269,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create the interaction in UCS database Create the interaction in UCS database
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -1338,7 +1338,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create the interaction in UCS database Create the interaction in UCS database
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -1353,7 +1353,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create the interaction in UCS database Create the interaction in UCS database
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="addContentData"> (optional)</param>
@@ -1422,7 +1422,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete open-media interaction Complete the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -1435,7 +1435,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete open-media interaction Complete the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -1495,7 +1495,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete open-media interaction Complete the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1509,7 +1509,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete open-media interaction Complete the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to complete</param>
         /// <param name="id">id of interaction to complete</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1569,7 +1569,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the interaction data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -1583,7 +1583,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the interaction data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -1655,7 +1655,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the interaction data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -1670,7 +1670,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the interaction data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">The keys of the key/value pairs to delete.</param>
@@ -1742,7 +1742,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse DndOff ()
         {
@@ -1753,7 +1753,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > DndOffWithHttpInfo ()
         {
@@ -1803,7 +1803,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> DndOffAsync ()
         {
@@ -1815,7 +1815,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOffAsyncWithHttpInfo ()
         {
@@ -1865,7 +1865,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse DndOn ()
         {
@@ -1876,7 +1876,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > DndOnWithHttpInfo ()
         {
@@ -1926,7 +1926,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> DndOnAsync ()
         {
@@ -1938,7 +1938,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOnAsyncWithHttpInfo ()
         {
@@ -1988,7 +1988,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse LogoutAgentState ()
         {
@@ -1999,7 +1999,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > LogoutAgentStateWithHttpInfo ()
         {
@@ -2049,7 +2049,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> LogoutAgentStateAsync ()
         {
@@ -2061,7 +2061,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutAgentStateAsyncWithHttpInfo ()
         {
@@ -2111,7 +2111,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2125,7 +2125,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2197,7 +2197,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2212,7 +2212,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2284,7 +2284,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2298,7 +2298,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2370,7 +2370,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2385,7 +2385,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="userData">An array of key/value pairs.</param>
@@ -2457,7 +2457,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse NotReadyAgentState ()
         {
@@ -2468,7 +2468,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > NotReadyAgentStateWithHttpInfo ()
         {
@@ -2518,7 +2518,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync ()
         {
@@ -2530,7 +2530,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo ()
         {
@@ -2580,7 +2580,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for open media channel Change to the not ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2593,7 +2593,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for open media channel Change to the not ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2660,7 +2660,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for open media channel Change to the not ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2674,7 +2674,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for open media channel Change to the not ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2741,7 +2741,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -2755,7 +2755,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -2827,7 +2827,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -2842,7 +2842,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
         /// <param name="id">id of the interaction</param>
         /// <param name="placeInQueueData"></param>
@@ -2914,7 +2914,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse ReadyAgentState ()
         {
@@ -2925,7 +2925,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > ReadyAgentStateWithHttpInfo ()
         {
@@ -2975,7 +2975,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> ReadyAgentStateAsync ()
         {
@@ -2987,7 +2987,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for all open media channels 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReadyAgentStateAsyncWithHttpInfo ()
         {
@@ -3037,7 +3037,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for open media channel Change to the ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3050,7 +3050,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for open media channel Change to the ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3114,7 +3114,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for open media channel Change to the ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3128,7 +3128,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for open media channel Change to the ready state for open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3192,7 +3192,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reject an open-media interaction Reject the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -3206,7 +3206,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reject an open-media interaction Reject the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -3275,7 +3275,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reject an open-media interaction Reject the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -3290,7 +3290,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reject an open-media interaction Reject the interaction specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
@@ -3359,7 +3359,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the open media channel Logout the open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3372,7 +3372,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the open media channel Logout the open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3439,7 +3439,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the open media channel Logout the open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3453,7 +3453,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the open media channel Logout the open media channel
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype"></param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>

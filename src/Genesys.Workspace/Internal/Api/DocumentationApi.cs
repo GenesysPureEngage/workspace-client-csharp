@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,9 +13,9 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
+using Genesys.Workspace.Internal.Client;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -29,7 +29,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns API description in Swagger format
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         void SwaggerDoc ();
 
@@ -39,7 +39,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns API description in Swagger format
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SwaggerDocWithHttpInfo ();
         #endregion Synchronous Operations
@@ -50,7 +50,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns API description in Swagger format
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         System.Threading.Tasks.Task SwaggerDocAsync ();
 
@@ -60,7 +60,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns API description in Swagger format
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SwaggerDocAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
@@ -71,7 +71,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class DocumentationApi : IDocumentationApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DocumentationApi"/> class.
@@ -81,7 +81,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -103,7 +103,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -140,7 +140,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -178,7 +178,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Returns API description in Swagger format Returns API description in Swagger format
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
         public void SwaggerDoc ()
         {
@@ -188,7 +188,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Returns API description in Swagger format Returns API description in Swagger format
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         public ApiResponse<Object> SwaggerDocWithHttpInfo ()
         {
@@ -238,7 +238,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Returns API description in Swagger format Returns API description in Swagger format
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
         public async System.Threading.Tasks.Task SwaggerDocAsync ()
         {
@@ -249,7 +249,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Returns API description in Swagger format Returns API description in Swagger format
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         public async System.Threading.Tasks.Task<ApiResponse<Object>> SwaggerDocAsyncWithHttpInfo ()
         {

@@ -1,4 +1,4 @@
-/* 
+﻿/* 
  * Workspace API
  *
  * Agent API
@@ -13,10 +13,10 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
-namespace Genesys.Workspace.Api
+namespace Genesys.Workspace.Internal.Api
 {
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
@@ -30,7 +30,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -42,7 +42,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -53,7 +53,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Answer the call specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -65,7 +65,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Answer the call specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -76,7 +76,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the provided key/value pairs to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -88,7 +88,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the provided key/value pairs to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -99,7 +99,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Cancel call forwardarding
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse CancelForward ();
 
@@ -109,7 +109,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Cancel call forwardarding
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> CancelForwardWithHttpInfo ();
         /// <summary>
@@ -118,7 +118,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes all parties from the specified call and releases it.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -130,7 +130,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes all parties from the specified call and releases it.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -141,7 +141,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -153,7 +153,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -164,7 +164,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -176,7 +176,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -187,7 +187,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated two-step transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -199,7 +199,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated two-step transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -210,7 +210,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -222,7 +222,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -233,7 +233,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the call data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -245,7 +245,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the call data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -256,7 +256,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on call forwarding to the specified destination. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse Forward (ForwardData forwardData);
@@ -267,7 +267,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on call forwarding to the specified destination. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ForwardWithHttpInfo (ForwardData forwardData);
@@ -277,7 +277,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns an array containing any active calls for the user.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InlineResponse200</returns>
         InlineResponse200 GetCalls ();
 
@@ -287,7 +287,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns an array containing any active calls for the user.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse200</returns>
         ApiResponse<InlineResponse200> GetCallsWithHttpInfo ();
         /// <summary>
@@ -296,7 +296,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the call specified by the id path parameter on hold.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -308,7 +308,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the call specified by the id path parameter on hold.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -319,7 +319,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -331,7 +331,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -342,7 +342,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -354,7 +354,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -365,7 +365,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse LoginVoice ();
 
@@ -375,7 +375,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LoginVoiceWithHttpInfo ();
         /// <summary>
@@ -384,7 +384,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse LogoutVoice ();
 
@@ -394,7 +394,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LogoutVoiceWithHttpInfo ();
         /// <summary>
@@ -403,7 +403,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Make a new call to the specified destination
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse MakeCall (MakeCallData makeCallData);
@@ -414,7 +414,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Make a new call to the specified destination
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> MakeCallWithHttpInfo (MakeCallData makeCallData);
@@ -424,7 +424,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Merge two calls 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -436,7 +436,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Merge two calls 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -447,7 +447,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Pauses call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse PauseRecording (string id);
@@ -458,7 +458,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Pauses call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> PauseRecordingWithHttpInfo (string id);
@@ -468,7 +468,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -480,7 +480,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -491,7 +491,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -503,7 +503,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -514,7 +514,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -526,7 +526,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -537,7 +537,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Resumes call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse ResumeRecording (string id);
@@ -548,7 +548,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Resumes call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ResumeRecordingWithHttpInfo (string id);
@@ -558,7 +558,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Retrieve the held call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -570,7 +570,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Retrieve the held call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -581,7 +581,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -593,7 +593,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -604,7 +604,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Send a userEvent event to TServer with provided attached data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SendUserEvent (SendUserEventData userEventData);
@@ -615,7 +615,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Send a userEvent event to TServer with provided attached data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SendUserEventWithHttpInfo (SendUserEventData userEventData);
@@ -625,7 +625,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetAgentStateNotReady (NotReadyData notReadyData = null);
@@ -636,7 +636,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetAgentStateNotReadyWithHttpInfo (NotReadyData notReadyData = null);
@@ -646,7 +646,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetAgentStateReady (ReadyData readyData = null);
@@ -657,7 +657,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetAgentStateReadyWithHttpInfo (ReadyData readyData = null);
@@ -667,7 +667,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetDNDOff ();
 
@@ -677,7 +677,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetDNDOffWithHttpInfo ();
         /// <summary>
@@ -686,7 +686,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetDNDOn ();
 
@@ -696,7 +696,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetDNDOnWithHttpInfo ();
         /// <summary>
@@ -705,7 +705,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step conference, adding the specified participant to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -717,7 +717,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step conference, adding the specified participant to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -728,7 +728,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step transfer to the specified destination.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -740,7 +740,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step transfer to the specified destination.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -751,7 +751,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse StartMonitoring (StartMonitoringData startMonitoringData);
@@ -762,7 +762,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> StartMonitoringWithHttpInfo (StartMonitoringData startMonitoringData);
@@ -772,7 +772,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Starts call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse StartRecording (string id);
@@ -783,7 +783,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Starts call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> StartRecordingWithHttpInfo (string id);
@@ -793,7 +793,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse StopMonitoring (StopMonitoringData stopMonitoringData);
@@ -804,7 +804,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> StopMonitoringWithHttpInfo (StopMonitoringData stopMonitoringData);
@@ -814,7 +814,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stops call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse StopRecording (string id);
@@ -825,7 +825,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stops call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> StopRecordingWithHttpInfo (string id);
@@ -835,7 +835,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to barge in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -847,7 +847,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to barge in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -858,7 +858,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to coaching mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -870,7 +870,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to coaching mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -881,7 +881,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to listen in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -893,7 +893,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to listen in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -904,7 +904,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the call userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -916,7 +916,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the call userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -929,7 +929,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -941,7 +941,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -952,7 +952,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Answer the call specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -964,7 +964,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Answer the call specified in the id path parameter
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -975,7 +975,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the provided key/value pairs to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -987,7 +987,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Attach the provided key/value pairs to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -998,7 +998,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Cancel call forwardarding
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> CancelForwardAsync ();
 
@@ -1008,7 +1008,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Cancel call forwardarding
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CancelForwardAsyncWithHttpInfo ();
         /// <summary>
@@ -1017,7 +1017,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes all parties from the specified call and releases it.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1029,7 +1029,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes all parties from the specified call and releases it.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1040,7 +1040,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1052,7 +1052,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1063,7 +1063,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1075,7 +1075,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1086,7 +1086,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated two-step transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1098,7 +1098,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Completes a previously initiated two-step transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1109,7 +1109,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1121,7 +1121,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1132,7 +1132,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the call data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1144,7 +1144,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Deletes the specified key from the call data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1155,7 +1155,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on call forwarding to the specified destination. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> ForwardAsync (ForwardData forwardData);
@@ -1166,7 +1166,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on call forwarding to the specified destination. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ForwardAsyncWithHttpInfo (ForwardData forwardData);
@@ -1176,7 +1176,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns an array containing any active calls for the user.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of InlineResponse200</returns>
         System.Threading.Tasks.Task<InlineResponse200> GetCallsAsync ();
 
@@ -1186,7 +1186,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Returns an array containing any active calls for the user.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCallsAsyncWithHttpInfo ();
         /// <summary>
@@ -1195,7 +1195,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the call specified by the id path parameter on hold.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1207,7 +1207,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Place the call specified by the id path parameter on hold.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1218,7 +1218,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1230,7 +1230,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1241,7 +1241,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1253,7 +1253,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1264,7 +1264,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> LoginVoiceAsync ();
 
@@ -1274,7 +1274,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginVoiceAsyncWithHttpInfo ();
         /// <summary>
@@ -1283,7 +1283,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> LogoutVoiceAsync ();
 
@@ -1293,7 +1293,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutVoiceAsyncWithHttpInfo ();
         /// <summary>
@@ -1302,7 +1302,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Make a new call to the specified destination
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> MakeCallAsync (MakeCallData makeCallData);
@@ -1313,7 +1313,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Make a new call to the specified destination
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MakeCallAsyncWithHttpInfo (MakeCallData makeCallData);
@@ -1323,7 +1323,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Merge two calls 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1335,7 +1335,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Merge two calls 
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1346,7 +1346,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Pauses call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> PauseRecordingAsync (string id);
@@ -1357,7 +1357,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Pauses call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PauseRecordingAsyncWithHttpInfo (string id);
@@ -1367,7 +1367,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1379,7 +1379,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1390,7 +1390,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1402,7 +1402,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1413,7 +1413,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1425,7 +1425,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Release the call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1436,7 +1436,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Resumes call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> ResumeRecordingAsync (string id);
@@ -1447,7 +1447,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Resumes call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ResumeRecordingAsyncWithHttpInfo (string id);
@@ -1457,7 +1457,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Retrieve the held call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1469,7 +1469,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Retrieve the held call specified by the id path parameter.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1480,7 +1480,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1492,7 +1492,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1503,7 +1503,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Send a userEvent event to TServer with provided attached data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SendUserEventAsync (SendUserEventData userEventData);
@@ -1514,7 +1514,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Send a userEvent event to TServer with provided attached data.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUserEventAsyncWithHttpInfo (SendUserEventData userEventData);
@@ -1524,7 +1524,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetAgentStateNotReadyAsync (NotReadyData notReadyData = null);
@@ -1535,7 +1535,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the not ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetAgentStateNotReadyAsyncWithHttpInfo (NotReadyData notReadyData = null);
@@ -1545,7 +1545,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetAgentStateReadyAsync (ReadyData readyData = null);
@@ -1556,7 +1556,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Change to the ready state for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetAgentStateReadyAsyncWithHttpInfo (ReadyData readyData = null);
@@ -1566,7 +1566,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetDNDOffAsync ();
 
@@ -1576,7 +1576,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn off do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetDNDOffAsyncWithHttpInfo ();
         /// <summary>
@@ -1585,7 +1585,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetDNDOnAsync ();
 
@@ -1595,7 +1595,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Turn on do not disturb for voice
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetDNDOnAsyncWithHttpInfo ();
         /// <summary>
@@ -1604,7 +1604,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step conference, adding the specified participant to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1616,7 +1616,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step conference, adding the specified participant to the call.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1627,7 +1627,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step transfer to the specified destination.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1639,7 +1639,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Performs a single-step transfer to the specified destination.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1650,7 +1650,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> StartMonitoringAsync (StartMonitoringData startMonitoringData);
@@ -1661,7 +1661,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartMonitoringAsyncWithHttpInfo (StartMonitoringData startMonitoringData);
@@ -1671,7 +1671,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Starts call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> StartRecordingAsync (string id);
@@ -1682,7 +1682,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Starts call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartRecordingAsyncWithHttpInfo (string id);
@@ -1692,7 +1692,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> StopMonitoringAsync (StopMonitoringData stopMonitoringData);
@@ -1703,7 +1703,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopMonitoringAsyncWithHttpInfo (StopMonitoringData stopMonitoringData);
@@ -1713,7 +1713,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stops call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> StopRecordingAsync (string id);
@@ -1724,7 +1724,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Stops call recording.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopRecordingAsyncWithHttpInfo (string id);
@@ -1734,7 +1734,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to barge in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1746,7 +1746,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to barge in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1757,7 +1757,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to coaching mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1769,7 +1769,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to coaching mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1780,7 +1780,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to listen in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1792,7 +1792,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Switch the currently monitored voice interaction to listen in mode
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1803,7 +1803,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the call userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1815,7 +1815,7 @@ namespace Genesys.Workspace.Api
         /// <remarks>
         /// Update the call userdata with the provided key/value pairs.
         /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1828,7 +1828,7 @@ namespace Genesys.Workspace.Api
     /// </summary>
     public partial class VoiceApi : IVoiceApi
     {
-        private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
+        private Genesys.Workspace.Internal.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="VoiceApi"/> class.
@@ -1838,7 +1838,7 @@ namespace Genesys.Workspace.Api
         {
             this.Configuration = new Configuration(new ApiClient(basePath));
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -1860,7 +1860,7 @@ namespace Genesys.Workspace.Api
             else
                 this.Configuration = configuration;
 
-            ExceptionFactory = Genesys.Workspace.Client.Configuration.DefaultExceptionFactory;
+            ExceptionFactory = Genesys.Workspace.Internal.Client.Configuration.DefaultExceptionFactory;
 
             // ensure API client has configuration ready
             if (Configuration.ApiClient.Configuration == null)
@@ -1897,7 +1897,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Provides a factory method hook for the creation of exceptions.
         /// </summary>
-        public Genesys.Workspace.Client.ExceptionFactory ExceptionFactory
+        public Genesys.Workspace.Internal.Client.ExceptionFactory ExceptionFactory
         {
             get
             {
@@ -1935,7 +1935,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Alternate between calls Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -1948,7 +1948,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Alternate between calls Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2015,7 +2015,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Alternate between calls Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2029,7 +2029,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Alternate between calls Alternate between two calls when one call is held and the other is established. This is a quick way to put a call on hold and retrieve another held call in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the active call that should be placed on hold</param>
         /// <param name="alternateData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2096,7 +2096,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Answer a call Answer the call specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2109,7 +2109,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Answer a call Answer the call specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2173,7 +2173,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Answer a call Answer the call specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2187,7 +2187,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Answer a call Answer the call specified in the id path parameter
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to answer</param>
         /// <param name="answerData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2251,7 +2251,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to a call Attach the provided key/value pairs to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2264,7 +2264,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to a call Attach the provided key/value pairs to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2331,7 +2331,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to a call Attach the provided key/value pairs to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2345,7 +2345,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Attach user data to a call Attach the provided key/value pairs to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs to attach.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2412,7 +2412,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Cancel call forwardarding Cancel call forwardarding
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse CancelForward ()
         {
@@ -2423,7 +2423,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Cancel call forwardarding Cancel call forwardarding
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > CancelForwardWithHttpInfo ()
         {
@@ -2473,7 +2473,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Cancel call forwardarding Cancel call forwardarding
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> CancelForwardAsync ()
         {
@@ -2485,7 +2485,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Cancel call forwardarding Cancel call forwardarding
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CancelForwardAsyncWithHttpInfo ()
         {
@@ -2535,7 +2535,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Clear all the parties in the call. Deletes all parties from the specified call and releases it.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2548,7 +2548,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Clear all the parties in the call. Deletes all parties from the specified call and releases it.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2615,7 +2615,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Clear all the parties in the call. Deletes all parties from the specified call and releases it.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2629,7 +2629,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Clear all the parties in the call. Deletes all parties from the specified call and releases it.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to be cleared</param>
         /// <param name="clearData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2696,7 +2696,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a call Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2709,7 +2709,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a call Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2776,7 +2776,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a call Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2790,7 +2790,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a call Complete and clean up the telephony object specified by the parameter conn_id. The userData parameter is sent throught the DistributeUserEvent operation.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -2857,7 +2857,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a conference Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -2870,7 +2870,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a conference Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -2937,7 +2937,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a conference Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -2951,7 +2951,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a conference Completes a previously initiated conference. Once completed, the two separate calls  are brought together so that all three parties are participating in the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3018,7 +3018,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a transfer Completes a previously initiated two-step transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3031,7 +3031,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a transfer Completes a previously initiated two-step transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3098,7 +3098,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a transfer Completes a previously initiated two-step transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3112,7 +3112,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Complete a transfer Completes a previously initiated two-step transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the active call</param>
         /// <param name="completeTransferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3179,7 +3179,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete a party from a conference call Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3192,7 +3192,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete a party from a conference call Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3259,7 +3259,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete a party from a conference call Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3273,7 +3273,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Delete a party from a conference call Removes the specified participant from the conference call. This operation can only be performed  by the owner of the conference call
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the conference call</param>
         /// <param name="deleteFromConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3340,7 +3340,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the call data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3353,7 +3353,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the call data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3420,7 +3420,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the call data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3434,7 +3434,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the call data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="keyData">The key of the key/value pairs to delete.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3501,7 +3501,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Fordward calls Turn on call forwarding to the specified destination. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse Forward (ForwardData forwardData)
@@ -3513,7 +3513,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Fordward calls Turn on call forwarding to the specified destination. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > ForwardWithHttpInfo (ForwardData forwardData)
@@ -3575,7 +3575,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Fordward calls Turn on call forwarding to the specified destination. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> ForwardAsync (ForwardData forwardData)
@@ -3588,7 +3588,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Fordward calls Turn on call forwarding to the specified destination. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="forwardData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ForwardAsyncWithHttpInfo (ForwardData forwardData)
@@ -3650,7 +3650,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all the calls Returns an array containing any active calls for the user.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>InlineResponse200</returns>
         public InlineResponse200 GetCalls ()
         {
@@ -3661,7 +3661,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all the calls Returns an array containing any active calls for the user.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of InlineResponse200</returns>
         public ApiResponse< InlineResponse200 > GetCallsWithHttpInfo ()
         {
@@ -3711,7 +3711,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all the calls Returns an array containing any active calls for the user.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of InlineResponse200</returns>
         public async System.Threading.Tasks.Task<InlineResponse200> GetCallsAsync ()
         {
@@ -3723,7 +3723,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Get all the calls Returns an array containing any active calls for the user.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (InlineResponse200)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse200>> GetCallsAsyncWithHttpInfo ()
         {
@@ -3773,7 +3773,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place a call on hold Place the call specified by the id path parameter on hold.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3786,7 +3786,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place a call on hold Place the call specified by the id path parameter on hold.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3850,7 +3850,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place a call on hold Place the call specified by the id path parameter on hold.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3864,7 +3864,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Place a call on hold Place the call specified by the id path parameter on hold.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="holdData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3928,7 +3928,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a conference Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -3941,7 +3941,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a conference Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4008,7 +4008,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a conference Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4022,7 +4022,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a conference Initiates a two-step conference to the specified destination. This operation places the existing call on hold  and creates a new call in the dialing state. After initiating the conference you can use /complete-conference  to complete the conference and bring all parties into the same call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call to initiate the conference from. This call will be placed on hold.</param>
         /// <param name="initiateConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -4089,7 +4089,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a transfer Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -4102,7 +4102,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a transfer Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4169,7 +4169,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a transfer Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4183,7 +4183,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Initiate a transfer Initiates a two-step transfer to the specified destination. After initiating the transfer,  you can use complete-transfer to complete the transfer.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be placed on hold.</param>
         /// <param name="initiateTransferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -4250,7 +4250,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Login the media voice Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse LoginVoice ()
         {
@@ -4261,7 +4261,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Login the media voice Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > LoginVoiceWithHttpInfo ()
         {
@@ -4311,7 +4311,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Login the media voice Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginVoiceAsync ()
         {
@@ -4323,7 +4323,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Login the media voice Login on the voice channel. This can be used to login the voice channel if it is logged out. (ex. after using /voice/logout). Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginVoiceAsyncWithHttpInfo ()
         {
@@ -4373,7 +4373,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the media voice Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse LogoutVoice ()
         {
@@ -4384,7 +4384,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the media voice Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > LogoutVoiceWithHttpInfo ()
         {
@@ -4434,7 +4434,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the media voice Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> LogoutVoiceAsync ()
         {
@@ -4446,7 +4446,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Logout the media voice Logout on the voice channel. Together voice/logout and voice/login allow the agent to logout of the voice channel temporarily without having to logout the entire session. 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutVoiceAsyncWithHttpInfo ()
         {
@@ -4496,7 +4496,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Make a new call to the specified destination Make a new call to the specified destination
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse MakeCall (MakeCallData makeCallData)
@@ -4508,7 +4508,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Make a new call to the specified destination Make a new call to the specified destination
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > MakeCallWithHttpInfo (MakeCallData makeCallData)
@@ -4570,7 +4570,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Make a new call to the specified destination Make a new call to the specified destination
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> MakeCallAsync (MakeCallData makeCallData)
@@ -4583,7 +4583,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Make a new call to the specified destination Make a new call to the specified destination
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="makeCallData">Request parameters.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MakeCallAsyncWithHttpInfo (MakeCallData makeCallData)
@@ -4645,7 +4645,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Merge two calls Merge two calls 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -4658,7 +4658,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Merge two calls Merge two calls 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4725,7 +4725,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Merge two calls Merge two calls 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4739,7 +4739,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Merge two calls Merge two calls 
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the first call to be merged</param>
         /// <param name="mergeData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -4806,7 +4806,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Pauses call recording. Pauses call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse PauseRecording (string id)
@@ -4818,7 +4818,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Pauses call recording. Pauses call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > PauseRecordingWithHttpInfo (string id)
@@ -4873,7 +4873,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Pauses call recording. Pauses call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> PauseRecordingAsync (string id)
@@ -4886,7 +4886,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Pauses call recording. Pauses call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PauseRecordingAsyncWithHttpInfo (string id)
@@ -4941,7 +4941,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -4954,7 +4954,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -5021,7 +5021,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -5035,7 +5035,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Reconnect a call Release the active call and retrieve another call from hold. This is a quick way to to do  /release and /retrieve in one step.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the active call</param>
         /// <param name="reconnectData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -5102,7 +5102,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Redirect the call. Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -5115,7 +5115,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Redirect the call. Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -5182,7 +5182,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Redirect the call. Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -5196,7 +5196,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Redirect the call. Requests that the call be redirected, without an answer, from the party specified by the parameter dn to the party specified by the parameter dest_dn.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection ID of the current call handled by the DN.</param>
         /// <param name="redirectData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -5263,7 +5263,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Release a call Release the call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -5276,7 +5276,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Release a call Release the call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -5340,7 +5340,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Release a call Release the call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -5354,7 +5354,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Release a call Release the call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="releaseData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -5418,7 +5418,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Resumes call recording. Resumes call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse ResumeRecording (string id)
@@ -5430,7 +5430,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Resumes call recording. Resumes call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > ResumeRecordingWithHttpInfo (string id)
@@ -5485,7 +5485,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Resumes call recording. Resumes call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> ResumeRecordingAsync (string id)
@@ -5498,7 +5498,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Resumes call recording. Resumes call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ResumeRecordingAsyncWithHttpInfo (string id)
@@ -5553,7 +5553,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Retrieve a held call Retrieve the held call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -5566,7 +5566,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Retrieve a held call Retrieve the held call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -5630,7 +5630,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Retrieve a held call Retrieve the held call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -5644,7 +5644,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Retrieve a held call Retrieve the held call specified by the id path parameter.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="retrieveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -5708,7 +5708,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send digits as DTMF. Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -5721,7 +5721,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send digits as DTMF. Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -5788,7 +5788,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send digits as DTMF. Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -5802,7 +5802,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send digits as DTMF. Sends the provided DTMF digits. You can send DTMF digits individually with multiple requests  or together with multiple digits in one request.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Id of the cal</param>
         /// <param name="sendDTMFData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -5869,7 +5869,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send a userEvent event to TServer with provided attached data. Send a userEvent event to TServer with provided attached data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SendUserEvent (SendUserEventData userEventData)
@@ -5881,7 +5881,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send a userEvent event to TServer with provided attached data. Send a userEvent event to TServer with provided attached data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SendUserEventWithHttpInfo (SendUserEventData userEventData)
@@ -5943,7 +5943,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send a userEvent event to TServer with provided attached data. Send a userEvent event to TServer with provided attached data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SendUserEventAsync (SendUserEventData userEventData)
@@ -5956,7 +5956,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Send a userEvent event to TServer with provided attached data. Send a userEvent event to TServer with provided attached data.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="userEventData">Data defining the user event to be distributed</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUserEventAsyncWithHttpInfo (SendUserEventData userEventData)
@@ -6018,7 +6018,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for voice Change to the not ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SetAgentStateNotReady (NotReadyData notReadyData = null)
@@ -6030,7 +6030,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for voice Change to the not ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SetAgentStateNotReadyWithHttpInfo (NotReadyData notReadyData = null)
@@ -6089,7 +6089,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for voice Change to the not ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SetAgentStateNotReadyAsync (NotReadyData notReadyData = null)
@@ -6102,7 +6102,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the not ready state for voice Change to the not ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetAgentStateNotReadyAsyncWithHttpInfo (NotReadyData notReadyData = null)
@@ -6161,7 +6161,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for voice Change to the ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SetAgentStateReady (ReadyData readyData = null)
@@ -6173,7 +6173,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for voice Change to the ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SetAgentStateReadyWithHttpInfo (ReadyData readyData = null)
@@ -6232,7 +6232,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for voice Change to the ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SetAgentStateReadyAsync (ReadyData readyData = null)
@@ -6245,7 +6245,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Change to the ready state for voice Change to the ready state for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="readyData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetAgentStateReadyAsyncWithHttpInfo (ReadyData readyData = null)
@@ -6304,7 +6304,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for voice Turn off do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SetDNDOff ()
         {
@@ -6315,7 +6315,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for voice Turn off do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SetDNDOffWithHttpInfo ()
         {
@@ -6365,7 +6365,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for voice Turn off do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SetDNDOffAsync ()
         {
@@ -6377,7 +6377,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn off do not disturb for voice Turn off do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetDNDOffAsyncWithHttpInfo ()
         {
@@ -6427,7 +6427,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for voice Turn on do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SetDNDOn ()
         {
@@ -6438,7 +6438,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for voice Turn on do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SetDNDOnWithHttpInfo ()
         {
@@ -6488,7 +6488,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for voice Turn on do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SetDNDOnAsync ()
         {
@@ -6500,7 +6500,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Turn on do not disturb for voice Turn on do not disturb for voice
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetDNDOnAsyncWithHttpInfo ()
         {
@@ -6550,7 +6550,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a conference in a single step Performs a single-step conference, adding the specified participant to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -6563,7 +6563,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a conference in a single step Performs a single-step conference, adding the specified participant to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -6630,7 +6630,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a conference in a single step Performs a single-step conference, adding the specified participant to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -6644,7 +6644,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Create a conference in a single step Performs a single-step conference, adding the specified participant to the call.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call that is requested to be conferenced.</param>
         /// <param name="singleStepConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -6711,7 +6711,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Transfer a call in a single step Performs a single-step transfer to the specified destination.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>ApiSuccessResponse</returns>
@@ -6724,7 +6724,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Transfer a call in a single step Performs a single-step transfer to the specified destination.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -6791,7 +6791,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Transfer a call in a single step Performs a single-step transfer to the specified destination.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -6805,7 +6805,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Transfer a call in a single step Performs a single-step transfer to the specified destination.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The id of the call to be transferred.</param>
         /// <param name="singleStepTransferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -6872,7 +6872,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Start the monitoring of an agent. Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse StartMonitoring (StartMonitoringData startMonitoringData)
@@ -6884,7 +6884,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Start the monitoring of an agent. Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > StartMonitoringWithHttpInfo (StartMonitoringData startMonitoringData)
@@ -6946,7 +6946,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Start the monitoring of an agent. Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> StartMonitoringAsync (StartMonitoringData startMonitoringData)
@@ -6959,7 +6959,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Start the monitoring of an agent. Start the monitoring of an agent, providing monitoring information (phone number to be monitored, monitoringMode (Mute/Coach/Connect), monitoringNextCallType (OneCall/AllCalls), monitoringScope (Agent/Call)).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="startMonitoringData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartMonitoringAsyncWithHttpInfo (StartMonitoringData startMonitoringData)
@@ -7021,7 +7021,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Starts call recording. Starts call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse StartRecording (string id)
@@ -7033,7 +7033,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Starts call recording. Starts call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > StartRecordingWithHttpInfo (string id)
@@ -7088,7 +7088,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Starts call recording. Starts call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> StartRecordingAsync (string id)
@@ -7101,7 +7101,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Starts call recording. Starts call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StartRecordingAsyncWithHttpInfo (string id)
@@ -7156,7 +7156,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stop the monitoring of an agent. Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse StopMonitoring (StopMonitoringData stopMonitoringData)
@@ -7168,7 +7168,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stop the monitoring of an agent. Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > StopMonitoringWithHttpInfo (StopMonitoringData stopMonitoringData)
@@ -7230,7 +7230,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stop the monitoring of an agent. Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> StopMonitoringAsync (StopMonitoringData stopMonitoringData)
@@ -7243,7 +7243,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stop the monitoring of an agent. Stop the monitoring of an agent, providing monitoring information (phoneNumber to be monitored).
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="stopMonitoringData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopMonitoringAsyncWithHttpInfo (StopMonitoringData stopMonitoringData)
@@ -7305,7 +7305,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stops call recording. Stops call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse StopRecording (string id)
@@ -7317,7 +7317,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stops call recording. Stops call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > StopRecordingWithHttpInfo (string id)
@@ -7372,7 +7372,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stops call recording. Stops call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> StopRecordingAsync (string id)
@@ -7385,7 +7385,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Stops call recording. Stops call recording.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopRecordingAsyncWithHttpInfo (string id)
@@ -7440,7 +7440,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to barge in monitoring mode. Switch the currently monitored voice interaction to barge in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -7453,7 +7453,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to barge in monitoring mode. Switch the currently monitored voice interaction to barge in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -7517,7 +7517,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to barge in monitoring mode. Switch the currently monitored voice interaction to barge in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -7531,7 +7531,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to barge in monitoring mode. Switch the currently monitored voice interaction to barge in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -7595,7 +7595,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to coaching monitoring mode. Switch the currently monitored voice interaction to coaching mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -7608,7 +7608,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to coaching monitoring mode. Switch the currently monitored voice interaction to coaching mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -7672,7 +7672,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to coaching monitoring mode. Switch the currently monitored voice interaction to coaching mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -7686,7 +7686,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to coaching monitoring mode. Switch the currently monitored voice interaction to coaching mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -7750,7 +7750,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to listen in monitoring mode. Switch the currently monitored voice interaction to listen in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -7763,7 +7763,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to listen in monitoring mode. Switch the currently monitored voice interaction to listen in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -7827,7 +7827,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to listen in monitoring mode. Switch the currently monitored voice interaction to listen in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -7841,7 +7841,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Switch to listen in monitoring mode. Switch the currently monitored voice interaction to listen in mode
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">Connection identifier of the call in question.</param>
         /// <param name="monitoringScopeData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -7905,7 +7905,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to a call Update the call userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiSuccessResponse</returns>
@@ -7918,7 +7918,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to a call Update the call userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -7985,7 +7985,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to a call Update the call userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -7999,7 +7999,7 @@ namespace Genesys.Workspace.Api
         /// <summary>
         /// Update user data to a call Update the call userdata with the provided key/value pairs.
         /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <exception cref="Genesys.Workspace.Internal.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the call</param>
         /// <param name="userData">An array of key/value pairs.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>

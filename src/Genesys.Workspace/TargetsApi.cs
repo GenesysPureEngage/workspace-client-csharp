@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using Genesys.Workspace.Client;
-using Genesys.Workspace.Model;
+using Genesys.Workspace.Common;
+using Genesys.Workspace.Internal.Client;
+using Genesys.Workspace.Internal.Model;
 
 namespace Genesys.Workspace
 {
     public class TargetsApi
     {
-        private Genesys.Workspace.Api.TargetsApi targetsApi;
+        private Genesys.Workspace.Internal.Api.TargetsApi targetsApi;
 
         public TargetsApi()
         {
@@ -15,10 +16,10 @@ namespace Genesys.Workspace
 
         void initialize(ApiClient client)
         {
-            this.targetsApi = new Api.TargetsApi(client.Configuration);
+            this.targetsApi = new Internal.Api.TargetsApi(client.Configuration);
         }
 
-        void setTargetsApi(Api.TargetsApi targetsApi)
+        void setTargetsApi(Internal.Api.TargetsApi targetsApi)
         {
             this.targetsApi = targetsApi;
         }
@@ -39,7 +40,7 @@ namespace Genesys.Workspace
                 List<Target> targets = new List<Target>();
                 if (data.Targets != null)
                 {
-                    foreach (Genesys.Workspace.Model.Target t in data.Targets)
+                    foreach (Genesys.Workspace.Internal.Model.Target t in data.Targets)
                     {
                         targets.Add(new Target(t));
                     }
