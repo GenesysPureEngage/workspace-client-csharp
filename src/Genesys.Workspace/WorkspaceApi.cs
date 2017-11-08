@@ -1,20 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using RestSharp;
-using System.Windows;
-using Newtonsoft.Json.Linq;
 using CometD.Client;
 using System.Collections;
-using Genesys.Workspace.Internal.Api;
 using Genesys.Workspace.Internal.Client;
 using Genesys.Workspace.Internal.Model;
 using Genesys.Workspace.Model;
 using Genesys.Workspace.Common;
+using System.Threading.Tasks;
 
 namespace Genesys.Workspace
 {
@@ -22,7 +16,12 @@ namespace Genesys.Workspace
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
+        public delegate void WorkspaceInitializationEventHandler(bool complete, CometD.Bayeux.IMessage message);
+        public event WorkspaceInitializationEventHandler InitializationChanged;
+
         public static String SESSION_COOKIE = "WORKSPACE_SESSIONID";
+
+        TaskCompletionSource<User> tcsInitialize;
 
         private ApiClient apiClient;
         private VoiceApi voiceApi;
@@ -49,6 +48,7 @@ namespace Genesys.Workspace
 
         private WorkspaceApi(String apiKey, String baseUrl, VoiceApi voiceApi, TargetsApi targetsApi, SessionApi sessionApi, Notifications notifications) {
             cookieContainer = new CookieContainer();
+            tcsInitialize = new TaskCompletionSource<User>();
 
             apiClient = new ApiClient(baseUrl + "/workspace/v3");
             apiClient.Configuration.ApiClient = apiClient;  // circular reference?!?
@@ -94,6 +94,8 @@ namespace Genesys.Workspace
 
         void OnInitMessage(CometD.Bayeux.Client.IClientSessionChannel channel, CometD.Bayeux.IMessage message, BayeuxClient client)
         {
+            bool complete = false;
+
             try
             {
                 IDictionary<string, object> data = message.DataAsDictionary;
@@ -133,10 +135,15 @@ namespace Genesys.Workspace
                         this.workspaceInitialized = true;
                         log.Debug("Initialization complete");
                         log.Debug(User.ToString());
+
+                        complete = true;
+
+                        tcsInitialize.SetResult(User);
                     }
                     else if ("Failed".Equals(state))
                     {
                         log.Debug("Workspace initialization failed!");
+                        tcsInitialize.SetException(new WorkspaceApiException("Workspace initialization failed"));
                     }
                 }
             }
@@ -144,6 +151,9 @@ namespace Genesys.Workspace
             {
                 log.Error("Error handling OnInitMessage", exc);
             }
+
+            if (InitializationChanged != null)
+                InitializationChanged.Invoke(complete, message);
         }
 
         private void ExtractConfiguration(IDictionary<string, object> configData)
@@ -371,12 +381,12 @@ namespace Genesys.Workspace
             return this.targetsApi;
         }
 
-        public void Initialize(string token)
+        public Task<User> Initialize(string token)
         {
-            this.Initialize(null, null, token);
+            return Initialize(null, null, token);
         }
 
-        public void Initialize(string authCode, string redirectUri, string token)
+        public Task<User> Initialize(string authCode, string redirectUri, string token)
         {
             try
             {
@@ -392,7 +402,10 @@ namespace Genesys.Workspace
             catch(Exception exc)
             {
                 log.Error("Failed to initialize workspace", exc);
+                tcsInitialize.SetException(exc);
             }
+
+            return tcsInitialize.Task;
         }
 
         public void Destroy()
@@ -465,7 +478,7 @@ namespace Genesys.Workspace
                 ApiSuccessResponse response = this.sessionApi.ActivateChannels(channelsData);
                 if (response.Status.Code != 0)
                 {
-                    throw new WorkspaceApiException( "activateChannels failed with code: " + response.Status.Code );
+                    throw new WorkspaceApiException( "activateChannels failed with code: " + response.Status.Code + " - " + response.Status.Message );
                 }
             } catch (ApiException e) {
                 throw new WorkspaceApiException("activateChannels failed.", e);

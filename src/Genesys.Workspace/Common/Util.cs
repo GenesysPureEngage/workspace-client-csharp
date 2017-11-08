@@ -432,6 +432,29 @@ namespace Genesys.Workspace.Common
             return dict.TryGetValue(key, out value) ? value : defaultValue;
         }
 
+        public static ArrayList GetAsArrayList<TK, TV>(this IDictionary<TK, TV> dict, TK key)
+        {
+            ArrayList list;
+
+            object data = dict.GetValue(key);
+
+            if (data != null)
+            {
+                if (data is ArrayList)
+                    list = (ArrayList)data;
+                else if (data is object[])
+                    list = new ArrayList((object[])data);
+                else
+                    list = new ArrayList();
+            }
+            else
+            {
+                list = new ArrayList();
+            }
+
+            return list;
+        }
+
         public static string ToDebugString<TKey, TValue>(this IDictionary<TKey, TValue> dictionary)
         {
             return "{" + string.Join(",", dictionary.Select(kv => kv.Key + "=" + kv.Value).ToArray()) + "}";

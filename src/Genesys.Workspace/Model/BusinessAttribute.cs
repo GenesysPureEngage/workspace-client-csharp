@@ -13,7 +13,21 @@ namespace Genesys.Workspace.Model
 
         public override string ToString()
         {
-            return string.Format("[BusinessAttribute: dbid={0}, name={1}, displayName={2}, description={3}, values={4}]", dbid, name, displayName, description, values);
+            return string.Format("[BusinessAttribute: dbid={0}, name={1}, displayName={2}, description={3}, values={4}]", dbid, name, displayName, description, ValuesAsString(values));
+        }
+
+        public string ValuesAsString(List<BusinessAttributeValue> values)
+        {
+            string response = "[\n";
+
+            foreach(var value in values)
+            {
+                response += value.ToString() + "\n";
+            }
+
+            response += "]";
+
+            return response;
         }
     }
 }

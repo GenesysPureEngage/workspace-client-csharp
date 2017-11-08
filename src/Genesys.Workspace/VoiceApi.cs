@@ -8,7 +8,6 @@ using Genesys.Workspace.Common;
 using Genesys.Workspace.Internal.Client;
 using Genesys.Workspace.Internal.Model;
 using Genesys.Workspace.Model;
-using RestSharp;
 
 namespace Genesys.Workspace
 {
@@ -101,19 +100,11 @@ namespace Genesys.Workspace
             this.Dn.forwardTo = (string)dnData.GetValue("forwardTo");
             this.Dn.dnd = "on".Equals((string)dnData.GetValue("dnd"));
 
+            var reasonsData = dnData.GetValue("reasons");
+            this.Dn.reasons = new KeyValueCollection();
+            Util.extractKeyValueData(this.Dn.reasons, reasonsData);
 
-            var capTemp = dnData.GetValue("capabilities");
-
-            // .NET Framework returns an object[]
-            // Mono on Mac returns an ArrayList
-            ArrayList capabilities = null;
-            if (capTemp is ArrayList)
-                capabilities = (ArrayList)capTemp;
-            else if (capTemp is object[])
-                capabilities = new ArrayList((object[])capTemp);
-            else
-                capabilities = new ArrayList();
-            
+            ArrayList capabilities = dnData.GetAsArrayList("capabilities");
             List<DnCapability> caps = new List<DnCapability>();
 
             foreach (string c in capabilities)
@@ -200,18 +191,7 @@ namespace Genesys.Workspace
             call.participants = participants;
             call.userData = userData;
 
-            var capTemp = callData.GetValue("capabilities");
-
-            // .NET Framework returns an object[]
-            // Mono on Mac returns an ArrayList
-            ArrayList capabilities = null;
-            if (capTemp is ArrayList)
-                capabilities = (ArrayList)capTemp;
-            else if (capTemp is object[])
-                capabilities = new ArrayList((object[])capTemp);
-            else
-                capabilities = new ArrayList();
-
+            ArrayList capabilities = callData.GetAsArrayList("capabilities");
             List<CallCapability> caps = new List<CallCapability>();
 
             foreach (string c in capabilities)

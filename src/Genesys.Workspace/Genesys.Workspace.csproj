@@ -271,6 +271,7 @@
     <Compile Include="Model\TargetsSearchOptions.cs" />
     <Compile Include="Model\Target.cs" />
     <Compile Include="Model\BusinessAttributeValue.cs" />
+    <Compile Include="ApiClientLogger.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

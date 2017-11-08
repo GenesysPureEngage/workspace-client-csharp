@@ -78,21 +78,21 @@ namespace Genesys.Workspace.Model
 
         override public String ToString()
         {
-            String str = "[";
+            String str = "[\n";
             foreach (KeyValuePair pair in this.data.Values)
             {
                 switch (pair.getValueType())
                 {
                     case ValueType.STRING:
-                        str += " STRING: " + pair.getKey() + "=" + pair.getStringValue() + "\n";
+                        str += "[STRING: " + pair.getKey() + "=" + pair.getStringValue() + "]\n";
                         break;
 
                     case ValueType.INT:
-                        str += " INT: " + pair.getKey() + "=" + pair.getIntValue() + "\n";
+                        str += "[INT: " + pair.getKey() + "=" + pair.getIntValue() + "]\n";
                         break;
 
                     case ValueType.LIST:
-                        str += " LIST: " + pair.getKey() + "=" + pair.getListValue() + "\n";
+                        str += "[LIST: " + pair.getKey() + "=" + pair.getListValue() + "]\n";
                         break;
                 }
             }

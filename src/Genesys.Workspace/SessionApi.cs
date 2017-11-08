@@ -14,8 +14,6 @@ namespace Genesys.Workspace
 
         public void Initialize(ApiClient apiClient)
         {
-            //this.sessionApi = new Api.SessionApi(apiClient.RestClient.BaseUrl.ToString());
-            //sessionApi.Configuration.ApiClient = apiClient;
             this.sessionApi = new Internal.Api.SessionApi(apiClient.Configuration);
         }
 

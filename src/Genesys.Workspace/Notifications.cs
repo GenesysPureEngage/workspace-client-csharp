@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Net;
 using CometD.Bayeux;
 using CometD.Bayeux.Client;
 using CometD.Client;
 using Genesys.Workspace.Common;
 using Genesys.Workspace.Internal.Client;
-using RestSharp;
 
 namespace Genesys.Workspace
 {
@@ -15,16 +12,13 @@ namespace Genesys.Workspace
     {
         private static readonly log4net.ILog log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        //public event CometDEventHandler CometDEventReceived;
         public delegate void CometDEventHandler(IClientSessionChannel channel, IMessage message, BayeuxClient client);
 
         private BayeuxClient bayeuxClient;
         private Dictionary<string, CometDEventHandler> subscriptions;
-        //private CookieContainer cookieContainer;
 
         public Notifications()
         {
-            //cookieContainer = new CookieContainer();
             subscriptions = new Dictionary<string, CometDEventHandler>();
         }
 
@@ -42,8 +36,6 @@ namespace Genesys.Workspace
                         break;
                 }
             }
-
-            //this.cookieContainer = apiClient.RestClient.CookieContainer;
 
             /**
              * GWS currently only supports LongPolling as a method to receive events.
@@ -82,11 +74,6 @@ namespace Genesys.Workspace
 
         public void OnMessageReceived(IClientSessionChannel channel, IMessage message, BayeuxClient client)
         {
-            //if (CometDEventReceived != null)
-            //{
-            //    CometDEventReceived(channel, message, client);
-            //}
-
             try
             {
                 subscriptions[message.Channel](channel, message, client);
