@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MergeData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected MergeData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MergeData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public MergeData(VoicecallsidmergeData Data = default(VoicecallsidmergeData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for MergeData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

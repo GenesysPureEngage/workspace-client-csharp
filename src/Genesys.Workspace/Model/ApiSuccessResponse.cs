@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiSuccessResponse" /> class.
         /// </summary>
-        /// <param name="Status">Status.</param>
+        [JsonConstructorAttribute]
+        protected ApiSuccessResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ApiSuccessResponse" /> class.
+        /// </summary>
+        /// <param name="Status">Status (required).</param>
         public ApiSuccessResponse(InlineResponse200Status Status = default(InlineResponse200Status))
         {
-            this.Status = Status;
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for ApiSuccessResponse and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
         }
         
         /// <summary>

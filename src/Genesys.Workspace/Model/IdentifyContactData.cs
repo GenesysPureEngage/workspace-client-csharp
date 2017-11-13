@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="IdentifyContactData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected IdentifyContactData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IdentifyContactData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public IdentifyContactData(UcsidentifycontactData Data = default(UcsidentifycontactData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for IdentifyContactData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LuceneSearchData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected LuceneSearchData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="LuceneSearchData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public LuceneSearchData(UcslucenesearchData Data = default(UcslucenesearchData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for LuceneSearchData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

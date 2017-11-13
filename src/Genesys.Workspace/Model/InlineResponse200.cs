@@ -33,11 +33,24 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="Status">Status.</param>
+        [JsonConstructorAttribute]
+        protected InlineResponse200() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
+        /// </summary>
+        /// <param name="Status">Status (required).</param>
         /// <param name="Data">Data.</param>
         public InlineResponse200(InlineResponse200Status Status = default(InlineResponse200Status), InlineResponse200Data Data = default(InlineResponse200Data))
         {
-            this.Status = Status;
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for InlineResponse200 and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
             this.Data = Data;
         }
         

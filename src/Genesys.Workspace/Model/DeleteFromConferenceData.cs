@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteFromConferenceData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected DeleteFromConferenceData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteFromConferenceData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public DeleteFromConferenceData(VoicecallsiddeletefromconferenceData Data = default(VoicecallsiddeletefromconferenceData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for DeleteFromConferenceData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

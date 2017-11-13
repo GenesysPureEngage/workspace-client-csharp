@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticsSubscribeData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected StatisticsSubscribeData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="StatisticsSubscribeData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public StatisticsSubscribeData(StatisticsSubscribeDataData Data = default(StatisticsSubscribeDataData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for StatisticsSubscribeData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

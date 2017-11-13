@@ -39,7 +39,7 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="InlineResponse2002Data" /> class.
         /// </summary>
         /// <param name="SubscriptionId">ID of the requested subscription (required).</param>
-        /// <param name="Statistics">Statistics.</param>
+        /// <param name="Statistics">Statistics (required).</param>
         public InlineResponse2002Data(string SubscriptionId = default(string), InlineResponse2002DataStatistics Statistics = default(InlineResponse2002DataStatistics))
         {
             // to ensure "SubscriptionId" is required (not null)
@@ -51,7 +51,15 @@ namespace Genesys.Workspace.Model
             {
                 this.SubscriptionId = SubscriptionId;
             }
-            this.Statistics = Statistics;
+            // to ensure "Statistics" is required (not null)
+            if (Statistics == null)
+            {
+                throw new InvalidDataException("Statistics is a required property for InlineResponse2002Data and cannot be null");
+            }
+            else
+            {
+                this.Statistics = Statistics;
+            }
         }
         
         /// <summary>

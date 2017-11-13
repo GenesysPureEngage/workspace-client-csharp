@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="GetCategoryData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected GetCategoryData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GetCategoryData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public GetCategoryData(UcsresponsescategoriesidgetdetailsData Data = default(UcsresponsescategoriesidgetdetailsData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for GetCategoryData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

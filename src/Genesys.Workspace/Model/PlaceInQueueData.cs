@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PlaceInQueueData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected PlaceInQueueData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PlaceInQueueData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public PlaceInQueueData(MediamediatypeinteractionsidplaceinqueueData Data = default(MediamediatypeinteractionsidplaceinqueueData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for PlaceInQueueData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

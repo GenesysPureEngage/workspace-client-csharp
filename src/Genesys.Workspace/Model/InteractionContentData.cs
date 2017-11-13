@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InteractionContentData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected InteractionContentData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InteractionContentData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public InteractionContentData(UcsgetinteractioncontentData Data = default(UcsgetinteractioncontentData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for InteractionContentData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

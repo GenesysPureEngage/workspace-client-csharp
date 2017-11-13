@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnsubscribeData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected UnsubscribeData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UnsubscribeData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public UnsubscribeData(ReportingunsubscribeData Data = default(ReportingunsubscribeData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for UnsubscribeData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

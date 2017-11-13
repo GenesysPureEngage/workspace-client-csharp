@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelsData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected ChannelsData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ChannelsData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public ChannelsData(ActivatechannelsData Data = default(ActivatechannelsData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for ChannelsData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

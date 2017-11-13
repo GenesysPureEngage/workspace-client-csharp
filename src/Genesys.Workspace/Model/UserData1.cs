@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UserData1" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected UserData1() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UserData1" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public UserData1(VoicecallsidcompleteData Data = default(VoicecallsidcompleteData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for UserData1 and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

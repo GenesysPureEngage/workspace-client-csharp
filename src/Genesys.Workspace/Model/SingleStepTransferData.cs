@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="SingleStepTransferData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected SingleStepTransferData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="SingleStepTransferData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public SingleStepTransferData(VoicecallsidsinglesteptransferData Data = default(VoicecallsidsinglesteptransferData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for SingleStepTransferData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="DeleteContactData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected DeleteContactData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DeleteContactData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public DeleteContactData(UcsdeletecontactData Data = default(UcsdeletecontactData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for DeleteContactData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

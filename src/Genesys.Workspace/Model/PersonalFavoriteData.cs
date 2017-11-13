@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PersonalFavoriteData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected PersonalFavoriteData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PersonalFavoriteData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public PersonalFavoriteData(TargetspersonalfavoritessaveData Data = default(TargetspersonalfavoritessaveData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for PersonalFavoriteData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

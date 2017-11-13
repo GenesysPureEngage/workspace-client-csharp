@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CallNoteData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected CallNoteData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CallNoteData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public CallNoteData(UcssetcallnoteData Data = default(UcssetcallnoteData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for CallNoteData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

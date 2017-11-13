@@ -66,7 +66,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name="state", EmitDefaultValue=false)]
-        public StateEnum? State { get; set; }
+        public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataPendingloginasync" /> class.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Genesys.Workspace.Model
         /// <param name="ActualWaitTime">ActualWaitTime (required).</param>
         /// <param name="SubmittedAt">SubmittedAt (required).</param>
         /// <param name="Errors">Errors.</param>
-        public CurrentSessionDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
+        public CurrentSessionDataPendingloginasync(StateEnum State = default(StateEnum), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
         {
             // to ensure "State" is required (not null)
             if (State == null)

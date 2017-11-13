@@ -33,10 +33,23 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AlternateData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
+        [JsonConstructorAttribute]
+        protected AlternateData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="AlternateData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
         public AlternateData(VoicecallsidalternateData Data = default(VoicecallsidalternateData))
         {
-            this.Data = Data;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for AlternateData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>

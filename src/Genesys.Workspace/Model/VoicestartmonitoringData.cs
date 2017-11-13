@@ -58,6 +58,12 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
+        /// The monitoring mode (Mute,Coach,Connect)
+        /// </summary>
+        /// <value>The monitoring mode (Mute,Coach,Connect)</value>
+        [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
+        public MonitoringModeEnum? MonitoringMode { get; set; }
+        /// <summary>
         /// The monitoring call type (OneCall/AllCalls).
         /// </summary>
         /// <value>The monitoring call type (OneCall/AllCalls).</value>
@@ -79,6 +85,12 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
+        /// The monitoring call type (OneCall/AllCalls).
+        /// </summary>
+        /// <value>The monitoring call type (OneCall/AllCalls).</value>
+        [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
+        public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
+        /// <summary>
         /// The monitoring scope (Call/Agent).
         /// </summary>
         /// <value>The monitoring scope (Call/Agent).</value>
@@ -99,18 +111,6 @@ namespace Genesys.Workspace.Model
             Agent
         }
 
-        /// <summary>
-        /// The monitoring mode (Mute,Coach,Connect)
-        /// </summary>
-        /// <value>The monitoring mode (Mute,Coach,Connect)</value>
-        [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
-        public MonitoringModeEnum? MonitoringMode { get; set; }
-        /// <summary>
-        /// The monitoring call type (OneCall/AllCalls).
-        /// </summary>
-        /// <value>The monitoring call type (OneCall/AllCalls).</value>
-        [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
-        public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
         /// <summary>
         /// The monitoring scope (Call/Agent).
         /// </summary>
