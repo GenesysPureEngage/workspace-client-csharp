@@ -140,8 +140,7 @@ namespace Genesys.Workspace
             string ani = (string)callData.GetValue("ani");
             string dnis = (string)callData.GetValue("dnis");
 
-
-            var userPropertyData = callData.GetValue("userdata");
+            var userPropertyData = callData.GetValue("userData");
             KeyValueCollection userData = new KeyValueCollection();
             Util.extractKeyValueData(userData, userPropertyData);
 
@@ -1111,14 +1110,8 @@ namespace Genesys.Workspace
         {
             try 
             {
-                VoicecallsidcompleteData completeData = new VoicecallsidcompleteData
-                {
-                    UserData = userData.ToListKvpair()
-                };
-                UserData data = new UserData
-                {
-                    Data = completeData
-                };
+                VoicecallsidcompleteData completeData = new VoicecallsidcompleteData(userData.ToListKvpair());
+                UserData data = new UserData(completeData);
 
                 ApiSuccessResponse response = this.voiceApi.AttachUserData(connId, data);
                 Util.ThrowIfNotOk("AttachUserData", response);
@@ -1138,14 +1131,8 @@ namespace Genesys.Workspace
         {
             try 
             {
-                VoicecallsidcompleteData completeData = new VoicecallsidcompleteData
-                {
-                    UserData = userData.ToListKvpair()
-                };
-                UserData data = new UserData
-                {
-                    Data = completeData
-                };
+                VoicecallsidcompleteData completeData = new VoicecallsidcompleteData(userData.ToListKvpair());
+                UserData data = new UserData(completeData);
 
                 ApiSuccessResponse response = this.voiceApi.UpdateUserData(connId, data);
                 Util.ThrowIfNotOk("UpdateUserData", response);
@@ -1165,14 +1152,8 @@ namespace Genesys.Workspace
         {
             try 
             {
-                VoicecallsiddeleteuserdatapairData deletePairData = new VoicecallsiddeleteuserdatapairData
-                {
-                    Key = key
-                };
-                KeyData data = new KeyData
-                {
-                    Data = deletePairData
-                };
+                VoicecallsiddeleteuserdatapairData deletePairData = new VoicecallsiddeleteuserdatapairData(key);
+                KeyData data = new KeyData(deletePairData);
 
                 ApiSuccessResponse response = this.voiceApi.DeleteUserDataPair(connId, data);
                 Util.ThrowIfNotOk("DeleteUserDataPair", response);

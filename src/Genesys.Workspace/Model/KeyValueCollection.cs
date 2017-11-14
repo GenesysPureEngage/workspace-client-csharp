@@ -7,6 +7,12 @@ namespace Genesys.Workspace.Model
     public class KeyValueCollection 
     {
         private Dictionary<string, KeyValuePair> data;
+        private Dictionary<ValueType, string> typeMap = new Dictionary<ValueType, string>()
+        {
+            {ValueType.STRING, "str"},
+            {ValueType.INT, "int"},
+            {ValueType.LIST, "kvlist"}
+        };
 
         public KeyValueCollection()
         {
@@ -73,7 +79,30 @@ namespace Genesys.Workspace.Model
 
         public List<Kvpair> ToListKvpair()
         {
-            return null;    
+            List<Kvpair> list = new List<Kvpair>();
+
+            foreach (KeyValuePair pair in this.data.Values)
+            {
+                //string valueType = "str";
+                //switch(pair.getValueType())
+                //{
+                //    case ValueType.STRING:
+                //        valueType = "str";
+                //        break;
+
+                //    case ValueType.INT:
+                //        valueType = "int";
+                //        break;
+
+                //    case ValueType.LIST:
+                //        valueType = "kvlist";
+                //        break;
+                //}
+
+                list.Add(new Kvpair(pair.getKey(), typeMap[pair.getValueType()], pair.getValue()));
+            }
+
+            return list;
         }
 
         override public String ToString()

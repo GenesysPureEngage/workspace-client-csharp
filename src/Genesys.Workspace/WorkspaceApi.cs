@@ -68,6 +68,7 @@ namespace Genesys.Workspace
 
             this.sessionApi.Initialize(apiClient);
             this.voiceApi.Initialize(apiClient);
+            this.targetsApi.Initialize(apiClient);
         } 
 
         private String extractSessionCookie(ApiResponse<ApiSuccessResponse> response)
@@ -432,7 +433,7 @@ namespace Genesys.Workspace
                 string agentId, 
                 string placeName)
         {
-            this.ActivateChannels(agentId, null, placeName, null);
+            this.ActivateChannels(agentId, null, placeName, null, ActivatechannelsData.AgentWorkModeEnum.ManualIn);
         }
 
         /**
@@ -446,13 +447,15 @@ namespace Genesys.Workspace
                 string agentId,
                 string dn,
                 string placeName,
-                string queueName
+                string queueName,
+                ActivatechannelsData.AgentWorkModeEnum? agentWorkMode
         )
         {
             try {
                 string msg = "Activating channels with agentId [" + agentId + "] ";
                 ActivatechannelsData data = new ActivatechannelsData();
                 data.AgentId = agentId;
+                data.AgentWorkMode = agentWorkMode;
 
                 if (placeName != null)
                 {

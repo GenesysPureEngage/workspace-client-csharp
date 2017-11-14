@@ -15,14 +15,10 @@ namespace Genesys.Workspace
         {
         }
 
-        void initialize(ApiClient client)
+        public void Initialize(ApiClient apiClient)
         {
-            this.targetsApi = new Internal.Api.TargetsApi(client.Configuration);
-        }
-
-        void setTargetsApi(Internal.Api.TargetsApi targetsApi)
-        {
-            this.targetsApi = targetsApi;
+            this.targetsApi = new Internal.Api.TargetsApi(apiClient.RestClient.BaseUrl.ToString());
+            targetsApi.Configuration.ApiClient = apiClient;        
         }
 
         public TargetSearchResult search(String searchTerm)
