@@ -35,12 +35,10 @@ namespace Genesys.Workspace.Model
         /// </summary>
         /// <param name="Key">Key.</param>
         /// <param name="Type">Type.</param>
-        /// <param name="Value">Value.</param>
-        public Kvpair(string Key = default(string), string Type = default(string), Object Value = default(Object))
+        public Kvpair(string Key = default(string), string Type = default(string))
         {
             this.Key = Key;
             this.Type = Type;
-            this.Value = Value;
         }
         
         /// <summary>
@@ -56,12 +54,6 @@ namespace Genesys.Workspace.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Value
-        /// </summary>
-        [DataMember(Name="value", EmitDefaultValue=false)]
-        public Object Value { get; set; }
-
-        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -71,7 +63,6 @@ namespace Genesys.Workspace.Model
             sb.Append("class Kvpair {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
-            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -115,11 +106,6 @@ namespace Genesys.Workspace.Model
                     this.Type == input.Type ||
                     (this.Type != null &&
                     this.Type.Equals(input.Type))
-                ) && 
-                (
-                    this.Value == input.Value ||
-                    (this.Value != null &&
-                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -136,8 +122,6 @@ namespace Genesys.Workspace.Model
                     hashCode = hashCode * 59 + this.Key.GetHashCode();
                 if (this.Type != null)
                     hashCode = hashCode * 59 + this.Type.GetHashCode();
-                if (this.Value != null)
-                    hashCode = hashCode * 59 + this.Value.GetHashCode();
                 return hashCode;
             }
         }
