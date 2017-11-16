@@ -25,47 +25,38 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// MonitoringScopeDataData
+    /// GetWorkbinContentData
     /// </summary>
     [DataContract]
-    public partial class MonitoringScopeDataData :  IEquatable<MonitoringScopeDataData>, IValidatableObject
+    public partial class GetWorkbinContentData :  IEquatable<GetWorkbinContentData>, IValidatableObject
     {
         /// <summary>
-        /// The monitoring scope (Call/Agent).
+        /// Initializes a new instance of the <see cref="GetWorkbinContentData" /> class.
         /// </summary>
-        /// <value>The monitoring scope (Call/Agent).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringScopeEnum
-        {
-            
-            /// <summary>
-            /// Enum Call for "Call"
-            /// </summary>
-            [EnumMember(Value = "Call")]
-            Call = 1,
-            
-            /// <summary>
-            /// Enum Agent for "Agent"
-            /// </summary>
-            [EnumMember(Value = "Agent")]
-            Agent = 2
-        }
-
+        [JsonConstructorAttribute]
+        protected GetWorkbinContentData() { }
         /// <summary>
-        /// The monitoring scope (Call/Agent).
+        /// Initializes a new instance of the <see cref="GetWorkbinContentData" /> class.
         /// </summary>
-        /// <value>The monitoring scope (Call/Agent).</value>
-        [DataMember(Name="monitoringScope", EmitDefaultValue=false)]
-        public MonitoringScopeEnum? MonitoringScope { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MonitoringScopeDataData" /> class.
-        /// </summary>
-        /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
-        public MonitoringScopeDataData(MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
+        /// <param name="Data">Data (required).</param>
+        public GetWorkbinContentData(WorkbinsworkbinIdgetcontentData Data = default(WorkbinsworkbinIdgetcontentData))
         {
-            this.MonitoringScope = MonitoringScope;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for GetWorkbinContentData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
+        /// <summary>
+        /// Gets or Sets Data
+        /// </summary>
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public WorkbinsworkbinIdgetcontentData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,8 +65,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MonitoringScopeDataData {\n");
-            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
+            sb.Append("class GetWorkbinContentData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,24 +87,24 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MonitoringScopeDataData);
+            return this.Equals(input as GetWorkbinContentData);
         }
 
         /// <summary>
-        /// Returns true if MonitoringScopeDataData instances are equal
+        /// Returns true if GetWorkbinContentData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MonitoringScopeDataData to be compared</param>
+        /// <param name="input">Instance of GetWorkbinContentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MonitoringScopeDataData input)
+        public bool Equals(GetWorkbinContentData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.MonitoringScope == input.MonitoringScope ||
-                    (this.MonitoringScope != null &&
-                    this.MonitoringScope.Equals(input.MonitoringScope))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -126,8 +117,8 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.MonitoringScope != null)
-                    hashCode = hashCode * 59 + this.MonitoringScope.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

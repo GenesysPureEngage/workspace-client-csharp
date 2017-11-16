@@ -42,31 +42,31 @@ namespace Genesys.Workspace.Model
             /// Enum AfterCallWork for "AfterCallWork"
             /// </summary>
             [EnumMember(Value = "AfterCallWork")]
-            AfterCallWork,
+            AfterCallWork = 1,
             
             /// <summary>
             /// Enum AuxWork for "AuxWork"
             /// </summary>
             [EnumMember(Value = "AuxWork")]
-            AuxWork,
+            AuxWork = 2,
             
             /// <summary>
             /// Enum LegalGuard for "LegalGuard"
             /// </summary>
             [EnumMember(Value = "LegalGuard")]
-            LegalGuard,
+            LegalGuard = 3,
             
             /// <summary>
             /// Enum NoCallDisconnect for "NoCallDisconnect"
             /// </summary>
             [EnumMember(Value = "NoCallDisconnect")]
-            NoCallDisconnect,
+            NoCallDisconnect = 4,
             
             /// <summary>
             /// Enum WalkAway for "WalkAway"
             /// </summary>
             [EnumMember(Value = "WalkAway")]
-            WalkAway
+            WalkAway = 5
         }
 
         /// <summary>

@@ -41,25 +41,25 @@ namespace Genesys.Workspace.Model
             /// Enum NotStarted for "NotStarted"
             /// </summary>
             [EnumMember(Value = "NotStarted")]
-            NotStarted,
+            NotStarted = 1,
             
             /// <summary>
             /// Enum Executing for "Executing"
             /// </summary>
             [EnumMember(Value = "Executing")]
-            Executing,
+            Executing = 2,
             
             /// <summary>
             /// Enum Failed for "Failed"
             /// </summary>
             [EnumMember(Value = "Failed")]
-            Failed,
+            Failed = 3,
             
             /// <summary>
             /// Enum Complete for "Complete"
             /// </summary>
             [EnumMember(Value = "Complete")]
-            Complete
+            Complete = 4
         }
 
         /// <summary>

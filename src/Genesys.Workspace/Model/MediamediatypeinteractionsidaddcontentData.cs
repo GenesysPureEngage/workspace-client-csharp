@@ -34,9 +34,15 @@ namespace Genesys.Workspace.Model
         /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidaddcontentData" /> class.
         /// </summary>
         /// <param name="Comment">The comment to be set.</param>
-        public MediamediatypeinteractionsidaddcontentData(string Comment = default(string))
+        /// <param name="ThreadId">ThreadId.</param>
+        /// <param name="ParentId">UCS id of parent interaction.</param>
+        /// <param name="ContactId">id of contact.</param>
+        public MediamediatypeinteractionsidaddcontentData(string Comment = default(string), string ThreadId = default(string), string ParentId = default(string), string ContactId = default(string))
         {
             this.Comment = Comment;
+            this.ThreadId = ThreadId;
+            this.ParentId = ParentId;
+            this.ContactId = ContactId;
         }
         
         /// <summary>
@@ -47,6 +53,27 @@ namespace Genesys.Workspace.Model
         public string Comment { get; set; }
 
         /// <summary>
+        /// ThreadId
+        /// </summary>
+        /// <value>ThreadId</value>
+        [DataMember(Name="threadId", EmitDefaultValue=false)]
+        public string ThreadId { get; set; }
+
+        /// <summary>
+        /// UCS id of parent interaction
+        /// </summary>
+        /// <value>UCS id of parent interaction</value>
+        [DataMember(Name="parentId", EmitDefaultValue=false)]
+        public string ParentId { get; set; }
+
+        /// <summary>
+        /// id of contact
+        /// </summary>
+        /// <value>id of contact</value>
+        [DataMember(Name="contactId", EmitDefaultValue=false)]
+        public string ContactId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -55,6 +82,9 @@ namespace Genesys.Workspace.Model
             var sb = new StringBuilder();
             sb.Append("class MediamediatypeinteractionsidaddcontentData {\n");
             sb.Append("  Comment: ").Append(Comment).Append("\n");
+            sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
+            sb.Append("  ParentId: ").Append(ParentId).Append("\n");
+            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -93,6 +123,21 @@ namespace Genesys.Workspace.Model
                     this.Comment == input.Comment ||
                     (this.Comment != null &&
                     this.Comment.Equals(input.Comment))
+                ) && 
+                (
+                    this.ThreadId == input.ThreadId ||
+                    (this.ThreadId != null &&
+                    this.ThreadId.Equals(input.ThreadId))
+                ) && 
+                (
+                    this.ParentId == input.ParentId ||
+                    (this.ParentId != null &&
+                    this.ParentId.Equals(input.ParentId))
+                ) && 
+                (
+                    this.ContactId == input.ContactId ||
+                    (this.ContactId != null &&
+                    this.ContactId.Equals(input.ContactId))
                 );
         }
 
@@ -107,6 +152,12 @@ namespace Genesys.Workspace.Model
                 int hashCode = 41;
                 if (this.Comment != null)
                     hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                if (this.ThreadId != null)
+                    hashCode = hashCode * 59 + this.ThreadId.GetHashCode();
+                if (this.ParentId != null)
+                    hashCode = hashCode * 59 + this.ParentId.GetHashCode();
+                if (this.ContactId != null)
+                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
                 return hashCode;
             }
         }

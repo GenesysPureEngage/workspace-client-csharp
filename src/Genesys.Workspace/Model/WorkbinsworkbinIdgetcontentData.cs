@@ -25,47 +25,26 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// MonitoringScopeDataData
+    /// WorkbinsworkbinIdgetcontentData
     /// </summary>
     [DataContract]
-    public partial class MonitoringScopeDataData :  IEquatable<MonitoringScopeDataData>, IValidatableObject
+    public partial class WorkbinsworkbinIdgetcontentData :  IEquatable<WorkbinsworkbinIdgetcontentData>, IValidatableObject
     {
         /// <summary>
-        /// The monitoring scope (Call/Agent).
+        /// Initializes a new instance of the <see cref="WorkbinsworkbinIdgetcontentData" /> class.
         /// </summary>
-        /// <value>The monitoring scope (Call/Agent).</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringScopeEnum
+        /// <param name="OwnerId">Id of the owner of the workbin..</param>
+        public WorkbinsworkbinIdgetcontentData(string OwnerId = default(string))
         {
-            
-            /// <summary>
-            /// Enum Call for "Call"
-            /// </summary>
-            [EnumMember(Value = "Call")]
-            Call = 1,
-            
-            /// <summary>
-            /// Enum Agent for "Agent"
-            /// </summary>
-            [EnumMember(Value = "Agent")]
-            Agent = 2
-        }
-
-        /// <summary>
-        /// The monitoring scope (Call/Agent).
-        /// </summary>
-        /// <value>The monitoring scope (Call/Agent).</value>
-        [DataMember(Name="monitoringScope", EmitDefaultValue=false)]
-        public MonitoringScopeEnum? MonitoringScope { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MonitoringScopeDataData" /> class.
-        /// </summary>
-        /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
-        public MonitoringScopeDataData(MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
-        {
-            this.MonitoringScope = MonitoringScope;
+            this.OwnerId = OwnerId;
         }
         
+        /// <summary>
+        /// Id of the owner of the workbin.
+        /// </summary>
+        /// <value>Id of the owner of the workbin.</value>
+        [DataMember(Name="ownerId", EmitDefaultValue=false)]
+        public string OwnerId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,8 +53,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MonitoringScopeDataData {\n");
-            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
+            sb.Append("class WorkbinsworkbinIdgetcontentData {\n");
+            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -96,24 +75,24 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MonitoringScopeDataData);
+            return this.Equals(input as WorkbinsworkbinIdgetcontentData);
         }
 
         /// <summary>
-        /// Returns true if MonitoringScopeDataData instances are equal
+        /// Returns true if WorkbinsworkbinIdgetcontentData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MonitoringScopeDataData to be compared</param>
+        /// <param name="input">Instance of WorkbinsworkbinIdgetcontentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MonitoringScopeDataData input)
+        public bool Equals(WorkbinsworkbinIdgetcontentData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.MonitoringScope == input.MonitoringScope ||
-                    (this.MonitoringScope != null &&
-                    this.MonitoringScope.Equals(input.MonitoringScope))
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
                 );
         }
 
@@ -126,8 +105,8 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.MonitoringScope != null)
-                    hashCode = hashCode * 59 + this.MonitoringScope.GetHashCode();
+                if (this.OwnerId != null)
+                    hashCode = hashCode * 59 + this.OwnerId.GetHashCode();
                 return hashCode;
             }
         }

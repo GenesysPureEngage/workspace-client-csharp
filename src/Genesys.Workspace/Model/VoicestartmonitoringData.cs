@@ -42,19 +42,19 @@ namespace Genesys.Workspace.Model
             /// Enum Mute for "Mute"
             /// </summary>
             [EnumMember(Value = "Mute")]
-            Mute,
+            Mute = 1,
             
             /// <summary>
             /// Enum Coach for "Coach"
             /// </summary>
             [EnumMember(Value = "Coach")]
-            Coach,
+            Coach = 2,
             
             /// <summary>
             /// Enum Connect for "Connect"
             /// </summary>
             [EnumMember(Value = "Connect")]
-            Connect
+            Connect = 3
         }
 
         /// <summary>
@@ -75,13 +75,13 @@ namespace Genesys.Workspace.Model
             /// Enum OneCall for "OneCall"
             /// </summary>
             [EnumMember(Value = "OneCall")]
-            OneCall,
+            OneCall = 1,
             
             /// <summary>
             /// Enum AllCalls for "AllCalls"
             /// </summary>
             [EnumMember(Value = "AllCalls")]
-            AllCalls
+            AllCalls = 2
         }
 
         /// <summary>
@@ -102,13 +102,13 @@ namespace Genesys.Workspace.Model
             /// Enum Call for "Call"
             /// </summary>
             [EnumMember(Value = "Call")]
-            Call,
+            Call = 1,
             
             /// <summary>
             /// Enum Agent for "Agent"
             /// </summary>
             [EnumMember(Value = "Agent")]
-            Agent
+            Agent = 2
         }
 
         /// <summary>

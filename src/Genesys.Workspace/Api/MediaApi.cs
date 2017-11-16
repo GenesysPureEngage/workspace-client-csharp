@@ -50,6 +50,31 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData acceptData = null);
         /// <summary>
+        /// Add an attachment to the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Add an attachment to the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AddAttachment (string mediatype, string id, System.IO.Stream attachment = null);
+
+        /// <summary>
+        /// Add an attachment to the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Add an attachment to the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AddAttachmentWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null);
+        /// <summary>
         /// Set the comment for the interaction
         /// </summary>
         /// <remarks>
@@ -99,6 +124,81 @@ namespace Genesys.Workspace.Api
         /// <param name="addContentData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddContentWithHttpInfo (string mediatype, string id, AddContentData addContentData = null);
+        /// <summary>
+        /// Assign the contact to the open interaction
+        /// </summary>
+        /// <remarks>
+        /// Assign the contact to the open interaction specified in the contactId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AssignContact (string mediatype, string id, string contactId);
+
+        /// <summary>
+        /// Assign the contact to the open interaction
+        /// </summary>
+        /// <remarks>
+        /// Assign the contact to the open interaction specified in the contactId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AssignContactWithHttpInfo (string mediatype, string id, string contactId);
+        /// <summary>
+        /// Attach user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Attach the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AttachUserData (string mediatype, string id, UserData userData);
+
+        /// <summary>
+        /// Attach user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Attach the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AttachUserDataWithHttpInfo (string mediatype, string id, UserData userData);
+        /// <summary>
+        /// Get the attachment of the interaction
+        /// </summary>
+        /// <remarks>
+        /// Get the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>string</returns>
+        string Attachments (string mediatype, string id, string documentId);
+
+        /// <summary>
+        /// Get the attachment of the interaction
+        /// </summary>
+        /// <remarks>
+        /// Get the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> AttachmentsWithHttpInfo (string mediatype, string id, string documentId);
         /// <summary>
         /// Complete open-media interaction
         /// </summary>
@@ -204,56 +304,6 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LogoutAgentStateWithHttpInfo ();
-        /// <summary>
-        /// Attach user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse MediaAttachUserData (string mediatype, string id, UserData userData);
-
-        /// <summary>
-        /// Attach user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> MediaAttachUserDataWithHttpInfo (string mediatype, string id, UserData userData);
-        /// <summary>
-        /// Update user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse MediaUpdateUserData (string mediatype, string id, UserData userData);
-
-        /// <summary>
-        /// Update user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> MediaUpdateUserDataWithHttpInfo (string mediatype, string id, UserData userData);
         /// <summary>
         /// Change to the not ready state for all open media channels
         /// </summary>
@@ -389,6 +439,31 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RejectWithHttpInfo (string mediatype, string id, AcceptData1 acceptData = null);
         /// <summary>
+        /// Remove the attachment of the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Remove the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse RemoveAttachment (string mediatype, string id, string documentId);
+
+        /// <summary>
+        /// Remove the attachment of the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Remove the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> RemoveAttachmentWithHttpInfo (string mediatype, string id, string documentId);
+        /// <summary>
         /// Logout the open media channel
         /// </summary>
         /// <remarks>
@@ -411,6 +486,56 @@ namespace Genesys.Workspace.Api
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RemoveMediaWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
+        /// <summary>
+        /// Transfer the interaction to the agent
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse TransferAgent (string mediatype, string id, TransferData transferData);
+
+        /// <summary>
+        /// Transfer the interaction to the agent
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> TransferAgentWithHttpInfo (string mediatype, string id, TransferData transferData);
+        /// <summary>
+        /// Update user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Update the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse UpdateUserData (string mediatype, string id, UserData userData);
+
+        /// <summary>
+        /// Update user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Update the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> UpdateUserDataWithHttpInfo (string mediatype, string id, UserData userData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -438,6 +563,31 @@ namespace Genesys.Workspace.Api
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData acceptData = null);
+        /// <summary>
+        /// Add an attachment to the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Add an attachment to the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AddAttachmentAsync (string mediatype, string id, System.IO.Stream attachment = null);
+
+        /// <summary>
+        /// Add an attachment to the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Add an attachment to the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddAttachmentAsyncWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null);
         /// <summary>
         /// Set the comment for the interaction
         /// </summary>
@@ -488,6 +638,81 @@ namespace Genesys.Workspace.Api
         /// <param name="addContentData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddContentAsyncWithHttpInfo (string mediatype, string id, AddContentData addContentData = null);
+        /// <summary>
+        /// Assign the contact to the open interaction
+        /// </summary>
+        /// <remarks>
+        /// Assign the contact to the open interaction specified in the contactId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AssignContactAsync (string mediatype, string id, string contactId);
+
+        /// <summary>
+        /// Assign the contact to the open interaction
+        /// </summary>
+        /// <remarks>
+        /// Assign the contact to the open interaction specified in the contactId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignContactAsyncWithHttpInfo (string mediatype, string id, string contactId);
+        /// <summary>
+        /// Attach user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Attach the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AttachUserDataAsync (string mediatype, string id, UserData userData);
+
+        /// <summary>
+        /// Attach user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Attach the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AttachUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData);
+        /// <summary>
+        /// Get the attachment of the interaction
+        /// </summary>
+        /// <remarks>
+        /// Get the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> AttachmentsAsync (string mediatype, string id, string documentId);
+
+        /// <summary>
+        /// Get the attachment of the interaction
+        /// </summary>
+        /// <remarks>
+        /// Get the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> AttachmentsAsyncWithHttpInfo (string mediatype, string id, string documentId);
         /// <summary>
         /// Complete open-media interaction
         /// </summary>
@@ -593,56 +818,6 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutAgentStateAsyncWithHttpInfo ();
-        /// <summary>
-        /// Attach user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> MediaAttachUserDataAsync (string mediatype, string id, UserData userData);
-
-        /// <summary>
-        /// Attach user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaAttachUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData);
-        /// <summary>
-        /// Update user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> MediaUpdateUserDataAsync (string mediatype, string id, UserData userData);
-
-        /// <summary>
-        /// Update user data to an interaction
-        /// </summary>
-        /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaUpdateUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData);
         /// <summary>
         /// Change to the not ready state for all open media channels
         /// </summary>
@@ -778,6 +953,31 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, AcceptData1 acceptData = null);
         /// <summary>
+        /// Remove the attachment of the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Remove the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> RemoveAttachmentAsync (string mediatype, string id, string documentId);
+
+        /// <summary>
+        /// Remove the attachment of the open-media interaction
+        /// </summary>
+        /// <remarks>
+        /// Remove the attachment of the interaction specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveAttachmentAsyncWithHttpInfo (string mediatype, string id, string documentId);
+        /// <summary>
         /// Logout the open media channel
         /// </summary>
         /// <remarks>
@@ -800,6 +1000,56 @@ namespace Genesys.Workspace.Api
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveMediaAsyncWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
+        /// <summary>
+        /// Transfer the interaction to the agent
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> TransferAgentAsync (string mediatype, string id, TransferData transferData);
+
+        /// <summary>
+        /// Transfer the interaction to the agent
+        /// </summary>
+        /// <remarks>
+        /// Place the interaction in queue with modification of properties pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TransferAgentAsyncWithHttpInfo (string mediatype, string id, TransferData transferData);
+        /// <summary>
+        /// Update user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Update the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> UpdateUserDataAsync (string mediatype, string id, UserData userData);
+
+        /// <summary>
+        /// Update user data to an interaction
+        /// </summary>
+        /// <remarks>
+        /// Update the interaction userdata with the provided key/value pairs.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData);
         #endregion Asynchronous Operations
     }
 
@@ -1059,6 +1309,159 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("Accept", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Add an attachment to the open-media interaction Add an attachment to the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse AddAttachment (string mediatype, string id, System.IO.Stream attachment = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = AddAttachmentWithHttpInfo(mediatype, id, attachment);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Add an attachment to the open-media interaction Add an attachment to the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > AddAttachmentWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddAttachment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddAttachment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/add-attachment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (attachment != null) localVarFileParams.Add("attachment", Configuration.ApiClient.ParameterToFile("attachment", attachment));
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddAttachment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Add an attachment to the open-media interaction Add an attachment to the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddAttachmentAsync (string mediatype, string id, System.IO.Stream attachment = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AddAttachmentAsyncWithHttpInfo(mediatype, id, attachment);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Add an attachment to the open-media interaction Add an attachment to the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to add attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="attachment">The file to upload. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddAttachmentAsyncWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddAttachment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddAttachment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/add-attachment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "multipart/form-data"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (attachment != null) localVarFileParams.Add("attachment", Configuration.ApiClient.ParameterToFile("attachment", attachment));
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AddAttachment", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1405,6 +1808,497 @@ namespace Genesys.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Assign the contact to the open interaction Assign the contact to the open interaction specified in the contactId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse AssignContact (string mediatype, string id, string contactId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = AssignContactWithHttpInfo(mediatype, id, contactId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Assign the contact to the open interaction Assign the contact to the open interaction specified in the contactId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > AssignContactWithHttpInfo (string mediatype, string id, string contactId)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AssignContact");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AssignContact");
+            // verify the required parameter 'contactId' is set
+            if (contactId == null)
+                throw new ApiException(400, "Missing required parameter 'contactId' when calling MediaApi->AssignContact");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/assign-contact/{contactId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (contactId != null) localVarPathParams.Add("contactId", Configuration.ApiClient.ParameterToString(contactId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AssignContact", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Assign the contact to the open interaction Assign the contact to the open interaction specified in the contactId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AssignContactAsync (string mediatype, string id, string contactId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AssignContactAsyncWithHttpInfo(mediatype, id, contactId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Assign the contact to the open interaction Assign the contact to the open interaction specified in the contactId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="contactId">id of contact</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignContactAsyncWithHttpInfo (string mediatype, string id, string contactId)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AssignContact");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AssignContact");
+            // verify the required parameter 'contactId' is set
+            if (contactId == null)
+                throw new ApiException(400, "Missing required parameter 'contactId' when calling MediaApi->AssignContact");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/assign-contact/{contactId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (contactId != null) localVarPathParams.Add("contactId", Configuration.ApiClient.ParameterToString(contactId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AssignContact", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse AttachUserData (string mediatype, string id, UserData userData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = AttachUserDataWithHttpInfo(mediatype, id, userData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > AttachUserDataWithHttpInfo (string mediatype, string id, UserData userData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AttachUserData");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AttachUserData");
+            // verify the required parameter 'userData' is set
+            if (userData == null)
+                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->AttachUserData");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/attach-user-data";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (userData != null && userData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = userData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AttachUserData", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AttachUserDataAsync (string mediatype, string id, UserData userData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AttachUserDataAsyncWithHttpInfo(mediatype, id, userData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AttachUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AttachUserData");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AttachUserData");
+            // verify the required parameter 'userData' is set
+            if (userData == null)
+                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->AttachUserData");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/attach-user-data";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (userData != null && userData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = userData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("AttachUserData", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get the attachment of the interaction Get the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>string</returns>
+        public string Attachments (string mediatype, string id, string documentId)
+        {
+             ApiResponse<string> localVarResponse = AttachmentsWithHttpInfo(mediatype, id, documentId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the attachment of the interaction Get the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse< string > AttachmentsWithHttpInfo (string mediatype, string id, string documentId)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->Attachments");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Attachments");
+            // verify the required parameter 'documentId' is set
+            if (documentId == null)
+                throw new ApiException(400, "Missing required parameter 'documentId' when calling MediaApi->Attachments");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/attachments/{documentId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (documentId != null) localVarPathParams.Add("documentId", Configuration.ApiClient.ParameterToString(documentId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Attachments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Get the attachment of the interaction Get the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> AttachmentsAsync (string mediatype, string id, string documentId)
+        {
+             ApiResponse<string> localVarResponse = await AttachmentsAsyncWithHttpInfo(mediatype, id, documentId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the attachment of the interaction Get the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> AttachmentsAsyncWithHttpInfo (string mediatype, string id, string documentId)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->Attachments");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Attachments");
+            // verify the required parameter 'documentId' is set
+            if (documentId == null)
+                throw new ApiException(400, "Missing required parameter 'documentId' when calling MediaApi->Attachments");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/attachments/{documentId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (documentId != null) localVarPathParams.Add("documentId", Configuration.ApiClient.ParameterToString(documentId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Attachments", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
         }
 
         /// <summary>
@@ -2088,352 +2982,6 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("LogoutAgentState", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse MediaAttachUserData (string mediatype, string id, UserData userData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = MediaAttachUserDataWithHttpInfo(mediatype, id, userData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > MediaAttachUserDataWithHttpInfo (string mediatype, string id, UserData userData)
-        {
-            // verify the required parameter 'mediatype' is set
-            if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaAttachUserData");
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaAttachUserData");
-            // verify the required parameter 'userData' is set
-            if (userData == null)
-                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->MediaAttachUserData");
-
-            var localVarPath = "/media/{mediatype}/interactions/{id}/attach-user-data";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (userData != null && userData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = userData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MediaAttachUserData", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaAttachUserDataAsync (string mediatype, string id, UserData userData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaAttachUserDataAsyncWithHttpInfo(mediatype, id, userData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaAttachUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData)
-        {
-            // verify the required parameter 'mediatype' is set
-            if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaAttachUserData");
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaAttachUserData");
-            // verify the required parameter 'userData' is set
-            if (userData == null)
-                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->MediaAttachUserData");
-
-            var localVarPath = "/media/{mediatype}/interactions/{id}/attach-user-data";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (userData != null && userData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = userData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MediaAttachUserData", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse MediaUpdateUserData (string mediatype, string id, UserData userData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = MediaUpdateUserDataWithHttpInfo(mediatype, id, userData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > MediaUpdateUserDataWithHttpInfo (string mediatype, string id, UserData userData)
-        {
-            // verify the required parameter 'mediatype' is set
-            if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaUpdateUserData");
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaUpdateUserData");
-            // verify the required parameter 'userData' is set
-            if (userData == null)
-                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->MediaUpdateUserData");
-
-            var localVarPath = "/media/{mediatype}/interactions/{id}/update-user-data";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (userData != null && userData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = userData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MediaUpdateUserData", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaUpdateUserDataAsync (string mediatype, string id, UserData userData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaUpdateUserDataAsyncWithHttpInfo(mediatype, id, userData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaUpdateUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData)
-        {
-            // verify the required parameter 'mediatype' is set
-            if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaUpdateUserData");
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaUpdateUserData");
-            // verify the required parameter 'userData' is set
-            if (userData == null)
-                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->MediaUpdateUserData");
-
-            var localVarPath = "/media/{mediatype}/interactions/{id}/update-user-data";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (userData != null && userData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = userData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("MediaUpdateUserData", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3345,6 +3893,165 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
+        /// Remove the attachment of the open-media interaction Remove the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse RemoveAttachment (string mediatype, string id, string documentId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = RemoveAttachmentWithHttpInfo(mediatype, id, documentId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Remove the attachment of the open-media interaction Remove the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > RemoveAttachmentWithHttpInfo (string mediatype, string id, string documentId)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->RemoveAttachment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->RemoveAttachment");
+            // verify the required parameter 'documentId' is set
+            if (documentId == null)
+                throw new ApiException(400, "Missing required parameter 'documentId' when calling MediaApi->RemoveAttachment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/remove-attachment/{documentId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (documentId != null) localVarPathParams.Add("documentId", Configuration.ApiClient.ParameterToString(documentId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveAttachment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Remove the attachment of the open-media interaction Remove the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RemoveAttachmentAsync (string mediatype, string id, string documentId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RemoveAttachmentAsyncWithHttpInfo(mediatype, id, documentId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Remove the attachment of the open-media interaction Remove the attachment of the interaction specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction to remove attachment</param>
+        /// <param name="id">id of interaction</param>
+        /// <param name="documentId">id of document to remove</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveAttachmentAsyncWithHttpInfo (string mediatype, string id, string documentId)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->RemoveAttachment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->RemoveAttachment");
+            // verify the required parameter 'documentId' is set
+            if (documentId == null)
+                throw new ApiException(400, "Missing required parameter 'documentId' when calling MediaApi->RemoveAttachment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/remove-attachment/{documentId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (documentId != null) localVarPathParams.Add("documentId", Configuration.ApiClient.ParameterToString(documentId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RemoveAttachment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Logout the open media channel Logout the open media channel
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3497,6 +4204,352 @@ namespace Genesys.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("RemoveMedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse TransferAgent (string mediatype, string id, TransferData transferData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = TransferAgentWithHttpInfo(mediatype, id, transferData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > TransferAgentWithHttpInfo (string mediatype, string id, TransferData transferData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->TransferAgent");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->TransferAgent");
+            // verify the required parameter 'transferData' is set
+            if (transferData == null)
+                throw new ApiException(400, "Missing required parameter 'transferData' when calling MediaApi->TransferAgent");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/transfer-agent";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (transferData != null && transferData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(transferData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = transferData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TransferAgent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> TransferAgentAsync (string mediatype, string id, TransferData transferData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await TransferAgentAsyncWithHttpInfo(mediatype, id, transferData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="transferData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TransferAgentAsyncWithHttpInfo (string mediatype, string id, TransferData transferData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->TransferAgent");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->TransferAgent");
+            // verify the required parameter 'transferData' is set
+            if (transferData == null)
+                throw new ApiException(400, "Missing required parameter 'transferData' when calling MediaApi->TransferAgent");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/transfer-agent";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (transferData != null && transferData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(transferData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = transferData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("TransferAgent", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse UpdateUserData (string mediatype, string id, UserData userData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = UpdateUserDataWithHttpInfo(mediatype, id, userData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > UpdateUserDataWithHttpInfo (string mediatype, string id, UserData userData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->UpdateUserData");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->UpdateUserData");
+            // verify the required parameter 'userData' is set
+            if (userData == null)
+                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->UpdateUserData");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/update-user-data";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (userData != null && userData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = userData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateUserData", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateUserDataAsync (string mediatype, string id, UserData userData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await UpdateUserDataAsyncWithHttpInfo(mediatype, id, userData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">media-type of interaction</param>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="userData">An array of key/value pairs.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->UpdateUserData");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->UpdateUserData");
+            // verify the required parameter 'userData' is set
+            if (userData == null)
+                throw new ApiException(400, "Missing required parameter 'userData' when calling MediaApi->UpdateUserData");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/update-user-data";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (userData != null && userData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(userData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = userData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateUserData", localVarResponse);
                 if (exception != null) throw exception;
             }
 
