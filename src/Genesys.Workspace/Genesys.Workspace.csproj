@@ -12,7 +12,7 @@ OpenAPI spec version: 1.0.0
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{75BB1C77-2429-4DFB-B80D-D86F66596403}</ProjectGuid>
+    <ProjectGuid>{DC94F60D-0E81-4D01-87CF-B36E47DBA1C1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Genesys.Workspace</RootNamespace>
@@ -52,6 +52,12 @@ OpenAPI spec version: 1.0.0
       <HintPath Condition="Exists('..\packages')">..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <HintPath Condition="Exists('..\..\packages')">..\..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
       <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="JsonSubTypes">
+      <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\JsonSubTypes.1.1.3\lib\net45\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('..\packages')">..\packages\JsonSubTypes.1.1.3\lib\net45\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('..\..\packages')">..\..\packages\JsonSubTypes.1.1.3\lib\net45\JsonSubTypes.dll</HintPath>
+      <HintPath Condition="Exists('..\..\vendor')">..\..\vendor\JsonSubTypes.1.1.3\lib\net45\JsonSubTypes.dll</HintPath>
     </Reference>
     <Reference Include="RestSharp">
         <HintPath Condition="Exists('$(SolutionDir)\packages')">$(SolutionDir)\packages\RestSharp.105.1.0\lib\net45\RestSharp.dll</HintPath>
