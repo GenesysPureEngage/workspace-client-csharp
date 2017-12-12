@@ -31,9 +31,9 @@ namespace Genesys.Workspace.Model
     public partial class ActivatechannelsData :  IEquatable<ActivatechannelsData>, IValidatableObject
     {
         /// <summary>
-        /// the agent workmode.
+        /// The workmode.
         /// </summary>
-        /// <value>the agent workmode.</value>
+        /// <value>The workmode.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AgentWorkModeEnum
         {
@@ -52,63 +52,72 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// the agent workmode.
+        /// The workmode.
         /// </summary>
-        /// <value>the agent workmode.</value>
+        /// <value>The workmode.</value>
         [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
         public AgentWorkModeEnum? AgentWorkMode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivatechannelsData" /> class.
         /// </summary>
-        /// <param name="AgentId">agentId (switch login code) that should be used to log the agent in.</param>
-        /// <param name="PlaceName">The name of the place that should be used to log the agent in. Either placeName or dn must be provided..</param>
-        /// <param name="Dn">The dn (number) that should be used to login the agent..</param>
-        /// <param name="QueueName">The queue name that should be used to login the agent..</param>
-        /// <param name="AgentWorkMode">the agent workmode..</param>
-        /// <param name="Channels">array of string that corresponding to the medias to login.</param>
-        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), List<string> Channels = default(List<string>))
+        /// <param name="AgentId">The unique ID of the agent..</param>
+        /// <param name="PlaceName">The name of the place to use for the agent. You must provide either the place name or DN..</param>
+        /// <param name="Dn">The DN (number) to use for the agent. You must provide either the place name or DN..</param>
+        /// <param name="QueueName">The queue name..</param>
+        /// <param name="AgentWorkMode">The workmode..</param>
+        /// <param name="DynamicPhoneNumber">An optional dynamic phone number to use for the agent..</param>
+        /// <param name="Channels">An array of strings that correspond to the channels you want to activate..</param>
+        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), string DynamicPhoneNumber = default(string), List<string> Channels = default(List<string>))
         {
             this.AgentId = AgentId;
             this.PlaceName = PlaceName;
             this.Dn = Dn;
             this.QueueName = QueueName;
             this.AgentWorkMode = AgentWorkMode;
+            this.DynamicPhoneNumber = DynamicPhoneNumber;
             this.Channels = Channels;
         }
         
         /// <summary>
-        /// agentId (switch login code) that should be used to log the agent in
+        /// The unique ID of the agent.
         /// </summary>
-        /// <value>agentId (switch login code) that should be used to log the agent in</value>
+        /// <value>The unique ID of the agent.</value>
         [DataMember(Name="agentId", EmitDefaultValue=false)]
         public string AgentId { get; set; }
 
         /// <summary>
-        /// The name of the place that should be used to log the agent in. Either placeName or dn must be provided.
+        /// The name of the place to use for the agent. You must provide either the place name or DN.
         /// </summary>
-        /// <value>The name of the place that should be used to log the agent in. Either placeName or dn must be provided.</value>
+        /// <value>The name of the place to use for the agent. You must provide either the place name or DN.</value>
         [DataMember(Name="placeName", EmitDefaultValue=false)]
         public string PlaceName { get; set; }
 
         /// <summary>
-        /// The dn (number) that should be used to login the agent.
+        /// The DN (number) to use for the agent. You must provide either the place name or DN.
         /// </summary>
-        /// <value>The dn (number) that should be used to login the agent.</value>
+        /// <value>The DN (number) to use for the agent. You must provide either the place name or DN.</value>
         [DataMember(Name="dn", EmitDefaultValue=false)]
         public string Dn { get; set; }
 
         /// <summary>
-        /// The queue name that should be used to login the agent.
+        /// The queue name.
         /// </summary>
-        /// <value>The queue name that should be used to login the agent.</value>
+        /// <value>The queue name.</value>
         [DataMember(Name="queueName", EmitDefaultValue=false)]
         public string QueueName { get; set; }
 
 
         /// <summary>
-        /// array of string that corresponding to the medias to login
+        /// An optional dynamic phone number to use for the agent.
         /// </summary>
-        /// <value>array of string that corresponding to the medias to login</value>
+        /// <value>An optional dynamic phone number to use for the agent.</value>
+        [DataMember(Name="dynamicPhoneNumber", EmitDefaultValue=false)]
+        public string DynamicPhoneNumber { get; set; }
+
+        /// <summary>
+        /// An array of strings that correspond to the channels you want to activate.
+        /// </summary>
+        /// <value>An array of strings that correspond to the channels you want to activate.</value>
         [DataMember(Name="channels", EmitDefaultValue=false)]
         public List<string> Channels { get; set; }
 
@@ -125,6 +134,7 @@ namespace Genesys.Workspace.Model
             sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  QueueName: ").Append(QueueName).Append("\n");
             sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
+            sb.Append("  DynamicPhoneNumber: ").Append(DynamicPhoneNumber).Append("\n");
             sb.Append("  Channels: ").Append(Channels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -186,6 +196,11 @@ namespace Genesys.Workspace.Model
                     this.AgentWorkMode.Equals(input.AgentWorkMode))
                 ) && 
                 (
+                    this.DynamicPhoneNumber == input.DynamicPhoneNumber ||
+                    (this.DynamicPhoneNumber != null &&
+                    this.DynamicPhoneNumber.Equals(input.DynamicPhoneNumber))
+                ) && 
+                (
                     this.Channels == input.Channels ||
                     this.Channels != null &&
                     this.Channels.SequenceEqual(input.Channels)
@@ -211,6 +226,8 @@ namespace Genesys.Workspace.Model
                     hashCode = hashCode * 59 + this.QueueName.GetHashCode();
                 if (this.AgentWorkMode != null)
                     hashCode = hashCode * 59 + this.AgentWorkMode.GetHashCode();
+                if (this.DynamicPhoneNumber != null)
+                    hashCode = hashCode * 59 + this.DynamicPhoneNumber.GetHashCode();
                 if (this.Channels != null)
                     hashCode = hashCode * 59 + this.Channels.GetHashCode();
                 return hashCode;

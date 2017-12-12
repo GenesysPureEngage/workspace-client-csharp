@@ -38,9 +38,9 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidmergeData" /> class.
         /// </summary>
-        /// <param name="OtherConnId">Connection id of the other call to merge with (required).</param>
-        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        /// <param name="OtherConnId">The connection ID of the second call to be merged. (required).</param>
+        /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
+        /// <param name="Extensions">A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
         public VoicecallsidmergeData(string OtherConnId = default(string), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             // to ensure "OtherConnId" is required (not null)
@@ -57,23 +57,23 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Connection id of the other call to merge with
+        /// The connection ID of the second call to be merged.
         /// </summary>
-        /// <value>Connection id of the other call to merge with</value>
+        /// <value>The connection ID of the second call to be merged.</value>
         [DataMember(Name="otherConnId", EmitDefaultValue=false)]
         public string OtherConnId { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        /// <value>A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
 

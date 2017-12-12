@@ -36,10 +36,10 @@ namespace Genesys.Workspace.Model
         /// <param name="Name">Name.</param>
         /// <param name="State">State.</param>
         /// <param name="Dnd">Dnd.</param>
-        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with the state..</param>
+        /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
         /// <param name="Interactions">Interactions.</param>
         /// <param name="Capabilities">Capabilities.</param>
-        public OpenMediaChannel(string Name = default(string), string State = default(string), bool? Dnd = default(bool?), List<Kvpair> Reasons = default(List<Kvpair>), List<string> Interactions = default(List<string>), List<string> Capabilities = default(List<string>))
+        public OpenMediaChannel(string Name = default(string), string State = default(string), bool? Dnd = default(bool?), List<Kvpair> Reasons = default(List<Kvpair>), List<Object> Interactions = default(List<Object>), List<string> Capabilities = default(List<string>))
         {
             this.Name = Name;
             this.State = State;
@@ -68,9 +68,9 @@ namespace Genesys.Workspace.Model
         public bool? Dnd { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with the state.
+        /// A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with the state.</value>
+        /// <value>A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
 
@@ -78,7 +78,7 @@ namespace Genesys.Workspace.Model
         /// Gets or Sets Interactions
         /// </summary>
         [DataMember(Name="interactions", EmitDefaultValue=false)]
-        public List<string> Interactions { get; set; }
+        public List<Object> Interactions { get; set; }
 
         /// <summary>
         /// Gets or Sets Capabilities

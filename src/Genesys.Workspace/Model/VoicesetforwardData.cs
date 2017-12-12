@@ -38,7 +38,7 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicesetforwardData" /> class.
         /// </summary>
-        /// <param name="ForwardTo">ForwardTo (required).</param>
+        /// <param name="ForwardTo">The number where Workspace should forward calls. (required).</param>
         public VoicesetforwardData(string ForwardTo = default(string))
         {
             // to ensure "ForwardTo" is required (not null)
@@ -53,8 +53,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets ForwardTo
+        /// The number where Workspace should forward calls.
         /// </summary>
+        /// <value>The number where Workspace should forward calls.</value>
         [DataMember(Name="forwardTo", EmitDefaultValue=false)]
         public string ForwardTo { get; set; }
 

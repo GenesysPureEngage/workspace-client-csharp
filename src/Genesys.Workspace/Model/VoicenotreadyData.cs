@@ -31,9 +31,9 @@ namespace Genesys.Workspace.Model
     public partial class VoicenotreadyData :  IEquatable<VoicenotreadyData>, IValidatableObject
     {
         /// <summary>
-        /// the agent workmode.
+        /// The agent workmode.
         /// </summary>
-        /// <value>the agent workmode.</value>
+        /// <value>The agent workmode.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AgentWorkModeEnum
         {
@@ -70,18 +70,18 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// the agent workmode.
+        /// The agent workmode.
         /// </summary>
-        /// <value>the agent workmode.</value>
+        /// <value>The agent workmode.</value>
         [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
         public AgentWorkModeEnum? AgentWorkMode { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicenotreadyData" /> class.
         /// </summary>
-        /// <param name="ReasonCode">the reason code.</param>
-        /// <param name="AgentWorkMode">the agent workmode..</param>
-        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        /// <param name="ReasonCode">The reason code representing why the agent is not ready. These codes are a business-defined set of categories, such as \&quot;Lunch\&quot; or \&quot;Training\&quot;..</param>
+        /// <param name="AgentWorkMode">The agent workmode..</param>
+        /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
+        /// <param name="Extensions">A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
         public VoicenotreadyData(string ReasonCode = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             this.ReasonCode = ReasonCode;
@@ -91,24 +91,24 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// the reason code
+        /// The reason code representing why the agent is not ready. These codes are a business-defined set of categories, such as \&quot;Lunch\&quot; or \&quot;Training\&quot;.
         /// </summary>
-        /// <value>the reason code</value>
+        /// <value>The reason code representing why the agent is not ready. These codes are a business-defined set of categories, such as \&quot;Lunch\&quot; or \&quot;Training\&quot;.</value>
         [DataMember(Name="reasonCode", EmitDefaultValue=false)]
         public string ReasonCode { get; set; }
 
 
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        /// <value>A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
 

@@ -21,398 +21,370 @@ namespace Genesys.Workspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface ITargetsApi : IApiAccessor
+    public interface IStandardResponsesApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Acknowledge missed calls.
+        /// Add a Standard Response to Favorites
         /// </summary>
         /// <remarks>
-        /// Acknowledge missed calls in the list of recent targets.
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse AddStandardResponseFavorite (string id);
+
+        /// <summary>
+        /// Add a Standard Response to Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> AddStandardResponseFavoriteWithHttpInfo (string id);
+        /// <summary>
+        /// Remove a Standard Response from Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse DeleteStandardResponseFavorite (string id);
+
+        /// <summary>
+        /// Remove a Standard Response from Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> DeleteStandardResponseFavoriteWithHttpInfo (string id);
+        /// <summary>
+        /// Get the details of a Category.
+        /// </summary>
+        /// <remarks>
+        /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse GetCategory (string id, GetCategoryData getCategoryData);
+
+        /// <summary>
+        /// Get the details of a Category.
+        /// </summary>
+        /// <remarks>
+        /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> GetCategoryWithHttpInfo (string id, GetCategoryData getCategoryData);
+        /// <summary>
+        /// Get all Root categories.
+        /// </summary>
+        /// <remarks>
+        /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AckRecentMissedCalls ();
+        ApiSuccessResponse GetRootCategories ();
 
         /// <summary>
-        /// Acknowledge missed calls.
+        /// Get all Root categories.
         /// </summary>
         /// <remarks>
-        /// Acknowledge missed calls in the list of recent targets.
+        /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AckRecentMissedCallsWithHttpInfo ();
+        ApiResponse<ApiSuccessResponse> GetRootCategoriesWithHttpInfo ();
         /// <summary>
-        /// Add a target.
+        /// Get the details of a Standard Response.
         /// </summary>
         /// <remarks>
-        /// Add a target that the agent recently used.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AddRecentTarget (RecentTargetData recentTargetData);
+        ApiSuccessResponse GetStandardResponse (string id, GetStandardResponseData getStandardResponseData);
 
         /// <summary>
-        /// Add a target.
+        /// Get the details of a Standard Response.
         /// </summary>
         /// <remarks>
-        /// Add a target that the agent recently used.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData);
+        ApiResponse<ApiSuccessResponse> GetStandardResponseWithHttpInfo (string id, GetStandardResponseData getStandardResponseData);
         /// <summary>
-        /// Delete a target.
+        /// Get the attachment of the Standard Response
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// Get the attachment of the Standard Response specified in the documentId path parameter
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>string</returns>
+        string GetStandardResponseAttachment (string id, string documentId);
+
+        /// <summary>
+        /// Get the attachment of the Standard Response
+        /// </summary>
+        /// <remarks>
+        /// Get the attachment of the Standard Response specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GetStandardResponseAttachmentWithHttpInfo (string id, string documentId);
+        /// <summary>
+        /// Get Standard Response Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse DeletePersonalFavorite (string id, string type);
+        ApiSuccessResponse GetStandardResponseFavorites ();
 
         /// <summary>
-        /// Delete a target.
+        /// Get Standard Response Favorites
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> DeletePersonalFavoriteWithHttpInfo (string id, string type);
+        ApiResponse<ApiSuccessResponse> GetStandardResponseFavoritesWithHttpInfo ();
         /// <summary>
-        /// Search for targets.
+        /// Replaces generic field codes of the Standard Response content with their actual values.
         /// </summary>
         /// <remarks>
-        /// Search for targets by the specified search term.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-
-        /// <summary>
-        /// Search for targets.
-        /// </summary>
-        /// <remarks>
-        /// Search for targets by the specified search term.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-        /// <summary>
-        /// Return personal favorites.
-        /// </summary>
-        /// <remarks>
-        /// Return the agent&#39;s personal favorites.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        TargetsResponse GetPersonalFavorites (decimal? limit = null);
-
-        /// <summary>
-        /// Return personal favorites.
-        /// </summary>
-        /// <remarks>
-        /// Return the agent&#39;s personal favorites.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetPersonalFavoritesWithHttpInfo (decimal? limit = null);
-        /// <summary>
-        /// Get recently used targets.
-        /// </summary>
-        /// <remarks>
-        /// Get recently used targets for the current agent.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        TargetsResponse GetRecentTargets (decimal? limit = null);
-
-        /// <summary>
-        /// Get recently used targets.
-        /// </summary>
-        /// <remarks>
-        /// Get recently used targets for the current agent.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetRecentTargetsWithHttpInfo (decimal? limit = null);
-        /// <summary>
-        /// Get a target.
-        /// </summary>
-        /// <remarks>
-        /// Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>TargetsResponse</returns>
-        TargetsResponse GetTarget (decimal? id, string type);
-
-        /// <summary>
-        /// Get a target.
-        /// </summary>
-        /// <remarks>
-        /// Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetTargetWithHttpInfo (decimal? id, string type);
-        /// <summary>
-        /// Save a personal favorite.
-        /// </summary>
-        /// <remarks>
-        /// Save a target to the agent&#39;s personal favorites in the specified category.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SavePersonalFavorite (PersonalFavoriteData personalFavoriteData);
+        ApiSuccessResponse RenderFieldCodes (string id, RenderFieldCodesData renderFieldCodesData);
 
         /// <summary>
-        /// Save a personal favorite.
+        /// Replaces generic field codes of the Standard Response content with their actual values.
         /// </summary>
         /// <remarks>
-        /// Save a target to the agent&#39;s personal favorites in the specified category.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SavePersonalFavoriteWithHttpInfo (PersonalFavoriteData personalFavoriteData);
+        ApiResponse<ApiSuccessResponse> RenderFieldCodesWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Acknowledge missed calls.
+        /// Add a Standard Response to Favorites
         /// </summary>
         /// <remarks>
-        /// Acknowledge missed calls in the list of recent targets.
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> AddStandardResponseFavoriteAsync (string id);
+
+        /// <summary>
+        /// Add a Standard Response to Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddStandardResponseFavoriteAsyncWithHttpInfo (string id);
+        /// <summary>
+        /// Remove a Standard Response from Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> DeleteStandardResponseFavoriteAsync (string id);
+
+        /// <summary>
+        /// Remove a Standard Response from Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteStandardResponseFavoriteAsyncWithHttpInfo (string id);
+        /// <summary>
+        /// Get the details of a Category.
+        /// </summary>
+        /// <remarks>
+        /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetCategoryAsync (string id, GetCategoryData getCategoryData);
+
+        /// <summary>
+        /// Get the details of a Category.
+        /// </summary>
+        /// <remarks>
+        /// Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetCategoryAsyncWithHttpInfo (string id, GetCategoryData getCategoryData);
+        /// <summary>
+        /// Get all Root categories.
+        /// </summary>
+        /// <remarks>
+        /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AckRecentMissedCallsAsync ();
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync ();
 
         /// <summary>
-        /// Acknowledge missed calls.
+        /// Get all Root categories.
         /// </summary>
         /// <remarks>
-        /// Acknowledge missed calls in the list of recent targets.
+        /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AckRecentMissedCallsAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo ();
         /// <summary>
-        /// Add a target.
+        /// Get the details of a Standard Response.
         /// </summary>
         /// <remarks>
-        /// Add a target that the agent recently used.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (RecentTargetData recentTargetData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetStandardResponseAsync (string id, GetStandardResponseData getStandardResponseData);
 
         /// <summary>
-        /// Add a target.
+        /// Get the details of a Standard Response.
         /// </summary>
         /// <remarks>
-        /// Add a target that the agent recently used.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetStandardResponseAsyncWithHttpInfo (string id, GetStandardResponseData getStandardResponseData);
         /// <summary>
-        /// Delete a target.
+        /// Get the attachment of the Standard Response
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// Get the attachment of the Standard Response specified in the documentId path parameter
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GetStandardResponseAttachmentAsync (string id, string documentId);
+
+        /// <summary>
+        /// Get the attachment of the Standard Response
+        /// </summary>
+        /// <remarks>
+        /// Get the attachment of the Standard Response specified in the documentId path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GetStandardResponseAttachmentAsyncWithHttpInfo (string id, string documentId);
+        /// <summary>
+        /// Get Standard Response Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (string id, string type);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetStandardResponseFavoritesAsync ();
 
         /// <summary>
-        /// Delete a target.
+        /// Get Standard Response Favorites
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (string id, string type);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetStandardResponseFavoritesAsyncWithHttpInfo ();
         /// <summary>
-        /// Search for targets.
+        /// Replaces generic field codes of the Standard Response content with their actual values.
         /// </summary>
         /// <remarks>
-        /// Search for targets by the specified search term.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-
-        /// <summary>
-        /// Search for targets.
-        /// </summary>
-        /// <remarks>
-        /// Search for targets by the specified search term.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-        /// <summary>
-        /// Return personal favorites.
-        /// </summary>
-        /// <remarks>
-        /// Return the agent&#39;s personal favorites.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null);
-
-        /// <summary>
-        /// Return personal favorites.
-        /// </summary>
-        /// <remarks>
-        /// Return the agent&#39;s personal favorites.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetPersonalFavoritesAsyncWithHttpInfo (decimal? limit = null);
-        /// <summary>
-        /// Get recently used targets.
-        /// </summary>
-        /// <remarks>
-        /// Get recently used targets for the current agent.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetRecentTargetsAsync (decimal? limit = null);
-
-        /// <summary>
-        /// Get recently used targets.
-        /// </summary>
-        /// <remarks>
-        /// Get recently used targets for the current agent.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null);
-        /// <summary>
-        /// Get a target.
-        /// </summary>
-        /// <remarks>
-        /// Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetTargetAsync (decimal? id, string type);
-
-        /// <summary>
-        /// Get a target.
-        /// </summary>
-        /// <remarks>
-        /// Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type);
-        /// <summary>
-        /// Save a personal favorite.
-        /// </summary>
-        /// <remarks>
-        /// Save a target to the agent&#39;s personal favorites in the specified category.
-        /// </remarks>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SavePersonalFavoriteAsync (PersonalFavoriteData personalFavoriteData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> RenderFieldCodesAsync (string id, RenderFieldCodesData renderFieldCodesData);
 
         /// <summary>
-        /// Save a personal favorite.
+        /// Replaces generic field codes of the Standard Response content with their actual values.
         /// </summary>
         /// <remarks>
-        /// Save a target to the agent&#39;s personal favorites in the specified category.
+        /// 
         /// </remarks>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SavePersonalFavoriteAsyncWithHttpInfo (PersonalFavoriteData personalFavoriteData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RenderFieldCodesAsyncWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class TargetsApi : ITargetsApi
+    public partial class StandardResponsesApi : IStandardResponsesApi
     {
         private Genesys.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetsApi"/> class.
+        /// Initializes a new instance of the <see cref="StandardResponsesApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public TargetsApi(String basePath)
+        public StandardResponsesApi(String basePath)
         {
             this.Configuration = new Configuration { BasePath = basePath };
 
@@ -420,12 +392,12 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetsApi"/> class
+        /// Initializes a new instance of the <see cref="StandardResponsesApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public TargetsApi(Configuration configuration = null)
+        public StandardResponsesApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Configuration.Default;
@@ -499,307 +471,30 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Acknowledge missed calls. Acknowledge missed calls in the list of recent targets.
+        /// Add a Standard Response to Favorites 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AckRecentMissedCalls ()
+        public ApiSuccessResponse AddStandardResponseFavorite (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AckRecentMissedCallsWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = AddStandardResponseFavoriteWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Acknowledge missed calls. Acknowledge missed calls in the list of recent targets.
+        /// Add a Standard Response to Favorites 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AckRecentMissedCallsWithHttpInfo ()
-        {
-
-            var localVarPath = "/targets/recents/ack-missed-calls";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AckRecentMissedCalls", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Acknowledge missed calls. Acknowledge missed calls in the list of recent targets.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AckRecentMissedCallsAsync ()
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AckRecentMissedCallsAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Acknowledge missed calls. Acknowledge missed calls in the list of recent targets.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AckRecentMissedCallsAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "/targets/recents/ack-missed-calls";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AckRecentMissedCalls", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Add a target. Add a target that the agent recently used.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AddRecentTarget (RecentTargetData recentTargetData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AddRecentTargetWithHttpInfo(recentTargetData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Add a target. Add a target that the agent recently used.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AddRecentTargetWithHttpInfo (RecentTargetData recentTargetData)
-        {
-            // verify the required parameter 'recentTargetData' is set
-            if (recentTargetData == null)
-                throw new ApiException(400, "Missing required parameter 'recentTargetData' when calling TargetsApi->AddRecentTarget");
-
-            var localVarPath = "/targets/recents/add";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (recentTargetData != null && recentTargetData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(recentTargetData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = recentTargetData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddRecentTarget", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Add a target. Add a target that the agent recently used.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddRecentTargetAsync (RecentTargetData recentTargetData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AddRecentTargetAsyncWithHttpInfo(recentTargetData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Add a target. Add a target that the agent recently used.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="recentTargetData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddRecentTargetAsyncWithHttpInfo (RecentTargetData recentTargetData)
-        {
-            // verify the required parameter 'recentTargetData' is set
-            if (recentTargetData == null)
-                throw new ApiException(400, "Missing required parameter 'recentTargetData' when calling TargetsApi->AddRecentTarget");
-
-            var localVarPath = "/targets/recents/add";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (recentTargetData != null && recentTargetData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(recentTargetData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = recentTargetData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddRecentTarget", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse DeletePersonalFavorite (string id, string type)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = DeletePersonalFavoriteWithHttpInfo(id, type);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > DeletePersonalFavoriteWithHttpInfo (string id, string type)
+        public ApiResponse< ApiSuccessResponse > AddStandardResponseFavoriteWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling TargetsApi->DeletePersonalFavorite");
-            // verify the required parameter 'type' is set
-            if (type == null)
-                throw new ApiException(400, "Missing required parameter 'type' when calling TargetsApi->DeletePersonalFavorite");
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->AddStandardResponseFavorite");
 
-            var localVarPath = "/targets/personal-favorites/delete/{type}/{id}";
+            var localVarPath = "/ucs/responses/{id}/add-to-favorites";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -822,7 +517,6 @@ namespace Genesys.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
 
 
             // make the HTTP request
@@ -834,7 +528,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeletePersonalFavorite", localVarResponse);
+                Exception exception = ExceptionFactory("AddStandardResponseFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -844,36 +538,31 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
+        /// Add a Standard Response to Favorites 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeletePersonalFavoriteAsync (string id, string type)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddStandardResponseFavoriteAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await DeletePersonalFavoriteAsyncWithHttpInfo(id, type);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AddStandardResponseFavoriteAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
+        /// Add a Standard Response to Favorites 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target.</param>
+        /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (string id, string type)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddStandardResponseFavoriteAsyncWithHttpInfo (string id)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling TargetsApi->DeletePersonalFavorite");
-            // verify the required parameter 'type' is set
-            if (type == null)
-                throw new ApiException(400, "Missing required parameter 'type' when calling TargetsApi->DeletePersonalFavorite");
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->AddStandardResponseFavorite");
 
-            var localVarPath = "/targets/personal-favorites/delete/{type}/{id}";
+            var localVarPath = "/ucs/responses/{id}/add-to-favorites";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -896,7 +585,6 @@ namespace Genesys.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
 
 
             // make the HTTP request
@@ -908,7 +596,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeletePersonalFavorite", localVarResponse);
+                Exception exception = ExceptionFactory("AddStandardResponseFavorite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -918,618 +606,30 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
+        /// Remove a Standard Response from Favorites 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        public TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-            // verify the required parameter 'searchTerm' is set
-            if (searchTerm == null)
-                throw new ApiException(400, "Missing required parameter 'searchTerm' when calling TargetsApi->Get");
-
-            var localVarPath = "/targets";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
-            if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
-            if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
-            if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
-            if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
-            if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (matchType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "matchType", matchType)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Get", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-            // verify the required parameter 'searchTerm' is set
-            if (searchTerm == null)
-                throw new ApiException(400, "Missing required parameter 'searchTerm' when calling TargetsApi->Get");
-
-            var localVarPath = "/targets";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
-            if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
-            if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
-            if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
-            if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
-            if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (matchType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "matchType", matchType)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Get", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        public TargetsResponse GetPersonalFavorites (decimal? limit = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = GetPersonalFavoritesWithHttpInfo(limit);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetPersonalFavoritesWithHttpInfo (decimal? limit = null)
-        {
-
-            var localVarPath = "/targets/personal-favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetPersonalFavorites", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = await GetPersonalFavoritesAsyncWithHttpInfo(limit);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetPersonalFavoritesAsyncWithHttpInfo (decimal? limit = null)
-        {
-
-            var localVarPath = "/targets/personal-favorites";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetPersonalFavorites", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Get recently used targets. Get recently used targets for the current agent.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        public TargetsResponse GetRecentTargets (decimal? limit = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = GetRecentTargetsWithHttpInfo(limit);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get recently used targets. Get recently used targets for the current agent.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetRecentTargetsWithHttpInfo (decimal? limit = null)
-        {
-
-            var localVarPath = "/targets/recents";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetRecentTargets", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Get recently used targets. Get recently used targets for the current agent.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetRecentTargetsAsync (decimal? limit = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = await GetRecentTargetsAsyncWithHttpInfo(limit);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get recently used targets. Get recently used targets for the current agent.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetRecentTargetsAsyncWithHttpInfo (decimal? limit = null)
-        {
-
-            var localVarPath = "/targets/recents";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetRecentTargets", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Get a target. Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>TargetsResponse</returns>
-        public TargetsResponse GetTarget (decimal? id, string type)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = GetTargetWithHttpInfo(id, type);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get a target. Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetTargetWithHttpInfo (decimal? id, string type)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling TargetsApi->GetTarget");
-            // verify the required parameter 'type' is set
-            if (type == null)
-                throw new ApiException(400, "Missing required parameter 'type' when calling TargetsApi->GetTarget");
-
-            var localVarPath = "/targets/{type}/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetTarget", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Get a target. Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetTargetAsync (decimal? id, string type)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = await GetTargetAsyncWithHttpInfo(id, type);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get a target. Get a specific target by type and ID. Targets can be agents, agent groups, queues, route points, skills, and custom contacts.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">The ID of the target.</param>
-        /// <param name="type">The type of target to retrieve.</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling TargetsApi->GetTarget");
-            // verify the required parameter 'type' is set
-            if (type == null)
-                throw new ApiException(400, "Missing required parameter 'type' when calling TargetsApi->GetTarget");
-
-            var localVarPath = "/targets/{type}/{id}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (type != null) localVarPathParams.Add("type", Configuration.ApiClient.ParameterToString(type)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetTarget", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Save a personal favorite. Save a target to the agent&#39;s personal favorites in the specified category.
-        /// </summary>
-        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SavePersonalFavorite (PersonalFavoriteData personalFavoriteData)
+        public ApiSuccessResponse DeleteStandardResponseFavorite (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SavePersonalFavoriteWithHttpInfo(personalFavoriteData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = DeleteStandardResponseFavoriteWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Save a personal favorite. Save a target to the agent&#39;s personal favorites in the specified category.
+        /// Remove a Standard Response from Favorites 
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SavePersonalFavoriteWithHttpInfo (PersonalFavoriteData personalFavoriteData)
+        public ApiResponse< ApiSuccessResponse > DeleteStandardResponseFavoriteWithHttpInfo (string id)
         {
-            // verify the required parameter 'personalFavoriteData' is set
-            if (personalFavoriteData == null)
-                throw new ApiException(400, "Missing required parameter 'personalFavoriteData' when calling TargetsApi->SavePersonalFavorite");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->DeleteStandardResponseFavorite");
 
-            var localVarPath = "/targets/personal-favorites/save";
+            var localVarPath = "/ucs/responses/{id}/remove-from-favorites";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1551,13 +651,154 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (personalFavoriteData != null && personalFavoriteData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(personalFavoriteData); // http body (model) parameter
+                Exception exception = ExceptionFactory("DeleteStandardResponseFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Remove a Standard Response from Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteStandardResponseFavoriteAsync (string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await DeleteStandardResponseFavoriteAsyncWithHttpInfo(id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Remove a Standard Response from Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response to remove from Favorites</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteStandardResponseFavoriteAsyncWithHttpInfo (string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->DeleteStandardResponseFavorite");
+
+            var localVarPath = "/ucs/responses/{id}/remove-from-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteStandardResponseFavorite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse GetCategory (string id, GetCategoryData getCategoryData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetCategoryWithHttpInfo(id, getCategoryData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > GetCategoryWithHttpInfo (string id, GetCategoryData getCategoryData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetCategory");
+            // verify the required parameter 'getCategoryData' is set
+            if (getCategoryData == null)
+                throw new ApiException(400, "Missing required parameter 'getCategoryData' when calling StandardResponsesApi->GetCategory");
+
+            var localVarPath = "/ucs/responses/categories/{id}/get-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (getCategoryData != null && getCategoryData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(getCategoryData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = personalFavoriteData; // byte array
+                localVarPostBody = getCategoryData; // byte array
             }
 
 
@@ -1570,7 +811,7 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SavePersonalFavorite", localVarResponse);
+                Exception exception = ExceptionFactory("GetCategory", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1580,31 +821,36 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Save a personal favorite. Save a target to the agent&#39;s personal favorites in the specified category.
+        /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SavePersonalFavoriteAsync (PersonalFavoriteData personalFavoriteData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetCategoryAsync (string id, GetCategoryData getCategoryData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SavePersonalFavoriteAsyncWithHttpInfo(personalFavoriteData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetCategoryAsyncWithHttpInfo(id, getCategoryData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Save a personal favorite. Save a target to the agent&#39;s personal favorites in the specified category.
+        /// Get the details of a Category. Get details of a Category including category sub tree. Only &#39;id&#39;, &#39;standardResponseId&#39;, and &#39;name&#39; attributes are returned for each Standard Response.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="personalFavoriteData"></param>
+        /// <param name="id">id of the Category</param>
+        /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SavePersonalFavoriteAsyncWithHttpInfo (PersonalFavoriteData personalFavoriteData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetCategoryAsyncWithHttpInfo (string id, GetCategoryData getCategoryData)
         {
-            // verify the required parameter 'personalFavoriteData' is set
-            if (personalFavoriteData == null)
-                throw new ApiException(400, "Missing required parameter 'personalFavoriteData' when calling TargetsApi->SavePersonalFavorite");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetCategory");
+            // verify the required parameter 'getCategoryData' is set
+            if (getCategoryData == null)
+                throw new ApiException(400, "Missing required parameter 'getCategoryData' when calling StandardResponsesApi->GetCategory");
 
-            var localVarPath = "/targets/personal-favorites/save";
+            var localVarPath = "/ucs/responses/categories/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1626,13 +872,14 @@ namespace Genesys.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (personalFavoriteData != null && personalFavoriteData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (getCategoryData != null && getCategoryData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(personalFavoriteData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(getCategoryData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = personalFavoriteData; // byte array
+                localVarPostBody = getCategoryData; // byte array
             }
 
 
@@ -1645,7 +892,722 @@ namespace Genesys.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SavePersonalFavorite", localVarResponse);
+                Exception exception = ExceptionFactory("GetCategory", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get all Root categories. Get all Root Categories information.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse GetRootCategories ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetRootCategoriesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get all Root categories. Get all Root Categories information.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > GetRootCategoriesWithHttpInfo ()
+        {
+
+            var localVarPath = "/ucs/responses/categories/get-root";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRootCategories", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get all Root categories. Get all Root Categories information.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetRootCategoriesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get all Root categories. Get all Root Categories information.
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/ucs/responses/categories/get-root";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetRootCategories", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get the details of a Standard Response. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse GetStandardResponse (string id, GetStandardResponseData getStandardResponseData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetStandardResponseWithHttpInfo(id, getStandardResponseData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the details of a Standard Response. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > GetStandardResponseWithHttpInfo (string id, GetStandardResponseData getStandardResponseData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetStandardResponse");
+            // verify the required parameter 'getStandardResponseData' is set
+            if (getStandardResponseData == null)
+                throw new ApiException(400, "Missing required parameter 'getStandardResponseData' when calling StandardResponsesApi->GetStandardResponse");
+
+            var localVarPath = "/ucs/responses/{id}/get-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (getStandardResponseData != null && getStandardResponseData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(getStandardResponseData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = getStandardResponseData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStandardResponse", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get the details of a Standard Response. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetStandardResponseAsync (string id, GetStandardResponseData getStandardResponseData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetStandardResponseAsyncWithHttpInfo(id, getStandardResponseData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the details of a Standard Response. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="getStandardResponseData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetStandardResponseAsyncWithHttpInfo (string id, GetStandardResponseData getStandardResponseData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetStandardResponse");
+            // verify the required parameter 'getStandardResponseData' is set
+            if (getStandardResponseData == null)
+                throw new ApiException(400, "Missing required parameter 'getStandardResponseData' when calling StandardResponsesApi->GetStandardResponse");
+
+            var localVarPath = "/ucs/responses/{id}/get-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (getStandardResponseData != null && getStandardResponseData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(getStandardResponseData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = getStandardResponseData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStandardResponse", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get the attachment of the Standard Response Get the attachment of the Standard Response specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>string</returns>
+        public string GetStandardResponseAttachment (string id, string documentId)
+        {
+             ApiResponse<string> localVarResponse = GetStandardResponseAttachmentWithHttpInfo(id, documentId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get the attachment of the Standard Response Get the attachment of the Standard Response specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>ApiResponse of string</returns>
+        public ApiResponse< string > GetStandardResponseAttachmentWithHttpInfo (string id, string documentId)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetStandardResponseAttachment");
+            // verify the required parameter 'documentId' is set
+            if (documentId == null)
+                throw new ApiException(400, "Missing required parameter 'documentId' when calling StandardResponsesApi->GetStandardResponseAttachment");
+
+            var localVarPath = "/ucs/responses/{id}/attachments/{documentId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (documentId != null) localVarPathParams.Add("documentId", Configuration.ApiClient.ParameterToString(documentId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStandardResponseAttachment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Get the attachment of the Standard Response Get the attachment of the Standard Response specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GetStandardResponseAttachmentAsync (string id, string documentId)
+        {
+             ApiResponse<string> localVarResponse = await GetStandardResponseAttachmentAsyncWithHttpInfo(id, documentId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get the attachment of the Standard Response Get the attachment of the Standard Response specified in the documentId path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="documentId">id of document to get</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<string>> GetStandardResponseAttachmentAsyncWithHttpInfo (string id, string documentId)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetStandardResponseAttachment");
+            // verify the required parameter 'documentId' is set
+            if (documentId == null)
+                throw new ApiException(400, "Missing required parameter 'documentId' when calling StandardResponsesApi->GetStandardResponseAttachment");
+
+            var localVarPath = "/ucs/responses/{id}/attachments/{documentId}";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/octet-stream"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (documentId != null) localVarPathParams.Add("documentId", Configuration.ApiClient.ParameterToString(documentId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStandardResponseAttachment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<string>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (string) Configuration.ApiClient.Deserialize(localVarResponse, typeof(string)));
+        }
+
+        /// <summary>
+        /// Get Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse GetStandardResponseFavorites ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetStandardResponseFavoritesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > GetStandardResponseFavoritesWithHttpInfo ()
+        {
+
+            var localVarPath = "/ucs/responses/get-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStandardResponseFavorites", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetStandardResponseFavoritesAsync ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetStandardResponseFavoritesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetStandardResponseFavoritesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/ucs/responses/get-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetStandardResponseFavorites", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Replaces generic field codes of the Standard Response content with their actual values. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse RenderFieldCodes (string id, RenderFieldCodesData renderFieldCodesData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = RenderFieldCodesWithHttpInfo(id, renderFieldCodesData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Replaces generic field codes of the Standard Response content with their actual values. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > RenderFieldCodesWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->RenderFieldCodes");
+            // verify the required parameter 'renderFieldCodesData' is set
+            if (renderFieldCodesData == null)
+                throw new ApiException(400, "Missing required parameter 'renderFieldCodesData' when calling StandardResponsesApi->RenderFieldCodes");
+
+            var localVarPath = "/ucs/responses/{id}/render-field-codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (renderFieldCodesData != null && renderFieldCodesData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(renderFieldCodesData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = renderFieldCodesData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderFieldCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Replaces generic field codes of the Standard Response content with their actual values. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RenderFieldCodesAsync (string id, RenderFieldCodesData renderFieldCodesData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RenderFieldCodesAsyncWithHttpInfo(id, renderFieldCodesData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Replaces generic field codes of the Standard Response content with their actual values. 
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="renderFieldCodesData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RenderFieldCodesAsyncWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->RenderFieldCodes");
+            // verify the required parameter 'renderFieldCodesData' is set
+            if (renderFieldCodesData == null)
+                throw new ApiException(400, "Missing required parameter 'renderFieldCodesData' when calling StandardResponsesApi->RenderFieldCodes");
+
+            var localVarPath = "/ucs/responses/{id}/render-field-codes";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (renderFieldCodesData != null && renderFieldCodesData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(renderFieldCodesData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = renderFieldCodesData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("RenderFieldCodes", localVarResponse);
                 if (exception != null) throw exception;
             }
 

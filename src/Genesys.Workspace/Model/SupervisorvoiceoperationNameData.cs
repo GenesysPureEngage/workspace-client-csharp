@@ -25,39 +25,56 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicestopmonitoringData
+    /// SupervisorvoiceoperationNameData
     /// </summary>
     [DataContract]
-    public partial class VoicestopmonitoringData :  IEquatable<VoicestopmonitoringData>, IValidatableObject
+    public partial class SupervisorvoiceoperationNameData :  IEquatable<SupervisorvoiceoperationNameData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="SupervisorvoiceoperationNameData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VoicestopmonitoringData() { }
+        protected SupervisorvoiceoperationNameData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="SupervisorvoiceoperationNameData" /> class.
         /// </summary>
-        /// <param name="PhoneNumber">The phone number currently being monitored. (required).</param>
-        public VoicestopmonitoringData(string PhoneNumber = default(string))
+        /// <param name="UserName">userName of the user to logout (required).</param>
+        /// <param name="Dn">DN of the user to logout (required).</param>
+        public SupervisorvoiceoperationNameData(string UserName = default(string), string Dn = default(string))
         {
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
+            // to ensure "UserName" is required (not null)
+            if (UserName == null)
             {
-                throw new InvalidDataException("PhoneNumber is a required property for VoicestopmonitoringData and cannot be null");
+                throw new InvalidDataException("UserName is a required property for SupervisorvoiceoperationNameData and cannot be null");
             }
             else
             {
-                this.PhoneNumber = PhoneNumber;
+                this.UserName = UserName;
+            }
+            // to ensure "Dn" is required (not null)
+            if (Dn == null)
+            {
+                throw new InvalidDataException("Dn is a required property for SupervisorvoiceoperationNameData and cannot be null");
+            }
+            else
+            {
+                this.Dn = Dn;
             }
         }
         
         /// <summary>
-        /// The phone number currently being monitored.
+        /// userName of the user to logout
         /// </summary>
-        /// <value>The phone number currently being monitored.</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
+        /// <value>userName of the user to logout</value>
+        [DataMember(Name="userName", EmitDefaultValue=false)]
+        public string UserName { get; set; }
+
+        /// <summary>
+        /// DN of the user to logout
+        /// </summary>
+        /// <value>DN of the user to logout</value>
+        [DataMember(Name="dn", EmitDefaultValue=false)]
+        public string Dn { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +83,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicestopmonitoringData {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("class SupervisorvoiceoperationNameData {\n");
+            sb.Append("  UserName: ").Append(UserName).Append("\n");
+            sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +106,29 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VoicestopmonitoringData);
+            return this.Equals(input as SupervisorvoiceoperationNameData);
         }
 
         /// <summary>
-        /// Returns true if VoicestopmonitoringData instances are equal
+        /// Returns true if SupervisorvoiceoperationNameData instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of SupervisorvoiceoperationNameData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData input)
+        public bool Equals(SupervisorvoiceoperationNameData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
+                ) && 
+                (
+                    this.Dn == input.Dn ||
+                    (this.Dn != null &&
+                    this.Dn.Equals(input.Dn))
                 );
         }
 
@@ -118,8 +141,10 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.UserName != null)
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                if (this.Dn != null)
+                    hashCode = hashCode * 59 + this.Dn.GetHashCode();
                 return hashCode;
             }
         }

@@ -38,11 +38,11 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidsinglesteptransferData" /> class.
         /// </summary>
-        /// <param name="Destination">The number to transfer the call to. (required).</param>
-        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
-        /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
-        /// <param name="Reasons">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="Extensions">A key/value pairs list of additional data..</param>
+        /// <param name="Destination">The number where the call should be transferred. (required).</param>
+        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
+        /// <param name="UserData">Key/value data to include with the call..</param>
+        /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
+        /// <param name="Extensions">A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
         public VoicecallsidsinglesteptransferData(string Destination = default(string), string Location = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             // to ensure "Destination" is required (not null)
@@ -61,37 +61,37 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// The number to transfer the call to.
+        /// The number where the call should be transferred.
         /// </summary>
-        /// <value>The number to transfer the call to.</value>
+        /// <value>The number where the call should be transferred.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
 
         /// <summary>
-        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
+        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
         /// </summary>
-        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
+        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of the user data that should be attached to the call.
+        /// Key/value data to include with the call.
         /// </summary>
-        /// <value>A key/value pairs list of the user data that should be attached to the call.</value>
+        /// <value>Key/value data to include with the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        /// <value>A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
 

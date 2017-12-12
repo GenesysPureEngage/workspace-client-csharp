@@ -25,39 +25,48 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicestopmonitoringData
+    /// MediachatinteractionsidsendmessageData
     /// </summary>
     [DataContract]
-    public partial class VoicestopmonitoringData :  IEquatable<VoicestopmonitoringData>, IValidatableObject
+    public partial class MediachatinteractionsidsendmessageData :  IEquatable<MediachatinteractionsidsendmessageData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendmessageData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VoicestopmonitoringData() { }
+        protected MediachatinteractionsidsendmessageData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendmessageData" /> class.
         /// </summary>
-        /// <param name="PhoneNumber">The phone number currently being monitored. (required).</param>
-        public VoicestopmonitoringData(string PhoneNumber = default(string))
+        /// <param name="Message">The message to send to the chat (required).</param>
+        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        public MediachatinteractionsidsendmessageData(string Message = default(string), List<Kvpair> Extension = default(List<Kvpair>))
         {
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
+            // to ensure "Message" is required (not null)
+            if (Message == null)
             {
-                throw new InvalidDataException("PhoneNumber is a required property for VoicestopmonitoringData and cannot be null");
+                throw new InvalidDataException("Message is a required property for MediachatinteractionsidsendmessageData and cannot be null");
             }
             else
             {
-                this.PhoneNumber = PhoneNumber;
+                this.Message = Message;
             }
+            this.Extension = Extension;
         }
         
         /// <summary>
-        /// The phone number currently being monitored.
+        /// The message to send to the chat
         /// </summary>
-        /// <value>The phone number currently being monitored.</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
+        /// <value>The message to send to the chat</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extension", EmitDefaultValue=false)]
+        public List<Kvpair> Extension { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +75,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicestopmonitoringData {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("class MediachatinteractionsidsendmessageData {\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +98,29 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VoicestopmonitoringData);
+            return this.Equals(input as MediachatinteractionsidsendmessageData);
         }
 
         /// <summary>
-        /// Returns true if VoicestopmonitoringData instances are equal
+        /// Returns true if MediachatinteractionsidsendmessageData instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidsendmessageData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData input)
+        public bool Equals(MediachatinteractionsidsendmessageData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.Extension == input.Extension ||
+                    this.Extension != null &&
+                    this.Extension.SequenceEqual(input.Extension)
                 );
         }
 
@@ -118,8 +133,10 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                if (this.Extension != null)
+                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
                 return hashCode;
             }
         }

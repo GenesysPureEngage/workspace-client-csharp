@@ -38,8 +38,8 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetsrecentsaddData" /> class.
         /// </summary>
-        /// <param name="Target">The recent target (required).</param>
-        /// <param name="RecentInformation">data about recent interaction with the target (required).</param>
+        /// <param name="Target">The target to add. (required).</param>
+        /// <param name="RecentInformation">This includes the media channel where the target was recently used and the timestamp for when the target was used. (required).</param>
         public TargetsrecentsaddData(TargetInformation Target = default(TargetInformation), RecentData RecentInformation = default(RecentData))
         {
             // to ensure "Target" is required (not null)
@@ -63,16 +63,16 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// The recent target
+        /// The target to add.
         /// </summary>
-        /// <value>The recent target</value>
+        /// <value>The target to add.</value>
         [DataMember(Name="target", EmitDefaultValue=false)]
         public TargetInformation Target { get; set; }
 
         /// <summary>
-        /// data about recent interaction with the target
+        /// This includes the media channel where the target was recently used and the timestamp for when the target was used.
         /// </summary>
-        /// <value>data about recent interaction with the target</value>
+        /// <value>This includes the media channel where the target was recently used and the timestamp for when the target was used.</value>
         [DataMember(Name="recentInformation", EmitDefaultValue=false)]
         public RecentData RecentInformation { get; set; }
 

@@ -25,56 +25,55 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// TargetspersonalfavoritessaveData
+    /// InlineResponse2003Data
     /// </summary>
     [DataContract]
-    public partial class TargetspersonalfavoritessaveData :  IEquatable<TargetspersonalfavoritessaveData>, IValidatableObject
+    public partial class InlineResponse2003Data :  IEquatable<InlineResponse2003Data>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetspersonalfavoritessaveData" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2003Data" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected TargetspersonalfavoritessaveData() { }
+        protected InlineResponse2003Data() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="TargetspersonalfavoritessaveData" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2003Data" /> class.
         /// </summary>
-        /// <param name="Target">The target to save. (required).</param>
-        /// <param name="Category">The agent&#39;s personal favorites category. (required).</param>
-        public TargetspersonalfavoritessaveData(TargetInformation Target = default(TargetInformation), string Category = default(string))
+        /// <param name="SubscriptionId">The ID of the requested subscription. (required).</param>
+        /// <param name="Statistics">Statistics (required).</param>
+        public InlineResponse2003Data(string SubscriptionId = default(string), InlineResponse2003DataStatistics Statistics = default(InlineResponse2003DataStatistics))
         {
-            // to ensure "Target" is required (not null)
-            if (Target == null)
+            // to ensure "SubscriptionId" is required (not null)
+            if (SubscriptionId == null)
             {
-                throw new InvalidDataException("Target is a required property for TargetspersonalfavoritessaveData and cannot be null");
+                throw new InvalidDataException("SubscriptionId is a required property for InlineResponse2003Data and cannot be null");
             }
             else
             {
-                this.Target = Target;
+                this.SubscriptionId = SubscriptionId;
             }
-            // to ensure "Category" is required (not null)
-            if (Category == null)
+            // to ensure "Statistics" is required (not null)
+            if (Statistics == null)
             {
-                throw new InvalidDataException("Category is a required property for TargetspersonalfavoritessaveData and cannot be null");
+                throw new InvalidDataException("Statistics is a required property for InlineResponse2003Data and cannot be null");
             }
             else
             {
-                this.Category = Category;
+                this.Statistics = Statistics;
             }
         }
         
         /// <summary>
-        /// The target to save.
+        /// The ID of the requested subscription.
         /// </summary>
-        /// <value>The target to save.</value>
-        [DataMember(Name="target", EmitDefaultValue=false)]
-        public TargetInformation Target { get; set; }
+        /// <value>The ID of the requested subscription.</value>
+        [DataMember(Name="subscriptionId", EmitDefaultValue=false)]
+        public string SubscriptionId { get; set; }
 
         /// <summary>
-        /// The agent&#39;s personal favorites category.
+        /// Gets or Sets Statistics
         /// </summary>
-        /// <value>The agent&#39;s personal favorites category.</value>
-        [DataMember(Name="category", EmitDefaultValue=false)]
-        public string Category { get; set; }
+        [DataMember(Name="statistics", EmitDefaultValue=false)]
+        public InlineResponse2003DataStatistics Statistics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +82,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class TargetspersonalfavoritessaveData {\n");
-            sb.Append("  Target: ").Append(Target).Append("\n");
-            sb.Append("  Category: ").Append(Category).Append("\n");
+            sb.Append("class InlineResponse2003Data {\n");
+            sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
+            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,29 +105,29 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as TargetspersonalfavoritessaveData);
+            return this.Equals(input as InlineResponse2003Data);
         }
 
         /// <summary>
-        /// Returns true if TargetspersonalfavoritessaveData instances are equal
+        /// Returns true if InlineResponse2003Data instances are equal
         /// </summary>
-        /// <param name="input">Instance of TargetspersonalfavoritessaveData to be compared</param>
+        /// <param name="input">Instance of InlineResponse2003Data to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetspersonalfavoritessaveData input)
+        public bool Equals(InlineResponse2003Data input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Target == input.Target ||
-                    (this.Target != null &&
-                    this.Target.Equals(input.Target))
+                    this.SubscriptionId == input.SubscriptionId ||
+                    (this.SubscriptionId != null &&
+                    this.SubscriptionId.Equals(input.SubscriptionId))
                 ) && 
                 (
-                    this.Category == input.Category ||
-                    (this.Category != null &&
-                    this.Category.Equals(input.Category))
+                    this.Statistics == input.Statistics ||
+                    (this.Statistics != null &&
+                    this.Statistics.Equals(input.Statistics))
                 );
         }
 
@@ -141,10 +140,10 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Target != null)
-                    hashCode = hashCode * 59 + this.Target.GetHashCode();
-                if (this.Category != null)
-                    hashCode = hashCode * 59 + this.Category.GetHashCode();
+                if (this.SubscriptionId != null)
+                    hashCode = hashCode * 59 + this.SubscriptionId.GetHashCode();
+                if (this.Statistics != null)
+                    hashCode = hashCode * 59 + this.Statistics.GetHashCode();
                 return hashCode;
             }
         }

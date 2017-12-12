@@ -31,9 +31,9 @@ namespace Genesys.Workspace.Model
     public partial class VoicestartmonitoringData :  IEquatable<VoicestartmonitoringData>, IValidatableObject
     {
         /// <summary>
-        /// The monitoring mode (Mute,Coach,Connect)
+        /// The monitoring mode.
         /// </summary>
-        /// <value>The monitoring mode (Mute,Coach,Connect)</value>
+        /// <value>The monitoring mode.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MonitoringModeEnum
         {
@@ -58,15 +58,15 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// The monitoring mode (Mute,Coach,Connect)
+        /// The monitoring mode.
         /// </summary>
-        /// <value>The monitoring mode (Mute,Coach,Connect)</value>
+        /// <value>The monitoring mode.</value>
         [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
         public MonitoringModeEnum? MonitoringMode { get; set; }
         /// <summary>
-        /// The monitoring call type (OneCall/AllCalls).
+        /// The monitoring call type.
         /// </summary>
-        /// <value>The monitoring call type (OneCall/AllCalls).</value>
+        /// <value>The monitoring call type.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MonitoringNextCallTypeEnum
         {
@@ -85,15 +85,15 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// The monitoring call type (OneCall/AllCalls).
+        /// The monitoring call type.
         /// </summary>
-        /// <value>The monitoring call type (OneCall/AllCalls).</value>
+        /// <value>The monitoring call type.</value>
         [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
         public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
         /// <summary>
-        /// The monitoring scope (Call/Agent).
+        /// The monitoring scope.
         /// </summary>
-        /// <value>The monitoring scope (Call/Agent).</value>
+        /// <value>The monitoring scope.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum MonitoringScopeEnum
         {
@@ -112,9 +112,9 @@ namespace Genesys.Workspace.Model
         }
 
         /// <summary>
-        /// The monitoring scope (Call/Agent).
+        /// The monitoring scope.
         /// </summary>
-        /// <value>The monitoring scope (Call/Agent).</value>
+        /// <value>The monitoring scope.</value>
         [DataMember(Name="monitoringScope", EmitDefaultValue=false)]
         public MonitoringScopeEnum? MonitoringScope { get; set; }
         /// <summary>
@@ -125,11 +125,11 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicestartmonitoringData" /> class.
         /// </summary>
-        /// <param name="PhoneNumberToMonitor">The phone number that should be monitored (required).</param>
-        /// <param name="MonitoringMode">The monitoring mode (Mute,Coach,Connect).</param>
-        /// <param name="MonitoringNextCallType">The monitoring call type (OneCall/AllCalls)..</param>
-        /// <param name="MonitoringScope">The monitoring scope (Call/Agent)..</param>
-        /// <param name="Location">The switch name where the phone number to be monitored is located (optional).</param>
+        /// <param name="PhoneNumberToMonitor">The phone number that should be monitored. (required).</param>
+        /// <param name="MonitoringMode">The monitoring mode..</param>
+        /// <param name="MonitoringNextCallType">The monitoring call type..</param>
+        /// <param name="MonitoringScope">The monitoring scope..</param>
+        /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         public VoicestartmonitoringData(string PhoneNumberToMonitor = default(string), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringNextCallTypeEnum? MonitoringNextCallType = default(MonitoringNextCallTypeEnum?), MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?), string Location = default(string))
         {
             // to ensure "PhoneNumberToMonitor" is required (not null)
@@ -148,9 +148,9 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// The phone number that should be monitored
+        /// The phone number that should be monitored.
         /// </summary>
-        /// <value>The phone number that should be monitored</value>
+        /// <value>The phone number that should be monitored.</value>
         [DataMember(Name="phoneNumberToMonitor", EmitDefaultValue=false)]
         public string PhoneNumberToMonitor { get; set; }
 
@@ -158,9 +158,9 @@ namespace Genesys.Workspace.Model
 
 
         /// <summary>
-        /// The switch name where the phone number to be monitored is located (optional)
+        /// Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.
         /// </summary>
-        /// <value>The switch name where the phone number to be monitored is located (optional)</value>
+        /// <value>Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string.</value>
         [DataMember(Name="location", EmitDefaultValue=false)]
         public string Location { get; set; }
 

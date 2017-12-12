@@ -38,9 +38,9 @@ namespace Genesys.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002Data" /> class.
         /// </summary>
-        /// <param name="SubscriptionId">ID of the requested subscription (required).</param>
-        /// <param name="Statistics">Statistics (required).</param>
-        public InlineResponse2002Data(string SubscriptionId = default(string), InlineResponse2002DataStatistics Statistics = default(InlineResponse2002DataStatistics))
+        /// <param name="SubscriptionId">The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;. (required).</param>
+        /// <param name="Statistics">The list of all the registered statistics. (required).</param>
+        public InlineResponse2002Data(string SubscriptionId = default(string), List<StatisticValueForRegisterResponse> Statistics = default(List<StatisticValueForRegisterResponse>))
         {
             // to ensure "SubscriptionId" is required (not null)
             if (SubscriptionId == null)
@@ -63,17 +63,18 @@ namespace Genesys.Workspace.Model
         }
         
         /// <summary>
-        /// ID of the requested subscription
+        /// The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;.
         /// </summary>
-        /// <value>ID of the requested subscription</value>
+        /// <value>The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;.</value>
         [DataMember(Name="subscriptionId", EmitDefaultValue=false)]
         public string SubscriptionId { get; set; }
 
         /// <summary>
-        /// Gets or Sets Statistics
+        /// The list of all the registered statistics.
         /// </summary>
+        /// <value>The list of all the registered statistics.</value>
         [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public InlineResponse2002DataStatistics Statistics { get; set; }
+        public List<StatisticValueForRegisterResponse> Statistics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -126,8 +127,8 @@ namespace Genesys.Workspace.Model
                 ) && 
                 (
                     this.Statistics == input.Statistics ||
-                    (this.Statistics != null &&
-                    this.Statistics.Equals(input.Statistics))
+                    this.Statistics != null &&
+                    this.Statistics.SequenceEqual(input.Statistics)
                 );
         }
 

@@ -35,7 +35,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Accept (string mediatype, string id, AcceptData acceptData = null);
+        ApiSuccessResponse Accept (string mediatype, string id, AcceptData2 acceptData = null);
 
         /// <summary>
         /// Accept an open-media interaction
@@ -48,7 +48,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData acceptData = null);
+        ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData2 acceptData = null);
         /// <summary>
         /// Add an attachment to the open-media interaction
         /// </summary>
@@ -150,7 +150,7 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AssignContactWithHttpInfo (string mediatype, string id, string contactId);
         /// <summary>
-        /// Attach user data to an interaction
+        /// Attach user data to the interaction
         /// </summary>
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
@@ -163,7 +163,7 @@ namespace Genesys.Workspace.Api
         ApiSuccessResponse AttachUserData (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Attach user data to an interaction
+        /// Attach user data to the interaction
         /// </summary>
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
@@ -422,9 +422,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Reject (string mediatype, string id, AcceptData1 acceptData = null);
+        ApiSuccessResponse Reject (string mediatype, string id, RejectData rejectData = null);
 
         /// <summary>
         /// Reject an open-media interaction
@@ -435,9 +435,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> RejectWithHttpInfo (string mediatype, string id, AcceptData1 acceptData = null);
+        ApiResponse<ApiSuccessResponse> RejectWithHttpInfo (string mediatype, string id, RejectData rejectData = null);
         /// <summary>
         /// Remove the attachment of the open-media interaction
         /// </summary>
@@ -487,6 +487,29 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RemoveMediaWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
+        /// Send a message to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send a message to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SendMessage (string id, AcceptData acceptData = null);
+
+        /// <summary>
+        /// Send a message to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send a message to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SendMessageWithHttpInfo (string id, AcceptData acceptData = null);
+        /// <summary>
         /// Transfer the interaction to the agent
         /// </summary>
         /// <remarks>
@@ -512,7 +535,7 @@ namespace Genesys.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> TransferAgentWithHttpInfo (string mediatype, string id, TransferData transferData);
         /// <summary>
-        /// Update user data to an interaction
+        /// Update user data to the interaction
         /// </summary>
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
@@ -525,7 +548,7 @@ namespace Genesys.Workspace.Api
         ApiSuccessResponse UpdateUserData (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Update user data to an interaction
+        /// Update user data to the interaction
         /// </summary>
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
@@ -549,7 +572,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData acceptData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData2 acceptData = null);
 
         /// <summary>
         /// Accept an open-media interaction
@@ -562,7 +585,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData acceptData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData2 acceptData = null);
         /// <summary>
         /// Add an attachment to the open-media interaction
         /// </summary>
@@ -664,7 +687,7 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignContactAsyncWithHttpInfo (string mediatype, string id, string contactId);
         /// <summary>
-        /// Attach user data to an interaction
+        /// Attach user data to the interaction
         /// </summary>
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
@@ -677,7 +700,7 @@ namespace Genesys.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> AttachUserDataAsync (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Attach user data to an interaction
+        /// Attach user data to the interaction
         /// </summary>
         /// <remarks>
         /// Attach the interaction userdata with the provided key/value pairs.
@@ -936,9 +959,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> RejectAsync (string mediatype, string id, AcceptData1 acceptData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> RejectAsync (string mediatype, string id, RejectData rejectData = null);
 
         /// <summary>
         /// Reject an open-media interaction
@@ -949,9 +972,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, AcceptData1 acceptData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, RejectData rejectData = null);
         /// <summary>
         /// Remove the attachment of the open-media interaction
         /// </summary>
@@ -1001,6 +1024,29 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveMediaAsyncWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
+        /// Send a message to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send a message to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendMessageAsync (string id, AcceptData acceptData = null);
+
+        /// <summary>
+        /// Send a message to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send a message to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendMessageAsyncWithHttpInfo (string id, AcceptData acceptData = null);
+        /// <summary>
         /// Transfer the interaction to the agent
         /// </summary>
         /// <remarks>
@@ -1026,7 +1072,7 @@ namespace Genesys.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TransferAgentAsyncWithHttpInfo (string mediatype, string id, TransferData transferData);
         /// <summary>
-        /// Update user data to an interaction
+        /// Update user data to the interaction
         /// </summary>
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
@@ -1039,7 +1085,7 @@ namespace Genesys.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> UpdateUserDataAsync (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Update user data to an interaction
+        /// Update user data to the interaction
         /// </summary>
         /// <remarks>
         /// Update the interaction userdata with the provided key/value pairs.
@@ -1158,7 +1204,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Accept (string mediatype, string id, AcceptData acceptData = null)
+        public ApiSuccessResponse Accept (string mediatype, string id, AcceptData2 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = AcceptWithHttpInfo(mediatype, id, acceptData);
              return localVarResponse.Data;
@@ -1172,7 +1218,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AcceptWithHttpInfo (string mediatype, string id, AcceptData acceptData = null)
+        public ApiResponse< ApiSuccessResponse > AcceptWithHttpInfo (string mediatype, string id, AcceptData2 acceptData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -1241,7 +1287,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData acceptData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData2 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptAsyncWithHttpInfo(mediatype, id, acceptData);
              return localVarResponse.Data;
@@ -1256,7 +1302,7 @@ namespace Genesys.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData acceptData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData2 acceptData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -1970,7 +2016,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -1984,7 +2030,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -2056,7 +2102,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -2071,7 +2117,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to an interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -3731,11 +3777,11 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Reject (string mediatype, string id, AcceptData1 acceptData = null)
+        public ApiSuccessResponse Reject (string mediatype, string id, RejectData rejectData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = RejectWithHttpInfo(mediatype, id, acceptData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = RejectWithHttpInfo(mediatype, id, rejectData);
              return localVarResponse.Data;
         }
 
@@ -3745,9 +3791,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > RejectWithHttpInfo (string mediatype, string id, AcceptData1 acceptData = null)
+        public ApiResponse< ApiSuccessResponse > RejectWithHttpInfo (string mediatype, string id, RejectData rejectData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -3780,13 +3826,13 @@ namespace Genesys.Workspace.Api
 
             if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            if (rejectData != null && rejectData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(rejectData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = acceptData; // byte array
+                localVarPostBody = rejectData; // byte array
             }
 
 
@@ -3814,11 +3860,11 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> RejectAsync (string mediatype, string id, AcceptData1 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RejectAsync (string mediatype, string id, RejectData rejectData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await RejectAsyncWithHttpInfo(mediatype, id, acceptData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RejectAsyncWithHttpInfo(mediatype, id, rejectData);
              return localVarResponse.Data;
 
         }
@@ -3829,9 +3875,9 @@ namespace Genesys.Workspace.Api
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction to reject</param>
         /// <param name="id">id of interaction to reject</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, AcceptData1 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, RejectData rejectData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -3864,13 +3910,13 @@ namespace Genesys.Workspace.Api
 
             if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            if (rejectData != null && rejectData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(rejectData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = acceptData; // byte array
+                localVarPostBody = rejectData; // byte array
             }
 
 
@@ -4213,6 +4259,161 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
+        /// Send a message to the specified chat Send a message to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SendMessage (string id, AcceptData acceptData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendMessageWithHttpInfo(id, acceptData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send a message to the specified chat Send a message to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SendMessageWithHttpInfo (string id, AcceptData acceptData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendMessage");
+
+            var localVarPath = "/media/chat/interactions/{id}/send-message";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Send a message to the specified chat Send a message to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendMessageAsync (string id, AcceptData acceptData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendMessageAsyncWithHttpInfo(id, acceptData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send a message to the specified chat Send a message to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send a message to</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendMessageAsyncWithHttpInfo (string id, AcceptData acceptData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendMessage");
+
+            var localVarPath = "/media/chat/interactions/{id}/send-message";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendMessage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4386,7 +4587,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4400,7 +4601,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4472,7 +4673,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4487,7 +4688,7 @@ namespace Genesys.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to an interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
         /// </summary>
         /// <exception cref="Genesys.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>

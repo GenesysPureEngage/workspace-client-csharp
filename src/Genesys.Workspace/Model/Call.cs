@@ -48,7 +48,7 @@ namespace Genesys.Workspace.Model
         /// <param name="Ani">Ani.</param>
         /// <param name="RecordingState">RecordingState.</param>
         /// <param name="UserData">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="Extensions">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
+        /// <param name="Extensions">A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
         public Call(string Type = default(string), string Id = default(string), string PreviousConnId = default(string), string ParentConnId = default(string), string PhoneNumber = default(string), string ConnId = default(string), string CallUuid = default(string), string CallType = default(string), string State = default(string), List<string> Capabilities = default(List<string>), List<CallParticipants> Participants = default(List<CallParticipants>), string Dnis = default(string), string Ani = default(string), string RecordingState = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             this.Type = Type;
@@ -161,9 +161,9 @@ namespace Genesys.Workspace.Model
         public List<Kvpair> UserData { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        /// <value>A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
 

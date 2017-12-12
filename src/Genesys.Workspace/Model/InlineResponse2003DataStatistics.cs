@@ -25,39 +25,33 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicestopmonitoringData
+    /// The list of all the statistics in given subscription as key/value pairs.
     /// </summary>
     [DataContract]
-    public partial class VoicestopmonitoringData :  IEquatable<VoicestopmonitoringData>, IValidatableObject
+    public partial class InlineResponse2003DataStatistics :  IEquatable<InlineResponse2003DataStatistics>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2003DataStatistics" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VoicestopmonitoringData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
-        /// </summary>
-        /// <param name="PhoneNumber">The phone number currently being monitored. (required).</param>
-        public VoicestopmonitoringData(string PhoneNumber = default(string))
+        /// <param name="StatisticId1">StatisticId1.</param>
+        /// <param name="___">___.</param>
+        public InlineResponse2003DataStatistics(StatisticValueForPeekResponse StatisticId1 = default(StatisticValueForPeekResponse), StatisticValueForPeekResponse ___ = default(StatisticValueForPeekResponse))
         {
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for VoicestopmonitoringData and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
+            this.StatisticId1 = StatisticId1;
+            this.___ = ___;
         }
         
         /// <summary>
-        /// The phone number currently being monitored.
+        /// Gets or Sets StatisticId1
         /// </summary>
-        /// <value>The phone number currently being monitored.</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
+        [DataMember(Name="statisticId1", EmitDefaultValue=false)]
+        public StatisticValueForPeekResponse StatisticId1 { get; set; }
+
+        /// <summary>
+        /// Gets or Sets ___
+        /// </summary>
+        [DataMember(Name="...", EmitDefaultValue=false)]
+        public StatisticValueForPeekResponse ___ { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +60,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicestopmonitoringData {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("class InlineResponse2003DataStatistics {\n");
+            sb.Append("  StatisticId1: ").Append(StatisticId1).Append("\n");
+            sb.Append("  ___: ").Append(___).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +83,29 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VoicestopmonitoringData);
+            return this.Equals(input as InlineResponse2003DataStatistics);
         }
 
         /// <summary>
-        /// Returns true if VoicestopmonitoringData instances are equal
+        /// Returns true if InlineResponse2003DataStatistics instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of InlineResponse2003DataStatistics to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData input)
+        public bool Equals(InlineResponse2003DataStatistics input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this.StatisticId1 == input.StatisticId1 ||
+                    (this.StatisticId1 != null &&
+                    this.StatisticId1.Equals(input.StatisticId1))
+                ) && 
+                (
+                    this.___ == input.___ ||
+                    (this.___ != null &&
+                    this.___.Equals(input.___))
                 );
         }
 
@@ -118,8 +118,10 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.StatisticId1 != null)
+                    hashCode = hashCode * 59 + this.StatisticId1.GetHashCode();
+                if (this.___ != null)
+                    hashCode = hashCode * 59 + this.___.GetHashCode();
                 return hashCode;
             }
         }

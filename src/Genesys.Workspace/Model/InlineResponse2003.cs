@@ -25,33 +25,46 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// The list of all the statitstics in given subscription as kvp.
+    /// InlineResponse2003
     /// </summary>
     [DataContract]
-    public partial class InlineResponse2002DataStatistics :  IEquatable<InlineResponse2002DataStatistics>, IValidatableObject
+    public partial class InlineResponse2003 :  IEquatable<InlineResponse2003>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InlineResponse2002DataStatistics" /> class.
+        /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
         /// </summary>
-        /// <param name="StatisticId1">StatisticId1.</param>
-        /// <param name="___">___.</param>
-        public InlineResponse2002DataStatistics(StatisticValueForPeekResponse StatisticId1 = default(StatisticValueForPeekResponse), StatisticValueForPeekResponse ___ = default(StatisticValueForPeekResponse))
+        [JsonConstructorAttribute]
+        protected InlineResponse2003() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse2003" /> class.
+        /// </summary>
+        /// <param name="Status">Status (required).</param>
+        /// <param name="Data">Data.</param>
+        public InlineResponse2003(InlineResponse200Status Status = default(InlineResponse200Status), InlineResponse2003Data Data = default(InlineResponse2003Data))
         {
-            this.StatisticId1 = StatisticId1;
-            this.___ = ___;
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for InlineResponse2003 and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// Gets or Sets StatisticId1
+        /// Gets or Sets Status
         /// </summary>
-        [DataMember(Name="statisticId1", EmitDefaultValue=false)]
-        public StatisticValueForPeekResponse StatisticId1 { get; set; }
+        [DataMember(Name="status", EmitDefaultValue=false)]
+        public InlineResponse200Status Status { get; set; }
 
         /// <summary>
-        /// Gets or Sets ___
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="...", EmitDefaultValue=false)]
-        public StatisticValueForPeekResponse ___ { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public InlineResponse2003Data Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +73,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InlineResponse2002DataStatistics {\n");
-            sb.Append("  StatisticId1: ").Append(StatisticId1).Append("\n");
-            sb.Append("  ___: ").Append(___).Append("\n");
+            sb.Append("class InlineResponse2003 {\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +96,29 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InlineResponse2002DataStatistics);
+            return this.Equals(input as InlineResponse2003);
         }
 
         /// <summary>
-        /// Returns true if InlineResponse2002DataStatistics instances are equal
+        /// Returns true if InlineResponse2003 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InlineResponse2002DataStatistics to be compared</param>
+        /// <param name="input">Instance of InlineResponse2003 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2002DataStatistics input)
+        public bool Equals(InlineResponse2003 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.StatisticId1 == input.StatisticId1 ||
-                    (this.StatisticId1 != null &&
-                    this.StatisticId1.Equals(input.StatisticId1))
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.___ == input.___ ||
-                    (this.___ != null &&
-                    this.___.Equals(input.___))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -118,10 +131,10 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.StatisticId1 != null)
-                    hashCode = hashCode * 59 + this.StatisticId1.GetHashCode();
-                if (this.___ != null)
-                    hashCode = hashCode * 59 + this.___.GetHashCode();
+                if (this.Status != null)
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

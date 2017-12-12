@@ -25,39 +25,38 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicestopmonitoringData
+    /// Data
     /// </summary>
     [DataContract]
-    public partial class VoicestopmonitoringData :  IEquatable<VoicestopmonitoringData>, IValidatableObject
+    public partial class Data :  IEquatable<Data>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="Data" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected VoicestopmonitoringData() { }
+        protected Data() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="Data" /> class.
         /// </summary>
-        /// <param name="PhoneNumber">The phone number currently being monitored. (required).</param>
-        public VoicestopmonitoringData(string PhoneNumber = default(string))
+        /// <param name="_Data">_Data (required).</param>
+        public Data(SupervisorvoiceoperationNameData _Data = default(SupervisorvoiceoperationNameData))
         {
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
+            // to ensure "_Data" is required (not null)
+            if (_Data == null)
             {
-                throw new InvalidDataException("PhoneNumber is a required property for VoicestopmonitoringData and cannot be null");
+                throw new InvalidDataException("_Data is a required property for Data and cannot be null");
             }
             else
             {
-                this.PhoneNumber = PhoneNumber;
+                this._Data = _Data;
             }
         }
         
         /// <summary>
-        /// The phone number currently being monitored.
+        /// Gets or Sets _Data
         /// </summary>
-        /// <value>The phone number currently being monitored.</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public SupervisorvoiceoperationNameData _Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +65,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicestopmonitoringData {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("class Data {\n");
+            sb.Append("  _Data: ").Append(_Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +87,24 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VoicestopmonitoringData);
+            return this.Equals(input as Data);
         }
 
         /// <summary>
-        /// Returns true if VoicestopmonitoringData instances are equal
+        /// Returns true if Data instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of Data to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData input)
+        public bool Equals(Data input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this._Data == input._Data ||
+                    (this._Data != null &&
+                    this._Data.Equals(input._Data))
                 );
         }
 
@@ -118,8 +117,8 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this._Data != null)
+                    hashCode = hashCode * 59 + this._Data.GetHashCode();
                 return hashCode;
             }
         }

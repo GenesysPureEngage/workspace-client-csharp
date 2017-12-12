@@ -25,39 +25,25 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicestopmonitoringData
+    /// AcceptData2
     /// </summary>
     [DataContract]
-    public partial class VoicestopmonitoringData :  IEquatable<VoicestopmonitoringData>, IValidatableObject
+    public partial class AcceptData2 :  IEquatable<AcceptData2>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="AcceptData2" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VoicestopmonitoringData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
-        /// </summary>
-        /// <param name="PhoneNumber">The phone number currently being monitored. (required).</param>
-        public VoicestopmonitoringData(string PhoneNumber = default(string))
+        /// <param name="Data">Data.</param>
+        public AcceptData2(MediamediatypeinteractionsidacceptData Data = default(MediamediatypeinteractionsidacceptData))
         {
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for VoicestopmonitoringData and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// The phone number currently being monitored.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The phone number currently being monitored.</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediamediatypeinteractionsidacceptData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +52,8 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicestopmonitoringData {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("class AcceptData2 {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +74,24 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VoicestopmonitoringData);
+            return this.Equals(input as AcceptData2);
         }
 
         /// <summary>
-        /// Returns true if VoicestopmonitoringData instances are equal
+        /// Returns true if AcceptData2 instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of AcceptData2 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData input)
+        public bool Equals(AcceptData2 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -118,8 +104,8 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

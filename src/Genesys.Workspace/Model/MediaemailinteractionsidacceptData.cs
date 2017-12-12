@@ -25,39 +25,35 @@ using SwaggerDateConverter = Genesys.Workspace.Client.SwaggerDateConverter;
 namespace Genesys.Workspace.Model
 {
     /// <summary>
-    /// VoicestopmonitoringData
+    /// MediaemailinteractionsidacceptData
     /// </summary>
     [DataContract]
-    public partial class VoicestopmonitoringData :  IEquatable<VoicestopmonitoringData>, IValidatableObject
+    public partial class MediaemailinteractionsidacceptData :  IEquatable<MediaemailinteractionsidacceptData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
+        /// Initializes a new instance of the <see cref="MediaemailinteractionsidacceptData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected VoicestopmonitoringData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="VoicestopmonitoringData" /> class.
-        /// </summary>
-        /// <param name="PhoneNumber">The phone number currently being monitored. (required).</param>
-        public VoicestopmonitoringData(string PhoneNumber = default(string))
+        /// <param name="UseReviewer">Blalala.</param>
+        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        public MediaemailinteractionsidacceptData(bool? UseReviewer = default(bool?), List<Kvpair> Extension = default(List<Kvpair>))
         {
-            // to ensure "PhoneNumber" is required (not null)
-            if (PhoneNumber == null)
-            {
-                throw new InvalidDataException("PhoneNumber is a required property for VoicestopmonitoringData and cannot be null");
-            }
-            else
-            {
-                this.PhoneNumber = PhoneNumber;
-            }
+            this.UseReviewer = UseReviewer;
+            this.Extension = Extension;
         }
         
         /// <summary>
-        /// The phone number currently being monitored.
+        /// Blalala
         /// </summary>
-        /// <value>The phone number currently being monitored.</value>
-        [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
-        public string PhoneNumber { get; set; }
+        /// <value>Blalala</value>
+        [DataMember(Name="useReviewer", EmitDefaultValue=false)]
+        public bool? UseReviewer { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extension", EmitDefaultValue=false)]
+        public List<Kvpair> Extension { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +62,9 @@ namespace Genesys.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class VoicestopmonitoringData {\n");
-            sb.Append("  PhoneNumber: ").Append(PhoneNumber).Append("\n");
+            sb.Append("class MediaemailinteractionsidacceptData {\n");
+            sb.Append("  UseReviewer: ").Append(UseReviewer).Append("\n");
+            sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +85,29 @@ namespace Genesys.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as VoicestopmonitoringData);
+            return this.Equals(input as MediaemailinteractionsidacceptData);
         }
 
         /// <summary>
-        /// Returns true if VoicestopmonitoringData instances are equal
+        /// Returns true if MediaemailinteractionsidacceptData instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of MediaemailinteractionsidacceptData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData input)
+        public bool Equals(MediaemailinteractionsidacceptData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this.UseReviewer == input.UseReviewer ||
+                    (this.UseReviewer != null &&
+                    this.UseReviewer.Equals(input.UseReviewer))
+                ) && 
+                (
+                    this.Extension == input.Extension ||
+                    this.Extension != null &&
+                    this.Extension.SequenceEqual(input.Extension)
                 );
         }
 
@@ -118,8 +120,10 @@ namespace Genesys.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                if (this.UseReviewer != null)
+                    hashCode = hashCode * 59 + this.UseReviewer.GetHashCode();
+                if (this.Extension != null)
+                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
                 return hashCode;
             }
         }
