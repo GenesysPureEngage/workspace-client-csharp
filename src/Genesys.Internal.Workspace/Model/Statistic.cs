@@ -25,28 +25,28 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// StatisticValueForRegister
+    /// Statistic
     /// </summary>
     [DataContract]
-    public partial class StatisticValueForRegister :  IEquatable<StatisticValueForRegister>, IValidatableObject
+    public partial class Statistic :  IEquatable<Statistic>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticValueForRegister" /> class.
+        /// Initializes a new instance of the <see cref="Statistic" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected StatisticValueForRegister() { }
+        protected Statistic() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticValueForRegister" /> class.
+        /// Initializes a new instance of the <see cref="Statistic" /> class.
         /// </summary>
         /// <param name="ObjectId">ID of the object to get the statistic for (required).</param>
         /// <param name="ObjectType">Type of the obejct to get the statistic for (required).</param>
         /// <param name="Name">Name of the statistic (required).</param>
-        public StatisticValueForRegister(string ObjectId = default(string), string ObjectType = default(string), string Name = default(string))
+        public Statistic(string ObjectId = default(string), string ObjectType = default(string), string Name = default(string))
         {
             // to ensure "ObjectId" is required (not null)
             if (ObjectId == null)
             {
-                throw new InvalidDataException("ObjectId is a required property for StatisticValueForRegister and cannot be null");
+                throw new InvalidDataException("ObjectId is a required property for Statistic and cannot be null");
             }
             else
             {
@@ -55,7 +55,7 @@ namespace Genesys.Internal.Workspace.Model
             // to ensure "ObjectType" is required (not null)
             if (ObjectType == null)
             {
-                throw new InvalidDataException("ObjectType is a required property for StatisticValueForRegister and cannot be null");
+                throw new InvalidDataException("ObjectType is a required property for Statistic and cannot be null");
             }
             else
             {
@@ -64,7 +64,7 @@ namespace Genesys.Internal.Workspace.Model
             // to ensure "Name" is required (not null)
             if (Name == null)
             {
-                throw new InvalidDataException("Name is a required property for StatisticValueForRegister and cannot be null");
+                throw new InvalidDataException("Name is a required property for Statistic and cannot be null");
             }
             else
             {
@@ -100,7 +100,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticValueForRegister {\n");
+            sb.Append("class Statistic {\n");
             sb.Append("  ObjectId: ").Append(ObjectId).Append("\n");
             sb.Append("  ObjectType: ").Append(ObjectType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
@@ -124,15 +124,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StatisticValueForRegister);
+            return this.Equals(input as Statistic);
         }
 
         /// <summary>
-        /// Returns true if StatisticValueForRegister instances are equal
+        /// Returns true if Statistic instances are equal
         /// </summary>
-        /// <param name="input">Instance of StatisticValueForRegister to be compared</param>
+        /// <param name="input">Instance of Statistic to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticValueForRegister input)
+        public bool Equals(Statistic input)
         {
             if (input == null)
                 return false;

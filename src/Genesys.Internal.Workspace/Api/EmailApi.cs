@@ -25,7 +25,7 @@ namespace Genesys.Internal.Workspace.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Accept an email interaction
+        /// Accept the email interaction
         /// </summary>
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
@@ -37,7 +37,7 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse AcceptEmail (string id, AcceptData1 acceptData = null);
 
         /// <summary>
-        /// Accept an email interaction
+        /// Accept the email interaction
         /// </summary>
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
@@ -47,10 +47,31 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AcceptEmailWithHttpInfo (string id, AcceptData1 acceptData = null);
+        /// <summary>
+        /// Create email interaction
+        /// </summary>
+        /// <remarks>
+        /// Create a new email interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse CreateEmail (CreateData createData = null);
+
+        /// <summary>
+        /// Create email interaction
+        /// </summary>
+        /// <remarks>
+        /// Create a new email interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> CreateEmailWithHttpInfo (CreateData createData = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Accept an email interaction
+        /// Accept the email interaction
         /// </summary>
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
@@ -62,7 +83,7 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData1 acceptData = null);
 
         /// <summary>
-        /// Accept an email interaction
+        /// Accept the email interaction
         /// </summary>
         /// <remarks>
         /// Accept the interaction specified in the id path parameter
@@ -72,6 +93,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData1 acceptData = null);
+        /// <summary>
+        /// Create email interaction
+        /// </summary>
+        /// <remarks>
+        /// Create a new email interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> CreateEmailAsync (CreateData createData = null);
+
+        /// <summary>
+        /// Create email interaction
+        /// </summary>
+        /// <remarks>
+        /// Create a new email interaction
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateEmailAsyncWithHttpInfo (CreateData createData = null);
         #endregion Asynchronous Operations
     }
 
@@ -173,7 +215,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an email interaction Accept the interaction specified in the id path parameter
+        /// Accept the email interaction Accept the interaction specified in the id path parameter
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction to accept</param>
@@ -186,7 +228,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an email interaction Accept the interaction specified in the id path parameter
+        /// Accept the email interaction Accept the interaction specified in the id path parameter
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction to accept</param>
@@ -250,7 +292,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an email interaction Accept the interaction specified in the id path parameter
+        /// Accept the email interaction Accept the interaction specified in the id path parameter
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction to accept</param>
@@ -264,7 +306,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an email interaction Accept the interaction specified in the id path parameter
+        /// Accept the email interaction Accept the interaction specified in the id path parameter
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction to accept</param>
@@ -319,6 +361,149 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AcceptEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Create email interaction Create a new email interaction
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse CreateEmail (CreateData createData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = CreateEmailWithHttpInfo(createData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Create email interaction Create a new email interaction
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > CreateEmailWithHttpInfo (CreateData createData = null)
+        {
+
+            var localVarPath = "/media/email/interactions/create";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (createData != null && createData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(createData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Create email interaction Create a new email interaction
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> CreateEmailAsync (CreateData createData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await CreateEmailAsyncWithHttpInfo(createData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Create email interaction Create a new email interaction
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateEmailAsyncWithHttpInfo (CreateData createData = null)
+        {
+
+            var localVarPath = "/media/email/interactions/create";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (createData != null && createData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(createData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CreateEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 

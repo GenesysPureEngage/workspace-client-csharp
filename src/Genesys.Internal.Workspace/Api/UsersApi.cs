@@ -28,44 +28,16 @@ namespace Genesys.Internal.Workspace.Api
         /// Search for users.
         /// </summary>
         /// <remarks>
-        /// Search for users by the specified group ID.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetGroupUsers (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
-
-        /// <summary>
-        /// Search for users.
-        /// </summary>
-        /// <remarks>
-        /// Search for users by the specified group ID.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetGroupUsersWithHttpInfo (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
-        /// <summary>
-        /// Search for users.
-        /// </summary>
-        /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetUsers (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
+        ApiSuccessResponse GetUsers (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null);
 
         /// <summary>
         /// Search for users.
@@ -75,11 +47,12 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetUsersWithHttpInfo (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
+        ApiResponse<ApiSuccessResponse> GetUsersWithHttpInfo (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null);
         /// <summary>
         /// Logout user remotely for supervisors
         /// </summary>
@@ -109,44 +82,16 @@ namespace Genesys.Internal.Workspace.Api
         /// Search for users.
         /// </summary>
         /// <remarks>
-        /// Search for users by the specified group ID.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetGroupUsersAsync (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
-
-        /// <summary>
-        /// Search for users.
-        /// </summary>
-        /// <remarks>
-        /// Search for users by the specified group ID.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetGroupUsersAsyncWithHttpInfo (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
-        /// <summary>
-        /// Search for users.
-        /// </summary>
-        /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetUsersAsync (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetUsersAsync (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null);
 
         /// <summary>
         /// Search for users.
@@ -156,11 +101,12 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetUsersAsyncWithHttpInfo (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetUsersAsyncWithHttpInfo (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null);
         /// <summary>
         /// Logout user remotely for supervisors
         /// </summary>
@@ -285,176 +231,18 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for users. Search for users by the specified group ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetGroupUsers (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetGroupUsersWithHttpInfo(groupId, searchTerm, sort, limit, offset);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search for users. Search for users by the specified group ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetGroupUsersWithHttpInfo (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-                throw new ApiException(400, "Missing required parameter 'groupId' when calling UsersApi->GetGroupUsers");
-
-            var localVarPath = "/groups/{groupId}/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (groupId != null) localVarPathParams.Add("groupId", Configuration.ApiClient.ParameterToString(groupId)); // path parameter
-            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetGroupUsers", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Search for users. Search for users by the specified group ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetGroupUsersAsync (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetGroupUsersAsyncWithHttpInfo(groupId, searchTerm, sort, limit, offset);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Search for users. Search for users by the specified group ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="groupId">The ID of the group where the user belongs.</param>
-        /// <param name="searchTerm">The text to search for in the group of users. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
-        /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetGroupUsersAsyncWithHttpInfo (decimal? groupId, string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
-        {
-            // verify the required parameter 'groupId' is set
-            if (groupId == null)
-                throw new ApiException(400, "Missing required parameter 'groupId' when calling UsersApi->GetGroupUsers");
-
-            var localVarPath = "/groups/{groupId}/users";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (groupId != null) localVarPathParams.Add("groupId", Configuration.ApiClient.ParameterToString(groupId)); // path parameter
-            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetGroupUsers", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
         /// Search for users. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetUsers (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
+        public ApiSuccessResponse GetUsers (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetUsersWithHttpInfo(searchTerm, sort, limit, offset);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetUsersWithHttpInfo(searchTerm, groupId, sort, limit, offset);
              return localVarResponse.Data;
         }
 
@@ -463,11 +251,12 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetUsersWithHttpInfo (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
+        public ApiResponse< ApiSuccessResponse > GetUsersWithHttpInfo (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null)
         {
 
             var localVarPath = "/users";
@@ -493,6 +282,7 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
+            if (groupId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "groupId", groupId)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter
@@ -521,13 +311,14 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetUsersAsync (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetUsersAsync (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetUsersAsyncWithHttpInfo(searchTerm, sort, limit, offset);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetUsersAsyncWithHttpInfo(searchTerm, groupId, sort, limit, offset);
              return localVarResponse.Data;
 
         }
@@ -537,11 +328,12 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
+        /// <param name="groupId">The ID of the group where the user belongs. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">Number of results to return. The default value is 100. (optional)</param>
         /// <param name="offset">The offset to start from in the results. The default value is 0. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetUsersAsyncWithHttpInfo (string searchTerm = null, string sort = null, decimal? limit = null, decimal? offset = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetUsersAsyncWithHttpInfo (string searchTerm = null, decimal? groupId = null, string sort = null, decimal? limit = null, decimal? offset = null)
         {
 
             var localVarPath = "/users";
@@ -567,6 +359,7 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
+            if (groupId != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "groupId", groupId)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
             if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
             if (offset != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "offset", offset)); // query parameter

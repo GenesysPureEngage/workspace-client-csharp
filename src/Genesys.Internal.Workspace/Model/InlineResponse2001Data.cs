@@ -38,43 +38,25 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2001Data" /> class.
         /// </summary>
-        /// <param name="SubscriptionId">ID used to fetch statistics values from /reporting/{subscriptionId} (required).</param>
-        /// <param name="Statistics">The list of all the registered statitstics. (required).</param>
-        public InlineResponse2001Data(string SubscriptionId = default(string), List<StatisticValueForRegisterResponse> Statistics = default(List<StatisticValueForRegisterResponse>))
+        /// <param name="Subscriptions">Subscriptions (required).</param>
+        public InlineResponse2001Data(List<Subscription> Subscriptions = default(List<Subscription>))
         {
-            // to ensure "SubscriptionId" is required (not null)
-            if (SubscriptionId == null)
+            // to ensure "Subscriptions" is required (not null)
+            if (Subscriptions == null)
             {
-                throw new InvalidDataException("SubscriptionId is a required property for InlineResponse2001Data and cannot be null");
+                throw new InvalidDataException("Subscriptions is a required property for InlineResponse2001Data and cannot be null");
             }
             else
             {
-                this.SubscriptionId = SubscriptionId;
-            }
-            // to ensure "Statistics" is required (not null)
-            if (Statistics == null)
-            {
-                throw new InvalidDataException("Statistics is a required property for InlineResponse2001Data and cannot be null");
-            }
-            else
-            {
-                this.Statistics = Statistics;
+                this.Subscriptions = Subscriptions;
             }
         }
         
         /// <summary>
-        /// ID used to fetch statistics values from /reporting/{subscriptionId}
+        /// Gets or Sets Subscriptions
         /// </summary>
-        /// <value>ID used to fetch statistics values from /reporting/{subscriptionId}</value>
-        [DataMember(Name="subscriptionId", EmitDefaultValue=false)]
-        public string SubscriptionId { get; set; }
-
-        /// <summary>
-        /// The list of all the registered statitstics.
-        /// </summary>
-        /// <value>The list of all the registered statitstics.</value>
-        [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegisterResponse> Statistics { get; set; }
+        [DataMember(Name="subscriptions", EmitDefaultValue=false)]
+        public List<Subscription> Subscriptions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,8 +66,7 @@ namespace Genesys.Internal.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class InlineResponse2001Data {\n");
-            sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
-            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
+            sb.Append("  Subscriptions: ").Append(Subscriptions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -121,14 +102,9 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.SubscriptionId == input.SubscriptionId ||
-                    (this.SubscriptionId != null &&
-                    this.SubscriptionId.Equals(input.SubscriptionId))
-                ) && 
-                (
-                    this.Statistics == input.Statistics ||
-                    this.Statistics != null &&
-                    this.Statistics.SequenceEqual(input.Statistics)
+                    this.Subscriptions == input.Subscriptions ||
+                    this.Subscriptions != null &&
+                    this.Subscriptions.SequenceEqual(input.Subscriptions)
                 );
         }
 
@@ -141,10 +117,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SubscriptionId != null)
-                    hashCode = hashCode * 59 + this.SubscriptionId.GetHashCode();
-                if (this.Statistics != null)
-                    hashCode = hashCode * 59 + this.Statistics.GetHashCode();
+                if (this.Subscriptions != null)
+                    hashCode = hashCode * 59 + this.Subscriptions.GetHashCode();
                 return hashCode;
             }
         }

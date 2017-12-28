@@ -27,7 +27,7 @@ namespace Genesys.Internal.Workspace.Api
         /// CometD endpoint.
         /// </summary>
         /// <remarks>
-        /// Enables you to subscribe to the CometD notification API.
+        /// Subscribe to the CometD notification API.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
@@ -37,7 +37,7 @@ namespace Genesys.Internal.Workspace.Api
         /// CometD endpoint.
         /// </summary>
         /// <remarks>
-        /// Enables you to subscribe to the CometD notification API.
+        /// Subscribe to the CometD notification API.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -162,7 +162,7 @@ namespace Genesys.Internal.Workspace.Api
         /// CometD endpoint.
         /// </summary>
         /// <remarks>
-        /// Enables you to subscribe to the CometD notification API.
+        /// Subscribe to the CometD notification API.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
@@ -172,7 +172,7 @@ namespace Genesys.Internal.Workspace.Api
         /// CometD endpoint.
         /// </summary>
         /// <remarks>
-        /// Enables you to subscribe to the CometD notification API.
+        /// Subscribe to the CometD notification API.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
@@ -392,7 +392,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// CometD endpoint. Enables you to subscribe to the CometD notification API.
+        /// CometD endpoint. Subscribe to the CometD notification API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
@@ -402,7 +402,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// CometD endpoint. Enables you to subscribe to the CometD notification API.
+        /// CometD endpoint. Subscribe to the CometD notification API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -452,7 +452,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// CometD endpoint. Enables you to subscribe to the CometD notification API.
+        /// CometD endpoint. Subscribe to the CometD notification API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
@@ -463,7 +463,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// CometD endpoint. Enables you to subscribe to the CometD notification API.
+        /// CometD endpoint. Subscribe to the CometD notification API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>

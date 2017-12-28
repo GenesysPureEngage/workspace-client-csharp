@@ -38,9 +38,9 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse2002Data" /> class.
         /// </summary>
-        /// <param name="SubscriptionId">The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;. (required).</param>
-        /// <param name="Statistics">The list of all the registered statistics. (required).</param>
-        public InlineResponse2002Data(string SubscriptionId = default(string), List<StatisticValueForRegisterResponse> Statistics = default(List<StatisticValueForRegisterResponse>))
+        /// <param name="SubscriptionId">The ID used to fetch statistics values from &#x60;/reporting/subscriptions/{subscriptionId}&#x60;. (required).</param>
+        /// <param name="Statistics">The list of all the subscribed statistics with the assigned ids. (required).</param>
+        public InlineResponse2002Data(string SubscriptionId = default(string), List<StatisticValue> Statistics = default(List<StatisticValue>))
         {
             // to ensure "SubscriptionId" is required (not null)
             if (SubscriptionId == null)
@@ -63,18 +63,18 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;.
+        /// The ID used to fetch statistics values from &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
-        /// <value>The ID used to fetch statistics values from &#x60;/reporting/{subscriptionId}&#x60;.</value>
+        /// <value>The ID used to fetch statistics values from &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.</value>
         [DataMember(Name="subscriptionId", EmitDefaultValue=false)]
         public string SubscriptionId { get; set; }
 
         /// <summary>
-        /// The list of all the registered statistics.
+        /// The list of all the subscribed statistics with the assigned ids.
         /// </summary>
-        /// <value>The list of all the registered statistics.</value>
+        /// <value>The list of all the subscribed statistics with the assigned ids.</value>
         [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegisterResponse> Statistics { get; set; }
+        public List<StatisticValue> Statistics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

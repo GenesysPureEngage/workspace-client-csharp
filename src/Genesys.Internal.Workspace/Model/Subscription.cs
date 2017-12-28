@@ -25,30 +25,40 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// ReportingunsubscribeData
+    /// Subscription
     /// </summary>
     [DataContract]
-    public partial class ReportingunsubscribeData :  IEquatable<ReportingunsubscribeData>, IValidatableObject
+    public partial class Subscription :  IEquatable<Subscription>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReportingunsubscribeData" /> class.
+        /// Initializes a new instance of the <see cref="Subscription" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ReportingunsubscribeData() { }
+        protected Subscription() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ReportingunsubscribeData" /> class.
+        /// Initializes a new instance of the <see cref="Subscription" /> class.
         /// </summary>
         /// <param name="SubscriptionId">SubscriptionId (required).</param>
-        public ReportingunsubscribeData(string SubscriptionId = default(string))
+        /// <param name="Statistics">Statistics (required).</param>
+        public Subscription(string SubscriptionId = default(string), List<StatisticValue> Statistics = default(List<StatisticValue>))
         {
             // to ensure "SubscriptionId" is required (not null)
             if (SubscriptionId == null)
             {
-                throw new InvalidDataException("SubscriptionId is a required property for ReportingunsubscribeData and cannot be null");
+                throw new InvalidDataException("SubscriptionId is a required property for Subscription and cannot be null");
             }
             else
             {
                 this.SubscriptionId = SubscriptionId;
+            }
+            // to ensure "Statistics" is required (not null)
+            if (Statistics == null)
+            {
+                throw new InvalidDataException("Statistics is a required property for Subscription and cannot be null");
+            }
+            else
+            {
+                this.Statistics = Statistics;
             }
         }
         
@@ -59,14 +69,21 @@ namespace Genesys.Internal.Workspace.Model
         public string SubscriptionId { get; set; }
 
         /// <summary>
+        /// Gets or Sets Statistics
+        /// </summary>
+        [DataMember(Name="statistics", EmitDefaultValue=false)]
+        public List<StatisticValue> Statistics { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ReportingunsubscribeData {\n");
+            sb.Append("class Subscription {\n");
             sb.Append("  SubscriptionId: ").Append(SubscriptionId).Append("\n");
+            sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,15 +104,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ReportingunsubscribeData);
+            return this.Equals(input as Subscription);
         }
 
         /// <summary>
-        /// Returns true if ReportingunsubscribeData instances are equal
+        /// Returns true if Subscription instances are equal
         /// </summary>
-        /// <param name="input">Instance of ReportingunsubscribeData to be compared</param>
+        /// <param name="input">Instance of Subscription to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ReportingunsubscribeData input)
+        public bool Equals(Subscription input)
         {
             if (input == null)
                 return false;
@@ -105,6 +122,11 @@ namespace Genesys.Internal.Workspace.Model
                     this.SubscriptionId == input.SubscriptionId ||
                     (this.SubscriptionId != null &&
                     this.SubscriptionId.Equals(input.SubscriptionId))
+                ) && 
+                (
+                    this.Statistics == input.Statistics ||
+                    this.Statistics != null &&
+                    this.Statistics.SequenceEqual(input.Statistics)
                 );
         }
 
@@ -119,6 +141,8 @@ namespace Genesys.Internal.Workspace.Model
                 int hashCode = 41;
                 if (this.SubscriptionId != null)
                     hashCode = hashCode * 59 + this.SubscriptionId.GetHashCode();
+                if (this.Statistics != null)
+                    hashCode = hashCode * 59 + this.Statistics.GetHashCode();
                 return hashCode;
             }
         }

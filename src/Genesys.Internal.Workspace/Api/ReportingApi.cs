@@ -25,68 +25,68 @@ namespace Genesys.Internal.Workspace.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get statistics.
+        /// Get statistics for given subscriptionId.
         /// </summary>
         /// <remarks>
         /// Get the statistics for the specified subscription ID.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>InlineResponse2003</returns>
-        InlineResponse2003 Peek (string subscriptionId);
-
-        /// <summary>
-        /// Get statistics.
-        /// </summary>
-        /// <remarks>
-        /// Get the statistics for the specified subscription ID.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        ApiResponse<InlineResponse2003> PeekWithHttpInfo (string subscriptionId);
-        /// <summary>
-        /// Subscribe to statistics
-        /// </summary>
-        /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>InlineResponse2002</returns>
-        InlineResponse2002 Register (StatisticsRegisterData statisticsRegisterData);
+        InlineResponse2002 Peek (string subscriptionId);
+
+        /// <summary>
+        /// Get statistics for given subscriptionId.
+        /// </summary>
+        /// <remarks>
+        /// Get the statistics for the specified subscription ID.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        ApiResponse<InlineResponse2002> PeekWithHttpInfo (string subscriptionId);
+        /// <summary>
+        /// Get statistics for given subscription ids.
+        /// </summary>
+        /// <remarks>
+        /// Get the statistics for the specified subscription ID.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <returns>InlineResponse2001</returns>
+        InlineResponse2001 PeekMultiple (string ids);
+
+        /// <summary>
+        /// Get statistics for given subscription ids.
+        /// </summary>
+        /// <remarks>
+        /// Get the statistics for the specified subscription ID.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <returns>ApiResponse of InlineResponse2001</returns>
+        ApiResponse<InlineResponse2001> PeekMultipleWithHttpInfo (string ids);
+        /// <summary>
+        /// Subscribe to statistics
+        /// </summary>
+        /// <remarks>
+        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
+        /// <returns>InlineResponse2002</returns>
+        InlineResponse2002 Subscribe (StatisticsSubscribeData statisticsSubscribeData);
 
         /// <summary>
         /// Subscribe to statistics
         /// </summary>
         /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
+        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        ApiResponse<InlineResponse2002> RegisterWithHttpInfo (StatisticsRegisterData statisticsRegisterData);
-        /// <summary>
-        /// Subscribe to Statistics
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
-        /// <returns>InlineResponse2001</returns>
-        InlineResponse2001 Subscribe (StatisticsSubscribeData statisticsSubscribeData);
-
-        /// <summary>
-        /// Subscribe to Statistics
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
-        /// <returns>ApiResponse of InlineResponse2001</returns>
-        ApiResponse<InlineResponse2001> SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
+        ApiResponse<InlineResponse2002> SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
         /// <summary>
         /// Unsubscribe from statistics.
         /// </summary>
@@ -94,9 +94,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from the specified group of statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Unsubscribe (UnsubscribeData unsubscribeData);
+        ApiSuccessResponse Unsubscribe (string subscriptionId);
 
         /// <summary>
         /// Unsubscribe from statistics.
@@ -105,74 +105,74 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from the specified group of statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (UnsubscribeData unsubscribeData);
+        ApiResponse<ApiSuccessResponse> UnsubscribeWithHttpInfo (string subscriptionId);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get statistics.
+        /// Get statistics for given subscriptionId.
         /// </summary>
         /// <remarks>
         /// Get the statistics for the specified subscription ID.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        System.Threading.Tasks.Task<InlineResponse2003> PeekAsync (string subscriptionId);
-
-        /// <summary>
-        /// Get statistics.
-        /// </summary>
-        /// <remarks>
-        /// Get the statistics for the specified subscription ID.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PeekAsyncWithHttpInfo (string subscriptionId);
-        /// <summary>
-        /// Subscribe to statistics
-        /// </summary>
-        /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        System.Threading.Tasks.Task<InlineResponse2002> RegisterAsync (StatisticsRegisterData statisticsRegisterData);
+        System.Threading.Tasks.Task<InlineResponse2002> PeekAsync (string subscriptionId);
+
+        /// <summary>
+        /// Get statistics for given subscriptionId.
+        /// </summary>
+        /// <remarks>
+        /// Get the statistics for the specified subscription ID.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PeekAsyncWithHttpInfo (string subscriptionId);
+        /// <summary>
+        /// Get statistics for given subscription ids.
+        /// </summary>
+        /// <remarks>
+        /// Get the statistics for the specified subscription ID.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <returns>Task of InlineResponse2001</returns>
+        System.Threading.Tasks.Task<InlineResponse2001> PeekMultipleAsync (string ids);
+
+        /// <summary>
+        /// Get statistics for given subscription ids.
+        /// </summary>
+        /// <remarks>
+        /// Get the statistics for the specified subscription ID.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PeekMultipleAsyncWithHttpInfo (string ids);
+        /// <summary>
+        /// Subscribe to statistics
+        /// </summary>
+        /// <remarks>
+        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
+        /// <returns>Task of InlineResponse2002</returns>
+        System.Threading.Tasks.Task<InlineResponse2002> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData);
 
         /// <summary>
         /// Subscribe to statistics
         /// </summary>
         /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
+        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> RegisterAsyncWithHttpInfo (StatisticsRegisterData statisticsRegisterData);
-        /// <summary>
-        /// Subscribe to Statistics
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        System.Threading.Tasks.Task<InlineResponse2001> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData);
-
-        /// <summary>
-        /// Subscribe to Statistics
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
         /// <summary>
         /// Unsubscribe from statistics.
         /// </summary>
@@ -180,9 +180,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from the specified group of statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (UnsubscribeData unsubscribeData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (string subscriptionId);
 
         /// <summary>
         /// Unsubscribe from statistics.
@@ -191,9 +191,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from the specified group of statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (UnsubscribeData unsubscribeData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (string subscriptionId);
         #endregion Asynchronous Operations
     }
 
@@ -295,165 +295,30 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics. Get the statistics for the specified subscription ID.
+        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>InlineResponse2003</returns>
-        public InlineResponse2003 Peek (string subscriptionId)
-        {
-             ApiResponse<InlineResponse2003> localVarResponse = PeekWithHttpInfo(subscriptionId);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get statistics. Get the statistics for the specified subscription ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>ApiResponse of InlineResponse2003</returns>
-        public ApiResponse< InlineResponse2003 > PeekWithHttpInfo (string subscriptionId)
-        {
-            // verify the required parameter 'subscriptionId' is set
-            if (subscriptionId == null)
-                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Peek");
-
-            var localVarPath = "/reporting/{subscriptionId}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Peek", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
-        }
-
-        /// <summary>
-        /// Get statistics. Get the statistics for the specified subscription ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>Task of InlineResponse2003</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2003> PeekAsync (string subscriptionId)
-        {
-             ApiResponse<InlineResponse2003> localVarResponse = await PeekAsyncWithHttpInfo(subscriptionId);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get statistics. Get the statistics for the specified subscription ID.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="subscriptionId">The unique ID of the subscription.</param>
-        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> PeekAsyncWithHttpInfo (string subscriptionId)
-        {
-            // verify the required parameter 'subscriptionId' is set
-            if (subscriptionId == null)
-                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Peek");
-
-            var localVarPath = "/reporting/{subscriptionId}";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Peek", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
-        }
-
-        /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>InlineResponse2002</returns>
-        public InlineResponse2002 Register (StatisticsRegisterData statisticsRegisterData)
+        public InlineResponse2002 Peek (string subscriptionId)
         {
-             ApiResponse<InlineResponse2002> localVarResponse = RegisterWithHttpInfo(statisticsRegisterData);
+             ApiResponse<InlineResponse2002> localVarResponse = PeekWithHttpInfo(subscriptionId);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
+        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
-        public ApiResponse< InlineResponse2002 > RegisterWithHttpInfo (StatisticsRegisterData statisticsRegisterData)
+        public ApiResponse< InlineResponse2002 > PeekWithHttpInfo (string subscriptionId)
         {
-            // verify the required parameter 'statisticsRegisterData' is set
-            if (statisticsRegisterData == null)
-                throw new ApiException(400, "Missing required parameter 'statisticsRegisterData' when calling ReportingApi->Register");
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Peek");
 
-            var localVarPath = "/reporting/register";
+            var localVarPath = "/reporting/subscriptions/{subscriptionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -475,26 +340,19 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (statisticsRegisterData != null && statisticsRegisterData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(statisticsRegisterData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = statisticsRegisterData; // byte array
-            }
+            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Register", localVarResponse);
+                Exception exception = ExceptionFactory("Peek", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -504,31 +362,31 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
+        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>Task of InlineResponse2002</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2002> RegisterAsync (StatisticsRegisterData statisticsRegisterData)
+        public async System.Threading.Tasks.Task<InlineResponse2002> PeekAsync (string subscriptionId)
         {
-             ApiResponse<InlineResponse2002> localVarResponse = await RegisterAsyncWithHttpInfo(statisticsRegisterData);
+             ApiResponse<InlineResponse2002> localVarResponse = await PeekAsyncWithHttpInfo(subscriptionId);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/{subscriptionId}&#x60;.
+        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsRegisterData">The collection of statistics you want to include in your subscription.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> RegisterAsyncWithHttpInfo (StatisticsRegisterData statisticsRegisterData)
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PeekAsyncWithHttpInfo (string subscriptionId)
         {
-            // verify the required parameter 'statisticsRegisterData' is set
-            if (statisticsRegisterData == null)
-                throw new ApiException(400, "Missing required parameter 'statisticsRegisterData' when calling ReportingApi->Register");
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Peek");
 
-            var localVarPath = "/reporting/register";
+            var localVarPath = "/reporting/subscriptions/{subscriptionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -550,26 +408,19 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (statisticsRegisterData != null && statisticsRegisterData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(statisticsRegisterData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = statisticsRegisterData; // byte array
-            }
+            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Register", localVarResponse);
+                Exception exception = ExceptionFactory("Peek", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -579,30 +430,165 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to Statistics 
+        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
         /// <returns>InlineResponse2001</returns>
-        public InlineResponse2001 Subscribe (StatisticsSubscribeData statisticsSubscribeData)
+        public InlineResponse2001 PeekMultiple (string ids)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = SubscribeWithHttpInfo(statisticsSubscribeData);
+             ApiResponse<InlineResponse2001> localVarResponse = PeekMultipleWithHttpInfo(ids);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Subscribe to Statistics 
+        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
-        public ApiResponse< InlineResponse2001 > SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData)
+        public ApiResponse< InlineResponse2001 > PeekMultipleWithHttpInfo (string ids)
+        {
+            // verify the required parameter 'ids' is set
+            if (ids == null)
+                throw new ApiException(400, "Missing required parameter 'ids' when calling ReportingApi->PeekMultiple");
+
+            var localVarPath = "/reporting/subscriptions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (ids != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "ids", ids)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PeekMultiple", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
+        }
+
+        /// <summary>
+        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <returns>Task of InlineResponse2001</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2001> PeekMultipleAsync (string ids)
+        {
+             ApiResponse<InlineResponse2001> localVarResponse = await PeekMultipleAsyncWithHttpInfo(ids);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PeekMultipleAsyncWithHttpInfo (string ids)
+        {
+            // verify the required parameter 'ids' is set
+            if (ids == null)
+                throw new ApiException(400, "Missing required parameter 'ids' when calling ReportingApi->PeekMultiple");
+
+            var localVarPath = "/reporting/subscriptions";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (ids != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "ids", ids)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("PeekMultiple", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
+        }
+
+        /// <summary>
+        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
+        /// <returns>InlineResponse2002</returns>
+        public InlineResponse2002 Subscribe (StatisticsSubscribeData statisticsSubscribeData)
+        {
+             ApiResponse<InlineResponse2002> localVarResponse = SubscribeWithHttpInfo(statisticsSubscribeData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
+        /// <returns>ApiResponse of InlineResponse2002</returns>
+        public ApiResponse< InlineResponse2002 > SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData)
         {
             // verify the required parameter 'statisticsSubscribeData' is set
             if (statisticsSubscribeData == null)
                 throw new ApiException(400, "Missing required parameter 'statisticsSubscribeData' when calling ReportingApi->Subscribe");
 
-            var localVarPath = "/reporting/subscribe";
+            var localVarPath = "/reporting/subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -647,37 +633,37 @@ namespace Genesys.Internal.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
+                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
         }
 
         /// <summary>
-        /// Subscribe to Statistics 
+        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
-        /// <returns>Task of InlineResponse2001</returns>
-        public async System.Threading.Tasks.Task<InlineResponse2001> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData)
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
+        /// <returns>Task of InlineResponse2002</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2002> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData)
         {
-             ApiResponse<InlineResponse2001> localVarResponse = await SubscribeAsyncWithHttpInfo(statisticsSubscribeData);
+             ApiResponse<InlineResponse2002> localVarResponse = await SubscribeAsyncWithHttpInfo(statisticsSubscribeData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Subscribe to Statistics 
+        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="statisticsSubscribeData">Requested Statistics</param>
-        /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData)
+        /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData)
         {
             // verify the required parameter 'statisticsSubscribeData' is set
             if (statisticsSubscribeData == null)
                 throw new ApiException(400, "Missing required parameter 'statisticsSubscribeData' when calling ReportingApi->Subscribe");
 
-            var localVarPath = "/reporting/subscribe";
+            var localVarPath = "/reporting/subscriptions";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -722,20 +708,20 @@ namespace Genesys.Internal.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<InlineResponse2001>(localVarStatusCode,
+            return new ApiResponse<InlineResponse2002>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (InlineResponse2001) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2001)));
+                (InlineResponse2002) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2002)));
         }
 
         /// <summary>
         /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Unsubscribe (UnsubscribeData unsubscribeData)
+        public ApiSuccessResponse Unsubscribe (string subscriptionId)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeWithHttpInfo(unsubscribeData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeWithHttpInfo(subscriptionId);
              return localVarResponse.Data;
         }
 
@@ -743,15 +729,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (UnsubscribeData unsubscribeData)
+        public ApiResponse< ApiSuccessResponse > UnsubscribeWithHttpInfo (string subscriptionId)
         {
-            // verify the required parameter 'unsubscribeData' is set
-            if (unsubscribeData == null)
-                throw new ApiException(400, "Missing required parameter 'unsubscribeData' when calling ReportingApi->Unsubscribe");
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Unsubscribe");
 
-            var localVarPath = "/reporting/unsubscribe";
+            var localVarPath = "/reporting/subscriptions/{subscriptionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -773,19 +759,12 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (unsubscribeData != null && unsubscribeData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(unsubscribeData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = unsubscribeData; // byte array
-            }
+            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;
@@ -805,11 +784,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (UnsubscribeData unsubscribeData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (string subscriptionId)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeAsyncWithHttpInfo(unsubscribeData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeAsyncWithHttpInfo(subscriptionId);
              return localVarResponse.Data;
 
         }
@@ -818,15 +797,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="unsubscribeData">Request parameters.</param>
+        /// <param name="subscriptionId">The unique ID of the subscription.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (UnsubscribeData unsubscribeData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeAsyncWithHttpInfo (string subscriptionId)
         {
-            // verify the required parameter 'unsubscribeData' is set
-            if (unsubscribeData == null)
-                throw new ApiException(400, "Missing required parameter 'unsubscribeData' when calling ReportingApi->Unsubscribe");
+            // verify the required parameter 'subscriptionId' is set
+            if (subscriptionId == null)
+                throw new ApiException(400, "Missing required parameter 'subscriptionId' when calling ReportingApi->Unsubscribe");
 
-            var localVarPath = "/reporting/unsubscribe";
+            var localVarPath = "/reporting/subscriptions/{subscriptionId}";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -848,19 +827,12 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (unsubscribeData != null && unsubscribeData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(unsubscribeData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = unsubscribeData; // byte array
-            }
+            if (subscriptionId != null) localVarPathParams.Add("subscriptionId", Configuration.ApiClient.ParameterToString(subscriptionId)); // path parameter
 
 
             // make the HTTP request
             IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                Method.DELETE, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
                 localVarPathParams, localVarHttpContentType);
 
             int localVarStatusCode = (int) localVarResponse.StatusCode;

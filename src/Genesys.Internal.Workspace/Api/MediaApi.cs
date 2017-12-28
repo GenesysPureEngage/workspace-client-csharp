@@ -513,7 +513,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Transfer the interaction to the agent
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to an agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -526,7 +526,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Transfer the interaction to the agent
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to an agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -1050,7 +1050,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Transfer the interaction to the agent
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to an agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -1063,7 +1063,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Transfer the interaction to the agent
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to an agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4414,7 +4414,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to the agent Transfer the interaction to an agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4428,7 +4428,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to the agent Transfer the interaction to an agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4500,7 +4500,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to the agent Transfer the interaction to an agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>
@@ -4515,7 +4515,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Place the interaction in queue with modification of properties pairs.
+        /// Transfer the interaction to the agent Transfer the interaction to an agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">media-type of interaction</param>

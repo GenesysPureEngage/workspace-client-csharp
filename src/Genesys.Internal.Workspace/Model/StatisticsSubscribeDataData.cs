@@ -38,19 +38,9 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticsSubscribeDataData" /> class.
         /// </summary>
-        /// <param name="ConnectionId">ConnectionId (required).</param>
         /// <param name="Statistics">Statistics (required).</param>
-        public StatisticsSubscribeDataData(string ConnectionId = default(string), List<StatisticValueForRegister> Statistics = default(List<StatisticValueForRegister>))
+        public StatisticsSubscribeDataData(List<Statistic> Statistics = default(List<Statistic>))
         {
-            // to ensure "ConnectionId" is required (not null)
-            if (ConnectionId == null)
-            {
-                throw new InvalidDataException("ConnectionId is a required property for StatisticsSubscribeDataData and cannot be null");
-            }
-            else
-            {
-                this.ConnectionId = ConnectionId;
-            }
             // to ensure "Statistics" is required (not null)
             if (Statistics == null)
             {
@@ -63,16 +53,10 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets ConnectionId
-        /// </summary>
-        [DataMember(Name="connectionId", EmitDefaultValue=false)]
-        public string ConnectionId { get; set; }
-
-        /// <summary>
         /// Gets or Sets Statistics
         /// </summary>
         [DataMember(Name="statistics", EmitDefaultValue=false)]
-        public List<StatisticValueForRegister> Statistics { get; set; }
+        public List<Statistic> Statistics { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -82,7 +66,6 @@ namespace Genesys.Internal.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class StatisticsSubscribeDataData {\n");
-            sb.Append("  ConnectionId: ").Append(ConnectionId).Append("\n");
             sb.Append("  Statistics: ").Append(Statistics).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -119,11 +102,6 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.ConnectionId == input.ConnectionId ||
-                    (this.ConnectionId != null &&
-                    this.ConnectionId.Equals(input.ConnectionId))
-                ) && 
-                (
                     this.Statistics == input.Statistics ||
                     this.Statistics != null &&
                     this.Statistics.SequenceEqual(input.Statistics)
@@ -139,8 +117,6 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ConnectionId != null)
-                    hashCode = hashCode * 59 + this.ConnectionId.GetHashCode();
                 if (this.Statistics != null)
                     hashCode = hashCode * 59 + this.Statistics.GetHashCode();
                 return hashCode;

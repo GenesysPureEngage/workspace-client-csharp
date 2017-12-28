@@ -28,7 +28,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Activate channels for the user with the specified resources.
         /// </summary>
         /// <remarks>
-        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Activate channels for the user with the specified resources.
         /// </summary>
         /// <remarks>
-        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -153,9 +153,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null, string authorization = null);
 
@@ -166,9 +166,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null, string authorization = null);
         /// <summary>
@@ -217,7 +217,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Activate channels for the user with the specified resources.
         /// </summary>
         /// <remarks>
-        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -228,7 +228,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Activate channels for the user with the specified resources.
         /// </summary>
         /// <remarks>
-        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -342,9 +342,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null, string authorization = null);
 
@@ -355,9 +355,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null, string authorization = null);
         /// <summary>
@@ -501,7 +501,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -513,7 +513,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -575,7 +575,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -588,7 +588,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
+        /// Activate channels for the user with the specified resources. Activates the specified channels using the provided resources. If the channels are successfully activated, Workspace sends additional information about the state of active resources (DNs, channels) via events. The resources you provide are associated with the agent for the duration of the session. You should send this request after making an &#x60;/workspace/v3/initialize-workspace&#x60; request and getting the WorkspaceInitializationComplete message through CometD.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="channelsData"></param>
@@ -1298,9 +1298,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1312,9 +1312,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1368,9 +1368,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1383,9 +1383,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](https://developer.genhtcc.com/api/reference/authentication/index.html). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](https://developer.genhtcc.com/api/reference/authentication/index.html), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null, string authorization = null)
         {

@@ -25,38 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// StatisticsRegisterData
+    /// CreateData
     /// </summary>
     [DataContract]
-    public partial class StatisticsRegisterData :  IEquatable<StatisticsRegisterData>, IValidatableObject
+    public partial class CreateData :  IEquatable<CreateData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterData" /> class.
+        /// Initializes a new instance of the <see cref="CreateData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected StatisticsRegisterData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="StatisticsRegisterData" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public StatisticsRegisterData(StatisticsRegisterDataData Data = default(StatisticsRegisterDataData))
+        /// <param name="Data">Data.</param>
+        public CreateData(MediaemailinteractionscreateData Data = default(MediaemailinteractionscreateData))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for StatisticsRegisterData and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public StatisticsRegisterDataData Data { get; set; }
+        public MediaemailinteractionscreateData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +52,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class StatisticsRegisterData {\n");
+            sb.Append("class CreateData {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -87,15 +74,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as StatisticsRegisterData);
+            return this.Equals(input as CreateData);
         }
 
         /// <summary>
-        /// Returns true if StatisticsRegisterData instances are equal
+        /// Returns true if CreateData instances are equal
         /// </summary>
-        /// <param name="input">Instance of StatisticsRegisterData to be compared</param>
+        /// <param name="input">Instance of CreateData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(StatisticsRegisterData input)
+        public bool Equals(CreateData input)
         {
             if (input == null)
                 return false;
