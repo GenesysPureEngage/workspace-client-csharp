@@ -44,7 +44,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="Name">The name of the statistic (required).</param>
         /// <param name="Timestamp">Timestamp for given value of the statistic (required).</param>
         /// <param name="Value">Value of the statistic.</param>
-        public StatisticValue(string ObjectId = default(string), string ObjectType = default(string), string StatisticId = default(string), string Name = default(string), int? Timestamp = default(int?), Object Value = default(Object))
+        public StatisticValue(string ObjectId = default(string), string ObjectType = default(string), string StatisticId = default(string), string Name = default(string), long? Timestamp = default(long?), Object Value = default(Object))
         {
             // to ensure "ObjectId" is required (not null)
             if (ObjectId == null)
@@ -127,7 +127,7 @@ namespace Genesys.Internal.Workspace.Model
         /// </summary>
         /// <value>Timestamp for given value of the statistic</value>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
-        public int? Timestamp { get; set; }
+        public long? Timestamp { get; set; }
 
         /// <summary>
         /// Value of the statistic
