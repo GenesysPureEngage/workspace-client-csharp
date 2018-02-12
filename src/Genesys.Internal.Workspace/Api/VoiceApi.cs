@@ -466,7 +466,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Reconnect a call.
         /// </summary>
         /// <remarks>
-        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -478,7 +478,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Reconnect a call.
         /// </summary>
         /// <remarks>
-        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -602,10 +602,10 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a userEvent event to T-Server with the provided attached data.
         /// </summary>
         /// <remarks>
-        /// Send a userEvent event to T-Server with the provided attached data.
+        /// Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SendUserEvent (SendUserEventData userEventData);
 
@@ -613,10 +613,10 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a userEvent event to T-Server with the provided attached data.
         /// </summary>
         /// <remarks>
-        /// Send a userEvent event to T-Server with the provided attached data.
+        /// Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SendUserEventWithHttpInfo (SendUserEventData userEventData);
         /// <summary>
@@ -902,7 +902,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Update user data for a call.
         /// </summary>
         /// <remarks>
-        /// Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -914,7 +914,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Update user data for a call.
         /// </summary>
         /// <remarks>
-        /// Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -1365,7 +1365,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Reconnect a call.
         /// </summary>
         /// <remarks>
-        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -1377,7 +1377,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Reconnect a call.
         /// </summary>
         /// <remarks>
-        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -1501,10 +1501,10 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a userEvent event to T-Server with the provided attached data.
         /// </summary>
         /// <remarks>
-        /// Send a userEvent event to T-Server with the provided attached data.
+        /// Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SendUserEventAsync (SendUserEventData userEventData);
 
@@ -1512,10 +1512,10 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a userEvent event to T-Server with the provided attached data.
         /// </summary>
         /// <remarks>
-        /// Send a userEvent event to T-Server with the provided attached data.
+        /// Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUserEventAsyncWithHttpInfo (SendUserEventData userEventData);
         /// <summary>
@@ -1801,7 +1801,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Update user data for a call.
         /// </summary>
         /// <remarks>
-        /// Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -1813,7 +1813,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Update user data for a call.
         /// </summary>
         /// <remarks>
-        /// Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -4927,7 +4927,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -4940,7 +4940,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -5007,7 +5007,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -5021,7 +5021,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60; in one step.
+        /// Reconnect a call. Reconnect the specified call. This releases the established call and retrieves the held call in one step. This is a quick way to to do &#x60;/workspace/v3/voice/calls/{id}/release&#x60; and &#x60;/workspace/v3/voice/calls/{id}/retrieve&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the established call (will be released).</param>
@@ -5855,10 +5855,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a userEvent event to T-Server with the provided attached data. Send a userEvent event to T-Server with the provided attached data.
+        /// Send a userEvent event to T-Server with the provided attached data. Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse SendUserEvent (SendUserEventData userEventData)
         {
@@ -5867,10 +5867,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a userEvent event to T-Server with the provided attached data. Send a userEvent event to T-Server with the provided attached data.
+        /// Send a userEvent event to T-Server with the provided attached data. Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > SendUserEventWithHttpInfo (SendUserEventData userEventData)
         {
@@ -5929,10 +5929,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a userEvent event to T-Server with the provided attached data. Send a userEvent event to T-Server with the provided attached data.
+        /// Send a userEvent event to T-Server with the provided attached data. Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> SendUserEventAsync (SendUserEventData userEventData)
         {
@@ -5942,10 +5942,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a userEvent event to T-Server with the provided attached data. Send a userEvent event to T-Server with the provided attached data.
+        /// Send a userEvent event to T-Server with the provided attached data. Send EventUserEvent to T-Server with the provided attached data. For details about EventUserEvent, refer to the  [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="userEventData">The data to be sent. This is an array of objects with the properties key, type, and value.</param>
+        /// <param name="userEventData">The data to send. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUserEventAsyncWithHttpInfo (SendUserEventData userEventData)
         {
@@ -7891,7 +7891,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data for a call. Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update user data for a call. Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -7904,7 +7904,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data for a call. Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update user data for a call. Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -7971,7 +7971,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data for a call. Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update user data for a call. Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
@@ -7985,7 +7985,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data for a call. Update call data with the provided key/value pairs. This will replace any existing key/value pairs with the same keys.
+        /// Update user data for a call. Update call data with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>

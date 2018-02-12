@@ -38,7 +38,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsidsinglestepconferenceData" /> class.
         /// </summary>
-        /// <param name="Destination">The number to be added to the call. (required).</param>
+        /// <param name="Destination">The number to add to the call. (required).</param>
         /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">Key/value data to include with the call..</param>
         /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
@@ -61,9 +61,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// The number to be added to the call.
+        /// The number to add to the call.
         /// </summary>
-        /// <value>The number to be added to the call.</value>
+        /// <value>The number to add to the call.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
 

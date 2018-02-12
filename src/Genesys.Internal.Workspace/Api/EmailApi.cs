@@ -34,7 +34,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AcceptEmail (string id, AcceptData1 acceptData = null);
+        ApiSuccessResponse AcceptEmail (string id, AcceptData3 acceptData = null);
 
         /// <summary>
         /// Accept the email interaction
@@ -46,7 +46,28 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AcceptEmailWithHttpInfo (string id, AcceptData1 acceptData = null);
+        ApiResponse<ApiSuccessResponse> AcceptEmailWithHttpInfo (string id, AcceptData3 acceptData = null);
+        /// <summary>
+        /// cancel the outbound email interaction
+        /// </summary>
+        /// <remarks>
+        /// Cancel the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse CancelEmail (string id);
+
+        /// <summary>
+        /// cancel the outbound email interaction
+        /// </summary>
+        /// <remarks>
+        /// Cancel the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> CancelEmailWithHttpInfo (string id);
         /// <summary>
         /// Create email interaction
         /// </summary>
@@ -68,6 +89,75 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="createData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> CreateEmailWithHttpInfo (CreateData createData = null);
+        /// <summary>
+        /// reply email
+        /// </summary>
+        /// <remarks>
+        /// Reply to inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse Reply (string id, ReplyData replyData = null);
+
+        /// <summary>
+        /// reply email
+        /// </summary>
+        /// <remarks>
+        /// Reply to inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> ReplyWithHttpInfo (string id, ReplyData replyData = null);
+        /// <summary>
+        /// Save email information to UCS
+        /// </summary>
+        /// <remarks>
+        /// Save email information of interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SaveEmail (string id, SaveData saveData = null);
+
+        /// <summary>
+        /// Save email information to UCS
+        /// </summary>
+        /// <remarks>
+        /// Save email information of interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SaveEmailWithHttpInfo (string id, SaveData saveData = null);
+        /// <summary>
+        /// Send email
+        /// </summary>
+        /// <remarks>
+        /// Send email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SendEmail (string id, SendData sendData = null);
+
+        /// <summary>
+        /// Send email
+        /// </summary>
+        /// <remarks>
+        /// Send email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SendEmailWithHttpInfo (string id, SendData sendData = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -80,7 +170,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData1 acceptData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData3 acceptData = null);
 
         /// <summary>
         /// Accept the email interaction
@@ -92,7 +182,28 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData1 acceptData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData3 acceptData = null);
+        /// <summary>
+        /// cancel the outbound email interaction
+        /// </summary>
+        /// <remarks>
+        /// Cancel the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> CancelEmailAsync (string id);
+
+        /// <summary>
+        /// cancel the outbound email interaction
+        /// </summary>
+        /// <remarks>
+        /// Cancel the interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CancelEmailAsyncWithHttpInfo (string id);
         /// <summary>
         /// Create email interaction
         /// </summary>
@@ -114,6 +225,75 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="createData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateEmailAsyncWithHttpInfo (CreateData createData = null);
+        /// <summary>
+        /// reply email
+        /// </summary>
+        /// <remarks>
+        /// Reply to inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> ReplyAsync (string id, ReplyData replyData = null);
+
+        /// <summary>
+        /// reply email
+        /// </summary>
+        /// <remarks>
+        /// Reply to inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReplyAsyncWithHttpInfo (string id, ReplyData replyData = null);
+        /// <summary>
+        /// Save email information to UCS
+        /// </summary>
+        /// <remarks>
+        /// Save email information of interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SaveEmailAsync (string id, SaveData saveData = null);
+
+        /// <summary>
+        /// Save email information to UCS
+        /// </summary>
+        /// <remarks>
+        /// Save email information of interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SaveEmailAsyncWithHttpInfo (string id, SaveData saveData = null);
+        /// <summary>
+        /// Send email
+        /// </summary>
+        /// <remarks>
+        /// Send email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendEmailAsync (string id, SendData sendData = null);
+
+        /// <summary>
+        /// Send email
+        /// </summary>
+        /// <remarks>
+        /// Send email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendEmailAsyncWithHttpInfo (string id, SendData sendData = null);
         #endregion Asynchronous Operations
     }
 
@@ -221,7 +401,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AcceptEmail (string id, AcceptData1 acceptData = null)
+        public ApiSuccessResponse AcceptEmail (string id, AcceptData3 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = AcceptEmailWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
@@ -234,7 +414,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AcceptEmailWithHttpInfo (string id, AcceptData1 acceptData = null)
+        public ApiResponse< ApiSuccessResponse > AcceptEmailWithHttpInfo (string id, AcceptData3 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -298,7 +478,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData1 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData3 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptEmailAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
@@ -312,7 +492,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData1 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData3 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -361,6 +541,141 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AcceptEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// cancel the outbound email interaction Cancel the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse CancelEmail (string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = CancelEmailWithHttpInfo(id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// cancel the outbound email interaction Cancel the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > CancelEmailWithHttpInfo (string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->CancelEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/cancel";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// cancel the outbound email interaction Cancel the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> CancelEmailAsync (string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await CancelEmailAsyncWithHttpInfo(id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// cancel the outbound email interaction Cancel the interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to cancel</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CancelEmailAsyncWithHttpInfo (string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->CancelEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/cancel";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("CancelEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -504,6 +819,471 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("CreateEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// reply email Reply to inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse Reply (string id, ReplyData replyData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = ReplyWithHttpInfo(id, replyData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// reply email Reply to inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > ReplyWithHttpInfo (string id, ReplyData replyData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->Reply");
+
+            var localVarPath = "/media/email/interactions/{id}/reply";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (replyData != null && replyData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(replyData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = replyData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Reply", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// reply email Reply to inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ReplyAsync (string id, ReplyData replyData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ReplyAsyncWithHttpInfo(id, replyData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// reply email Reply to inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to reply</param>
+        /// <param name="replyData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReplyAsyncWithHttpInfo (string id, ReplyData replyData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->Reply");
+
+            var localVarPath = "/media/email/interactions/{id}/reply";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (replyData != null && replyData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(replyData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = replyData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Reply", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Save email information to UCS Save email information of interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SaveEmail (string id, SaveData saveData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SaveEmailWithHttpInfo(id, saveData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Save email information to UCS Save email information of interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SaveEmailWithHttpInfo (string id, SaveData saveData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->SaveEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/save";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (saveData != null && saveData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Save email information to UCS Save email information of interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SaveEmailAsync (string id, SaveData saveData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SaveEmailAsyncWithHttpInfo(id, saveData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Save email information to UCS Save email information of interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to save</param>
+        /// <param name="saveData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SaveEmailAsyncWithHttpInfo (string id, SaveData saveData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->SaveEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/save";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (saveData != null && saveData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(saveData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = saveData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SaveEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Send email Send email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SendEmail (string id, SendData sendData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendEmailWithHttpInfo(id, sendData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send email Send email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SendEmailWithHttpInfo (string id, SendData sendData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->SendEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/send";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (sendData != null && sendData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(sendData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Send email Send email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendEmailAsync (string id, SendData sendData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendEmailAsyncWithHttpInfo(id, sendData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send email Send email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to send</param>
+        /// <param name="sendData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendEmailAsyncWithHttpInfo (string id, SendData sendData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->SendEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/send";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (sendData != null && sendData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(sendData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = sendData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 

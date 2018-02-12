@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="AssignInteractionToContactData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public AssignInteractionToContactData(UcsassigninteractiontocontactData Data = default(UcsassigninteractiontocontactData))
+        public AssignInteractionToContactData(UcsinteractionsidassigncontactData Data = default(UcsinteractionsidassigncontactData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsassigninteractiontocontactData Data { get; set; }
+        public UcsinteractionsidassigncontactData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

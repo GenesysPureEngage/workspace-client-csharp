@@ -25,35 +25,24 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcslucenesearchData
+    /// UcsixnsearchData
     /// </summary>
     [DataContract]
-    public partial class UcslucenesearchData :  IEquatable<UcslucenesearchData>, IValidatableObject
+    public partial class UcsixnsearchData :  IEquatable<UcsixnsearchData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcslucenesearchData" /> class.
-        /// </summary>
-        [JsonConstructorAttribute]
-        protected UcslucenesearchData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UcslucenesearchData" /> class.
+        /// Initializes a new instance of the <see cref="UcsixnsearchData" /> class.
         /// </summary>
         /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
-        /// <param name="Query">The query to do the lucene search for contacts (required).</param>
-        /// <param name="CustomAttributes">The list of custom contact attributes to be returned for each contact in response.</param>
-        public UcslucenesearchData(int? MaxResults = default(int?), string Query = default(string), List<string> CustomAttributes = default(List<string>))
+        /// <param name="Owner">The list of agent username for which the search refers to. .</param>
+        /// <param name="Query">The query to do the lucene search for contacts.</param>
+        /// <param name="ReturnedAttributes">The list of contact attributes to be returned for each contact in response.</param>
+        public UcsixnsearchData(int? MaxResults = default(int?), List<string> Owner = default(List<string>), string Query = default(string), List<string> ReturnedAttributes = default(List<string>))
         {
-            // to ensure "Query" is required (not null)
-            if (Query == null)
-            {
-                throw new InvalidDataException("Query is a required property for UcslucenesearchData and cannot be null");
-            }
-            else
-            {
-                this.Query = Query;
-            }
             this.MaxResults = MaxResults;
-            this.CustomAttributes = CustomAttributes;
+            this.Owner = Owner;
+            this.Query = Query;
+            this.ReturnedAttributes = ReturnedAttributes;
         }
         
         /// <summary>
@@ -64,6 +53,13 @@ namespace Genesys.Internal.Workspace.Model
         public int? MaxResults { get; set; }
 
         /// <summary>
+        /// The list of agent username for which the search refers to. 
+        /// </summary>
+        /// <value>The list of agent username for which the search refers to. </value>
+        [DataMember(Name="owner", EmitDefaultValue=false)]
+        public List<string> Owner { get; set; }
+
+        /// <summary>
         /// The query to do the lucene search for contacts
         /// </summary>
         /// <value>The query to do the lucene search for contacts</value>
@@ -71,11 +67,11 @@ namespace Genesys.Internal.Workspace.Model
         public string Query { get; set; }
 
         /// <summary>
-        /// The list of custom contact attributes to be returned for each contact in response
+        /// The list of contact attributes to be returned for each contact in response
         /// </summary>
-        /// <value>The list of custom contact attributes to be returned for each contact in response</value>
-        [DataMember(Name="customAttributes", EmitDefaultValue=false)]
-        public List<string> CustomAttributes { get; set; }
+        /// <value>The list of contact attributes to be returned for each contact in response</value>
+        [DataMember(Name="returnedAttributes", EmitDefaultValue=false)]
+        public List<string> ReturnedAttributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -84,10 +80,11 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcslucenesearchData {\n");
+            sb.Append("class UcsixnsearchData {\n");
             sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
+            sb.Append("  Owner: ").Append(Owner).Append("\n");
             sb.Append("  Query: ").Append(Query).Append("\n");
-            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
+            sb.Append("  ReturnedAttributes: ").Append(ReturnedAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,15 +105,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcslucenesearchData);
+            return this.Equals(input as UcsixnsearchData);
         }
 
         /// <summary>
-        /// Returns true if UcslucenesearchData instances are equal
+        /// Returns true if UcsixnsearchData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcslucenesearchData to be compared</param>
+        /// <param name="input">Instance of UcsixnsearchData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcslucenesearchData input)
+        public bool Equals(UcsixnsearchData input)
         {
             if (input == null)
                 return false;
@@ -128,14 +125,19 @@ namespace Genesys.Internal.Workspace.Model
                     this.MaxResults.Equals(input.MaxResults))
                 ) && 
                 (
+                    this.Owner == input.Owner ||
+                    this.Owner != null &&
+                    this.Owner.SequenceEqual(input.Owner)
+                ) && 
+                (
                     this.Query == input.Query ||
                     (this.Query != null &&
                     this.Query.Equals(input.Query))
                 ) && 
                 (
-                    this.CustomAttributes == input.CustomAttributes ||
-                    this.CustomAttributes != null &&
-                    this.CustomAttributes.SequenceEqual(input.CustomAttributes)
+                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes != null &&
+                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
                 );
         }
 
@@ -150,10 +152,12 @@ namespace Genesys.Internal.Workspace.Model
                 int hashCode = 41;
                 if (this.MaxResults != null)
                     hashCode = hashCode * 59 + this.MaxResults.GetHashCode();
+                if (this.Owner != null)
+                    hashCode = hashCode * 59 + this.Owner.GetHashCode();
                 if (this.Query != null)
                     hashCode = hashCode * 59 + this.Query.GetHashCode();
-                if (this.CustomAttributes != null)
-                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
+                if (this.ReturnedAttributes != null)
+                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
                 return hashCode;
             }
         }

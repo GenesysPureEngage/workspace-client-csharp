@@ -43,7 +43,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="UserData">Key/value data to include with the call..</param>
         /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
         /// <param name="Extensions">A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
-        /// <param name="OutboundCallerId">value to be set as CPN_DIGITS..</param>
+        /// <param name="OutboundCallerId">The caller ID information to display on the destination party&#39;s phone. The value should be set as CPNDigits.  For more information about caller ID, see the SIP Server Deployment Guide..</param>
         public VoicecallsidinitiateconferenceData(string Destination = default(string), string Location = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Reasons = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>), string OutboundCallerId = default(string))
         {
             // to ensure "Destination" is required (not null)
@@ -98,9 +98,9 @@ namespace Genesys.Internal.Workspace.Model
         public List<Kvpair> Extensions { get; set; }
 
         /// <summary>
-        /// value to be set as CPN_DIGITS.
+        /// The caller ID information to display on the destination party&#39;s phone. The value should be set as CPNDigits.  For more information about caller ID, see the SIP Server Deployment Guide.
         /// </summary>
-        /// <value>value to be set as CPN_DIGITS.</value>
+        /// <value>The caller ID information to display on the destination party&#39;s phone. The value should be set as CPNDigits.  For more information about caller ID, see the SIP Server Deployment Guide.</value>
         [DataMember(Name="outboundCallerId", EmitDefaultValue=false)]
         public string OutboundCallerId { get; set; }
 

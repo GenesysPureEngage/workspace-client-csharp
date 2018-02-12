@@ -68,7 +68,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete a target.
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// Delete the target from the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -80,7 +80,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete a target.
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// Delete the target from the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -88,47 +88,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DeletePersonalFavoriteWithHttpInfo (string id, string type);
         /// <summary>
-        /// Search for targets.
+        /// Get personal favorites.
         /// </summary>
         /// <remarks>
-        /// Search for targets by the specified search term.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-
-        /// <summary>
-        /// Search for targets.
-        /// </summary>
-        /// <remarks>
-        /// Search for targets by the specified search term.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-        /// <summary>
-        /// Return personal favorites.
-        /// </summary>
-        /// <remarks>
-        /// Return the agent&#39;s personal favorites.
+        /// Get the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -136,10 +99,10 @@ namespace Genesys.Internal.Workspace.Api
         TargetsResponse GetPersonalFavorites (decimal? limit = null);
 
         /// <summary>
-        /// Return personal favorites.
+        /// Get personal favorites.
         /// </summary>
         /// <remarks>
-        /// Return the agent&#39;s personal favorites.
+        /// Get the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -189,6 +152,43 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="type">The type of target to retrieve.</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
         ApiResponse<TargetsResponse> GetTargetWithHttpInfo (decimal? id, string type);
+        /// <summary>
+        /// Search for targets.
+        /// </summary>
+        /// <remarks>
+        /// Search for targets by the specified search term.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>TargetsResponse</returns>
+        TargetsResponse GetTargets (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
+
+        /// <summary>
+        /// Search for targets.
+        /// </summary>
+        /// <remarks>
+        /// Search for targets by the specified search term.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        ApiResponse<TargetsResponse> GetTargetsWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Save a personal favorite.
         /// </summary>
@@ -256,7 +256,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete a target.
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// Delete the target from the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -268,7 +268,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete a target.
         /// </summary>
         /// <remarks>
-        /// Delete the target from the agent&#39;s personal favorites
+        /// Delete the target from the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -276,47 +276,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeletePersonalFavoriteAsyncWithHttpInfo (string id, string type);
         /// <summary>
-        /// Search for targets.
+        /// Get personal favorites.
         /// </summary>
         /// <remarks>
-        /// Search for targets by the specified search term.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-
-        /// <summary>
-        /// Search for targets.
-        /// </summary>
-        /// <remarks>
-        /// Search for targets by the specified search term.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
-        /// <summary>
-        /// Return personal favorites.
-        /// </summary>
-        /// <remarks>
-        /// Return the agent&#39;s personal favorites.
+        /// Get the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -324,10 +287,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<TargetsResponse> GetPersonalFavoritesAsync (decimal? limit = null);
 
         /// <summary>
-        /// Return personal favorites.
+        /// Get personal favorites.
         /// </summary>
         /// <remarks>
-        /// Return the agent&#39;s personal favorites.
+        /// Get the agent&#39;s personal favorites.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -377,6 +340,43 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="type">The type of target to retrieve.</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetAsyncWithHttpInfo (decimal? id, string type);
+        /// <summary>
+        /// Search for targets.
+        /// </summary>
+        /// <remarks>
+        /// Search for targets by the specified search term.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>Task of TargetsResponse</returns>
+        System.Threading.Tasks.Task<TargetsResponse> GetTargetsAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
+
+        /// <summary>
+        /// Search for targets.
+        /// </summary>
+        /// <remarks>
+        /// Search for targets by the specified search term.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetsAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Save a personal favorite.
         /// </summary>
@@ -771,7 +771,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
+        /// Delete a target. Delete the target from the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -784,7 +784,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
+        /// Delete a target. Delete the target from the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -844,7 +844,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
+        /// Delete a target. Delete the target from the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -858,7 +858,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Delete a target. Delete the target from the agent&#39;s personal favorites
+        /// Delete a target. Delete the target from the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the target.</param>
@@ -918,190 +918,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>TargetsResponse</returns>
-        public TargetsResponse Get (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = GetWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-            // verify the required parameter 'searchTerm' is set
-            if (searchTerm == null)
-                throw new ApiException(400, "Missing required parameter 'searchTerm' when calling TargetsApi->Get");
-
-            var localVarPath = "/targets";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
-            if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
-            if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
-            if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
-            if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
-            if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (matchType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "matchType", matchType)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Get", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-             ApiResponse<TargetsResponse> localVarResponse = await GetAsyncWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Search for targets. Search for targets by the specified search term.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="searchTerm">The text to search for in targets.</param>
-        /// <param name="filterName">Filter the search based on this field. (optional)</param>
-        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
-        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
-        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
-        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
-        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
-        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
-        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
-        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
-        {
-            // verify the required parameter 'searchTerm' is set
-            if (searchTerm == null)
-                throw new ApiException(400, "Missing required parameter 'searchTerm' when calling TargetsApi->Get");
-
-            var localVarPath = "/targets";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
-            if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
-            if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
-            if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
-            if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
-            if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
-            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
-            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
-            if (matchType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "matchType", matchType)); // query parameter
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Get", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<TargetsResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
-        }
-
-        /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
+        /// Get personal favorites. Get the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -1113,7 +930,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
+        /// Get personal favorites. Get the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -1165,7 +982,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
+        /// Get personal favorites. Get the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -1178,7 +995,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Return personal favorites. Return the agent&#39;s personal favorites.
+        /// Get personal favorites. Get the agent&#39;s personal favorites.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="limit">Number of results to return. The default value is 50. (optional)</param>
@@ -1497,6 +1314,189 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("GetTarget", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+        }
+
+        /// <summary>
+        /// Search for targets. Search for targets by the specified search term.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>TargetsResponse</returns>
+        public TargetsResponse GetTargets (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        {
+             ApiResponse<TargetsResponse> localVarResponse = GetTargetsWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search for targets. Search for targets by the specified search term.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>ApiResponse of TargetsResponse</returns>
+        public ApiResponse< TargetsResponse > GetTargetsWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        {
+            // verify the required parameter 'searchTerm' is set
+            if (searchTerm == null)
+                throw new ApiException(400, "Missing required parameter 'searchTerm' when calling TargetsApi->GetTargets");
+
+            var localVarPath = "/targets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
+            if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
+            if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
+            if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
+            if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
+            if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (matchType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "matchType", matchType)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTargets", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<TargetsResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (TargetsResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(TargetsResponse)));
+        }
+
+        /// <summary>
+        /// Search for targets. Search for targets by the specified search term.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>Task of TargetsResponse</returns>
+        public async System.Threading.Tasks.Task<TargetsResponse> GetTargetsAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        {
+             ApiResponse<TargetsResponse> localVarResponse = await GetTargetsAsyncWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search for targets. Search for targets by the specified search term.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="searchTerm">The text to search for in targets.</param>
+        /// <param name="filterName">Filter the search based on this field. (optional)</param>
+        /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
+        /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
+        /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
+        /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
+        /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
+        /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
+        /// <returns>Task of ApiResponse (TargetsResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetsAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        {
+            // verify the required parameter 'searchTerm' is set
+            if (searchTerm == null)
+                throw new ApiException(400, "Missing required parameter 'searchTerm' when calling TargetsApi->GetTargets");
+
+            var localVarPath = "/targets";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (searchTerm != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "searchTerm", searchTerm)); // query parameter
+            if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
+            if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
+            if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
+            if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
+            if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
+            if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
+            if (limit != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "limit", limit)); // query parameter
+            if (matchType != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "matchType", matchType)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetTargets", localVarResponse);
                 if (exception != null) throw exception;
             }
 

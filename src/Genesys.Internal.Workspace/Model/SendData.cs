@@ -25,39 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsgetinteractioncontentData
+    /// SendData
     /// </summary>
     [DataContract]
-    public partial class UcsgetinteractioncontentData :  IEquatable<UcsgetinteractioncontentData>, IValidatableObject
+    public partial class SendData :  IEquatable<SendData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetinteractioncontentData" /> class.
+        /// Initializes a new instance of the <see cref="SendData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UcsgetinteractioncontentData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetinteractioncontentData" /> class.
-        /// </summary>
-        /// <param name="InteractionId">The id of the interaction (required).</param>
-        public UcsgetinteractioncontentData(string InteractionId = default(string))
+        /// <param name="Data">Data.</param>
+        public SendData(MediaemailinteractionsidsendData Data = default(MediaemailinteractionsidsendData))
         {
-            // to ensure "InteractionId" is required (not null)
-            if (InteractionId == null)
-            {
-                throw new InvalidDataException("InteractionId is a required property for UcsgetinteractioncontentData and cannot be null");
-            }
-            else
-            {
-                this.InteractionId = InteractionId;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// The id of the interaction
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The id of the interaction</value>
-        [DataMember(Name="interactionId", EmitDefaultValue=false)]
-        public string InteractionId { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediaemailinteractionsidsendData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +52,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsgetinteractioncontentData {\n");
-            sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
+            sb.Append("class SendData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +74,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsgetinteractioncontentData);
+            return this.Equals(input as SendData);
         }
 
         /// <summary>
-        /// Returns true if UcsgetinteractioncontentData instances are equal
+        /// Returns true if SendData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsgetinteractioncontentData to be compared</param>
+        /// <param name="input">Instance of SendData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsgetinteractioncontentData input)
+        public bool Equals(SendData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InteractionId == input.InteractionId ||
-                    (this.InteractionId != null &&
-                    this.InteractionId.Equals(input.InteractionId))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -118,8 +104,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InteractionId != null)
-                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

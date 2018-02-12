@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="IdentifyContactData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public IdentifyContactData(UcsidentifycontactData Data = default(UcsidentifycontactData))
+        public IdentifyContactData(UcsinteractionsididentifycontactData Data = default(UcsinteractionsididentifycontactData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsidentifycontactData Data { get; set; }
+        public UcsinteractionsididentifycontactData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

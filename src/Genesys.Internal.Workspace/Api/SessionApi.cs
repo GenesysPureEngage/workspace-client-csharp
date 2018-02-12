@@ -153,9 +153,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null, string authorization = null);
 
@@ -166,9 +166,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null, string authorization = null);
         /// <summary>
@@ -179,8 +179,8 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Login (string redirectUri);
+        /// <returns></returns>
+        void Login (string redirectUri);
 
         /// <summary>
         /// Login the specified user (HTTP session only).
@@ -190,8 +190,8 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LoginWithHttpInfo (string redirectUri);
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> LoginWithHttpInfo (string redirectUri);
         /// <summary>
         /// Logout of activated channels and end the session.
         /// </summary>
@@ -342,9 +342,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null, string authorization = null);
 
@@ -355,9 +355,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null, string authorization = null);
         /// <summary>
@@ -368,8 +368,8 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (string redirectUri);
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task LoginAsync (string redirectUri);
 
         /// <summary>
         /// Login the specified user (HTTP session only).
@@ -379,8 +379,8 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (string redirectUri);
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> LoginAsyncWithHttpInfo (string redirectUri);
         /// <summary>
         /// Logout of activated channels and end the session.
         /// </summary>
@@ -1298,9 +1298,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse InitializeWorkspace (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1312,9 +1312,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > InitializeWorkspaceWithHttpInfo (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1368,9 +1368,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> InitializeWorkspaceAsync (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1383,9 +1383,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Retrieves and registers an authorization token. Retrieves the authorization token using the authorization code. Workspace then registers the token and prepares the user&#39;s environment.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="code">The authorization code. You must include this parameter if you use the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
-        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter if you follow the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
-        /// <param name="authorization">If you use the [Resource Owner Password Credentials Grant](/reference/authentication/), this parameter must contain Bearer authorization. For example: &#39;Authorization: Bearer access_token&#39;. (optional)</param>
+        /// <param name="code">The authorization code. You must include this parameter for the [Authorization Code Grant flow] (/reference/authentication/). (optional)</param>
+        /// <param name="redirectUri">The same redirect URI you used in the initial login step. You must include this parameter for the [Authorization Code Grant flow](/reference/authentication/). (optional)</param>
+        /// <param name="authorization">Bearer authorization. For example, &#39;Authorization: Bearer access_token&#39;. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InitializeWorkspaceAsyncWithHttpInfo (string code = null, string redirectUri = null, string authorization = null)
         {
@@ -1440,11 +1440,10 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Login (string redirectUri)
+        /// <returns></returns>
+        public void Login (string redirectUri)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LoginWithHttpInfo(redirectUri);
-             return localVarResponse.Data;
+             LoginWithHttpInfo(redirectUri);
         }
 
         /// <summary>
@@ -1452,8 +1451,8 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LoginWithHttpInfo (string redirectUri)
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> LoginWithHttpInfo (string redirectUri)
         {
             // verify the required parameter 'redirectUri' is set
             if (redirectUri == null)
@@ -1497,9 +1496,9 @@ namespace Genesys.Internal.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                null);
         }
 
         /// <summary>
@@ -1507,11 +1506,10 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LoginAsync (string redirectUri)
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task LoginAsync (string redirectUri)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LoginAsyncWithHttpInfo(redirectUri);
-             return localVarResponse.Data;
+             await LoginAsyncWithHttpInfo(redirectUri);
 
         }
 
@@ -1520,8 +1518,8 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginAsyncWithHttpInfo (string redirectUri)
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> LoginAsyncWithHttpInfo (string redirectUri)
         {
             // verify the required parameter 'redirectUri' is set
             if (redirectUri == null)
@@ -1565,9 +1563,9 @@ namespace Genesys.Internal.Workspace.Api
                 if (exception != null) throw exception;
             }
 
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+            return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+                null);
         }
 
         /// <summary>

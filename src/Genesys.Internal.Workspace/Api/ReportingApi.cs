@@ -46,24 +46,24 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of InlineResponse2002</returns>
         ApiResponse<InlineResponse2002> PeekWithHttpInfo (string subscriptionId);
         /// <summary>
-        /// Get statistics for given subscription ids.
+        /// Get statistics.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the statistics for the specified subscription IDs.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>InlineResponse2001</returns>
         InlineResponse2001 PeekMultiple (string ids);
 
         /// <summary>
-        /// Get statistics for given subscription ids.
+        /// Get statistics.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the statistics for the specified subscription IDs.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         ApiResponse<InlineResponse2001> PeekMultipleWithHttpInfo (string ids);
         /// <summary>
@@ -132,24 +132,24 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> PeekAsyncWithHttpInfo (string subscriptionId);
         /// <summary>
-        /// Get statistics for given subscription ids.
+        /// Get statistics.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the statistics for the specified subscription IDs.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>Task of InlineResponse2001</returns>
         System.Threading.Tasks.Task<InlineResponse2001> PeekMultipleAsync (string ids);
 
         /// <summary>
-        /// Get statistics for given subscription ids.
+        /// Get statistics.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the statistics for the specified subscription IDs.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PeekMultipleAsyncWithHttpInfo (string ids);
         /// <summary>
@@ -430,10 +430,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
+        /// Get statistics. Get the statistics for the specified subscription IDs.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>InlineResponse2001</returns>
         public InlineResponse2001 PeekMultiple (string ids)
         {
@@ -442,10 +442,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
+        /// Get statistics. Get the statistics for the specified subscription IDs.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>ApiResponse of InlineResponse2001</returns>
         public ApiResponse< InlineResponse2001 > PeekMultipleWithHttpInfo (string ids)
         {
@@ -497,10 +497,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
+        /// Get statistics. Get the statistics for the specified subscription IDs.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>Task of InlineResponse2001</returns>
         public async System.Threading.Tasks.Task<InlineResponse2001> PeekMultipleAsync (string ids)
         {
@@ -510,10 +510,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscription ids. Get the statistics for the specified subscription ID.
+        /// Get statistics. Get the statistics for the specified subscription IDs.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="ids">IDs of subscriptions to peek statistics for.</param>
+        /// <param name="ids">The IDs of the subscriptions.</param>
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PeekMultipleAsyncWithHttpInfo (string ids)
         {

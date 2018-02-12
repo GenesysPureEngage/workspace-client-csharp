@@ -33,14 +33,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UcsgetagenthistoryData" /> class.
         /// </summary>
-        /// <param name="CustomAttributes">The list of custom contact attributes to be returned for each interaction.</param>
+        /// <param name="ReturnedAttributes">The list of custom contact attributes to be returned for each interaction.</param>
         /// <param name="Sort">The sorting order (desc or asc).</param>
         /// <param name="FromDate">The date from which the interactions should be retrieved (UCS format).</param>
         /// <param name="ToDate">The date to which the interactions should be retrieved (UCS format).</param>
         /// <param name="UserId">The id of the agent for which the interactions should be retrieved (if not set, current user is used).</param>
-        public UcsgetagenthistoryData(List<string> CustomAttributes = default(List<string>), string Sort = default(string), string FromDate = default(string), string ToDate = default(string), string UserId = default(string))
+        public UcsgetagenthistoryData(List<string> ReturnedAttributes = default(List<string>), string Sort = default(string), string FromDate = default(string), string ToDate = default(string), string UserId = default(string))
         {
-            this.CustomAttributes = CustomAttributes;
+            this.ReturnedAttributes = ReturnedAttributes;
             this.Sort = Sort;
             this.FromDate = FromDate;
             this.ToDate = ToDate;
@@ -51,8 +51,8 @@ namespace Genesys.Internal.Workspace.Model
         /// The list of custom contact attributes to be returned for each interaction
         /// </summary>
         /// <value>The list of custom contact attributes to be returned for each interaction</value>
-        [DataMember(Name="customAttributes", EmitDefaultValue=false)]
-        public List<string> CustomAttributes { get; set; }
+        [DataMember(Name="returnedAttributes", EmitDefaultValue=false)]
+        public List<string> ReturnedAttributes { get; set; }
 
         /// <summary>
         /// The sorting order (desc or asc)
@@ -90,7 +90,7 @@ namespace Genesys.Internal.Workspace.Model
         {
             var sb = new StringBuilder();
             sb.Append("class UcsgetagenthistoryData {\n");
-            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
+            sb.Append("  ReturnedAttributes: ").Append(ReturnedAttributes).Append("\n");
             sb.Append("  Sort: ").Append(Sort).Append("\n");
             sb.Append("  FromDate: ").Append(FromDate).Append("\n");
             sb.Append("  ToDate: ").Append(ToDate).Append("\n");
@@ -130,9 +130,9 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.CustomAttributes == input.CustomAttributes ||
-                    this.CustomAttributes != null &&
-                    this.CustomAttributes.SequenceEqual(input.CustomAttributes)
+                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes != null &&
+                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
                 ) && 
                 (
                     this.Sort == input.Sort ||
@@ -165,8 +165,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.CustomAttributes != null)
-                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
+                if (this.ReturnedAttributes != null)
+                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
                 if (this.Sort != null)
                     hashCode = hashCode * 59 + this.Sort.GetHashCode();
                 if (this.FromDate != null)

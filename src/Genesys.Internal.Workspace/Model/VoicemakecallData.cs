@@ -38,7 +38,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicemakecallData" /> class.
         /// </summary>
-        /// <param name="Destination">Directory number of the party the call will be transferred to. (required).</param>
+        /// <param name="Destination">The number to call. (required).</param>
         /// <param name="Location">Name of the remote location in the form of &lt;SwitchName&gt; or &lt;T-ServerApplicationName&gt;@&lt;SwitchName&gt;. This value is used by Workspace to set the location attribute for the corresponding T-Server requests. When there is no need to specify a T-Server for location, this parameter must have the value NULL, not an empty string..</param>
         /// <param name="UserData">A key/value pairs list of the user data that should be attached to the call..</param>
         /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System)..</param>
@@ -63,9 +63,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Directory number of the party the call will be transferred to.
+        /// The number to call.
         /// </summary>
-        /// <value>Directory number of the party the call will be transferred to.</value>
+        /// <value>The number to call.</value>
         [DataMember(Name="destination", EmitDefaultValue=false)]
         public string Destination { get; set; }
 

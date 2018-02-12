@@ -25,39 +25,48 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsgetcontactdetailsData
+    /// MediachatinteractionsidsendurlData
     /// </summary>
     [DataContract]
-    public partial class UcsgetcontactdetailsData :  IEquatable<UcsgetcontactdetailsData>, IValidatableObject
+    public partial class MediachatinteractionsidsendurlData :  IEquatable<MediachatinteractionsidsendurlData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetcontactdetailsData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendurlData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcsgetcontactdetailsData() { }
+        protected MediachatinteractionsidsendurlData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetcontactdetailsData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendurlData" /> class.
         /// </summary>
-        /// <param name="ContactId">The id of the contact (required).</param>
-        public UcsgetcontactdetailsData(string ContactId = default(string))
+        /// <param name="Url">The url to send to the chat (required).</param>
+        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        public MediachatinteractionsidsendurlData(string Url = default(string), List<Kvpair> Extension = default(List<Kvpair>))
         {
-            // to ensure "ContactId" is required (not null)
-            if (ContactId == null)
+            // to ensure "Url" is required (not null)
+            if (Url == null)
             {
-                throw new InvalidDataException("ContactId is a required property for UcsgetcontactdetailsData and cannot be null");
+                throw new InvalidDataException("Url is a required property for MediachatinteractionsidsendurlData and cannot be null");
             }
             else
             {
-                this.ContactId = ContactId;
+                this.Url = Url;
             }
+            this.Extension = Extension;
         }
         
         /// <summary>
-        /// The id of the contact
+        /// The url to send to the chat
         /// </summary>
-        /// <value>The id of the contact</value>
-        [DataMember(Name="contactId", EmitDefaultValue=false)]
-        public string ContactId { get; set; }
+        /// <value>The url to send to the chat</value>
+        [DataMember(Name="url", EmitDefaultValue=false)]
+        public string Url { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
+        [DataMember(Name="extension", EmitDefaultValue=false)]
+        public List<Kvpair> Extension { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +75,9 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsgetcontactdetailsData {\n");
-            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
+            sb.Append("class MediachatinteractionsidsendurlData {\n");
+            sb.Append("  Url: ").Append(Url).Append("\n");
+            sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +98,29 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsgetcontactdetailsData);
+            return this.Equals(input as MediachatinteractionsidsendurlData);
         }
 
         /// <summary>
-        /// Returns true if UcsgetcontactdetailsData instances are equal
+        /// Returns true if MediachatinteractionsidsendurlData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsgetcontactdetailsData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidsendurlData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsgetcontactdetailsData input)
+        public bool Equals(MediachatinteractionsidsendurlData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ContactId == input.ContactId ||
-                    (this.ContactId != null &&
-                    this.ContactId.Equals(input.ContactId))
+                    this.Url == input.Url ||
+                    (this.Url != null &&
+                    this.Url.Equals(input.Url))
+                ) && 
+                (
+                    this.Extension == input.Extension ||
+                    this.Extension != null &&
+                    this.Extension.SequenceEqual(input.Extension)
                 );
         }
 
@@ -118,8 +133,10 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ContactId != null)
-                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
+                if (this.Url != null)
+                    hashCode = hashCode * 59 + this.Url.GetHashCode();
+                if (this.Extension != null)
+                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
                 return hashCode;
             }
         }

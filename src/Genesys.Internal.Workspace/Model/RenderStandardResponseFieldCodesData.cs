@@ -25,56 +25,38 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcssetcallnoteData
+    /// RenderStandardResponseFieldCodesData
     /// </summary>
     [DataContract]
-    public partial class UcssetcallnoteData :  IEquatable<UcssetcallnoteData>, IValidatableObject
+    public partial class RenderStandardResponseFieldCodesData :  IEquatable<RenderStandardResponseFieldCodesData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcssetcallnoteData" /> class.
+        /// Initializes a new instance of the <see cref="RenderStandardResponseFieldCodesData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcssetcallnoteData() { }
+        protected RenderStandardResponseFieldCodesData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcssetcallnoteData" /> class.
+        /// Initializes a new instance of the <see cref="RenderStandardResponseFieldCodesData" /> class.
         /// </summary>
-        /// <param name="InteractionId">The id of the interaction (required).</param>
-        /// <param name="Note">The note to be set (required).</param>
-        public UcssetcallnoteData(string InteractionId = default(string), string Note = default(string))
+        /// <param name="Data">Data (required).</param>
+        public RenderStandardResponseFieldCodesData(UcsresponsesidrenderfieldcodesData Data = default(UcsresponsesidrenderfieldcodesData))
         {
-            // to ensure "InteractionId" is required (not null)
-            if (InteractionId == null)
+            // to ensure "Data" is required (not null)
+            if (Data == null)
             {
-                throw new InvalidDataException("InteractionId is a required property for UcssetcallnoteData and cannot be null");
+                throw new InvalidDataException("Data is a required property for RenderStandardResponseFieldCodesData and cannot be null");
             }
             else
             {
-                this.InteractionId = InteractionId;
-            }
-            // to ensure "Note" is required (not null)
-            if (Note == null)
-            {
-                throw new InvalidDataException("Note is a required property for UcssetcallnoteData and cannot be null");
-            }
-            else
-            {
-                this.Note = Note;
+                this.Data = Data;
             }
         }
         
         /// <summary>
-        /// The id of the interaction
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The id of the interaction</value>
-        [DataMember(Name="interactionId", EmitDefaultValue=false)]
-        public string InteractionId { get; set; }
-
-        /// <summary>
-        /// The note to be set
-        /// </summary>
-        /// <value>The note to be set</value>
-        [DataMember(Name="note", EmitDefaultValue=false)]
-        public string Note { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public UcsresponsesidrenderfieldcodesData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +65,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcssetcallnoteData {\n");
-            sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
-            sb.Append("  Note: ").Append(Note).Append("\n");
+            sb.Append("class RenderStandardResponseFieldCodesData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,29 +87,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcssetcallnoteData);
+            return this.Equals(input as RenderStandardResponseFieldCodesData);
         }
 
         /// <summary>
-        /// Returns true if UcssetcallnoteData instances are equal
+        /// Returns true if RenderStandardResponseFieldCodesData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcssetcallnoteData to be compared</param>
+        /// <param name="input">Instance of RenderStandardResponseFieldCodesData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcssetcallnoteData input)
+        public bool Equals(RenderStandardResponseFieldCodesData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.InteractionId == input.InteractionId ||
-                    (this.InteractionId != null &&
-                    this.InteractionId.Equals(input.InteractionId))
-                ) && 
-                (
-                    this.Note == input.Note ||
-                    (this.Note != null &&
-                    this.Note.Equals(input.Note))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -141,10 +117,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InteractionId != null)
-                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
-                if (this.Note != null)
-                    hashCode = hashCode * 59 + this.Note.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

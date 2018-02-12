@@ -33,7 +33,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediaemailinteractionsidacceptData" /> class.
         /// </summary>
-        /// <param name="UseReviewer">Blalala.</param>
+        /// <param name="UseReviewer">Indicate the agent is reviewer..</param>
         /// <param name="Extension">A key/value pairs list of additional data..</param>
         public MediaemailinteractionsidacceptData(bool? UseReviewer = default(bool?), List<Kvpair> Extension = default(List<Kvpair>))
         {
@@ -42,9 +42,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Blalala
+        /// Indicate the agent is reviewer.
         /// </summary>
-        /// <value>Blalala</value>
+        /// <value>Indicate the agent is reviewer.</value>
         [DataMember(Name="useReviewer", EmitDefaultValue=false)]
         public bool? UseReviewer { get; set; }
 

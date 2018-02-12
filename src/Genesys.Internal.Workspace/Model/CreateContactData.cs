@@ -25,39 +25,38 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsdeletecontactData
+    /// CreateContactData
     /// </summary>
     [DataContract]
-    public partial class UcsdeletecontactData :  IEquatable<UcsdeletecontactData>, IValidatableObject
+    public partial class CreateContactData :  IEquatable<CreateContactData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsdeletecontactData" /> class.
+        /// Initializes a new instance of the <see cref="CreateContactData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcsdeletecontactData() { }
+        protected CreateContactData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsdeletecontactData" /> class.
+        /// Initializes a new instance of the <see cref="CreateContactData" /> class.
         /// </summary>
-        /// <param name="ContactId">The id of the contact to be deleted (required).</param>
-        public UcsdeletecontactData(string ContactId = default(string))
+        /// <param name="Data">Data (required).</param>
+        public CreateContactData(UcscontactscreateData Data = default(UcscontactscreateData))
         {
-            // to ensure "ContactId" is required (not null)
-            if (ContactId == null)
+            // to ensure "Data" is required (not null)
+            if (Data == null)
             {
-                throw new InvalidDataException("ContactId is a required property for UcsdeletecontactData and cannot be null");
+                throw new InvalidDataException("Data is a required property for CreateContactData and cannot be null");
             }
             else
             {
-                this.ContactId = ContactId;
+                this.Data = Data;
             }
         }
         
         /// <summary>
-        /// The id of the contact to be deleted
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The id of the contact to be deleted</value>
-        [DataMember(Name="contactId", EmitDefaultValue=false)]
-        public string ContactId { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public UcscontactscreateData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +65,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsdeletecontactData {\n");
-            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
+            sb.Append("class CreateContactData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -88,24 +87,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsdeletecontactData);
+            return this.Equals(input as CreateContactData);
         }
 
         /// <summary>
-        /// Returns true if UcsdeletecontactData instances are equal
+        /// Returns true if CreateContactData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsdeletecontactData to be compared</param>
+        /// <param name="input">Instance of CreateContactData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsdeletecontactData input)
+        public bool Equals(CreateContactData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ContactId == input.ContactId ||
-                    (this.ContactId != null &&
-                    this.ContactId.Equals(input.ContactId))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -118,8 +117,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ContactId != null)
-                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

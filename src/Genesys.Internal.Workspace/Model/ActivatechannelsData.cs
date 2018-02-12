@@ -66,8 +66,9 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="QueueName">The queue name..</param>
         /// <param name="AgentWorkMode">The workmode..</param>
         /// <param name="DynamicPhoneNumber">An optional dynamic phone number to use for the agent..</param>
+        /// <param name="AutoCompleteCall">Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided..</param>
         /// <param name="Channels">An array of strings that correspond to the channels you want to activate..</param>
-        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), string DynamicPhoneNumber = default(string), List<string> Channels = default(List<string>))
+        public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), string DynamicPhoneNumber = default(string), bool? AutoCompleteCall = default(bool?), List<string> Channels = default(List<string>))
         {
             this.AgentId = AgentId;
             this.PlaceName = PlaceName;
@@ -75,6 +76,7 @@ namespace Genesys.Internal.Workspace.Model
             this.QueueName = QueueName;
             this.AgentWorkMode = AgentWorkMode;
             this.DynamicPhoneNumber = DynamicPhoneNumber;
+            this.AutoCompleteCall = AutoCompleteCall;
             this.Channels = Channels;
         }
         
@@ -115,6 +117,13 @@ namespace Genesys.Internal.Workspace.Model
         public string DynamicPhoneNumber { get; set; }
 
         /// <summary>
+        /// Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.
+        /// </summary>
+        /// <value>Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.</value>
+        [DataMember(Name="autoCompleteCall", EmitDefaultValue=false)]
+        public bool? AutoCompleteCall { get; set; }
+
+        /// <summary>
         /// An array of strings that correspond to the channels you want to activate.
         /// </summary>
         /// <value>An array of strings that correspond to the channels you want to activate.</value>
@@ -135,6 +144,7 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("  QueueName: ").Append(QueueName).Append("\n");
             sb.Append("  AgentWorkMode: ").Append(AgentWorkMode).Append("\n");
             sb.Append("  DynamicPhoneNumber: ").Append(DynamicPhoneNumber).Append("\n");
+            sb.Append("  AutoCompleteCall: ").Append(AutoCompleteCall).Append("\n");
             sb.Append("  Channels: ").Append(Channels).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -201,6 +211,11 @@ namespace Genesys.Internal.Workspace.Model
                     this.DynamicPhoneNumber.Equals(input.DynamicPhoneNumber))
                 ) && 
                 (
+                    this.AutoCompleteCall == input.AutoCompleteCall ||
+                    (this.AutoCompleteCall != null &&
+                    this.AutoCompleteCall.Equals(input.AutoCompleteCall))
+                ) && 
+                (
                     this.Channels == input.Channels ||
                     this.Channels != null &&
                     this.Channels.SequenceEqual(input.Channels)
@@ -228,6 +243,8 @@ namespace Genesys.Internal.Workspace.Model
                     hashCode = hashCode * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.DynamicPhoneNumber != null)
                     hashCode = hashCode * 59 + this.DynamicPhoneNumber.GetHashCode();
+                if (this.AutoCompleteCall != null)
+                    hashCode = hashCode * 59 + this.AutoCompleteCall.GetHashCode();
                 if (this.Channels != null)
                     hashCode = hashCode * 59 + this.Channels.GetHashCode();
                 return hashCode;

@@ -25,38 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// ContactHistoryData
+    /// ReplyData
     /// </summary>
     [DataContract]
-    public partial class ContactHistoryData :  IEquatable<ContactHistoryData>, IValidatableObject
+    public partial class ReplyData :  IEquatable<ReplyData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="ReplyData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ContactHistoryData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public ContactHistoryData(UcscontactsidgethistoryData Data = default(UcscontactsidgethistoryData))
+        /// <param name="Data">Data.</param>
+        public ReplyData(MediaemailinteractionsidreplyData Data = default(MediaemailinteractionsidreplyData))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for ContactHistoryData and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcscontactsidgethistoryData Data { get; set; }
+        public MediaemailinteractionsidreplyData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +52,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactHistoryData {\n");
+            sb.Append("class ReplyData {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -87,15 +74,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContactHistoryData);
+            return this.Equals(input as ReplyData);
         }
 
         /// <summary>
-        /// Returns true if ContactHistoryData instances are equal
+        /// Returns true if ReplyData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContactHistoryData to be compared</param>
+        /// <param name="input">Instance of ReplyData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactHistoryData input)
+        public bool Equals(ReplyData input)
         {
             if (input == null)
                 return false;

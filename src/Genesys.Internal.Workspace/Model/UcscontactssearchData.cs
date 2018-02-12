@@ -25,78 +25,62 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsgetcontactsData
+    /// UcscontactssearchData
     /// </summary>
     [DataContract]
-    public partial class UcsgetcontactsData :  IEquatable<UcsgetcontactsData>, IValidatableObject
+    public partial class UcscontactssearchData :  IEquatable<UcscontactssearchData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetcontactsData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactssearchData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcsgetcontactsData() { }
+        protected UcscontactssearchData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetcontactsData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactssearchData" /> class.
         /// </summary>
-        /// <param name="SearchCriteria">The search criteria (required).</param>
-        /// <param name="AttributeList">The list of contact attributes to be returned for each contact in response (required).</param>
-        /// <param name="StartIndex">The start index (required).</param>
-        /// <param name="MaxCount">The maximum number of contacts to be returned (required).</param>
-        /// <param name="SortCriteria">The sorting criteria.</param>
-        public UcsgetcontactsData(Object SearchCriteria = default(Object), List<string> AttributeList = default(List<string>), int? StartIndex = default(int?), int? MaxCount = default(int?), List<Object> SortCriteria = default(List<Object>))
+        /// <param name="Query">The query to do the lucene search for contacts (required).</param>
+        /// <param name="ReturnedAttributes">The list of custom contact attributes to be returned for each contact in response (required).</param>
+        /// <param name="StartIndex">The start index.</param>
+        /// <param name="MaxResults">The maximum number of contacts to be returned.</param>
+        /// <param name="SortCriteria">The list of sorting criterias which contains the \&quot;attributeName\&quot; and \&quot;mode\&quot; (&#39;asc&#39; / &#39;desc&#39;) parameters.</param>
+        public UcscontactssearchData(string Query = default(string), List<string> ReturnedAttributes = default(List<string>), int? StartIndex = default(int?), int? MaxResults = default(int?), List<Object> SortCriteria = default(List<Object>))
         {
-            // to ensure "SearchCriteria" is required (not null)
-            if (SearchCriteria == null)
+            // to ensure "Query" is required (not null)
+            if (Query == null)
             {
-                throw new InvalidDataException("SearchCriteria is a required property for UcsgetcontactsData and cannot be null");
+                throw new InvalidDataException("Query is a required property for UcscontactssearchData and cannot be null");
             }
             else
             {
-                this.SearchCriteria = SearchCriteria;
+                this.Query = Query;
             }
-            // to ensure "AttributeList" is required (not null)
-            if (AttributeList == null)
+            // to ensure "ReturnedAttributes" is required (not null)
+            if (ReturnedAttributes == null)
             {
-                throw new InvalidDataException("AttributeList is a required property for UcsgetcontactsData and cannot be null");
+                throw new InvalidDataException("ReturnedAttributes is a required property for UcscontactssearchData and cannot be null");
             }
             else
             {
-                this.AttributeList = AttributeList;
+                this.ReturnedAttributes = ReturnedAttributes;
             }
-            // to ensure "StartIndex" is required (not null)
-            if (StartIndex == null)
-            {
-                throw new InvalidDataException("StartIndex is a required property for UcsgetcontactsData and cannot be null");
-            }
-            else
-            {
-                this.StartIndex = StartIndex;
-            }
-            // to ensure "MaxCount" is required (not null)
-            if (MaxCount == null)
-            {
-                throw new InvalidDataException("MaxCount is a required property for UcsgetcontactsData and cannot be null");
-            }
-            else
-            {
-                this.MaxCount = MaxCount;
-            }
+            this.StartIndex = StartIndex;
+            this.MaxResults = MaxResults;
             this.SortCriteria = SortCriteria;
         }
         
         /// <summary>
-        /// The search criteria
+        /// The query to do the lucene search for contacts
         /// </summary>
-        /// <value>The search criteria</value>
-        [DataMember(Name="searchCriteria", EmitDefaultValue=false)]
-        public Object SearchCriteria { get; set; }
+        /// <value>The query to do the lucene search for contacts</value>
+        [DataMember(Name="query", EmitDefaultValue=false)]
+        public string Query { get; set; }
 
         /// <summary>
-        /// The list of contact attributes to be returned for each contact in response
+        /// The list of custom contact attributes to be returned for each contact in response
         /// </summary>
-        /// <value>The list of contact attributes to be returned for each contact in response</value>
-        [DataMember(Name="attributeList", EmitDefaultValue=false)]
-        public List<string> AttributeList { get; set; }
+        /// <value>The list of custom contact attributes to be returned for each contact in response</value>
+        [DataMember(Name="returnedAttributes", EmitDefaultValue=false)]
+        public List<string> ReturnedAttributes { get; set; }
 
         /// <summary>
         /// The start index
@@ -109,13 +93,13 @@ namespace Genesys.Internal.Workspace.Model
         /// The maximum number of contacts to be returned
         /// </summary>
         /// <value>The maximum number of contacts to be returned</value>
-        [DataMember(Name="maxCount", EmitDefaultValue=false)]
-        public int? MaxCount { get; set; }
+        [DataMember(Name="maxResults", EmitDefaultValue=false)]
+        public int? MaxResults { get; set; }
 
         /// <summary>
-        /// The sorting criteria
+        /// The list of sorting criterias which contains the \&quot;attributeName\&quot; and \&quot;mode\&quot; (&#39;asc&#39; / &#39;desc&#39;) parameters
         /// </summary>
-        /// <value>The sorting criteria</value>
+        /// <value>The list of sorting criterias which contains the \&quot;attributeName\&quot; and \&quot;mode\&quot; (&#39;asc&#39; / &#39;desc&#39;) parameters</value>
         [DataMember(Name="sortCriteria", EmitDefaultValue=false)]
         public List<Object> SortCriteria { get; set; }
 
@@ -126,11 +110,11 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsgetcontactsData {\n");
-            sb.Append("  SearchCriteria: ").Append(SearchCriteria).Append("\n");
-            sb.Append("  AttributeList: ").Append(AttributeList).Append("\n");
+            sb.Append("class UcscontactssearchData {\n");
+            sb.Append("  Query: ").Append(Query).Append("\n");
+            sb.Append("  ReturnedAttributes: ").Append(ReturnedAttributes).Append("\n");
             sb.Append("  StartIndex: ").Append(StartIndex).Append("\n");
-            sb.Append("  MaxCount: ").Append(MaxCount).Append("\n");
+            sb.Append("  MaxResults: ").Append(MaxResults).Append("\n");
             sb.Append("  SortCriteria: ").Append(SortCriteria).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -152,29 +136,29 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsgetcontactsData);
+            return this.Equals(input as UcscontactssearchData);
         }
 
         /// <summary>
-        /// Returns true if UcsgetcontactsData instances are equal
+        /// Returns true if UcscontactssearchData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsgetcontactsData to be compared</param>
+        /// <param name="input">Instance of UcscontactssearchData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsgetcontactsData input)
+        public bool Equals(UcscontactssearchData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.SearchCriteria == input.SearchCriteria ||
-                    (this.SearchCriteria != null &&
-                    this.SearchCriteria.Equals(input.SearchCriteria))
+                    this.Query == input.Query ||
+                    (this.Query != null &&
+                    this.Query.Equals(input.Query))
                 ) && 
                 (
-                    this.AttributeList == input.AttributeList ||
-                    this.AttributeList != null &&
-                    this.AttributeList.SequenceEqual(input.AttributeList)
+                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes != null &&
+                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
                 ) && 
                 (
                     this.StartIndex == input.StartIndex ||
@@ -182,9 +166,9 @@ namespace Genesys.Internal.Workspace.Model
                     this.StartIndex.Equals(input.StartIndex))
                 ) && 
                 (
-                    this.MaxCount == input.MaxCount ||
-                    (this.MaxCount != null &&
-                    this.MaxCount.Equals(input.MaxCount))
+                    this.MaxResults == input.MaxResults ||
+                    (this.MaxResults != null &&
+                    this.MaxResults.Equals(input.MaxResults))
                 ) && 
                 (
                     this.SortCriteria == input.SortCriteria ||
@@ -202,14 +186,14 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.SearchCriteria != null)
-                    hashCode = hashCode * 59 + this.SearchCriteria.GetHashCode();
-                if (this.AttributeList != null)
-                    hashCode = hashCode * 59 + this.AttributeList.GetHashCode();
+                if (this.Query != null)
+                    hashCode = hashCode * 59 + this.Query.GetHashCode();
+                if (this.ReturnedAttributes != null)
+                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
                 if (this.StartIndex != null)
                     hashCode = hashCode * 59 + this.StartIndex.GetHashCode();
-                if (this.MaxCount != null)
-                    hashCode = hashCode * 59 + this.MaxCount.GetHashCode();
+                if (this.MaxResults != null)
+                    hashCode = hashCode * 59 + this.MaxResults.GetHashCode();
                 if (this.SortCriteria != null)
                     hashCode = hashCode * 59 + this.SortCriteria.GetHashCode();
                 return hashCode;

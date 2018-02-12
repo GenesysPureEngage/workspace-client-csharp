@@ -25,38 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// ContactHistoryData
+    /// UcscontactscreateData
     /// </summary>
     [DataContract]
-    public partial class ContactHistoryData :  IEquatable<ContactHistoryData>, IValidatableObject
+    public partial class UcscontactscreateData :  IEquatable<UcscontactscreateData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactscreateData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ContactHistoryData() { }
+        protected UcscontactscreateData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactscreateData" /> class.
         /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public ContactHistoryData(UcscontactsidgethistoryData Data = default(UcscontactsidgethistoryData))
+        /// <param name="Properties">The list of contact attributes to be added to the contact (required).</param>
+        public UcscontactscreateData(List<Object> Properties = default(List<Object>))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
+            // to ensure "Properties" is required (not null)
+            if (Properties == null)
             {
-                throw new InvalidDataException("Data is a required property for ContactHistoryData and cannot be null");
+                throw new InvalidDataException("Properties is a required property for UcscontactscreateData and cannot be null");
             }
             else
             {
-                this.Data = Data;
+                this.Properties = Properties;
             }
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// The list of contact attributes to be added to the contact
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcscontactsidgethistoryData Data { get; set; }
+        /// <value>The list of contact attributes to be added to the contact</value>
+        [DataMember(Name="properties", EmitDefaultValue=false)]
+        public List<Object> Properties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactHistoryData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class UcscontactscreateData {\n");
+            sb.Append("  Properties: ").Append(Properties).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContactHistoryData);
+            return this.Equals(input as UcscontactscreateData);
         }
 
         /// <summary>
-        /// Returns true if ContactHistoryData instances are equal
+        /// Returns true if UcscontactscreateData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContactHistoryData to be compared</param>
+        /// <param name="input">Instance of UcscontactscreateData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactHistoryData input)
+        public bool Equals(UcscontactscreateData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Properties == input.Properties ||
+                    this.Properties != null &&
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -117,8 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Properties != null)
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
                 return hashCode;
             }
         }

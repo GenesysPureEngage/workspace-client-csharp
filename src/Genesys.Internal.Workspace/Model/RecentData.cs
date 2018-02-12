@@ -25,7 +25,7 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// RecentData
+    /// This includes the media channel where the target was recently used and the timestamp for when the target was used.
     /// </summary>
     [DataContract]
     public partial class RecentData :  IEquatable<RecentData>, IValidatableObject

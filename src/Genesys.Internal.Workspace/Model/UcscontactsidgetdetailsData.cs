@@ -25,38 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// ContactHistoryData
+    /// UcscontactsidgetdetailsData
     /// </summary>
     [DataContract]
-    public partial class ContactHistoryData :  IEquatable<ContactHistoryData>, IValidatableObject
+    public partial class UcscontactsidgetdetailsData :  IEquatable<UcscontactsidgetdetailsData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactsidgetdetailsData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ContactHistoryData() { }
+        protected UcscontactsidgetdetailsData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactsidgetdetailsData" /> class.
         /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public ContactHistoryData(UcscontactsidgethistoryData Data = default(UcscontactsidgethistoryData))
+        /// <param name="ReturnedAttributes">The list of contact attributes to be returned for each contact in response (required).</param>
+        public UcscontactsidgetdetailsData(List<string> ReturnedAttributes = default(List<string>))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
+            // to ensure "ReturnedAttributes" is required (not null)
+            if (ReturnedAttributes == null)
             {
-                throw new InvalidDataException("Data is a required property for ContactHistoryData and cannot be null");
+                throw new InvalidDataException("ReturnedAttributes is a required property for UcscontactsidgetdetailsData and cannot be null");
             }
             else
             {
-                this.Data = Data;
+                this.ReturnedAttributes = ReturnedAttributes;
             }
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// The list of contact attributes to be returned for each contact in response
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcscontactsidgethistoryData Data { get; set; }
+        /// <value>The list of contact attributes to be returned for each contact in response</value>
+        [DataMember(Name="returnedAttributes", EmitDefaultValue=false)]
+        public List<string> ReturnedAttributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactHistoryData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class UcscontactsidgetdetailsData {\n");
+            sb.Append("  ReturnedAttributes: ").Append(ReturnedAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContactHistoryData);
+            return this.Equals(input as UcscontactsidgetdetailsData);
         }
 
         /// <summary>
-        /// Returns true if ContactHistoryData instances are equal
+        /// Returns true if UcscontactsidgetdetailsData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContactHistoryData to be compared</param>
+        /// <param name="input">Instance of UcscontactsidgetdetailsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactHistoryData input)
+        public bool Equals(UcscontactsidgetdetailsData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes != null &&
+                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
                 );
         }
 
@@ -117,8 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.ReturnedAttributes != null)
+                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
                 return hashCode;
             }
         }

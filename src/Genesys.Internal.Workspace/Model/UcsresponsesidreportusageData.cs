@@ -25,56 +25,87 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsassigninteractiontocontactData
+    /// UcsresponsesidreportusageData
     /// </summary>
     [DataContract]
-    public partial class UcsassigninteractiontocontactData :  IEquatable<UcsassigninteractiontocontactData>, IValidatableObject
+    public partial class UcsresponsesidreportusageData :  IEquatable<UcsresponsesidreportusageData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsassigninteractiontocontactData" /> class.
+        /// standard response usage type
+        /// </summary>
+        /// <value>standard response usage type</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum ResponseTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum SystemAutoResponse for "SystemAutoResponse"
+            /// </summary>
+            [EnumMember(Value = "SystemAutoResponse")]
+            SystemAutoResponse = 1,
+            
+            /// <summary>
+            /// Enum SuggestedResponsesIgnored for "SuggestedResponsesIgnored"
+            /// </summary>
+            [EnumMember(Value = "SuggestedResponsesIgnored")]
+            SuggestedResponsesIgnored = 2,
+            
+            /// <summary>
+            /// Enum SuggestedResponseChoosen for "SuggestedResponseChoosen"
+            /// </summary>
+            [EnumMember(Value = "SuggestedResponseChoosen")]
+            SuggestedResponseChoosen = 3,
+            
+            /// <summary>
+            /// Enum SuggestedResponseNotReceived for "SuggestedResponseNotReceived"
+            /// </summary>
+            [EnumMember(Value = "SuggestedResponseNotReceived")]
+            SuggestedResponseNotReceived = 4,
+            
+            /// <summary>
+            /// Enum AdministratorResponse for "AdministratorResponse"
+            /// </summary>
+            [EnumMember(Value = "AdministratorResponse")]
+            AdministratorResponse = 5
+        }
+
+        /// <summary>
+        /// standard response usage type
+        /// </summary>
+        /// <value>standard response usage type</value>
+        [DataMember(Name="responseType", EmitDefaultValue=false)]
+        public ResponseTypeEnum? ResponseType { get; set; }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="UcsresponsesidreportusageData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcsassigninteractiontocontactData() { }
+        protected UcsresponsesidreportusageData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsassigninteractiontocontactData" /> class.
+        /// Initializes a new instance of the <see cref="UcsresponsesidreportusageData" /> class.
         /// </summary>
-        /// <param name="InteractionId">The id of the interaction (required).</param>
-        /// <param name="ContactId">The id of the contact (required).</param>
-        public UcsassigninteractiontocontactData(string InteractionId = default(string), string ContactId = default(string))
+        /// <param name="InteractionId">id of the interaction (required).</param>
+        /// <param name="ResponseType">standard response usage type.</param>
+        public UcsresponsesidreportusageData(string InteractionId = default(string), ResponseTypeEnum? ResponseType = default(ResponseTypeEnum?))
         {
             // to ensure "InteractionId" is required (not null)
             if (InteractionId == null)
             {
-                throw new InvalidDataException("InteractionId is a required property for UcsassigninteractiontocontactData and cannot be null");
+                throw new InvalidDataException("InteractionId is a required property for UcsresponsesidreportusageData and cannot be null");
             }
             else
             {
                 this.InteractionId = InteractionId;
             }
-            // to ensure "ContactId" is required (not null)
-            if (ContactId == null)
-            {
-                throw new InvalidDataException("ContactId is a required property for UcsassigninteractiontocontactData and cannot be null");
-            }
-            else
-            {
-                this.ContactId = ContactId;
-            }
+            this.ResponseType = ResponseType;
         }
         
         /// <summary>
-        /// The id of the interaction
+        /// id of the interaction
         /// </summary>
-        /// <value>The id of the interaction</value>
+        /// <value>id of the interaction</value>
         [DataMember(Name="interactionId", EmitDefaultValue=false)]
         public string InteractionId { get; set; }
 
-        /// <summary>
-        /// The id of the contact
-        /// </summary>
-        /// <value>The id of the contact</value>
-        [DataMember(Name="contactId", EmitDefaultValue=false)]
-        public string ContactId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -83,9 +114,9 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsassigninteractiontocontactData {\n");
+            sb.Append("class UcsresponsesidreportusageData {\n");
             sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
-            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
+            sb.Append("  ResponseType: ").Append(ResponseType).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -106,15 +137,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsassigninteractiontocontactData);
+            return this.Equals(input as UcsresponsesidreportusageData);
         }
 
         /// <summary>
-        /// Returns true if UcsassigninteractiontocontactData instances are equal
+        /// Returns true if UcsresponsesidreportusageData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsassigninteractiontocontactData to be compared</param>
+        /// <param name="input">Instance of UcsresponsesidreportusageData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsassigninteractiontocontactData input)
+        public bool Equals(UcsresponsesidreportusageData input)
         {
             if (input == null)
                 return false;
@@ -126,9 +157,9 @@ namespace Genesys.Internal.Workspace.Model
                     this.InteractionId.Equals(input.InteractionId))
                 ) && 
                 (
-                    this.ContactId == input.ContactId ||
-                    (this.ContactId != null &&
-                    this.ContactId.Equals(input.ContactId))
+                    this.ResponseType == input.ResponseType ||
+                    (this.ResponseType != null &&
+                    this.ResponseType.Equals(input.ResponseType))
                 );
         }
 
@@ -143,8 +174,8 @@ namespace Genesys.Internal.Workspace.Model
                 int hashCode = 41;
                 if (this.InteractionId != null)
                     hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
-                if (this.ContactId != null)
-                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
+                if (this.ResponseType != null)
+                    hashCode = hashCode * 59 + this.ResponseType.GetHashCode();
                 return hashCode;
             }
         }

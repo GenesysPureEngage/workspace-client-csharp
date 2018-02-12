@@ -34,7 +34,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="AcceptData1" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public AcceptData1(MediaemailinteractionsidacceptData Data = default(MediaemailinteractionsidacceptData))
+        public AcceptData1(MediachatinteractionsidsendmessageData Data = default(MediachatinteractionsidsendmessageData))
         {
             this.Data = Data;
         }
@@ -43,7 +43,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public MediaemailinteractionsidacceptData Data { get; set; }
+        public MediachatinteractionsidsendmessageData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

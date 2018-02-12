@@ -48,6 +48,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddInteractionToWorkbinWithHttpInfo (string workbinId, AddInteractionToWorkbinData addInteractionToWorkbinData);
         /// <summary>
+        /// Get details of an Interaction which is in a workbin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse GetInteractionDetailsFromWorkbin (string interactionId);
+
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> GetInteractionDetailsFromWorkbinWithHttpInfo (string interactionId);
+        /// <summary>
         /// Get the content of a Workbin.
         /// </summary>
         /// <remarks>
@@ -204,6 +225,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="addInteractionToWorkbinData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddInteractionToWorkbinAsyncWithHttpInfo (string workbinId, AddInteractionToWorkbinData addInteractionToWorkbinData);
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionDetailsFromWorkbinAsync (string interactionId);
+
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionDetailsFromWorkbinAsyncWithHttpInfo (string interactionId);
         /// <summary>
         /// Get the content of a Workbin.
         /// </summary>
@@ -589,6 +631,141 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AddInteractionToWorkbin", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse GetInteractionDetailsFromWorkbin (string interactionId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetInteractionDetailsFromWorkbinWithHttpInfo(interactionId);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > GetInteractionDetailsFromWorkbinWithHttpInfo (string interactionId)
+        {
+            // verify the required parameter 'interactionId' is set
+            if (interactionId == null)
+                throw new ApiException(400, "Missing required parameter 'interactionId' when calling WorkbinsApi->GetInteractionDetailsFromWorkbin");
+
+            var localVarPath = "/workbins/interactions/{interactionId}/get-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (interactionId != null) localVarPathParams.Add("interactionId", Configuration.ApiClient.ParameterToString(interactionId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetInteractionDetailsFromWorkbin", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionDetailsFromWorkbinAsync (string interactionId)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetInteractionDetailsFromWorkbinAsyncWithHttpInfo(interactionId);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get details of an Interaction which is in a workbin 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="interactionId">Id of the interaction</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionDetailsFromWorkbinAsyncWithHttpInfo (string interactionId)
+        {
+            // verify the required parameter 'interactionId' is set
+            if (interactionId == null)
+                throw new ApiException(400, "Missing required parameter 'interactionId' when calling WorkbinsApi->GetInteractionDetailsFromWorkbin");
+
+            var localVarPath = "/workbins/interactions/{interactionId}/get-details";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (interactionId != null) localVarPathParams.Add("interactionId", Configuration.ApiClient.ParameterToString(interactionId)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("GetInteractionDetailsFromWorkbin", localVarResponse);
                 if (exception != null) throw exception;
             }
 

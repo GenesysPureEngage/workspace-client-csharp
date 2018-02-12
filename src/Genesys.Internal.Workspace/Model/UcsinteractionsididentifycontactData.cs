@@ -25,38 +25,26 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// PhoneCallData
+    /// UcsinteractionsididentifycontactData
     /// </summary>
     [DataContract]
-    public partial class PhoneCallData :  IEquatable<PhoneCallData>, IValidatableObject
+    public partial class UcsinteractionsididentifycontactData :  IEquatable<UcsinteractionsididentifycontactData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="PhoneCallData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsididentifycontactData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected PhoneCallData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PhoneCallData" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public PhoneCallData(UcsfindorcreatephonecallData Data = default(UcsfindorcreatephonecallData))
+        /// <param name="CreateContactEnabled">Indicates if a contact should be created if no matching contact found.</param>
+        public UcsinteractionsididentifycontactData(bool? CreateContactEnabled = default(bool?))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for PhoneCallData and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.CreateContactEnabled = CreateContactEnabled;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Indicates if a contact should be created if no matching contact found
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsfindorcreatephonecallData Data { get; set; }
+        /// <value>Indicates if a contact should be created if no matching contact found</value>
+        [DataMember(Name="createContactEnabled", EmitDefaultValue=false)]
+        public bool? CreateContactEnabled { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +53,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class PhoneCallData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class UcsinteractionsididentifycontactData {\n");
+            sb.Append("  CreateContactEnabled: ").Append(CreateContactEnabled).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +75,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as PhoneCallData);
+            return this.Equals(input as UcsinteractionsididentifycontactData);
         }
 
         /// <summary>
-        /// Returns true if PhoneCallData instances are equal
+        /// Returns true if UcsinteractionsididentifycontactData instances are equal
         /// </summary>
-        /// <param name="input">Instance of PhoneCallData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsididentifycontactData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(PhoneCallData input)
+        public bool Equals(UcsinteractionsididentifycontactData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.CreateContactEnabled == input.CreateContactEnabled ||
+                    (this.CreateContactEnabled != null &&
+                    this.CreateContactEnabled.Equals(input.CreateContactEnabled))
                 );
         }
 
@@ -117,8 +105,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.CreateContactEnabled != null)
+                    hashCode = hashCode * 59 + this.CreateContactEnabled.GetHashCode();
                 return hashCode;
             }
         }

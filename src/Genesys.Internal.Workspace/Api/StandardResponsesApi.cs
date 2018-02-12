@@ -46,6 +46,25 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddStandardResponseFavoriteWithHttpInfo (string id);
         /// <summary>
+        /// Remove all Standard Response Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse DeleteAllStandardResponseFavorites ();
+
+        /// <summary>
+        /// Remove all Standard Response Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> DeleteAllStandardResponseFavoritesWithHttpInfo ();
+        /// <summary>
         /// Remove a Standard Response from Favorites
         /// </summary>
         /// <remarks>
@@ -76,7 +95,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetCategory (string id, GetCategoryData getCategoryData);
+        ApiSuccessResponse GetCategoryDetails (string id, GetCategoryData getCategoryData);
 
         /// <summary>
         /// Get the details of a Category.
@@ -88,7 +107,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetCategoryWithHttpInfo (string id, GetCategoryData getCategoryData);
+        ApiResponse<ApiSuccessResponse> GetCategoryDetailsWithHttpInfo (string id, GetCategoryData getCategoryData);
         /// <summary>
         /// Get all Root categories.
         /// </summary>
@@ -181,9 +200,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse RenderFieldCodes (string id, RenderFieldCodesData renderFieldCodesData);
+        ApiSuccessResponse RenderStandardResponseFieldCodes (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData);
 
         /// <summary>
         /// Replaces generic field codes of the Standard Response content with their actual values.
@@ -193,9 +212,32 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> RenderFieldCodesWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData);
+        ApiResponse<ApiSuccessResponse> RenderStandardResponseFieldCodesWithHttpInfo (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData);
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse ReportStandareResponseUsage (string id, ReportStandareResponseUsageData reportStandareResponseUsageData);
+
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> ReportStandareResponseUsageWithHttpInfo (string id, ReportStandareResponseUsageData reportStandareResponseUsageData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -219,6 +261,25 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Standard Response to add to Favorites</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddStandardResponseFavoriteAsyncWithHttpInfo (string id);
+        /// <summary>
+        /// Remove all Standard Response Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> DeleteAllStandardResponseFavoritesAsync ();
+
+        /// <summary>
+        /// Remove all Standard Response Favorites
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteAllStandardResponseFavoritesAsyncWithHttpInfo ();
         /// <summary>
         /// Remove a Standard Response from Favorites
         /// </summary>
@@ -250,7 +311,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetCategoryAsync (string id, GetCategoryData getCategoryData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetCategoryDetailsAsync (string id, GetCategoryData getCategoryData);
 
         /// <summary>
         /// Get the details of a Category.
@@ -262,7 +323,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetCategoryAsyncWithHttpInfo (string id, GetCategoryData getCategoryData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetCategoryDetailsAsyncWithHttpInfo (string id, GetCategoryData getCategoryData);
         /// <summary>
         /// Get all Root categories.
         /// </summary>
@@ -355,9 +416,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> RenderFieldCodesAsync (string id, RenderFieldCodesData renderFieldCodesData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> RenderStandardResponseFieldCodesAsync (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData);
 
         /// <summary>
         /// Replaces generic field codes of the Standard Response content with their actual values.
@@ -367,9 +428,32 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RenderFieldCodesAsyncWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RenderStandardResponseFieldCodesAsyncWithHttpInfo (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData);
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> ReportStandareResponseUsageAsync (string id, ReportStandareResponseUsageData reportStandareResponseUsageData);
+
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReportStandareResponseUsageAsyncWithHttpInfo (string id, ReportStandareResponseUsageData reportStandareResponseUsageData);
         #endregion Asynchronous Operations
     }
 
@@ -606,6 +690,129 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// Remove all Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse DeleteAllStandardResponseFavorites ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = DeleteAllStandardResponseFavoritesWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Remove all Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > DeleteAllStandardResponseFavoritesWithHttpInfo ()
+        {
+
+            var localVarPath = "/ucs/responses/remove-all-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAllStandardResponseFavorites", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Remove all Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteAllStandardResponseFavoritesAsync ()
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await DeleteAllStandardResponseFavoritesAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Remove all Standard Response Favorites 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteAllStandardResponseFavoritesAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/ucs/responses/remove-all-favorites";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("DeleteAllStandardResponseFavorites", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Remove a Standard Response from Favorites 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -747,9 +954,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetCategory (string id, GetCategoryData getCategoryData)
+        public ApiSuccessResponse GetCategoryDetails (string id, GetCategoryData getCategoryData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetCategoryWithHttpInfo(id, getCategoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetCategoryDetailsWithHttpInfo(id, getCategoryData);
              return localVarResponse.Data;
         }
 
@@ -760,14 +967,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetCategoryWithHttpInfo (string id, GetCategoryData getCategoryData)
+        public ApiResponse< ApiSuccessResponse > GetCategoryDetailsWithHttpInfo (string id, GetCategoryData getCategoryData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetCategory");
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetCategoryDetails");
             // verify the required parameter 'getCategoryData' is set
             if (getCategoryData == null)
-                throw new ApiException(400, "Missing required parameter 'getCategoryData' when calling StandardResponsesApi->GetCategory");
+                throw new ApiException(400, "Missing required parameter 'getCategoryData' when calling StandardResponsesApi->GetCategoryDetails");
 
             var localVarPath = "/ucs/responses/categories/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
@@ -811,7 +1018,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCategory", localVarResponse);
+                Exception exception = ExceptionFactory("GetCategoryDetails", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -827,9 +1034,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetCategoryAsync (string id, GetCategoryData getCategoryData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetCategoryDetailsAsync (string id, GetCategoryData getCategoryData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetCategoryAsyncWithHttpInfo(id, getCategoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetCategoryDetailsAsyncWithHttpInfo(id, getCategoryData);
              return localVarResponse.Data;
 
         }
@@ -841,14 +1048,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of the Category</param>
         /// <param name="getCategoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetCategoryAsyncWithHttpInfo (string id, GetCategoryData getCategoryData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetCategoryDetailsAsyncWithHttpInfo (string id, GetCategoryData getCategoryData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetCategory");
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->GetCategoryDetails");
             // verify the required parameter 'getCategoryData' is set
             if (getCategoryData == null)
-                throw new ApiException(400, "Missing required parameter 'getCategoryData' when calling StandardResponsesApi->GetCategory");
+                throw new ApiException(400, "Missing required parameter 'getCategoryData' when calling StandardResponsesApi->GetCategoryDetails");
 
             var localVarPath = "/ucs/responses/categories/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
@@ -892,7 +1099,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetCategory", localVarResponse);
+                Exception exception = ExceptionFactory("GetCategoryDetails", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1460,11 +1667,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse RenderFieldCodes (string id, RenderFieldCodesData renderFieldCodesData)
+        public ApiSuccessResponse RenderStandardResponseFieldCodes (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = RenderFieldCodesWithHttpInfo(id, renderFieldCodesData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = RenderStandardResponseFieldCodesWithHttpInfo(id, renderStandardResponseFieldCodesData);
              return localVarResponse.Data;
         }
 
@@ -1473,16 +1680,16 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > RenderFieldCodesWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData)
+        public ApiResponse< ApiSuccessResponse > RenderStandardResponseFieldCodesWithHttpInfo (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->RenderFieldCodes");
-            // verify the required parameter 'renderFieldCodesData' is set
-            if (renderFieldCodesData == null)
-                throw new ApiException(400, "Missing required parameter 'renderFieldCodesData' when calling StandardResponsesApi->RenderFieldCodes");
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->RenderStandardResponseFieldCodes");
+            // verify the required parameter 'renderStandardResponseFieldCodesData' is set
+            if (renderStandardResponseFieldCodesData == null)
+                throw new ApiException(400, "Missing required parameter 'renderStandardResponseFieldCodesData' when calling StandardResponsesApi->RenderStandardResponseFieldCodes");
 
             var localVarPath = "/ucs/responses/{id}/render-field-codes";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1507,13 +1714,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (renderFieldCodesData != null && renderFieldCodesData.GetType() != typeof(byte[]))
+            if (renderStandardResponseFieldCodesData != null && renderStandardResponseFieldCodesData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(renderFieldCodesData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(renderStandardResponseFieldCodesData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = renderFieldCodesData; // byte array
+                localVarPostBody = renderStandardResponseFieldCodesData; // byte array
             }
 
 
@@ -1526,7 +1733,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RenderFieldCodes", localVarResponse);
+                Exception exception = ExceptionFactory("RenderStandardResponseFieldCodes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1540,11 +1747,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> RenderFieldCodesAsync (string id, RenderFieldCodesData renderFieldCodesData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RenderStandardResponseFieldCodesAsync (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await RenderFieldCodesAsyncWithHttpInfo(id, renderFieldCodesData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RenderStandardResponseFieldCodesAsyncWithHttpInfo(id, renderStandardResponseFieldCodesData);
              return localVarResponse.Data;
 
         }
@@ -1554,16 +1761,16 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of the Standard Response</param>
-        /// <param name="renderFieldCodesData"></param>
+        /// <param name="renderStandardResponseFieldCodesData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RenderFieldCodesAsyncWithHttpInfo (string id, RenderFieldCodesData renderFieldCodesData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RenderStandardResponseFieldCodesAsyncWithHttpInfo (string id, RenderStandardResponseFieldCodesData renderStandardResponseFieldCodesData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->RenderFieldCodes");
-            // verify the required parameter 'renderFieldCodesData' is set
-            if (renderFieldCodesData == null)
-                throw new ApiException(400, "Missing required parameter 'renderFieldCodesData' when calling StandardResponsesApi->RenderFieldCodes");
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->RenderStandardResponseFieldCodes");
+            // verify the required parameter 'renderStandardResponseFieldCodesData' is set
+            if (renderStandardResponseFieldCodesData == null)
+                throw new ApiException(400, "Missing required parameter 'renderStandardResponseFieldCodesData' when calling StandardResponsesApi->RenderStandardResponseFieldCodes");
 
             var localVarPath = "/ucs/responses/{id}/render-field-codes";
             var localVarPathParams = new Dictionary<String, String>();
@@ -1588,13 +1795,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (renderFieldCodesData != null && renderFieldCodesData.GetType() != typeof(byte[]))
+            if (renderStandardResponseFieldCodesData != null && renderStandardResponseFieldCodesData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(renderFieldCodesData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(renderStandardResponseFieldCodesData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = renderFieldCodesData; // byte array
+                localVarPostBody = renderStandardResponseFieldCodesData; // byte array
             }
 
 
@@ -1607,7 +1814,168 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("RenderFieldCodes", localVarResponse);
+                Exception exception = ExceptionFactory("RenderStandardResponseFieldCodes", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse ReportStandareResponseUsage (string id, ReportStandareResponseUsageData reportStandareResponseUsageData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = ReportStandareResponseUsageWithHttpInfo(id, reportStandareResponseUsageData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > ReportStandareResponseUsageWithHttpInfo (string id, ReportStandareResponseUsageData reportStandareResponseUsageData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->ReportStandareResponseUsage");
+            // verify the required parameter 'reportStandareResponseUsageData' is set
+            if (reportStandareResponseUsageData == null)
+                throw new ApiException(400, "Missing required parameter 'reportStandareResponseUsageData' when calling StandardResponsesApi->ReportStandareResponseUsage");
+
+            var localVarPath = "/ucs/responses/{id}/report-usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (reportStandareResponseUsageData != null && reportStandareResponseUsageData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reportStandareResponseUsageData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reportStandareResponseUsageData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReportStandareResponseUsage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ReportStandareResponseUsageAsync (string id, ReportStandareResponseUsageData reportStandareResponseUsageData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ReportStandareResponseUsageAsyncWithHttpInfo(id, reportStandareResponseUsageData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Specifies Usage of a Standard Response for an interaction. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Standard Response</param>
+        /// <param name="reportStandareResponseUsageData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReportStandareResponseUsageAsyncWithHttpInfo (string id, ReportStandareResponseUsageData reportStandareResponseUsageData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling StandardResponsesApi->ReportStandareResponseUsage");
+            // verify the required parameter 'reportStandareResponseUsageData' is set
+            if (reportStandareResponseUsageData == null)
+                throw new ApiException(400, "Missing required parameter 'reportStandareResponseUsageData' when calling StandardResponsesApi->ReportStandareResponseUsage");
+
+            var localVarPath = "/ucs/responses/{id}/report-usage";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (reportStandareResponseUsageData != null && reportStandareResponseUsageData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(reportStandareResponseUsageData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = reportStandareResponseUsageData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ReportStandareResponseUsage", localVarResponse);
                 if (exception != null) throw exception;
             }
 

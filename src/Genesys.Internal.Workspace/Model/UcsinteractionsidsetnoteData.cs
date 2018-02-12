@@ -25,38 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// ContactHistoryData
+    /// UcsinteractionsidsetnoteData
     /// </summary>
     [DataContract]
-    public partial class ContactHistoryData :  IEquatable<ContactHistoryData>, IValidatableObject
+    public partial class UcsinteractionsidsetnoteData :  IEquatable<UcsinteractionsidsetnoteData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidsetnoteData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected ContactHistoryData() { }
+        protected UcsinteractionsidsetnoteData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="ContactHistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidsetnoteData" /> class.
         /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public ContactHistoryData(UcscontactsidgethistoryData Data = default(UcscontactsidgethistoryData))
+        /// <param name="Note">The note to be set (required).</param>
+        public UcsinteractionsidsetnoteData(string Note = default(string))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
+            // to ensure "Note" is required (not null)
+            if (Note == null)
             {
-                throw new InvalidDataException("Data is a required property for ContactHistoryData and cannot be null");
+                throw new InvalidDataException("Note is a required property for UcsinteractionsidsetnoteData and cannot be null");
             }
             else
             {
-                this.Data = Data;
+                this.Note = Note;
             }
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// The note to be set
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcscontactsidgethistoryData Data { get; set; }
+        /// <value>The note to be set</value>
+        [DataMember(Name="note", EmitDefaultValue=false)]
+        public string Note { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class ContactHistoryData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class UcsinteractionsidsetnoteData {\n");
+            sb.Append("  Note: ").Append(Note).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as ContactHistoryData);
+            return this.Equals(input as UcsinteractionsidsetnoteData);
         }
 
         /// <summary>
-        /// Returns true if ContactHistoryData instances are equal
+        /// Returns true if UcsinteractionsidsetnoteData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ContactHistoryData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsidsetnoteData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ContactHistoryData input)
+        public bool Equals(UcsinteractionsidsetnoteData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Note == input.Note ||
+                    (this.Note != null &&
+                    this.Note.Equals(input.Note))
                 );
         }
 
@@ -117,8 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Note != null)
+                    hashCode = hashCode * 59 + this.Note.GetHashCode();
                 return hashCode;
             }
         }

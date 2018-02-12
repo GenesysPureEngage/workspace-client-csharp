@@ -25,7 +25,7 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// TargetInformation
+    /// The target to add/save.
     /// </summary>
     [DataContract]
     public partial class TargetInformation :  IEquatable<TargetInformation>, IValidatableObject

@@ -34,14 +34,16 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="MediaemailinteractionscreateData" /> class.
         /// </summary>
         /// <param name="Queue">the name of the queue to submit the new email.</param>
-        /// <param name="ThreadId">Blalala.</param>
+        /// <param name="ThreadId">specify the ThreadId of UCS interaction.</param>
         /// <param name="ContactId">id of the contact.</param>
+        /// <param name="To">the address mail of to.</param>
         /// <param name="UserData">A key/value pairs list of user data..</param>
-        public MediaemailinteractionscreateData(string Queue = default(string), string ThreadId = default(string), string ContactId = default(string), List<Kvpair> UserData = default(List<Kvpair>))
+        public MediaemailinteractionscreateData(string Queue = default(string), string ThreadId = default(string), string ContactId = default(string), string To = default(string), List<Kvpair> UserData = default(List<Kvpair>))
         {
             this.Queue = Queue;
             this.ThreadId = ThreadId;
             this.ContactId = ContactId;
+            this.To = To;
             this.UserData = UserData;
         }
         
@@ -53,9 +55,9 @@ namespace Genesys.Internal.Workspace.Model
         public string Queue { get; set; }
 
         /// <summary>
-        /// Blalala
+        /// specify the ThreadId of UCS interaction
         /// </summary>
-        /// <value>Blalala</value>
+        /// <value>specify the ThreadId of UCS interaction</value>
         [DataMember(Name="threadId", EmitDefaultValue=false)]
         public string ThreadId { get; set; }
 
@@ -65,6 +67,13 @@ namespace Genesys.Internal.Workspace.Model
         /// <value>id of the contact</value>
         [DataMember(Name="contactId", EmitDefaultValue=false)]
         public string ContactId { get; set; }
+
+        /// <summary>
+        /// the address mail of to
+        /// </summary>
+        /// <value>the address mail of to</value>
+        [DataMember(Name="to", EmitDefaultValue=false)]
+        public string To { get; set; }
 
         /// <summary>
         /// A key/value pairs list of user data.
@@ -84,6 +93,7 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("  Queue: ").Append(Queue).Append("\n");
             sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
+            sb.Append("  To: ").Append(To).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -135,6 +145,11 @@ namespace Genesys.Internal.Workspace.Model
                     this.ContactId.Equals(input.ContactId))
                 ) && 
                 (
+                    this.To == input.To ||
+                    (this.To != null &&
+                    this.To.Equals(input.To))
+                ) && 
+                (
                     this.UserData == input.UserData ||
                     this.UserData != null &&
                     this.UserData.SequenceEqual(input.UserData)
@@ -156,6 +171,8 @@ namespace Genesys.Internal.Workspace.Model
                     hashCode = hashCode * 59 + this.ThreadId.GetHashCode();
                 if (this.ContactId != null)
                     hashCode = hashCode * 59 + this.ContactId.GetHashCode();
+                if (this.To != null)
+                    hashCode = hashCode * 59 + this.To.GetHashCode();
                 if (this.UserData != null)
                     hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 return hashCode;

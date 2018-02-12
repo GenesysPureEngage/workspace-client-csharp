@@ -25,38 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// RenderFieldCodesData
+    /// UcsinteractionsidassigncontactData
     /// </summary>
     [DataContract]
-    public partial class RenderFieldCodesData :  IEquatable<RenderFieldCodesData>, IValidatableObject
+    public partial class UcsinteractionsidassigncontactData :  IEquatable<UcsinteractionsidassigncontactData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="RenderFieldCodesData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidassigncontactData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected RenderFieldCodesData() { }
+        protected UcsinteractionsidassigncontactData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="RenderFieldCodesData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidassigncontactData" /> class.
         /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public RenderFieldCodesData(UcsresponsesidrenderfieldcodesData Data = default(UcsresponsesidrenderfieldcodesData))
+        /// <param name="ContactId">The id of the contact (required).</param>
+        public UcsinteractionsidassigncontactData(string ContactId = default(string))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
+            // to ensure "ContactId" is required (not null)
+            if (ContactId == null)
             {
-                throw new InvalidDataException("Data is a required property for RenderFieldCodesData and cannot be null");
+                throw new InvalidDataException("ContactId is a required property for UcsinteractionsidassigncontactData and cannot be null");
             }
             else
             {
-                this.Data = Data;
+                this.ContactId = ContactId;
             }
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// The id of the contact
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsresponsesidrenderfieldcodesData Data { get; set; }
+        /// <value>The id of the contact</value>
+        [DataMember(Name="contactId", EmitDefaultValue=false)]
+        public string ContactId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class RenderFieldCodesData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class UcsinteractionsidassigncontactData {\n");
+            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as RenderFieldCodesData);
+            return this.Equals(input as UcsinteractionsidassigncontactData);
         }
 
         /// <summary>
-        /// Returns true if RenderFieldCodesData instances are equal
+        /// Returns true if UcsinteractionsidassigncontactData instances are equal
         /// </summary>
-        /// <param name="input">Instance of RenderFieldCodesData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsidassigncontactData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RenderFieldCodesData input)
+        public bool Equals(UcsinteractionsidassigncontactData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.ContactId == input.ContactId ||
+                    (this.ContactId != null &&
+                    this.ContactId.Equals(input.ContactId))
                 );
         }
 
@@ -117,8 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.ContactId != null)
+                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
                 return hashCode;
             }
         }

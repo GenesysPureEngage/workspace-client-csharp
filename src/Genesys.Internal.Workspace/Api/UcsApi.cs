@@ -31,9 +31,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AssignInteractionToContact (AssignInteractionToContactData assignInteractionToContactData);
+        ApiSuccessResponse AssignInteractionToContact (string id, AssignInteractionToContactData assignInteractionToContactData);
 
         /// <summary>
         /// Assign the interaction to a contact
@@ -42,9 +43,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AssignInteractionToContactWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData);
+        ApiResponse<ApiSuccessResponse> AssignInteractionToContactWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData);
         /// <summary>
         /// Create a new contact
         /// </summary>
@@ -52,8 +54,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse CreateContact ();
+        ApiSuccessResponse CreateContact (CreateContactData createContactData);
 
         /// <summary>
         /// Create a new contact
@@ -62,8 +65,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> CreateContactWithHttpInfo ();
+        ApiResponse<ApiSuccessResponse> CreateContactWithHttpInfo (CreateContactData createContactData);
         /// <summary>
         /// Delete an existing contact
         /// </summary>
@@ -71,9 +75,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse DeleteContact (DeleteContactData deleteContactData);
+        ApiSuccessResponse DeleteContact (string id);
 
         /// <summary>
         /// Delete an existing contact
@@ -82,9 +86,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> DeleteContactWithHttpInfo (DeleteContactData deleteContactData);
+        ApiResponse<ApiSuccessResponse> DeleteContactWithHttpInfo (string id);
         /// <summary>
         /// Find or create phone call in UCS
         /// </summary>
@@ -92,9 +96,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse FindOrCreatePhoneCall (PhoneCallData phoneCallData);
+        ApiSuccessResponse FindOrCreatePhoneCall (string id);
 
         /// <summary>
         /// Find or create phone call in UCS
@@ -103,9 +107,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> FindOrCreatePhoneCallWithHttpInfo (PhoneCallData phoneCallData);
+        ApiResponse<ApiSuccessResponse> FindOrCreatePhoneCallWithHttpInfo (string id);
         /// <summary>
         /// Get the history of interactions for the agent
         /// </summary>
@@ -134,9 +138,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetContactDetails (ContactDetailsData contactDetailsData);
+        ApiSuccessResponse GetContactDetails (string id, ContactDetailsData contactDetailsData);
 
         /// <summary>
         /// Get the details of a contact
@@ -145,9 +150,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetContactDetailsWithHttpInfo (ContactDetailsData contactDetailsData);
+        ApiResponse<ApiSuccessResponse> GetContactDetailsWithHttpInfo (string id, ContactDetailsData contactDetailsData);
         /// <summary>
         /// Get the history of interactions for a contact
         /// </summary>
@@ -155,9 +161,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetContactHistory (ContactHistoryData contactHistoryData);
+        ApiSuccessResponse GetContactHistory (string id, ContactHistoryData contactHistoryData);
 
         /// <summary>
         /// Get the history of interactions for a contact
@@ -166,30 +173,31 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetContactHistoryWithHttpInfo (ContactHistoryData contactHistoryData);
+        ApiResponse<ApiSuccessResponse> GetContactHistoryWithHttpInfo (string id, ContactHistoryData contactHistoryData);
         /// <summary>
-        /// Get contacts based on search criteria.
+        /// Get the content of the interaction
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetContacts (GetContactsData getContactsData);
+        ApiSuccessResponse GetInteractionDetails (string id);
 
         /// <summary>
-        /// Get contacts based on search criteria.
+        /// Get the content of the interaction
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetContactsWithHttpInfo (GetContactsData getContactsData);
+        ApiResponse<ApiSuccessResponse> GetInteractionDetailsWithHttpInfo (string id);
         /// <summary>
         /// Get the lucene indexes for ucs
         /// </summary>
@@ -198,7 +206,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ConfigResponse</returns>
-        ConfigResponse GetIndexProperties ();
+        ConfigResponse GetLuceneIndexes ();
 
         /// <summary>
         /// Get the lucene indexes for ucs
@@ -208,28 +216,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ConfigResponse</returns>
-        ApiResponse<ConfigResponse> GetIndexPropertiesWithHttpInfo ();
-        /// <summary>
-        /// Get the content of the interaction
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetInteractionContent (InteractionContentData interactionContentData);
-
-        /// <summary>
-        /// Get the content of the interaction
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetInteractionContentWithHttpInfo (InteractionContentData interactionContentData);
+        ApiResponse<ConfigResponse> GetLuceneIndexesWithHttpInfo ();
         /// <summary>
         /// Identify the contact for the interaction
         /// </summary>
@@ -237,9 +224,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse IdentifyContact (IdentifyContactData identifyContactData);
+        ApiSuccessResponse IdentifyContact (string id, IdentifyContactData identifyContactData);
 
         /// <summary>
         /// Identify the contact for the interaction
@@ -248,11 +236,12 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> IdentifyContactWithHttpInfo (IdentifyContactData identifyContactData);
+        ApiResponse<ApiSuccessResponse> IdentifyContactWithHttpInfo (string id, IdentifyContactData identifyContactData);
         /// <summary>
-        /// Search for contacts based on search query, using lucene search
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -260,10 +249,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse LuceneSearch (LuceneSearchData luceneSearchData);
+        ApiSuccessResponse SearchContacts (LuceneSearchData luceneSearchData);
 
         /// <summary>
-        /// Search for contacts based on search query, using lucene search
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -271,7 +260,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LuceneSearchWithHttpInfo (LuceneSearchData luceneSearchData);
+        ApiResponse<ApiSuccessResponse> SearchContactsWithHttpInfo (LuceneSearchData luceneSearchData);
         /// <summary>
         /// Search for interactions based on search query, using lucene search
         /// </summary>
@@ -281,7 +270,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse LuceneSearchInteraction (LuceneSearchInteractionData luceneSearchInteractionData);
+        ApiSuccessResponse SearchInteractions (LuceneSearchInteractionData luceneSearchInteractionData);
 
         /// <summary>
         /// Search for interactions based on search query, using lucene search
@@ -292,7 +281,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LuceneSearchInteractionWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
+        ApiResponse<ApiSuccessResponse> SearchInteractionsWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
         /// <summary>
         /// Set the call as being completed
         /// </summary>
@@ -300,9 +289,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SetCallCompleted (CallCompletedData callCompletedData);
+        ApiSuccessResponse SetCallCompleted (string id, CallCompletedData callCompletedData);
 
         /// <summary>
         /// Set the call as being completed
@@ -311,9 +301,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SetCallCompletedWithHttpInfo (CallCompletedData callCompletedData);
+        ApiResponse<ApiSuccessResponse> SetCallCompletedWithHttpInfo (string id, CallCompletedData callCompletedData);
         /// <summary>
         /// Set the note for the call
         /// </summary>
@@ -321,9 +312,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SetCallNote (CallNoteData callNoteData);
+        ApiSuccessResponse SetCallNote (string id, CallNoteData callNoteData);
 
         /// <summary>
         /// Set the note for the call
@@ -332,9 +324,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SetCallNoteWithHttpInfo (CallNoteData callNoteData);
+        ApiResponse<ApiSuccessResponse> SetCallNoteWithHttpInfo (string id, CallNoteData callNoteData);
         /// <summary>
         /// Update attributes of an existing contact
         /// </summary>
@@ -342,9 +335,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse UpdateContact (UpdateContactData updateContactData);
+        ApiSuccessResponse UpdateContact (string id, UpdateContactData updateContactData);
 
         /// <summary>
         /// Update attributes of an existing contact
@@ -353,9 +347,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> UpdateContactWithHttpInfo (UpdateContactData updateContactData);
+        ApiResponse<ApiSuccessResponse> UpdateContactWithHttpInfo (string id, UpdateContactData updateContactData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -365,9 +360,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (AssignInteractionToContactData assignInteractionToContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (string id, AssignInteractionToContactData assignInteractionToContactData);
 
         /// <summary>
         /// Assign the interaction to a contact
@@ -376,9 +372,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData);
         /// <summary>
         /// Create a new contact
         /// </summary>
@@ -386,8 +383,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync ();
+        System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync (CreateContactData createContactData);
 
         /// <summary>
         /// Create a new contact
@@ -396,8 +394,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo (CreateContactData createContactData);
         /// <summary>
         /// Delete an existing contact
         /// </summary>
@@ -405,9 +404,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (DeleteContactData deleteContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (string id);
 
         /// <summary>
         /// Delete an existing contact
@@ -416,9 +415,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (DeleteContactData deleteContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (string id);
         /// <summary>
         /// Find or create phone call in UCS
         /// </summary>
@@ -426,9 +425,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (PhoneCallData phoneCallData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (string id);
 
         /// <summary>
         /// Find or create phone call in UCS
@@ -437,9 +436,9 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (PhoneCallData phoneCallData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (string id);
         /// <summary>
         /// Get the history of interactions for the agent
         /// </summary>
@@ -468,9 +467,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (ContactDetailsData contactDetailsData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (string id, ContactDetailsData contactDetailsData);
 
         /// <summary>
         /// Get the details of a contact
@@ -479,9 +479,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (ContactDetailsData contactDetailsData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (string id, ContactDetailsData contactDetailsData);
         /// <summary>
         /// Get the history of interactions for a contact
         /// </summary>
@@ -489,9 +490,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (ContactHistoryData contactHistoryData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (string id, ContactHistoryData contactHistoryData);
 
         /// <summary>
         /// Get the history of interactions for a contact
@@ -500,30 +502,31 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (ContactHistoryData contactHistoryData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (string id, ContactHistoryData contactHistoryData);
         /// <summary>
-        /// Get contacts based on search criteria.
+        /// Get the content of the interaction
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactsAsync (GetContactsData getContactsData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionDetailsAsync (string id);
 
         /// <summary>
-        /// Get contacts based on search criteria.
+        /// Get the content of the interaction
         /// </summary>
         /// <remarks>
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactsAsyncWithHttpInfo (GetContactsData getContactsData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionDetailsAsyncWithHttpInfo (string id);
         /// <summary>
         /// Get the lucene indexes for ucs
         /// </summary>
@@ -532,7 +535,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ConfigResponse</returns>
-        System.Threading.Tasks.Task<ConfigResponse> GetIndexPropertiesAsync ();
+        System.Threading.Tasks.Task<ConfigResponse> GetLuceneIndexesAsync ();
 
         /// <summary>
         /// Get the lucene indexes for ucs
@@ -542,28 +545,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetIndexPropertiesAsyncWithHttpInfo ();
-        /// <summary>
-        /// Get the content of the interaction
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionContentAsync (InteractionContentData interactionContentData);
-
-        /// <summary>
-        /// Get the content of the interaction
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionContentAsyncWithHttpInfo (InteractionContentData interactionContentData);
+        System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetLuceneIndexesAsyncWithHttpInfo ();
         /// <summary>
         /// Identify the contact for the interaction
         /// </summary>
@@ -571,9 +553,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (IdentifyContactData identifyContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (string id, IdentifyContactData identifyContactData);
 
         /// <summary>
         /// Identify the contact for the interaction
@@ -582,11 +565,12 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (IdentifyContactData identifyContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (string id, IdentifyContactData identifyContactData);
         /// <summary>
-        /// Search for contacts based on search query, using lucene search
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -594,10 +578,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchAsync (LuceneSearchData luceneSearchData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SearchContactsAsync (LuceneSearchData luceneSearchData);
 
         /// <summary>
-        /// Search for contacts based on search query, using lucene search
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -605,7 +589,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchAsyncWithHttpInfo (LuceneSearchData luceneSearchData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchContactsAsyncWithHttpInfo (LuceneSearchData luceneSearchData);
         /// <summary>
         /// Search for interactions based on search query, using lucene search
         /// </summary>
@@ -615,7 +599,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchInteractionAsync (LuceneSearchInteractionData luceneSearchInteractionData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SearchInteractionsAsync (LuceneSearchInteractionData luceneSearchInteractionData);
 
         /// <summary>
         /// Search for interactions based on search query, using lucene search
@@ -626,7 +610,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchInteractionAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchInteractionsAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
         /// <summary>
         /// Set the call as being completed
         /// </summary>
@@ -634,9 +618,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (CallCompletedData callCompletedData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (string id, CallCompletedData callCompletedData);
 
         /// <summary>
         /// Set the call as being completed
@@ -645,9 +630,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (CallCompletedData callCompletedData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (string id, CallCompletedData callCompletedData);
         /// <summary>
         /// Set the note for the call
         /// </summary>
@@ -655,9 +641,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (CallNoteData callNoteData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (string id, CallNoteData callNoteData);
 
         /// <summary>
         /// Set the note for the call
@@ -666,9 +653,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (CallNoteData callNoteData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (string id, CallNoteData callNoteData);
         /// <summary>
         /// Update attributes of an existing contact
         /// </summary>
@@ -676,9 +664,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (UpdateContactData updateContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (string id, UpdateContactData updateContactData);
 
         /// <summary>
         /// Update attributes of an existing contact
@@ -687,9 +676,10 @@ namespace Genesys.Internal.Workspace.Api
         /// 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (UpdateContactData updateContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (string id, UpdateContactData updateContactData);
         #endregion Asynchronous Operations
     }
 
@@ -794,11 +784,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Assign the interaction to a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AssignInteractionToContact (AssignInteractionToContactData assignInteractionToContactData)
+        public ApiSuccessResponse AssignInteractionToContact (string id, AssignInteractionToContactData assignInteractionToContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AssignInteractionToContactWithHttpInfo(assignInteractionToContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = AssignInteractionToContactWithHttpInfo(id, assignInteractionToContactData);
              return localVarResponse.Data;
         }
 
@@ -806,15 +797,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Assign the interaction to a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AssignInteractionToContactWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData)
+        public ApiResponse< ApiSuccessResponse > AssignInteractionToContactWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->AssignInteractionToContact");
             // verify the required parameter 'assignInteractionToContactData' is set
             if (assignInteractionToContactData == null)
                 throw new ApiException(400, "Missing required parameter 'assignInteractionToContactData' when calling UcsApi->AssignInteractionToContact");
 
-            var localVarPath = "/ucs/assign-interaction-to-contact";
+            var localVarPath = "/ucs/interactions/{id}/assign-contact";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -836,6 +831,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (assignInteractionToContactData != null && assignInteractionToContactData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(assignInteractionToContactData); // http body (model) parameter
@@ -868,11 +864,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Assign the interaction to a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (AssignInteractionToContactData assignInteractionToContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (string id, AssignInteractionToContactData assignInteractionToContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AssignInteractionToContactAsyncWithHttpInfo(assignInteractionToContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AssignInteractionToContactAsyncWithHttpInfo(id, assignInteractionToContactData);
              return localVarResponse.Data;
 
         }
@@ -881,15 +878,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Assign the interaction to a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="assignInteractionToContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (AssignInteractionToContactData assignInteractionToContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->AssignInteractionToContact");
             // verify the required parameter 'assignInteractionToContactData' is set
             if (assignInteractionToContactData == null)
                 throw new ApiException(400, "Missing required parameter 'assignInteractionToContactData' when calling UcsApi->AssignInteractionToContact");
 
-            var localVarPath = "/ucs/assign-interaction-to-contact";
+            var localVarPath = "/ucs/interactions/{id}/assign-contact";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -911,6 +912,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (assignInteractionToContactData != null && assignInteractionToContactData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(assignInteractionToContactData); // http body (model) parameter
@@ -943,10 +945,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Create a new contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse CreateContact ()
+        public ApiSuccessResponse CreateContact (CreateContactData createContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = CreateContactWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = CreateContactWithHttpInfo(createContactData);
              return localVarResponse.Data;
         }
 
@@ -954,11 +957,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Create a new contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > CreateContactWithHttpInfo ()
+        public ApiResponse< ApiSuccessResponse > CreateContactWithHttpInfo (CreateContactData createContactData)
         {
+            // verify the required parameter 'createContactData' is set
+            if (createContactData == null)
+                throw new ApiException(400, "Missing required parameter 'createContactData' when calling UcsApi->CreateContact");
 
-            var localVarPath = "/ucs/create-contact";
+            var localVarPath = "/ucs/contacts/create";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -980,6 +987,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (createContactData != null && createContactData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(createContactData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createContactData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1004,10 +1019,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Create a new contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync ()
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync (CreateContactData createContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await CreateContactAsyncWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = await CreateContactAsyncWithHttpInfo(createContactData);
              return localVarResponse.Data;
 
         }
@@ -1016,11 +1032,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Create a new contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="createContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo (CreateContactData createContactData)
         {
+            // verify the required parameter 'createContactData' is set
+            if (createContactData == null)
+                throw new ApiException(400, "Missing required parameter 'createContactData' when calling UcsApi->CreateContact");
 
-            var localVarPath = "/ucs/create-contact";
+            var localVarPath = "/ucs/contacts/create";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1042,6 +1062,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (createContactData != null && createContactData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(createContactData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = createContactData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1066,11 +1094,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse DeleteContact (DeleteContactData deleteContactData)
+        public ApiSuccessResponse DeleteContact (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = DeleteContactWithHttpInfo(deleteContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = DeleteContactWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -1078,15 +1106,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > DeleteContactWithHttpInfo (DeleteContactData deleteContactData)
+        public ApiResponse< ApiSuccessResponse > DeleteContactWithHttpInfo (string id)
         {
-            // verify the required parameter 'deleteContactData' is set
-            if (deleteContactData == null)
-                throw new ApiException(400, "Missing required parameter 'deleteContactData' when calling UcsApi->DeleteContact");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->DeleteContact");
 
-            var localVarPath = "/ucs/delete-contact";
+            var localVarPath = "/ucs/contacts/{id}/delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1108,14 +1136,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (deleteContactData != null && deleteContactData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(deleteContactData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = deleteContactData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1140,11 +1161,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (DeleteContactData deleteContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await DeleteContactAsyncWithHttpInfo(deleteContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await DeleteContactAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -1153,15 +1174,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Delete an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="deleteContactData"></param>
+        /// <param name="id">id of the Contact</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (DeleteContactData deleteContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (string id)
         {
-            // verify the required parameter 'deleteContactData' is set
-            if (deleteContactData == null)
-                throw new ApiException(400, "Missing required parameter 'deleteContactData' when calling UcsApi->DeleteContact");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->DeleteContact");
 
-            var localVarPath = "/ucs/delete-contact";
+            var localVarPath = "/ucs/contacts/{id}/delete";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1183,14 +1204,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (deleteContactData != null && deleteContactData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(deleteContactData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = deleteContactData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1215,11 +1229,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Find or create phone call in UCS 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse FindOrCreatePhoneCall (PhoneCallData phoneCallData)
+        public ApiSuccessResponse FindOrCreatePhoneCall (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = FindOrCreatePhoneCallWithHttpInfo(phoneCallData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = FindOrCreatePhoneCallWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
@@ -1227,15 +1241,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Find or create phone call in UCS 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > FindOrCreatePhoneCallWithHttpInfo (PhoneCallData phoneCallData)
+        public ApiResponse< ApiSuccessResponse > FindOrCreatePhoneCallWithHttpInfo (string id)
         {
-            // verify the required parameter 'phoneCallData' is set
-            if (phoneCallData == null)
-                throw new ApiException(400, "Missing required parameter 'phoneCallData' when calling UcsApi->FindOrCreatePhoneCall");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->FindOrCreatePhoneCall");
 
-            var localVarPath = "/ucs/find-or-create-phone-call";
+            var localVarPath = "/ucs/voice/{id}/find-or-create";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1257,14 +1271,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (phoneCallData != null && phoneCallData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(phoneCallData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = phoneCallData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1289,11 +1296,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Find or create phone call in UCS 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (PhoneCallData phoneCallData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await FindOrCreatePhoneCallAsyncWithHttpInfo(phoneCallData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await FindOrCreatePhoneCallAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
@@ -1302,15 +1309,15 @@ namespace Genesys.Internal.Workspace.Api
         /// Find or create phone call in UCS 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="phoneCallData"></param>
+        /// <param name="id">id of the Voice Interaction</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (PhoneCallData phoneCallData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (string id)
         {
-            // verify the required parameter 'phoneCallData' is set
-            if (phoneCallData == null)
-                throw new ApiException(400, "Missing required parameter 'phoneCallData' when calling UcsApi->FindOrCreatePhoneCall");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->FindOrCreatePhoneCall");
 
-            var localVarPath = "/ucs/find-or-create-phone-call";
+            var localVarPath = "/ucs/voice/{id}/find-or-create";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1332,14 +1339,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (phoneCallData != null && phoneCallData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(phoneCallData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = phoneCallData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1507,11 +1507,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the details of a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetContactDetails (ContactDetailsData contactDetailsData)
+        public ApiSuccessResponse GetContactDetails (string id, ContactDetailsData contactDetailsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactDetailsWithHttpInfo(contactDetailsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactDetailsWithHttpInfo(id, contactDetailsData);
              return localVarResponse.Data;
         }
 
@@ -1519,15 +1520,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the details of a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetContactDetailsWithHttpInfo (ContactDetailsData contactDetailsData)
+        public ApiResponse< ApiSuccessResponse > GetContactDetailsWithHttpInfo (string id, ContactDetailsData contactDetailsData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactDetails");
             // verify the required parameter 'contactDetailsData' is set
             if (contactDetailsData == null)
                 throw new ApiException(400, "Missing required parameter 'contactDetailsData' when calling UcsApi->GetContactDetails");
 
-            var localVarPath = "/ucs/get-contact-details";
+            var localVarPath = "/ucs/contacts/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1549,6 +1554,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (contactDetailsData != null && contactDetailsData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(contactDetailsData); // http body (model) parameter
@@ -1581,11 +1587,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the details of a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (ContactDetailsData contactDetailsData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (string id, ContactDetailsData contactDetailsData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactDetailsAsyncWithHttpInfo(contactDetailsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactDetailsAsyncWithHttpInfo(id, contactDetailsData);
              return localVarResponse.Data;
 
         }
@@ -1594,15 +1601,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the details of a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactDetailsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (ContactDetailsData contactDetailsData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (string id, ContactDetailsData contactDetailsData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactDetails");
             // verify the required parameter 'contactDetailsData' is set
             if (contactDetailsData == null)
                 throw new ApiException(400, "Missing required parameter 'contactDetailsData' when calling UcsApi->GetContactDetails");
 
-            var localVarPath = "/ucs/get-contact-details";
+            var localVarPath = "/ucs/contacts/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1624,6 +1635,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (contactDetailsData != null && contactDetailsData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(contactDetailsData); // http body (model) parameter
@@ -1656,11 +1668,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the history of interactions for a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetContactHistory (ContactHistoryData contactHistoryData)
+        public ApiSuccessResponse GetContactHistory (string id, ContactHistoryData contactHistoryData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactHistoryWithHttpInfo(contactHistoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactHistoryWithHttpInfo(id, contactHistoryData);
              return localVarResponse.Data;
         }
 
@@ -1668,15 +1681,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the history of interactions for a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetContactHistoryWithHttpInfo (ContactHistoryData contactHistoryData)
+        public ApiResponse< ApiSuccessResponse > GetContactHistoryWithHttpInfo (string id, ContactHistoryData contactHistoryData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactHistory");
             // verify the required parameter 'contactHistoryData' is set
             if (contactHistoryData == null)
                 throw new ApiException(400, "Missing required parameter 'contactHistoryData' when calling UcsApi->GetContactHistory");
 
-            var localVarPath = "/ucs/get-contact-history";
+            var localVarPath = "/ucs/contacts/{id}/get-history";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1698,6 +1715,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (contactHistoryData != null && contactHistoryData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(contactHistoryData); // http body (model) parameter
@@ -1730,11 +1748,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the history of interactions for a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (ContactHistoryData contactHistoryData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (string id, ContactHistoryData contactHistoryData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactHistoryAsyncWithHttpInfo(contactHistoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactHistoryAsyncWithHttpInfo(id, contactHistoryData);
              return localVarResponse.Data;
 
         }
@@ -1743,15 +1762,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the history of interactions for a contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="contactHistoryData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (ContactHistoryData contactHistoryData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (string id, ContactHistoryData contactHistoryData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactHistory");
             // verify the required parameter 'contactHistoryData' is set
             if (contactHistoryData == null)
                 throw new ApiException(400, "Missing required parameter 'contactHistoryData' when calling UcsApi->GetContactHistory");
 
-            var localVarPath = "/ucs/get-contact-history";
+            var localVarPath = "/ucs/contacts/{id}/get-history";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1773,6 +1796,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (contactHistoryData != null && contactHistoryData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(contactHistoryData); // http body (model) parameter
@@ -1802,30 +1826,30 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get contacts based on search criteria. 
+        /// Get the content of the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetContacts (GetContactsData getContactsData)
+        public ApiSuccessResponse GetInteractionDetails (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactsWithHttpInfo(getContactsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetInteractionDetailsWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get contacts based on search criteria. 
+        /// Get the content of the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetContactsWithHttpInfo (GetContactsData getContactsData)
+        public ApiResponse< ApiSuccessResponse > GetInteractionDetailsWithHttpInfo (string id)
         {
-            // verify the required parameter 'getContactsData' is set
-            if (getContactsData == null)
-                throw new ApiException(400, "Missing required parameter 'getContactsData' when calling UcsApi->GetContacts");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetInteractionDetails");
 
-            var localVarPath = "/ucs/get-contacts";
+            var localVarPath = "/ucs/interactions/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1847,14 +1871,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (getContactsData != null && getContactsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(getContactsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = getContactsData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1866,7 +1883,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetContacts", localVarResponse);
+                Exception exception = ExceptionFactory("GetInteractionDetails", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1876,31 +1893,31 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get contacts based on search criteria. 
+        /// Get the content of the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactsAsync (GetContactsData getContactsData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionDetailsAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactsAsyncWithHttpInfo(getContactsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetInteractionDetailsAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get contacts based on search criteria. 
+        /// Get the content of the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="getContactsData"></param>
+        /// <param name="id">id of the Interaction</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactsAsyncWithHttpInfo (GetContactsData getContactsData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionDetailsAsyncWithHttpInfo (string id)
         {
-            // verify the required parameter 'getContactsData' is set
-            if (getContactsData == null)
-                throw new ApiException(400, "Missing required parameter 'getContactsData' when calling UcsApi->GetContacts");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetInteractionDetails");
 
-            var localVarPath = "/ucs/get-contacts";
+            var localVarPath = "/ucs/interactions/{id}/get-details";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1922,14 +1939,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (getContactsData != null && getContactsData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(getContactsData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = getContactsData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1941,7 +1951,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetContacts", localVarResponse);
+                Exception exception = ExceptionFactory("GetInteractionDetails", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1955,9 +1965,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ConfigResponse</returns>
-        public ConfigResponse GetIndexProperties ()
+        public ConfigResponse GetLuceneIndexes ()
         {
-             ApiResponse<ConfigResponse> localVarResponse = GetIndexPropertiesWithHttpInfo();
+             ApiResponse<ConfigResponse> localVarResponse = GetLuceneIndexesWithHttpInfo();
              return localVarResponse.Data;
         }
 
@@ -1966,10 +1976,10 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ConfigResponse</returns>
-        public ApiResponse< ConfigResponse > GetIndexPropertiesWithHttpInfo ()
+        public ApiResponse< ConfigResponse > GetLuceneIndexesWithHttpInfo ()
         {
 
-            var localVarPath = "/ucs/get-index-properties";
+            var localVarPath = "/ucs/get-lucene-indexes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2002,7 +2012,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetIndexProperties", localVarResponse);
+                Exception exception = ExceptionFactory("GetLuceneIndexes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2016,9 +2026,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ConfigResponse</returns>
-        public async System.Threading.Tasks.Task<ConfigResponse> GetIndexPropertiesAsync ()
+        public async System.Threading.Tasks.Task<ConfigResponse> GetLuceneIndexesAsync ()
         {
-             ApiResponse<ConfigResponse> localVarResponse = await GetIndexPropertiesAsyncWithHttpInfo();
+             ApiResponse<ConfigResponse> localVarResponse = await GetLuceneIndexesAsyncWithHttpInfo();
              return localVarResponse.Data;
 
         }
@@ -2028,10 +2038,10 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetIndexPropertiesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetLuceneIndexesAsyncWithHttpInfo ()
         {
 
-            var localVarPath = "/ucs/get-index-properties";
+            var localVarPath = "/ucs/get-lucene-indexes";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2064,7 +2074,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetIndexProperties", localVarResponse);
+                Exception exception = ExceptionFactory("GetLuceneIndexes", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2074,163 +2084,15 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the content of the interaction 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetInteractionContent (InteractionContentData interactionContentData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetInteractionContentWithHttpInfo(interactionContentData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get the content of the interaction 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetInteractionContentWithHttpInfo (InteractionContentData interactionContentData)
-        {
-            // verify the required parameter 'interactionContentData' is set
-            if (interactionContentData == null)
-                throw new ApiException(400, "Missing required parameter 'interactionContentData' when calling UcsApi->GetInteractionContent");
-
-            var localVarPath = "/ucs/get-interaction-content";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (interactionContentData != null && interactionContentData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(interactionContentData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = interactionContentData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetInteractionContent", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Get the content of the interaction 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionContentAsync (InteractionContentData interactionContentData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetInteractionContentAsyncWithHttpInfo(interactionContentData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get the content of the interaction 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="interactionContentData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionContentAsyncWithHttpInfo (InteractionContentData interactionContentData)
-        {
-            // verify the required parameter 'interactionContentData' is set
-            if (interactionContentData == null)
-                throw new ApiException(400, "Missing required parameter 'interactionContentData' when calling UcsApi->GetInteractionContent");
-
-            var localVarPath = "/ucs/get-interaction-content";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (interactionContentData != null && interactionContentData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(interactionContentData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = interactionContentData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetInteractionContent", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
         /// Identify the contact for the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse IdentifyContact (IdentifyContactData identifyContactData)
+        public ApiSuccessResponse IdentifyContact (string id, IdentifyContactData identifyContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = IdentifyContactWithHttpInfo(identifyContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = IdentifyContactWithHttpInfo(id, identifyContactData);
              return localVarResponse.Data;
         }
 
@@ -2238,15 +2100,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Identify the contact for the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > IdentifyContactWithHttpInfo (IdentifyContactData identifyContactData)
+        public ApiResponse< ApiSuccessResponse > IdentifyContactWithHttpInfo (string id, IdentifyContactData identifyContactData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->IdentifyContact");
             // verify the required parameter 'identifyContactData' is set
             if (identifyContactData == null)
                 throw new ApiException(400, "Missing required parameter 'identifyContactData' when calling UcsApi->IdentifyContact");
 
-            var localVarPath = "/ucs/identify-contact";
+            var localVarPath = "/ucs/interactions/{id}/identify-contact";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2268,6 +2134,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (identifyContactData != null && identifyContactData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(identifyContactData); // http body (model) parameter
@@ -2300,11 +2167,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Identify the contact for the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (IdentifyContactData identifyContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (string id, IdentifyContactData identifyContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await IdentifyContactAsyncWithHttpInfo(identifyContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await IdentifyContactAsyncWithHttpInfo(id, identifyContactData);
              return localVarResponse.Data;
 
         }
@@ -2313,15 +2181,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Identify the contact for the interaction 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="identifyContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (IdentifyContactData identifyContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (string id, IdentifyContactData identifyContactData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->IdentifyContact");
             // verify the required parameter 'identifyContactData' is set
             if (identifyContactData == null)
                 throw new ApiException(400, "Missing required parameter 'identifyContactData' when calling UcsApi->IdentifyContact");
 
-            var localVarPath = "/ucs/identify-contact";
+            var localVarPath = "/ucs/interactions/{id}/identify-contact";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2343,6 +2215,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (identifyContactData != null && identifyContactData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(identifyContactData); // http body (model) parameter
@@ -2372,30 +2245,30 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts based on search query, using lucene search 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse LuceneSearch (LuceneSearchData luceneSearchData)
+        public ApiSuccessResponse SearchContacts (LuceneSearchData luceneSearchData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LuceneSearchWithHttpInfo(luceneSearchData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SearchContactsWithHttpInfo(luceneSearchData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search for contacts based on search query, using lucene search 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LuceneSearchWithHttpInfo (LuceneSearchData luceneSearchData)
+        public ApiResponse< ApiSuccessResponse > SearchContactsWithHttpInfo (LuceneSearchData luceneSearchData)
         {
             // verify the required parameter 'luceneSearchData' is set
             if (luceneSearchData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchData' when calling UcsApi->LuceneSearch");
+                throw new ApiException(400, "Missing required parameter 'luceneSearchData' when calling UcsApi->SearchContacts");
 
-            var localVarPath = "/ucs/lucene-search";
+            var localVarPath = "/ucs/contacts/search";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2436,7 +2309,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LuceneSearch", localVarResponse);
+                Exception exception = ExceptionFactory("SearchContacts", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2446,31 +2319,31 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts based on search query, using lucene search 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchAsync (LuceneSearchData luceneSearchData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SearchContactsAsync (LuceneSearchData luceneSearchData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LuceneSearchAsyncWithHttpInfo(luceneSearchData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SearchContactsAsyncWithHttpInfo(luceneSearchData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Search for contacts based on search query, using lucene search 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchAsyncWithHttpInfo (LuceneSearchData luceneSearchData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchContactsAsyncWithHttpInfo (LuceneSearchData luceneSearchData)
         {
             // verify the required parameter 'luceneSearchData' is set
             if (luceneSearchData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchData' when calling UcsApi->LuceneSearch");
+                throw new ApiException(400, "Missing required parameter 'luceneSearchData' when calling UcsApi->SearchContacts");
 
-            var localVarPath = "/ucs/lucene-search";
+            var localVarPath = "/ucs/contacts/search";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2511,7 +2384,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LuceneSearch", localVarResponse);
+                Exception exception = ExceptionFactory("SearchContacts", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2526,9 +2399,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse LuceneSearchInteraction (LuceneSearchInteractionData luceneSearchInteractionData)
+        public ApiSuccessResponse SearchInteractions (LuceneSearchInteractionData luceneSearchInteractionData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LuceneSearchInteractionWithHttpInfo(luceneSearchInteractionData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SearchInteractionsWithHttpInfo(luceneSearchInteractionData);
              return localVarResponse.Data;
         }
 
@@ -2538,13 +2411,13 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LuceneSearchInteractionWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
+        public ApiResponse< ApiSuccessResponse > SearchInteractionsWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
         {
             // verify the required parameter 'luceneSearchInteractionData' is set
             if (luceneSearchInteractionData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchInteractionData' when calling UcsApi->LuceneSearchInteraction");
+                throw new ApiException(400, "Missing required parameter 'luceneSearchInteractionData' when calling UcsApi->SearchInteractions");
 
-            var localVarPath = "/ucs/lucene-search-interaction";
+            var localVarPath = "/ucs/ixn/search";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2585,7 +2458,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LuceneSearchInteraction", localVarResponse);
+                Exception exception = ExceptionFactory("SearchInteractions", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2600,9 +2473,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LuceneSearchInteractionAsync (LuceneSearchInteractionData luceneSearchInteractionData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SearchInteractionsAsync (LuceneSearchInteractionData luceneSearchInteractionData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LuceneSearchInteractionAsyncWithHttpInfo(luceneSearchInteractionData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SearchInteractionsAsyncWithHttpInfo(luceneSearchInteractionData);
              return localVarResponse.Data;
 
         }
@@ -2613,13 +2486,13 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchInteractionData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LuceneSearchInteractionAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchInteractionsAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
         {
             // verify the required parameter 'luceneSearchInteractionData' is set
             if (luceneSearchInteractionData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchInteractionData' when calling UcsApi->LuceneSearchInteraction");
+                throw new ApiException(400, "Missing required parameter 'luceneSearchInteractionData' when calling UcsApi->SearchInteractions");
 
-            var localVarPath = "/ucs/lucene-search-interaction";
+            var localVarPath = "/ucs/ixn/search";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2660,7 +2533,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("LuceneSearchInteraction", localVarResponse);
+                Exception exception = ExceptionFactory("SearchInteractions", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2673,11 +2546,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the call as being completed 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SetCallCompleted (CallCompletedData callCompletedData)
+        public ApiSuccessResponse SetCallCompleted (string id, CallCompletedData callCompletedData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallCompletedWithHttpInfo(callCompletedData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallCompletedWithHttpInfo(id, callCompletedData);
              return localVarResponse.Data;
         }
 
@@ -2685,15 +2559,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the call as being completed 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SetCallCompletedWithHttpInfo (CallCompletedData callCompletedData)
+        public ApiResponse< ApiSuccessResponse > SetCallCompletedWithHttpInfo (string id, CallCompletedData callCompletedData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallCompleted");
             // verify the required parameter 'callCompletedData' is set
             if (callCompletedData == null)
                 throw new ApiException(400, "Missing required parameter 'callCompletedData' when calling UcsApi->SetCallCompleted");
 
-            var localVarPath = "/ucs/set-call-completed";
+            var localVarPath = "/ucs/interactions/{id}/set-completed";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2715,6 +2593,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (callCompletedData != null && callCompletedData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(callCompletedData); // http body (model) parameter
@@ -2747,11 +2626,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the call as being completed 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (CallCompletedData callCompletedData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (string id, CallCompletedData callCompletedData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallCompletedAsyncWithHttpInfo(callCompletedData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallCompletedAsyncWithHttpInfo(id, callCompletedData);
              return localVarResponse.Data;
 
         }
@@ -2760,15 +2640,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the call as being completed 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (CallCompletedData callCompletedData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (string id, CallCompletedData callCompletedData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallCompleted");
             // verify the required parameter 'callCompletedData' is set
             if (callCompletedData == null)
                 throw new ApiException(400, "Missing required parameter 'callCompletedData' when calling UcsApi->SetCallCompleted");
 
-            var localVarPath = "/ucs/set-call-completed";
+            var localVarPath = "/ucs/interactions/{id}/set-completed";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2790,6 +2674,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (callCompletedData != null && callCompletedData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(callCompletedData); // http body (model) parameter
@@ -2822,11 +2707,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the note for the call 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SetCallNote (CallNoteData callNoteData)
+        public ApiSuccessResponse SetCallNote (string id, CallNoteData callNoteData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallNoteWithHttpInfo(callNoteData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallNoteWithHttpInfo(id, callNoteData);
              return localVarResponse.Data;
         }
 
@@ -2834,15 +2720,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the note for the call 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SetCallNoteWithHttpInfo (CallNoteData callNoteData)
+        public ApiResponse< ApiSuccessResponse > SetCallNoteWithHttpInfo (string id, CallNoteData callNoteData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallNote");
             // verify the required parameter 'callNoteData' is set
             if (callNoteData == null)
                 throw new ApiException(400, "Missing required parameter 'callNoteData' when calling UcsApi->SetCallNote");
 
-            var localVarPath = "/ucs/set-call-note";
+            var localVarPath = "/ucs/interactions/{id}/set-note";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2864,6 +2754,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (callNoteData != null && callNoteData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(callNoteData); // http body (model) parameter
@@ -2896,11 +2787,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the note for the call 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (CallNoteData callNoteData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (string id, CallNoteData callNoteData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallNoteAsyncWithHttpInfo(callNoteData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallNoteAsyncWithHttpInfo(id, callNoteData);
              return localVarResponse.Data;
 
         }
@@ -2909,15 +2801,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the note for the call 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
         /// <param name="callNoteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (CallNoteData callNoteData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (string id, CallNoteData callNoteData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallNote");
             // verify the required parameter 'callNoteData' is set
             if (callNoteData == null)
                 throw new ApiException(400, "Missing required parameter 'callNoteData' when calling UcsApi->SetCallNote");
 
-            var localVarPath = "/ucs/set-call-note";
+            var localVarPath = "/ucs/interactions/{id}/set-note";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2939,6 +2835,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (callNoteData != null && callNoteData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(callNoteData); // http body (model) parameter
@@ -2971,11 +2868,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Update attributes of an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse UpdateContact (UpdateContactData updateContactData)
+        public ApiSuccessResponse UpdateContact (string id, UpdateContactData updateContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = UpdateContactWithHttpInfo(updateContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = UpdateContactWithHttpInfo(id, updateContactData);
              return localVarResponse.Data;
         }
 
@@ -2983,15 +2881,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Update attributes of an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > UpdateContactWithHttpInfo (UpdateContactData updateContactData)
+        public ApiResponse< ApiSuccessResponse > UpdateContactWithHttpInfo (string id, UpdateContactData updateContactData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->UpdateContact");
             // verify the required parameter 'updateContactData' is set
             if (updateContactData == null)
                 throw new ApiException(400, "Missing required parameter 'updateContactData' when calling UcsApi->UpdateContact");
 
-            var localVarPath = "/ucs/update-contact";
+            var localVarPath = "/ucs/contacts/{id}/update";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3013,6 +2915,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (updateContactData != null && updateContactData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateContactData); // http body (model) parameter
@@ -3045,11 +2948,12 @@ namespace Genesys.Internal.Workspace.Api
         /// Update attributes of an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (UpdateContactData updateContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (string id, UpdateContactData updateContactData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await UpdateContactAsyncWithHttpInfo(updateContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await UpdateContactAsyncWithHttpInfo(id, updateContactData);
              return localVarResponse.Data;
 
         }
@@ -3058,15 +2962,19 @@ namespace Genesys.Internal.Workspace.Api
         /// Update attributes of an existing contact 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Contact</param>
         /// <param name="updateContactData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (UpdateContactData updateContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (string id, UpdateContactData updateContactData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->UpdateContact");
             // verify the required parameter 'updateContactData' is set
             if (updateContactData == null)
                 throw new ApiException(400, "Missing required parameter 'updateContactData' when calling UcsApi->UpdateContact");
 
-            var localVarPath = "/ucs/update-contact";
+            var localVarPath = "/ucs/contacts/{id}/update";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3088,6 +2996,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
             if (updateContactData != null && updateContactData.GetType() != typeof(byte[]))
             {
                 localVarPostBody = Configuration.ApiClient.Serialize(updateContactData); // http body (model) parameter

@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="CallNoteData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public CallNoteData(UcssetcallnoteData Data = default(UcssetcallnoteData))
+        public CallNoteData(UcsinteractionsidsetnoteData Data = default(UcsinteractionsidsetnoteData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcssetcallnoteData Data { get; set; }
+        public UcsinteractionsidsetnoteData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

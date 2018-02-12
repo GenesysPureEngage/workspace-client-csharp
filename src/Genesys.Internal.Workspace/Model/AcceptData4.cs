@@ -25,38 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// InteractionContentData
+    /// AcceptData4
     /// </summary>
     [DataContract]
-    public partial class InteractionContentData :  IEquatable<InteractionContentData>, IValidatableObject
+    public partial class AcceptData4 :  IEquatable<AcceptData4>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="InteractionContentData" /> class.
+        /// Initializes a new instance of the <see cref="AcceptData4" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected InteractionContentData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="InteractionContentData" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public InteractionContentData(UcsgetinteractioncontentData Data = default(UcsgetinteractioncontentData))
+        /// <param name="Data">Data.</param>
+        public AcceptData4(MediamediatypeinteractionsidacceptData Data = default(MediamediatypeinteractionsidacceptData))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for InteractionContentData and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsgetinteractioncontentData Data { get; set; }
+        public MediamediatypeinteractionsidacceptData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +52,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class InteractionContentData {\n");
+            sb.Append("class AcceptData4 {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -87,15 +74,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as InteractionContentData);
+            return this.Equals(input as AcceptData4);
         }
 
         /// <summary>
-        /// Returns true if InteractionContentData instances are equal
+        /// Returns true if AcceptData4 instances are equal
         /// </summary>
-        /// <param name="input">Instance of InteractionContentData to be compared</param>
+        /// <param name="input">Instance of AcceptData4 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InteractionContentData input)
+        public bool Equals(AcceptData4 input)
         {
             if (input == null)
                 return false;

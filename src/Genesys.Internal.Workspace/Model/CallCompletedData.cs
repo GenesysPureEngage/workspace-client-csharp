@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="CallCompletedData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public CallCompletedData(UcssetcallcompletedData Data = default(UcssetcallcompletedData))
+        public CallCompletedData(UcsinteractionsidsetcompletedData Data = default(UcsinteractionsidsetcompletedData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcssetcallcompletedData Data { get; set; }
+        public UcsinteractionsidsetcompletedData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

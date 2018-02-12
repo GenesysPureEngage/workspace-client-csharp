@@ -25,26 +25,26 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// GetContactsData
+    /// ReportStandareResponseUsageData
     /// </summary>
     [DataContract]
-    public partial class GetContactsData :  IEquatable<GetContactsData>, IValidatableObject
+    public partial class ReportStandareResponseUsageData :  IEquatable<ReportStandareResponseUsageData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetContactsData" /> class.
+        /// Initializes a new instance of the <see cref="ReportStandareResponseUsageData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected GetContactsData() { }
+        protected ReportStandareResponseUsageData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="GetContactsData" /> class.
+        /// Initializes a new instance of the <see cref="ReportStandareResponseUsageData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public GetContactsData(UcsgetcontactsData Data = default(UcsgetcontactsData))
+        public ReportStandareResponseUsageData(UcsresponsesidreportusageData Data = default(UcsresponsesidreportusageData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
             {
-                throw new InvalidDataException("Data is a required property for GetContactsData and cannot be null");
+                throw new InvalidDataException("Data is a required property for ReportStandareResponseUsageData and cannot be null");
             }
             else
             {
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsgetcontactsData Data { get; set; }
+        public UcsresponsesidreportusageData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,7 +65,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class GetContactsData {\n");
+            sb.Append("class ReportStandareResponseUsageData {\n");
             sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -87,15 +87,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as GetContactsData);
+            return this.Equals(input as ReportStandareResponseUsageData);
         }
 
         /// <summary>
-        /// Returns true if GetContactsData instances are equal
+        /// Returns true if ReportStandareResponseUsageData instances are equal
         /// </summary>
-        /// <param name="input">Instance of GetContactsData to be compared</param>
+        /// <param name="input">Instance of ReportStandareResponseUsageData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(GetContactsData input)
+        public bool Equals(ReportStandareResponseUsageData input)
         {
             if (input == null)
                 return false;

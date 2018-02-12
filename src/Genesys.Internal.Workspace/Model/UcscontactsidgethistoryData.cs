@@ -25,52 +25,43 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsgetcontacthistoryData
+    /// UcscontactsidgethistoryData
     /// </summary>
     [DataContract]
-    public partial class UcsgetcontacthistoryData :  IEquatable<UcsgetcontacthistoryData>, IValidatableObject
+    public partial class UcscontactsidgethistoryData :  IEquatable<UcscontactsidgethistoryData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetcontacthistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactsidgethistoryData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcsgetcontacthistoryData() { }
+        protected UcscontactsidgethistoryData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsgetcontacthistoryData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactsidgethistoryData" /> class.
         /// </summary>
-        /// <param name="ContactId">The id of the contact (required).</param>
-        /// <param name="CustomAttributes">The list of custom contact attributes to be returned for each interaction of the contact.</param>
+        /// <param name="ReturnedAttributes">The list of custom contact attributes to be returned for each interaction of the contact (required).</param>
         /// <param name="FromDate">The date from which the interactions should be retrieved (UCS format).</param>
         /// <param name="ToDate">The date to which the interactions should be retrieved (UCS format).</param>
-        public UcsgetcontacthistoryData(string ContactId = default(string), List<string> CustomAttributes = default(List<string>), string FromDate = default(string), string ToDate = default(string))
+        public UcscontactsidgethistoryData(List<string> ReturnedAttributes = default(List<string>), string FromDate = default(string), string ToDate = default(string))
         {
-            // to ensure "ContactId" is required (not null)
-            if (ContactId == null)
+            // to ensure "ReturnedAttributes" is required (not null)
+            if (ReturnedAttributes == null)
             {
-                throw new InvalidDataException("ContactId is a required property for UcsgetcontacthistoryData and cannot be null");
+                throw new InvalidDataException("ReturnedAttributes is a required property for UcscontactsidgethistoryData and cannot be null");
             }
             else
             {
-                this.ContactId = ContactId;
+                this.ReturnedAttributes = ReturnedAttributes;
             }
-            this.CustomAttributes = CustomAttributes;
             this.FromDate = FromDate;
             this.ToDate = ToDate;
         }
         
         /// <summary>
-        /// The id of the contact
-        /// </summary>
-        /// <value>The id of the contact</value>
-        [DataMember(Name="contactId", EmitDefaultValue=false)]
-        public string ContactId { get; set; }
-
-        /// <summary>
         /// The list of custom contact attributes to be returned for each interaction of the contact
         /// </summary>
         /// <value>The list of custom contact attributes to be returned for each interaction of the contact</value>
-        [DataMember(Name="customAttributes", EmitDefaultValue=false)]
-        public List<string> CustomAttributes { get; set; }
+        [DataMember(Name="returnedAttributes", EmitDefaultValue=false)]
+        public List<string> ReturnedAttributes { get; set; }
 
         /// <summary>
         /// The date from which the interactions should be retrieved (UCS format)
@@ -93,9 +84,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsgetcontacthistoryData {\n");
-            sb.Append("  ContactId: ").Append(ContactId).Append("\n");
-            sb.Append("  CustomAttributes: ").Append(CustomAttributes).Append("\n");
+            sb.Append("class UcscontactsidgethistoryData {\n");
+            sb.Append("  ReturnedAttributes: ").Append(ReturnedAttributes).Append("\n");
             sb.Append("  FromDate: ").Append(FromDate).Append("\n");
             sb.Append("  ToDate: ").Append(ToDate).Append("\n");
             sb.Append("}\n");
@@ -118,29 +108,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsgetcontacthistoryData);
+            return this.Equals(input as UcscontactsidgethistoryData);
         }
 
         /// <summary>
-        /// Returns true if UcsgetcontacthistoryData instances are equal
+        /// Returns true if UcscontactsidgethistoryData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsgetcontacthistoryData to be compared</param>
+        /// <param name="input">Instance of UcscontactsidgethistoryData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsgetcontacthistoryData input)
+        public bool Equals(UcscontactsidgethistoryData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.ContactId == input.ContactId ||
-                    (this.ContactId != null &&
-                    this.ContactId.Equals(input.ContactId))
-                ) && 
-                (
-                    this.CustomAttributes == input.CustomAttributes ||
-                    this.CustomAttributes != null &&
-                    this.CustomAttributes.SequenceEqual(input.CustomAttributes)
+                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes != null &&
+                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
                 ) && 
                 (
                     this.FromDate == input.FromDate ||
@@ -163,10 +148,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.ContactId != null)
-                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
-                if (this.CustomAttributes != null)
-                    hashCode = hashCode * 59 + this.CustomAttributes.GetHashCode();
+                if (this.ReturnedAttributes != null)
+                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
                 if (this.FromDate != null)
                     hashCode = hashCode * 59 + this.FromDate.GetHashCode();
                 if (this.ToDate != null)

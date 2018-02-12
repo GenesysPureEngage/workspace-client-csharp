@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="LuceneSearchData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public LuceneSearchData(UcslucenesearchData Data = default(UcslucenesearchData))
+        public LuceneSearchData(UcscontactssearchData Data = default(UcscontactssearchData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcslucenesearchData Data { get; set; }
+        public UcscontactssearchData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

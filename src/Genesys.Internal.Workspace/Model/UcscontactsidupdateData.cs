@@ -25,38 +25,29 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsupdatecontactData
+    /// UcscontactsidupdateData
     /// </summary>
     [DataContract]
-    public partial class UcsupdatecontactData :  IEquatable<UcsupdatecontactData>, IValidatableObject
+    public partial class UcscontactsidupdateData :  IEquatable<UcscontactsidupdateData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsupdatecontactData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactsidupdateData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcsupdatecontactData() { }
+        protected UcscontactsidupdateData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsupdatecontactData" /> class.
+        /// Initializes a new instance of the <see cref="UcscontactsidupdateData" /> class.
         /// </summary>
-        /// <param name="ContactId">The id of the contact (required).</param>
+        /// <param name="ContactId">The id of the contact.</param>
         /// <param name="AddedProperties">The list of contact attributes to be added to the contact (required).</param>
         /// <param name="ChangedProperties">The list of contact attributes to be updated for the contact (required).</param>
         /// <param name="DeletedProperties">The list of contact attributes to be deleted for the contact (required).</param>
-        public UcsupdatecontactData(string ContactId = default(string), List<Object> AddedProperties = default(List<Object>), List<Object> ChangedProperties = default(List<Object>), List<Object> DeletedProperties = default(List<Object>))
+        public UcscontactsidupdateData(string ContactId = default(string), List<Object> AddedProperties = default(List<Object>), List<Object> ChangedProperties = default(List<Object>), List<string> DeletedProperties = default(List<string>))
         {
-            // to ensure "ContactId" is required (not null)
-            if (ContactId == null)
-            {
-                throw new InvalidDataException("ContactId is a required property for UcsupdatecontactData and cannot be null");
-            }
-            else
-            {
-                this.ContactId = ContactId;
-            }
             // to ensure "AddedProperties" is required (not null)
             if (AddedProperties == null)
             {
-                throw new InvalidDataException("AddedProperties is a required property for UcsupdatecontactData and cannot be null");
+                throw new InvalidDataException("AddedProperties is a required property for UcscontactsidupdateData and cannot be null");
             }
             else
             {
@@ -65,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
             // to ensure "ChangedProperties" is required (not null)
             if (ChangedProperties == null)
             {
-                throw new InvalidDataException("ChangedProperties is a required property for UcsupdatecontactData and cannot be null");
+                throw new InvalidDataException("ChangedProperties is a required property for UcscontactsidupdateData and cannot be null");
             }
             else
             {
@@ -74,12 +65,13 @@ namespace Genesys.Internal.Workspace.Model
             // to ensure "DeletedProperties" is required (not null)
             if (DeletedProperties == null)
             {
-                throw new InvalidDataException("DeletedProperties is a required property for UcsupdatecontactData and cannot be null");
+                throw new InvalidDataException("DeletedProperties is a required property for UcscontactsidupdateData and cannot be null");
             }
             else
             {
                 this.DeletedProperties = DeletedProperties;
             }
+            this.ContactId = ContactId;
         }
         
         /// <summary>
@@ -108,7 +100,7 @@ namespace Genesys.Internal.Workspace.Model
         /// </summary>
         /// <value>The list of contact attributes to be deleted for the contact</value>
         [DataMember(Name="deletedProperties", EmitDefaultValue=false)]
-        public List<Object> DeletedProperties { get; set; }
+        public List<string> DeletedProperties { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -117,7 +109,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsupdatecontactData {\n");
+            sb.Append("class UcscontactsidupdateData {\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("  AddedProperties: ").Append(AddedProperties).Append("\n");
             sb.Append("  ChangedProperties: ").Append(ChangedProperties).Append("\n");
@@ -142,15 +134,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcsupdatecontactData);
+            return this.Equals(input as UcscontactsidupdateData);
         }
 
         /// <summary>
-        /// Returns true if UcsupdatecontactData instances are equal
+        /// Returns true if UcscontactsidupdateData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsupdatecontactData to be compared</param>
+        /// <param name="input">Instance of UcscontactsidupdateData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsupdatecontactData input)
+        public bool Equals(UcscontactsidupdateData input)
         {
             if (input == null)
                 return false;

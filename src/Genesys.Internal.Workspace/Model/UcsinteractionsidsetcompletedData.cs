@@ -25,37 +25,27 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcssetcallcompletedData
+    /// UcsinteractionsidsetcompletedData
     /// </summary>
     [DataContract]
-    public partial class UcssetcallcompletedData :  IEquatable<UcssetcallcompletedData>, IValidatableObject
+    public partial class UcsinteractionsidsetcompletedData :  IEquatable<UcsinteractionsidsetcompletedData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcssetcallcompletedData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidsetcompletedData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected UcssetcallcompletedData() { }
+        protected UcsinteractionsidsetcompletedData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcssetcallcompletedData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidsetcompletedData" /> class.
         /// </summary>
-        /// <param name="InteractionId">The id of the interaction (required).</param>
         /// <param name="CallDuration">The duration of the call (required).</param>
         /// <param name="UserData">A key/value pairs list of the user data of the call. (required).</param>
-        public UcssetcallcompletedData(string InteractionId = default(string), int? CallDuration = default(int?), List<Kvpair> UserData = default(List<Kvpair>))
+        public UcsinteractionsidsetcompletedData(int? CallDuration = default(int?), List<Kvpair> UserData = default(List<Kvpair>))
         {
-            // to ensure "InteractionId" is required (not null)
-            if (InteractionId == null)
-            {
-                throw new InvalidDataException("InteractionId is a required property for UcssetcallcompletedData and cannot be null");
-            }
-            else
-            {
-                this.InteractionId = InteractionId;
-            }
             // to ensure "CallDuration" is required (not null)
             if (CallDuration == null)
             {
-                throw new InvalidDataException("CallDuration is a required property for UcssetcallcompletedData and cannot be null");
+                throw new InvalidDataException("CallDuration is a required property for UcsinteractionsidsetcompletedData and cannot be null");
             }
             else
             {
@@ -64,7 +54,7 @@ namespace Genesys.Internal.Workspace.Model
             // to ensure "UserData" is required (not null)
             if (UserData == null)
             {
-                throw new InvalidDataException("UserData is a required property for UcssetcallcompletedData and cannot be null");
+                throw new InvalidDataException("UserData is a required property for UcsinteractionsidsetcompletedData and cannot be null");
             }
             else
             {
@@ -72,13 +62,6 @@ namespace Genesys.Internal.Workspace.Model
             }
         }
         
-        /// <summary>
-        /// The id of the interaction
-        /// </summary>
-        /// <value>The id of the interaction</value>
-        [DataMember(Name="interactionId", EmitDefaultValue=false)]
-        public string InteractionId { get; set; }
-
         /// <summary>
         /// The duration of the call
         /// </summary>
@@ -100,8 +83,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcssetcallcompletedData {\n");
-            sb.Append("  InteractionId: ").Append(InteractionId).Append("\n");
+            sb.Append("class UcsinteractionsidsetcompletedData {\n");
             sb.Append("  CallDuration: ").Append(CallDuration).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
@@ -124,25 +106,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as UcssetcallcompletedData);
+            return this.Equals(input as UcsinteractionsidsetcompletedData);
         }
 
         /// <summary>
-        /// Returns true if UcssetcallcompletedData instances are equal
+        /// Returns true if UcsinteractionsidsetcompletedData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcssetcallcompletedData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsidsetcompletedData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcssetcallcompletedData input)
+        public bool Equals(UcsinteractionsidsetcompletedData input)
         {
             if (input == null)
                 return false;
 
             return 
-                (
-                    this.InteractionId == input.InteractionId ||
-                    (this.InteractionId != null &&
-                    this.InteractionId.Equals(input.InteractionId))
-                ) && 
                 (
                     this.CallDuration == input.CallDuration ||
                     (this.CallDuration != null &&
@@ -164,8 +141,6 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.InteractionId != null)
-                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
                 if (this.CallDuration != null)
                     hashCode = hashCode * 59 + this.CallDuration.GetHashCode();
                 if (this.UserData != null)

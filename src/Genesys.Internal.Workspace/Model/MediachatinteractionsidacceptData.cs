@@ -25,38 +25,26 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// DeleteContactData
+    /// MediachatinteractionsidacceptData
     /// </summary>
     [DataContract]
-    public partial class DeleteContactData :  IEquatable<DeleteContactData>, IValidatableObject
+    public partial class MediachatinteractionsidacceptData :  IEquatable<MediachatinteractionsidacceptData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="DeleteContactData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidacceptData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected DeleteContactData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DeleteContactData" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
-        public DeleteContactData(UcsdeletecontactData Data = default(UcsdeletecontactData))
+        /// <param name="Nickname">Agent nickname as will be seen by customer.</param>
+        public MediachatinteractionsidacceptData(string Nickname = default(string))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for DeleteContactData and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.Nickname = Nickname;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// Agent nickname as will be seen by customer
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsdeletecontactData Data { get; set; }
+        /// <value>Agent nickname as will be seen by customer</value>
+        [DataMember(Name="nickname", EmitDefaultValue=false)]
+        public string Nickname { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -65,8 +53,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class DeleteContactData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class MediachatinteractionsidacceptData {\n");
+            sb.Append("  Nickname: ").Append(Nickname).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -87,24 +75,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as DeleteContactData);
+            return this.Equals(input as MediachatinteractionsidacceptData);
         }
 
         /// <summary>
-        /// Returns true if DeleteContactData instances are equal
+        /// Returns true if MediachatinteractionsidacceptData instances are equal
         /// </summary>
-        /// <param name="input">Instance of DeleteContactData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidacceptData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(DeleteContactData input)
+        public bool Equals(MediachatinteractionsidacceptData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Nickname == input.Nickname ||
+                    (this.Nickname != null &&
+                    this.Nickname.Equals(input.Nickname))
                 );
         }
 
@@ -117,8 +105,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Nickname != null)
+                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
                 return hashCode;
             }
         }
