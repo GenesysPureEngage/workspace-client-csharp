@@ -25,33 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// MediachatinteractionsidinviteData
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class MediachatinteractionsidinviteData :  IEquatable<MediachatinteractionsidinviteData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidinviteData" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
-        /// <param name="Type">Type.</param>
-        public Kvpair(string Key = default(string), string Type = default(string))
+        [JsonConstructorAttribute]
+        protected MediachatinteractionsidinviteData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidinviteData" /> class.
+        /// </summary>
+        /// <param name="AgentId">EmployeeId of the target agent. (required).</param>
+        public MediachatinteractionsidinviteData(string AgentId = default(string))
         {
-            this.Key = Key;
-            this.Type = Type;
+            // to ensure "AgentId" is required (not null)
+            if (AgentId == null)
+            {
+                throw new InvalidDataException("AgentId is a required property for MediachatinteractionsidinviteData and cannot be null");
+            }
+            else
+            {
+                this.AgentId = AgentId;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// EmployeeId of the target agent.
         /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        /// <value>EmployeeId of the target agent.</value>
+        [DataMember(Name="agentId", EmitDefaultValue=false)]
+        public string AgentId { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class MediachatinteractionsidinviteData {\n");
+            sb.Append("  AgentId: ").Append(AgentId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Kvpair);
+            return this.Equals(input as MediachatinteractionsidinviteData);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if MediachatinteractionsidinviteData instances are equal
         /// </summary>
-        /// <param name="input">Instance of Kvpair to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidinviteData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair input)
+        public bool Equals(MediachatinteractionsidinviteData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.AgentId == input.AgentId ||
+                    (this.AgentId != null &&
+                    this.AgentId.Equals(input.AgentId))
                 );
         }
 
@@ -118,10 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.AgentId != null)
+                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
                 return hashCode;
             }
         }

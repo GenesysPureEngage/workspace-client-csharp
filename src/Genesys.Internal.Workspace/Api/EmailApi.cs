@@ -34,7 +34,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AcceptEmail (string id, AcceptData3 acceptData = null);
+        ApiSuccessResponse AcceptEmail (string id, AcceptData6 acceptData = null);
 
         /// <summary>
         /// Accept the email interaction
@@ -46,7 +46,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AcceptEmailWithHttpInfo (string id, AcceptData3 acceptData = null);
+        ApiResponse<ApiSuccessResponse> AcceptEmailWithHttpInfo (string id, AcceptData6 acceptData = null);
         /// <summary>
         /// cancel the outbound email interaction
         /// </summary>
@@ -170,7 +170,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData3 acceptData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData6 acceptData = null);
 
         /// <summary>
         /// Accept the email interaction
@@ -182,7 +182,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData3 acceptData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData6 acceptData = null);
         /// <summary>
         /// cancel the outbound email interaction
         /// </summary>
@@ -401,7 +401,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AcceptEmail (string id, AcceptData3 acceptData = null)
+        public ApiSuccessResponse AcceptEmail (string id, AcceptData6 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = AcceptEmailWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
@@ -414,7 +414,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AcceptEmailWithHttpInfo (string id, AcceptData3 acceptData = null)
+        public ApiResponse< ApiSuccessResponse > AcceptEmailWithHttpInfo (string id, AcceptData6 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -478,7 +478,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData3 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptEmailAsync (string id, AcceptData6 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptEmailAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
@@ -492,7 +492,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData3 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptEmailAsyncWithHttpInfo (string id, AcceptData6 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)

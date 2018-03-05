@@ -25,44 +25,44 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediachatinteractionsidsendmessageData
+    /// MediachatinteractionsidleaveData
     /// </summary>
     [DataContract]
-    public partial class MediachatinteractionsidsendmessageData :  IEquatable<MediachatinteractionsidsendmessageData>, IValidatableObject
+    public partial class MediachatinteractionsidleaveData :  IEquatable<MediachatinteractionsidleaveData>, IValidatableObject
     {
         /// <summary>
-        /// visibility of operation
+        /// the action to take after leave
         /// </summary>
-        /// <value>visibility of operation</value>
+        /// <value>the action to take after leave</value>
         [JsonConverter(typeof(StringEnumConverter))]
-        public enum VisibilityEnum
+        public enum AfterActionEnum
         {
             
             /// <summary>
-            /// Enum All for "All"
+            /// Enum CloseIfNoAgents for "CloseIfNoAgents"
             /// </summary>
-            [EnumMember(Value = "All")]
-            All = 1,
+            [EnumMember(Value = "CloseIfNoAgents")]
+            CloseIfNoAgents = 1,
             
             /// <summary>
-            /// Enum Agent for "Agent"
+            /// Enum ForceClose for "ForceClose"
             /// </summary>
-            [EnumMember(Value = "Agent")]
-            Agent = 2,
+            [EnumMember(Value = "ForceClose")]
+            ForceClose = 2,
             
             /// <summary>
-            /// Enum Supervisor for "Supervisor"
+            /// Enum KeepAlive for "KeepAlive"
             /// </summary>
-            [EnumMember(Value = "Supervisor")]
-            Supervisor = 3
+            [EnumMember(Value = "KeepAlive")]
+            KeepAlive = 3
         }
 
         /// <summary>
-        /// visibility of operation
+        /// the action to take after leave
         /// </summary>
-        /// <value>visibility of operation</value>
-        [DataMember(Name="visibility", EmitDefaultValue=false)]
-        public VisibilityEnum? Visibility { get; set; }
+        /// <value>the action to take after leave</value>
+        [DataMember(Name="afterAction", EmitDefaultValue=false)]
+        public AfterActionEnum? AfterAction { get; set; }
         /// <summary>
         /// how message should be treated
         /// </summary>
@@ -91,33 +91,21 @@ namespace Genesys.Internal.Workspace.Model
         [DataMember(Name="treatAs", EmitDefaultValue=false)]
         public TreatAsEnum? TreatAs { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendmessageData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidleaveData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MediachatinteractionsidsendmessageData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendmessageData" /> class.
-        /// </summary>
-        /// <param name="Message">the message to send to the chat (required).</param>
+        /// <param name="AfterAction">the action to take after leave.</param>
+        /// <param name="Message">the message to send to the chat.</param>
         /// <param name="MessageType">arbitrary type of message.</param>
-        /// <param name="Visibility">visibility of operation.</param>
         /// <param name="TreatAs">how message should be treated.</param>
-        public MediachatinteractionsidsendmessageData(string Message = default(string), string MessageType = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?), TreatAsEnum? TreatAs = default(TreatAsEnum?))
+        public MediachatinteractionsidleaveData(AfterActionEnum? AfterAction = default(AfterActionEnum?), string Message = default(string), string MessageType = default(string), TreatAsEnum? TreatAs = default(TreatAsEnum?))
         {
-            // to ensure "Message" is required (not null)
-            if (Message == null)
-            {
-                throw new InvalidDataException("Message is a required property for MediachatinteractionsidsendmessageData and cannot be null");
-            }
-            else
-            {
-                this.Message = Message;
-            }
+            this.AfterAction = AfterAction;
+            this.Message = Message;
             this.MessageType = MessageType;
-            this.Visibility = Visibility;
             this.TreatAs = TreatAs;
         }
         
+
         /// <summary>
         /// the message to send to the chat
         /// </summary>
@@ -133,7 +121,6 @@ namespace Genesys.Internal.Workspace.Model
         public string MessageType { get; set; }
 
 
-
         /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
@@ -141,10 +128,10 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediachatinteractionsidsendmessageData {\n");
+            sb.Append("class MediachatinteractionsidleaveData {\n");
+            sb.Append("  AfterAction: ").Append(AfterAction).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  MessageType: ").Append(MessageType).Append("\n");
-            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("  TreatAs: ").Append(TreatAs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -166,20 +153,25 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediachatinteractionsidsendmessageData);
+            return this.Equals(input as MediachatinteractionsidleaveData);
         }
 
         /// <summary>
-        /// Returns true if MediachatinteractionsidsendmessageData instances are equal
+        /// Returns true if MediachatinteractionsidleaveData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidsendmessageData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidleaveData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidsendmessageData input)
+        public bool Equals(MediachatinteractionsidleaveData input)
         {
             if (input == null)
                 return false;
 
             return 
+                (
+                    this.AfterAction == input.AfterAction ||
+                    (this.AfterAction != null &&
+                    this.AfterAction.Equals(input.AfterAction))
+                ) && 
                 (
                     this.Message == input.Message ||
                     (this.Message != null &&
@@ -189,11 +181,6 @@ namespace Genesys.Internal.Workspace.Model
                     this.MessageType == input.MessageType ||
                     (this.MessageType != null &&
                     this.MessageType.Equals(input.MessageType))
-                ) && 
-                (
-                    this.Visibility == input.Visibility ||
-                    (this.Visibility != null &&
-                    this.Visibility.Equals(input.Visibility))
                 ) && 
                 (
                     this.TreatAs == input.TreatAs ||
@@ -211,12 +198,12 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.AfterAction != null)
+                    hashCode = hashCode * 59 + this.AfterAction.GetHashCode();
                 if (this.Message != null)
                     hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.MessageType != null)
                     hashCode = hashCode * 59 + this.MessageType.GetHashCode();
-                if (this.Visibility != null)
-                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 if (this.TreatAs != null)
                     hashCode = hashCode * 59 + this.TreatAs.GetHashCode();
                 return hashCode;

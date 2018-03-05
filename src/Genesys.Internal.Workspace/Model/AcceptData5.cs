@@ -25,33 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// AcceptData5
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class AcceptData5 :  IEquatable<AcceptData5>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="AcceptData5" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
-        /// <param name="Type">Type.</param>
-        public Kvpair(string Key = default(string), string Type = default(string))
+        /// <param name="Data">Data.</param>
+        public AcceptData5(MediachatinteractionsidsendtypingstartedData Data = default(MediachatinteractionsidsendtypingstartedData))
         {
-            this.Key = Key;
-            this.Type = Type;
+            this.Data = Data;
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediachatinteractionsidsendtypingstartedData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +52,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class AcceptData5 {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +74,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Kvpair);
+            return this.Equals(input as AcceptData5);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if AcceptData5 instances are equal
         /// </summary>
-        /// <param name="input">Instance of Kvpair to be compared</param>
+        /// <param name="input">Instance of AcceptData5 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair input)
+        public bool Equals(AcceptData5 input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -118,10 +104,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

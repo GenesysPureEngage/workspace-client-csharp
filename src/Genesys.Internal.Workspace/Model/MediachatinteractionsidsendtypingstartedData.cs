@@ -25,10 +25,10 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediachatinteractionsidacceptData
+    /// MediachatinteractionsidsendtypingstartedData
     /// </summary>
     [DataContract]
-    public partial class MediachatinteractionsidacceptData :  IEquatable<MediachatinteractionsidacceptData>, IValidatableObject
+    public partial class MediachatinteractionsidsendtypingstartedData :  IEquatable<MediachatinteractionsidsendtypingstartedData>, IValidatableObject
     {
         /// <summary>
         /// visibility of operation
@@ -64,22 +64,22 @@ namespace Genesys.Internal.Workspace.Model
         [DataMember(Name="visibility", EmitDefaultValue=false)]
         public VisibilityEnum? Visibility { get; set; }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidacceptData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendtypingstartedData" /> class.
         /// </summary>
-        /// <param name="Nickname">Agent nickname as will be seen by customer.</param>
+        /// <param name="Message">the message to send to the chat.</param>
         /// <param name="Visibility">visibility of operation.</param>
-        public MediachatinteractionsidacceptData(string Nickname = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?))
+        public MediachatinteractionsidsendtypingstartedData(string Message = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?))
         {
-            this.Nickname = Nickname;
+            this.Message = Message;
             this.Visibility = Visibility;
         }
         
         /// <summary>
-        /// Agent nickname as will be seen by customer
+        /// the message to send to the chat
         /// </summary>
-        /// <value>Agent nickname as will be seen by customer</value>
-        [DataMember(Name="nickname", EmitDefaultValue=false)]
-        public string Nickname { get; set; }
+        /// <value>the message to send to the chat</value>
+        [DataMember(Name="message", EmitDefaultValue=false)]
+        public string Message { get; set; }
 
 
         /// <summary>
@@ -89,8 +89,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediachatinteractionsidacceptData {\n");
-            sb.Append("  Nickname: ").Append(Nickname).Append("\n");
+            sb.Append("class MediachatinteractionsidsendtypingstartedData {\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -112,24 +112,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediachatinteractionsidacceptData);
+            return this.Equals(input as MediachatinteractionsidsendtypingstartedData);
         }
 
         /// <summary>
-        /// Returns true if MediachatinteractionsidacceptData instances are equal
+        /// Returns true if MediachatinteractionsidsendtypingstartedData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidacceptData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidsendtypingstartedData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidacceptData input)
+        public bool Equals(MediachatinteractionsidsendtypingstartedData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Nickname == input.Nickname ||
-                    (this.Nickname != null &&
-                    this.Nickname.Equals(input.Nickname))
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 ) && 
                 (
                     this.Visibility == input.Visibility ||
@@ -147,8 +147,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Nickname != null)
-                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
+                if (this.Message != null)
+                    hashCode = hashCode * 59 + this.Message.GetHashCode();
                 if (this.Visibility != null)
                     hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 return hashCode;

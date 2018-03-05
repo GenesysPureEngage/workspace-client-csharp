@@ -40,7 +40,8 @@ namespace Genesys.Internal.Workspace.Model
         /// </summary>
         /// <param name="UserData">UserData (required).</param>
         /// <param name="CallUuid">CallUuid.</param>
-        public SendUserEventDataData(List<Kvpair> UserData = default(List<Kvpair>), string CallUuid = default(string))
+        /// <param name="ConnId">ConnId.</param>
+        public SendUserEventDataData(List<Kvpair> UserData = default(List<Kvpair>), string CallUuid = default(string), string ConnId = default(string))
         {
             // to ensure "UserData" is required (not null)
             if (UserData == null)
@@ -52,6 +53,7 @@ namespace Genesys.Internal.Workspace.Model
                 this.UserData = UserData;
             }
             this.CallUuid = CallUuid;
+            this.ConnId = ConnId;
         }
         
         /// <summary>
@@ -67,6 +69,12 @@ namespace Genesys.Internal.Workspace.Model
         public string CallUuid { get; set; }
 
         /// <summary>
+        /// Gets or Sets ConnId
+        /// </summary>
+        [DataMember(Name="connId", EmitDefaultValue=false)]
+        public string ConnId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +84,7 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("class SendUserEventDataData {\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("  CallUuid: ").Append(CallUuid).Append("\n");
+            sb.Append("  ConnId: ").Append(ConnId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -119,6 +128,11 @@ namespace Genesys.Internal.Workspace.Model
                     this.CallUuid == input.CallUuid ||
                     (this.CallUuid != null &&
                     this.CallUuid.Equals(input.CallUuid))
+                ) && 
+                (
+                    this.ConnId == input.ConnId ||
+                    (this.ConnId != null &&
+                    this.ConnId.Equals(input.ConnId))
                 );
         }
 
@@ -135,6 +149,8 @@ namespace Genesys.Internal.Workspace.Model
                     hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 if (this.CallUuid != null)
                     hashCode = hashCode * 59 + this.CallUuid.GetHashCode();
+                if (this.ConnId != null)
+                    hashCode = hashCode * 59 + this.ConnId.GetHashCode();
                 return hashCode;
             }
         }

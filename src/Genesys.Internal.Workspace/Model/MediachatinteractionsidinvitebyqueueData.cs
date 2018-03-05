@@ -25,33 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// MediachatinteractionsidinvitebyqueueData
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class MediachatinteractionsidinvitebyqueueData :  IEquatable<MediachatinteractionsidinvitebyqueueData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidinvitebyqueueData" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
-        /// <param name="Type">Type.</param>
-        public Kvpair(string Key = default(string), string Type = default(string))
+        [JsonConstructorAttribute]
+        protected MediachatinteractionsidinvitebyqueueData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidinvitebyqueueData" /> class.
+        /// </summary>
+        /// <param name="Queue">queue of submission. (required).</param>
+        public MediachatinteractionsidinvitebyqueueData(string Queue = default(string))
         {
-            this.Key = Key;
-            this.Type = Type;
+            // to ensure "Queue" is required (not null)
+            if (Queue == null)
+            {
+                throw new InvalidDataException("Queue is a required property for MediachatinteractionsidinvitebyqueueData and cannot be null");
+            }
+            else
+            {
+                this.Queue = Queue;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// queue of submission.
         /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        /// <value>queue of submission.</value>
+        [DataMember(Name="queue", EmitDefaultValue=false)]
+        public string Queue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class MediachatinteractionsidinvitebyqueueData {\n");
+            sb.Append("  Queue: ").Append(Queue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Kvpair);
+            return this.Equals(input as MediachatinteractionsidinvitebyqueueData);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if MediachatinteractionsidinvitebyqueueData instances are equal
         /// </summary>
-        /// <param name="input">Instance of Kvpair to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidinvitebyqueueData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair input)
+        public bool Equals(MediachatinteractionsidinvitebyqueueData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Queue == input.Queue ||
+                    (this.Queue != null &&
+                    this.Queue.Equals(input.Queue))
                 );
         }
 
@@ -118,10 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Queue != null)
+                    hashCode = hashCode * 59 + this.Queue.GetHashCode();
                 return hashCode;
             }
         }

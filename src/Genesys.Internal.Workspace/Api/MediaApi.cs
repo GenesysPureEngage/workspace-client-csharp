@@ -35,7 +35,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Accept (string mediatype, string id, AcceptData4 acceptData = null);
+        ApiSuccessResponse Accept (string mediatype, string id, AcceptData7 acceptData = null);
 
         /// <summary>
         /// Accept an open-media interaction
@@ -48,7 +48,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData4 acceptData = null);
+        ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null);
         /// <summary>
         /// Accept a chat interaction
         /// </summary>
@@ -246,6 +246,52 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> CompleteWithHttpInfo (string mediatype, string id);
         /// <summary>
+        /// Consult other agent during the chat
+        /// </summary>
+        /// <remarks>
+        /// consult other agent during the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse Consult (string id, ConsultData consultData);
+
+        /// <summary>
+        /// Consult other agent during the chat
+        /// </summary>
+        /// <remarks>
+        /// consult other agent during the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> ConsultWithHttpInfo (string id, ConsultData consultData);
+        /// <summary>
+        /// Consult a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// Consult a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse ConsultByQueue (string id, ConsultData1 consultData);
+
+        /// <summary>
+        /// Consult a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// Consult a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> ConsultByQueueWithHttpInfo (string id, ConsultData1 consultData);
+        /// <summary>
         /// Remove key/value pair from user data
         /// </summary>
         /// <remarks>
@@ -309,6 +355,52 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DndOnWithHttpInfo ();
         /// <summary>
+        /// Invite other agent to join the chat
+        /// </summary>
+        /// <remarks>
+        /// Invite other agent to join the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse Invite (string id, InviteData inviteData);
+
+        /// <summary>
+        /// Invite other agent to join the chat
+        /// </summary>
+        /// <remarks>
+        /// Invite other agent to join the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> InviteWithHttpInfo (string id, InviteData inviteData);
+        /// <summary>
+        /// inviite a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// invite a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse InviteByQueue (string id, InviteData1 inviteData);
+
+        /// <summary>
+        /// inviite a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// invite a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> InviteByQueueWithHttpInfo (string id, InviteData1 inviteData);
+        /// <summary>
         /// Leave a chat interaction
         /// </summary>
         /// <remarks>
@@ -316,8 +408,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse LeaveChat (string id);
+        ApiSuccessResponse LeaveChat (string id, LeaveData leaveData = null);
 
         /// <summary>
         /// Leave a chat interaction
@@ -327,8 +420,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LeaveChatWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> LeaveChatWithHttpInfo (string id, LeaveData leaveData = null);
         /// <summary>
         /// Logout all open media channels
         /// </summary>
@@ -531,6 +625,29 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RemoveMediaWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
+        /// Send custom notification to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send custom notification to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SendCustomNotification (string id, AcceptData5 acceptData = null);
+
+        /// <summary>
+        /// Send custom notification to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send custom notification to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SendCustomNotificationWithHttpInfo (string id, AcceptData5 acceptData = null);
+        /// <summary>
         /// Send a message to the specified chat
         /// </summary>
         /// <remarks>
@@ -561,8 +678,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendTypingStarted (string id);
+        ApiSuccessResponse SendTypingStarted (string id, AcceptData3 acceptData = null);
 
         /// <summary>
         /// Send notification that typing started to the specified chat
@@ -572,8 +690,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendTypingStartedWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> SendTypingStartedWithHttpInfo (string id, AcceptData3 acceptData = null);
         /// <summary>
         /// Send notification that typing stopped to the specified chat
         /// </summary>
@@ -582,8 +701,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendTypingStopped (string id);
+        ApiSuccessResponse SendTypingStopped (string id, AcceptData4 acceptData = null);
 
         /// <summary>
         /// Send notification that typing stopped to the specified chat
@@ -593,8 +713,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendTypingStoppedWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> SendTypingStoppedWithHttpInfo (string id, AcceptData4 acceptData = null);
         /// <summary>
         /// Send a url to the specified chat
         /// </summary>
@@ -681,7 +802,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData4 acceptData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData7 acceptData = null);
 
         /// <summary>
         /// Accept an open-media interaction
@@ -694,7 +815,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData4 acceptData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null);
         /// <summary>
         /// Accept a chat interaction
         /// </summary>
@@ -892,6 +1013,52 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CompleteAsyncWithHttpInfo (string mediatype, string id);
         /// <summary>
+        /// Consult other agent during the chat
+        /// </summary>
+        /// <remarks>
+        /// consult other agent during the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> ConsultAsync (string id, ConsultData consultData);
+
+        /// <summary>
+        /// Consult other agent during the chat
+        /// </summary>
+        /// <remarks>
+        /// consult other agent during the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultAsyncWithHttpInfo (string id, ConsultData consultData);
+        /// <summary>
+        /// Consult a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// Consult a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> ConsultByQueueAsync (string id, ConsultData1 consultData);
+
+        /// <summary>
+        /// Consult a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// Consult a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultByQueueAsyncWithHttpInfo (string id, ConsultData1 consultData);
+        /// <summary>
         /// Remove key/value pair from user data
         /// </summary>
         /// <remarks>
@@ -955,6 +1122,52 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOnAsyncWithHttpInfo ();
         /// <summary>
+        /// Invite other agent to join the chat
+        /// </summary>
+        /// <remarks>
+        /// Invite other agent to join the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> InviteAsync (string id, InviteData inviteData);
+
+        /// <summary>
+        /// Invite other agent to join the chat
+        /// </summary>
+        /// <remarks>
+        /// Invite other agent to join the chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteAsyncWithHttpInfo (string id, InviteData inviteData);
+        /// <summary>
+        /// inviite a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// invite a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> InviteByQueueAsync (string id, InviteData1 inviteData);
+
+        /// <summary>
+        /// inviite a target defines in attached data
+        /// </summary>
+        /// <remarks>
+        /// invite a target defines in attached data
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteByQueueAsyncWithHttpInfo (string id, InviteData1 inviteData);
+        /// <summary>
         /// Leave a chat interaction
         /// </summary>
         /// <remarks>
@@ -962,8 +1175,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id, LeaveData leaveData = null);
 
         /// <summary>
         /// Leave a chat interaction
@@ -973,8 +1187,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id, LeaveData leaveData = null);
         /// <summary>
         /// Logout all open media channels
         /// </summary>
@@ -1177,6 +1392,29 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveMediaAsyncWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
+        /// Send custom notification to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send custom notification to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendCustomNotificationAsync (string id, AcceptData5 acceptData = null);
+
+        /// <summary>
+        /// Send custom notification to the specified chat
+        /// </summary>
+        /// <remarks>
+        /// Send custom notification to the specified chat
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendCustomNotificationAsyncWithHttpInfo (string id, AcceptData5 acceptData = null);
+        /// <summary>
         /// Send a message to the specified chat
         /// </summary>
         /// <remarks>
@@ -1207,8 +1445,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id, AcceptData3 acceptData = null);
 
         /// <summary>
         /// Send notification that typing started to the specified chat
@@ -1218,8 +1457,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id, AcceptData3 acceptData = null);
         /// <summary>
         /// Send notification that typing stopped to the specified chat
         /// </summary>
@@ -1228,8 +1468,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id, AcceptData4 acceptData = null);
 
         /// <summary>
         /// Send notification that typing stopped to the specified chat
@@ -1239,8 +1480,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id, AcceptData4 acceptData = null);
         /// <summary>
         /// Send a url to the specified chat
         /// </summary>
@@ -1422,7 +1664,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Accept (string mediatype, string id, AcceptData4 acceptData = null)
+        public ApiSuccessResponse Accept (string mediatype, string id, AcceptData7 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = AcceptWithHttpInfo(mediatype, id, acceptData);
              return localVarResponse.Data;
@@ -1436,7 +1678,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AcceptWithHttpInfo (string mediatype, string id, AcceptData4 acceptData = null)
+        public ApiResponse< ApiSuccessResponse > AcceptWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -1505,7 +1747,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData4 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData7 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptAsyncWithHttpInfo(mediatype, id, acceptData);
              return localVarResponse.Data;
@@ -1520,7 +1762,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to accept</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData4 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -2868,6 +3110,328 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// Consult other agent during the chat consult other agent during the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse Consult (string id, ConsultData consultData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = ConsultWithHttpInfo(id, consultData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Consult other agent during the chat consult other agent during the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > ConsultWithHttpInfo (string id, ConsultData consultData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Consult");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->Consult");
+
+            var localVarPath = "/media/chat/interactions/{id}/consult";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Consult", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Consult other agent during the chat consult other agent during the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ConsultAsync (string id, ConsultData consultData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ConsultAsyncWithHttpInfo(id, consultData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Consult other agent during the chat consult other agent during the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultAsyncWithHttpInfo (string id, ConsultData consultData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Consult");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->Consult");
+
+            var localVarPath = "/media/chat/interactions/{id}/consult";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Consult", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Consult a target defines in attached data Consult a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse ConsultByQueue (string id, ConsultData1 consultData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = ConsultByQueueWithHttpInfo(id, consultData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Consult a target defines in attached data Consult a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > ConsultByQueueWithHttpInfo (string id, ConsultData1 consultData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->ConsultByQueue");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->ConsultByQueue");
+
+            var localVarPath = "/media/chat/interactions/{id}/consult-by-queue";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConsultByQueue", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Consult a target defines in attached data Consult a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ConsultByQueueAsync (string id, ConsultData1 consultData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ConsultByQueueAsyncWithHttpInfo(id, consultData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Consult a target defines in attached data Consult a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="consultData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultByQueueAsyncWithHttpInfo (string id, ConsultData1 consultData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->ConsultByQueue");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->ConsultByQueue");
+
+            var localVarPath = "/media/chat/interactions/{id}/consult-by-queue";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ConsultByQueue", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Remove key/value pair from user data Deletes the specified key from the interaction data.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3287,14 +3851,337 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// Invite other agent to join the chat Invite other agent to join the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse Invite (string id, InviteData inviteData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = InviteWithHttpInfo(id, inviteData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Invite other agent to join the chat Invite other agent to join the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > InviteWithHttpInfo (string id, InviteData inviteData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Invite");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->Invite");
+
+            var localVarPath = "/media/chat/interactions/{id}/invite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inviteData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Invite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Invite other agent to join the chat Invite other agent to join the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> InviteAsync (string id, InviteData inviteData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await InviteAsyncWithHttpInfo(id, inviteData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Invite other agent to join the chat Invite other agent to join the chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteAsyncWithHttpInfo (string id, InviteData inviteData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Invite");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->Invite");
+
+            var localVarPath = "/media/chat/interactions/{id}/invite";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inviteData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("Invite", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// inviite a target defines in attached data invite a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse InviteByQueue (string id, InviteData1 inviteData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = InviteByQueueWithHttpInfo(id, inviteData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// inviite a target defines in attached data invite a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > InviteByQueueWithHttpInfo (string id, InviteData1 inviteData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->InviteByQueue");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->InviteByQueue");
+
+            var localVarPath = "/media/chat/interactions/{id}/invite-by-queue";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inviteData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InviteByQueue", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// inviite a target defines in attached data invite a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> InviteByQueueAsync (string id, InviteData1 inviteData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await InviteByQueueAsyncWithHttpInfo(id, inviteData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// inviite a target defines in attached data invite a target defines in attached data
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the interaction</param>
+        /// <param name="inviteData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteByQueueAsyncWithHttpInfo (string id, InviteData1 inviteData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->InviteByQueue");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->InviteByQueue");
+
+            var localVarPath = "/media/chat/interactions/{id}/invite-by-queue";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = inviteData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("InviteByQueue", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Leave a chat interaction Leave the interaction specified in the id path parameter
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse LeaveChat (string id)
+        public ApiSuccessResponse LeaveChat (string id, LeaveData leaveData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LeaveChatWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = LeaveChatWithHttpInfo(id, leaveData);
              return localVarResponse.Data;
         }
 
@@ -3303,8 +4190,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LeaveChatWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > LeaveChatWithHttpInfo (string id, LeaveData leaveData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3333,6 +4221,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (leaveData != null && leaveData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(leaveData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = leaveData; // byte array
+            }
 
 
             // make the HTTP request
@@ -3358,10 +4254,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id, LeaveData leaveData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LeaveChatAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await LeaveChatAsyncWithHttpInfo(id, leaveData);
              return localVarResponse.Data;
 
         }
@@ -3371,8 +4268,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id, LeaveData leaveData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -3401,6 +4299,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (leaveData != null && leaveData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(leaveData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = leaveData; // byte array
+            }
 
 
             // make the HTTP request
@@ -4767,6 +5673,161 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// Send custom notification to the specified chat Send custom notification to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SendCustomNotification (string id, AcceptData5 acceptData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendCustomNotificationWithHttpInfo(id, acceptData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send custom notification to the specified chat Send custom notification to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SendCustomNotificationWithHttpInfo (string id, AcceptData5 acceptData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendCustomNotification");
+
+            var localVarPath = "/media/chat/interactions/{id}/send-custom-notification";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendCustomNotification", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Send custom notification to the specified chat Send custom notification to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendCustomNotificationAsync (string id, AcceptData5 acceptData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendCustomNotificationAsyncWithHttpInfo(id, acceptData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send custom notification to the specified chat Send custom notification to the specified chat
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendCustomNotificationAsyncWithHttpInfo (string id, AcceptData5 acceptData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendCustomNotification");
+
+            var localVarPath = "/media/chat/interactions/{id}/send-custom-notification";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SendCustomNotification", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Send a message to the specified chat Send a message to the specified chat
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -4926,10 +5987,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendTypingStarted (string id)
+        public ApiSuccessResponse SendTypingStarted (string id, AcceptData3 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStartedWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStartedWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
@@ -4938,8 +6000,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendTypingStartedWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > SendTypingStartedWithHttpInfo (string id, AcceptData3 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -4968,6 +6031,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
 
 
             // make the HTTP request
@@ -4993,10 +6064,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id, AcceptData3 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStartedAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStartedAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
@@ -5006,8 +6078,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id, AcceptData3 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -5036,6 +6109,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
 
 
             // make the HTTP request
@@ -5061,10 +6142,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendTypingStopped (string id)
+        public ApiSuccessResponse SendTypingStopped (string id, AcceptData4 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStoppedWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStoppedWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
@@ -5073,8 +6155,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendTypingStoppedWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > SendTypingStoppedWithHttpInfo (string id, AcceptData4 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -5103,6 +6186,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
 
 
             // make the HTTP request
@@ -5128,10 +6219,11 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id, AcceptData4 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStoppedAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStoppedAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
@@ -5141,8 +6233,9 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id, AcceptData4 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
@@ -5171,6 +6264,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = acceptData; // byte array
+            }
 
 
             // make the HTTP request

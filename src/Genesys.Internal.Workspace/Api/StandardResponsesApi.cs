@@ -115,8 +115,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetRootCategories ();
+        ApiSuccessResponse GetRootCategories (GetRootCategoriesData getRootCategoriesData = null);
 
         /// <summary>
         /// Get all Root categories.
@@ -125,8 +126,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetRootCategoriesWithHttpInfo ();
+        ApiResponse<ApiSuccessResponse> GetRootCategoriesWithHttpInfo (GetRootCategoriesData getRootCategoriesData = null);
         /// <summary>
         /// Get the details of a Standard Response.
         /// </summary>
@@ -331,8 +333,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync ();
+        System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync (GetRootCategoriesData getRootCategoriesData = null);
 
         /// <summary>
         /// Get all Root categories.
@@ -341,8 +344,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root Categories information.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo (GetRootCategoriesData getRootCategoriesData = null);
         /// <summary>
         /// Get the details of a Standard Response.
         /// </summary>
@@ -1112,10 +1116,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetRootCategories ()
+        public ApiSuccessResponse GetRootCategories (GetRootCategoriesData getRootCategoriesData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetRootCategoriesWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = GetRootCategoriesWithHttpInfo(getRootCategoriesData);
              return localVarResponse.Data;
         }
 
@@ -1123,8 +1128,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetRootCategoriesWithHttpInfo ()
+        public ApiResponse< ApiSuccessResponse > GetRootCategoriesWithHttpInfo (GetRootCategoriesData getRootCategoriesData = null)
         {
 
             var localVarPath = "/ucs/responses/categories/get-root";
@@ -1149,6 +1155,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (getRootCategoriesData != null && getRootCategoriesData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(getRootCategoriesData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = getRootCategoriesData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1173,10 +1187,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync ()
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetRootCategoriesAsync (GetRootCategoriesData getRootCategoriesData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetRootCategoriesAsyncWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = await GetRootCategoriesAsyncWithHttpInfo(getRootCategoriesData);
              return localVarResponse.Data;
 
         }
@@ -1185,8 +1200,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Get all Root categories. Get all Root Categories information.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="getRootCategoriesData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetRootCategoriesAsyncWithHttpInfo (GetRootCategoriesData getRootCategoriesData = null)
         {
 
             var localVarPath = "/ucs/responses/categories/get-root";
@@ -1211,6 +1227,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (getRootCategoriesData != null && getRootCategoriesData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(getRootCategoriesData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = getRootCategoriesData; // byte array
+            }
 
 
             // make the HTTP request

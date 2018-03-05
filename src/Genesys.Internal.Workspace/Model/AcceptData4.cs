@@ -34,7 +34,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="AcceptData4" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public AcceptData4(MediamediatypeinteractionsidacceptData Data = default(MediamediatypeinteractionsidacceptData))
+        public AcceptData4(MediachatinteractionsidsendtypingstartedData Data = default(MediachatinteractionsidsendtypingstartedData))
         {
             this.Data = Data;
         }
@@ -43,7 +43,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public MediamediatypeinteractionsidacceptData Data { get; set; }
+        public MediachatinteractionsidsendtypingstartedData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

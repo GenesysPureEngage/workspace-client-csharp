@@ -25,33 +25,38 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// ConsultData
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class ConsultData :  IEquatable<ConsultData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="ConsultData" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
-        /// <param name="Type">Type.</param>
-        public Kvpair(string Key = default(string), string Type = default(string))
+        [JsonConstructorAttribute]
+        protected ConsultData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ConsultData" /> class.
+        /// </summary>
+        /// <param name="Data">Data (required).</param>
+        public ConsultData(MediachatinteractionsidinviteData Data = default(MediachatinteractionsidinviteData))
         {
-            this.Key = Key;
-            this.Type = Type;
+            // to ensure "Data" is required (not null)
+            if (Data == null)
+            {
+                throw new InvalidDataException("Data is a required property for ConsultData and cannot be null");
+            }
+            else
+            {
+                this.Data = Data;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// Gets or Sets Data
         /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediachatinteractionsidinviteData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +65,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class ConsultData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +87,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Kvpair);
+            return this.Equals(input as ConsultData);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if ConsultData instances are equal
         /// </summary>
-        /// <param name="input">Instance of Kvpair to be compared</param>
+        /// <param name="input">Instance of ConsultData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair input)
+        public bool Equals(ConsultData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -118,10 +117,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

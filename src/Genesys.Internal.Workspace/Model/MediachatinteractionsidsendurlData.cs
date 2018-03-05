@@ -31,6 +31,39 @@ namespace Genesys.Internal.Workspace.Model
     public partial class MediachatinteractionsidsendurlData :  IEquatable<MediachatinteractionsidsendurlData>, IValidatableObject
     {
         /// <summary>
+        /// visibility of operation
+        /// </summary>
+        /// <value>visibility of operation</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum VisibilityEnum
+        {
+            
+            /// <summary>
+            /// Enum All for "All"
+            /// </summary>
+            [EnumMember(Value = "All")]
+            All = 1,
+            
+            /// <summary>
+            /// Enum Agent for "Agent"
+            /// </summary>
+            [EnumMember(Value = "Agent")]
+            Agent = 2,
+            
+            /// <summary>
+            /// Enum Supervisor for "Supervisor"
+            /// </summary>
+            [EnumMember(Value = "Supervisor")]
+            Supervisor = 3
+        }
+
+        /// <summary>
+        /// visibility of operation
+        /// </summary>
+        /// <value>visibility of operation</value>
+        [DataMember(Name="visibility", EmitDefaultValue=false)]
+        public VisibilityEnum? Visibility { get; set; }
+        /// <summary>
         /// Initializes a new instance of the <see cref="MediachatinteractionsidsendurlData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
@@ -39,8 +72,8 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="MediachatinteractionsidsendurlData" /> class.
         /// </summary>
         /// <param name="Url">The url to send to the chat (required).</param>
-        /// <param name="Extension">A key/value pairs list of additional data..</param>
-        public MediachatinteractionsidsendurlData(string Url = default(string), List<Kvpair> Extension = default(List<Kvpair>))
+        /// <param name="Visibility">visibility of operation.</param>
+        public MediachatinteractionsidsendurlData(string Url = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?))
         {
             // to ensure "Url" is required (not null)
             if (Url == null)
@@ -51,7 +84,7 @@ namespace Genesys.Internal.Workspace.Model
             {
                 this.Url = Url;
             }
-            this.Extension = Extension;
+            this.Visibility = Visibility;
         }
         
         /// <summary>
@@ -61,12 +94,6 @@ namespace Genesys.Internal.Workspace.Model
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
 
-        /// <summary>
-        /// A key/value pairs list of additional data.
-        /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
-        [DataMember(Name="extension", EmitDefaultValue=false)]
-        public List<Kvpair> Extension { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -77,7 +104,7 @@ namespace Genesys.Internal.Workspace.Model
             var sb = new StringBuilder();
             sb.Append("class MediachatinteractionsidsendurlData {\n");
             sb.Append("  Url: ").Append(Url).Append("\n");
-            sb.Append("  Extension: ").Append(Extension).Append("\n");
+            sb.Append("  Visibility: ").Append(Visibility).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -118,9 +145,9 @@ namespace Genesys.Internal.Workspace.Model
                     this.Url.Equals(input.Url))
                 ) && 
                 (
-                    this.Extension == input.Extension ||
-                    this.Extension != null &&
-                    this.Extension.SequenceEqual(input.Extension)
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 );
         }
 
@@ -135,8 +162,8 @@ namespace Genesys.Internal.Workspace.Model
                 int hashCode = 41;
                 if (this.Url != null)
                     hashCode = hashCode * 59 + this.Url.GetHashCode();
-                if (this.Extension != null)
-                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
+                if (this.Visibility != null)
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
                 return hashCode;
             }
         }

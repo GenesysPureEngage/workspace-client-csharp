@@ -241,7 +241,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> IdentifyContactWithHttpInfo (string id, IdentifyContactData identifyContactData);
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -252,7 +252,7 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse SearchContacts (LuceneSearchData luceneSearchData);
 
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -570,7 +570,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (string id, IdentifyContactData identifyContactData);
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -581,7 +581,7 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> SearchContactsAsync (LuceneSearchData luceneSearchData);
 
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -2245,7 +2245,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2257,7 +2257,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2319,7 +2319,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2332,7 +2332,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>

@@ -35,10 +35,12 @@ namespace Genesys.Internal.Workspace.Model
         /// </summary>
         /// <param name="ReturnChildrenCategories">true to get children categories.</param>
         /// <param name="ReturnChildrenSRInfo">true to get children standard responses.</param>
-        public UcsresponsescategoriesidgetdetailsData(bool? ReturnChildrenCategories = default(bool?), bool? ReturnChildrenSRInfo = default(bool?))
+        /// <param name="Approved">true to get only approved categories.</param>
+        public UcsresponsescategoriesidgetdetailsData(bool? ReturnChildrenCategories = default(bool?), bool? ReturnChildrenSRInfo = default(bool?), bool? Approved = default(bool?))
         {
             this.ReturnChildrenCategories = ReturnChildrenCategories;
             this.ReturnChildrenSRInfo = ReturnChildrenSRInfo;
+            this.Approved = Approved;
         }
         
         /// <summary>
@@ -56,6 +58,13 @@ namespace Genesys.Internal.Workspace.Model
         public bool? ReturnChildrenSRInfo { get; set; }
 
         /// <summary>
+        /// true to get only approved categories
+        /// </summary>
+        /// <value>true to get only approved categories</value>
+        [DataMember(Name="approved", EmitDefaultValue=false)]
+        public bool? Approved { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -65,6 +74,7 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("class UcsresponsescategoriesidgetdetailsData {\n");
             sb.Append("  ReturnChildrenCategories: ").Append(ReturnChildrenCategories).Append("\n");
             sb.Append("  ReturnChildrenSRInfo: ").Append(ReturnChildrenSRInfo).Append("\n");
+            sb.Append("  Approved: ").Append(Approved).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -108,6 +118,11 @@ namespace Genesys.Internal.Workspace.Model
                     this.ReturnChildrenSRInfo == input.ReturnChildrenSRInfo ||
                     (this.ReturnChildrenSRInfo != null &&
                     this.ReturnChildrenSRInfo.Equals(input.ReturnChildrenSRInfo))
+                ) && 
+                (
+                    this.Approved == input.Approved ||
+                    (this.Approved != null &&
+                    this.Approved.Equals(input.Approved))
                 );
         }
 
@@ -124,6 +139,8 @@ namespace Genesys.Internal.Workspace.Model
                     hashCode = hashCode * 59 + this.ReturnChildrenCategories.GetHashCode();
                 if (this.ReturnChildrenSRInfo != null)
                     hashCode = hashCode * 59 + this.ReturnChildrenSRInfo.GetHashCode();
+                if (this.Approved != null)
+                    hashCode = hashCode * 59 + this.Approved.GetHashCode();
                 return hashCode;
             }
         }

@@ -25,33 +25,26 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// Kvpair
+    /// UcsresponsescategoriesgetrootData
     /// </summary>
     [DataContract]
-    public partial class Kvpair :  IEquatable<Kvpair>, IValidatableObject
+    public partial class UcsresponsescategoriesgetrootData :  IEquatable<UcsresponsescategoriesgetrootData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="Kvpair" /> class.
+        /// Initializes a new instance of the <see cref="UcsresponsescategoriesgetrootData" /> class.
         /// </summary>
-        /// <param name="Key">Key.</param>
-        /// <param name="Type">Type.</param>
-        public Kvpair(string Key = default(string), string Type = default(string))
+        /// <param name="Approved">true to get only approved categories.</param>
+        public UcsresponsescategoriesgetrootData(bool? Approved = default(bool?))
         {
-            this.Key = Key;
-            this.Type = Type;
+            this.Approved = Approved;
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// true to get only approved categories
         /// </summary>
-        [DataMember(Name="key", EmitDefaultValue=false)]
-        public string Key { get; set; }
-
-        /// <summary>
-        /// Gets or Sets Type
-        /// </summary>
-        [DataMember(Name="type", EmitDefaultValue=false)]
-        public string Type { get; set; }
+        /// <value>true to get only approved categories</value>
+        [DataMember(Name="approved", EmitDefaultValue=false)]
+        public bool? Approved { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -60,9 +53,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class Kvpair {\n");
-            sb.Append("  Key: ").Append(Key).Append("\n");
-            sb.Append("  Type: ").Append(Type).Append("\n");
+            sb.Append("class UcsresponsescategoriesgetrootData {\n");
+            sb.Append("  Approved: ").Append(Approved).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -83,29 +75,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as Kvpair);
+            return this.Equals(input as UcsresponsescategoriesgetrootData);
         }
 
         /// <summary>
-        /// Returns true if Kvpair instances are equal
+        /// Returns true if UcsresponsescategoriesgetrootData instances are equal
         /// </summary>
-        /// <param name="input">Instance of Kvpair to be compared</param>
+        /// <param name="input">Instance of UcsresponsescategoriesgetrootData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Kvpair input)
+        public bool Equals(UcsresponsescategoriesgetrootData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Key == input.Key ||
-                    (this.Key != null &&
-                    this.Key.Equals(input.Key))
-                ) && 
-                (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Approved == input.Approved ||
+                    (this.Approved != null &&
+                    this.Approved.Equals(input.Approved))
                 );
         }
 
@@ -118,10 +105,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Key != null)
-                    hashCode = hashCode * 59 + this.Key.GetHashCode();
-                if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                if (this.Approved != null)
+                    hashCode = hashCode * 59 + this.Approved.GetHashCode();
                 return hashCode;
             }
         }
