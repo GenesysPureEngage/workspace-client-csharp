@@ -39,31 +39,31 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum AfterCallWork for "AfterCallWork"
+            /// Enum AfterCallWork for value: AfterCallWork
             /// </summary>
             [EnumMember(Value = "AfterCallWork")]
             AfterCallWork = 1,
             
             /// <summary>
-            /// Enum AuxWork for "AuxWork"
+            /// Enum AuxWork for value: AuxWork
             /// </summary>
             [EnumMember(Value = "AuxWork")]
             AuxWork = 2,
             
             /// <summary>
-            /// Enum LegalGuard for "LegalGuard"
+            /// Enum LegalGuard for value: LegalGuard
             /// </summary>
             [EnumMember(Value = "LegalGuard")]
             LegalGuard = 3,
             
             /// <summary>
-            /// Enum NoCallDisconnect for "NoCallDisconnect"
+            /// Enum NoCallDisconnect for value: NoCallDisconnect
             /// </summary>
             [EnumMember(Value = "NoCallDisconnect")]
             NoCallDisconnect = 4,
             
             /// <summary>
-            /// Enum WalkAway for "WalkAway"
+            /// Enum WalkAway for value: WalkAway
             /// </summary>
             [EnumMember(Value = "WalkAway")]
             WalkAway = 5

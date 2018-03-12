@@ -39,13 +39,13 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum AutoIn for "AutoIn"
+            /// Enum AutoIn for value: AutoIn
             /// </summary>
             [EnumMember(Value = "AutoIn")]
             AutoIn = 1,
             
             /// <summary>
-            /// Enum ManualIn for "ManualIn"
+            /// Enum ManualIn for value: ManualIn
             /// </summary>
             [EnumMember(Value = "ManualIn")]
             ManualIn = 2

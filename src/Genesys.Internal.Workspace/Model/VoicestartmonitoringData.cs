@@ -39,19 +39,19 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Mute for "Mute"
+            /// Enum Mute for value: Mute
             /// </summary>
             [EnumMember(Value = "Mute")]
             Mute = 1,
             
             /// <summary>
-            /// Enum Coach for "Coach"
+            /// Enum Coach for value: Coach
             /// </summary>
             [EnumMember(Value = "Coach")]
             Coach = 2,
             
             /// <summary>
-            /// Enum Connect for "Connect"
+            /// Enum Connect for value: Connect
             /// </summary>
             [EnumMember(Value = "Connect")]
             Connect = 3
@@ -72,13 +72,13 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum OneCall for "OneCall"
+            /// Enum OneCall for value: OneCall
             /// </summary>
             [EnumMember(Value = "OneCall")]
             OneCall = 1,
             
             /// <summary>
-            /// Enum AllCalls for "AllCalls"
+            /// Enum AllCalls for value: AllCalls
             /// </summary>
             [EnumMember(Value = "AllCalls")]
             AllCalls = 2
@@ -99,13 +99,13 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Call for "Call"
+            /// Enum Call for value: Call
             /// </summary>
             [EnumMember(Value = "Call")]
             Call = 1,
             
             /// <summary>
-            /// Enum Agent for "Agent"
+            /// Enum Agent for value: Agent
             /// </summary>
             [EnumMember(Value = "Agent")]
             Agent = 2

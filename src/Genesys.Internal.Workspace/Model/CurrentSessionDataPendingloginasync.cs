@@ -31,32 +31,32 @@ namespace Genesys.Internal.Workspace.Model
     public partial class CurrentSessionDataPendingloginasync :  IEquatable<CurrentSessionDataPendingloginasync>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets State
+        /// Defines State
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StateEnum
         {
             
             /// <summary>
-            /// Enum NotStarted for "NotStarted"
+            /// Enum NotStarted for value: NotStarted
             /// </summary>
             [EnumMember(Value = "NotStarted")]
             NotStarted = 1,
             
             /// <summary>
-            /// Enum Executing for "Executing"
+            /// Enum Executing for value: Executing
             /// </summary>
             [EnumMember(Value = "Executing")]
             Executing = 2,
             
             /// <summary>
-            /// Enum Failed for "Failed"
+            /// Enum Failed for value: Failed
             /// </summary>
             [EnumMember(Value = "Failed")]
             Failed = 3,
             
             /// <summary>
-            /// Enum Complete for "Complete"
+            /// Enum Complete for value: Complete
             /// </summary>
             [EnumMember(Value = "Complete")]
             Complete = 4

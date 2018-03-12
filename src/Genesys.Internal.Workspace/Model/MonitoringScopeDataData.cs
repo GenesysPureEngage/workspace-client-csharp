@@ -39,13 +39,13 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Call for "Call"
+            /// Enum Call for value: Call
             /// </summary>
             [EnumMember(Value = "Call")]
             Call = 1,
             
             /// <summary>
-            /// Enum Agent for "Agent"
+            /// Enum Agent for value: Agent
             /// </summary>
             [EnumMember(Value = "Agent")]
             Agent = 2

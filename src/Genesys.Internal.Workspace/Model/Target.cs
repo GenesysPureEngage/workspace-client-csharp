@@ -39,43 +39,43 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Agent for "agent"
+            /// Enum Agent for value: agent
             /// </summary>
             [EnumMember(Value = "agent")]
             Agent = 1,
             
             /// <summary>
-            /// Enum AgentGroup for "agent-group"
+            /// Enum AgentGroup for value: agent-group
             /// </summary>
             [EnumMember(Value = "agent-group")]
             AgentGroup = 2,
             
             /// <summary>
-            /// Enum AcdQueue for "acd-queue"
+            /// Enum AcdQueue for value: acd-queue
             /// </summary>
             [EnumMember(Value = "acd-queue")]
             AcdQueue = 3,
             
             /// <summary>
-            /// Enum RoutePoint for "route-point"
+            /// Enum RoutePoint for value: route-point
             /// </summary>
             [EnumMember(Value = "route-point")]
             RoutePoint = 4,
             
             /// <summary>
-            /// Enum Skill for "skill"
+            /// Enum Skill for value: skill
             /// </summary>
             [EnumMember(Value = "skill")]
             Skill = 5,
             
             /// <summary>
-            /// Enum CustomContact for "custom-contact"
+            /// Enum CustomContact for value: custom-contact
             /// </summary>
             [EnumMember(Value = "custom-contact")]
             CustomContact = 6,
             
             /// <summary>
-            /// Enum Contact for "contact"
+            /// Enum Contact for value: contact
             /// </summary>
             [EnumMember(Value = "contact")]
             Contact = 7

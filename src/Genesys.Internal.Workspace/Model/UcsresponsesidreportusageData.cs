@@ -39,31 +39,31 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum SystemAutoResponse for "SystemAutoResponse"
+            /// Enum SystemAutoResponse for value: SystemAutoResponse
             /// </summary>
             [EnumMember(Value = "SystemAutoResponse")]
             SystemAutoResponse = 1,
             
             /// <summary>
-            /// Enum SuggestedResponsesIgnored for "SuggestedResponsesIgnored"
+            /// Enum SuggestedResponsesIgnored for value: SuggestedResponsesIgnored
             /// </summary>
             [EnumMember(Value = "SuggestedResponsesIgnored")]
             SuggestedResponsesIgnored = 2,
             
             /// <summary>
-            /// Enum SuggestedResponseChoosen for "SuggestedResponseChoosen"
+            /// Enum SuggestedResponseChoosen for value: SuggestedResponseChoosen
             /// </summary>
             [EnumMember(Value = "SuggestedResponseChoosen")]
             SuggestedResponseChoosen = 3,
             
             /// <summary>
-            /// Enum SuggestedResponseNotReceived for "SuggestedResponseNotReceived"
+            /// Enum SuggestedResponseNotReceived for value: SuggestedResponseNotReceived
             /// </summary>
             [EnumMember(Value = "SuggestedResponseNotReceived")]
             SuggestedResponseNotReceived = 4,
             
             /// <summary>
-            /// Enum AdministratorResponse for "AdministratorResponse"
+            /// Enum AdministratorResponse for value: AdministratorResponse
             /// </summary>
             [EnumMember(Value = "AdministratorResponse")]
             AdministratorResponse = 5

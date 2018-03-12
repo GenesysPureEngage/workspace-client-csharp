@@ -39,19 +39,19 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum CloseIfNoAgents for "CloseIfNoAgents"
+            /// Enum CloseIfNoAgents for value: CloseIfNoAgents
             /// </summary>
             [EnumMember(Value = "CloseIfNoAgents")]
             CloseIfNoAgents = 1,
             
             /// <summary>
-            /// Enum ForceClose for "ForceClose"
+            /// Enum ForceClose for value: ForceClose
             /// </summary>
             [EnumMember(Value = "ForceClose")]
             ForceClose = 2,
             
             /// <summary>
-            /// Enum KeepAlive for "KeepAlive"
+            /// Enum KeepAlive for value: KeepAlive
             /// </summary>
             [EnumMember(Value = "KeepAlive")]
             KeepAlive = 3
@@ -72,13 +72,13 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Normal for "Normal"
+            /// Enum Normal for value: Normal
             /// </summary>
             [EnumMember(Value = "Normal")]
             Normal = 1,
             
             /// <summary>
-            /// Enum System for "System"
+            /// Enum System for value: System
             /// </summary>
             [EnumMember(Value = "System")]
             System = 2

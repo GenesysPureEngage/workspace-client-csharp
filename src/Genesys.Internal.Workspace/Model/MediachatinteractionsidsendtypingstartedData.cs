@@ -39,19 +39,19 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum All for "All"
+            /// Enum All for value: All
             /// </summary>
             [EnumMember(Value = "All")]
             All = 1,
             
             /// <summary>
-            /// Enum Agent for "Agent"
+            /// Enum Agent for value: Agent
             /// </summary>
             [EnumMember(Value = "Agent")]
             Agent = 2,
             
             /// <summary>
-            /// Enum Supervisor for "Supervisor"
+            /// Enum Supervisor for value: Supervisor
             /// </summary>
             [EnumMember(Value = "Supervisor")]
             Supervisor = 3
