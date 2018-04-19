@@ -38,12 +38,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidplaceinqueueData" /> class.
         /// </summary>
-        /// <param name="Queue">Queue name to submit the interaction. (required).</param>
-        /// <param name="Reason">Reason.</param>
-        /// <param name="Extension">A key/value pairs list of additional data..</param>
-        /// <param name="AddedProperties">A key/value pairs list of properties to add..</param>
-        /// <param name="ChangedProperties">A key/value pairs list of properties to change..</param>
-        /// <param name="DeletedProperties">A key/value pairs list of properties to delete..</param>
+        /// <param name="Queue">The name of the queue where the Workspace API should place the interaction. (required).</param>
+        /// <param name="Reason">A collection of key/value pairs..</param>
+        /// <param name="Extension">A collection of key/value pairs..</param>
+        /// <param name="AddedProperties">A collection of key/value pairs of properties to add to the interaction..</param>
+        /// <param name="ChangedProperties">A collection of key/value pairs of properties to change on the interaction..</param>
+        /// <param name="DeletedProperties">A collection of key/value pairs of properties to delete from the interaction..</param>
         public MediamediatypeinteractionsidplaceinqueueData(string Queue = default(string), IxnReasonCode Reason = default(IxnReasonCode), List<Kvpair> Extension = default(List<Kvpair>), List<Kvpair> AddedProperties = default(List<Kvpair>), List<Kvpair> ChangedProperties = default(List<Kvpair>), List<Kvpair> DeletedProperties = default(List<Kvpair>))
         {
             // to ensure "Queue" is required (not null)
@@ -63,43 +63,44 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Queue name to submit the interaction.
+        /// The name of the queue where the Workspace API should place the interaction.
         /// </summary>
-        /// <value>Queue name to submit the interaction.</value>
+        /// <value>The name of the queue where the Workspace API should place the interaction.</value>
         [DataMember(Name="queue", EmitDefaultValue=false)]
         public string Queue { get; set; }
 
         /// <summary>
-        /// Gets or Sets Reason
+        /// A collection of key/value pairs.
         /// </summary>
+        /// <value>A collection of key/value pairs.</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public IxnReasonCode Reason { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs.
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs.</value>
         [DataMember(Name="extension", EmitDefaultValue=false)]
         public List<Kvpair> Extension { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of properties to add.
+        /// A collection of key/value pairs of properties to add to the interaction.
         /// </summary>
-        /// <value>A key/value pairs list of properties to add.</value>
+        /// <value>A collection of key/value pairs of properties to add to the interaction.</value>
         [DataMember(Name="addedProperties", EmitDefaultValue=false)]
         public List<Kvpair> AddedProperties { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of properties to change.
+        /// A collection of key/value pairs of properties to change on the interaction.
         /// </summary>
-        /// <value>A key/value pairs list of properties to change.</value>
+        /// <value>A collection of key/value pairs of properties to change on the interaction.</value>
         [DataMember(Name="changedProperties", EmitDefaultValue=false)]
         public List<Kvpair> ChangedProperties { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of properties to delete.
+        /// A collection of key/value pairs of properties to delete from the interaction.
         /// </summary>
-        /// <value>A key/value pairs list of properties to delete.</value>
+        /// <value>A collection of key/value pairs of properties to delete from the interaction.</value>
         [DataMember(Name="deletedProperties", EmitDefaultValue=false)]
         public List<Kvpair> DeletedProperties { get; set; }
 

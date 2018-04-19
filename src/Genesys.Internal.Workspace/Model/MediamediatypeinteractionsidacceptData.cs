@@ -33,16 +33,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidacceptData" /> class.
         /// </summary>
-        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        /// <param name="Extension">A collection of key/value pairs..</param>
         public MediamediatypeinteractionsidacceptData(List<Kvpair> Extension = default(List<Kvpair>))
         {
             this.Extension = Extension;
         }
         
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs.
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs.</value>
         [DataMember(Name="extension", EmitDefaultValue=false)]
         public List<Kvpair> Extension { get; set; }
 

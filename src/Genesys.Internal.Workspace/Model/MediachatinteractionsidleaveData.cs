@@ -31,9 +31,9 @@ namespace Genesys.Internal.Workspace.Model
     public partial class MediachatinteractionsidleaveData :  IEquatable<MediachatinteractionsidleaveData>, IValidatableObject
     {
         /// <summary>
-        /// the action to take after leave
+        /// The action to take after the agent leaves.
         /// </summary>
-        /// <value>the action to take after leave</value>
+        /// <value>The action to take after the agent leaves.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum AfterActionEnum
         {
@@ -58,15 +58,15 @@ namespace Genesys.Internal.Workspace.Model
         }
 
         /// <summary>
-        /// the action to take after leave
+        /// The action to take after the agent leaves.
         /// </summary>
-        /// <value>the action to take after leave</value>
+        /// <value>The action to take after the agent leaves.</value>
         [DataMember(Name="afterAction", EmitDefaultValue=false)]
         public AfterActionEnum? AfterAction { get; set; }
         /// <summary>
-        /// how message should be treated
+        /// Specifies how the message should be treated.
         /// </summary>
-        /// <value>how message should be treated</value>
+        /// <value>Specifies how the message should be treated.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TreatAsEnum
         {
@@ -85,18 +85,18 @@ namespace Genesys.Internal.Workspace.Model
         }
 
         /// <summary>
-        /// how message should be treated
+        /// Specifies how the message should be treated.
         /// </summary>
-        /// <value>how message should be treated</value>
+        /// <value>Specifies how the message should be treated.</value>
         [DataMember(Name="treatAs", EmitDefaultValue=false)]
         public TreatAsEnum? TreatAs { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MediachatinteractionsidleaveData" /> class.
         /// </summary>
-        /// <param name="AfterAction">the action to take after leave.</param>
-        /// <param name="Message">the message to send to the chat.</param>
-        /// <param name="MessageType">arbitrary type of message.</param>
-        /// <param name="TreatAs">how message should be treated.</param>
+        /// <param name="AfterAction">The action to take after the agent leaves..</param>
+        /// <param name="Message">The message to send to the chat participants..</param>
+        /// <param name="MessageType">The type of message..</param>
+        /// <param name="TreatAs">Specifies how the message should be treated..</param>
         public MediachatinteractionsidleaveData(AfterActionEnum? AfterAction = default(AfterActionEnum?), string Message = default(string), string MessageType = default(string), TreatAsEnum? TreatAs = default(TreatAsEnum?))
         {
             this.AfterAction = AfterAction;
@@ -107,16 +107,16 @@ namespace Genesys.Internal.Workspace.Model
         
 
         /// <summary>
-        /// the message to send to the chat
+        /// The message to send to the chat participants.
         /// </summary>
-        /// <value>the message to send to the chat</value>
+        /// <value>The message to send to the chat participants.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 
         /// <summary>
-        /// arbitrary type of message
+        /// The type of message.
         /// </summary>
-        /// <value>arbitrary type of message</value>
+        /// <value>The type of message.</value>
         [DataMember(Name="messageType", EmitDefaultValue=false)]
         public string MessageType { get; set; }
 

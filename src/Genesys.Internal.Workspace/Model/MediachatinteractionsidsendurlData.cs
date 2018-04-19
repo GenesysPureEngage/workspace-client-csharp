@@ -31,9 +31,9 @@ namespace Genesys.Internal.Workspace.Model
     public partial class MediachatinteractionsidsendurlData :  IEquatable<MediachatinteractionsidsendurlData>, IValidatableObject
     {
         /// <summary>
-        /// visibility of operation
+        /// Defines which participants in the chat can see the URL.
         /// </summary>
-        /// <value>visibility of operation</value>
+        /// <value>Defines which participants in the chat can see the URL.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum VisibilityEnum
         {
@@ -58,9 +58,9 @@ namespace Genesys.Internal.Workspace.Model
         }
 
         /// <summary>
-        /// visibility of operation
+        /// Defines which participants in the chat can see the URL.
         /// </summary>
-        /// <value>visibility of operation</value>
+        /// <value>Defines which participants in the chat can see the URL.</value>
         [DataMember(Name="visibility", EmitDefaultValue=false)]
         public VisibilityEnum? Visibility { get; set; }
         /// <summary>
@@ -71,8 +71,8 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediachatinteractionsidsendurlData" /> class.
         /// </summary>
-        /// <param name="Url">The url to send to the chat (required).</param>
-        /// <param name="Visibility">visibility of operation.</param>
+        /// <param name="Url">The URL to send to the chat participants. (required).</param>
+        /// <param name="Visibility">Defines which participants in the chat can see the URL..</param>
         public MediachatinteractionsidsendurlData(string Url = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?))
         {
             // to ensure "Url" is required (not null)
@@ -88,9 +88,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// The url to send to the chat
+        /// The URL to send to the chat participants.
         /// </summary>
-        /// <value>The url to send to the chat</value>
+        /// <value>The URL to send to the chat participants.</value>
         [DataMember(Name="url", EmitDefaultValue=false)]
         public string Url { get; set; }
 

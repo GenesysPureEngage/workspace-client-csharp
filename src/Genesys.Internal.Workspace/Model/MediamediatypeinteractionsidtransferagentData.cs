@@ -38,8 +38,8 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidtransferagentData" /> class.
         /// </summary>
-        /// <param name="AgentId">EmployeeId of the target agent. (required).</param>
-        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        /// <param name="AgentId">The unique ID of the agent. (required).</param>
+        /// <param name="Extension">A collection of key/value pairs..</param>
         public MediamediatypeinteractionsidtransferagentData(string AgentId = default(string), List<Kvpair> Extension = default(List<Kvpair>))
         {
             // to ensure "AgentId" is required (not null)
@@ -55,16 +55,16 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// EmployeeId of the target agent.
+        /// The unique ID of the agent.
         /// </summary>
-        /// <value>EmployeeId of the target agent.</value>
+        /// <value>The unique ID of the agent.</value>
         [DataMember(Name="agentId", EmitDefaultValue=false)]
         public string AgentId { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs.
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs.</value>
         [DataMember(Name="extension", EmitDefaultValue=false)]
         public List<Kvpair> Extension { get; set; }
 

@@ -38,7 +38,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidaddcommentData" /> class.
         /// </summary>
-        /// <param name="Comment">The comment to be set (required).</param>
+        /// <param name="Comment">The comment to add to the interaction. (required).</param>
         public MediamediatypeinteractionsidaddcommentData(string Comment = default(string))
         {
             // to ensure "Comment" is required (not null)
@@ -53,9 +53,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// The comment to be set
+        /// The comment to add to the interaction.
         /// </summary>
-        /// <value>The comment to be set</value>
+        /// <value>The comment to add to the interaction.</value>
         [DataMember(Name="comment", EmitDefaultValue=false)]
         public string Comment { get; set; }
 

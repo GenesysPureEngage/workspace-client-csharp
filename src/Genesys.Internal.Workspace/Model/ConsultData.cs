@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="ConsultData" /> class.
         /// </summary>
         /// <param name="Data">Data (required).</param>
-        public ConsultData(MediachatinteractionsidinviteData Data = default(MediachatinteractionsidinviteData))
+        public ConsultData(MediachatinteractionsidconsultData Data = default(MediachatinteractionsidconsultData))
         {
             // to ensure "Data" is required (not null)
             if (Data == null)
@@ -56,7 +56,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public MediachatinteractionsidinviteData Data { get; set; }
+        public MediachatinteractionsidconsultData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

@@ -40,7 +40,7 @@ namespace Genesys.Internal.Workspace.Model
         /// </summary>
         /// <param name="Queue">Queue for sending email. (required).</param>
         /// <param name="Body">HTML body of email..</param>
-        /// <param name="BodyAsPlaintText">Plain text body of email..</param>
+        /// <param name="BodyAsPlainText">Plain text body of email..</param>
         /// <param name="Mime">Multipurpose internet mail extensions of email..</param>
         /// <param name="Subject">Subject of email..</param>
         /// <param name="Comment">Subject of email..</param>
@@ -49,7 +49,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="Cc">cc addresses.</param>
         /// <param name="Bcc">bcc addresses.</param>
         /// <param name="UseReviewer">Indicate the agent is reviewer..</param>
-        public MediaemailinteractionsidsendData(string Queue = default(string), string Body = default(string), string BodyAsPlaintText = default(string), string Mime = default(string), string Subject = default(string), string Comment = default(string), string From = default(string), List<string> To = default(List<string>), List<string> Cc = default(List<string>), List<string> Bcc = default(List<string>), bool? UseReviewer = default(bool?))
+        public MediaemailinteractionsidsendData(string Queue = default(string), string Body = default(string), string BodyAsPlainText = default(string), string Mime = default(string), string Subject = default(string), string Comment = default(string), string From = default(string), List<string> To = default(List<string>), List<string> Cc = default(List<string>), List<string> Bcc = default(List<string>), bool? UseReviewer = default(bool?))
         {
             // to ensure "Queue" is required (not null)
             if (Queue == null)
@@ -79,7 +79,7 @@ namespace Genesys.Internal.Workspace.Model
                 this.To = To;
             }
             this.Body = Body;
-            this.BodyAsPlaintText = BodyAsPlaintText;
+            this.BodyAsPlainText = BodyAsPlainText;
             this.Mime = Mime;
             this.Subject = Subject;
             this.Comment = Comment;
@@ -106,8 +106,8 @@ namespace Genesys.Internal.Workspace.Model
         /// Plain text body of email.
         /// </summary>
         /// <value>Plain text body of email.</value>
-        [DataMember(Name="bodyAsPlaintText", EmitDefaultValue=false)]
-        public string BodyAsPlaintText { get; set; }
+        [DataMember(Name="bodyAsPlainText", EmitDefaultValue=false)]
+        public string BodyAsPlainText { get; set; }
 
         /// <summary>
         /// Multipurpose internet mail extensions of email.
@@ -175,7 +175,7 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("class MediaemailinteractionsidsendData {\n");
             sb.Append("  Queue: ").Append(Queue).Append("\n");
             sb.Append("  Body: ").Append(Body).Append("\n");
-            sb.Append("  BodyAsPlaintText: ").Append(BodyAsPlaintText).Append("\n");
+            sb.Append("  BodyAsPlainText: ").Append(BodyAsPlainText).Append("\n");
             sb.Append("  Mime: ").Append(Mime).Append("\n");
             sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  Comment: ").Append(Comment).Append("\n");
@@ -229,9 +229,9 @@ namespace Genesys.Internal.Workspace.Model
                     this.Body.Equals(input.Body))
                 ) && 
                 (
-                    this.BodyAsPlaintText == input.BodyAsPlaintText ||
-                    (this.BodyAsPlaintText != null &&
-                    this.BodyAsPlaintText.Equals(input.BodyAsPlaintText))
+                    this.BodyAsPlainText == input.BodyAsPlainText ||
+                    (this.BodyAsPlainText != null &&
+                    this.BodyAsPlainText.Equals(input.BodyAsPlainText))
                 ) && 
                 (
                     this.Mime == input.Mime ||
@@ -288,8 +288,8 @@ namespace Genesys.Internal.Workspace.Model
                     hashCode = hashCode * 59 + this.Queue.GetHashCode();
                 if (this.Body != null)
                     hashCode = hashCode * 59 + this.Body.GetHashCode();
-                if (this.BodyAsPlaintText != null)
-                    hashCode = hashCode * 59 + this.BodyAsPlaintText.GetHashCode();
+                if (this.BodyAsPlainText != null)
+                    hashCode = hashCode * 59 + this.BodyAsPlainText.GetHashCode();
                 if (this.Mime != null)
                     hashCode = hashCode * 59 + this.Mime.GetHashCode();
                 if (this.Subject != null)

@@ -25,26 +25,26 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediachatinteractionsidacceptData
+    /// UcsinteractionsidgetdetailsData
     /// </summary>
     [DataContract]
-    public partial class MediachatinteractionsidacceptData :  IEquatable<MediachatinteractionsidacceptData>, IValidatableObject
+    public partial class UcsinteractionsidgetdetailsData :  IEquatable<UcsinteractionsidgetdetailsData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidacceptData" /> class.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidgetdetailsData" /> class.
         /// </summary>
-        /// <param name="Nickname">The agent&#39;s nickname, as displayed to the chat participants..</param>
-        public MediachatinteractionsidacceptData(string Nickname = default(string))
+        /// <param name="ReturnedAttributes">The list of interaction attributes to be returned.</param>
+        public UcsinteractionsidgetdetailsData(List<string> ReturnedAttributes = default(List<string>))
         {
-            this.Nickname = Nickname;
+            this.ReturnedAttributes = ReturnedAttributes;
         }
         
         /// <summary>
-        /// The agent&#39;s nickname, as displayed to the chat participants.
+        /// The list of interaction attributes to be returned
         /// </summary>
-        /// <value>The agent&#39;s nickname, as displayed to the chat participants.</value>
-        [DataMember(Name="nickname", EmitDefaultValue=false)]
-        public string Nickname { get; set; }
+        /// <value>The list of interaction attributes to be returned</value>
+        [DataMember(Name="returnedAttributes", EmitDefaultValue=false)]
+        public List<string> ReturnedAttributes { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +53,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediachatinteractionsidacceptData {\n");
-            sb.Append("  Nickname: ").Append(Nickname).Append("\n");
+            sb.Append("class UcsinteractionsidgetdetailsData {\n");
+            sb.Append("  ReturnedAttributes: ").Append(ReturnedAttributes).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +75,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediachatinteractionsidacceptData);
+            return this.Equals(input as UcsinteractionsidgetdetailsData);
         }
 
         /// <summary>
-        /// Returns true if MediachatinteractionsidacceptData instances are equal
+        /// Returns true if UcsinteractionsidgetdetailsData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidacceptData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsidgetdetailsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidacceptData input)
+        public bool Equals(UcsinteractionsidgetdetailsData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Nickname == input.Nickname ||
-                    (this.Nickname != null &&
-                    this.Nickname.Equals(input.Nickname))
+                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes != null &&
+                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
                 );
         }
 
@@ -105,8 +105,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Nickname != null)
-                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
+                if (this.ReturnedAttributes != null)
+                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
                 return hashCode;
             }
         }

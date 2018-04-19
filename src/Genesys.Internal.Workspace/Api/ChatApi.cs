@@ -21,684 +21,754 @@ namespace Genesys.Internal.Workspace.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IUcsApi : IApiAccessor
+    public interface IChatApi : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// Assign the interaction to a contact
+        /// Accept the specified chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Accept the specified chat interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AssignInteractionToContact (string id, AssignInteractionToContactData assignInteractionToContactData);
+        ApiSuccessResponse AcceptChat (string id, AcceptData acceptData = null);
 
         /// <summary>
-        /// Assign the interaction to a contact
+        /// Accept the specified chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Accept the specified chat interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AssignInteractionToContactWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData);
+        ApiResponse<ApiSuccessResponse> AcceptChatWithHttpInfo (string id, AcceptData acceptData = null);
         /// <summary>
-        /// Create a new contact
+        /// Cancel a chat consultation request.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse CreateContact (CreateContactData createContactData);
+        ApiSuccessResponse CancelConsultationChat (string id);
 
         /// <summary>
-        /// Create a new contact
+        /// Cancel a chat consultation request.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> CreateContactWithHttpInfo (CreateContactData createContactData);
+        ApiResponse<ApiSuccessResponse> CancelConsultationChatWithHttpInfo (string id);
         /// <summary>
-        /// Delete an existing contact
+        /// Get chat transcript.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a transcript for the specified chat interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>InlineResponse2003</returns>
+        InlineResponse2003 ChatMessages (string id);
+
+        /// <summary>
+        /// Get chat transcript.
+        /// </summary>
+        /// <remarks>
+        /// Get a transcript for the specified chat interaction.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        ApiResponse<InlineResponse2003> ChatMessagesWithHttpInfo (string id);
+        /// <summary>
+        /// Consult with another agent during a chat.
+        /// </summary>
+        /// <remarks>
+        /// A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse DeleteContact (string id);
+        ApiSuccessResponse Consult (string id, ConsultData consultData);
 
         /// <summary>
-        /// Delete an existing contact
+        /// Consult with another agent during a chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> DeleteContactWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> ConsultWithHttpInfo (string id, ConsultData consultData);
         /// <summary>
-        /// Find or create phone call in UCS
+        /// Consult with another agent via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse FindOrCreatePhoneCall (string id);
+        ApiSuccessResponse ConsultByQueue (string id, ConsultData1 consultData);
 
         /// <summary>
-        /// Find or create phone call in UCS
+        /// Consult with another agent via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> FindOrCreatePhoneCallWithHttpInfo (string id);
+        ApiResponse<ApiSuccessResponse> ConsultByQueueWithHttpInfo (string id, ConsultData1 consultData);
         /// <summary>
-        /// Get the history of interactions for the agent
+        /// Invite another agent to the chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetAgentHistory (AgentHistoryData agentHistoryData = null);
+        ApiSuccessResponse Invite (string id, InviteData inviteData);
 
         /// <summary>
-        /// Get the history of interactions for the agent
+        /// Invite another agent to the chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetAgentHistoryWithHttpInfo (AgentHistoryData agentHistoryData = null);
+        ApiResponse<ApiSuccessResponse> InviteWithHttpInfo (string id, InviteData inviteData);
         /// <summary>
-        /// Get the details of a contact
+        /// Invite another agent to the chat conference via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetContactDetails (string id, ContactDetailsData contactDetailsData);
+        ApiSuccessResponse InviteByQueue (string id, InviteData1 inviteData);
 
         /// <summary>
-        /// Get the details of a contact
+        /// Invite another agent to the chat conference via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetContactDetailsWithHttpInfo (string id, ContactDetailsData contactDetailsData);
+        ApiResponse<ApiSuccessResponse> InviteByQueueWithHttpInfo (string id, InviteData1 inviteData);
         /// <summary>
-        /// Get the history of interactions for a contact
+        /// Leave a chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetContactHistory (string id, ContactHistoryData contactHistoryData);
+        ApiSuccessResponse LeaveChat (string id, LeaveData leaveData = null);
 
         /// <summary>
-        /// Get the history of interactions for a contact
+        /// Leave a chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetContactHistoryWithHttpInfo (string id, ContactHistoryData contactHistoryData);
+        ApiResponse<ApiSuccessResponse> LeaveChatWithHttpInfo (string id, LeaveData leaveData = null);
         /// <summary>
-        /// Get the content of the interaction
+        /// Remove an agent from a chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Remove the specified agent from the chat conference.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse GetInteractionDetails (string id, InteractionDetailsData interactionDetailsData = null);
+        ApiSuccessResponse RemoveFromConference (string id, RemoveFromConferenceData removeFromConferenceData);
 
         /// <summary>
-        /// Get the content of the interaction
+        /// Remove an agent from a chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Remove the specified agent from the chat conference.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> GetInteractionDetailsWithHttpInfo (string id, InteractionDetailsData interactionDetailsData = null);
+        ApiResponse<ApiSuccessResponse> RemoveFromConferenceWithHttpInfo (string id, RemoveFromConferenceData removeFromConferenceData);
         /// <summary>
-        /// Get the lucene indexes for ucs
+        /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// This request returns all the lucene indexes for contact.
+        /// Send a custom notification to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ConfigResponse</returns>
-        ConfigResponse GetLuceneIndexes ();
-
-        /// <summary>
-        /// Get the lucene indexes for ucs
-        /// </summary>
-        /// <remarks>
-        /// This request returns all the lucene indexes for contact.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ConfigResponse</returns>
-        ApiResponse<ConfigResponse> GetLuceneIndexesWithHttpInfo ();
-        /// <summary>
-        /// Identify the contact for the interaction
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse IdentifyContact (string id, IdentifyContactData identifyContactData);
+        ApiSuccessResponse SendCustomNotification (string id, CustomNotificationData customNotificationData = null);
 
         /// <summary>
-        /// Identify the contact for the interaction
+        /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a custom notification to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> IdentifyContactWithHttpInfo (string id, IdentifyContactData identifyContactData);
+        ApiResponse<ApiSuccessResponse> SendCustomNotificationWithHttpInfo (string id, CustomNotificationData customNotificationData = null);
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Send a message.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a message to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SearchContacts (LuceneSearchData luceneSearchData);
+        ApiSuccessResponse SendMessage (string id, AcceptData1 acceptData = null);
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Send a message.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a message to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SearchContactsWithHttpInfo (LuceneSearchData luceneSearchData);
+        ApiResponse<ApiSuccessResponse> SendMessageWithHttpInfo (string id, AcceptData1 acceptData = null);
         /// <summary>
-        /// Search for interactions based on search query, using lucene search
+        /// Send a system command
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a system command to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SearchInteractions (LuceneSearchInteractionData luceneSearchInteractionData);
+        ApiSuccessResponse SendSystemCommand (string id, SystemCommandData systemCommandData = null);
 
         /// <summary>
-        /// Search for interactions based on search query, using lucene search
+        /// Send a system command
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a system command to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SearchInteractionsWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
+        ApiResponse<ApiSuccessResponse> SendSystemCommandWithHttpInfo (string id, SystemCommandData systemCommandData = null);
         /// <summary>
-        /// Set the call as being completed
+        /// Send notification that the agent is typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent is typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SetCallCompleted (string id, CallCompletedData callCompletedData);
+        ApiSuccessResponse SendTypingStarted (string id, AcceptData3 acceptData = null);
 
         /// <summary>
-        /// Set the call as being completed
+        /// Send notification that the agent is typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent is typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SetCallCompletedWithHttpInfo (string id, CallCompletedData callCompletedData);
+        ApiResponse<ApiSuccessResponse> SendTypingStartedWithHttpInfo (string id, AcceptData3 acceptData = null);
         /// <summary>
-        /// Set the note for the call
+        /// Send notification that the agent stopped typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SetCallNote (string id, CallNoteData callNoteData);
+        ApiSuccessResponse SendTypingStopped (string id, AcceptData4 acceptData = null);
 
         /// <summary>
-        /// Set the note for the call
+        /// Send notification that the agent stopped typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SetCallNoteWithHttpInfo (string id, CallNoteData callNoteData);
+        ApiResponse<ApiSuccessResponse> SendTypingStoppedWithHttpInfo (string id, AcceptData4 acceptData = null);
         /// <summary>
-        /// Update attributes of an existing contact
+        /// Send a URL.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a URL to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse UpdateContact (string id, UpdateContactData updateContactData);
+        ApiSuccessResponse SendUrlData (string id, AcceptData2 acceptData = null);
 
         /// <summary>
-        /// Update attributes of an existing contact
+        /// Send a URL.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a URL to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> UpdateContactWithHttpInfo (string id, UpdateContactData updateContactData);
+        ApiResponse<ApiSuccessResponse> SendUrlDataWithHttpInfo (string id, AcceptData2 acceptData = null);
+        /// <summary>
+        /// Send a notice to modify the nickname
+        /// </summary>
+        /// <remarks>
+        /// Send a notice to modify my nickname to the specified chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse UpdateNickname (string id, UpdateNicknameData updateNicknameData = null);
+
+        /// <summary>
+        /// Send a notice to modify the nickname
+        /// </summary>
+        /// <remarks>
+        /// Send a notice to modify my nickname to the specified chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> UpdateNicknameWithHttpInfo (string id, UpdateNicknameData updateNicknameData = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Assign the interaction to a contact
+        /// Accept the specified chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Accept the specified chat interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (string id, AssignInteractionToContactData assignInteractionToContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptChatAsync (string id, AcceptData acceptData = null);
 
         /// <summary>
-        /// Assign the interaction to a contact
+        /// Accept the specified chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Accept the specified chat interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptChatAsyncWithHttpInfo (string id, AcceptData acceptData = null);
         /// <summary>
-        /// Create a new contact
+        /// Cancel a chat consultation request.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync (CreateContactData createContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> CancelConsultationChatAsync (string id);
 
         /// <summary>
-        /// Create a new contact
+        /// Cancel a chat consultation request.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo (CreateContactData createContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CancelConsultationChatAsyncWithHttpInfo (string id);
         /// <summary>
-        /// Delete an existing contact
+        /// Get chat transcript.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Get a transcript for the specified chat interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        System.Threading.Tasks.Task<InlineResponse2003> ChatMessagesAsync (string id);
+
+        /// <summary>
+        /// Get chat transcript.
+        /// </summary>
+        /// <remarks>
+        /// Get a transcript for the specified chat interaction.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> ChatMessagesAsyncWithHttpInfo (string id);
+        /// <summary>
+        /// Consult with another agent during a chat.
+        /// </summary>
+        /// <remarks>
+        /// A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ConsultAsync (string id, ConsultData consultData);
 
         /// <summary>
-        /// Delete an existing contact
+        /// Consult with another agent during a chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultAsyncWithHttpInfo (string id, ConsultData consultData);
         /// <summary>
-        /// Find or create phone call in UCS
+        /// Consult with another agent via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ConsultByQueueAsync (string id, ConsultData1 consultData);
 
         /// <summary>
-        /// Find or create phone call in UCS
+        /// Consult with another agent via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultByQueueAsyncWithHttpInfo (string id, ConsultData1 consultData);
         /// <summary>
-        /// Get the history of interactions for the agent
+        /// Invite another agent to the chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetAgentHistoryAsync (AgentHistoryData agentHistoryData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> InviteAsync (string id, InviteData inviteData);
 
         /// <summary>
-        /// Get the history of interactions for the agent
+        /// Invite another agent to the chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAgentHistoryAsyncWithHttpInfo (AgentHistoryData agentHistoryData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteAsyncWithHttpInfo (string id, InviteData inviteData);
         /// <summary>
-        /// Get the details of a contact
+        /// Invite another agent to the chat conference via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (string id, ContactDetailsData contactDetailsData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> InviteByQueueAsync (string id, InviteData1 inviteData);
 
         /// <summary>
-        /// Get the details of a contact
+        /// Invite another agent to the chat conference via a queue.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (string id, ContactDetailsData contactDetailsData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteByQueueAsyncWithHttpInfo (string id, InviteData1 inviteData);
         /// <summary>
-        /// Get the history of interactions for a contact
+        /// Leave a chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (string id, ContactHistoryData contactHistoryData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id, LeaveData leaveData = null);
 
         /// <summary>
-        /// Get the history of interactions for a contact
+        /// Leave a chat.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (string id, ContactHistoryData contactHistoryData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id, LeaveData leaveData = null);
         /// <summary>
-        /// Get the content of the interaction
+        /// Remove an agent from a chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Remove the specified agent from the chat conference.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionDetailsAsync (string id, InteractionDetailsData interactionDetailsData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> RemoveFromConferenceAsync (string id, RemoveFromConferenceData removeFromConferenceData);
 
         /// <summary>
-        /// Get the content of the interaction
+        /// Remove an agent from a chat conference.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Remove the specified agent from the chat conference.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionDetailsAsyncWithHttpInfo (string id, InteractionDetailsData interactionDetailsData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveFromConferenceAsyncWithHttpInfo (string id, RemoveFromConferenceData removeFromConferenceData);
         /// <summary>
-        /// Get the lucene indexes for ucs
+        /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// This request returns all the lucene indexes for contact.
+        /// Send a custom notification to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ConfigResponse</returns>
-        System.Threading.Tasks.Task<ConfigResponse> GetLuceneIndexesAsync ();
-
-        /// <summary>
-        /// Get the lucene indexes for ucs
-        /// </summary>
-        /// <remarks>
-        /// This request returns all the lucene indexes for contact.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ConfigResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetLuceneIndexesAsyncWithHttpInfo ();
-        /// <summary>
-        /// Identify the contact for the interaction
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (string id, IdentifyContactData identifyContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendCustomNotificationAsync (string id, CustomNotificationData customNotificationData = null);
 
         /// <summary>
-        /// Identify the contact for the interaction
+        /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a custom notification to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (string id, IdentifyContactData identifyContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendCustomNotificationAsyncWithHttpInfo (string id, CustomNotificationData customNotificationData = null);
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Send a message.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a message to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SearchContactsAsync (LuceneSearchData luceneSearchData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendMessageAsync (string id, AcceptData1 acceptData = null);
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Send a message.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a message to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchContactsAsyncWithHttpInfo (LuceneSearchData luceneSearchData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendMessageAsyncWithHttpInfo (string id, AcceptData1 acceptData = null);
         /// <summary>
-        /// Search for interactions based on search query, using lucene search
+        /// Send a system command
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a system command to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SearchInteractionsAsync (LuceneSearchInteractionData luceneSearchInteractionData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendSystemCommandAsync (string id, SystemCommandData systemCommandData = null);
 
         /// <summary>
-        /// Search for interactions based on search query, using lucene search
+        /// Send a system command
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a system command to the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchInteractionsAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendSystemCommandAsyncWithHttpInfo (string id, SystemCommandData systemCommandData = null);
         /// <summary>
-        /// Set the call as being completed
+        /// Send notification that the agent is typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent is typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (string id, CallCompletedData callCompletedData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id, AcceptData3 acceptData = null);
 
         /// <summary>
-        /// Set the call as being completed
+        /// Send notification that the agent is typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent is typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (string id, CallCompletedData callCompletedData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id, AcceptData3 acceptData = null);
         /// <summary>
-        /// Set the note for the call
+        /// Send notification that the agent stopped typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (string id, CallNoteData callNoteData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id, AcceptData4 acceptData = null);
 
         /// <summary>
-        /// Set the note for the call
+        /// Send notification that the agent stopped typing.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (string id, CallNoteData callNoteData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id, AcceptData4 acceptData = null);
         /// <summary>
-        /// Update attributes of an existing contact
+        /// Send a URL.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a URL to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (string id, UpdateContactData updateContactData);
+        System.Threading.Tasks.Task<ApiSuccessResponse> SendUrlDataAsync (string id, AcceptData2 acceptData = null);
 
         /// <summary>
-        /// Update attributes of an existing contact
+        /// Send a URL.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Send a URL to participants in the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (string id, UpdateContactData updateContactData);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUrlDataAsyncWithHttpInfo (string id, AcceptData2 acceptData = null);
+        /// <summary>
+        /// Send a notice to modify the nickname
+        /// </summary>
+        /// <remarks>
+        /// Send a notice to modify my nickname to the specified chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> UpdateNicknameAsync (string id, UpdateNicknameData updateNicknameData = null);
+
+        /// <summary>
+        /// Send a notice to modify the nickname
+        /// </summary>
+        /// <remarks>
+        /// Send a notice to modify my nickname to the specified chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateNicknameAsyncWithHttpInfo (string id, UpdateNicknameData updateNicknameData = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class UcsApi : IUcsApi
+    public partial class ChatApi : IChatApi
     {
         private Genesys.Internal.Workspace.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsApi"/> class.
+        /// Initializes a new instance of the <see cref="ChatApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public UcsApi(String basePath)
+        public ChatApi(String basePath)
         {
             this.Configuration = new Configuration { BasePath = basePath };
 
@@ -706,12 +776,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsApi"/> class
+        /// Initializes a new instance of the <see cref="ChatApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public UcsApi(Configuration configuration = null)
+        public ChatApi(Configuration configuration = null)
         {
             if (configuration == null) // use the default one in Configuration
                 this.Configuration = Configuration.Default;
@@ -785,35 +855,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Assign the interaction to a contact 
+        /// Accept the specified chat. Accept the specified chat interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AssignInteractionToContact (string id, AssignInteractionToContactData assignInteractionToContactData)
+        public ApiSuccessResponse AcceptChat (string id, AcceptData acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AssignInteractionToContactWithHttpInfo(id, assignInteractionToContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = AcceptChatWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Assign the interaction to a contact 
+        /// Accept the specified chat. Accept the specified chat interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AssignInteractionToContactWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData)
+        public ApiResponse< ApiSuccessResponse > AcceptChatWithHttpInfo (string id, AcceptData acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->AssignInteractionToContact");
-            // verify the required parameter 'assignInteractionToContactData' is set
-            if (assignInteractionToContactData == null)
-                throw new ApiException(400, "Missing required parameter 'assignInteractionToContactData' when calling UcsApi->AssignInteractionToContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->AcceptChat");
 
-            var localVarPath = "/ucs/interactions/{id}/assign-contact";
+            var localVarPath = "/media/chat/interactions/{id}/accept";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -836,13 +903,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (assignInteractionToContactData != null && assignInteractionToContactData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(assignInteractionToContactData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = assignInteractionToContactData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -855,7 +922,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AssignInteractionToContact", localVarResponse);
+                Exception exception = ExceptionFactory("AcceptChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -865,36 +932,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Assign the interaction to a contact 
+        /// Accept the specified chat. Accept the specified chat interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AssignInteractionToContactAsync (string id, AssignInteractionToContactData assignInteractionToContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptChatAsync (string id, AcceptData acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AssignInteractionToContactAsyncWithHttpInfo(id, assignInteractionToContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptChatAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Assign the interaction to a contact 
+        /// Accept the specified chat. Accept the specified chat interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="assignInteractionToContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignInteractionToContactAsyncWithHttpInfo (string id, AssignInteractionToContactData assignInteractionToContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptChatAsyncWithHttpInfo (string id, AcceptData acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->AssignInteractionToContact");
-            // verify the required parameter 'assignInteractionToContactData' is set
-            if (assignInteractionToContactData == null)
-                throw new ApiException(400, "Missing required parameter 'assignInteractionToContactData' when calling UcsApi->AssignInteractionToContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->AcceptChat");
 
-            var localVarPath = "/ucs/interactions/{id}/assign-contact";
+            var localVarPath = "/media/chat/interactions/{id}/accept";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -917,13 +981,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (assignInteractionToContactData != null && assignInteractionToContactData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(assignInteractionToContactData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = assignInteractionToContactData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -936,7 +1000,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("AssignInteractionToContact", localVarResponse);
+                Exception exception = ExceptionFactory("AcceptChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -946,30 +1010,30 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Create a new contact 
+        /// Cancel a chat consultation request. Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse CreateContact (CreateContactData createContactData)
+        public ApiSuccessResponse CancelConsultationChat (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = CreateContactWithHttpInfo(createContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = CancelConsultationChatWithHttpInfo(id);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Create a new contact 
+        /// Cancel a chat consultation request. Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > CreateContactWithHttpInfo (CreateContactData createContactData)
+        public ApiResponse< ApiSuccessResponse > CancelConsultationChatWithHttpInfo (string id)
         {
-            // verify the required parameter 'createContactData' is set
-            if (createContactData == null)
-                throw new ApiException(400, "Missing required parameter 'createContactData' when calling UcsApi->CreateContact");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->CancelConsultationChat");
 
-            var localVarPath = "/ucs/contacts/create";
+            var localVarPath = "/media/chat/interactions/{id}/cancel-consult";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -991,14 +1055,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (createContactData != null && createContactData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(createContactData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = createContactData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1010,7 +1067,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateContact", localVarResponse);
+                Exception exception = ExceptionFactory("CancelConsultationChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1020,31 +1077,31 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Create a new contact 
+        /// Cancel a chat consultation request. Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> CreateContactAsync (CreateContactData createContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> CancelConsultationChatAsync (string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await CreateContactAsyncWithHttpInfo(createContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await CancelConsultationChatAsyncWithHttpInfo(id);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Create a new contact 
+        /// Cancel a chat consultation request. Cancel a chat consultation request that was initialized by calling &#x60;/media/chat/interactions/{id}/consult-by-queue&#x60;.  If the agent has already accepted the invitation, the Workspace API can&#39;t cancel the consultation.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateContactAsyncWithHttpInfo (CreateContactData createContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CancelConsultationChatAsyncWithHttpInfo (string id)
         {
-            // verify the required parameter 'createContactData' is set
-            if (createContactData == null)
-                throw new ApiException(400, "Missing required parameter 'createContactData' when calling UcsApi->CreateContact");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->CancelConsultationChat");
 
-            var localVarPath = "/ucs/contacts/create";
+            var localVarPath = "/media/chat/interactions/{id}/cancel-consult";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1066,14 +1123,7 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (createContactData != null && createContactData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(createContactData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = createContactData; // byte array
-            }
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
 
 
             // make the HTTP request
@@ -1085,7 +1135,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("CreateContact", localVarResponse);
+                Exception exception = ExceptionFactory("CancelConsultationChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1095,30 +1145,170 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Delete an existing contact 
+        /// Get chat transcript. Get a transcript for the specified chat interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>InlineResponse2003</returns>
+        public InlineResponse2003 ChatMessages (string id)
+        {
+             ApiResponse<InlineResponse2003> localVarResponse = ChatMessagesWithHttpInfo(id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Get chat transcript. Get a transcript for the specified chat interaction.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of InlineResponse2003</returns>
+        public ApiResponse< InlineResponse2003 > ChatMessagesWithHttpInfo (string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->ChatMessages");
+
+            var localVarPath = "/media/chat/interactions/{id}/messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ChatMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+        }
+
+        /// <summary>
+        /// Get chat transcript. Get a transcript for the specified chat interaction.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of InlineResponse2003</returns>
+        public async System.Threading.Tasks.Task<InlineResponse2003> ChatMessagesAsync (string id)
+        {
+             ApiResponse<InlineResponse2003> localVarResponse = await ChatMessagesAsyncWithHttpInfo(id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Get chat transcript. Get a transcript for the specified chat interaction.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (InlineResponse2003)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<InlineResponse2003>> ChatMessagesAsyncWithHttpInfo (string id)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->ChatMessages");
+
+            var localVarPath = "/media/chat/interactions/{id}/messages";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ChatMessages", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<InlineResponse2003>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (InlineResponse2003) Configuration.ApiClient.Deserialize(localVarResponse, typeof(InlineResponse2003)));
+        }
+
+        /// <summary>
+        /// Consult with another agent during a chat. A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse DeleteContact (string id)
+        public ApiSuccessResponse Consult (string id, ConsultData consultData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = DeleteContactWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ConsultWithHttpInfo(id, consultData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Delete an existing contact 
+        /// Consult with another agent during a chat. A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > DeleteContactWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > ConsultWithHttpInfo (string id, ConsultData consultData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->DeleteContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->Consult");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling ChatApi->Consult");
 
-            var localVarPath = "/ucs/contacts/{id}/delete";
+            var localVarPath = "/media/chat/interactions/{id}/consult";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1141,6 +1331,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1152,7 +1350,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteContact", localVarResponse);
+                Exception exception = ExceptionFactory("Consult", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1162,31 +1360,36 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Delete an existing contact 
+        /// Consult with another agent during a chat. A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteContactAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ConsultAsync (string id, ConsultData consultData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await DeleteContactAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ConsultAsyncWithHttpInfo(id, consultData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Delete an existing contact 
+        /// Consult with another agent during a chat. A consult occurs in the context of the specified chat, but the customer is not aware of the  consulting agent. Messages and notifications from the consulting agent are only visible  to other agents in the chat, not to the customer. After the consulting agent accepts the  consultation, the originating agent can either transfer the chat to the consulting agent  (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;), add them in a conference  (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave the chat  (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteContactAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultAsyncWithHttpInfo (string id, ConsultData consultData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->DeleteContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->Consult");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling ChatApi->Consult");
 
-            var localVarPath = "/ucs/contacts/{id}/delete";
+            var localVarPath = "/media/chat/interactions/{id}/consult";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1209,6 +1412,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1220,7 +1431,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("DeleteContact", localVarResponse);
+                Exception exception = ExceptionFactory("Consult", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1230,30 +1441,35 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Find or create phone call in UCS 
+        /// Consult with another agent via a queue. Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse FindOrCreatePhoneCall (string id)
+        public ApiSuccessResponse ConsultByQueue (string id, ConsultData1 consultData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = FindOrCreatePhoneCallWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ConsultByQueueWithHttpInfo(id, consultData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Find or create phone call in UCS 
+        /// Consult with another agent via a queue. Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > FindOrCreatePhoneCallWithHttpInfo (string id)
+        public ApiResponse< ApiSuccessResponse > ConsultByQueueWithHttpInfo (string id, ConsultData1 consultData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->FindOrCreatePhoneCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->ConsultByQueue");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling ChatApi->ConsultByQueue");
 
-            var localVarPath = "/ucs/voice/{id}/find-or-create";
+            var localVarPath = "/media/chat/interactions/{id}/consult-by-queue";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1276,6 +1492,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1287,7 +1511,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FindOrCreatePhoneCall", localVarResponse);
+                Exception exception = ExceptionFactory("ConsultByQueue", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1297,31 +1521,36 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Find or create phone call in UCS 
+        /// Consult with another agent via a queue. Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> FindOrCreatePhoneCallAsync (string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ConsultByQueueAsync (string id, ConsultData1 consultData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await FindOrCreatePhoneCallAsyncWithHttpInfo(id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ConsultByQueueAsyncWithHttpInfo(id, consultData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Find or create phone call in UCS 
+        /// Consult with another agent via a queue. Consult with another agent during a chat by sending an consult invitation to the specified queue.  A consult occurs in the context of the specified chat, but the customer is not aware of the consulting agent.  Messages and notifications from the consulting agent are only visible to other agents in the  chat, not to the customer. After the consulting agent accepts the consultation, the originating  agent can either transfer the chat to the consulting agent (&#x60;/media/{mediatype}/interactions/{id}/transfer-agent&#x60;),  add them in a conference (&#x60;/media/chat/interactions/{id}/invite&#x60;) or the consulting agent can leave  the chat (&#x60;/media/chat/interactions/{id}/leave&#x60;).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Voice Interaction</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="consultData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> FindOrCreatePhoneCallAsyncWithHttpInfo (string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultByQueueAsyncWithHttpInfo (string id, ConsultData1 consultData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->FindOrCreatePhoneCall");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->ConsultByQueue");
+            // verify the required parameter 'consultData' is set
+            if (consultData == null)
+                throw new ApiException(400, "Missing required parameter 'consultData' when calling ChatApi->ConsultByQueue");
 
-            var localVarPath = "/ucs/voice/{id}/find-or-create";
+            var localVarPath = "/media/chat/interactions/{id}/consult-by-queue";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1344,6 +1573,14 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (consultData != null && consultData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = consultData; // byte array
+            }
 
 
             // make the HTTP request
@@ -1355,7 +1592,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("FindOrCreatePhoneCall", localVarResponse);
+                Exception exception = ExceptionFactory("ConsultByQueue", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1365,27 +1602,35 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the history of interactions for the agent 
+        /// Invite another agent to the chat conference. Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetAgentHistory (AgentHistoryData agentHistoryData = null)
+        public ApiSuccessResponse Invite (string id, InviteData inviteData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetAgentHistoryWithHttpInfo(agentHistoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = InviteWithHttpInfo(id, inviteData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the history of interactions for the agent 
+        /// Invite another agent to the chat conference. Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetAgentHistoryWithHttpInfo (AgentHistoryData agentHistoryData = null)
+        public ApiResponse< ApiSuccessResponse > InviteWithHttpInfo (string id, InviteData inviteData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->Invite");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling ChatApi->Invite");
 
-            var localVarPath = "/ucs/get-agent-history";
+            var localVarPath = "/media/chat/interactions/{id}/invite";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1407,13 +1652,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (agentHistoryData != null && agentHistoryData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(agentHistoryData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = agentHistoryData; // byte array
+                localVarPostBody = inviteData; // byte array
             }
 
 
@@ -1426,7 +1672,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAgentHistory", localVarResponse);
+                Exception exception = ExceptionFactory("Invite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1436,28 +1682,36 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the history of interactions for the agent 
+        /// Invite another agent to the chat conference. Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetAgentHistoryAsync (AgentHistoryData agentHistoryData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> InviteAsync (string id, InviteData inviteData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetAgentHistoryAsyncWithHttpInfo(agentHistoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await InviteAsyncWithHttpInfo(id, inviteData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the history of interactions for the agent 
+        /// Invite another agent to the chat conference. Invite another agent to join the specified chat conference. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="agentHistoryData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetAgentHistoryAsyncWithHttpInfo (AgentHistoryData agentHistoryData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteAsyncWithHttpInfo (string id, InviteData inviteData)
         {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->Invite");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling ChatApi->Invite");
 
-            var localVarPath = "/ucs/get-agent-history";
+            var localVarPath = "/media/chat/interactions/{id}/invite";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1479,13 +1733,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (agentHistoryData != null && agentHistoryData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(agentHistoryData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = agentHistoryData; // byte array
+                localVarPostBody = inviteData; // byte array
             }
 
 
@@ -1498,7 +1753,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetAgentHistory", localVarResponse);
+                Exception exception = ExceptionFactory("Invite", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1508,35 +1763,35 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the details of a contact 
+        /// Invite another agent to the chat conference via a queue. Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetContactDetails (string id, ContactDetailsData contactDetailsData)
+        public ApiSuccessResponse InviteByQueue (string id, InviteData1 inviteData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactDetailsWithHttpInfo(id, contactDetailsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = InviteByQueueWithHttpInfo(id, inviteData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the details of a contact 
+        /// Invite another agent to the chat conference via a queue. Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetContactDetailsWithHttpInfo (string id, ContactDetailsData contactDetailsData)
+        public ApiResponse< ApiSuccessResponse > InviteByQueueWithHttpInfo (string id, InviteData1 inviteData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactDetails");
-            // verify the required parameter 'contactDetailsData' is set
-            if (contactDetailsData == null)
-                throw new ApiException(400, "Missing required parameter 'contactDetailsData' when calling UcsApi->GetContactDetails");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->InviteByQueue");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling ChatApi->InviteByQueue");
 
-            var localVarPath = "/ucs/contacts/{id}/get-details";
+            var localVarPath = "/media/chat/interactions/{id}/invite-by-queue";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1559,13 +1814,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (contactDetailsData != null && contactDetailsData.GetType() != typeof(byte[]))
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(contactDetailsData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = contactDetailsData; // byte array
+                localVarPostBody = inviteData; // byte array
             }
 
 
@@ -1578,7 +1833,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetContactDetails", localVarResponse);
+                Exception exception = ExceptionFactory("InviteByQueue", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1588,36 +1843,36 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the details of a contact 
+        /// Invite another agent to the chat conference via a queue. Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactDetailsAsync (string id, ContactDetailsData contactDetailsData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> InviteByQueueAsync (string id, InviteData1 inviteData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactDetailsAsyncWithHttpInfo(id, contactDetailsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await InviteByQueueAsyncWithHttpInfo(id, inviteData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the details of a contact 
+        /// Invite another agent to the chat conference via a queue. Invite another agent to the chat conference by sending an invitation to the specified queue. The next  available agent in the queue is then sent an invite to join the chat. The customer is notified when the  invited agent joins the chat. The agents can communicate with the customer or they  can communicate with each other without the customer seeing their messages, depending on the value you set for the &#x60;visibility&#x60; parameter when you  call &#x60;/media/chat/interactions/{id}/send-message&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactDetailsData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="inviteData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactDetailsAsyncWithHttpInfo (string id, ContactDetailsData contactDetailsData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteByQueueAsyncWithHttpInfo (string id, InviteData1 inviteData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactDetails");
-            // verify the required parameter 'contactDetailsData' is set
-            if (contactDetailsData == null)
-                throw new ApiException(400, "Missing required parameter 'contactDetailsData' when calling UcsApi->GetContactDetails");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->InviteByQueue");
+            // verify the required parameter 'inviteData' is set
+            if (inviteData == null)
+                throw new ApiException(400, "Missing required parameter 'inviteData' when calling ChatApi->InviteByQueue");
 
-            var localVarPath = "/ucs/contacts/{id}/get-details";
+            var localVarPath = "/media/chat/interactions/{id}/invite-by-queue";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1640,13 +1895,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (contactDetailsData != null && contactDetailsData.GetType() != typeof(byte[]))
+            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(contactDetailsData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = contactDetailsData; // byte array
+                localVarPostBody = inviteData; // byte array
             }
 
 
@@ -1659,7 +1914,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetContactDetails", localVarResponse);
+                Exception exception = ExceptionFactory("InviteByQueue", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1669,35 +1924,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the history of interactions for a contact 
+        /// Leave a chat. Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetContactHistory (string id, ContactHistoryData contactHistoryData)
+        public ApiSuccessResponse LeaveChat (string id, LeaveData leaveData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetContactHistoryWithHttpInfo(id, contactHistoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = LeaveChatWithHttpInfo(id, leaveData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the history of interactions for a contact 
+        /// Leave a chat. Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetContactHistoryWithHttpInfo (string id, ContactHistoryData contactHistoryData)
+        public ApiResponse< ApiSuccessResponse > LeaveChatWithHttpInfo (string id, LeaveData leaveData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactHistory");
-            // verify the required parameter 'contactHistoryData' is set
-            if (contactHistoryData == null)
-                throw new ApiException(400, "Missing required parameter 'contactHistoryData' when calling UcsApi->GetContactHistory");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->LeaveChat");
 
-            var localVarPath = "/ucs/contacts/{id}/get-history";
+            var localVarPath = "/media/chat/interactions/{id}/leave";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1720,13 +1972,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (contactHistoryData != null && contactHistoryData.GetType() != typeof(byte[]))
+            if (leaveData != null && leaveData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(contactHistoryData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(leaveData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = contactHistoryData; // byte array
+                localVarPostBody = leaveData; // byte array
             }
 
 
@@ -1739,7 +1991,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetContactHistory", localVarResponse);
+                Exception exception = ExceptionFactory("LeaveChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1749,36 +2001,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the history of interactions for a contact 
+        /// Leave a chat. Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetContactHistoryAsync (string id, ContactHistoryData contactHistoryData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id, LeaveData leaveData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetContactHistoryAsyncWithHttpInfo(id, contactHistoryData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await LeaveChatAsyncWithHttpInfo(id, leaveData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the history of interactions for a contact 
+        /// Leave a chat. Leave the specified chat or conference. If the agent is in a conference, the chat  session stays open for the customer. If the agent is not in a conference, the chat   ends for the customer but the agent can still update user data and set disposition.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="contactHistoryData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="leaveData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetContactHistoryAsyncWithHttpInfo (string id, ContactHistoryData contactHistoryData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id, LeaveData leaveData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetContactHistory");
-            // verify the required parameter 'contactHistoryData' is set
-            if (contactHistoryData == null)
-                throw new ApiException(400, "Missing required parameter 'contactHistoryData' when calling UcsApi->GetContactHistory");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->LeaveChat");
 
-            var localVarPath = "/ucs/contacts/{id}/get-history";
+            var localVarPath = "/media/chat/interactions/{id}/leave";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1801,13 +2050,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (contactHistoryData != null && contactHistoryData.GetType() != typeof(byte[]))
+            if (leaveData != null && leaveData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(contactHistoryData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(leaveData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = contactHistoryData; // byte array
+                localVarPostBody = leaveData; // byte array
             }
 
 
@@ -1820,7 +2069,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetContactHistory", localVarResponse);
+                Exception exception = ExceptionFactory("LeaveChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1830,32 +2079,35 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the content of the interaction 
+        /// Remove an agent from a chat conference. Remove the specified agent from the chat conference.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse GetInteractionDetails (string id, InteractionDetailsData interactionDetailsData = null)
+        public ApiSuccessResponse RemoveFromConference (string id, RemoveFromConferenceData removeFromConferenceData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = GetInteractionDetailsWithHttpInfo(id, interactionDetailsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = RemoveFromConferenceWithHttpInfo(id, removeFromConferenceData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Get the content of the interaction 
+        /// Remove an agent from a chat conference. Remove the specified agent from the chat conference.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > GetInteractionDetailsWithHttpInfo (string id, InteractionDetailsData interactionDetailsData = null)
+        public ApiResponse< ApiSuccessResponse > RemoveFromConferenceWithHttpInfo (string id, RemoveFromConferenceData removeFromConferenceData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetInteractionDetails");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->RemoveFromConference");
+            // verify the required parameter 'removeFromConferenceData' is set
+            if (removeFromConferenceData == null)
+                throw new ApiException(400, "Missing required parameter 'removeFromConferenceData' when calling ChatApi->RemoveFromConference");
 
-            var localVarPath = "/ucs/interactions/{id}/get-details";
+            var localVarPath = "/media/chat/interactions/{id}/remove-from-conference";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1878,13 +2130,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (interactionDetailsData != null && interactionDetailsData.GetType() != typeof(byte[]))
+            if (removeFromConferenceData != null && removeFromConferenceData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(interactionDetailsData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(removeFromConferenceData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = interactionDetailsData; // byte array
+                localVarPostBody = removeFromConferenceData; // byte array
             }
 
 
@@ -1897,7 +2149,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInteractionDetails", localVarResponse);
+                Exception exception = ExceptionFactory("RemoveFromConference", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1907,33 +2159,36 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the content of the interaction 
+        /// Remove an agent from a chat conference. Remove the specified agent from the chat conference.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> GetInteractionDetailsAsync (string id, InteractionDetailsData interactionDetailsData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> RemoveFromConferenceAsync (string id, RemoveFromConferenceData removeFromConferenceData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await GetInteractionDetailsAsyncWithHttpInfo(id, interactionDetailsData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await RemoveFromConferenceAsyncWithHttpInfo(id, removeFromConferenceData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Get the content of the interaction 
+        /// Remove an agent from a chat conference. Remove the specified agent from the chat conference.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="interactionDetailsData"> (optional)</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="removeFromConferenceData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> GetInteractionDetailsAsyncWithHttpInfo (string id, InteractionDetailsData interactionDetailsData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveFromConferenceAsyncWithHttpInfo (string id, RemoveFromConferenceData removeFromConferenceData)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->GetInteractionDetails");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->RemoveFromConference");
+            // verify the required parameter 'removeFromConferenceData' is set
+            if (removeFromConferenceData == null)
+                throw new ApiException(400, "Missing required parameter 'removeFromConferenceData' when calling ChatApi->RemoveFromConference");
 
-            var localVarPath = "/ucs/interactions/{id}/get-details";
+            var localVarPath = "/media/chat/interactions/{id}/remove-from-conference";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -1956,13 +2211,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (interactionDetailsData != null && interactionDetailsData.GetType() != typeof(byte[]))
+            if (removeFromConferenceData != null && removeFromConferenceData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(interactionDetailsData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(removeFromConferenceData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = interactionDetailsData; // byte array
+                localVarPostBody = removeFromConferenceData; // byte array
             }
 
 
@@ -1975,7 +2230,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("GetInteractionDetails", localVarResponse);
+                Exception exception = ExceptionFactory("RemoveFromConference", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -1985,158 +2240,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact.
+        /// Send a custom notification. Send a custom notification to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ConfigResponse</returns>
-        public ConfigResponse GetLuceneIndexes ()
-        {
-             ApiResponse<ConfigResponse> localVarResponse = GetLuceneIndexesWithHttpInfo();
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>ApiResponse of ConfigResponse</returns>
-        public ApiResponse< ConfigResponse > GetLuceneIndexesWithHttpInfo ()
-        {
-
-            var localVarPath = "/ucs/get-lucene-indexes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetLuceneIndexes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ConfigResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ConfigResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConfigResponse)));
-        }
-
-        /// <summary>
-        /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ConfigResponse</returns>
-        public async System.Threading.Tasks.Task<ConfigResponse> GetLuceneIndexesAsync ()
-        {
-             ApiResponse<ConfigResponse> localVarResponse = await GetLuceneIndexesAsyncWithHttpInfo();
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Get the lucene indexes for ucs This request returns all the lucene indexes for contact.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <returns>Task of ApiResponse (ConfigResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetLuceneIndexesAsyncWithHttpInfo ()
-        {
-
-            var localVarPath = "/ucs/get-lucene-indexes";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("GetLuceneIndexes", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ConfigResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ConfigResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ConfigResponse)));
-        }
-
-        /// <summary>
-        /// Identify the contact for the interaction 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse IdentifyContact (string id, IdentifyContactData identifyContactData)
+        public ApiSuccessResponse SendCustomNotification (string id, CustomNotificationData customNotificationData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = IdentifyContactWithHttpInfo(id, identifyContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendCustomNotificationWithHttpInfo(id, customNotificationData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Identify the contact for the interaction 
+        /// Send a custom notification. Send a custom notification to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > IdentifyContactWithHttpInfo (string id, IdentifyContactData identifyContactData)
+        public ApiResponse< ApiSuccessResponse > SendCustomNotificationWithHttpInfo (string id, CustomNotificationData customNotificationData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->IdentifyContact");
-            // verify the required parameter 'identifyContactData' is set
-            if (identifyContactData == null)
-                throw new ApiException(400, "Missing required parameter 'identifyContactData' when calling UcsApi->IdentifyContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendCustomNotification");
 
-            var localVarPath = "/ucs/interactions/{id}/identify-contact";
+            var localVarPath = "/media/chat/interactions/{id}/send-custom-notification";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2159,13 +2288,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (identifyContactData != null && identifyContactData.GetType() != typeof(byte[]))
+            if (customNotificationData != null && customNotificationData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(identifyContactData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(customNotificationData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = identifyContactData; // byte array
+                localVarPostBody = customNotificationData; // byte array
             }
 
 
@@ -2178,7 +2307,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("IdentifyContact", localVarResponse);
+                Exception exception = ExceptionFactory("SendCustomNotification", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2188,36 +2317,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Identify the contact for the interaction 
+        /// Send a custom notification. Send a custom notification to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> IdentifyContactAsync (string id, IdentifyContactData identifyContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendCustomNotificationAsync (string id, CustomNotificationData customNotificationData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await IdentifyContactAsyncWithHttpInfo(id, identifyContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendCustomNotificationAsyncWithHttpInfo(id, customNotificationData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Identify the contact for the interaction 
+        /// Send a custom notification. Send a custom notification to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="identifyContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="customNotificationData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (string id, IdentifyContactData identifyContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendCustomNotificationAsyncWithHttpInfo (string id, CustomNotificationData customNotificationData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->IdentifyContact");
-            // verify the required parameter 'identifyContactData' is set
-            if (identifyContactData == null)
-                throw new ApiException(400, "Missing required parameter 'identifyContactData' when calling UcsApi->IdentifyContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendCustomNotification");
 
-            var localVarPath = "/ucs/interactions/{id}/identify-contact";
+            var localVarPath = "/media/chat/interactions/{id}/send-custom-notification";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2240,13 +2366,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (identifyContactData != null && identifyContactData.GetType() != typeof(byte[]))
+            if (customNotificationData != null && customNotificationData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(identifyContactData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(customNotificationData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = identifyContactData; // byte array
+                localVarPostBody = customNotificationData; // byte array
             }
 
 
@@ -2259,7 +2385,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("IdentifyContact", localVarResponse);
+                Exception exception = ExceptionFactory("SendCustomNotification", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2269,30 +2395,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Send a message. Send a message to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SearchContacts (LuceneSearchData luceneSearchData)
+        public ApiSuccessResponse SendMessage (string id, AcceptData1 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SearchContactsWithHttpInfo(luceneSearchData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendMessageWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Send a message. Send a message to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SearchContactsWithHttpInfo (LuceneSearchData luceneSearchData)
+        public ApiResponse< ApiSuccessResponse > SendMessageWithHttpInfo (string id, AcceptData1 acceptData = null)
         {
-            // verify the required parameter 'luceneSearchData' is set
-            if (luceneSearchData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchData' when calling UcsApi->SearchContacts");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendMessage");
 
-            var localVarPath = "/ucs/contacts/search";
+            var localVarPath = "/media/chat/interactions/{id}/send-message";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2314,13 +2442,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (luceneSearchData != null && luceneSearchData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(luceneSearchData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = luceneSearchData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2333,7 +2462,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SearchContacts", localVarResponse);
+                Exception exception = ExceptionFactory("SendMessage", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2343,31 +2472,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Send a message. Send a message to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SearchContactsAsync (LuceneSearchData luceneSearchData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendMessageAsync (string id, AcceptData1 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SearchContactsAsyncWithHttpInfo(luceneSearchData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendMessageAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Send a message. Send a message to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchContactsAsyncWithHttpInfo (LuceneSearchData luceneSearchData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendMessageAsyncWithHttpInfo (string id, AcceptData1 acceptData = null)
         {
-            // verify the required parameter 'luceneSearchData' is set
-            if (luceneSearchData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchData' when calling UcsApi->SearchContacts");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendMessage");
 
-            var localVarPath = "/ucs/contacts/search";
+            var localVarPath = "/media/chat/interactions/{id}/send-message";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2389,13 +2520,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (luceneSearchData != null && luceneSearchData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(luceneSearchData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = luceneSearchData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2408,7 +2540,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SearchContacts", localVarResponse);
+                Exception exception = ExceptionFactory("SendMessage", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2418,30 +2550,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for interactions based on search query, using lucene search 
+        /// Send a system command Send a system command to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SearchInteractions (LuceneSearchInteractionData luceneSearchInteractionData)
+        public ApiSuccessResponse SendSystemCommand (string id, SystemCommandData systemCommandData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SearchInteractionsWithHttpInfo(luceneSearchInteractionData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendSystemCommandWithHttpInfo(id, systemCommandData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Search for interactions based on search query, using lucene search 
+        /// Send a system command Send a system command to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SearchInteractionsWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
+        public ApiResponse< ApiSuccessResponse > SendSystemCommandWithHttpInfo (string id, SystemCommandData systemCommandData = null)
         {
-            // verify the required parameter 'luceneSearchInteractionData' is set
-            if (luceneSearchInteractionData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchInteractionData' when calling UcsApi->SearchInteractions");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendSystemCommand");
 
-            var localVarPath = "/ucs/ixn/search";
+            var localVarPath = "/media/chat/interactions/{id}/send-system-command";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2463,13 +2597,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (luceneSearchInteractionData != null && luceneSearchInteractionData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (systemCommandData != null && systemCommandData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(luceneSearchInteractionData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(systemCommandData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = luceneSearchInteractionData; // byte array
+                localVarPostBody = systemCommandData; // byte array
             }
 
 
@@ -2482,7 +2617,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SearchInteractions", localVarResponse);
+                Exception exception = ExceptionFactory("SendSystemCommand", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2492,31 +2627,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for interactions based on search query, using lucene search 
+        /// Send a system command Send a system command to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SearchInteractionsAsync (LuceneSearchInteractionData luceneSearchInteractionData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendSystemCommandAsync (string id, SystemCommandData systemCommandData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SearchInteractionsAsyncWithHttpInfo(luceneSearchInteractionData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendSystemCommandAsyncWithHttpInfo(id, systemCommandData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Search for interactions based on search query, using lucene search 
+        /// Send a system command Send a system command to the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="luceneSearchInteractionData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="systemCommandData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchInteractionsAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendSystemCommandAsyncWithHttpInfo (string id, SystemCommandData systemCommandData = null)
         {
-            // verify the required parameter 'luceneSearchInteractionData' is set
-            if (luceneSearchInteractionData == null)
-                throw new ApiException(400, "Missing required parameter 'luceneSearchInteractionData' when calling UcsApi->SearchInteractions");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendSystemCommand");
 
-            var localVarPath = "/ucs/ixn/search";
+            var localVarPath = "/media/chat/interactions/{id}/send-system-command";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2538,13 +2675,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
-            if (luceneSearchInteractionData != null && luceneSearchInteractionData.GetType() != typeof(byte[]))
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (systemCommandData != null && systemCommandData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(luceneSearchInteractionData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(systemCommandData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = luceneSearchInteractionData; // byte array
+                localVarPostBody = systemCommandData; // byte array
             }
 
 
@@ -2557,7 +2695,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SearchInteractions", localVarResponse);
+                Exception exception = ExceptionFactory("SendSystemCommand", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2567,35 +2705,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the call as being completed 
+        /// Send notification that the agent is typing. Send notification that the agent is typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SetCallCompleted (string id, CallCompletedData callCompletedData)
+        public ApiSuccessResponse SendTypingStarted (string id, AcceptData3 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallCompletedWithHttpInfo(id, callCompletedData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStartedWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set the call as being completed 
+        /// Send notification that the agent is typing. Send notification that the agent is typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SetCallCompletedWithHttpInfo (string id, CallCompletedData callCompletedData)
+        public ApiResponse< ApiSuccessResponse > SendTypingStartedWithHttpInfo (string id, AcceptData3 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallCompleted");
-            // verify the required parameter 'callCompletedData' is set
-            if (callCompletedData == null)
-                throw new ApiException(400, "Missing required parameter 'callCompletedData' when calling UcsApi->SetCallCompleted");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendTypingStarted");
 
-            var localVarPath = "/ucs/interactions/{id}/set-completed";
+            var localVarPath = "/media/chat/interactions/{id}/send-typing-started";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2618,13 +2753,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (callCompletedData != null && callCompletedData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(callCompletedData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = callCompletedData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2637,7 +2772,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SetCallCompleted", localVarResponse);
+                Exception exception = ExceptionFactory("SendTypingStarted", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2647,36 +2782,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the call as being completed 
+        /// Send notification that the agent is typing. Send notification that the agent is typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCompletedAsync (string id, CallCompletedData callCompletedData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id, AcceptData3 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallCompletedAsyncWithHttpInfo(id, callCompletedData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStartedAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Set the call as being completed 
+        /// Send notification that the agent is typing. Send notification that the agent is typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callCompletedData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (string id, CallCompletedData callCompletedData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id, AcceptData3 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallCompleted");
-            // verify the required parameter 'callCompletedData' is set
-            if (callCompletedData == null)
-                throw new ApiException(400, "Missing required parameter 'callCompletedData' when calling UcsApi->SetCallCompleted");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendTypingStarted");
 
-            var localVarPath = "/ucs/interactions/{id}/set-completed";
+            var localVarPath = "/media/chat/interactions/{id}/send-typing-started";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2699,13 +2831,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (callCompletedData != null && callCompletedData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(callCompletedData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = callCompletedData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2718,7 +2850,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SetCallCompleted", localVarResponse);
+                Exception exception = ExceptionFactory("SendTypingStarted", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2728,35 +2860,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the note for the call 
+        /// Send notification that the agent stopped typing. Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SetCallNote (string id, CallNoteData callNoteData)
+        public ApiSuccessResponse SendTypingStopped (string id, AcceptData4 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallNoteWithHttpInfo(id, callNoteData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStoppedWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Set the note for the call 
+        /// Send notification that the agent stopped typing. Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SetCallNoteWithHttpInfo (string id, CallNoteData callNoteData)
+        public ApiResponse< ApiSuccessResponse > SendTypingStoppedWithHttpInfo (string id, AcceptData4 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallNote");
-            // verify the required parameter 'callNoteData' is set
-            if (callNoteData == null)
-                throw new ApiException(400, "Missing required parameter 'callNoteData' when calling UcsApi->SetCallNote");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendTypingStopped");
 
-            var localVarPath = "/ucs/interactions/{id}/set-note";
+            var localVarPath = "/media/chat/interactions/{id}/send-typing-stopped";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2779,13 +2908,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (callNoteData != null && callNoteData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(callNoteData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = callNoteData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2798,7 +2927,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SetCallNote", localVarResponse);
+                Exception exception = ExceptionFactory("SendTypingStopped", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2808,36 +2937,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the note for the call 
+        /// Send notification that the agent stopped typing. Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (string id, CallNoteData callNoteData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id, AcceptData4 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallNoteAsyncWithHttpInfo(id, callNoteData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStoppedAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Set the note for the call 
+        /// Send notification that the agent stopped typing. Send notification that the agent stopped typing to the other participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (string id, CallNoteData callNoteData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id, AcceptData4 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallNote");
-            // verify the required parameter 'callNoteData' is set
-            if (callNoteData == null)
-                throw new ApiException(400, "Missing required parameter 'callNoteData' when calling UcsApi->SetCallNote");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendTypingStopped");
 
-            var localVarPath = "/ucs/interactions/{id}/set-note";
+            var localVarPath = "/media/chat/interactions/{id}/send-typing-stopped";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2860,13 +2986,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (callNoteData != null && callNoteData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(callNoteData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = callNoteData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2879,7 +3005,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("SetCallNote", localVarResponse);
+                Exception exception = ExceptionFactory("SendTypingStopped", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2889,35 +3015,32 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update attributes of an existing contact 
+        /// Send a URL. Send a URL to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse UpdateContact (string id, UpdateContactData updateContactData)
+        public ApiSuccessResponse SendUrlData (string id, AcceptData2 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = UpdateContactWithHttpInfo(id, updateContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = SendUrlDataWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Update attributes of an existing contact 
+        /// Send a URL. Send a URL to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > UpdateContactWithHttpInfo (string id, UpdateContactData updateContactData)
+        public ApiResponse< ApiSuccessResponse > SendUrlDataWithHttpInfo (string id, AcceptData2 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->UpdateContact");
-            // verify the required parameter 'updateContactData' is set
-            if (updateContactData == null)
-                throw new ApiException(400, "Missing required parameter 'updateContactData' when calling UcsApi->UpdateContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendUrlData");
 
-            var localVarPath = "/ucs/contacts/{id}/update";
+            var localVarPath = "/media/chat/interactions/{id}/send-url";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -2940,13 +3063,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (updateContactData != null && updateContactData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(updateContactData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = updateContactData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -2959,7 +3082,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateContact", localVarResponse);
+                Exception exception = ExceptionFactory("SendUrlData", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2969,36 +3092,33 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update attributes of an existing contact 
+        /// Send a URL. Send a URL to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateContactAsync (string id, UpdateContactData updateContactData)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendUrlDataAsync (string id, AcceptData2 acceptData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await UpdateContactAsyncWithHttpInfo(id, updateContactData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SendUrlDataAsyncWithHttpInfo(id, acceptData);
              return localVarResponse.Data;
 
         }
 
         /// <summary>
-        /// Update attributes of an existing contact 
+        /// Send a URL. Send a URL to participants in the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Contact</param>
-        /// <param name="updateContactData"></param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateContactAsyncWithHttpInfo (string id, UpdateContactData updateContactData)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUrlDataAsyncWithHttpInfo (string id, AcceptData2 acceptData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->UpdateContact");
-            // verify the required parameter 'updateContactData' is set
-            if (updateContactData == null)
-                throw new ApiException(400, "Missing required parameter 'updateContactData' when calling UcsApi->UpdateContact");
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->SendUrlData");
 
-            var localVarPath = "/ucs/contacts/{id}/update";
+            var localVarPath = "/media/chat/interactions/{id}/send-url";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3021,13 +3141,13 @@ namespace Genesys.Internal.Workspace.Api
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
             if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (updateContactData != null && updateContactData.GetType() != typeof(byte[]))
+            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
             {
-                localVarPostBody = Configuration.ApiClient.Serialize(updateContactData); // http body (model) parameter
+                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
             }
             else
             {
-                localVarPostBody = updateContactData; // byte array
+                localVarPostBody = acceptData; // byte array
             }
 
 
@@ -3040,7 +3160,162 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("UpdateContact", localVarResponse);
+                Exception exception = ExceptionFactory("SendUrlData", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse UpdateNickname (string id, UpdateNicknameData updateNicknameData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = UpdateNicknameWithHttpInfo(id, updateNicknameData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > UpdateNicknameWithHttpInfo (string id, UpdateNicknameData updateNicknameData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->UpdateNickname");
+
+            var localVarPath = "/media/chat/interactions/{id}/update-nickname";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (updateNicknameData != null && updateNicknameData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(updateNicknameData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateNicknameData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateNickname", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateNicknameAsync (string id, UpdateNicknameData updateNicknameData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await UpdateNicknameAsyncWithHttpInfo(id, updateNicknameData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <param name="updateNicknameData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateNicknameAsyncWithHttpInfo (string id, UpdateNicknameData updateNicknameData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling ChatApi->UpdateNickname");
+
+            var localVarPath = "/media/chat/interactions/{id}/update-nickname";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (updateNicknameData != null && updateNicknameData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(updateNicknameData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = updateNicknameData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UpdateNickname", localVarResponse);
                 if (exception != null) throw exception;
             }
 

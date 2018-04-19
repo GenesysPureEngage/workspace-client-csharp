@@ -31,9 +31,9 @@ namespace Genesys.Internal.Workspace.Model
     public partial class MediachatinteractionsidsendtypingstartedData :  IEquatable<MediachatinteractionsidsendtypingstartedData>, IValidatableObject
     {
         /// <summary>
-        /// visibility of operation
+        /// Defines which participants in the chat can see the message.
         /// </summary>
-        /// <value>visibility of operation</value>
+        /// <value>Defines which participants in the chat can see the message.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum VisibilityEnum
         {
@@ -58,16 +58,16 @@ namespace Genesys.Internal.Workspace.Model
         }
 
         /// <summary>
-        /// visibility of operation
+        /// Defines which participants in the chat can see the message.
         /// </summary>
-        /// <value>visibility of operation</value>
+        /// <value>Defines which participants in the chat can see the message.</value>
         [DataMember(Name="visibility", EmitDefaultValue=false)]
         public VisibilityEnum? Visibility { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MediachatinteractionsidsendtypingstartedData" /> class.
         /// </summary>
-        /// <param name="Message">the message to send to the chat.</param>
-        /// <param name="Visibility">visibility of operation.</param>
+        /// <param name="Message">The message to send to the chat participants. For example, \&quot;Agent typing\&quot;..</param>
+        /// <param name="Visibility">Defines which participants in the chat can see the message..</param>
         public MediachatinteractionsidsendtypingstartedData(string Message = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?))
         {
             this.Message = Message;
@@ -75,9 +75,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// the message to send to the chat
+        /// The message to send to the chat participants. For example, \&quot;Agent typing\&quot;.
         /// </summary>
-        /// <value>the message to send to the chat</value>
+        /// <value>The message to send to the chat participants. For example, \&quot;Agent typing\&quot;.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 

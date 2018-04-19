@@ -163,13 +163,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>TargetsResponse</returns>
-        TargetsResponse GetTargets (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
+        TargetsResponse GetTargets (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets.
@@ -182,13 +183,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
-        ApiResponse<TargetsResponse> GetTargetsWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
+        ApiResponse<TargetsResponse> GetTargetsWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Save a personal favorite.
         /// </summary>
@@ -351,13 +353,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
-        System.Threading.Tasks.Task<TargetsResponse> GetTargetsAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
+        System.Threading.Tasks.Task<TargetsResponse> GetTargetsAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
 
         /// <summary>
         /// Search for targets.
@@ -370,13 +373,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetsAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
+        System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetsAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null);
         /// <summary>
         /// Save a personal favorite.
         /// </summary>
@@ -1330,15 +1334,16 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>TargetsResponse</returns>
-        public TargetsResponse GetTargets (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        public TargetsResponse GetTargets (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<TargetsResponse> localVarResponse = GetTargetsWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
+             ApiResponse<TargetsResponse> localVarResponse = GetTargetsWithHttpInfo(searchTerm, filterName, types, excludeGroup, restrictGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
              return localVarResponse.Data;
         }
 
@@ -1350,13 +1355,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>ApiResponse of TargetsResponse</returns>
-        public ApiResponse< TargetsResponse > GetTargetsWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        public ApiResponse< TargetsResponse > GetTargetsWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -1388,6 +1394,7 @@ namespace Genesys.Internal.Workspace.Api
             if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
             if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
             if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
+            if (restrictGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictGroup", restrictGroup)); // query parameter
             if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
             if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter
@@ -1421,15 +1428,16 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>Task of TargetsResponse</returns>
-        public async System.Threading.Tasks.Task<TargetsResponse> GetTargetsAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        public async System.Threading.Tasks.Task<TargetsResponse> GetTargetsAsync (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
-             ApiResponse<TargetsResponse> localVarResponse = await GetTargetsAsyncWithHttpInfo(searchTerm, filterName, types, excludeGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
+             ApiResponse<TargetsResponse> localVarResponse = await GetTargetsAsyncWithHttpInfo(searchTerm, filterName, types, excludeGroup, restrictGroup, excludeFromGroup, restrictToGroup, sort, limit, matchType);
              return localVarResponse.Data;
 
         }
@@ -1442,13 +1450,14 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="filterName">Filter the search based on this field. (optional)</param>
         /// <param name="types">A comma-separated list of types to include in the search. Valid values are acd-queue, agent-group, agent, route-point, skill and custom-contact. (optional)</param>
         /// <param name="excludeGroup">A comma-separated list of agent group names. Workspace excludes those groups from the search. (optional)</param>
+        /// <param name="restrictGroup">A comma-separated list of agent group names. Workspace returns only these groups from the search. (optional)</param>
         /// <param name="excludeFromGroup">A comma-separated list of agent group names. Workspace excludes agents from these groups in the search. (optional)</param>
         /// <param name="restrictToGroup">A comma-separated list of agent group names. Workspace only searches for targets who belong to the groups in this list. (optional)</param>
         /// <param name="sort">The sort order, either &#x60;asc&#x60; (ascending) or &#x60;desc&#x60; (descending). The default is &#x60;asc&#x60;. (optional)</param>
         /// <param name="limit">The number of results to return. The default value is 50. (optional)</param>
         /// <param name="matchType">Specify whether the search should only return exact matches. (optional)</param>
         /// <returns>Task of ApiResponse (TargetsResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetsAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
+        public async System.Threading.Tasks.Task<ApiResponse<TargetsResponse>> GetTargetsAsyncWithHttpInfo (string searchTerm, string filterName = null, string types = null, string excludeGroup = null, string restrictGroup = null, string excludeFromGroup = null, string restrictToGroup = null, string sort = null, decimal? limit = null, string matchType = null)
         {
             // verify the required parameter 'searchTerm' is set
             if (searchTerm == null)
@@ -1480,6 +1489,7 @@ namespace Genesys.Internal.Workspace.Api
             if (filterName != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "filterName", filterName)); // query parameter
             if (types != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "types", types)); // query parameter
             if (excludeGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeGroup", excludeGroup)); // query parameter
+            if (restrictGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictGroup", restrictGroup)); // query parameter
             if (excludeFromGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "excludeFromGroup", excludeFromGroup)); // query parameter
             if (restrictToGroup != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "restrictToGroup", restrictToGroup)); // query parameter
             if (sort != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "sort", sort)); // query parameter

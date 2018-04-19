@@ -33,8 +33,8 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediamediatypelogoutData" /> class.
         /// </summary>
-        /// <param name="Reason">Reason.</param>
-        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        /// <param name="Reason">A collection of key/value pairs..</param>
+        /// <param name="Extension">A collection of key/value pairs..</param>
         public MediamediatypelogoutData(IxnReasonCode Reason = default(IxnReasonCode), List<Kvpair> Extension = default(List<Kvpair>))
         {
             this.Reason = Reason;
@@ -42,15 +42,16 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Reason
+        /// A collection of key/value pairs.
         /// </summary>
+        /// <value>A collection of key/value pairs.</value>
         [DataMember(Name="reason", EmitDefaultValue=false)]
         public IxnReasonCode Reason { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of additional data.
+        /// A collection of key/value pairs.
         /// </summary>
-        /// <value>A key/value pairs list of additional data.</value>
+        /// <value>A collection of key/value pairs.</value>
         [DataMember(Name="extension", EmitDefaultValue=false)]
         public List<Kvpair> Extension { get; set; }
 

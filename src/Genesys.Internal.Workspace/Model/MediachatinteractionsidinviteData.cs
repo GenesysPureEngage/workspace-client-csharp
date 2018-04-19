@@ -38,7 +38,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediachatinteractionsidinviteData" /> class.
         /// </summary>
-        /// <param name="AgentId">EmployeeId of the target agent. (required).</param>
+        /// <param name="AgentId">The unique ID of the agent. (required).</param>
         public MediachatinteractionsidinviteData(string AgentId = default(string))
         {
             // to ensure "AgentId" is required (not null)
@@ -53,9 +53,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// EmployeeId of the target agent.
+        /// The unique ID of the agent.
         /// </summary>
-        /// <value>EmployeeId of the target agent.</value>
+        /// <value>The unique ID of the agent.</value>
         [DataMember(Name="agentId", EmitDefaultValue=false)]
         public string AgentId { get; set; }
 

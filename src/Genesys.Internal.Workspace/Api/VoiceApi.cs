@@ -379,7 +379,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LoginVoiceWithHttpInfo ();
         /// <summary>
-        /// Logout the media voice.
+        /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
         /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
@@ -389,7 +389,7 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse LogoutVoice ();
 
         /// <summary>
-        /// Logout the media voice.
+        /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
         /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
@@ -662,39 +662,39 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetAgentStateReadyWithHttpInfo (ReadyData readyData = null);
         /// <summary>
-        /// Turn off do-not-disturb.
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb for the current agent on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetDNDOff ();
 
         /// <summary>
-        /// Turn off do-not-disturb.
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb for the current agent on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetDNDOffWithHttpInfo ();
         /// <summary>
-        /// Set the agent state to do-not-disturb.
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse SetDNDOn ();
 
         /// <summary>
-        /// Set the agent state to do-not-disturb.
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -1278,7 +1278,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LoginVoiceAsyncWithHttpInfo ();
         /// <summary>
-        /// Logout the media voice.
+        /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
         /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
@@ -1288,7 +1288,7 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> LogoutVoiceAsync ();
 
         /// <summary>
-        /// Logout the media voice.
+        /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
         /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
@@ -1561,39 +1561,39 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetAgentStateReadyAsyncWithHttpInfo (ReadyData readyData = null);
         /// <summary>
-        /// Turn off do-not-disturb.
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb for the current agent on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetDNDOffAsync ();
 
         /// <summary>
-        /// Turn off do-not-disturb.
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb for the current agent on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetDNDOffAsyncWithHttpInfo ();
         /// <summary>
-        /// Set the agent state to do-not-disturb.
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> SetDNDOnAsync ();
 
         /// <summary>
-        /// Set the agent state to do-not-disturb.
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -4359,7 +4359,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the media voice. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -4370,7 +4370,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the media voice. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4420,7 +4420,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the media voice. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4432,7 +4432,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the media voice. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -6290,7 +6290,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do-not-disturb. Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -6301,7 +6301,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do-not-disturb. Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -6351,7 +6351,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do-not-disturb. Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -6363,7 +6363,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do-not-disturb. Turn off do-not-disturb for the current agent on the voice channel.
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -6413,7 +6413,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to do-not-disturb. Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -6424,7 +6424,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to do-not-disturb. Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -6474,7 +6474,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to do-not-disturb. Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -6486,7 +6486,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to do-not-disturb. Set the current agent&#39;s state to do-not-disturb on the voice channel.
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>

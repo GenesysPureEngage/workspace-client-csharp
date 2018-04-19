@@ -178,6 +178,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SubscribeToWorkbinNotificationsWithHttpInfo (string workbinId, SubscribeToWorkbinNotificationsData subscribeToWorkbinNotificationsData);
         /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SubscribeToWorkbinsNotifications (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData);
+
+        /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SubscribeToWorkbinsNotificationsWithHttpInfo (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData);
+        /// <summary>
         /// Unsubscribe to the notifications of changes of the content of a Workbin.
         /// </summary>
         /// <remarks>
@@ -200,6 +221,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="unsubscribeToWorkbinNotificationsData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> UnsubscribeToWorkbinNotificationsWithHttpInfo (string workbinId, UnsubscribeToWorkbinNotificationsData unsubscribeToWorkbinNotificationsData);
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse UnsubscribeToWorkbinsNotifications (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData);
+
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> UnsubscribeToWorkbinsNotificationsWithHttpInfo (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -356,6 +398,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeToWorkbinNotificationsAsyncWithHttpInfo (string workbinId, SubscribeToWorkbinNotificationsData subscribeToWorkbinNotificationsData);
         /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SubscribeToWorkbinsNotificationsAsync (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData);
+
+        /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeToWorkbinsNotificationsAsyncWithHttpInfo (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData);
+        /// <summary>
         /// Unsubscribe to the notifications of changes of the content of a Workbin.
         /// </summary>
         /// <remarks>
@@ -378,6 +441,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="unsubscribeToWorkbinNotificationsData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeToWorkbinNotificationsAsyncWithHttpInfo (string workbinId, UnsubscribeToWorkbinNotificationsData unsubscribeToWorkbinNotificationsData);
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeToWorkbinsNotificationsAsync (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData);
+
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeToWorkbinsNotificationsAsyncWithHttpInfo (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData);
         #endregion Asynchronous Operations
     }
 
@@ -1530,6 +1614,155 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SubscribeToWorkbinsNotifications (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SubscribeToWorkbinsNotificationsWithHttpInfo(subscribeToWorkbinsNotificationsData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SubscribeToWorkbinsNotificationsWithHttpInfo (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData)
+        {
+            // verify the required parameter 'subscribeToWorkbinsNotificationsData' is set
+            if (subscribeToWorkbinsNotificationsData == null)
+                throw new ApiException(400, "Missing required parameter 'subscribeToWorkbinsNotificationsData' when calling WorkbinsApi->SubscribeToWorkbinsNotifications");
+
+            var localVarPath = "/workbins/subscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (subscribeToWorkbinsNotificationsData != null && subscribeToWorkbinsNotificationsData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(subscribeToWorkbinsNotificationsData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = subscribeToWorkbinsNotificationsData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SubscribeToWorkbinsNotifications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SubscribeToWorkbinsNotificationsAsync (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SubscribeToWorkbinsNotificationsAsyncWithHttpInfo(subscribeToWorkbinsNotificationsData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Subscribe to be notified of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="subscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SubscribeToWorkbinsNotificationsAsyncWithHttpInfo (SubscribeToWorkbinsNotificationsData subscribeToWorkbinsNotificationsData)
+        {
+            // verify the required parameter 'subscribeToWorkbinsNotificationsData' is set
+            if (subscribeToWorkbinsNotificationsData == null)
+                throw new ApiException(400, "Missing required parameter 'subscribeToWorkbinsNotificationsData' when calling WorkbinsApi->SubscribeToWorkbinsNotifications");
+
+            var localVarPath = "/workbins/subscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (subscribeToWorkbinsNotificationsData != null && subscribeToWorkbinsNotificationsData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(subscribeToWorkbinsNotificationsData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = subscribeToWorkbinsNotificationsData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SubscribeToWorkbinsNotifications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Unsubscribe to the notifications of changes of the content of a Workbin. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1682,6 +1915,155 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("UnsubscribeToWorkbinNotifications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse UnsubscribeToWorkbinsNotifications (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = UnsubscribeToWorkbinsNotificationsWithHttpInfo(unsubscribeToWorkbinsNotificationsData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > UnsubscribeToWorkbinsNotificationsWithHttpInfo (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData)
+        {
+            // verify the required parameter 'unsubscribeToWorkbinsNotificationsData' is set
+            if (unsubscribeToWorkbinsNotificationsData == null)
+                throw new ApiException(400, "Missing required parameter 'unsubscribeToWorkbinsNotificationsData' when calling WorkbinsApi->UnsubscribeToWorkbinsNotifications");
+
+            var localVarPath = "/workbins/unsubscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (unsubscribeToWorkbinsNotificationsData != null && unsubscribeToWorkbinsNotificationsData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(unsubscribeToWorkbinsNotificationsData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = unsubscribeToWorkbinsNotificationsData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnsubscribeToWorkbinsNotifications", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeToWorkbinsNotificationsAsync (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await UnsubscribeToWorkbinsNotificationsAsyncWithHttpInfo(unsubscribeToWorkbinsNotificationsData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Unsubscribe to the notifications of changes of the content of multiple Workbins. 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="unsubscribeToWorkbinsNotificationsData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UnsubscribeToWorkbinsNotificationsAsyncWithHttpInfo (UnsubscribeToWorkbinsNotificationsData unsubscribeToWorkbinsNotificationsData)
+        {
+            // verify the required parameter 'unsubscribeToWorkbinsNotificationsData' is set
+            if (unsubscribeToWorkbinsNotificationsData == null)
+                throw new ApiException(400, "Missing required parameter 'unsubscribeToWorkbinsNotificationsData' when calling WorkbinsApi->UnsubscribeToWorkbinsNotifications");
+
+            var localVarPath = "/workbins/unsubscribe";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (unsubscribeToWorkbinsNotificationsData != null && unsubscribeToWorkbinsNotificationsData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(unsubscribeToWorkbinsNotificationsData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = unsubscribeToWorkbinsNotificationsData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("UnsubscribeToWorkbinsNotifications", localVarResponse);
                 if (exception != null) throw exception;
             }
 

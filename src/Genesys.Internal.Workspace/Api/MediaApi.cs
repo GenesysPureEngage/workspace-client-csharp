@@ -25,53 +25,30 @@ namespace Genesys.Internal.Workspace.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Accept an open-media interaction
+        /// Accept an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Accept the interaction specified in the id path parameter
+        /// Accept the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Accept (string mediatype, string id, AcceptData7 acceptData = null);
+        ApiSuccessResponse Accept (string mediatype, string id, AcceptData6 acceptData = null);
 
         /// <summary>
-        /// Accept an open-media interaction
+        /// Accept an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Accept the interaction specified in the id path parameter
+        /// Accept the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null);
-        /// <summary>
-        /// Accept a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Accept the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AcceptChat (string id, AcceptData acceptData = null);
-
-        /// <summary>
-        /// Accept a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Accept the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AcceptChatWithHttpInfo (string id, AcceptData acceptData = null);
+        ApiResponse<ApiSuccessResponse> AcceptWithHttpInfo (string mediatype, string id, AcceptData6 acceptData = null);
         /// <summary>
         /// Add an attachment to the open-media interaction
         /// </summary>
@@ -98,27 +75,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddAttachmentWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null);
         /// <summary>
-        /// Set the comment for the interaction
+        /// Add a comment.
         /// </summary>
         /// <remarks>
-        /// Set the comment for the interaction
+        /// Add a comment to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse AddComment (string mediatype, string id, AddCommentData addCommentData);
 
         /// <summary>
-        /// Set the comment for the interaction
+        /// Add a comment.
         /// </summary>
         /// <remarks>
-        /// Set the comment for the interaction
+        /// Add a comment to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
@@ -173,28 +150,28 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AssignContactWithHttpInfo (string mediatype, string id, string contactId);
         /// <summary>
-        /// Attach user data to the interaction
+        /// Attach user data to the interaction.
         /// </summary>
         /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
+        /// Attach the provided data to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse AttachMediaUserData (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Attach user data to the interaction
+        /// Attach user data to the interaction.
         /// </summary>
         /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
+        /// Attach the provided data to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AttachMediaUserDataWithHttpInfo (string mediatype, string id, UserData userData);
         /// <summary>
@@ -223,356 +200,356 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> AttachmentsWithHttpInfo (string mediatype, string id, string documentId);
         /// <summary>
-        /// Complete open-media interaction
+        /// Complete the interaction.
         /// </summary>
         /// <remarks>
-        /// Complete the interaction specified in the id path parameter
+        /// Marks the specified interaction as complete.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse Complete (string mediatype, string id);
 
         /// <summary>
-        /// Complete open-media interaction
+        /// Complete the interaction.
         /// </summary>
         /// <remarks>
-        /// Complete the interaction specified in the id path parameter
+        /// Marks the specified interaction as complete.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> CompleteWithHttpInfo (string mediatype, string id);
         /// <summary>
-        /// Consult other agent during the chat
+        /// Remove key/value pairs from user data.
         /// </summary>
         /// <remarks>
-        /// consult other agent during the chat
+        /// Delete data with the specified keys from the interaction&#39;s user data.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Consult (string id, ConsultData consultData);
-
-        /// <summary>
-        /// Consult other agent during the chat
-        /// </summary>
-        /// <remarks>
-        /// consult other agent during the chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ConsultWithHttpInfo (string id, ConsultData consultData);
-        /// <summary>
-        /// Consult a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// Consult a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse ConsultByQueue (string id, ConsultData1 consultData);
-
-        /// <summary>
-        /// Consult a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// Consult a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ConsultByQueueWithHttpInfo (string id, ConsultData1 consultData);
-        /// <summary>
-        /// Remove key/value pair from user data
-        /// </summary>
-        /// <remarks>
-        /// Deletes the specified key from the interaction data.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DeleteMediaUserData (string mediatype, string id, UserData2 userData);
 
         /// <summary>
-        /// Remove key/value pair from user data
+        /// Remove key/value pairs from user data.
         /// </summary>
         /// <remarks>
-        /// Deletes the specified key from the interaction data.
+        /// Delete data with the specified keys from the interaction&#39;s user data.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DeleteMediaUserDataWithHttpInfo (string mediatype, string id, UserData2 userData);
         /// <summary>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb for the current agent on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DndOff ();
 
         /// <summary>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb for the current agent on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DndOffWithHttpInfo ();
         /// <summary>
-        /// Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn on do not disturb for open media channels
+        /// Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DndOn ();
 
         /// <summary>
-        /// Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn on do not disturb for open media channels
+        /// Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DndOnWithHttpInfo ();
         /// <summary>
-        /// Invite other agent to join the chat
+        /// Log out of all media channels.
         /// </summary>
         /// <remarks>
-        /// Invite other agent to join the chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Invite (string id, InviteData inviteData);
-
-        /// <summary>
-        /// Invite other agent to join the chat
-        /// </summary>
-        /// <remarks>
-        /// Invite other agent to join the chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> InviteWithHttpInfo (string id, InviteData inviteData);
-        /// <summary>
-        /// inviite a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// invite a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse InviteByQueue (string id, InviteData1 inviteData);
-
-        /// <summary>
-        /// inviite a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// invite a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> InviteByQueueWithHttpInfo (string id, InviteData1 inviteData);
-        /// <summary>
-        /// Leave a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Leave the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse LeaveChat (string id, LeaveData leaveData = null);
-
-        /// <summary>
-        /// Leave a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Leave the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> LeaveChatWithHttpInfo (string id, LeaveData leaveData = null);
-        /// <summary>
-        /// Logout all open media channels
-        /// </summary>
-        /// <remarks>
-        /// 
+        /// Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse LogoutAgentState ();
 
         /// <summary>
-        /// Logout all open media channels
+        /// Log out of all media channels.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LogoutAgentStateWithHttpInfo ();
         /// <summary>
-        /// Change to the not ready state for all open media channels
+        /// Start monitoring an agent.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse MediaStartMonitoring (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null);
+
+        /// <summary>
+        /// Start monitoring an agent.
+        /// </summary>
+        /// <remarks>
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> MediaStartMonitoringWithHttpInfo (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null);
+        /// <summary>
+        /// Stop monitoring an agent.
+        /// </summary>
+        /// <remarks>
+        /// Stop supervisor monitoring of an agent on the specified media channel.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse MediaStopMonitoring (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null);
+
+        /// <summary>
+        /// Stop monitoring an agent.
+        /// </summary>
+        /// <remarks>
+        /// Stop supervisor monitoring of an agent on the specified media channel.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> MediaStopMonitoringWithHttpInfo (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null);
+        /// <summary>
+        /// Switch to the barge in monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse MediaSwicthToBarge (string mediatype, string id);
+
+        /// <summary>
+        /// Switch to the barge in monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> MediaSwicthToBargeWithHttpInfo (string mediatype, string id);
+        /// <summary>
+        /// Switch to the coach monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse MediaSwicthToCoach (string mediatype, string id);
+
+        /// <summary>
+        /// Switch to the coach monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> MediaSwicthToCoachWithHttpInfo (string mediatype, string id);
+        /// <summary>
+        /// Switch to the monitor mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse MediaSwicthToMonitor (string mediatype, string id);
+
+        /// <summary>
+        /// Switch to the monitor mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> MediaSwicthToMonitorWithHttpInfo (string mediatype, string id);
+        /// <summary>
+        /// Set the agent state to Not Ready.
+        /// </summary>
+        /// <remarks>
+        /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse NotReadyAgentState ();
 
         /// <summary>
-        /// Change to the not ready state for all open media channels
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> NotReadyAgentStateWithHttpInfo ();
         /// <summary>
-        /// Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the not ready state for open media channel
+        /// Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse NotReadyForMedia (string mediatype, NotReadyForMediaData notReadyForMediaData);
 
         /// <summary>
-        /// Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the not ready state for open media channel
+        /// Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> NotReadyForMediaWithHttpInfo (string mediatype, NotReadyForMediaData notReadyForMediaData);
         /// <summary>
-        /// Place the interaction in queue
+        /// Place the interaction in a queue.
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in the specified queue.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse PlaceInQueue (string mediatype, string id, PlaceInQueueData placeInQueueData);
 
         /// <summary>
-        /// Place the interaction in queue
+        /// Place the interaction in a queue.
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in the specified queue.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> PlaceInQueueWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData);
         /// <summary>
-        /// Change to the ready state for all open media channels
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the current agent&#39;s state to Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse ReadyAgentState ();
 
         /// <summary>
-        /// Change to the ready state for all open media channels
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the current agent&#39;s state to Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ReadyAgentStateWithHttpInfo ();
         /// <summary>
-        /// Change to the ready state for open media channel
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the ready state for open media channel
+        /// Set the current agent&#39;s state to Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse ReadyForMedia (string mediatype, ReadyForMediaData readyForMediaData = null);
 
         /// <summary>
-        /// Change to the ready state for open media channel
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the ready state for open media channel
+        /// Set the current agent&#39;s state to Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ReadyForMediaWithHttpInfo (string mediatype, ReadyForMediaData readyForMediaData = null);
         /// <summary>
-        /// Reject an open-media interaction
+        /// Reject an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Reject the interaction specified in the id path parameter
+        /// Reject the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse Reject (string mediatype, string id, RejectData rejectData = null);
 
         /// <summary>
-        /// Reject an open-media interaction
+        /// Reject an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Reject the interaction specified in the id path parameter
+        /// Reject the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RejectWithHttpInfo (string mediatype, string id, RejectData rejectData = null);
@@ -602,243 +579,105 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RemoveAttachmentWithHttpInfo (string mediatype, string id, string documentId);
         /// <summary>
-        /// Logout the open media channel
+        /// Log out of the media channel.
         /// </summary>
         /// <remarks>
-        /// Logout the open media channel
+        /// Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse RemoveMedia (string mediatype, LogoutMediaData logoutMediaData);
 
         /// <summary>
-        /// Logout the open media channel
+        /// Log out of the media channel.
         /// </summary>
         /// <remarks>
-        /// Logout the open media channel
+        /// Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RemoveMediaWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
-        /// Send custom notification to the specified chat
+        /// Transfer the interaction.
         /// </summary>
         /// <remarks>
-        /// Send custom notification to the specified chat
+        /// Transfer the interaction to the specified agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendCustomNotification (string id, AcceptData5 acceptData = null);
-
-        /// <summary>
-        /// Send custom notification to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send custom notification to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendCustomNotificationWithHttpInfo (string id, AcceptData5 acceptData = null);
-        /// <summary>
-        /// Send a message to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a message to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendMessage (string id, AcceptData1 acceptData = null);
-
-        /// <summary>
-        /// Send a message to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a message to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendMessageWithHttpInfo (string id, AcceptData1 acceptData = null);
-        /// <summary>
-        /// Send notification that typing started to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing started to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendTypingStarted (string id, AcceptData3 acceptData = null);
-
-        /// <summary>
-        /// Send notification that typing started to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing started to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendTypingStartedWithHttpInfo (string id, AcceptData3 acceptData = null);
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing stoppped to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendTypingStopped (string id, AcceptData4 acceptData = null);
-
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing stoppped to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendTypingStoppedWithHttpInfo (string id, AcceptData4 acceptData = null);
-        /// <summary>
-        /// Send a url to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a url to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SendUrlData (string id, AcceptData2 acceptData = null);
-
-        /// <summary>
-        /// Send a url to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a url to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SendUrlDataWithHttpInfo (string id, AcceptData2 acceptData = null);
-        /// <summary>
-        /// Transfer the interaction to the agent
-        /// </summary>
-        /// <remarks>
-        /// Transfer the interaction to an agent.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse TransferAgent (string mediatype, string id, TransferData transferData);
 
         /// <summary>
-        /// Transfer the interaction to the agent
+        /// Transfer the interaction.
         /// </summary>
         /// <remarks>
-        /// Transfer the interaction to an agent.
+        /// Transfer the interaction to the specified agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> TransferAgentWithHttpInfo (string mediatype, string id, TransferData transferData);
         /// <summary>
-        /// Update user data to the interaction
+        /// Update user data for an interaction.
         /// </summary>
         /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
+        /// Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse UpdateMediaUserData (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Update user data to the interaction
+        /// Update user data for an interaction.
         /// </summary>
         /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
+        /// Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> UpdateMediaUserDataWithHttpInfo (string mediatype, string id, UserData userData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Accept an open-media interaction
+        /// Accept an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Accept the interaction specified in the id path parameter
+        /// Accept the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData7 acceptData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData6 acceptData = null);
 
         /// <summary>
-        /// Accept an open-media interaction
+        /// Accept an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Accept the interaction specified in the id path parameter
+        /// Accept the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null);
-        /// <summary>
-        /// Accept a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Accept the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AcceptChatAsync (string id, AcceptData acceptData = null);
-
-        /// <summary>
-        /// Accept a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Accept the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptChatAsyncWithHttpInfo (string id, AcceptData acceptData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData6 acceptData = null);
         /// <summary>
         /// Add an attachment to the open-media interaction
         /// </summary>
@@ -865,27 +704,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddAttachmentAsyncWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null);
         /// <summary>
-        /// Set the comment for the interaction
+        /// Add a comment.
         /// </summary>
         /// <remarks>
-        /// Set the comment for the interaction
+        /// Add a comment to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> AddCommentAsync (string mediatype, string id, AddCommentData addCommentData);
 
         /// <summary>
-        /// Set the comment for the interaction
+        /// Add a comment.
         /// </summary>
         /// <remarks>
-        /// Set the comment for the interaction
+        /// Add a comment to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
@@ -940,28 +779,28 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AssignContactAsyncWithHttpInfo (string mediatype, string id, string contactId);
         /// <summary>
-        /// Attach user data to the interaction
+        /// Attach user data to the interaction.
         /// </summary>
         /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
+        /// Attach the provided data to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> AttachMediaUserDataAsync (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Attach user data to the interaction
+        /// Attach user data to the interaction.
         /// </summary>
         /// <remarks>
-        /// Attach the interaction userdata with the provided key/value pairs.
+        /// Attach the provided data to the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AttachMediaUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData);
         /// <summary>
@@ -990,356 +829,356 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> AttachmentsAsyncWithHttpInfo (string mediatype, string id, string documentId);
         /// <summary>
-        /// Complete open-media interaction
+        /// Complete the interaction.
         /// </summary>
         /// <remarks>
-        /// Complete the interaction specified in the id path parameter
+        /// Marks the specified interaction as complete.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> CompleteAsync (string mediatype, string id);
 
         /// <summary>
-        /// Complete open-media interaction
+        /// Complete the interaction.
         /// </summary>
         /// <remarks>
-        /// Complete the interaction specified in the id path parameter
+        /// Marks the specified interaction as complete.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CompleteAsyncWithHttpInfo (string mediatype, string id);
         /// <summary>
-        /// Consult other agent during the chat
+        /// Remove key/value pairs from user data.
         /// </summary>
         /// <remarks>
-        /// consult other agent during the chat
+        /// Delete data with the specified keys from the interaction&#39;s user data.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ConsultAsync (string id, ConsultData consultData);
-
-        /// <summary>
-        /// Consult other agent during the chat
-        /// </summary>
-        /// <remarks>
-        /// consult other agent during the chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultAsyncWithHttpInfo (string id, ConsultData consultData);
-        /// <summary>
-        /// Consult a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// Consult a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ConsultByQueueAsync (string id, ConsultData1 consultData);
-
-        /// <summary>
-        /// Consult a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// Consult a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultByQueueAsyncWithHttpInfo (string id, ConsultData1 consultData);
-        /// <summary>
-        /// Remove key/value pair from user data
-        /// </summary>
-        /// <remarks>
-        /// Deletes the specified key from the interaction data.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DeleteMediaUserDataAsync (string mediatype, string id, UserData2 userData);
 
         /// <summary>
-        /// Remove key/value pair from user data
+        /// Remove key/value pairs from user data.
         /// </summary>
         /// <remarks>
-        /// Deletes the specified key from the interaction data.
+        /// Delete data with the specified keys from the interaction&#39;s user data.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteMediaUserDataAsyncWithHttpInfo (string mediatype, string id, UserData2 userData);
         /// <summary>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb for the current agent on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DndOffAsync ();
 
         /// <summary>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb for the current agent on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOffAsyncWithHttpInfo ();
         /// <summary>
-        /// Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn on do not disturb for open media channels
+        /// Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DndOnAsync ();
 
         /// <summary>
-        /// Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb.
         /// </summary>
         /// <remarks>
-        /// Turn on do not disturb for open media channels
+        /// Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DndOnAsyncWithHttpInfo ();
         /// <summary>
-        /// Invite other agent to join the chat
+        /// Log out of all media channels.
         /// </summary>
         /// <remarks>
-        /// Invite other agent to join the chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> InviteAsync (string id, InviteData inviteData);
-
-        /// <summary>
-        /// Invite other agent to join the chat
-        /// </summary>
-        /// <remarks>
-        /// Invite other agent to join the chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteAsyncWithHttpInfo (string id, InviteData inviteData);
-        /// <summary>
-        /// inviite a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// invite a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> InviteByQueueAsync (string id, InviteData1 inviteData);
-
-        /// <summary>
-        /// inviite a target defines in attached data
-        /// </summary>
-        /// <remarks>
-        /// invite a target defines in attached data
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteByQueueAsyncWithHttpInfo (string id, InviteData1 inviteData);
-        /// <summary>
-        /// Leave a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Leave the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id, LeaveData leaveData = null);
-
-        /// <summary>
-        /// Leave a chat interaction
-        /// </summary>
-        /// <remarks>
-        /// Leave the interaction specified in the id path parameter
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id, LeaveData leaveData = null);
-        /// <summary>
-        /// Logout all open media channels
-        /// </summary>
-        /// <remarks>
-        /// 
+        /// Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> LogoutAgentStateAsync ();
 
         /// <summary>
-        /// Logout all open media channels
+        /// Log out of all media channels.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutAgentStateAsyncWithHttpInfo ();
         /// <summary>
-        /// Change to the not ready state for all open media channels
+        /// Start monitoring an agent.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> MediaStartMonitoringAsync (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null);
+
+        /// <summary>
+        /// Start monitoring an agent.
+        /// </summary>
+        /// <remarks>
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaStartMonitoringAsyncWithHttpInfo (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null);
+        /// <summary>
+        /// Stop monitoring an agent.
+        /// </summary>
+        /// <remarks>
+        /// Stop supervisor monitoring of an agent on the specified media channel.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> MediaStopMonitoringAsync (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null);
+
+        /// <summary>
+        /// Stop monitoring an agent.
+        /// </summary>
+        /// <remarks>
+        /// Stop supervisor monitoring of an agent on the specified media channel.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaStopMonitoringAsyncWithHttpInfo (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null);
+        /// <summary>
+        /// Switch to the barge in monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeAsync (string mediatype, string id);
+
+        /// <summary>
+        /// Switch to the barge in monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToBargeAsyncWithHttpInfo (string mediatype, string id);
+        /// <summary>
+        /// Switch to the coach monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToCoachAsync (string mediatype, string id);
+
+        /// <summary>
+        /// Switch to the coach monitoring mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToCoachAsyncWithHttpInfo (string mediatype, string id);
+        /// <summary>
+        /// Switch to the monitor mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToMonitorAsync (string mediatype, string id);
+
+        /// <summary>
+        /// Switch to the monitor mode.
+        /// </summary>
+        /// <remarks>
+        /// Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToMonitorAsyncWithHttpInfo (string mediatype, string id);
+        /// <summary>
+        /// Set the agent state to Not Ready.
+        /// </summary>
+        /// <remarks>
+        /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync ();
 
         /// <summary>
-        /// Change to the not ready state for all open media channels
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo ();
         /// <summary>
-        /// Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the not ready state for open media channel
+        /// Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyForMediaAsync (string mediatype, NotReadyForMediaData notReadyForMediaData);
 
         /// <summary>
-        /// Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the not ready state for open media channel
+        /// Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyForMediaAsyncWithHttpInfo (string mediatype, NotReadyForMediaData notReadyForMediaData);
         /// <summary>
-        /// Place the interaction in queue
+        /// Place the interaction in a queue.
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in the specified queue.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> PlaceInQueueAsync (string mediatype, string id, PlaceInQueueData placeInQueueData);
 
         /// <summary>
-        /// Place the interaction in queue
+        /// Place the interaction in a queue.
         /// </summary>
         /// <remarks>
-        /// Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in the specified queue.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PlaceInQueueAsyncWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData);
         /// <summary>
-        /// Change to the ready state for all open media channels
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the current agent&#39;s state to Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> ReadyAgentStateAsync ();
 
         /// <summary>
-        /// Change to the ready state for all open media channels
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Set the current agent&#39;s state to Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReadyAgentStateAsyncWithHttpInfo ();
         /// <summary>
-        /// Change to the ready state for open media channel
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the ready state for open media channel
+        /// Set the current agent&#39;s state to Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> ReadyForMediaAsync (string mediatype, ReadyForMediaData readyForMediaData = null);
 
         /// <summary>
-        /// Change to the ready state for open media channel
+        /// Set the agent state to Ready.
         /// </summary>
         /// <remarks>
-        /// Change to the ready state for open media channel
+        /// Set the current agent&#39;s state to Ready on the specified media channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReadyForMediaAsyncWithHttpInfo (string mediatype, ReadyForMediaData readyForMediaData = null);
         /// <summary>
-        /// Reject an open-media interaction
+        /// Reject an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Reject the interaction specified in the id path parameter
+        /// Reject the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> RejectAsync (string mediatype, string id, RejectData rejectData = null);
 
         /// <summary>
-        /// Reject an open-media interaction
+        /// Reject an incoming interaction.
         /// </summary>
         /// <remarks>
-        /// Reject the interaction specified in the id path parameter
+        /// Reject the specified interaction.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, RejectData rejectData = null);
@@ -1369,191 +1208,76 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveAttachmentAsyncWithHttpInfo (string mediatype, string id, string documentId);
         /// <summary>
-        /// Logout the open media channel
+        /// Log out of the media channel.
         /// </summary>
         /// <remarks>
-        /// Logout the open media channel
+        /// Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> RemoveMediaAsync (string mediatype, LogoutMediaData logoutMediaData);
 
         /// <summary>
-        /// Logout the open media channel
+        /// Log out of the media channel.
         /// </summary>
         /// <remarks>
-        /// Logout the open media channel
+        /// Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveMediaAsyncWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
-        /// Send custom notification to the specified chat
+        /// Transfer the interaction.
         /// </summary>
         /// <remarks>
-        /// Send custom notification to the specified chat
+        /// Transfer the interaction to the specified agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendCustomNotificationAsync (string id, AcceptData5 acceptData = null);
-
-        /// <summary>
-        /// Send custom notification to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send custom notification to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendCustomNotificationAsyncWithHttpInfo (string id, AcceptData5 acceptData = null);
-        /// <summary>
-        /// Send a message to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a message to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendMessageAsync (string id, AcceptData1 acceptData = null);
-
-        /// <summary>
-        /// Send a message to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a message to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendMessageAsyncWithHttpInfo (string id, AcceptData1 acceptData = null);
-        /// <summary>
-        /// Send notification that typing started to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing started to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id, AcceptData3 acceptData = null);
-
-        /// <summary>
-        /// Send notification that typing started to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing started to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id, AcceptData3 acceptData = null);
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing stoppped to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id, AcceptData4 acceptData = null);
-
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send notification that typing stoppped to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id, AcceptData4 acceptData = null);
-        /// <summary>
-        /// Send a url to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a url to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SendUrlDataAsync (string id, AcceptData2 acceptData = null);
-
-        /// <summary>
-        /// Send a url to the specified chat
-        /// </summary>
-        /// <remarks>
-        /// Send a url to the specified chat
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUrlDataAsyncWithHttpInfo (string id, AcceptData2 acceptData = null);
-        /// <summary>
-        /// Transfer the interaction to the agent
-        /// </summary>
-        /// <remarks>
-        /// Transfer the interaction to an agent.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> TransferAgentAsync (string mediatype, string id, TransferData transferData);
 
         /// <summary>
-        /// Transfer the interaction to the agent
+        /// Transfer the interaction.
         /// </summary>
         /// <remarks>
-        /// Transfer the interaction to an agent.
+        /// Transfer the interaction to the specified agent.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TransferAgentAsyncWithHttpInfo (string mediatype, string id, TransferData transferData);
         /// <summary>
-        /// Update user data to the interaction
+        /// Update user data for an interaction.
         /// </summary>
         /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
+        /// Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> UpdateMediaUserDataAsync (string mediatype, string id, UserData userData);
 
         /// <summary>
-        /// Update user data to the interaction
+        /// Update user data for an interaction.
         /// </summary>
         /// <remarks>
-        /// Update the interaction userdata with the provided key/value pairs.
+        /// Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateMediaUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData);
         #endregion Asynchronous Operations
@@ -1657,28 +1381,28 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an open-media interaction Accept the interaction specified in the id path parameter
+        /// Accept an incoming interaction. Accept the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Accept (string mediatype, string id, AcceptData7 acceptData = null)
+        public ApiSuccessResponse Accept (string mediatype, string id, AcceptData6 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = AcceptWithHttpInfo(mediatype, id, acceptData);
              return localVarResponse.Data;
         }
 
         /// <summary>
-        /// Accept an open-media interaction Accept the interaction specified in the id path parameter
+        /// Accept an incoming interaction. Accept the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AcceptWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null)
+        public ApiResponse< ApiSuccessResponse > AcceptWithHttpInfo (string mediatype, string id, AcceptData6 acceptData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -1740,14 +1464,14 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an open-media interaction Accept the interaction specified in the id path parameter
+        /// Accept an incoming interaction. Accept the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData7 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptAsync (string mediatype, string id, AcceptData6 acceptData = null)
         {
              ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptAsyncWithHttpInfo(mediatype, id, acceptData);
              return localVarResponse.Data;
@@ -1755,14 +1479,14 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Accept an open-media interaction Accept the interaction specified in the id path parameter
+        /// Accept an incoming interaction. Accept the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to accept</param>
-        /// <param name="id">id of interaction to accept</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to accept.</param>
         /// <param name="acceptData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData7 acceptData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptAsyncWithHttpInfo (string mediatype, string id, AcceptData6 acceptData = null)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
@@ -1815,161 +1539,6 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("Accept", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Accept a chat interaction Accept the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AcceptChat (string id, AcceptData acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AcceptChatWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Accept a chat interaction Accept the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AcceptChatWithHttpInfo (string id, AcceptData acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AcceptChat");
-
-            var localVarPath = "/media/chat/interactions/{id}/accept";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AcceptChat", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Accept a chat interaction Accept the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AcceptChatAsync (string id, AcceptData acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AcceptChatAsyncWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Accept a chat interaction Accept the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AcceptChatAsyncWithHttpInfo (string id, AcceptData acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AcceptChat");
-
-            var localVarPath = "/media/chat/interactions/{id}/accept";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AcceptChat", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -2132,11 +1701,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the comment for the interaction Set the comment for the interaction
+        /// Add a comment. Add a comment to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse AddComment (string mediatype, string id, AddCommentData addCommentData)
@@ -2146,11 +1715,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the comment for the interaction Set the comment for the interaction
+        /// Add a comment. Add a comment to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > AddCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
@@ -2218,11 +1787,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the comment for the interaction Set the comment for the interaction
+        /// Add a comment. Add a comment to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> AddCommentAsync (string mediatype, string id, AddCommentData addCommentData)
@@ -2233,11 +1802,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the comment for the interaction Set the comment for the interaction
+        /// Add a comment. Add a comment to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="addCommentData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
@@ -2631,12 +2200,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction. Attach the provided data to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse AttachMediaUserData (string mediatype, string id, UserData userData)
         {
@@ -2645,12 +2214,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction. Attach the provided data to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > AttachMediaUserDataWithHttpInfo (string mediatype, string id, UserData userData)
         {
@@ -2717,12 +2286,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction. Attach the provided data to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> AttachMediaUserDataAsync (string mediatype, string id, UserData userData)
         {
@@ -2732,12 +2301,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Attach user data to the interaction Attach the interaction userdata with the provided key/value pairs.
+        /// Attach user data to the interaction. Attach the provided data to the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to attach to the interaction. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AttachMediaUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData)
         {
@@ -2963,11 +2532,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// Complete the interaction. Marks the specified interaction as complete.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse Complete (string mediatype, string id)
         {
@@ -2976,11 +2545,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// Complete the interaction. Marks the specified interaction as complete.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > CompleteWithHttpInfo (string mediatype, string id)
         {
@@ -3036,11 +2605,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// Complete the interaction. Marks the specified interaction as complete.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> CompleteAsync (string mediatype, string id)
         {
@@ -3050,11 +2619,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Complete open-media interaction Complete the interaction specified in the id path parameter
+        /// Complete the interaction. Marks the specified interaction as complete.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to complete</param>
-        /// <param name="id">id of interaction to complete</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to complete.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CompleteAsyncWithHttpInfo (string mediatype, string id)
         {
@@ -3110,334 +2679,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Consult other agent during the chat consult other agent during the chat
+        /// Remove key/value pairs from user data. Delete data with the specified keys from the interaction&#39;s user data.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Consult (string id, ConsultData consultData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ConsultWithHttpInfo(id, consultData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Consult other agent during the chat consult other agent during the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ConsultWithHttpInfo (string id, ConsultData consultData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Consult");
-            // verify the required parameter 'consultData' is set
-            if (consultData == null)
-                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->Consult");
-
-            var localVarPath = "/media/chat/interactions/{id}/consult";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (consultData != null && consultData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = consultData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Consult", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Consult other agent during the chat consult other agent during the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ConsultAsync (string id, ConsultData consultData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ConsultAsyncWithHttpInfo(id, consultData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Consult other agent during the chat consult other agent during the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultAsyncWithHttpInfo (string id, ConsultData consultData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Consult");
-            // verify the required parameter 'consultData' is set
-            if (consultData == null)
-                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->Consult");
-
-            var localVarPath = "/media/chat/interactions/{id}/consult";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (consultData != null && consultData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = consultData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Consult", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Consult a target defines in attached data Consult a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse ConsultByQueue (string id, ConsultData1 consultData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ConsultByQueueWithHttpInfo(id, consultData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Consult a target defines in attached data Consult a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ConsultByQueueWithHttpInfo (string id, ConsultData1 consultData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->ConsultByQueue");
-            // verify the required parameter 'consultData' is set
-            if (consultData == null)
-                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->ConsultByQueue");
-
-            var localVarPath = "/media/chat/interactions/{id}/consult-by-queue";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (consultData != null && consultData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = consultData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ConsultByQueue", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Consult a target defines in attached data Consult a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ConsultByQueueAsync (string id, ConsultData1 consultData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ConsultByQueueAsyncWithHttpInfo(id, consultData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Consult a target defines in attached data Consult a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="consultData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ConsultByQueueAsyncWithHttpInfo (string id, ConsultData1 consultData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->ConsultByQueue");
-            // verify the required parameter 'consultData' is set
-            if (consultData == null)
-                throw new ApiException(400, "Missing required parameter 'consultData' when calling MediaApi->ConsultByQueue");
-
-            var localVarPath = "/media/chat/interactions/{id}/consult-by-queue";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (consultData != null && consultData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(consultData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = consultData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("ConsultByQueue", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Remove key/value pair from user data Deletes the specified key from the interaction data.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse DeleteMediaUserData (string mediatype, string id, UserData2 userData)
         {
@@ -3446,12 +2693,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Remove key/value pair from user data Deletes the specified key from the interaction data.
+        /// Remove key/value pairs from user data. Delete data with the specified keys from the interaction&#39;s user data.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > DeleteMediaUserDataWithHttpInfo (string mediatype, string id, UserData2 userData)
         {
@@ -3518,12 +2765,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Remove key/value pair from user data Deletes the specified key from the interaction data.
+        /// Remove key/value pairs from user data. Delete data with the specified keys from the interaction&#39;s user data.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteMediaUserDataAsync (string mediatype, string id, UserData2 userData)
         {
@@ -3533,12 +2780,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Remove key/value pair from user data Deletes the specified key from the interaction data.
+        /// Remove key/value pairs from user data. Delete data with the specified keys from the interaction&#39;s user data.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">The keys of the key/value pairs to delete.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The keys of the data to remove.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteMediaUserDataAsyncWithHttpInfo (string mediatype, string id, UserData2 userData)
         {
@@ -3605,7 +2852,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -3616,7 +2863,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3666,7 +2913,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3678,7 +2925,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn off do not disturb for open media channel Turn off do not disturb for open media channel
+        /// Turn off Do Not Disturb. Turn off Do Not Disturb for the current agent on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3728,7 +2975,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -3739,7 +2986,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -3789,7 +3036,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -3801,7 +3048,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Turn on do not disturb for open media channels Turn on do not disturb for open media channels
+        /// Set the agent state to Do Not Disturb. Set the current agent&#39;s state to Do Not Disturb on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -3851,484 +3098,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Invite other agent to join the chat Invite other agent to join the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Invite (string id, InviteData inviteData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = InviteWithHttpInfo(id, inviteData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Invite other agent to join the chat Invite other agent to join the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > InviteWithHttpInfo (string id, InviteData inviteData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Invite");
-            // verify the required parameter 'inviteData' is set
-            if (inviteData == null)
-                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->Invite");
-
-            var localVarPath = "/media/chat/interactions/{id}/invite";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = inviteData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Invite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Invite other agent to join the chat Invite other agent to join the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> InviteAsync (string id, InviteData inviteData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await InviteAsyncWithHttpInfo(id, inviteData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Invite other agent to join the chat Invite other agent to join the chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteAsyncWithHttpInfo (string id, InviteData inviteData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->Invite");
-            // verify the required parameter 'inviteData' is set
-            if (inviteData == null)
-                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->Invite");
-
-            var localVarPath = "/media/chat/interactions/{id}/invite";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = inviteData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("Invite", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// inviite a target defines in attached data invite a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse InviteByQueue (string id, InviteData1 inviteData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = InviteByQueueWithHttpInfo(id, inviteData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// inviite a target defines in attached data invite a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > InviteByQueueWithHttpInfo (string id, InviteData1 inviteData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->InviteByQueue");
-            // verify the required parameter 'inviteData' is set
-            if (inviteData == null)
-                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->InviteByQueue");
-
-            var localVarPath = "/media/chat/interactions/{id}/invite-by-queue";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = inviteData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InviteByQueue", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// inviite a target defines in attached data invite a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> InviteByQueueAsync (string id, InviteData1 inviteData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await InviteByQueueAsyncWithHttpInfo(id, inviteData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// inviite a target defines in attached data invite a target defines in attached data
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="inviteData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> InviteByQueueAsyncWithHttpInfo (string id, InviteData1 inviteData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->InviteByQueue");
-            // verify the required parameter 'inviteData' is set
-            if (inviteData == null)
-                throw new ApiException(400, "Missing required parameter 'inviteData' when calling MediaApi->InviteByQueue");
-
-            var localVarPath = "/media/chat/interactions/{id}/invite-by-queue";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (inviteData != null && inviteData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(inviteData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = inviteData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("InviteByQueue", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Leave a chat interaction Leave the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse LeaveChat (string id, LeaveData leaveData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = LeaveChatWithHttpInfo(id, leaveData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Leave a chat interaction Leave the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > LeaveChatWithHttpInfo (string id, LeaveData leaveData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->LeaveChat");
-
-            var localVarPath = "/media/chat/interactions/{id}/leave";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (leaveData != null && leaveData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(leaveData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = leaveData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("LeaveChat", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Leave a chat interaction Leave the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> LeaveChatAsync (string id, LeaveData leaveData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await LeaveChatAsyncWithHttpInfo(id, leaveData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Leave a chat interaction Leave the interaction specified in the id path parameter
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="leaveData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LeaveChatAsyncWithHttpInfo (string id, LeaveData leaveData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->LeaveChat");
-
-            var localVarPath = "/media/chat/interactions/{id}/leave";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (leaveData != null && leaveData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(leaveData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = leaveData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("LeaveChat", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Logout all open media channels 
+        /// Log out of all media channels. Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -4339,7 +3109,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout all open media channels 
+        /// Log out of all media channels. Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4389,7 +3159,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout all open media channels 
+        /// Log out of all media channels. Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4401,7 +3171,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout all open media channels 
+        /// Log out of all media channels. Log out the current agent on all media channels. You can make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -4451,7 +3221,758 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for all open media channels 
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse MediaStartMonitoring (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = MediaStartMonitoringWithHttpInfo(mediatype, mediaStartMonitoringData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > MediaStartMonitoringWithHttpInfo (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaStartMonitoring");
+
+            var localVarPath = "/media/{mediatype}/start-monitoring";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (mediaStartMonitoringData != null && mediaStartMonitoringData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mediaStartMonitoringData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mediaStartMonitoringData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaStartMonitoring", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaStartMonitoringAsync (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaStartMonitoringAsyncWithHttpInfo(mediatype, mediaStartMonitoringData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStartMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaStartMonitoringAsyncWithHttpInfo (string mediatype, MediaStartMonitoringData mediaStartMonitoringData = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaStartMonitoring");
+
+            var localVarPath = "/media/{mediatype}/start-monitoring";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (mediaStartMonitoringData != null && mediaStartMonitoringData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mediaStartMonitoringData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mediaStartMonitoringData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaStartMonitoring", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Stop monitoring an agent. Stop supervisor monitoring of an agent on the specified media channel.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse MediaStopMonitoring (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = MediaStopMonitoringWithHttpInfo(mediatype, mediaStopMonitoringData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Stop monitoring an agent. Stop supervisor monitoring of an agent on the specified media channel.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > MediaStopMonitoringWithHttpInfo (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaStopMonitoring");
+
+            var localVarPath = "/media/{mediatype}/stop-monitoring";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (mediaStopMonitoringData != null && mediaStopMonitoringData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mediaStopMonitoringData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mediaStopMonitoringData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaStopMonitoring", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Stop monitoring an agent. Stop supervisor monitoring of an agent on the specified media channel.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaStopMonitoringAsync (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaStopMonitoringAsyncWithHttpInfo(mediatype, mediaStopMonitoringData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Stop monitoring an agent. Stop supervisor monitoring of an agent on the specified media channel.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="mediaStopMonitoringData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaStopMonitoringAsyncWithHttpInfo (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaStopMonitoring");
+
+            var localVarPath = "/media/{mediatype}/stop-monitoring";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (mediaStopMonitoringData != null && mediaStopMonitoringData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(mediaStopMonitoringData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = mediaStopMonitoringData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaStopMonitoring", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse MediaSwicthToBarge (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = MediaSwicthToBargeWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > MediaSwicthToBargeWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToBarge");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToBarge");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaSwicthToBarge", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeAsync (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaSwicthToBargeAsyncWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToBargeAsyncWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToBarge");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToBarge");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaSwicthToBarge", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Switch to the coach monitoring mode. Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse MediaSwicthToCoach (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = MediaSwicthToCoachWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Switch to the coach monitoring mode. Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > MediaSwicthToCoachWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToCoach");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToCoach");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-coach";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaSwicthToCoach", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Switch to the coach monitoring mode. Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToCoachAsync (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaSwicthToCoachAsyncWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Switch to the coach monitoring mode. Switch to the coach monitoring mode for the specified chat. Only the agent can see the  supervisor&#39;s messages.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToCoachAsyncWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToCoach");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToCoach");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-coach";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaSwicthToCoach", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Switch to the monitor mode. Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse MediaSwicthToMonitor (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = MediaSwicthToMonitorWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Switch to the monitor mode. Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > MediaSwicthToMonitorWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToMonitor");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToMonitor");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-monitor";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaSwicthToMonitor", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Switch to the monitor mode. Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToMonitorAsync (string mediatype, string id)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaSwicthToMonitorAsyncWithHttpInfo(mediatype, id);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Switch to the monitor mode. Switch to the monitor mode for the specified chat. The supervisor can&#39;t send messages in this  mode and only another supervisor can see that the monitoring supervisor joined the chat.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the chat interaction.</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToMonitorAsyncWithHttpInfo (string mediatype, string id)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToMonitor");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToMonitor");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-monitor";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("MediaSwicthToMonitor", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -4462,7 +3983,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for all open media channels 
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4512,7 +4033,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for all open media channels 
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4524,7 +4045,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for all open media channels 
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -4574,10 +4095,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for open media channel Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse NotReadyForMedia (string mediatype, NotReadyForMediaData notReadyForMediaData)
@@ -4587,10 +4108,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for open media channel Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > NotReadyForMediaWithHttpInfo (string mediatype, NotReadyForMediaData notReadyForMediaData)
@@ -4654,10 +4175,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for open media channel Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyForMediaAsync (string mediatype, NotReadyForMediaData notReadyForMediaData)
@@ -4668,10 +4189,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the not ready state for open media channel Change to the not ready state for open media channel
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="notReadyForMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyForMediaAsyncWithHttpInfo (string mediatype, NotReadyForMediaData notReadyForMediaData)
@@ -4735,11 +4256,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in a queue. Place the interaction in the specified queue.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse PlaceInQueue (string mediatype, string id, PlaceInQueueData placeInQueueData)
@@ -4749,11 +4270,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in a queue. Place the interaction in the specified queue.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > PlaceInQueueWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData)
@@ -4821,11 +4342,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in a queue. Place the interaction in the specified queue.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> PlaceInQueueAsync (string mediatype, string id, PlaceInQueueData placeInQueueData)
@@ -4836,11 +4357,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Place the interaction in queue Place the interaction in queue with modification of properties pairs.
+        /// Place the interaction in a queue. Place the interaction in the specified queue.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="placeInQueueData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> PlaceInQueueAsyncWithHttpInfo (string mediatype, string id, PlaceInQueueData placeInQueueData)
@@ -4908,7 +4429,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for all open media channels 
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -4919,7 +4440,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for all open media channels 
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4969,7 +4490,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for all open media channels 
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4981,7 +4502,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for all open media channels 
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -5031,10 +4552,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for open media channel Change to the ready state for open media channel
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse ReadyForMedia (string mediatype, ReadyForMediaData readyForMediaData = null)
@@ -5044,10 +4565,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for open media channel Change to the ready state for open media channel
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > ReadyForMediaWithHttpInfo (string mediatype, ReadyForMediaData readyForMediaData = null)
@@ -5108,10 +4629,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for open media channel Change to the ready state for open media channel
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> ReadyForMediaAsync (string mediatype, ReadyForMediaData readyForMediaData = null)
@@ -5122,10 +4643,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Change to the ready state for open media channel Change to the ready state for open media channel
+        /// Set the agent state to Ready. Set the current agent&#39;s state to Ready on the specified media channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="readyForMediaData"> (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReadyForMediaAsyncWithHttpInfo (string mediatype, ReadyForMediaData readyForMediaData = null)
@@ -5186,11 +4707,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reject an open-media interaction Reject the interaction specified in the id path parameter
+        /// Reject an incoming interaction. Reject the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse Reject (string mediatype, string id, RejectData rejectData = null)
@@ -5200,11 +4721,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reject an open-media interaction Reject the interaction specified in the id path parameter
+        /// Reject an incoming interaction. Reject the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > RejectWithHttpInfo (string mediatype, string id, RejectData rejectData = null)
@@ -5269,11 +4790,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reject an open-media interaction Reject the interaction specified in the id path parameter
+        /// Reject an incoming interaction. Reject the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> RejectAsync (string mediatype, string id, RejectData rejectData = null)
@@ -5284,11 +4805,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Reject an open-media interaction Reject the interaction specified in the id path parameter
+        /// Reject an incoming interaction. Reject the specified interaction.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction to reject</param>
-        /// <param name="id">id of interaction to reject</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction to reject.</param>
         /// <param name="rejectData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RejectAsyncWithHttpInfo (string mediatype, string id, RejectData rejectData = null)
@@ -5512,10 +5033,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the open media channel Logout the open media channel
+        /// Log out of the media channel. Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse RemoveMedia (string mediatype, LogoutMediaData logoutMediaData)
@@ -5525,10 +5046,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the open media channel Logout the open media channel
+        /// Log out of the media channel. Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > RemoveMediaWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData)
@@ -5592,10 +5113,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the open media channel Logout the open media channel
+        /// Log out of the media channel. Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> RemoveMediaAsync (string mediatype, LogoutMediaData logoutMediaData)
@@ -5606,10 +5127,10 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout the open media channel Logout the open media channel
+        /// Log out of the media channel. Log out the current agent on the specified media channels. You can   make a &#x60;/media/{mediatype}/ready&#x60; or &#x60;/media/{mediatype}/not-ready&#x60; request to log in to the media channel again. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype"></param>
+        /// <param name="mediatype">The media channel.</param>
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveMediaAsyncWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData)
@@ -5673,786 +5194,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send custom notification to the specified chat Send custom notification to the specified chat
+        /// Transfer the interaction. Transfer the interaction to the specified agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendCustomNotification (string id, AcceptData5 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendCustomNotificationWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send custom notification to the specified chat Send custom notification to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendCustomNotificationWithHttpInfo (string id, AcceptData5 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendCustomNotification");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-custom-notification";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendCustomNotification", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send custom notification to the specified chat Send custom notification to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendCustomNotificationAsync (string id, AcceptData5 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendCustomNotificationAsyncWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Send custom notification to the specified chat Send custom notification to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendCustomNotificationAsyncWithHttpInfo (string id, AcceptData5 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendCustomNotification");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-custom-notification";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendCustomNotification", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send a message to the specified chat Send a message to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendMessage (string id, AcceptData1 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendMessageWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send a message to the specified chat Send a message to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendMessageWithHttpInfo (string id, AcceptData1 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendMessage");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-message";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendMessage", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send a message to the specified chat Send a message to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendMessageAsync (string id, AcceptData1 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendMessageAsyncWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Send a message to the specified chat Send a message to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a message to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendMessageAsyncWithHttpInfo (string id, AcceptData1 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendMessage");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-message";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendMessage", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send notification that typing started to the specified chat Send notification that typing started to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendTypingStarted (string id, AcceptData3 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStartedWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send notification that typing started to the specified chat Send notification that typing started to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendTypingStartedWithHttpInfo (string id, AcceptData3 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendTypingStarted");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-typing-started";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendTypingStarted", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send notification that typing started to the specified chat Send notification that typing started to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStartedAsync (string id, AcceptData3 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStartedAsyncWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Send notification that typing started to the specified chat Send notification that typing started to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStartedAsyncWithHttpInfo (string id, AcceptData3 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendTypingStarted");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-typing-started";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendTypingStarted", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat Send notification that typing stoppped to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendTypingStopped (string id, AcceptData4 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendTypingStoppedWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat Send notification that typing stoppped to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendTypingStoppedWithHttpInfo (string id, AcceptData4 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendTypingStopped");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-typing-stopped";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendTypingStopped", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat Send notification that typing stoppped to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendTypingStoppedAsync (string id, AcceptData4 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendTypingStoppedAsyncWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Send notification that typing stopped to the specified chat Send notification that typing stoppped to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendTypingStoppedAsyncWithHttpInfo (string id, AcceptData4 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendTypingStopped");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-typing-stopped";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendTypingStopped", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send a url to the specified chat Send a url to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SendUrlData (string id, AcceptData2 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SendUrlDataWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Send a url to the specified chat Send a url to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SendUrlDataWithHttpInfo (string id, AcceptData2 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendUrlData");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-url";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendUrlData", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Send a url to the specified chat Send a url to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SendUrlDataAsync (string id, AcceptData2 acceptData = null)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SendUrlDataAsyncWithHttpInfo(id, acceptData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Send a url to the specified chat Send a url to the specified chat
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of interaction to send a url to</param>
-        /// <param name="acceptData">Request parameters. (optional)</param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUrlDataAsyncWithHttpInfo (string id, AcceptData2 acceptData = null)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SendUrlData");
-
-            var localVarPath = "/media/chat/interactions/{id}/send-url";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new List<KeyValuePair<String, String>>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (acceptData != null && acceptData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(acceptData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = acceptData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SendUrlData", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Transfer the interaction to the agent Transfer the interaction to an agent.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse TransferAgent (string mediatype, string id, TransferData transferData)
@@ -6462,11 +5208,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Transfer the interaction to an agent.
+        /// Transfer the interaction. Transfer the interaction to the specified agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > TransferAgentWithHttpInfo (string mediatype, string id, TransferData transferData)
@@ -6534,11 +5280,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Transfer the interaction to an agent.
+        /// Transfer the interaction. Transfer the interaction to the specified agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> TransferAgentAsync (string mediatype, string id, TransferData transferData)
@@ -6549,11 +5295,11 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Transfer the interaction to the agent Transfer the interaction to an agent.
+        /// Transfer the interaction. Transfer the interaction to the specified agent.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
         /// <param name="transferData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> TransferAgentAsyncWithHttpInfo (string mediatype, string id, TransferData transferData)
@@ -6621,12 +5367,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data for an interaction. Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse UpdateMediaUserData (string mediatype, string id, UserData userData)
         {
@@ -6635,12 +5381,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data for an interaction. Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > UpdateMediaUserDataWithHttpInfo (string mediatype, string id, UserData userData)
         {
@@ -6707,12 +5453,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data for an interaction. Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> UpdateMediaUserDataAsync (string mediatype, string id, UserData userData)
         {
@@ -6722,12 +5468,12 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Update user data to the interaction Update the interaction userdata with the provided key/value pairs.
+        /// Update user data for an interaction. Update the interaction with the provided key/value pairs. This replaces any existing key/value pairs with the same keys.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">media-type of interaction</param>
-        /// <param name="id">id of the interaction</param>
-        /// <param name="userData">An array of key/value pairs.</param>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="userData">The data to update. This is an array of objects with the properties key, type, and value.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> UpdateMediaUserDataAsyncWithHttpInfo (string mediatype, string id, UserData userData)
         {

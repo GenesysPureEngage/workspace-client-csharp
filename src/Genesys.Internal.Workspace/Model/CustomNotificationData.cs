@@ -25,26 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediachatinteractionsidacceptData
+    /// CustomNotificationData
     /// </summary>
     [DataContract]
-    public partial class MediachatinteractionsidacceptData :  IEquatable<MediachatinteractionsidacceptData>, IValidatableObject
+    public partial class CustomNotificationData :  IEquatable<CustomNotificationData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidacceptData" /> class.
+        /// Initializes a new instance of the <see cref="CustomNotificationData" /> class.
         /// </summary>
-        /// <param name="Nickname">The agent&#39;s nickname, as displayed to the chat participants..</param>
-        public MediachatinteractionsidacceptData(string Nickname = default(string))
+        /// <param name="Data">Data.</param>
+        public CustomNotificationData(MediachatinteractionsidsendcustomnotificationData Data = default(MediachatinteractionsidsendcustomnotificationData))
         {
-            this.Nickname = Nickname;
+            this.Data = Data;
         }
         
         /// <summary>
-        /// The agent&#39;s nickname, as displayed to the chat participants.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The agent&#39;s nickname, as displayed to the chat participants.</value>
-        [DataMember(Name="nickname", EmitDefaultValue=false)]
-        public string Nickname { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MediachatinteractionsidsendcustomnotificationData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -53,8 +52,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediachatinteractionsidacceptData {\n");
-            sb.Append("  Nickname: ").Append(Nickname).Append("\n");
+            sb.Append("class CustomNotificationData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,24 +74,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediachatinteractionsidacceptData);
+            return this.Equals(input as CustomNotificationData);
         }
 
         /// <summary>
-        /// Returns true if MediachatinteractionsidacceptData instances are equal
+        /// Returns true if CustomNotificationData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidacceptData to be compared</param>
+        /// <param name="input">Instance of CustomNotificationData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidacceptData input)
+        public bool Equals(CustomNotificationData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Nickname == input.Nickname ||
-                    (this.Nickname != null &&
-                    this.Nickname.Equals(input.Nickname))
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -105,8 +104,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Nickname != null)
-                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
+                if (this.Data != null)
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 return hashCode;
             }
         }

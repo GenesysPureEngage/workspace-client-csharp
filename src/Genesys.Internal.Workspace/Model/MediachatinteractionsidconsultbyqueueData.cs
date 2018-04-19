@@ -25,25 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// AcceptData7
+    /// MediachatinteractionsidconsultbyqueueData
     /// </summary>
     [DataContract]
-    public partial class AcceptData7 :  IEquatable<AcceptData7>, IValidatableObject
+    public partial class MediachatinteractionsidconsultbyqueueData :  IEquatable<MediachatinteractionsidconsultbyqueueData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="AcceptData7" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidconsultbyqueueData" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public AcceptData7(MediamediatypeinteractionsidacceptData Data = default(MediamediatypeinteractionsidacceptData))
+        [JsonConstructorAttribute]
+        protected MediachatinteractionsidconsultbyqueueData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidconsultbyqueueData" /> class.
+        /// </summary>
+        /// <param name="Queue">The name of the queue where the Workspace API should send the consult invite. (required).</param>
+        public MediachatinteractionsidconsultbyqueueData(string Queue = default(string))
         {
-            this.Data = Data;
+            // to ensure "Queue" is required (not null)
+            if (Queue == null)
+            {
+                throw new InvalidDataException("Queue is a required property for MediachatinteractionsidconsultbyqueueData and cannot be null");
+            }
+            else
+            {
+                this.Queue = Queue;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// The name of the queue where the Workspace API should send the consult invite.
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public MediamediatypeinteractionsidacceptData Data { get; set; }
+        /// <value>The name of the queue where the Workspace API should send the consult invite.</value>
+        [DataMember(Name="queue", EmitDefaultValue=false)]
+        public string Queue { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class AcceptData7 {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class MediachatinteractionsidconsultbyqueueData {\n");
+            sb.Append("  Queue: ").Append(Queue).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -74,24 +88,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as AcceptData7);
+            return this.Equals(input as MediachatinteractionsidconsultbyqueueData);
         }
 
         /// <summary>
-        /// Returns true if AcceptData7 instances are equal
+        /// Returns true if MediachatinteractionsidconsultbyqueueData instances are equal
         /// </summary>
-        /// <param name="input">Instance of AcceptData7 to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidconsultbyqueueData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(AcceptData7 input)
+        public bool Equals(MediachatinteractionsidconsultbyqueueData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Queue == input.Queue ||
+                    (this.Queue != null &&
+                    this.Queue.Equals(input.Queue))
                 );
         }
 
@@ -104,8 +118,8 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                if (this.Queue != null)
+                    hashCode = hashCode * 59 + this.Queue.GetHashCode();
                 return hashCode;
             }
         }

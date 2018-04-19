@@ -25,10 +25,10 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediachatinteractionsidsendmessageData
+    /// MediachatinteractionsidupdatenicknameData
     /// </summary>
     [DataContract]
-    public partial class MediachatinteractionsidsendmessageData :  IEquatable<MediachatinteractionsidsendmessageData>, IValidatableObject
+    public partial class MediachatinteractionsidupdatenicknameData :  IEquatable<MediachatinteractionsidupdatenicknameData>, IValidatableObject
     {
         /// <summary>
         /// Defines which participants in the chat can see the message.
@@ -64,74 +64,35 @@ namespace Genesys.Internal.Workspace.Model
         [DataMember(Name="visibility", EmitDefaultValue=false)]
         public VisibilityEnum? Visibility { get; set; }
         /// <summary>
-        /// Specifies how the message should be treated.
-        /// </summary>
-        /// <value>Specifies how the message should be treated.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum TreatAsEnum
-        {
-            
-            /// <summary>
-            /// Enum Normal for value: Normal
-            /// </summary>
-            [EnumMember(Value = "Normal")]
-            Normal = 1,
-            
-            /// <summary>
-            /// Enum System for value: System
-            /// </summary>
-            [EnumMember(Value = "System")]
-            System = 2
-        }
-
-        /// <summary>
-        /// Specifies how the message should be treated.
-        /// </summary>
-        /// <value>Specifies how the message should be treated.</value>
-        [DataMember(Name="treatAs", EmitDefaultValue=false)]
-        public TreatAsEnum? TreatAs { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendmessageData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidupdatenicknameData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MediachatinteractionsidsendmessageData() { }
+        protected MediachatinteractionsidupdatenicknameData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediachatinteractionsidsendmessageData" /> class.
+        /// Initializes a new instance of the <see cref="MediachatinteractionsidupdatenicknameData" /> class.
         /// </summary>
-        /// <param name="Message">The message to send to the chat participants. (required).</param>
-        /// <param name="MessageType">The type of message..</param>
+        /// <param name="Nickname">The new nickname. (required).</param>
         /// <param name="Visibility">Defines which participants in the chat can see the message..</param>
-        /// <param name="TreatAs">Specifies how the message should be treated..</param>
-        public MediachatinteractionsidsendmessageData(string Message = default(string), string MessageType = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?), TreatAsEnum? TreatAs = default(TreatAsEnum?))
+        public MediachatinteractionsidupdatenicknameData(string Nickname = default(string), VisibilityEnum? Visibility = default(VisibilityEnum?))
         {
-            // to ensure "Message" is required (not null)
-            if (Message == null)
+            // to ensure "Nickname" is required (not null)
+            if (Nickname == null)
             {
-                throw new InvalidDataException("Message is a required property for MediachatinteractionsidsendmessageData and cannot be null");
+                throw new InvalidDataException("Nickname is a required property for MediachatinteractionsidupdatenicknameData and cannot be null");
             }
             else
             {
-                this.Message = Message;
+                this.Nickname = Nickname;
             }
-            this.MessageType = MessageType;
             this.Visibility = Visibility;
-            this.TreatAs = TreatAs;
         }
         
         /// <summary>
-        /// The message to send to the chat participants.
+        /// The new nickname.
         /// </summary>
-        /// <value>The message to send to the chat participants.</value>
-        [DataMember(Name="message", EmitDefaultValue=false)]
-        public string Message { get; set; }
-
-        /// <summary>
-        /// The type of message.
-        /// </summary>
-        /// <value>The type of message.</value>
-        [DataMember(Name="messageType", EmitDefaultValue=false)]
-        public string MessageType { get; set; }
-
+        /// <value>The new nickname.</value>
+        [DataMember(Name="nickname", EmitDefaultValue=false)]
+        public string Nickname { get; set; }
 
 
         /// <summary>
@@ -141,11 +102,9 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediachatinteractionsidsendmessageData {\n");
-            sb.Append("  Message: ").Append(Message).Append("\n");
-            sb.Append("  MessageType: ").Append(MessageType).Append("\n");
+            sb.Append("class MediachatinteractionsidupdatenicknameData {\n");
+            sb.Append("  Nickname: ").Append(Nickname).Append("\n");
             sb.Append("  Visibility: ").Append(Visibility).Append("\n");
-            sb.Append("  TreatAs: ").Append(TreatAs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -166,39 +125,29 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediachatinteractionsidsendmessageData);
+            return this.Equals(input as MediachatinteractionsidupdatenicknameData);
         }
 
         /// <summary>
-        /// Returns true if MediachatinteractionsidsendmessageData instances are equal
+        /// Returns true if MediachatinteractionsidupdatenicknameData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidsendmessageData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidupdatenicknameData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidsendmessageData input)
+        public bool Equals(MediachatinteractionsidupdatenicknameData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
-                ) && 
-                (
-                    this.MessageType == input.MessageType ||
-                    (this.MessageType != null &&
-                    this.MessageType.Equals(input.MessageType))
+                    this.Nickname == input.Nickname ||
+                    (this.Nickname != null &&
+                    this.Nickname.Equals(input.Nickname))
                 ) && 
                 (
                     this.Visibility == input.Visibility ||
                     (this.Visibility != null &&
                     this.Visibility.Equals(input.Visibility))
-                ) && 
-                (
-                    this.TreatAs == input.TreatAs ||
-                    (this.TreatAs != null &&
-                    this.TreatAs.Equals(input.TreatAs))
                 );
         }
 
@@ -211,14 +160,10 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
-                if (this.MessageType != null)
-                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
+                if (this.Nickname != null)
+                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
                 if (this.Visibility != null)
                     hashCode = hashCode * 59 + this.Visibility.GetHashCode();
-                if (this.TreatAs != null)
-                    hashCode = hashCode * 59 + this.TreatAs.GetHashCode();
                 return hashCode;
             }
         }

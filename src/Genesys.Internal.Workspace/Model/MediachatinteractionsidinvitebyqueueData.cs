@@ -38,7 +38,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="MediachatinteractionsidinvitebyqueueData" /> class.
         /// </summary>
-        /// <param name="Queue">queue of submission. (required).</param>
+        /// <param name="Queue">The name of the queue where the Workspace API should send the chat invite. (required).</param>
         public MediachatinteractionsidinvitebyqueueData(string Queue = default(string))
         {
             // to ensure "Queue" is required (not null)
@@ -53,9 +53,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// queue of submission.
+        /// The name of the queue where the Workspace API should send the chat invite.
         /// </summary>
-        /// <value>queue of submission.</value>
+        /// <value>The name of the queue where the Workspace API should send the chat invite.</value>
         [DataMember(Name="queue", EmitDefaultValue=false)]
         public string Queue { get; set; }
 

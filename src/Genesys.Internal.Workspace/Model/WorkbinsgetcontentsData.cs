@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="WorkbinsgetcontentsData" /> class.
         /// </summary>
         /// <param name="WorkbinIds">comma-separated list of Workbin Ids (required).</param>
-        /// <param name="OwnerId">Id of the owner of the workbin.</param>
+        /// <param name="OwnerId">Id of the owner of the workbins.</param>
         public WorkbinsgetcontentsData(string WorkbinIds = default(string), string OwnerId = default(string))
         {
             // to ensure "WorkbinIds" is required (not null)
@@ -62,9 +62,9 @@ namespace Genesys.Internal.Workspace.Model
         public string WorkbinIds { get; set; }
 
         /// <summary>
-        /// Id of the owner of the workbin
+        /// Id of the owner of the workbins
         /// </summary>
-        /// <value>Id of the owner of the workbin</value>
+        /// <value>Id of the owner of the workbins</value>
         [DataMember(Name="ownerId", EmitDefaultValue=false)]
         public string OwnerId { get; set; }
 
