@@ -25,22 +25,22 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediaemailinteractionsidreplyData
+    /// MediaemailinteractionsidforwardData
     /// </summary>
     [DataContract]
-    public partial class MediaemailinteractionsidreplyData :  IEquatable<MediaemailinteractionsidreplyData>, IValidatableObject
+    public partial class MediaemailinteractionsidforwardData :  IEquatable<MediaemailinteractionsidforwardData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediaemailinteractionsidreplyData" /> class.
+        /// Initializes a new instance of the <see cref="MediaemailinteractionsidforwardData" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected MediaemailinteractionsidreplyData() { }
+        protected MediaemailinteractionsidforwardData() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediaemailinteractionsidreplyData" /> class.
+        /// Initializes a new instance of the <see cref="MediaemailinteractionsidforwardData" /> class.
         /// </summary>
-        /// <param name="Queue">the name of the queue to submit the reply email (required).</param>
+        /// <param name="Queue">the name of the queue to submit the forward email (required).</param>
         /// <param name="From">the address mail of from. (required).</param>
-        /// <param name="To">The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined..</param>
+        /// <param name="To">The addresses mail of to..</param>
         /// <param name="Cc">cc addresses.</param>
         /// <param name="Bcc">bcc addresses.</param>
         /// <param name="Body">The message to send. Html body.</param>
@@ -48,12 +48,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="Mime">Multipurpose internet mail extensions of email.</param>
         /// <param name="Subject">The subject value.</param>
         /// <param name="UserData">A key/value pairs list of user data..</param>
-        public MediaemailinteractionsidreplyData(string Queue = default(string), string From = default(string), List<> To = default(List<>), List<string> Cc = default(List<string>), List<string> Bcc = default(List<string>), string Body = default(string), string BodyAsPlainText = default(string), string Mime = default(string), string Subject = default(string), List<Kvpair> UserData = default(List<Kvpair>))
+        public MediaemailinteractionsidforwardData(string Queue = default(string), string From = default(string), List<> To = default(List<>), List<string> Cc = default(List<string>), List<string> Bcc = default(List<string>), string Body = default(string), string BodyAsPlainText = default(string), string Mime = default(string), string Subject = default(string), List<Kvpair> UserData = default(List<Kvpair>))
         {
             // to ensure "Queue" is required (not null)
             if (Queue == null)
             {
-                throw new InvalidDataException("Queue is a required property for MediaemailinteractionsidreplyData and cannot be null");
+                throw new InvalidDataException("Queue is a required property for MediaemailinteractionsidforwardData and cannot be null");
             }
             else
             {
@@ -62,7 +62,7 @@ namespace Genesys.Internal.Workspace.Model
             // to ensure "From" is required (not null)
             if (From == null)
             {
-                throw new InvalidDataException("From is a required property for MediaemailinteractionsidreplyData and cannot be null");
+                throw new InvalidDataException("From is a required property for MediaemailinteractionsidforwardData and cannot be null");
             }
             else
             {
@@ -79,9 +79,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// the name of the queue to submit the reply email
+        /// the name of the queue to submit the forward email
         /// </summary>
-        /// <value>the name of the queue to submit the reply email</value>
+        /// <value>the name of the queue to submit the forward email</value>
         [DataMember(Name="queue", EmitDefaultValue=false)]
         public string Queue { get; set; }
 
@@ -93,9 +93,9 @@ namespace Genesys.Internal.Workspace.Model
         public string From { get; set; }
 
         /// <summary>
-        /// The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined.
+        /// The addresses mail of to.
         /// </summary>
-        /// <value>The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined.</value>
+        /// <value>The addresses mail of to.</value>
         [DataMember(Name="to", EmitDefaultValue=false)]
         public List<> To { get; set; }
 
@@ -155,7 +155,7 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediaemailinteractionsidreplyData {\n");
+            sb.Append("class MediaemailinteractionsidforwardData {\n");
             sb.Append("  Queue: ").Append(Queue).Append("\n");
             sb.Append("  From: ").Append(From).Append("\n");
             sb.Append("  To: ").Append(To).Append("\n");
@@ -186,15 +186,15 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediaemailinteractionsidreplyData);
+            return this.Equals(input as MediaemailinteractionsidforwardData);
         }
 
         /// <summary>
-        /// Returns true if MediaemailinteractionsidreplyData instances are equal
+        /// Returns true if MediaemailinteractionsidforwardData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediaemailinteractionsidreplyData to be compared</param>
+        /// <param name="input">Instance of MediaemailinteractionsidforwardData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediaemailinteractionsidreplyData input)
+        public bool Equals(MediaemailinteractionsidforwardData input)
         {
             if (input == null)
                 return false;

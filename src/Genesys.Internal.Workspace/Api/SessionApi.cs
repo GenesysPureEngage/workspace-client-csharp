@@ -211,6 +211,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> LogoutWithHttpInfo ();
+        /// <summary>
+        /// Log out of activated channels and end the session.
+        /// </summary>
+        /// <remarks>
+        /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns></returns>
+        void LogoutRedirect (string redirectUri = null);
+
+        /// <summary>
+        /// Log out of activated channels and end the session.
+        /// </summary>
+        /// <remarks>
+        /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        ApiResponse<Object> LogoutRedirectWithHttpInfo (string redirectUri = null);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -400,6 +421,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> LogoutAsyncWithHttpInfo ();
+        /// <summary>
+        /// Log out of activated channels and end the session.
+        /// </summary>
+        /// <remarks>
+        /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns>Task of void</returns>
+        System.Threading.Tasks.Task LogoutRedirectAsync (string redirectUri = null);
+
+        /// <summary>
+        /// Log out of activated channels and end the session.
+        /// </summary>
+        /// <remarks>
+        /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        System.Threading.Tasks.Task<ApiResponse<Object>> LogoutRedirectAsyncWithHttpInfo (string redirectUri = null);
         #endregion Asynchronous Operations
     }
 
@@ -1689,6 +1731,135 @@ namespace Genesys.Internal.Workspace.Api
             return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns></returns>
+        public void LogoutRedirect (string redirectUri = null)
+        {
+             LogoutRedirectWithHttpInfo(redirectUri);
+        }
+
+        /// <summary>
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns>ApiResponse of Object(void)</returns>
+        public ApiResponse<Object> LogoutRedirectWithHttpInfo (string redirectUri = null)
+        {
+
+            var localVarPath = "/logout";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/html"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (redirectUri != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "redirect_uri", redirectUri)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("LogoutRedirect", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
+        }
+
+        /// <summary>
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns>Task of void</returns>
+        public async System.Threading.Tasks.Task LogoutRedirectAsync (string redirectUri = null)
+        {
+             await LogoutRedirectAsyncWithHttpInfo(redirectUri);
+
+        }
+
+        /// <summary>
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after logout. (optional)</param>
+        /// <returns>Task of ApiResponse</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Object>> LogoutRedirectAsyncWithHttpInfo (string redirectUri = null)
+        {
+
+            var localVarPath = "/logout";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json",
+                "text/html"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (redirectUri != null) localVarQueryParams.AddRange(Configuration.ApiClient.ParameterToKeyValuePairs("", "redirect_uri", redirectUri)); // query parameter
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("LogoutRedirect", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Object>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                null);
         }
 
     }

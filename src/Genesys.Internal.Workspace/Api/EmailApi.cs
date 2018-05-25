@@ -90,6 +90,29 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> CreateEmailWithHttpInfo (CreateData createData = null);
         /// <summary>
+        /// forward email
+        /// </summary>
+        /// <remarks>
+        /// forward inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse ForwardEmail (string id, ForwardData1 forwardData = null);
+
+        /// <summary>
+        /// forward email
+        /// </summary>
+        /// <remarks>
+        /// forward inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> ForwardEmailWithHttpInfo (string id, ForwardData1 forwardData = null);
+        /// <summary>
         /// reply email
         /// </summary>
         /// <remarks>
@@ -99,7 +122,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse Reply (string id, ReplyData replyData = null);
+        ApiSuccessResponse ReplyEmail (string id, ReplyData replyData = null);
 
         /// <summary>
         /// reply email
@@ -111,7 +134,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> ReplyWithHttpInfo (string id, ReplyData replyData = null);
+        ApiResponse<ApiSuccessResponse> ReplyEmailWithHttpInfo (string id, ReplyData replyData = null);
         /// <summary>
         /// Save email information to UCS
         /// </summary>
@@ -226,6 +249,29 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> CreateEmailAsyncWithHttpInfo (CreateData createData = null);
         /// <summary>
+        /// forward email
+        /// </summary>
+        /// <remarks>
+        /// forward inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> ForwardEmailAsync (string id, ForwardData1 forwardData = null);
+
+        /// <summary>
+        /// forward email
+        /// </summary>
+        /// <remarks>
+        /// forward inbound email interaction specified in the id path parameter
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ForwardEmailAsyncWithHttpInfo (string id, ForwardData1 forwardData = null);
+        /// <summary>
         /// reply email
         /// </summary>
         /// <remarks>
@@ -235,7 +281,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> ReplyAsync (string id, ReplyData replyData = null);
+        System.Threading.Tasks.Task<ApiSuccessResponse> ReplyEmailAsync (string id, ReplyData replyData = null);
 
         /// <summary>
         /// reply email
@@ -247,7 +293,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReplyAsyncWithHttpInfo (string id, ReplyData replyData = null);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReplyEmailAsyncWithHttpInfo (string id, ReplyData replyData = null);
         /// <summary>
         /// Save email information to UCS
         /// </summary>
@@ -828,15 +874,170 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// forward email forward inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse ForwardEmail (string id, ForwardData1 forwardData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = ForwardEmailWithHttpInfo(id, forwardData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// forward email forward inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > ForwardEmailWithHttpInfo (string id, ForwardData1 forwardData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->ForwardEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/forward";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (forwardData != null && forwardData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(forwardData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = forwardData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ForwardEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// forward email forward inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ForwardEmailAsync (string id, ForwardData1 forwardData = null)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ForwardEmailAsyncWithHttpInfo(id, forwardData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// forward email forward inbound email interaction specified in the id path parameter
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of interaction to forward</param>
+        /// <param name="forwardData">Request parameters. (optional)</param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ForwardEmailAsyncWithHttpInfo (string id, ForwardData1 forwardData = null)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->ForwardEmail");
+
+            var localVarPath = "/media/email/interactions/{id}/forward";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (forwardData != null && forwardData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(forwardData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = forwardData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("ForwardEmail", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// reply email Reply to inbound email interaction specified in the id path parameter
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse Reply (string id, ReplyData replyData = null)
+        public ApiSuccessResponse ReplyEmail (string id, ReplyData replyData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = ReplyWithHttpInfo(id, replyData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = ReplyEmailWithHttpInfo(id, replyData);
              return localVarResponse.Data;
         }
 
@@ -847,11 +1048,11 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > ReplyWithHttpInfo (string id, ReplyData replyData = null)
+        public ApiResponse< ApiSuccessResponse > ReplyEmailWithHttpInfo (string id, ReplyData replyData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->Reply");
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->ReplyEmail");
 
             var localVarPath = "/media/email/interactions/{id}/reply";
             var localVarPathParams = new Dictionary<String, String>();
@@ -895,7 +1096,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Reply", localVarResponse);
+                Exception exception = ExceptionFactory("ReplyEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -911,9 +1112,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> ReplyAsync (string id, ReplyData replyData = null)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> ReplyEmailAsync (string id, ReplyData replyData = null)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await ReplyAsyncWithHttpInfo(id, replyData);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await ReplyEmailAsyncWithHttpInfo(id, replyData);
              return localVarResponse.Data;
 
         }
@@ -925,11 +1126,11 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="id">id of interaction to reply</param>
         /// <param name="replyData">Request parameters. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReplyAsyncWithHttpInfo (string id, ReplyData replyData = null)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReplyEmailAsyncWithHttpInfo (string id, ReplyData replyData = null)
         {
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->Reply");
+                throw new ApiException(400, "Missing required parameter 'id' when calling EmailApi->ReplyEmail");
 
             var localVarPath = "/media/email/interactions/{id}/reply";
             var localVarPathParams = new Dictionary<String, String>();
@@ -973,7 +1174,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("Reply", localVarResponse);
+                Exception exception = ExceptionFactory("ReplyEmail", localVarResponse);
                 if (exception != null) throw exception;
             }
 

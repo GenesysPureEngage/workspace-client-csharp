@@ -360,7 +360,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse MediaSwicthToBarge (string mediatype, string id);
+        ApiSuccessResponse MediaSwicthToBargeIn (string mediatype, string id);
 
         /// <summary>
         /// Switch to the barge in monitoring mode.
@@ -372,7 +372,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> MediaSwicthToBargeWithHttpInfo (string mediatype, string id);
+        ApiResponse<ApiSuccessResponse> MediaSwicthToBargeInWithHttpInfo (string mediatype, string id);
         /// <summary>
         /// Switch to the coach monitoring mode.
         /// </summary>
@@ -989,7 +989,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeAsync (string mediatype, string id);
+        System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeInAsync (string mediatype, string id);
 
         /// <summary>
         /// Switch to the barge in monitoring mode.
@@ -1001,7 +1001,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToBargeAsyncWithHttpInfo (string mediatype, string id);
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToBargeInAsyncWithHttpInfo (string mediatype, string id);
         /// <summary>
         /// Switch to the coach monitoring mode.
         /// </summary>
@@ -3537,9 +3537,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse MediaSwicthToBarge (string mediatype, string id)
+        public ApiSuccessResponse MediaSwicthToBargeIn (string mediatype, string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = MediaSwicthToBargeWithHttpInfo(mediatype, id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = MediaSwicthToBargeInWithHttpInfo(mediatype, id);
              return localVarResponse.Data;
         }
 
@@ -3550,16 +3550,16 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > MediaSwicthToBargeWithHttpInfo (string mediatype, string id)
+        public ApiResponse< ApiSuccessResponse > MediaSwicthToBargeInWithHttpInfo (string mediatype, string id)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToBarge");
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToBargeIn");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToBarge");
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToBargeIn");
 
-            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge";
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge-in";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3594,7 +3594,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MediaSwicthToBarge", localVarResponse);
+                Exception exception = ExceptionFactory("MediaSwicthToBargeIn", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3610,9 +3610,9 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeAsync (string mediatype, string id)
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeInAsync (string mediatype, string id)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaSwicthToBargeAsyncWithHttpInfo(mediatype, id);
+             ApiResponse<ApiSuccessResponse> localVarResponse = await MediaSwicthToBargeInAsyncWithHttpInfo(mediatype, id);
              return localVarResponse.Data;
 
         }
@@ -3624,16 +3624,16 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="mediatype">The media channel.</param>
         /// <param name="id">The ID of the chat interaction.</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToBargeAsyncWithHttpInfo (string mediatype, string id)
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaSwicthToBargeInAsyncWithHttpInfo (string mediatype, string id)
         {
             // verify the required parameter 'mediatype' is set
             if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToBarge");
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->MediaSwicthToBargeIn");
             // verify the required parameter 'id' is set
             if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToBarge");
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->MediaSwicthToBargeIn");
 
-            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge";
+            var localVarPath = "/media/{mediatype}/interactions/{id}/switch-to-barge-in";
             var localVarPathParams = new Dictionary<String, String>();
             var localVarQueryParams = new List<KeyValuePair<String, String>>();
             var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
@@ -3668,7 +3668,7 @@ namespace Genesys.Internal.Workspace.Api
 
             if (ExceptionFactory != null)
             {
-                Exception exception = ExceptionFactory("MediaSwicthToBarge", localVarResponse);
+                Exception exception = ExceptionFactory("MediaSwicthToBargeIn", localVarResponse);
                 if (exception != null) throw exception;
             }
 

@@ -240,6 +240,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="reportStandareResponseUsageData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> ReportStandareResponseUsageWithHttpInfo (string id, ReportStandareResponseUsageData reportStandareResponseUsageData);
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SearchStandardResponses (LuceneSearchStandardResponseData luceneSearchStandardResponseData);
+
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SearchStandardResponsesWithHttpInfo (LuceneSearchStandardResponseData luceneSearchStandardResponseData);
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -458,6 +479,27 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="reportStandareResponseUsageData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> ReportStandareResponseUsageAsyncWithHttpInfo (string id, ReportStandareResponseUsageData reportStandareResponseUsageData);
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SearchStandardResponsesAsync (LuceneSearchStandardResponseData luceneSearchStandardResponseData);
+
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchStandardResponsesAsyncWithHttpInfo (LuceneSearchStandardResponseData luceneSearchStandardResponseData);
         #endregion Asynchronous Operations
     }
 
@@ -2000,6 +2042,155 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("ReportStandareResponseUsage", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SearchStandardResponses (LuceneSearchStandardResponseData luceneSearchStandardResponseData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SearchStandardResponsesWithHttpInfo(luceneSearchStandardResponseData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SearchStandardResponsesWithHttpInfo (LuceneSearchStandardResponseData luceneSearchStandardResponseData)
+        {
+            // verify the required parameter 'luceneSearchStandardResponseData' is set
+            if (luceneSearchStandardResponseData == null)
+                throw new ApiException(400, "Missing required parameter 'luceneSearchStandardResponseData' when calling StandardResponsesApi->SearchStandardResponses");
+
+            var localVarPath = "/ucs/responses/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (luceneSearchStandardResponseData != null && luceneSearchStandardResponseData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(luceneSearchStandardResponseData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = luceneSearchStandardResponseData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchStandardResponses", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SearchStandardResponsesAsync (LuceneSearchStandardResponseData luceneSearchStandardResponseData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SearchStandardResponsesAsyncWithHttpInfo(luceneSearchStandardResponseData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Search for standard responses based on search query, using lucene search 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="luceneSearchStandardResponseData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchStandardResponsesAsyncWithHttpInfo (LuceneSearchStandardResponseData luceneSearchStandardResponseData)
+        {
+            // verify the required parameter 'luceneSearchStandardResponseData' is set
+            if (luceneSearchStandardResponseData == null)
+                throw new ApiException(400, "Missing required parameter 'luceneSearchStandardResponseData' when calling StandardResponsesApi->SearchStandardResponses");
+
+            var localVarPath = "/ucs/responses/search";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new List<KeyValuePair<String, String>>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (luceneSearchStandardResponseData != null && luceneSearchStandardResponseData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(luceneSearchStandardResponseData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = luceneSearchStandardResponseData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SearchStandardResponses", localVarResponse);
                 if (exception != null) throw exception;
             }
 
