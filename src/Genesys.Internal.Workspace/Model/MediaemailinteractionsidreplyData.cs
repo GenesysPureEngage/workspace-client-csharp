@@ -48,7 +48,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="Mime">Multipurpose internet mail extensions of email.</param>
         /// <param name="Subject">The subject value.</param>
         /// <param name="UserData">A key/value pairs list of user data..</param>
-        public MediaemailinteractionsidreplyData(string Queue = default(string), string From = default(string), List<> To = default(List<>), List<string> Cc = default(List<string>), List<string> Bcc = default(List<string>), string Body = default(string), string BodyAsPlainText = default(string), string Mime = default(string), string Subject = default(string), List<Kvpair> UserData = default(List<Kvpair>))
+        public MediaemailinteractionsidreplyData(string Queue = default(string), string From = default(string), List<string> To = default(List<string>), List<string> Cc = default(List<string>), List<string> Bcc = default(List<string>), string Body = default(string), string BodyAsPlainText = default(string), string Mime = default(string), string Subject = default(string), List<Kvpair> UserData = default(List<Kvpair>))
         {
             // to ensure "Queue" is required (not null)
             if (Queue == null)
@@ -97,7 +97,7 @@ namespace Genesys.Internal.Workspace.Model
         /// </summary>
         /// <value>The addresses mail of to. If the field is not defined. The to is reply address speficied in inboud or from address if reply is not defined.</value>
         [DataMember(Name="to", EmitDefaultValue=false)]
-        public List<> To { get; set; }
+        public List<string> To { get; set; }
 
         /// <summary>
         /// cc addresses
