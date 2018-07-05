@@ -81,33 +81,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as VoicereadyData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as VoicereadyData);
         }
 
         /// <summary>
         /// Returns true if VoicereadyData instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicereadyData to be compared</param>
+        /// <param name="other">Instance of VoicereadyData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicereadyData input)
+        public bool Equals(VoicereadyData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Reasons == input.Reasons ||
+                    this.Reasons == other.Reasons ||
                     this.Reasons != null &&
-                    this.Reasons.SequenceEqual(input.Reasons)
+                    this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
-                    this.Extensions == input.Extensions ||
+                    this.Extensions == other.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(input.Extensions)
+                    this.Extensions.SequenceEqual(other.Extensions)
                 );
         }
 
@@ -117,14 +119,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Reasons != null)
-                    hashCode = hashCode * 59 + this.Reasons.GetHashCode();
+                    hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
-                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Extensions.GetHashCode();
+                return hash;
             }
         }
 

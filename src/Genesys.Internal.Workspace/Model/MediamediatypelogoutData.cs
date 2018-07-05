@@ -81,33 +81,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediamediatypelogoutData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediamediatypelogoutData);
         }
 
         /// <summary>
         /// Returns true if MediamediatypelogoutData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediamediatypelogoutData to be compared</param>
+        /// <param name="other">Instance of MediamediatypelogoutData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypelogoutData input)
+        public bool Equals(MediamediatypelogoutData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Reason == input.Reason ||
-                    (this.Reason != null &&
-                    this.Reason.Equals(input.Reason))
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
-                    this.Extension == input.Extension ||
+                    this.Extension == other.Extension ||
                     this.Extension != null &&
-                    this.Extension.SequenceEqual(input.Extension)
+                    this.Extension.SequenceEqual(other.Extension)
                 );
         }
 
@@ -117,14 +119,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Extension != null)
-                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Extension.GetHashCode();
+                return hash;
             }
         }
 

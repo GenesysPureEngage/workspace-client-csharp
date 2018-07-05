@@ -101,43 +101,45 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediamediatypeinteractionsidaddcontentData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediamediatypeinteractionsidaddcontentData);
         }
 
         /// <summary>
         /// Returns true if MediamediatypeinteractionsidaddcontentData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediamediatypeinteractionsidaddcontentData to be compared</param>
+        /// <param name="other">Instance of MediamediatypeinteractionsidaddcontentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypeinteractionsidaddcontentData input)
+        public bool Equals(MediamediatypeinteractionsidaddcontentData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Comment == input.Comment ||
-                    (this.Comment != null &&
-                    this.Comment.Equals(input.Comment))
+                    this.Comment == other.Comment ||
+                    this.Comment != null &&
+                    this.Comment.Equals(other.Comment)
                 ) && 
                 (
-                    this.ThreadId == input.ThreadId ||
-                    (this.ThreadId != null &&
-                    this.ThreadId.Equals(input.ThreadId))
+                    this.ThreadId == other.ThreadId ||
+                    this.ThreadId != null &&
+                    this.ThreadId.Equals(other.ThreadId)
                 ) && 
                 (
-                    this.ParentId == input.ParentId ||
-                    (this.ParentId != null &&
-                    this.ParentId.Equals(input.ParentId))
+                    this.ParentId == other.ParentId ||
+                    this.ParentId != null &&
+                    this.ParentId.Equals(other.ParentId)
                 ) && 
                 (
-                    this.ContactId == input.ContactId ||
-                    (this.ContactId != null &&
-                    this.ContactId.Equals(input.ContactId))
+                    this.ContactId == other.ContactId ||
+                    this.ContactId != null &&
+                    this.ContactId.Equals(other.ContactId)
                 );
         }
 
@@ -147,18 +149,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Comment != null)
-                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                    hash = hash * 59 + this.Comment.GetHashCode();
                 if (this.ThreadId != null)
-                    hashCode = hashCode * 59 + this.ThreadId.GetHashCode();
+                    hash = hash * 59 + this.ThreadId.GetHashCode();
                 if (this.ParentId != null)
-                    hashCode = hashCode * 59 + this.ParentId.GetHashCode();
+                    hash = hash * 59 + this.ParentId.GetHashCode();
                 if (this.ContactId != null)
-                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ContactId.GetHashCode();
+                return hash;
             }
         }
 

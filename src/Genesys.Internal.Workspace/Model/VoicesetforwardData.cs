@@ -84,28 +84,30 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as VoicesetforwardData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as VoicesetforwardData);
         }
 
         /// <summary>
         /// Returns true if VoicesetforwardData instances are equal
         /// </summary>
-        /// <param name="input">Instance of VoicesetforwardData to be compared</param>
+        /// <param name="other">Instance of VoicesetforwardData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicesetforwardData input)
+        public bool Equals(VoicesetforwardData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.ForwardTo == input.ForwardTo ||
-                    (this.ForwardTo != null &&
-                    this.ForwardTo.Equals(input.ForwardTo))
+                    this.ForwardTo == other.ForwardTo ||
+                    this.ForwardTo != null &&
+                    this.ForwardTo.Equals(other.ForwardTo)
                 );
         }
 
@@ -115,12 +117,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.ForwardTo != null)
-                    hashCode = hashCode * 59 + this.ForwardTo.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ForwardTo.GetHashCode();
+                return hash;
             }
         }
 

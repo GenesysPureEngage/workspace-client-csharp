@@ -172,68 +172,70 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediaemailinteractionsidsaveData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediaemailinteractionsidsaveData);
         }
 
         /// <summary>
         /// Returns true if MediaemailinteractionsidsaveData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediaemailinteractionsidsaveData to be compared</param>
+        /// <param name="other">Instance of MediaemailinteractionsidsaveData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediaemailinteractionsidsaveData input)
+        public bool Equals(MediaemailinteractionsidsaveData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Body == input.Body ||
-                    (this.Body != null &&
-                    this.Body.Equals(input.Body))
+                    this.Body == other.Body ||
+                    this.Body != null &&
+                    this.Body.Equals(other.Body)
                 ) && 
                 (
-                    this.BodyAsPlainText == input.BodyAsPlainText ||
-                    (this.BodyAsPlainText != null &&
-                    this.BodyAsPlainText.Equals(input.BodyAsPlainText))
+                    this.BodyAsPlainText == other.BodyAsPlainText ||
+                    this.BodyAsPlainText != null &&
+                    this.BodyAsPlainText.Equals(other.BodyAsPlainText)
                 ) && 
                 (
-                    this.Mime == input.Mime ||
-                    (this.Mime != null &&
-                    this.Mime.Equals(input.Mime))
+                    this.Mime == other.Mime ||
+                    this.Mime != null &&
+                    this.Mime.Equals(other.Mime)
                 ) && 
                 (
-                    this.Subject == input.Subject ||
-                    (this.Subject != null &&
-                    this.Subject.Equals(input.Subject))
+                    this.Subject == other.Subject ||
+                    this.Subject != null &&
+                    this.Subject.Equals(other.Subject)
                 ) && 
                 (
-                    this.Comment == input.Comment ||
-                    (this.Comment != null &&
-                    this.Comment.Equals(input.Comment))
+                    this.Comment == other.Comment ||
+                    this.Comment != null &&
+                    this.Comment.Equals(other.Comment)
                 ) && 
                 (
-                    this.From == input.From ||
-                    (this.From != null &&
-                    this.From.Equals(input.From))
+                    this.From == other.From ||
+                    this.From != null &&
+                    this.From.Equals(other.From)
                 ) && 
                 (
-                    this.To == input.To ||
+                    this.To == other.To ||
                     this.To != null &&
-                    this.To.SequenceEqual(input.To)
+                    this.To.SequenceEqual(other.To)
                 ) && 
                 (
-                    this.Cc == input.Cc ||
+                    this.Cc == other.Cc ||
                     this.Cc != null &&
-                    this.Cc.SequenceEqual(input.Cc)
+                    this.Cc.SequenceEqual(other.Cc)
                 ) && 
                 (
-                    this.Bcc == input.Bcc ||
+                    this.Bcc == other.Bcc ||
                     this.Bcc != null &&
-                    this.Bcc.SequenceEqual(input.Bcc)
+                    this.Bcc.SequenceEqual(other.Bcc)
                 );
         }
 
@@ -243,28 +245,30 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Body != null)
-                    hashCode = hashCode * 59 + this.Body.GetHashCode();
+                    hash = hash * 59 + this.Body.GetHashCode();
                 if (this.BodyAsPlainText != null)
-                    hashCode = hashCode * 59 + this.BodyAsPlainText.GetHashCode();
+                    hash = hash * 59 + this.BodyAsPlainText.GetHashCode();
                 if (this.Mime != null)
-                    hashCode = hashCode * 59 + this.Mime.GetHashCode();
+                    hash = hash * 59 + this.Mime.GetHashCode();
                 if (this.Subject != null)
-                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
+                    hash = hash * 59 + this.Subject.GetHashCode();
                 if (this.Comment != null)
-                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                    hash = hash * 59 + this.Comment.GetHashCode();
                 if (this.From != null)
-                    hashCode = hashCode * 59 + this.From.GetHashCode();
+                    hash = hash * 59 + this.From.GetHashCode();
                 if (this.To != null)
-                    hashCode = hashCode * 59 + this.To.GetHashCode();
+                    hash = hash * 59 + this.To.GetHashCode();
                 if (this.Cc != null)
-                    hashCode = hashCode * 59 + this.Cc.GetHashCode();
+                    hash = hash * 59 + this.Cc.GetHashCode();
                 if (this.Bcc != null)
-                    hashCode = hashCode * 59 + this.Bcc.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Bcc.GetHashCode();
+                return hash;
             }
         }
 

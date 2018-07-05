@@ -97,43 +97,45 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as Dn);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as Dn);
         }
 
         /// <summary>
         /// Returns true if Dn instances are equal
         /// </summary>
-        /// <param name="input">Instance of Dn to be compared</param>
+        /// <param name="other">Instance of Dn to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Dn input)
+        public bool Equals(Dn other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Number == input.Number ||
-                    (this.Number != null &&
-                    this.Number.Equals(input.Number))
+                    this.Number == other.Number ||
+                    this.Number != null &&
+                    this.Number.Equals(other.Number)
                 ) && 
                 (
-                    this.AgentId == input.AgentId ||
-                    (this.AgentId != null &&
-                    this.AgentId.Equals(input.AgentId))
+                    this.AgentId == other.AgentId ||
+                    this.AgentId != null &&
+                    this.AgentId.Equals(other.AgentId)
                 ) && 
                 (
-                    this.AgentState == input.AgentState ||
-                    (this.AgentState != null &&
-                    this.AgentState.Equals(input.AgentState))
+                    this.AgentState == other.AgentState ||
+                    this.AgentState != null &&
+                    this.AgentState.Equals(other.AgentState)
                 ) && 
                 (
-                    this.AgentWorkMode == input.AgentWorkMode ||
-                    (this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(input.AgentWorkMode))
+                    this.AgentWorkMode == other.AgentWorkMode ||
+                    this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(other.AgentWorkMode)
                 );
         }
 
@@ -143,18 +145,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Number != null)
-                    hashCode = hashCode * 59 + this.Number.GetHashCode();
+                    hash = hash * 59 + this.Number.GetHashCode();
                 if (this.AgentId != null)
-                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
+                    hash = hash * 59 + this.AgentId.GetHashCode();
                 if (this.AgentState != null)
-                    hashCode = hashCode * 59 + this.AgentState.GetHashCode();
+                    hash = hash * 59 + this.AgentState.GetHashCode();
                 if (this.AgentWorkMode != null)
-                    hashCode = hashCode * 59 + this.AgentWorkMode.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                return hash;
             }
         }
 

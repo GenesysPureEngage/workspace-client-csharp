@@ -134,53 +134,55 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediamediatypeinteractionsidplaceinqueueData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediamediatypeinteractionsidplaceinqueueData);
         }
 
         /// <summary>
         /// Returns true if MediamediatypeinteractionsidplaceinqueueData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediamediatypeinteractionsidplaceinqueueData to be compared</param>
+        /// <param name="other">Instance of MediamediatypeinteractionsidplaceinqueueData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypeinteractionsidplaceinqueueData input)
+        public bool Equals(MediamediatypeinteractionsidplaceinqueueData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Queue == input.Queue ||
-                    (this.Queue != null &&
-                    this.Queue.Equals(input.Queue))
+                    this.Queue == other.Queue ||
+                    this.Queue != null &&
+                    this.Queue.Equals(other.Queue)
                 ) && 
                 (
-                    this.Reason == input.Reason ||
-                    (this.Reason != null &&
-                    this.Reason.Equals(input.Reason))
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
                 ) && 
                 (
-                    this.Extension == input.Extension ||
+                    this.Extension == other.Extension ||
                     this.Extension != null &&
-                    this.Extension.SequenceEqual(input.Extension)
+                    this.Extension.SequenceEqual(other.Extension)
                 ) && 
                 (
-                    this.AddedProperties == input.AddedProperties ||
+                    this.AddedProperties == other.AddedProperties ||
                     this.AddedProperties != null &&
-                    this.AddedProperties.SequenceEqual(input.AddedProperties)
+                    this.AddedProperties.SequenceEqual(other.AddedProperties)
                 ) && 
                 (
-                    this.ChangedProperties == input.ChangedProperties ||
+                    this.ChangedProperties == other.ChangedProperties ||
                     this.ChangedProperties != null &&
-                    this.ChangedProperties.SequenceEqual(input.ChangedProperties)
+                    this.ChangedProperties.SequenceEqual(other.ChangedProperties)
                 ) && 
                 (
-                    this.DeletedProperties == input.DeletedProperties ||
+                    this.DeletedProperties == other.DeletedProperties ||
                     this.DeletedProperties != null &&
-                    this.DeletedProperties.SequenceEqual(input.DeletedProperties)
+                    this.DeletedProperties.SequenceEqual(other.DeletedProperties)
                 );
         }
 
@@ -190,22 +192,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Queue != null)
-                    hashCode = hashCode * 59 + this.Queue.GetHashCode();
+                    hash = hash * 59 + this.Queue.GetHashCode();
                 if (this.Reason != null)
-                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
+                    hash = hash * 59 + this.Reason.GetHashCode();
                 if (this.Extension != null)
-                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
+                    hash = hash * 59 + this.Extension.GetHashCode();
                 if (this.AddedProperties != null)
-                    hashCode = hashCode * 59 + this.AddedProperties.GetHashCode();
+                    hash = hash * 59 + this.AddedProperties.GetHashCode();
                 if (this.ChangedProperties != null)
-                    hashCode = hashCode * 59 + this.ChangedProperties.GetHashCode();
+                    hash = hash * 59 + this.ChangedProperties.GetHashCode();
                 if (this.DeletedProperties != null)
-                    hashCode = hashCode * 59 + this.DeletedProperties.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.DeletedProperties.GetHashCode();
+                return hash;
             }
         }
 

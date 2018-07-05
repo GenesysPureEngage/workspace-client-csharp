@@ -111,48 +111,50 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as UcsgetagenthistoryData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as UcsgetagenthistoryData);
         }
 
         /// <summary>
         /// Returns true if UcsgetagenthistoryData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsgetagenthistoryData to be compared</param>
+        /// <param name="other">Instance of UcsgetagenthistoryData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsgetagenthistoryData input)
+        public bool Equals(UcsgetagenthistoryData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes == other.ReturnedAttributes ||
                     this.ReturnedAttributes != null &&
-                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
+                    this.ReturnedAttributes.SequenceEqual(other.ReturnedAttributes)
                 ) && 
                 (
-                    this.Sort == input.Sort ||
-                    (this.Sort != null &&
-                    this.Sort.Equals(input.Sort))
+                    this.Sort == other.Sort ||
+                    this.Sort != null &&
+                    this.Sort.Equals(other.Sort)
                 ) && 
                 (
-                    this.FromDate == input.FromDate ||
-                    (this.FromDate != null &&
-                    this.FromDate.Equals(input.FromDate))
+                    this.FromDate == other.FromDate ||
+                    this.FromDate != null &&
+                    this.FromDate.Equals(other.FromDate)
                 ) && 
                 (
-                    this.ToDate == input.ToDate ||
-                    (this.ToDate != null &&
-                    this.ToDate.Equals(input.ToDate))
+                    this.ToDate == other.ToDate ||
+                    this.ToDate != null &&
+                    this.ToDate.Equals(other.ToDate)
                 ) && 
                 (
-                    this.UserId == input.UserId ||
-                    (this.UserId != null &&
-                    this.UserId.Equals(input.UserId))
+                    this.UserId == other.UserId ||
+                    this.UserId != null &&
+                    this.UserId.Equals(other.UserId)
                 );
         }
 
@@ -162,20 +164,22 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.ReturnedAttributes != null)
-                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
+                    hash = hash * 59 + this.ReturnedAttributes.GetHashCode();
                 if (this.Sort != null)
-                    hashCode = hashCode * 59 + this.Sort.GetHashCode();
+                    hash = hash * 59 + this.Sort.GetHashCode();
                 if (this.FromDate != null)
-                    hashCode = hashCode * 59 + this.FromDate.GetHashCode();
+                    hash = hash * 59 + this.FromDate.GetHashCode();
                 if (this.ToDate != null)
-                    hashCode = hashCode * 59 + this.ToDate.GetHashCode();
+                    hash = hash * 59 + this.ToDate.GetHashCode();
                 if (this.UserId != null)
-                    hashCode = hashCode * 59 + this.UserId.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.UserId.GetHashCode();
+                return hash;
             }
         }
 

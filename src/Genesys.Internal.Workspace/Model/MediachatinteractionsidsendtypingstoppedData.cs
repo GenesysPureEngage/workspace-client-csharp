@@ -39,22 +39,22 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum All for value: All
+            /// Enum All for "All"
             /// </summary>
             [EnumMember(Value = "All")]
-            All = 1,
+            All,
             
             /// <summary>
-            /// Enum Agent for value: Agent
+            /// Enum Agent for "Agent"
             /// </summary>
             [EnumMember(Value = "Agent")]
-            Agent = 2,
+            Agent,
             
             /// <summary>
-            /// Enum Supervisor for value: Supervisor
+            /// Enum Supervisor for "Supervisor"
             /// </summary>
             [EnumMember(Value = "Supervisor")]
-            Supervisor = 3
+            Supervisor
         }
 
         /// <summary>
@@ -108,33 +108,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediachatinteractionsidsendtypingstoppedData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediachatinteractionsidsendtypingstoppedData);
         }
 
         /// <summary>
         /// Returns true if MediachatinteractionsidsendtypingstoppedData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidsendtypingstoppedData to be compared</param>
+        /// <param name="other">Instance of MediachatinteractionsidsendtypingstoppedData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidsendtypingstoppedData input)
+        public bool Equals(MediachatinteractionsidsendtypingstoppedData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.Visibility == input.Visibility ||
-                    (this.Visibility != null &&
-                    this.Visibility.Equals(input.Visibility))
+                    this.Visibility == other.Visibility ||
+                    this.Visibility != null &&
+                    this.Visibility.Equals(other.Visibility)
                 );
         }
 
@@ -144,14 +146,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.Visibility != null)
-                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Visibility.GetHashCode();
+                return hash;
             }
         }
 

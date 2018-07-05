@@ -39,16 +39,16 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum AutoIn for value: AutoIn
+            /// Enum AutoIn for "AutoIn"
             /// </summary>
             [EnumMember(Value = "AutoIn")]
-            AutoIn = 1,
+            AutoIn,
             
             /// <summary>
-            /// Enum ManualIn for value: ManualIn
+            /// Enum ManualIn for "ManualIn"
             /// </summary>
             [EnumMember(Value = "ManualIn")]
-            ManualIn = 2
+            ManualIn
         }
 
         /// <summary>
@@ -162,63 +162,65 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ActivatechannelsData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ActivatechannelsData);
         }
 
         /// <summary>
         /// Returns true if ActivatechannelsData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ActivatechannelsData to be compared</param>
+        /// <param name="other">Instance of ActivatechannelsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ActivatechannelsData input)
+        public bool Equals(ActivatechannelsData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.AgentId == input.AgentId ||
-                    (this.AgentId != null &&
-                    this.AgentId.Equals(input.AgentId))
+                    this.AgentId == other.AgentId ||
+                    this.AgentId != null &&
+                    this.AgentId.Equals(other.AgentId)
                 ) && 
                 (
-                    this.PlaceName == input.PlaceName ||
-                    (this.PlaceName != null &&
-                    this.PlaceName.Equals(input.PlaceName))
+                    this.PlaceName == other.PlaceName ||
+                    this.PlaceName != null &&
+                    this.PlaceName.Equals(other.PlaceName)
                 ) && 
                 (
-                    this.Dn == input.Dn ||
-                    (this.Dn != null &&
-                    this.Dn.Equals(input.Dn))
+                    this.Dn == other.Dn ||
+                    this.Dn != null &&
+                    this.Dn.Equals(other.Dn)
                 ) && 
                 (
-                    this.QueueName == input.QueueName ||
-                    (this.QueueName != null &&
-                    this.QueueName.Equals(input.QueueName))
+                    this.QueueName == other.QueueName ||
+                    this.QueueName != null &&
+                    this.QueueName.Equals(other.QueueName)
                 ) && 
                 (
-                    this.AgentWorkMode == input.AgentWorkMode ||
-                    (this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(input.AgentWorkMode))
+                    this.AgentWorkMode == other.AgentWorkMode ||
+                    this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(other.AgentWorkMode)
                 ) && 
                 (
-                    this.DynamicPhoneNumber == input.DynamicPhoneNumber ||
-                    (this.DynamicPhoneNumber != null &&
-                    this.DynamicPhoneNumber.Equals(input.DynamicPhoneNumber))
+                    this.DynamicPhoneNumber == other.DynamicPhoneNumber ||
+                    this.DynamicPhoneNumber != null &&
+                    this.DynamicPhoneNumber.Equals(other.DynamicPhoneNumber)
                 ) && 
                 (
-                    this.AutoCompleteCall == input.AutoCompleteCall ||
-                    (this.AutoCompleteCall != null &&
-                    this.AutoCompleteCall.Equals(input.AutoCompleteCall))
+                    this.AutoCompleteCall == other.AutoCompleteCall ||
+                    this.AutoCompleteCall != null &&
+                    this.AutoCompleteCall.Equals(other.AutoCompleteCall)
                 ) && 
                 (
-                    this.Channels == input.Channels ||
+                    this.Channels == other.Channels ||
                     this.Channels != null &&
-                    this.Channels.SequenceEqual(input.Channels)
+                    this.Channels.SequenceEqual(other.Channels)
                 );
         }
 
@@ -228,26 +230,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.AgentId != null)
-                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
+                    hash = hash * 59 + this.AgentId.GetHashCode();
                 if (this.PlaceName != null)
-                    hashCode = hashCode * 59 + this.PlaceName.GetHashCode();
+                    hash = hash * 59 + this.PlaceName.GetHashCode();
                 if (this.Dn != null)
-                    hashCode = hashCode * 59 + this.Dn.GetHashCode();
+                    hash = hash * 59 + this.Dn.GetHashCode();
                 if (this.QueueName != null)
-                    hashCode = hashCode * 59 + this.QueueName.GetHashCode();
+                    hash = hash * 59 + this.QueueName.GetHashCode();
                 if (this.AgentWorkMode != null)
-                    hashCode = hashCode * 59 + this.AgentWorkMode.GetHashCode();
+                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.DynamicPhoneNumber != null)
-                    hashCode = hashCode * 59 + this.DynamicPhoneNumber.GetHashCode();
+                    hash = hash * 59 + this.DynamicPhoneNumber.GetHashCode();
                 if (this.AutoCompleteCall != null)
-                    hashCode = hashCode * 59 + this.AutoCompleteCall.GetHashCode();
+                    hash = hash * 59 + this.AutoCompleteCall.GetHashCode();
                 if (this.Channels != null)
-                    hashCode = hashCode * 59 + this.Channels.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Channels.GetHashCode();
+                return hash;
             }
         }
 

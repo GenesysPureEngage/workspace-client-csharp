@@ -132,48 +132,50 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as UcscontactssearchData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as UcscontactssearchData);
         }
 
         /// <summary>
         /// Returns true if UcscontactssearchData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcscontactssearchData to be compared</param>
+        /// <param name="other">Instance of UcscontactssearchData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcscontactssearchData input)
+        public bool Equals(UcscontactssearchData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Query == input.Query ||
-                    (this.Query != null &&
-                    this.Query.Equals(input.Query))
+                    this.Query == other.Query ||
+                    this.Query != null &&
+                    this.Query.Equals(other.Query)
                 ) && 
                 (
-                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes == other.ReturnedAttributes ||
                     this.ReturnedAttributes != null &&
-                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
+                    this.ReturnedAttributes.SequenceEqual(other.ReturnedAttributes)
                 ) && 
                 (
-                    this.StartIndex == input.StartIndex ||
-                    (this.StartIndex != null &&
-                    this.StartIndex.Equals(input.StartIndex))
+                    this.StartIndex == other.StartIndex ||
+                    this.StartIndex != null &&
+                    this.StartIndex.Equals(other.StartIndex)
                 ) && 
                 (
-                    this.MaxResults == input.MaxResults ||
-                    (this.MaxResults != null &&
-                    this.MaxResults.Equals(input.MaxResults))
+                    this.MaxResults == other.MaxResults ||
+                    this.MaxResults != null &&
+                    this.MaxResults.Equals(other.MaxResults)
                 ) && 
                 (
-                    this.SortCriteria == input.SortCriteria ||
+                    this.SortCriteria == other.SortCriteria ||
                     this.SortCriteria != null &&
-                    this.SortCriteria.SequenceEqual(input.SortCriteria)
+                    this.SortCriteria.SequenceEqual(other.SortCriteria)
                 );
         }
 
@@ -183,20 +185,22 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Query != null)
-                    hashCode = hashCode * 59 + this.Query.GetHashCode();
+                    hash = hash * 59 + this.Query.GetHashCode();
                 if (this.ReturnedAttributes != null)
-                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
+                    hash = hash * 59 + this.ReturnedAttributes.GetHashCode();
                 if (this.StartIndex != null)
-                    hashCode = hashCode * 59 + this.StartIndex.GetHashCode();
+                    hash = hash * 59 + this.StartIndex.GetHashCode();
                 if (this.MaxResults != null)
-                    hashCode = hashCode * 59 + this.MaxResults.GetHashCode();
+                    hash = hash * 59 + this.MaxResults.GetHashCode();
                 if (this.SortCriteria != null)
-                    hashCode = hashCode * 59 + this.SortCriteria.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.SortCriteria.GetHashCode();
+                return hash;
             }
         }
 

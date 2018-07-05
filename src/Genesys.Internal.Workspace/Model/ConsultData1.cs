@@ -33,23 +33,10 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ConsultData1" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ConsultData1() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ConsultData1" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
+        /// <param name="Data">Data.</param>
         public ConsultData1(MediachatinteractionsidconsultbyqueueData Data = default(MediachatinteractionsidconsultbyqueueData))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for ConsultData1 and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
@@ -83,28 +70,30 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ConsultData1);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ConsultData1);
         }
 
         /// <summary>
         /// Returns true if ConsultData1 instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConsultData1 to be compared</param>
+        /// <param name="other">Instance of ConsultData1 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConsultData1 input)
+        public bool Equals(ConsultData1 other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -114,12 +103,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Data.GetHashCode();
+                return hash;
             }
         }
 

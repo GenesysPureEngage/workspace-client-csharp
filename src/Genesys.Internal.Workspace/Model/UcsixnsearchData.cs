@@ -101,43 +101,45 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as UcsixnsearchData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as UcsixnsearchData);
         }
 
         /// <summary>
         /// Returns true if UcsixnsearchData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsixnsearchData to be compared</param>
+        /// <param name="other">Instance of UcsixnsearchData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsixnsearchData input)
+        public bool Equals(UcsixnsearchData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.MaxResults == input.MaxResults ||
-                    (this.MaxResults != null &&
-                    this.MaxResults.Equals(input.MaxResults))
+                    this.MaxResults == other.MaxResults ||
+                    this.MaxResults != null &&
+                    this.MaxResults.Equals(other.MaxResults)
                 ) && 
                 (
-                    this.Owner == input.Owner ||
+                    this.Owner == other.Owner ||
                     this.Owner != null &&
-                    this.Owner.SequenceEqual(input.Owner)
+                    this.Owner.SequenceEqual(other.Owner)
                 ) && 
                 (
-                    this.Query == input.Query ||
-                    (this.Query != null &&
-                    this.Query.Equals(input.Query))
+                    this.Query == other.Query ||
+                    this.Query != null &&
+                    this.Query.Equals(other.Query)
                 ) && 
                 (
-                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes == other.ReturnedAttributes ||
                     this.ReturnedAttributes != null &&
-                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
+                    this.ReturnedAttributes.SequenceEqual(other.ReturnedAttributes)
                 );
         }
 
@@ -147,18 +149,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.MaxResults != null)
-                    hashCode = hashCode * 59 + this.MaxResults.GetHashCode();
+                    hash = hash * 59 + this.MaxResults.GetHashCode();
                 if (this.Owner != null)
-                    hashCode = hashCode * 59 + this.Owner.GetHashCode();
+                    hash = hash * 59 + this.Owner.GetHashCode();
                 if (this.Query != null)
-                    hashCode = hashCode * 59 + this.Query.GetHashCode();
+                    hash = hash * 59 + this.Query.GetHashCode();
                 if (this.ReturnedAttributes != null)
-                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ReturnedAttributes.GetHashCode();
+                return hash;
             }
         }
 

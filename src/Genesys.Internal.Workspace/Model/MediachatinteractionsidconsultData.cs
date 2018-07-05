@@ -84,28 +84,30 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediachatinteractionsidconsultData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediachatinteractionsidconsultData);
         }
 
         /// <summary>
         /// Returns true if MediachatinteractionsidconsultData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidconsultData to be compared</param>
+        /// <param name="other">Instance of MediachatinteractionsidconsultData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidconsultData input)
+        public bool Equals(MediachatinteractionsidconsultData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.AgentId == input.AgentId ||
-                    (this.AgentId != null &&
-                    this.AgentId.Equals(input.AgentId))
+                    this.AgentId == other.AgentId ||
+                    this.AgentId != null &&
+                    this.AgentId.Equals(other.AgentId)
                 );
         }
 
@@ -115,12 +117,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.AgentId != null)
-                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.AgentId.GetHashCode();
+                return hash;
             }
         }
 

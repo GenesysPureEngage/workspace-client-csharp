@@ -33,23 +33,10 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ApiSuccessResponse" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected ApiSuccessResponse() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="ApiSuccessResponse" /> class.
-        /// </summary>
-        /// <param name="Status">Status (required).</param>
+        /// <param name="Status">Status.</param>
         public ApiSuccessResponse(InlineResponse200Status Status = default(InlineResponse200Status))
         {
-            // to ensure "Status" is required (not null)
-            if (Status == null)
-            {
-                throw new InvalidDataException("Status is a required property for ApiSuccessResponse and cannot be null");
-            }
-            else
-            {
-                this.Status = Status;
-            }
+            this.Status = Status;
         }
         
         /// <summary>
@@ -83,28 +70,30 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ApiSuccessResponse);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ApiSuccessResponse);
         }
 
         /// <summary>
         /// Returns true if ApiSuccessResponse instances are equal
         /// </summary>
-        /// <param name="input">Instance of ApiSuccessResponse to be compared</param>
+        /// <param name="other">Instance of ApiSuccessResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ApiSuccessResponse input)
+        public bool Equals(ApiSuccessResponse other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Status == input.Status ||
-                    (this.Status != null &&
-                    this.Status.Equals(input.Status))
+                    this.Status == other.Status ||
+                    this.Status != null &&
+                    this.Status.Equals(other.Status)
                 );
         }
 
@@ -114,12 +103,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Status != null)
-                    hashCode = hashCode * 59 + this.Status.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Status.GetHashCode();
+                return hash;
             }
         }
 

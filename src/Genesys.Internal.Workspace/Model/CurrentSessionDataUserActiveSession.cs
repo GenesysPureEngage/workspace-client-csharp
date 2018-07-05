@@ -107,48 +107,50 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as CurrentSessionDataUserActiveSession);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as CurrentSessionDataUserActiveSession);
         }
 
         /// <summary>
         /// Returns true if CurrentSessionDataUserActiveSession instances are equal
         /// </summary>
-        /// <param name="input">Instance of CurrentSessionDataUserActiveSession to be compared</param>
+        /// <param name="other">Instance of CurrentSessionDataUserActiveSession to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionDataUserActiveSession input)
+        public bool Equals(CurrentSessionDataUserActiveSession other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.AutoCompleteCall == input.AutoCompleteCall ||
-                    (this.AutoCompleteCall != null &&
-                    this.AutoCompleteCall.Equals(input.AutoCompleteCall))
+                    this.AutoCompleteCall == other.AutoCompleteCall ||
+                    this.AutoCompleteCall != null &&
+                    this.AutoCompleteCall.Equals(other.AutoCompleteCall)
                 ) && 
                 (
-                    this.CurrentPlace == input.CurrentPlace ||
-                    (this.CurrentPlace != null &&
-                    this.CurrentPlace.Equals(input.CurrentPlace))
+                    this.CurrentPlace == other.CurrentPlace ||
+                    this.CurrentPlace != null &&
+                    this.CurrentPlace.Equals(other.CurrentPlace)
                 ) && 
                 (
-                    this.Dn == input.Dn ||
-                    (this.Dn != null &&
-                    this.Dn.Equals(input.Dn))
+                    this.Dn == other.Dn ||
+                    this.Dn != null &&
+                    this.Dn.Equals(other.Dn)
                 ) && 
                 (
-                    this.Calls == input.Calls ||
+                    this.Calls == other.Calls ||
                     this.Calls != null &&
-                    this.Calls.SequenceEqual(input.Calls)
+                    this.Calls.SequenceEqual(other.Calls)
                 ) && 
                 (
-                    this.Media == input.Media ||
-                    (this.Media != null &&
-                    this.Media.Equals(input.Media))
+                    this.Media == other.Media ||
+                    this.Media != null &&
+                    this.Media.Equals(other.Media)
                 );
         }
 
@@ -158,20 +160,22 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.AutoCompleteCall != null)
-                    hashCode = hashCode * 59 + this.AutoCompleteCall.GetHashCode();
+                    hash = hash * 59 + this.AutoCompleteCall.GetHashCode();
                 if (this.CurrentPlace != null)
-                    hashCode = hashCode * 59 + this.CurrentPlace.GetHashCode();
+                    hash = hash * 59 + this.CurrentPlace.GetHashCode();
                 if (this.Dn != null)
-                    hashCode = hashCode * 59 + this.Dn.GetHashCode();
+                    hash = hash * 59 + this.Dn.GetHashCode();
                 if (this.Calls != null)
-                    hashCode = hashCode * 59 + this.Calls.GetHashCode();
+                    hash = hash * 59 + this.Calls.GetHashCode();
                 if (this.Media != null)
-                    hashCode = hashCode * 59 + this.Media.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Media.GetHashCode();
+                return hash;
             }
         }
 

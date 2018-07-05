@@ -39,30 +39,24 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum CloseIfNoAgents for value: CloseIfNoAgents
+            /// Enum CloseIfNoAgents for "CloseIfNoAgents"
             /// </summary>
             [EnumMember(Value = "CloseIfNoAgents")]
-            CloseIfNoAgents = 1,
+            CloseIfNoAgents,
             
             /// <summary>
-            /// Enum ForceClose for value: ForceClose
+            /// Enum ForceClose for "ForceClose"
             /// </summary>
             [EnumMember(Value = "ForceClose")]
-            ForceClose = 2,
+            ForceClose,
             
             /// <summary>
-            /// Enum KeepAlive for value: KeepAlive
+            /// Enum KeepAlive for "KeepAlive"
             /// </summary>
             [EnumMember(Value = "KeepAlive")]
-            KeepAlive = 3
+            KeepAlive
         }
 
-        /// <summary>
-        /// The action to take after the agent leaves.
-        /// </summary>
-        /// <value>The action to take after the agent leaves.</value>
-        [DataMember(Name="afterAction", EmitDefaultValue=false)]
-        public AfterActionEnum? AfterAction { get; set; }
         /// <summary>
         /// Specifies how the message should be treated.
         /// </summary>
@@ -72,18 +66,24 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Normal for value: Normal
+            /// Enum Normal for "Normal"
             /// </summary>
             [EnumMember(Value = "Normal")]
-            Normal = 1,
+            Normal,
             
             /// <summary>
-            /// Enum System for value: System
+            /// Enum System for "System"
             /// </summary>
             [EnumMember(Value = "System")]
-            System = 2
+            System
         }
 
+        /// <summary>
+        /// The action to take after the agent leaves.
+        /// </summary>
+        /// <value>The action to take after the agent leaves.</value>
+        [DataMember(Name="afterAction", EmitDefaultValue=false)]
+        public AfterActionEnum? AfterAction { get; set; }
         /// <summary>
         /// Specifies how the message should be treated.
         /// </summary>
@@ -149,43 +149,45 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediachatinteractionsidleaveData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediachatinteractionsidleaveData);
         }
 
         /// <summary>
         /// Returns true if MediachatinteractionsidleaveData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidleaveData to be compared</param>
+        /// <param name="other">Instance of MediachatinteractionsidleaveData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidleaveData input)
+        public bool Equals(MediachatinteractionsidleaveData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.AfterAction == input.AfterAction ||
-                    (this.AfterAction != null &&
-                    this.AfterAction.Equals(input.AfterAction))
+                    this.AfterAction == other.AfterAction ||
+                    this.AfterAction != null &&
+                    this.AfterAction.Equals(other.AfterAction)
                 ) && 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.MessageType == input.MessageType ||
-                    (this.MessageType != null &&
-                    this.MessageType.Equals(input.MessageType))
+                    this.MessageType == other.MessageType ||
+                    this.MessageType != null &&
+                    this.MessageType.Equals(other.MessageType)
                 ) && 
                 (
-                    this.TreatAs == input.TreatAs ||
-                    (this.TreatAs != null &&
-                    this.TreatAs.Equals(input.TreatAs))
+                    this.TreatAs == other.TreatAs ||
+                    this.TreatAs != null &&
+                    this.TreatAs.Equals(other.TreatAs)
                 );
         }
 
@@ -195,18 +197,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.AfterAction != null)
-                    hashCode = hashCode * 59 + this.AfterAction.GetHashCode();
+                    hash = hash * 59 + this.AfterAction.GetHashCode();
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.MessageType != null)
-                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
+                    hash = hash * 59 + this.MessageType.GetHashCode();
                 if (this.TreatAs != null)
-                    hashCode = hashCode * 59 + this.TreatAs.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.TreatAs.GetHashCode();
+                return hash;
             }
         }
 

@@ -100,33 +100,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as TargetsrecentsaddData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as TargetsrecentsaddData);
         }
 
         /// <summary>
         /// Returns true if TargetsrecentsaddData instances are equal
         /// </summary>
-        /// <param name="input">Instance of TargetsrecentsaddData to be compared</param>
+        /// <param name="other">Instance of TargetsrecentsaddData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetsrecentsaddData input)
+        public bool Equals(TargetsrecentsaddData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Target == input.Target ||
-                    (this.Target != null &&
-                    this.Target.Equals(input.Target))
+                    this.Target == other.Target ||
+                    this.Target != null &&
+                    this.Target.Equals(other.Target)
                 ) && 
                 (
-                    this.RecentInformation == input.RecentInformation ||
-                    (this.RecentInformation != null &&
-                    this.RecentInformation.Equals(input.RecentInformation))
+                    this.RecentInformation == other.RecentInformation ||
+                    this.RecentInformation != null &&
+                    this.RecentInformation.Equals(other.RecentInformation)
                 );
         }
 
@@ -136,14 +138,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Target != null)
-                    hashCode = hashCode * 59 + this.Target.GetHashCode();
+                    hash = hash * 59 + this.Target.GetHashCode();
                 if (this.RecentInformation != null)
-                    hashCode = hashCode * 59 + this.RecentInformation.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.RecentInformation.GetHashCode();
+                return hash;
             }
         }
 

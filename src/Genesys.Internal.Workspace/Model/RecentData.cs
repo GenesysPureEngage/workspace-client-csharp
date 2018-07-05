@@ -79,33 +79,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as RecentData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as RecentData);
         }
 
         /// <summary>
         /// Returns true if RecentData instances are equal
         /// </summary>
-        /// <param name="input">Instance of RecentData to be compared</param>
+        /// <param name="other">Instance of RecentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(RecentData input)
+        public bool Equals(RecentData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Media == input.Media ||
-                    (this.Media != null &&
-                    this.Media.Equals(input.Media))
+                    this.Media == other.Media ||
+                    this.Media != null &&
+                    this.Media.Equals(other.Media)
                 ) && 
                 (
-                    this.TimeStamp == input.TimeStamp ||
-                    (this.TimeStamp != null &&
-                    this.TimeStamp.Equals(input.TimeStamp))
+                    this.TimeStamp == other.TimeStamp ||
+                    this.TimeStamp != null &&
+                    this.TimeStamp.Equals(other.TimeStamp)
                 );
         }
 
@@ -115,14 +117,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Media != null)
-                    hashCode = hashCode * 59 + this.Media.GetHashCode();
+                    hash = hash * 59 + this.Media.GetHashCode();
                 if (this.TimeStamp != null)
-                    hashCode = hashCode * 59 + this.TimeStamp.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.TimeStamp.GetHashCode();
+                return hash;
             }
         }
 

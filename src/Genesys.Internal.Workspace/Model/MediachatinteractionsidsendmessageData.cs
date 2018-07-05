@@ -39,30 +39,24 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum All for value: All
+            /// Enum All for "All"
             /// </summary>
             [EnumMember(Value = "All")]
-            All = 1,
+            All,
             
             /// <summary>
-            /// Enum Agent for value: Agent
+            /// Enum Agent for "Agent"
             /// </summary>
             [EnumMember(Value = "Agent")]
-            Agent = 2,
+            Agent,
             
             /// <summary>
-            /// Enum Supervisor for value: Supervisor
+            /// Enum Supervisor for "Supervisor"
             /// </summary>
             [EnumMember(Value = "Supervisor")]
-            Supervisor = 3
+            Supervisor
         }
 
-        /// <summary>
-        /// Defines which participants in the chat can see the message.
-        /// </summary>
-        /// <value>Defines which participants in the chat can see the message.</value>
-        [DataMember(Name="visibility", EmitDefaultValue=false)]
-        public VisibilityEnum? Visibility { get; set; }
         /// <summary>
         /// Specifies how the message should be treated.
         /// </summary>
@@ -72,18 +66,24 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Normal for value: Normal
+            /// Enum Normal for "Normal"
             /// </summary>
             [EnumMember(Value = "Normal")]
-            Normal = 1,
+            Normal,
             
             /// <summary>
-            /// Enum System for value: System
+            /// Enum System for "System"
             /// </summary>
             [EnumMember(Value = "System")]
-            System = 2
+            System
         }
 
+        /// <summary>
+        /// Defines which participants in the chat can see the message.
+        /// </summary>
+        /// <value>Defines which participants in the chat can see the message.</value>
+        [DataMember(Name="visibility", EmitDefaultValue=false)]
+        public VisibilityEnum? Visibility { get; set; }
         /// <summary>
         /// Specifies how the message should be treated.
         /// </summary>
@@ -162,43 +162,45 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediachatinteractionsidsendmessageData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediachatinteractionsidsendmessageData);
         }
 
         /// <summary>
         /// Returns true if MediachatinteractionsidsendmessageData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediachatinteractionsidsendmessageData to be compared</param>
+        /// <param name="other">Instance of MediachatinteractionsidsendmessageData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidsendmessageData input)
+        public bool Equals(MediachatinteractionsidsendmessageData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Message == input.Message ||
-                    (this.Message != null &&
-                    this.Message.Equals(input.Message))
+                    this.Message == other.Message ||
+                    this.Message != null &&
+                    this.Message.Equals(other.Message)
                 ) && 
                 (
-                    this.MessageType == input.MessageType ||
-                    (this.MessageType != null &&
-                    this.MessageType.Equals(input.MessageType))
+                    this.MessageType == other.MessageType ||
+                    this.MessageType != null &&
+                    this.MessageType.Equals(other.MessageType)
                 ) && 
                 (
-                    this.Visibility == input.Visibility ||
-                    (this.Visibility != null &&
-                    this.Visibility.Equals(input.Visibility))
+                    this.Visibility == other.Visibility ||
+                    this.Visibility != null &&
+                    this.Visibility.Equals(other.Visibility)
                 ) && 
                 (
-                    this.TreatAs == input.TreatAs ||
-                    (this.TreatAs != null &&
-                    this.TreatAs.Equals(input.TreatAs))
+                    this.TreatAs == other.TreatAs ||
+                    this.TreatAs != null &&
+                    this.TreatAs.Equals(other.TreatAs)
                 );
         }
 
@@ -208,18 +210,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Message != null)
-                    hashCode = hashCode * 59 + this.Message.GetHashCode();
+                    hash = hash * 59 + this.Message.GetHashCode();
                 if (this.MessageType != null)
-                    hashCode = hashCode * 59 + this.MessageType.GetHashCode();
+                    hash = hash * 59 + this.MessageType.GetHashCode();
                 if (this.Visibility != null)
-                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
+                    hash = hash * 59 + this.Visibility.GetHashCode();
                 if (this.TreatAs != null)
-                    hashCode = hashCode * 59 + this.TreatAs.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.TreatAs.GetHashCode();
+                return hash;
             }
         }
 

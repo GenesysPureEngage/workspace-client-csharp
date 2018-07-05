@@ -88,38 +88,40 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as ConfigResponseData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as ConfigResponseData);
         }
 
         /// <summary>
         /// Returns true if ConfigResponseData instances are equal
         /// </summary>
-        /// <param name="input">Instance of ConfigResponseData to be compared</param>
+        /// <param name="other">Instance of ConfigResponseData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConfigResponseData input)
+        public bool Equals(ConfigResponseData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.ActionCodes == input.ActionCodes ||
+                    this.ActionCodes == other.ActionCodes ||
                     this.ActionCodes != null &&
-                    this.ActionCodes.SequenceEqual(input.ActionCodes)
+                    this.ActionCodes.SequenceEqual(other.ActionCodes)
                 ) && 
                 (
-                    this.Transactions == input.Transactions ||
+                    this.Transactions == other.Transactions ||
                     this.Transactions != null &&
-                    this.Transactions.SequenceEqual(input.Transactions)
+                    this.Transactions.SequenceEqual(other.Transactions)
                 ) && 
                 (
-                    this.BusinessAttributes == input.BusinessAttributes ||
+                    this.BusinessAttributes == other.BusinessAttributes ||
                     this.BusinessAttributes != null &&
-                    this.BusinessAttributes.SequenceEqual(input.BusinessAttributes)
+                    this.BusinessAttributes.SequenceEqual(other.BusinessAttributes)
                 );
         }
 
@@ -129,16 +131,18 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.ActionCodes != null)
-                    hashCode = hashCode * 59 + this.ActionCodes.GetHashCode();
+                    hash = hash * 59 + this.ActionCodes.GetHashCode();
                 if (this.Transactions != null)
-                    hashCode = hashCode * 59 + this.Transactions.GetHashCode();
+                    hash = hash * 59 + this.Transactions.GetHashCode();
                 if (this.BusinessAttributes != null)
-                    hashCode = hashCode * 59 + this.BusinessAttributes.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.BusinessAttributes.GetHashCode();
+                return hash;
             }
         }
 

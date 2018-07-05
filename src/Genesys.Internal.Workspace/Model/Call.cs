@@ -207,103 +207,105 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as Call);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as Call);
         }
 
         /// <summary>
         /// Returns true if Call instances are equal
         /// </summary>
-        /// <param name="input">Instance of Call to be compared</param>
+        /// <param name="other">Instance of Call to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Call input)
+        public bool Equals(Call other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Type == input.Type ||
-                    (this.Type != null &&
-                    this.Type.Equals(input.Type))
+                    this.Type == other.Type ||
+                    this.Type != null &&
+                    this.Type.Equals(other.Type)
                 ) && 
                 (
-                    this.Id == input.Id ||
-                    (this.Id != null &&
-                    this.Id.Equals(input.Id))
+                    this.Id == other.Id ||
+                    this.Id != null &&
+                    this.Id.Equals(other.Id)
                 ) && 
                 (
-                    this.PreviousConnId == input.PreviousConnId ||
-                    (this.PreviousConnId != null &&
-                    this.PreviousConnId.Equals(input.PreviousConnId))
+                    this.PreviousConnId == other.PreviousConnId ||
+                    this.PreviousConnId != null &&
+                    this.PreviousConnId.Equals(other.PreviousConnId)
                 ) && 
                 (
-                    this.ParentConnId == input.ParentConnId ||
-                    (this.ParentConnId != null &&
-                    this.ParentConnId.Equals(input.ParentConnId))
+                    this.ParentConnId == other.ParentConnId ||
+                    this.ParentConnId != null &&
+                    this.ParentConnId.Equals(other.ParentConnId)
                 ) && 
                 (
-                    this.PhoneNumber == input.PhoneNumber ||
-                    (this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(input.PhoneNumber))
+                    this.PhoneNumber == other.PhoneNumber ||
+                    this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(other.PhoneNumber)
                 ) && 
                 (
-                    this.ConnId == input.ConnId ||
-                    (this.ConnId != null &&
-                    this.ConnId.Equals(input.ConnId))
+                    this.ConnId == other.ConnId ||
+                    this.ConnId != null &&
+                    this.ConnId.Equals(other.ConnId)
                 ) && 
                 (
-                    this.CallUuid == input.CallUuid ||
-                    (this.CallUuid != null &&
-                    this.CallUuid.Equals(input.CallUuid))
+                    this.CallUuid == other.CallUuid ||
+                    this.CallUuid != null &&
+                    this.CallUuid.Equals(other.CallUuid)
                 ) && 
                 (
-                    this.CallType == input.CallType ||
-                    (this.CallType != null &&
-                    this.CallType.Equals(input.CallType))
+                    this.CallType == other.CallType ||
+                    this.CallType != null &&
+                    this.CallType.Equals(other.CallType)
                 ) && 
                 (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
+                    this.State == other.State ||
+                    this.State != null &&
+                    this.State.Equals(other.State)
                 ) && 
                 (
-                    this.Capabilities == input.Capabilities ||
+                    this.Capabilities == other.Capabilities ||
                     this.Capabilities != null &&
-                    this.Capabilities.SequenceEqual(input.Capabilities)
+                    this.Capabilities.SequenceEqual(other.Capabilities)
                 ) && 
                 (
-                    this.Participants == input.Participants ||
+                    this.Participants == other.Participants ||
                     this.Participants != null &&
-                    this.Participants.SequenceEqual(input.Participants)
+                    this.Participants.SequenceEqual(other.Participants)
                 ) && 
                 (
-                    this.Dnis == input.Dnis ||
-                    (this.Dnis != null &&
-                    this.Dnis.Equals(input.Dnis))
+                    this.Dnis == other.Dnis ||
+                    this.Dnis != null &&
+                    this.Dnis.Equals(other.Dnis)
                 ) && 
                 (
-                    this.Ani == input.Ani ||
-                    (this.Ani != null &&
-                    this.Ani.Equals(input.Ani))
+                    this.Ani == other.Ani ||
+                    this.Ani != null &&
+                    this.Ani.Equals(other.Ani)
                 ) && 
                 (
-                    this.RecordingState == input.RecordingState ||
-                    (this.RecordingState != null &&
-                    this.RecordingState.Equals(input.RecordingState))
+                    this.RecordingState == other.RecordingState ||
+                    this.RecordingState != null &&
+                    this.RecordingState.Equals(other.RecordingState)
                 ) && 
                 (
-                    this.UserData == input.UserData ||
+                    this.UserData == other.UserData ||
                     this.UserData != null &&
-                    this.UserData.SequenceEqual(input.UserData)
+                    this.UserData.SequenceEqual(other.UserData)
                 ) && 
                 (
-                    this.Extensions == input.Extensions ||
+                    this.Extensions == other.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(input.Extensions)
+                    this.Extensions.SequenceEqual(other.Extensions)
                 );
         }
 
@@ -313,42 +315,44 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Type != null)
-                    hashCode = hashCode * 59 + this.Type.GetHashCode();
+                    hash = hash * 59 + this.Type.GetHashCode();
                 if (this.Id != null)
-                    hashCode = hashCode * 59 + this.Id.GetHashCode();
+                    hash = hash * 59 + this.Id.GetHashCode();
                 if (this.PreviousConnId != null)
-                    hashCode = hashCode * 59 + this.PreviousConnId.GetHashCode();
+                    hash = hash * 59 + this.PreviousConnId.GetHashCode();
                 if (this.ParentConnId != null)
-                    hashCode = hashCode * 59 + this.ParentConnId.GetHashCode();
+                    hash = hash * 59 + this.ParentConnId.GetHashCode();
                 if (this.PhoneNumber != null)
-                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
                 if (this.ConnId != null)
-                    hashCode = hashCode * 59 + this.ConnId.GetHashCode();
+                    hash = hash * 59 + this.ConnId.GetHashCode();
                 if (this.CallUuid != null)
-                    hashCode = hashCode * 59 + this.CallUuid.GetHashCode();
+                    hash = hash * 59 + this.CallUuid.GetHashCode();
                 if (this.CallType != null)
-                    hashCode = hashCode * 59 + this.CallType.GetHashCode();
+                    hash = hash * 59 + this.CallType.GetHashCode();
                 if (this.State != null)
-                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                    hash = hash * 59 + this.State.GetHashCode();
                 if (this.Capabilities != null)
-                    hashCode = hashCode * 59 + this.Capabilities.GetHashCode();
+                    hash = hash * 59 + this.Capabilities.GetHashCode();
                 if (this.Participants != null)
-                    hashCode = hashCode * 59 + this.Participants.GetHashCode();
+                    hash = hash * 59 + this.Participants.GetHashCode();
                 if (this.Dnis != null)
-                    hashCode = hashCode * 59 + this.Dnis.GetHashCode();
+                    hash = hash * 59 + this.Dnis.GetHashCode();
                 if (this.Ani != null)
-                    hashCode = hashCode * 59 + this.Ani.GetHashCode();
+                    hash = hash * 59 + this.Ani.GetHashCode();
                 if (this.RecordingState != null)
-                    hashCode = hashCode * 59 + this.RecordingState.GetHashCode();
+                    hash = hash * 59 + this.RecordingState.GetHashCode();
                 if (this.UserData != null)
-                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
+                    hash = hash * 59 + this.UserData.GetHashCode();
                 if (this.Extensions != null)
-                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Extensions.GetHashCode();
+                return hash;
             }
         }
 

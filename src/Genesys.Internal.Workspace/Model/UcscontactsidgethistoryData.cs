@@ -104,38 +104,40 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as UcscontactsidgethistoryData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as UcscontactsidgethistoryData);
         }
 
         /// <summary>
         /// Returns true if UcscontactsidgethistoryData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcscontactsidgethistoryData to be compared</param>
+        /// <param name="other">Instance of UcscontactsidgethistoryData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcscontactsidgethistoryData input)
+        public bool Equals(UcscontactsidgethistoryData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.ReturnedAttributes == input.ReturnedAttributes ||
+                    this.ReturnedAttributes == other.ReturnedAttributes ||
                     this.ReturnedAttributes != null &&
-                    this.ReturnedAttributes.SequenceEqual(input.ReturnedAttributes)
+                    this.ReturnedAttributes.SequenceEqual(other.ReturnedAttributes)
                 ) && 
                 (
-                    this.FromDate == input.FromDate ||
-                    (this.FromDate != null &&
-                    this.FromDate.Equals(input.FromDate))
+                    this.FromDate == other.FromDate ||
+                    this.FromDate != null &&
+                    this.FromDate.Equals(other.FromDate)
                 ) && 
                 (
-                    this.ToDate == input.ToDate ||
-                    (this.ToDate != null &&
-                    this.ToDate.Equals(input.ToDate))
+                    this.ToDate == other.ToDate ||
+                    this.ToDate != null &&
+                    this.ToDate.Equals(other.ToDate)
                 );
         }
 
@@ -145,16 +147,18 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.ReturnedAttributes != null)
-                    hashCode = hashCode * 59 + this.ReturnedAttributes.GetHashCode();
+                    hash = hash * 59 + this.ReturnedAttributes.GetHashCode();
                 if (this.FromDate != null)
-                    hashCode = hashCode * 59 + this.FromDate.GetHashCode();
+                    hash = hash * 59 + this.FromDate.GetHashCode();
                 if (this.ToDate != null)
-                    hashCode = hashCode * 59 + this.ToDate.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.ToDate.GetHashCode();
+                return hash;
             }
         }
 

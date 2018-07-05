@@ -102,33 +102,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as SupervisorvoiceoperationNameData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as SupervisorvoiceoperationNameData);
         }
 
         /// <summary>
         /// Returns true if SupervisorvoiceoperationNameData instances are equal
         /// </summary>
-        /// <param name="input">Instance of SupervisorvoiceoperationNameData to be compared</param>
+        /// <param name="other">Instance of SupervisorvoiceoperationNameData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SupervisorvoiceoperationNameData input)
+        public bool Equals(SupervisorvoiceoperationNameData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.UserName == input.UserName ||
-                    (this.UserName != null &&
-                    this.UserName.Equals(input.UserName))
+                    this.UserName == other.UserName ||
+                    this.UserName != null &&
+                    this.UserName.Equals(other.UserName)
                 ) && 
                 (
-                    this.Dn == input.Dn ||
-                    (this.Dn != null &&
-                    this.Dn.Equals(input.Dn))
+                    this.Dn == other.Dn ||
+                    this.Dn != null &&
+                    this.Dn.Equals(other.Dn)
                 );
         }
 
@@ -138,14 +140,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.UserName != null)
-                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
+                    hash = hash * 59 + this.UserName.GetHashCode();
                 if (this.Dn != null)
-                    hashCode = hashCode * 59 + this.Dn.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Dn.GetHashCode();
+                return hash;
             }
         }
 

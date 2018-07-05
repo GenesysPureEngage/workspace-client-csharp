@@ -33,23 +33,10 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="UnsubscribeToWorkbinsNotificationsData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UnsubscribeToWorkbinsNotificationsData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UnsubscribeToWorkbinsNotificationsData" /> class.
-        /// </summary>
-        /// <param name="Data">Data (required).</param>
+        /// <param name="Data">Data.</param>
         public UnsubscribeToWorkbinsNotificationsData(WorkbinsgetcontentsData Data = default(WorkbinsgetcontentsData))
         {
-            // to ensure "Data" is required (not null)
-            if (Data == null)
-            {
-                throw new InvalidDataException("Data is a required property for UnsubscribeToWorkbinsNotificationsData and cannot be null");
-            }
-            else
-            {
-                this.Data = Data;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
@@ -83,28 +70,30 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as UnsubscribeToWorkbinsNotificationsData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as UnsubscribeToWorkbinsNotificationsData);
         }
 
         /// <summary>
         /// Returns true if UnsubscribeToWorkbinsNotificationsData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UnsubscribeToWorkbinsNotificationsData to be compared</param>
+        /// <param name="other">Instance of UnsubscribeToWorkbinsNotificationsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UnsubscribeToWorkbinsNotificationsData input)
+        public bool Equals(UnsubscribeToWorkbinsNotificationsData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Data == input.Data ||
-                    (this.Data != null &&
-                    this.Data.Equals(input.Data))
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -114,12 +103,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Data != null)
-                    hashCode = hashCode * 59 + this.Data.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Data.GetHashCode();
+                return hash;
             }
         }
 

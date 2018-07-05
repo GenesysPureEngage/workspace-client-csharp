@@ -81,33 +81,35 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as UcsresponsesidgetdetailsData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as UcsresponsesidgetdetailsData);
         }
 
         /// <summary>
         /// Returns true if UcsresponsesidgetdetailsData instances are equal
         /// </summary>
-        /// <param name="input">Instance of UcsresponsesidgetdetailsData to be compared</param>
+        /// <param name="other">Instance of UcsresponsesidgetdetailsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsresponsesidgetdetailsData input)
+        public bool Equals(UcsresponsesidgetdetailsData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Version == input.Version ||
-                    (this.Version != null &&
-                    this.Version.Equals(input.Version))
+                    this.Version == other.Version ||
+                    this.Version != null &&
+                    this.Version.Equals(other.Version)
                 ) && 
                 (
-                    this.Attachments == input.Attachments ||
-                    (this.Attachments != null &&
-                    this.Attachments.Equals(input.Attachments))
+                    this.Attachments == other.Attachments ||
+                    this.Attachments != null &&
+                    this.Attachments.Equals(other.Attachments)
                 );
         }
 
@@ -117,14 +119,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Version != null)
-                    hashCode = hashCode * 59 + this.Version.GetHashCode();
+                    hash = hash * 59 + this.Version.GetHashCode();
                 if (this.Attachments != null)
-                    hashCode = hashCode * 59 + this.Attachments.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Attachments.GetHashCode();
+                return hash;
             }
         }
 

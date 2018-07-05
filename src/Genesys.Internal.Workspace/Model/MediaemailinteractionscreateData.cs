@@ -111,48 +111,50 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as MediaemailinteractionscreateData);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as MediaemailinteractionscreateData);
         }
 
         /// <summary>
         /// Returns true if MediaemailinteractionscreateData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediaemailinteractionscreateData to be compared</param>
+        /// <param name="other">Instance of MediaemailinteractionscreateData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediaemailinteractionscreateData input)
+        public bool Equals(MediaemailinteractionscreateData other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Queue == input.Queue ||
-                    (this.Queue != null &&
-                    this.Queue.Equals(input.Queue))
+                    this.Queue == other.Queue ||
+                    this.Queue != null &&
+                    this.Queue.Equals(other.Queue)
                 ) && 
                 (
-                    this.ThreadId == input.ThreadId ||
-                    (this.ThreadId != null &&
-                    this.ThreadId.Equals(input.ThreadId))
+                    this.ThreadId == other.ThreadId ||
+                    this.ThreadId != null &&
+                    this.ThreadId.Equals(other.ThreadId)
                 ) && 
                 (
-                    this.ContactId == input.ContactId ||
-                    (this.ContactId != null &&
-                    this.ContactId.Equals(input.ContactId))
+                    this.ContactId == other.ContactId ||
+                    this.ContactId != null &&
+                    this.ContactId.Equals(other.ContactId)
                 ) && 
                 (
-                    this.To == input.To ||
-                    (this.To != null &&
-                    this.To.Equals(input.To))
+                    this.To == other.To ||
+                    this.To != null &&
+                    this.To.Equals(other.To)
                 ) && 
                 (
-                    this.UserData == input.UserData ||
+                    this.UserData == other.UserData ||
                     this.UserData != null &&
-                    this.UserData.SequenceEqual(input.UserData)
+                    this.UserData.SequenceEqual(other.UserData)
                 );
         }
 
@@ -162,20 +164,22 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Queue != null)
-                    hashCode = hashCode * 59 + this.Queue.GetHashCode();
+                    hash = hash * 59 + this.Queue.GetHashCode();
                 if (this.ThreadId != null)
-                    hashCode = hashCode * 59 + this.ThreadId.GetHashCode();
+                    hash = hash * 59 + this.ThreadId.GetHashCode();
                 if (this.ContactId != null)
-                    hashCode = hashCode * 59 + this.ContactId.GetHashCode();
+                    hash = hash * 59 + this.ContactId.GetHashCode();
                 if (this.To != null)
-                    hashCode = hashCode * 59 + this.To.GetHashCode();
+                    hash = hash * 59 + this.To.GetHashCode();
                 if (this.UserData != null)
-                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.UserData.GetHashCode();
+                return hash;
             }
         }
 

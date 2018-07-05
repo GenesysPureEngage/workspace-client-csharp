@@ -116,53 +116,55 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="input">Object to be compared</param>
+        /// <param name="obj">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object input)
+        public override bool Equals(object obj)
         {
-            return this.Equals(input as OpenMediaChannel);
+            // credit: http://stackoverflow.com/a/10454552/677735
+            return this.Equals(obj as OpenMediaChannel);
         }
 
         /// <summary>
         /// Returns true if OpenMediaChannel instances are equal
         /// </summary>
-        /// <param name="input">Instance of OpenMediaChannel to be compared</param>
+        /// <param name="other">Instance of OpenMediaChannel to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(OpenMediaChannel input)
+        public bool Equals(OpenMediaChannel other)
         {
-            if (input == null)
+            // credit: http://stackoverflow.com/a/10454552/677735
+            if (other == null)
                 return false;
 
             return 
                 (
-                    this.Name == input.Name ||
-                    (this.Name != null &&
-                    this.Name.Equals(input.Name))
+                    this.Name == other.Name ||
+                    this.Name != null &&
+                    this.Name.Equals(other.Name)
                 ) && 
                 (
-                    this.State == input.State ||
-                    (this.State != null &&
-                    this.State.Equals(input.State))
+                    this.State == other.State ||
+                    this.State != null &&
+                    this.State.Equals(other.State)
                 ) && 
                 (
-                    this.Dnd == input.Dnd ||
-                    (this.Dnd != null &&
-                    this.Dnd.Equals(input.Dnd))
+                    this.Dnd == other.Dnd ||
+                    this.Dnd != null &&
+                    this.Dnd.Equals(other.Dnd)
                 ) && 
                 (
-                    this.Reasons == input.Reasons ||
+                    this.Reasons == other.Reasons ||
                     this.Reasons != null &&
-                    this.Reasons.SequenceEqual(input.Reasons)
+                    this.Reasons.SequenceEqual(other.Reasons)
                 ) && 
                 (
-                    this.Interactions == input.Interactions ||
+                    this.Interactions == other.Interactions ||
                     this.Interactions != null &&
-                    this.Interactions.SequenceEqual(input.Interactions)
+                    this.Interactions.SequenceEqual(other.Interactions)
                 ) && 
                 (
-                    this.Capabilities == input.Capabilities ||
+                    this.Capabilities == other.Capabilities ||
                     this.Capabilities != null &&
-                    this.Capabilities.SequenceEqual(input.Capabilities)
+                    this.Capabilities.SequenceEqual(other.Capabilities)
                 );
         }
 
@@ -172,22 +174,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
+            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hashCode = 41;
+                int hash = 41;
+                // Suitable nullity checks etc, of course :)
                 if (this.Name != null)
-                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                    hash = hash * 59 + this.Name.GetHashCode();
                 if (this.State != null)
-                    hashCode = hashCode * 59 + this.State.GetHashCode();
+                    hash = hash * 59 + this.State.GetHashCode();
                 if (this.Dnd != null)
-                    hashCode = hashCode * 59 + this.Dnd.GetHashCode();
+                    hash = hash * 59 + this.Dnd.GetHashCode();
                 if (this.Reasons != null)
-                    hashCode = hashCode * 59 + this.Reasons.GetHashCode();
+                    hash = hash * 59 + this.Reasons.GetHashCode();
                 if (this.Interactions != null)
-                    hashCode = hashCode * 59 + this.Interactions.GetHashCode();
+                    hash = hash * 59 + this.Interactions.GetHashCode();
                 if (this.Capabilities != null)
-                    hashCode = hashCode * 59 + this.Capabilities.GetHashCode();
-                return hashCode;
+                    hash = hash * 59 + this.Capabilities.GetHashCode();
+                return hash;
             }
         }
 
