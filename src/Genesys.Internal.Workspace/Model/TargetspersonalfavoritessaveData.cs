@@ -39,7 +39,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="TargetspersonalfavoritessaveData" /> class.
         /// </summary>
         /// <param name="Target">Target (required).</param>
-        /// <param name="Category">The agent&#39;s personal favorites category. (required).</param>
+        /// <param name="Category">The personal favorites category where the target is saved. (required).</param>
         public TargetspersonalfavoritessaveData(TargetInformation Target = default(TargetInformation), string Category = default(string))
         {
             // to ensure "Target" is required (not null)
@@ -69,9 +69,9 @@ namespace Genesys.Internal.Workspace.Model
         public TargetInformation Target { get; set; }
 
         /// <summary>
-        /// The agent&#39;s personal favorites category.
+        /// The personal favorites category where the target is saved.
         /// </summary>
-        /// <value>The agent&#39;s personal favorites category.</value>
+        /// <value>The personal favorites category where the target is saved.</value>
         [DataMember(Name="category", EmitDefaultValue=false)]
         public string Category { get; set; }
 

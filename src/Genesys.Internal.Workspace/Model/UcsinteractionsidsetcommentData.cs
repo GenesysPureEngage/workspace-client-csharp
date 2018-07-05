@@ -25,47 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MonitoringScopeDataData
+    /// UcsinteractionsidsetcommentData
     /// </summary>
     [DataContract]
-    public partial class MonitoringScopeDataData :  IEquatable<MonitoringScopeDataData>, IValidatableObject
+    public partial class UcsinteractionsidsetcommentData :  IEquatable<UcsinteractionsidsetcommentData>, IValidatableObject
     {
         /// <summary>
-        /// Specifies whether supervisor monitoring applies to this specific call or to the agent.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidsetcommentData" /> class.
         /// </summary>
-        /// <value>Specifies whether supervisor monitoring applies to this specific call or to the agent.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringScopeEnum
-        {
-            
-            /// <summary>
-            /// Enum Call for "Call"
-            /// </summary>
-            [EnumMember(Value = "Call")]
-            Call,
-            
-            /// <summary>
-            /// Enum Agent for "Agent"
-            /// </summary>
-            [EnumMember(Value = "Agent")]
-            Agent
-        }
-
+        [JsonConstructorAttribute]
+        protected UcsinteractionsidsetcommentData() { }
         /// <summary>
-        /// Specifies whether supervisor monitoring applies to this specific call or to the agent.
+        /// Initializes a new instance of the <see cref="UcsinteractionsidsetcommentData" /> class.
         /// </summary>
-        /// <value>Specifies whether supervisor monitoring applies to this specific call or to the agent.</value>
-        [DataMember(Name="monitoringScope", EmitDefaultValue=false)]
-        public MonitoringScopeEnum? MonitoringScope { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MonitoringScopeDataData" /> class.
-        /// </summary>
-        /// <param name="MonitoringScope">Specifies whether supervisor monitoring applies to this specific call or to the agent..</param>
-        public MonitoringScopeDataData(MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
+        /// <param name="Comment">The comment to be set (required).</param>
+        public UcsinteractionsidsetcommentData(string Comment = default(string))
         {
-            this.MonitoringScope = MonitoringScope;
+            // to ensure "Comment" is required (not null)
+            if (Comment == null)
+            {
+                throw new InvalidDataException("Comment is a required property for UcsinteractionsidsetcommentData and cannot be null");
+            }
+            else
+            {
+                this.Comment = Comment;
+            }
         }
         
+        /// <summary>
+        /// The comment to be set
+        /// </summary>
+        /// <value>The comment to be set</value>
+        [DataMember(Name="comment", EmitDefaultValue=false)]
+        public string Comment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,8 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MonitoringScopeDataData {\n");
-            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
+            sb.Append("class UcsinteractionsidsetcommentData {\n");
+            sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +89,15 @@ namespace Genesys.Internal.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MonitoringScopeDataData);
+            return this.Equals(obj as UcsinteractionsidsetcommentData);
         }
 
         /// <summary>
-        /// Returns true if MonitoringScopeDataData instances are equal
+        /// Returns true if UcsinteractionsidsetcommentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MonitoringScopeDataData to be compared</param>
+        /// <param name="other">Instance of UcsinteractionsidsetcommentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MonitoringScopeDataData other)
+        public bool Equals(UcsinteractionsidsetcommentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -113,9 +105,9 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.MonitoringScope == other.MonitoringScope ||
-                    this.MonitoringScope != null &&
-                    this.MonitoringScope.Equals(other.MonitoringScope)
+                    this.Comment == other.Comment ||
+                    this.Comment != null &&
+                    this.Comment.Equals(other.Comment)
                 );
         }
 
@@ -130,8 +122,8 @@ namespace Genesys.Internal.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.MonitoringScope != null)
-                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
+                if (this.Comment != null)
+                    hash = hash * 59 + this.Comment.GetHashCode();
                 return hash;
             }
         }

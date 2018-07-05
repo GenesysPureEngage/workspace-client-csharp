@@ -66,7 +66,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="QueueName">The queue name..</param>
         /// <param name="AgentWorkMode">The workmode..</param>
         /// <param name="DynamicPhoneNumber">An optional dynamic phone number to use for the agent..</param>
-        /// <param name="AutoCompleteCall">Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided..</param>
+        /// <param name="AutoCompleteCall">Specifies if calls should automatically be completed for the session. Defaults to true if not provided..</param>
         /// <param name="Channels">An array of strings that correspond to the channels you want to activate..</param>
         public ActivatechannelsData(string AgentId = default(string), string PlaceName = default(string), string Dn = default(string), string QueueName = default(string), AgentWorkModeEnum? AgentWorkMode = default(AgentWorkModeEnum?), string DynamicPhoneNumber = default(string), bool? AutoCompleteCall = default(bool?), List<string> Channels = default(List<string>))
         {
@@ -117,9 +117,9 @@ namespace Genesys.Internal.Workspace.Model
         public string DynamicPhoneNumber { get; set; }
 
         /// <summary>
-        /// Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.
+        /// Specifies if calls should automatically be completed for the session. Defaults to true if not provided.
         /// </summary>
-        /// <value>Flag denoting whether or not calls should automatically be completed for the session. Defaults to true if not provided.</value>
+        /// <value>Specifies if calls should automatically be completed for the session. Defaults to true if not provided.</value>
         [DataMember(Name="autoCompleteCall", EmitDefaultValue=false)]
         public bool? AutoCompleteCall { get; set; }
 

@@ -33,10 +33,10 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Dn" /> class.
         /// </summary>
-        /// <param name="Number">Number.</param>
-        /// <param name="AgentId">AgentId.</param>
-        /// <param name="AgentState">AgentState.</param>
-        /// <param name="AgentWorkMode">AgentWorkMode.</param>
+        /// <param name="Number">The directory number (phone number)..</param>
+        /// <param name="AgentId">The agent ID used to log in..</param>
+        /// <param name="AgentState">The current state - one of &#x60;LoggedOut&#x60;, &#x60;LoggedIn&#x60;, &#x60;Ready&#x60;, or &#x60;NotReady&#x60;..</param>
+        /// <param name="AgentWorkMode">The current workmode. This value can be either &#x60;AuxWork&#x60; or &#x60;AfterCallWork&#x60; if the agent&#39;s state is Not Ready,  or &#x60;AutoIn&#x60; or &#x60;ManualIn&#x60; if the agent&#39;s state is Ready..</param>
         public Dn(string Number = default(string), string AgentId = default(string), string AgentState = default(string), string AgentWorkMode = default(string))
         {
             this.Number = Number;
@@ -46,26 +46,30 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Number
+        /// The directory number (phone number).
         /// </summary>
+        /// <value>The directory number (phone number).</value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 
         /// <summary>
-        /// Gets or Sets AgentId
+        /// The agent ID used to log in.
         /// </summary>
+        /// <value>The agent ID used to log in.</value>
         [DataMember(Name="agentId", EmitDefaultValue=false)]
         public string AgentId { get; set; }
 
         /// <summary>
-        /// Gets or Sets AgentState
+        /// The current state - one of &#x60;LoggedOut&#x60;, &#x60;LoggedIn&#x60;, &#x60;Ready&#x60;, or &#x60;NotReady&#x60;.
         /// </summary>
+        /// <value>The current state - one of &#x60;LoggedOut&#x60;, &#x60;LoggedIn&#x60;, &#x60;Ready&#x60;, or &#x60;NotReady&#x60;.</value>
         [DataMember(Name="agentState", EmitDefaultValue=false)]
         public string AgentState { get; set; }
 
         /// <summary>
-        /// Gets or Sets AgentWorkMode
+        /// The current workmode. This value can be either &#x60;AuxWork&#x60; or &#x60;AfterCallWork&#x60; if the agent&#39;s state is Not Ready,  or &#x60;AutoIn&#x60; or &#x60;ManualIn&#x60; if the agent&#39;s state is Ready.
         /// </summary>
+        /// <value>The current workmode. This value can be either &#x60;AuxWork&#x60; or &#x60;AfterCallWork&#x60; if the agent&#39;s state is Not Ready,  or &#x60;AutoIn&#x60; or &#x60;ManualIn&#x60; if the agent&#39;s state is Ready.</value>
         [DataMember(Name="agentWorkMode", EmitDefaultValue=false)]
         public string AgentWorkMode { get; set; }
 

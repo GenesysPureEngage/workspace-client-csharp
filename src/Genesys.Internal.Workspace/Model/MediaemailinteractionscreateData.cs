@@ -37,13 +37,21 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="ThreadId">specify the ThreadId of UCS interaction.</param>
         /// <param name="ContactId">id of the contact.</param>
         /// <param name="To">the address mail of to.</param>
+        /// <param name="Body">The message to send. Html body.</param>
+        /// <param name="BodyAsPlainText">The message to send. Plain text body.</param>
+        /// <param name="Mime">Multipurpose internet mail extensions of email.</param>
+        /// <param name="Subject">The subject value.</param>
         /// <param name="UserData">A key/value pairs list of user data..</param>
-        public MediaemailinteractionscreateData(string Queue = default(string), string ThreadId = default(string), string ContactId = default(string), string To = default(string), List<Kvpair> UserData = default(List<Kvpair>))
+        public MediaemailinteractionscreateData(string Queue = default(string), string ThreadId = default(string), string ContactId = default(string), string To = default(string), string Body = default(string), string BodyAsPlainText = default(string), string Mime = default(string), string Subject = default(string), List<Kvpair> UserData = default(List<Kvpair>))
         {
             this.Queue = Queue;
             this.ThreadId = ThreadId;
             this.ContactId = ContactId;
             this.To = To;
+            this.Body = Body;
+            this.BodyAsPlainText = BodyAsPlainText;
+            this.Mime = Mime;
+            this.Subject = Subject;
             this.UserData = UserData;
         }
         
@@ -76,6 +84,34 @@ namespace Genesys.Internal.Workspace.Model
         public string To { get; set; }
 
         /// <summary>
+        /// The message to send. Html body
+        /// </summary>
+        /// <value>The message to send. Html body</value>
+        [DataMember(Name="body", EmitDefaultValue=false)]
+        public string Body { get; set; }
+
+        /// <summary>
+        /// The message to send. Plain text body
+        /// </summary>
+        /// <value>The message to send. Plain text body</value>
+        [DataMember(Name="bodyAsPlainText", EmitDefaultValue=false)]
+        public string BodyAsPlainText { get; set; }
+
+        /// <summary>
+        /// Multipurpose internet mail extensions of email
+        /// </summary>
+        /// <value>Multipurpose internet mail extensions of email</value>
+        [DataMember(Name="mime", EmitDefaultValue=false)]
+        public string Mime { get; set; }
+
+        /// <summary>
+        /// The subject value
+        /// </summary>
+        /// <value>The subject value</value>
+        [DataMember(Name="subject", EmitDefaultValue=false)]
+        public string Subject { get; set; }
+
+        /// <summary>
         /// A key/value pairs list of user data.
         /// </summary>
         /// <value>A key/value pairs list of user data.</value>
@@ -94,6 +130,10 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("  ThreadId: ").Append(ThreadId).Append("\n");
             sb.Append("  ContactId: ").Append(ContactId).Append("\n");
             sb.Append("  To: ").Append(To).Append("\n");
+            sb.Append("  Body: ").Append(Body).Append("\n");
+            sb.Append("  BodyAsPlainText: ").Append(BodyAsPlainText).Append("\n");
+            sb.Append("  Mime: ").Append(Mime).Append("\n");
+            sb.Append("  Subject: ").Append(Subject).Append("\n");
             sb.Append("  UserData: ").Append(UserData).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -152,6 +192,26 @@ namespace Genesys.Internal.Workspace.Model
                     this.To.Equals(other.To)
                 ) && 
                 (
+                    this.Body == other.Body ||
+                    this.Body != null &&
+                    this.Body.Equals(other.Body)
+                ) && 
+                (
+                    this.BodyAsPlainText == other.BodyAsPlainText ||
+                    this.BodyAsPlainText != null &&
+                    this.BodyAsPlainText.Equals(other.BodyAsPlainText)
+                ) && 
+                (
+                    this.Mime == other.Mime ||
+                    this.Mime != null &&
+                    this.Mime.Equals(other.Mime)
+                ) && 
+                (
+                    this.Subject == other.Subject ||
+                    this.Subject != null &&
+                    this.Subject.Equals(other.Subject)
+                ) && 
+                (
                     this.UserData == other.UserData ||
                     this.UserData != null &&
                     this.UserData.SequenceEqual(other.UserData)
@@ -177,6 +237,14 @@ namespace Genesys.Internal.Workspace.Model
                     hash = hash * 59 + this.ContactId.GetHashCode();
                 if (this.To != null)
                     hash = hash * 59 + this.To.GetHashCode();
+                if (this.Body != null)
+                    hash = hash * 59 + this.Body.GetHashCode();
+                if (this.BodyAsPlainText != null)
+                    hash = hash * 59 + this.BodyAsPlainText.GetHashCode();
+                if (this.Mime != null)
+                    hash = hash * 59 + this.Mime.GetHashCode();
+                if (this.Subject != null)
+                    hash = hash * 59 + this.Subject.GetHashCode();
                 if (this.UserData != null)
                     hash = hash * 59 + this.UserData.GetHashCode();
                 return hash;

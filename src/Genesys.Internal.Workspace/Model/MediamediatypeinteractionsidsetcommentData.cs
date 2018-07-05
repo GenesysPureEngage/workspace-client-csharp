@@ -25,43 +25,39 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediamediatypenotreadyData
+    /// MediamediatypeinteractionsidsetcommentData
     /// </summary>
     [DataContract]
-    public partial class MediamediatypenotreadyData :  IEquatable<MediamediatypenotreadyData>, IValidatableObject
+    public partial class MediamediatypeinteractionsidsetcommentData :  IEquatable<MediamediatypeinteractionsidsetcommentData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediamediatypenotreadyData" /> class.
+        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidsetcommentData" /> class.
         /// </summary>
-        /// <param name="ReasonCode">ReasonCode.</param>
-        /// <param name="Reason">A collection of key/value pairs..</param>
-        /// <param name="Extension">A collection of key/value pairs..</param>
-        public MediamediatypenotreadyData(string ReasonCode = default(string), IxnReasonCode Reason = default(IxnReasonCode), List<Kvpair> Extension = default(List<Kvpair>))
+        [JsonConstructorAttribute]
+        protected MediamediatypeinteractionsidsetcommentData() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidsetcommentData" /> class.
+        /// </summary>
+        /// <param name="Comment">The comment to add to the interaction. (required).</param>
+        public MediamediatypeinteractionsidsetcommentData(string Comment = default(string))
         {
-            this.ReasonCode = ReasonCode;
-            this.Reason = Reason;
-            this.Extension = Extension;
+            // to ensure "Comment" is required (not null)
+            if (Comment == null)
+            {
+                throw new InvalidDataException("Comment is a required property for MediamediatypeinteractionsidsetcommentData and cannot be null");
+            }
+            else
+            {
+                this.Comment = Comment;
+            }
         }
         
         /// <summary>
-        /// Gets or Sets ReasonCode
+        /// The comment to add to the interaction.
         /// </summary>
-        [DataMember(Name="reasonCode", EmitDefaultValue=false)]
-        public string ReasonCode { get; set; }
-
-        /// <summary>
-        /// A collection of key/value pairs.
-        /// </summary>
-        /// <value>A collection of key/value pairs.</value>
-        [DataMember(Name="reason", EmitDefaultValue=false)]
-        public IxnReasonCode Reason { get; set; }
-
-        /// <summary>
-        /// A collection of key/value pairs.
-        /// </summary>
-        /// <value>A collection of key/value pairs.</value>
-        [DataMember(Name="extension", EmitDefaultValue=false)]
-        public List<Kvpair> Extension { get; set; }
+        /// <value>The comment to add to the interaction.</value>
+        [DataMember(Name="comment", EmitDefaultValue=false)]
+        public string Comment { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -70,10 +66,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediamediatypenotreadyData {\n");
-            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
-            sb.Append("  Reason: ").Append(Reason).Append("\n");
-            sb.Append("  Extension: ").Append(Extension).Append("\n");
+            sb.Append("class MediamediatypeinteractionsidsetcommentData {\n");
+            sb.Append("  Comment: ").Append(Comment).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -95,15 +89,15 @@ namespace Genesys.Internal.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MediamediatypenotreadyData);
+            return this.Equals(obj as MediamediatypeinteractionsidsetcommentData);
         }
 
         /// <summary>
-        /// Returns true if MediamediatypenotreadyData instances are equal
+        /// Returns true if MediamediatypeinteractionsidsetcommentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MediamediatypenotreadyData to be compared</param>
+        /// <param name="other">Instance of MediamediatypeinteractionsidsetcommentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypenotreadyData other)
+        public bool Equals(MediamediatypeinteractionsidsetcommentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -111,19 +105,9 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.ReasonCode == other.ReasonCode ||
-                    this.ReasonCode != null &&
-                    this.ReasonCode.Equals(other.ReasonCode)
-                ) && 
-                (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
-                ) && 
-                (
-                    this.Extension == other.Extension ||
-                    this.Extension != null &&
-                    this.Extension.SequenceEqual(other.Extension)
+                    this.Comment == other.Comment ||
+                    this.Comment != null &&
+                    this.Comment.Equals(other.Comment)
                 );
         }
 
@@ -138,12 +122,8 @@ namespace Genesys.Internal.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.ReasonCode != null)
-                    hash = hash * 59 + this.ReasonCode.GetHashCode();
-                if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
-                if (this.Extension != null)
-                    hash = hash * 59 + this.Extension.GetHashCode();
+                if (this.Comment != null)
+                    hash = hash * 59 + this.Comment.GetHashCode();
                 return hash;
             }
         }

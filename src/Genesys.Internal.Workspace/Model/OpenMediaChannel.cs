@@ -36,7 +36,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="Name">Name.</param>
         /// <param name="State">State.</param>
         /// <param name="Dnd">Dnd.</param>
-        /// <param name="Reasons">A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Reasons)..</param>
+        /// <param name="Reasons">Information on causes for, and results of, actions taken by the user of the current DN. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Reasons)..</param>
         /// <param name="Interactions">Interactions.</param>
         /// <param name="Capabilities">Capabilities.</param>
         public OpenMediaChannel(string Name = default(string), string State = default(string), bool? Dnd = default(bool?), List<Kvpair> Reasons = default(List<Kvpair>), List<Object> Interactions = default(List<Object>), List<string> Capabilities = default(List<string>))
@@ -68,9 +68,9 @@ namespace Genesys.Internal.Workspace.Model
         public bool? Dnd { get; set; }
 
         /// <summary>
-        /// A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Reasons).
+        /// Information on causes for, and results of, actions taken by the user of the current DN. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Reasons).
         /// </summary>
-        /// <value>A collection of key/value pairs. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Reasons).</value>
+        /// <value>Information on causes for, and results of, actions taken by the user of the current DN. For details about reasons, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Reasons).</value>
         [DataMember(Name="reasons", EmitDefaultValue=false)]
         public List<Kvpair> Reasons { get; set; }
 

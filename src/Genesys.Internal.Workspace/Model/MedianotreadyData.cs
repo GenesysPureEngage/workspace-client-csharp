@@ -25,47 +25,43 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MonitoringScopeDataData
+    /// MedianotreadyData
     /// </summary>
     [DataContract]
-    public partial class MonitoringScopeDataData :  IEquatable<MonitoringScopeDataData>, IValidatableObject
+    public partial class MedianotreadyData :  IEquatable<MedianotreadyData>, IValidatableObject
     {
         /// <summary>
-        /// Specifies whether supervisor monitoring applies to this specific call or to the agent.
+        /// Initializes a new instance of the <see cref="MedianotreadyData" /> class.
         /// </summary>
-        /// <value>Specifies whether supervisor monitoring applies to this specific call or to the agent.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringScopeEnum
+        /// <param name="ReasonCode">ReasonCode.</param>
+        /// <param name="Reason">A collection of key/value pairs..</param>
+        /// <param name="Extension">A collection of key/value pairs..</param>
+        public MedianotreadyData(string ReasonCode = default(string), IxnReasonCode Reason = default(IxnReasonCode), List<Kvpair> Extension = default(List<Kvpair>))
         {
-            
-            /// <summary>
-            /// Enum Call for "Call"
-            /// </summary>
-            [EnumMember(Value = "Call")]
-            Call,
-            
-            /// <summary>
-            /// Enum Agent for "Agent"
-            /// </summary>
-            [EnumMember(Value = "Agent")]
-            Agent
-        }
-
-        /// <summary>
-        /// Specifies whether supervisor monitoring applies to this specific call or to the agent.
-        /// </summary>
-        /// <value>Specifies whether supervisor monitoring applies to this specific call or to the agent.</value>
-        [DataMember(Name="monitoringScope", EmitDefaultValue=false)]
-        public MonitoringScopeEnum? MonitoringScope { get; set; }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MonitoringScopeDataData" /> class.
-        /// </summary>
-        /// <param name="MonitoringScope">Specifies whether supervisor monitoring applies to this specific call or to the agent..</param>
-        public MonitoringScopeDataData(MonitoringScopeEnum? MonitoringScope = default(MonitoringScopeEnum?))
-        {
-            this.MonitoringScope = MonitoringScope;
+            this.ReasonCode = ReasonCode;
+            this.Reason = Reason;
+            this.Extension = Extension;
         }
         
+        /// <summary>
+        /// Gets or Sets ReasonCode
+        /// </summary>
+        [DataMember(Name="reasonCode", EmitDefaultValue=false)]
+        public string ReasonCode { get; set; }
+
+        /// <summary>
+        /// A collection of key/value pairs.
+        /// </summary>
+        /// <value>A collection of key/value pairs.</value>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public IxnReasonCode Reason { get; set; }
+
+        /// <summary>
+        /// A collection of key/value pairs.
+        /// </summary>
+        /// <value>A collection of key/value pairs.</value>
+        [DataMember(Name="extension", EmitDefaultValue=false)]
+        public List<Kvpair> Extension { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -74,8 +70,10 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MonitoringScopeDataData {\n");
-            sb.Append("  MonitoringScope: ").Append(MonitoringScope).Append("\n");
+            sb.Append("class MedianotreadyData {\n");
+            sb.Append("  ReasonCode: ").Append(ReasonCode).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
+            sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,15 +95,15 @@ namespace Genesys.Internal.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MonitoringScopeDataData);
+            return this.Equals(obj as MedianotreadyData);
         }
 
         /// <summary>
-        /// Returns true if MonitoringScopeDataData instances are equal
+        /// Returns true if MedianotreadyData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MonitoringScopeDataData to be compared</param>
+        /// <param name="other">Instance of MedianotreadyData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MonitoringScopeDataData other)
+        public bool Equals(MedianotreadyData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -113,9 +111,19 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.MonitoringScope == other.MonitoringScope ||
-                    this.MonitoringScope != null &&
-                    this.MonitoringScope.Equals(other.MonitoringScope)
+                    this.ReasonCode == other.ReasonCode ||
+                    this.ReasonCode != null &&
+                    this.ReasonCode.Equals(other.ReasonCode)
+                ) && 
+                (
+                    this.Reason == other.Reason ||
+                    this.Reason != null &&
+                    this.Reason.Equals(other.Reason)
+                ) && 
+                (
+                    this.Extension == other.Extension ||
+                    this.Extension != null &&
+                    this.Extension.SequenceEqual(other.Extension)
                 );
         }
 
@@ -130,8 +138,12 @@ namespace Genesys.Internal.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.MonitoringScope != null)
-                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
+                if (this.ReasonCode != null)
+                    hash = hash * 59 + this.ReasonCode.GetHashCode();
+                if (this.Reason != null)
+                    hash = hash * 59 + this.Reason.GetHashCode();
+                if (this.Extension != null)
+                    hash = hash * 59 + this.Extension.GetHashCode();
                 return hash;
             }
         }

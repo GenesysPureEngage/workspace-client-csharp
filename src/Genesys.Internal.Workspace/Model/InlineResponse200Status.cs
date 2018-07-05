@@ -33,8 +33,8 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200Status" /> class.
         /// </summary>
-        /// <param name="Code">On error will provide a code that can be used to get more detail about the error..</param>
-        /// <param name="Message">On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed..</param>
+        /// <param name="Code">Indicates whether the operation was successful. &#x60;0&#x60; is a successful synchronous operation;  &#x60;1&#x60; is a successful asynchronous operation; and &#x60;2&#x60; is a partially successful synchronous  operation. If the value is &#x60;2&#x60; the response includes **data** and **error** objects. All  other status codes indicate an error and include a **message** object. See  (Getting started)[/reference/] for more information about responses and errors..</param>
+        /// <param name="Message">Provides general information when a request returns an error response. For example, if your  request returns a response with error code &#x60;500&#x60; the message might be &#x60;Resource not found.&#x60;  See (Getting started)[/reference/] for more information about responses and errors..</param>
         public InlineResponse200Status(int? Code = default(int?), string Message = default(string))
         {
             this.Code = Code;
@@ -42,16 +42,16 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// On error will provide a code that can be used to get more detail about the error.
+        /// Indicates whether the operation was successful. &#x60;0&#x60; is a successful synchronous operation;  &#x60;1&#x60; is a successful asynchronous operation; and &#x60;2&#x60; is a partially successful synchronous  operation. If the value is &#x60;2&#x60; the response includes **data** and **error** objects. All  other status codes indicate an error and include a **message** object. See  (Getting started)[/reference/] for more information about responses and errors.
         /// </summary>
-        /// <value>On error will provide a code that can be used to get more detail about the error.</value>
+        /// <value>Indicates whether the operation was successful. &#x60;0&#x60; is a successful synchronous operation;  &#x60;1&#x60; is a successful asynchronous operation; and &#x60;2&#x60; is a partially successful synchronous  operation. If the value is &#x60;2&#x60; the response includes **data** and **error** objects. All  other status codes indicate an error and include a **message** object. See  (Getting started)[/reference/] for more information about responses and errors.</value>
         [DataMember(Name="code", EmitDefaultValue=false)]
         public int? Code { get; set; }
 
         /// <summary>
-        /// On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.
+        /// Provides general information when a request returns an error response. For example, if your  request returns a response with error code &#x60;500&#x60; the message might be &#x60;Resource not found.&#x60;  See (Getting started)[/reference/] for more information about responses and errors.
         /// </summary>
-        /// <value>On error will provide a message with more detail about the error. Keep in mind that the error message will be fairly general and internal details are not exposed.</value>
+        /// <value>Provides general information when a request returns an error response. For example, if your  request returns a response with error code &#x60;500&#x60; the message might be &#x60;Resource not found.&#x60;  See (Getting started)[/reference/] for more information about responses and errors.</value>
         [DataMember(Name="message", EmitDefaultValue=false)]
         public string Message { get; set; }
 

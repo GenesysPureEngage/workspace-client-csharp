@@ -34,21 +34,21 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="Call" /> class.
         /// </summary>
         /// <param name="Type">Type.</param>
-        /// <param name="Id">Id.</param>
-        /// <param name="PreviousConnId">PreviousConnId.</param>
-        /// <param name="ParentConnId">ParentConnId.</param>
-        /// <param name="PhoneNumber">PhoneNumber.</param>
-        /// <param name="ConnId">ConnId.</param>
-        /// <param name="CallUuid">CallUuid.</param>
-        /// <param name="CallType">CallType.</param>
-        /// <param name="State">State.</param>
-        /// <param name="Capabilities">Capabilities.</param>
-        /// <param name="Participants">Participants.</param>
-        /// <param name="Dnis">Dnis.</param>
-        /// <param name="Ani">Ani.</param>
-        /// <param name="RecordingState">RecordingState.</param>
-        /// <param name="UserData">A key/value pairs list of a data structure that provides additional information associated with this action..</param>
-        /// <param name="Extensions">A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions)..</param>
+        /// <param name="Id">The unique identifier for the call..</param>
+        /// <param name="PreviousConnId">The previous connection ID is present if the ID has changed, as would be the case if an  agent is the target of a two-step conference or transfer..</param>
+        /// <param name="ParentConnId">The parent connection ID is present on consult calls and identifies the call from which the  conference or transfer was initiated..</param>
+        /// <param name="PhoneNumber">The agent&#39;s phone number..</param>
+        /// <param name="ConnId">The connection ID for the call. This value comes from the Tlib event..</param>
+        /// <param name="CallUuid">The universally unique identifier associated with the call. This is a separate identifier  that is specifically required by some requests..</param>
+        /// <param name="CallType">The type of call, such as Internal, Inbound, Outbound, Consult..</param>
+        /// <param name="State">The state of the call - one of Ringing, Dialing, Established, Held, Released, or Completed.  Unless specifically configured, calls are automatically completed upon release..</param>
+        /// <param name="Capabilities">A list of capabilities for the current state. For example, if the current state is Dialing,  the list might be [\&quot;HangUp\&quot;, \&quot;Hold\&quot;]..</param>
+        /// <param name="Participants">A list of call participants - the phone numbers of those currently on the call..</param>
+        /// <param name="Dnis">The Dialed Number Identification Service from the call..</param>
+        /// <param name="Ani">The Automatic Number Identification from the call..</param>
+        /// <param name="RecordingState">The call recording state, one of Stopped, Recording, Paused. If the recording was never started for a call this property is absent..</param>
+        /// <param name="UserData">A key/value pairs list of a data associated with the call..</param>
+        /// <param name="Extensions">Media device/hardware reason codes and similar information. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions)..</param>
         public Call(string Type = default(string), string Id = default(string), string PreviousConnId = default(string), string ParentConnId = default(string), string PhoneNumber = default(string), string ConnId = default(string), string CallUuid = default(string), string CallType = default(string), string State = default(string), List<string> Capabilities = default(List<string>), List<CallParticipants> Participants = default(List<CallParticipants>), string Dnis = default(string), string Ani = default(string), string RecordingState = default(string), List<Kvpair> UserData = default(List<Kvpair>), List<Kvpair> Extensions = default(List<Kvpair>))
         {
             this.Type = Type;
@@ -76,94 +76,107 @@ namespace Genesys.Internal.Workspace.Model
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The unique identifier for the call.
         /// </summary>
+        /// <value>The unique identifier for the call.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets PreviousConnId
+        /// The previous connection ID is present if the ID has changed, as would be the case if an  agent is the target of a two-step conference or transfer.
         /// </summary>
+        /// <value>The previous connection ID is present if the ID has changed, as would be the case if an  agent is the target of a two-step conference or transfer.</value>
         [DataMember(Name="previousConnId", EmitDefaultValue=false)]
         public string PreviousConnId { get; set; }
 
         /// <summary>
-        /// Gets or Sets ParentConnId
+        /// The parent connection ID is present on consult calls and identifies the call from which the  conference or transfer was initiated.
         /// </summary>
+        /// <value>The parent connection ID is present on consult calls and identifies the call from which the  conference or transfer was initiated.</value>
         [DataMember(Name="parentConnId", EmitDefaultValue=false)]
         public string ParentConnId { get; set; }
 
         /// <summary>
-        /// Gets or Sets PhoneNumber
+        /// The agent&#39;s phone number.
         /// </summary>
+        /// <value>The agent&#39;s phone number.</value>
         [DataMember(Name="phoneNumber", EmitDefaultValue=false)]
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConnId
+        /// The connection ID for the call. This value comes from the Tlib event.
         /// </summary>
+        /// <value>The connection ID for the call. This value comes from the Tlib event.</value>
         [DataMember(Name="connId", EmitDefaultValue=false)]
         public string ConnId { get; set; }
 
         /// <summary>
-        /// Gets or Sets CallUuid
+        /// The universally unique identifier associated with the call. This is a separate identifier  that is specifically required by some requests.
         /// </summary>
+        /// <value>The universally unique identifier associated with the call. This is a separate identifier  that is specifically required by some requests.</value>
         [DataMember(Name="callUuid", EmitDefaultValue=false)]
         public string CallUuid { get; set; }
 
         /// <summary>
-        /// Gets or Sets CallType
+        /// The type of call, such as Internal, Inbound, Outbound, Consult.
         /// </summary>
+        /// <value>The type of call, such as Internal, Inbound, Outbound, Consult.</value>
         [DataMember(Name="callType", EmitDefaultValue=false)]
         public string CallType { get; set; }
 
         /// <summary>
-        /// Gets or Sets State
+        /// The state of the call - one of Ringing, Dialing, Established, Held, Released, or Completed.  Unless specifically configured, calls are automatically completed upon release.
         /// </summary>
+        /// <value>The state of the call - one of Ringing, Dialing, Established, Held, Released, or Completed.  Unless specifically configured, calls are automatically completed upon release.</value>
         [DataMember(Name="state", EmitDefaultValue=false)]
         public string State { get; set; }
 
         /// <summary>
-        /// Gets or Sets Capabilities
+        /// A list of capabilities for the current state. For example, if the current state is Dialing,  the list might be [\&quot;HangUp\&quot;, \&quot;Hold\&quot;].
         /// </summary>
+        /// <value>A list of capabilities for the current state. For example, if the current state is Dialing,  the list might be [\&quot;HangUp\&quot;, \&quot;Hold\&quot;].</value>
         [DataMember(Name="capabilities", EmitDefaultValue=false)]
         public List<string> Capabilities { get; set; }
 
         /// <summary>
-        /// Gets or Sets Participants
+        /// A list of call participants - the phone numbers of those currently on the call.
         /// </summary>
+        /// <value>A list of call participants - the phone numbers of those currently on the call.</value>
         [DataMember(Name="participants", EmitDefaultValue=false)]
         public List<CallParticipants> Participants { get; set; }
 
         /// <summary>
-        /// Gets or Sets Dnis
+        /// The Dialed Number Identification Service from the call.
         /// </summary>
+        /// <value>The Dialed Number Identification Service from the call.</value>
         [DataMember(Name="dnis", EmitDefaultValue=false)]
         public string Dnis { get; set; }
 
         /// <summary>
-        /// Gets or Sets Ani
+        /// The Automatic Number Identification from the call.
         /// </summary>
+        /// <value>The Automatic Number Identification from the call.</value>
         [DataMember(Name="ani", EmitDefaultValue=false)]
         public string Ani { get; set; }
 
         /// <summary>
-        /// Gets or Sets RecordingState
+        /// The call recording state, one of Stopped, Recording, Paused. If the recording was never started for a call this property is absent.
         /// </summary>
+        /// <value>The call recording state, one of Stopped, Recording, Paused. If the recording was never started for a call this property is absent.</value>
         [DataMember(Name="recordingState", EmitDefaultValue=false)]
         public string RecordingState { get; set; }
 
         /// <summary>
-        /// A key/value pairs list of a data structure that provides additional information associated with this action.
+        /// A key/value pairs list of a data associated with the call.
         /// </summary>
-        /// <value>A key/value pairs list of a data structure that provides additional information associated with this action.</value>
+        /// <value>A key/value pairs list of a data associated with the call.</value>
         [DataMember(Name="userData", EmitDefaultValue=false)]
         public List<Kvpair> UserData { get; set; }
 
         /// <summary>
-        /// A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).
+        /// Media device/hardware reason codes and similar information. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).
         /// </summary>
-        /// <value>A collection of key/value pairs. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).</value>
+        /// <value>Media device/hardware reason codes and similar information. For details about extensions, refer to the [Genesys Events and Models Reference Manual](https://docs.genesys.com/Documentation/System/Current/GenEM/Extensions).</value>
         [DataMember(Name="extensions", EmitDefaultValue=false)]
         public List<Kvpair> Extensions { get; set; }
 

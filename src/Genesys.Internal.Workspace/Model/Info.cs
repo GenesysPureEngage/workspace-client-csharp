@@ -25,25 +25,35 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// CallNoteData
+    /// Info
     /// </summary>
     [DataContract]
-    public partial class CallNoteData :  IEquatable<CallNoteData>, IValidatableObject
+    public partial class Info :  IEquatable<Info>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CallNoteData" /> class.
+        /// Initializes a new instance of the <see cref="Info" /> class.
         /// </summary>
-        /// <param name="Data">Data.</param>
-        public CallNoteData(UcsinteractionsidsetnoteData Data = default(UcsinteractionsidsetnoteData))
+        /// <param name="Version">server version.</param>
+        /// <param name="Changeset">changeset.</param>
+        public Info(string Version = default(string), string Changeset = default(string))
         {
-            this.Data = Data;
+            this.Version = Version;
+            this.Changeset = Changeset;
         }
         
         /// <summary>
-        /// Gets or Sets Data
+        /// server version
         /// </summary>
-        [DataMember(Name="data", EmitDefaultValue=false)]
-        public UcsinteractionsidsetnoteData Data { get; set; }
+        /// <value>server version</value>
+        [DataMember(Name="version", EmitDefaultValue=false)]
+        public string Version { get; set; }
+
+        /// <summary>
+        /// changeset
+        /// </summary>
+        /// <value>changeset</value>
+        [DataMember(Name="changeset", EmitDefaultValue=false)]
+        public string Changeset { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -52,8 +62,9 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class CallNoteData {\n");
-            sb.Append("  Data: ").Append(Data).Append("\n");
+            sb.Append("class Info {\n");
+            sb.Append("  Version: ").Append(Version).Append("\n");
+            sb.Append("  Changeset: ").Append(Changeset).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -75,15 +86,15 @@ namespace Genesys.Internal.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CallNoteData);
+            return this.Equals(obj as Info);
         }
 
         /// <summary>
-        /// Returns true if CallNoteData instances are equal
+        /// Returns true if Info instances are equal
         /// </summary>
-        /// <param name="other">Instance of CallNoteData to be compared</param>
+        /// <param name="other">Instance of Info to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CallNoteData other)
+        public bool Equals(Info other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -91,9 +102,14 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Version == other.Version ||
+                    this.Version != null &&
+                    this.Version.Equals(other.Version)
+                ) && 
+                (
+                    this.Changeset == other.Changeset ||
+                    this.Changeset != null &&
+                    this.Changeset.Equals(other.Changeset)
                 );
         }
 
@@ -108,8 +124,10 @@ namespace Genesys.Internal.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                if (this.Version != null)
+                    hash = hash * 59 + this.Version.GetHashCode();
+                if (this.Changeset != null)
+                    hash = hash * 59 + this.Changeset.GetHashCode();
                 return hash;
             }
         }

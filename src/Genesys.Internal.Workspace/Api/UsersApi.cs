@@ -28,7 +28,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Search for users.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for users with the specified filters.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -43,7 +43,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Search for users.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for users with the specified filters.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -82,7 +82,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Search for users.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for users with the specified filters.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -97,7 +97,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Search for users.
         /// </summary>
         /// <remarks>
-        /// 
+        /// Search for users with the specified filters.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -243,7 +243,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for users. 
+        /// Search for users. Search for users with the specified filters.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -259,7 +259,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for users. 
+        /// Search for users. Search for users with the specified filters.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -319,7 +319,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for users. 
+        /// Search for users. Search for users with the specified filters.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>
@@ -336,7 +336,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for users. 
+        /// Search for users. Search for users with the specified filters.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="searchTerm">The text to search. (optional)</param>

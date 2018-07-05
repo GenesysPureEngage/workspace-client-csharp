@@ -243,7 +243,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> IdentifyContactWithHttpInfo (string id, IdentifyContactData identifyContactData);
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -254,7 +254,7 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse SearchContacts (LuceneSearchData luceneSearchData);
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -285,6 +285,29 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SearchInteractionsWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
         /// <summary>
+        /// Set the comment for the call
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SetCallComment (string id, CallCommentData callCommentData);
+
+        /// <summary>
+        /// Set the comment for the call
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SetCallCommentWithHttpInfo (string id, CallCommentData callCommentData);
+        /// <summary>
         /// Set the call as being completed
         /// </summary>
         /// <remarks>
@@ -307,29 +330,6 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="callCompletedData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SetCallCompletedWithHttpInfo (string id, CallCompletedData callCompletedData);
-        /// <summary>
-        /// Set the note for the call
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse SetCallNote (string id, CallNoteData callNoteData);
-
-        /// <summary>
-        /// Set the note for the call
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> SetCallNoteWithHttpInfo (string id, CallNoteData callNoteData);
         /// <summary>
         /// Update attributes of an existing contact
         /// </summary>
@@ -574,7 +574,7 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> IdentifyContactAsyncWithHttpInfo (string id, IdentifyContactData identifyContactData);
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -585,7 +585,7 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> SearchContactsAsync (LuceneSearchData luceneSearchData);
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene
         /// </summary>
         /// <remarks>
         /// 
@@ -616,6 +616,29 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SearchInteractionsAsyncWithHttpInfo (LuceneSearchInteractionData luceneSearchInteractionData);
         /// <summary>
+        /// Set the comment for the call
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCommentAsync (string id, CallCommentData callCommentData);
+
+        /// <summary>
+        /// Set the comment for the call
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCommentAsyncWithHttpInfo (string id, CallCommentData callCommentData);
+        /// <summary>
         /// Set the call as being completed
         /// </summary>
         /// <remarks>
@@ -638,29 +661,6 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="callCompletedData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCompletedAsyncWithHttpInfo (string id, CallCompletedData callCompletedData);
-        /// <summary>
-        /// Set the note for the call
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (string id, CallNoteData callNoteData);
-
-        /// <summary>
-        /// Set the note for the call
-        /// </summary>
-        /// <remarks>
-        /// 
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (string id, CallNoteData callNoteData);
         /// <summary>
         /// Update attributes of an existing contact
         /// </summary>
@@ -2281,7 +2281,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2293,7 +2293,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2355,7 +2355,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2368,7 +2368,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Search for contacts. If &#39;sortCriteria&#39; or &#39;startIndex&#39; is specified, the query is based on SQL, otherwise on Lucene 
+        /// Search for contacts. If ‘sortCriteria’ or ‘startIndex’ is specified, the query is based on SQL, otherwise on Lucene 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="luceneSearchData"></param>
@@ -2579,6 +2579,167 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
+        /// Set the comment for the call 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SetCallComment (string id, CallCommentData callCommentData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallCommentWithHttpInfo(id, callCommentData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Set the comment for the call 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SetCallCommentWithHttpInfo (string id, CallCommentData callCommentData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallComment");
+            // verify the required parameter 'callCommentData' is set
+            if (callCommentData == null)
+                throw new ApiException(400, "Missing required parameter 'callCommentData' when calling UcsApi->SetCallComment");
+
+            var localVarPath = "/ucs/interactions/{id}/set-comment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (callCommentData != null && callCommentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(callCommentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = callCommentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetCallComment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// Set the comment for the call 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallCommentAsync (string id, CallCommentData callCommentData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallCommentAsyncWithHttpInfo(id, callCommentData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Set the comment for the call 
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="id">id of the Interaction</param>
+        /// <param name="callCommentData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallCommentAsyncWithHttpInfo (string id, CallCommentData callCommentData)
+        {
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallComment");
+            // verify the required parameter 'callCommentData' is set
+            if (callCommentData == null)
+                throw new ApiException(400, "Missing required parameter 'callCommentData' when calling UcsApi->SetCallComment");
+
+            var localVarPath = "/ucs/interactions/{id}/set-comment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (callCommentData != null && callCommentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(callCommentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = callCommentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetCallComment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
         /// Set the call as being completed 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
@@ -2731,167 +2892,6 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("SetCallCompleted", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Set the note for the call 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse SetCallNote (string id, CallNoteData callNoteData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = SetCallNoteWithHttpInfo(id, callNoteData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Set the note for the call 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > SetCallNoteWithHttpInfo (string id, CallNoteData callNoteData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallNote");
-            // verify the required parameter 'callNoteData' is set
-            if (callNoteData == null)
-                throw new ApiException(400, "Missing required parameter 'callNoteData' when calling UcsApi->SetCallNote");
-
-            var localVarPath = "/ucs/interactions/{id}/set-note";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (callNoteData != null && callNoteData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(callNoteData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = callNoteData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SetCallNote", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Set the note for the call 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCallNoteAsync (string id, CallNoteData callNoteData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCallNoteAsyncWithHttpInfo(id, callNoteData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Set the note for the call 
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="id">id of the Interaction</param>
-        /// <param name="callNoteData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCallNoteAsyncWithHttpInfo (string id, CallNoteData callNoteData)
-        {
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling UcsApi->SetCallNote");
-            // verify the required parameter 'callNoteData' is set
-            if (callNoteData == null)
-                throw new ApiException(400, "Missing required parameter 'callNoteData' when calling UcsApi->SetCallNote");
-
-            var localVarPath = "/ucs/interactions/{id}/set-note";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (callNoteData != null && callNoteData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(callNoteData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = callNoteData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("SetCallNote", localVarResponse);
                 if (exception != null) throw exception;
             }
 

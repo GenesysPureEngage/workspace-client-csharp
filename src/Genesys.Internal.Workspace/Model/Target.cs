@@ -31,9 +31,9 @@ namespace Genesys.Internal.Workspace.Model
     public partial class Target :  IEquatable<Target>, IValidatableObject
     {
         /// <summary>
-        /// The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
+        /// The type of target.
         /// </summary>
-        /// <value>The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.</value>
+        /// <value>The type of target.</value>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum TypeEnum
         {
@@ -82,24 +82,24 @@ namespace Genesys.Internal.Workspace.Model
         }
 
         /// <summary>
-        /// The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.
+        /// The type of target.
         /// </summary>
-        /// <value>The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact.</value>
+        /// <value>The type of target.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public TypeEnum? Type { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="Target" /> class.
         /// </summary>
-        /// <param name="DBID">DBID of the object.</param>
-        /// <param name="Name">For agents firstname and lastname (or username if neither is defined), for other types the name field is used..</param>
-        /// <param name="Type">The type of the target - agent, agent-group, acd-queue, route-point, skill, custom-contact or contact..</param>
-        /// <param name="FirstName">First name - only applicable to agents..</param>
-        /// <param name="LastName">Last name - only applicable to agents..</param>
-        /// <param name="EmployeeId">Employee id - only applicable to agents..</param>
-        /// <param name="UserName">Username - only applicable to agents..</param>
-        /// <param name="Number">Only applicable to acd-queue and route-point.</param>
-        /// <param name="SwitchName">Only applicable to acd-queue and route-point.</param>
-        /// <param name="Availability">The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents..</param>
+        /// <param name="DBID">The unique database identifier..</param>
+        /// <param name="Name">If the target is not **agent**, this property has a value. For example, the name of the agent group.  If the target is **agent**, then the firstName and lastName fields are returned instead (or the  username if neither is defined). .</param>
+        /// <param name="Type">The type of target..</param>
+        /// <param name="FirstName">The agent&#39;s first name..</param>
+        /// <param name="LastName">The agent&#39;s last name..</param>
+        /// <param name="EmployeeId">The agent&#39;s employee ID..</param>
+        /// <param name="UserName">The agent&#39;s username..</param>
+        /// <param name="Number">The number associated with either an **acd-queue** or a **route-point**..</param>
+        /// <param name="SwitchName">The name of the switch associated with either an **acd-queue** or a **route-point**..</param>
+        /// <param name="Availability">The structure of this object depends on the target type. For **agent**, availability includes channel details. For **acd-queue** and **route-point**, it includes waiting calls. For **agent-groups**, availability includes the number of ready agents..</param>
         public Target(int? DBID = default(int?), string Name = default(string), TypeEnum? Type = default(TypeEnum?), string FirstName = default(string), string LastName = default(string), string EmployeeId = default(string), string UserName = default(string), string Number = default(string), string SwitchName = default(string), Object Availability = default(Object))
         {
             this.DBID = DBID;
@@ -115,66 +115,66 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// DBID of the object
+        /// The unique database identifier.
         /// </summary>
-        /// <value>DBID of the object</value>
+        /// <value>The unique database identifier.</value>
         [DataMember(Name="DBID", EmitDefaultValue=false)]
         public int? DBID { get; set; }
 
         /// <summary>
-        /// For agents firstname and lastname (or username if neither is defined), for other types the name field is used.
+        /// If the target is not **agent**, this property has a value. For example, the name of the agent group.  If the target is **agent**, then the firstName and lastName fields are returned instead (or the  username if neither is defined). 
         /// </summary>
-        /// <value>For agents firstname and lastname (or username if neither is defined), for other types the name field is used.</value>
+        /// <value>If the target is not **agent**, this property has a value. For example, the name of the agent group.  If the target is **agent**, then the firstName and lastName fields are returned instead (or the  username if neither is defined). </value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
 
         /// <summary>
-        /// First name - only applicable to agents.
+        /// The agent&#39;s first name.
         /// </summary>
-        /// <value>First name - only applicable to agents.</value>
+        /// <value>The agent&#39;s first name.</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Last name - only applicable to agents.
+        /// The agent&#39;s last name.
         /// </summary>
-        /// <value>Last name - only applicable to agents.</value>
+        /// <value>The agent&#39;s last name.</value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Employee id - only applicable to agents.
+        /// The agent&#39;s employee ID.
         /// </summary>
-        /// <value>Employee id - only applicable to agents.</value>
+        /// <value>The agent&#39;s employee ID.</value>
         [DataMember(Name="employeeId", EmitDefaultValue=false)]
         public string EmployeeId { get; set; }
 
         /// <summary>
-        /// Username - only applicable to agents.
+        /// The agent&#39;s username.
         /// </summary>
-        /// <value>Username - only applicable to agents.</value>
+        /// <value>The agent&#39;s username.</value>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
 
         /// <summary>
-        /// Only applicable to acd-queue and route-point
+        /// The number associated with either an **acd-queue** or a **route-point**.
         /// </summary>
-        /// <value>Only applicable to acd-queue and route-point</value>
+        /// <value>The number associated with either an **acd-queue** or a **route-point**.</value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 
         /// <summary>
-        /// Only applicable to acd-queue and route-point
+        /// The name of the switch associated with either an **acd-queue** or a **route-point**.
         /// </summary>
-        /// <value>Only applicable to acd-queue and route-point</value>
+        /// <value>The name of the switch associated with either an **acd-queue** or a **route-point**.</value>
         [DataMember(Name="switchName", EmitDefaultValue=false)]
         public string SwitchName { get; set; }
 
         /// <summary>
-        /// The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.
+        /// The structure of this object depends on the target type. For **agent**, availability includes channel details. For **acd-queue** and **route-point**, it includes waiting calls. For **agent-groups**, availability includes the number of ready agents.
         /// </summary>
-        /// <value>The structure depends on the target type. For agents, availability includes channel details. For acd-queues and route-points, waiting calls. For agent-groups, the number of ready agents.</value>
+        /// <value>The structure of this object depends on the target type. For **agent**, availability includes channel details. For **acd-queue** and **route-point**, it includes waiting calls. For **agent-groups**, availability includes the number of ready agents.</value>
         [DataMember(Name="availability", EmitDefaultValue=false)]
         public Object Availability { get; set; }
 

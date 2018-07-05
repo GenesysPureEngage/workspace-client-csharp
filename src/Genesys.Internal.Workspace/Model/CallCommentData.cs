@@ -25,39 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// UcsinteractionsidsetnoteData
+    /// CallCommentData
     /// </summary>
     [DataContract]
-    public partial class UcsinteractionsidsetnoteData :  IEquatable<UcsinteractionsidsetnoteData>, IValidatableObject
+    public partial class CallCommentData :  IEquatable<CallCommentData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="UcsinteractionsidsetnoteData" /> class.
+        /// Initializes a new instance of the <see cref="CallCommentData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected UcsinteractionsidsetnoteData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="UcsinteractionsidsetnoteData" /> class.
-        /// </summary>
-        /// <param name="Note">The note to be set (required).</param>
-        public UcsinteractionsidsetnoteData(string Note = default(string))
+        /// <param name="Data">Data.</param>
+        public CallCommentData(UcsinteractionsidsetcommentData Data = default(UcsinteractionsidsetcommentData))
         {
-            // to ensure "Note" is required (not null)
-            if (Note == null)
-            {
-                throw new InvalidDataException("Note is a required property for UcsinteractionsidsetnoteData and cannot be null");
-            }
-            else
-            {
-                this.Note = Note;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// The note to be set
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The note to be set</value>
-        [DataMember(Name="note", EmitDefaultValue=false)]
-        public string Note { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public UcsinteractionsidsetcommentData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +52,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class UcsinteractionsidsetnoteData {\n");
-            sb.Append("  Note: ").Append(Note).Append("\n");
+            sb.Append("class CallCommentData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,15 +75,15 @@ namespace Genesys.Internal.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsinteractionsidsetnoteData);
+            return this.Equals(obj as CallCommentData);
         }
 
         /// <summary>
-        /// Returns true if UcsinteractionsidsetnoteData instances are equal
+        /// Returns true if CallCommentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsinteractionsidsetnoteData to be compared</param>
+        /// <param name="other">Instance of CallCommentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsinteractionsidsetnoteData other)
+        public bool Equals(CallCommentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -105,9 +91,9 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.Note == other.Note ||
-                    this.Note != null &&
-                    this.Note.Equals(other.Note)
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -122,8 +108,8 @@ namespace Genesys.Internal.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Note != null)
-                    hash = hash * 59 + this.Note.GetHashCode();
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }

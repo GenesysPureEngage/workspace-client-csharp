@@ -34,7 +34,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="NotReadyForMediaData" /> class.
         /// </summary>
         /// <param name="Data">Data.</param>
-        public NotReadyForMediaData(MediamediatypenotreadyData Data = default(MediamediatypenotreadyData))
+        public NotReadyForMediaData(MedianotreadyData Data = default(MedianotreadyData))
         {
             this.Data = Data;
         }
@@ -43,7 +43,7 @@ namespace Genesys.Internal.Workspace.Model
         /// Gets or Sets Data
         /// </summary>
         [DataMember(Name="data", EmitDefaultValue=false)]
-        public MediamediatypenotreadyData Data { get; set; }
+        public MedianotreadyData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object

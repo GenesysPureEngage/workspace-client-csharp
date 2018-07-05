@@ -49,7 +49,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the business attribute hierarchy.
         /// </summary>
         /// <remarks>
-        /// Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy for the specified business attribute.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -60,7 +60,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the business attribute hierarchy.
         /// </summary>
         /// <remarks>
-        /// Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy for the specified business attribute.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -70,7 +70,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get settings, action codes, business attributes and other configuration.
         /// </summary>
         /// <remarks>
-        /// Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
@@ -81,27 +81,27 @@ namespace Genesys.Internal.Workspace.Api
         /// Get settings, action codes, business attributes and other configuration.
         /// </summary>
         /// <remarks>
-        /// Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
         /// <returns>ApiResponse of ConfigResponse</returns>
         ApiResponse<ConfigResponse> GetConfigurationWithHttpInfo (string types = null);
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls.
+        /// Get information about the current user.
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrentSession</returns>
         CurrentSession GetCurrentSession ();
 
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls.
+        /// Get information about the current user.
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrentSession</returns>
@@ -110,7 +110,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get DNs for a place.
         /// </summary>
         /// <remarks>
-        /// Returns the DNs attached to the specified place.
+        /// Get all DNs attached to the specified place.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
@@ -121,27 +121,27 @@ namespace Genesys.Internal.Workspace.Api
         /// Get DNs for a place.
         /// </summary>
         /// <remarks>
-        /// Returns the DNs attached to the specified place.
+        /// Get all DNs attached to the specified place.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
         /// <returns>ApiResponse of Devices</returns>
         ApiResponse<Devices> GetDevicesForPlaceWithHttpInfo (string placeName);
         /// <summary>
-        /// Retrieve ecrypted data about the current user
+        /// Retrieve encrypted data about the current user
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve ecrypted data about the user to use with other services
+        /// This request can be used to retrieve encrypted data about the user to use with other services
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrentSession</returns>
         CurrentSession GetUserInfo ();
 
         /// <summary>
-        /// Retrieve ecrypted data about the current user
+        /// Retrieve encrypted data about the current user
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve ecrypted data about the user to use with other services
+        /// This request can be used to retrieve encrypted data about the user to use with other services
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrentSession</returns>
@@ -175,7 +175,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Login the specified user (HTTP session only).
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code.
+        /// Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
@@ -186,14 +186,14 @@ namespace Genesys.Internal.Workspace.Api
         /// Login the specified user (HTTP session only).
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code.
+        /// Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> LoginWithHttpInfo (string redirectUri);
         /// <summary>
-        /// Logout of activated channels and end the session.
+        /// Log out of activated channels and end the session.
         /// </summary>
         /// <remarks>
         /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
@@ -203,7 +203,7 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse Logout ();
 
         /// <summary>
-        /// Logout of activated channels and end the session.
+        /// Log out of activated channels and end the session.
         /// </summary>
         /// <remarks>
         /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
@@ -259,7 +259,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the business attribute hierarchy.
         /// </summary>
         /// <remarks>
-        /// Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy for the specified business attribute.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -270,7 +270,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get the business attribute hierarchy.
         /// </summary>
         /// <remarks>
-        /// Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy for the specified business attribute.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -280,7 +280,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get settings, action codes, business attributes and other configuration.
         /// </summary>
         /// <remarks>
-        /// Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
@@ -291,27 +291,27 @@ namespace Genesys.Internal.Workspace.Api
         /// Get settings, action codes, business attributes and other configuration.
         /// </summary>
         /// <remarks>
-        /// Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
         /// <returns>Task of ApiResponse (ConfigResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ConfigResponse>> GetConfigurationAsyncWithHttpInfo (string types = null);
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls.
+        /// Get information about the current user.
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of CurrentSession</returns>
         System.Threading.Tasks.Task<CurrentSession> GetCurrentSessionAsync ();
 
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls.
+        /// Get information about the current user.
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CurrentSession)</returns>
@@ -320,7 +320,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Get DNs for a place.
         /// </summary>
         /// <remarks>
-        /// Returns the DNs attached to the specified place.
+        /// Get all DNs attached to the specified place.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
@@ -331,27 +331,27 @@ namespace Genesys.Internal.Workspace.Api
         /// Get DNs for a place.
         /// </summary>
         /// <remarks>
-        /// Returns the DNs attached to the specified place.
+        /// Get all DNs attached to the specified place.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
         /// <returns>Task of ApiResponse (Devices)</returns>
         System.Threading.Tasks.Task<ApiResponse<Devices>> GetDevicesForPlaceAsyncWithHttpInfo (string placeName);
         /// <summary>
-        /// Retrieve ecrypted data about the current user
+        /// Retrieve encrypted data about the current user
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve ecrypted data about the user to use with other services
+        /// This request can be used to retrieve encrypted data about the user to use with other services
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of CurrentSession</returns>
         System.Threading.Tasks.Task<CurrentSession> GetUserInfoAsync ();
 
         /// <summary>
-        /// Retrieve ecrypted data about the current user
+        /// Retrieve encrypted data about the current user
         /// </summary>
         /// <remarks>
-        /// This request can be used to retrieve ecrypted data about the user to use with other services
+        /// This request can be used to retrieve encrypted data about the user to use with other services
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CurrentSession)</returns>
@@ -385,7 +385,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Login the specified user (HTTP session only).
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code.
+        /// Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
@@ -396,14 +396,14 @@ namespace Genesys.Internal.Workspace.Api
         /// Login the specified user (HTTP session only).
         /// </summary>
         /// <remarks>
-        /// The login request authenticates the user and retrieves the authorization code.
+        /// Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> LoginAsyncWithHttpInfo (string redirectUri);
         /// <summary>
-        /// Logout of activated channels and end the session.
+        /// Log out of activated channels and end the session.
         /// </summary>
         /// <remarks>
         /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
@@ -413,7 +413,7 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> LogoutAsync ();
 
         /// <summary>
-        /// Logout of activated channels and end the session.
+        /// Log out of activated channels and end the session.
         /// </summary>
         /// <remarks>
         /// Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
@@ -704,7 +704,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy. Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy. Get the business attribute hierarchy for the specified business attribute.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -716,7 +716,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy. Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy. Get the business attribute hierarchy for the specified business attribute.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -771,7 +771,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy. Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy. Get the business attribute hierarchy for the specified business attribute.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -784,7 +784,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get the business attribute hierarchy. Returns the business attribute hierarchy for the specified business attribute.
+        /// Get the business attribute hierarchy. Get the business attribute hierarchy for the specified business attribute.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The unique ID of the business attribute.</param>
@@ -839,7 +839,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get settings, action codes, business attributes and other configuration. Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get settings, action codes, business attributes and other configuration. Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
@@ -851,7 +851,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get settings, action codes, business attributes and other configuration. Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get settings, action codes, business attributes and other configuration. Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
@@ -903,7 +903,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get settings, action codes, business attributes and other configuration. Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get settings, action codes, business attributes and other configuration. Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
@@ -916,7 +916,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get settings, action codes, business attributes and other configuration. Returns all configuration items needed by the user interface. This includes action codes, business attributes, transactions and settings at the moment.
+        /// Get settings, action codes, business attributes and other configuration. Get all configuration items needed by the user interface. This includes action codes, business attributes, transactions, and settings.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="types">A comma delimited list of types used to specify what content should be returned. If not specified the default is &#39;actionCodes, agentGroups,settings&#39;. Valid values are &#x60;actionCodes&#x60;, &#x60;agentGroups&#x60;, &#x60;settings&#x60;, &#x60;workspaceTransactions&#x60;, and &#x60;businessAttributes&#x60;. (optional)</param>
@@ -968,7 +968,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls. This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user. Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrentSession</returns>
@@ -979,7 +979,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls. This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user. Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrentSession</returns>
@@ -1029,7 +1029,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls. This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user. Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of CurrentSession</returns>
@@ -1041,7 +1041,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Read information about the logged in user, including any existing media logins and calls. This request can be used to retrieve information about the current user. This can be done at startup to check for an existing session. The returned user information includes state recovery information about the active session.
+        /// Get information about the current user. Get information about the current user, including any existing media logins, calls, and interactions. The returned user information includes  state recovery information about the active session. You can make this  request at startup to check for an existing session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CurrentSession)</returns>
@@ -1091,7 +1091,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get DNs for a place. Returns the DNs attached to the specified place.
+        /// Get DNs for a place. Get all DNs attached to the specified place.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
@@ -1103,7 +1103,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get DNs for a place. Returns the DNs attached to the specified place.
+        /// Get DNs for a place. Get all DNs attached to the specified place.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
@@ -1158,7 +1158,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get DNs for a place. Returns the DNs attached to the specified place.
+        /// Get DNs for a place. Get all DNs attached to the specified place.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
@@ -1171,7 +1171,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get DNs for a place. Returns the DNs attached to the specified place.
+        /// Get DNs for a place. Get all DNs attached to the specified place.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="placeName">The name of the place.</param>
@@ -1226,7 +1226,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieve ecrypted data about the current user This request can be used to retrieve ecrypted data about the user to use with other services
+        /// Retrieve encrypted data about the current user This request can be used to retrieve encrypted data about the user to use with other services
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>CurrentSession</returns>
@@ -1237,7 +1237,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieve ecrypted data about the current user This request can be used to retrieve ecrypted data about the user to use with other services
+        /// Retrieve encrypted data about the current user This request can be used to retrieve encrypted data about the user to use with other services
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of CurrentSession</returns>
@@ -1287,7 +1287,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieve ecrypted data about the current user This request can be used to retrieve ecrypted data about the user to use with other services
+        /// Retrieve encrypted data about the current user This request can be used to retrieve encrypted data about the user to use with other services
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of CurrentSession</returns>
@@ -1299,7 +1299,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Retrieve ecrypted data about the current user This request can be used to retrieve ecrypted data about the user to use with other services
+        /// Retrieve encrypted data about the current user This request can be used to retrieve encrypted data about the user to use with other services
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (CurrentSession)</returns>
@@ -1490,7 +1490,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Login the specified user (HTTP session only). The login request authenticates the user and retrieves the authorization code.
+        /// Login the specified user (HTTP session only). Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
@@ -1501,7 +1501,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Login the specified user (HTTP session only). The login request authenticates the user and retrieves the authorization code.
+        /// Login the specified user (HTTP session only). Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
@@ -1556,7 +1556,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Login the specified user (HTTP session only). The login request authenticates the user and retrieves the authorization code.
+        /// Login the specified user (HTTP session only). Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
@@ -1568,7 +1568,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Login the specified user (HTTP session only). The login request authenticates the user and retrieves the authorization code.
+        /// Login the specified user (HTTP session only). Starts the OAuth 2 flow for the Authorization Code grant type and returns a redirect to the  Authentication service. For more information, see the [Authentication API](/reference/authentication/).
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="redirectUri">The URI the Authentication API uses to redirect the user after authentication.</param>
@@ -1623,7 +1623,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -1634,7 +1634,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -1684,7 +1684,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1696,7 +1696,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Logout of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
+        /// Log out of activated channels and end the session. Ends the current agent&#39;s session. This request logs out the agent on all activated channels, ends the HTTP session, and cleans up related resources. Genesys recommends that you first disconnect CometD and then make this request. After you end the session, you&#39;ll need to make a login request before making any new calls to the API.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>

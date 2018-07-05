@@ -38,12 +38,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="StatisticValue" /> class.
         /// </summary>
-        /// <param name="ObjectId">ID of the object to get the statistic for (required).</param>
-        /// <param name="ObjectType">Type of the obejct to get the statistic for (required).</param>
-        /// <param name="StatisticId">Unique id for the statistic (required).</param>
-        /// <param name="Name">The name of the statistic (required).</param>
-        /// <param name="Timestamp">Timestamp for given value of the statistic (required).</param>
-        /// <param name="Value">Value of the statistic.</param>
+        /// <param name="ObjectId">The ID of the object to get statistics for. (required).</param>
+        /// <param name="ObjectType">The type of object to get statistics for. (required).</param>
+        /// <param name="StatisticId">The ID of the statistic. This ID is unique inside the subscription. (required).</param>
+        /// <param name="Name">The name of the statistic. (required).</param>
+        /// <param name="Timestamp">The timestamp when the statistic value was generated (provided by Stat Server). (required).</param>
+        /// <param name="Value">The value of the statistic. Its structure reflects the structure of the Stat Server message..</param>
         public StatisticValue(string ObjectId = default(string), string ObjectType = default(string), string StatisticId = default(string), string Name = default(string), long? Timestamp = default(long?), Object Value = default(Object))
         {
             // to ensure "ObjectId" is required (not null)
@@ -95,44 +95,44 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// ID of the object to get the statistic for
+        /// The ID of the object to get statistics for.
         /// </summary>
-        /// <value>ID of the object to get the statistic for</value>
+        /// <value>The ID of the object to get statistics for.</value>
         [DataMember(Name="objectId", EmitDefaultValue=false)]
         public string ObjectId { get; set; }
 
         /// <summary>
-        /// Type of the obejct to get the statistic for
+        /// The type of object to get statistics for.
         /// </summary>
-        /// <value>Type of the obejct to get the statistic for</value>
+        /// <value>The type of object to get statistics for.</value>
         [DataMember(Name="objectType", EmitDefaultValue=false)]
         public string ObjectType { get; set; }
 
         /// <summary>
-        /// Unique id for the statistic
+        /// The ID of the statistic. This ID is unique inside the subscription.
         /// </summary>
-        /// <value>Unique id for the statistic</value>
+        /// <value>The ID of the statistic. This ID is unique inside the subscription.</value>
         [DataMember(Name="statisticId", EmitDefaultValue=false)]
         public string StatisticId { get; set; }
 
         /// <summary>
-        /// The name of the statistic
+        /// The name of the statistic.
         /// </summary>
-        /// <value>The name of the statistic</value>
+        /// <value>The name of the statistic.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 
         /// <summary>
-        /// Timestamp for given value of the statistic
+        /// The timestamp when the statistic value was generated (provided by Stat Server).
         /// </summary>
-        /// <value>Timestamp for given value of the statistic</value>
+        /// <value>The timestamp when the statistic value was generated (provided by Stat Server).</value>
         [DataMember(Name="timestamp", EmitDefaultValue=false)]
         public long? Timestamp { get; set; }
 
         /// <summary>
-        /// Value of the statistic
+        /// The value of the statistic. Its structure reflects the structure of the Stat Server message.
         /// </summary>
-        /// <value>Value of the statistic</value>
+        /// <value>The value of the statistic. Its structure reflects the structure of the Stat Server message.</value>
         [DataMember(Name="value", EmitDefaultValue=false)]
         public Object Value { get; set; }
 

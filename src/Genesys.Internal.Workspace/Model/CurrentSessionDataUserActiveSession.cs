@@ -33,29 +33,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUserActiveSession" /> class.
         /// </summary>
-        /// <param name="AutoCompleteCall">AutoCompleteCall.</param>
-        /// <param name="CurrentPlace">CurrentPlace.</param>
+        /// <param name="AutoCompleteCall">Specifies if calls are automatically completed..</param>
+        /// <param name="CurrentPlace">The user&#39;s current place..</param>
         /// <param name="Dn">Dn.</param>
         /// <param name="Calls">An array containing any active calls..</param>
         /// <param name="Media">Media.</param>
-        public CurrentSessionDataUserActiveSession(bool? AutoCompleteCall = default(bool?), string CurrentPlace = default(string), Dn Dn = default(Dn), List<Call> Calls = default(List<Call>), Media Media = default(Media))
+        /// <param name="Services">An array containing the current state of any initialized services.</param>
+        public CurrentSessionDataUserActiveSession(bool? AutoCompleteCall = default(bool?), string CurrentPlace = default(string), Dn Dn = default(Dn), List<Call> Calls = default(List<Call>), Media Media = default(Media), List<Service> Services = default(List<Service>))
         {
             this.AutoCompleteCall = AutoCompleteCall;
             this.CurrentPlace = CurrentPlace;
             this.Dn = Dn;
             this.Calls = Calls;
             this.Media = Media;
+            this.Services = Services;
         }
         
         /// <summary>
-        /// Gets or Sets AutoCompleteCall
+        /// Specifies if calls are automatically completed.
         /// </summary>
+        /// <value>Specifies if calls are automatically completed.</value>
         [DataMember(Name="autoCompleteCall", EmitDefaultValue=false)]
         public bool? AutoCompleteCall { get; set; }
 
         /// <summary>
-        /// Gets or Sets CurrentPlace
+        /// The user&#39;s current place.
         /// </summary>
+        /// <value>The user&#39;s current place.</value>
         [DataMember(Name="currentPlace", EmitDefaultValue=false)]
         public string CurrentPlace { get; set; }
 
@@ -79,6 +83,13 @@ namespace Genesys.Internal.Workspace.Model
         public Media Media { get; set; }
 
         /// <summary>
+        /// An array containing the current state of any initialized services
+        /// </summary>
+        /// <value>An array containing the current state of any initialized services</value>
+        [DataMember(Name="services", EmitDefaultValue=false)]
+        public List<Service> Services { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -91,6 +102,7 @@ namespace Genesys.Internal.Workspace.Model
             sb.Append("  Dn: ").Append(Dn).Append("\n");
             sb.Append("  Calls: ").Append(Calls).Append("\n");
             sb.Append("  Media: ").Append(Media).Append("\n");
+            sb.Append("  Services: ").Append(Services).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -151,6 +163,11 @@ namespace Genesys.Internal.Workspace.Model
                     this.Media == other.Media ||
                     this.Media != null &&
                     this.Media.Equals(other.Media)
+                ) && 
+                (
+                    this.Services == other.Services ||
+                    this.Services != null &&
+                    this.Services.SequenceEqual(other.Services)
                 );
         }
 
@@ -175,6 +192,8 @@ namespace Genesys.Internal.Workspace.Model
                     hash = hash * 59 + this.Calls.GetHashCode();
                 if (this.Media != null)
                     hash = hash * 59 + this.Media.GetHashCode();
+                if (this.Services != null)
+                    hash = hash * 59 + this.Services.GetHashCode();
                 return hash;
             }
         }

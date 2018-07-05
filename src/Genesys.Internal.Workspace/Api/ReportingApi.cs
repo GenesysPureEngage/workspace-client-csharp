@@ -25,10 +25,10 @@ namespace Genesys.Internal.Workspace.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// Get statistics for given subscriptionId.
+        /// Get the values of statistics in a subscription.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the values of a set of statistics that was opened with a subscription.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -36,10 +36,10 @@ namespace Genesys.Internal.Workspace.Api
         InlineResponse2002 Peek (string subscriptionId);
 
         /// <summary>
-        /// Get statistics for given subscriptionId.
+        /// Get the values of statistics in a subscription.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the values of a set of statistics that was opened with a subscription.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -67,10 +67,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of InlineResponse2001</returns>
         ApiResponse<InlineResponse2001> PeekMultipleWithHttpInfo (string ids);
         /// <summary>
-        /// Subscribe to statistics
+        /// Subscribe to statistics.
         /// </summary>
         /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
@@ -78,20 +78,20 @@ namespace Genesys.Internal.Workspace.Api
         InlineResponse2002 Subscribe (StatisticsSubscribeData statisticsSubscribeData);
 
         /// <summary>
-        /// Subscribe to statistics
+        /// Subscribe to statistics.
         /// </summary>
         /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>ApiResponse of InlineResponse2002</returns>
         ApiResponse<InlineResponse2002> SubscribeWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
         /// <summary>
-        /// Unsubscribe from statistics.
+        /// Delete a subscription.
         /// </summary>
         /// <remarks>
-        /// Unsubscribe from the specified group of statistics.
+        /// Delete the specified subscription by closing all its statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -99,10 +99,10 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse Unsubscribe (string subscriptionId);
 
         /// <summary>
-        /// Unsubscribe from statistics.
+        /// Delete a subscription.
         /// </summary>
         /// <remarks>
-        /// Unsubscribe from the specified group of statistics.
+        /// Delete the specified subscription by closing all its statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -111,10 +111,10 @@ namespace Genesys.Internal.Workspace.Api
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
-        /// Get statistics for given subscriptionId.
+        /// Get the values of statistics in a subscription.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the values of a set of statistics that was opened with a subscription.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -122,10 +122,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<InlineResponse2002> PeekAsync (string subscriptionId);
 
         /// <summary>
-        /// Get statistics for given subscriptionId.
+        /// Get the values of statistics in a subscription.
         /// </summary>
         /// <remarks>
-        /// Get the statistics for the specified subscription ID.
+        /// Get the values of a set of statistics that was opened with a subscription.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -153,10 +153,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (InlineResponse2001)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2001>> PeekMultipleAsyncWithHttpInfo (string ids);
         /// <summary>
-        /// Subscribe to statistics
+        /// Subscribe to statistics.
         /// </summary>
         /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
@@ -164,20 +164,20 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<InlineResponse2002> SubscribeAsync (StatisticsSubscribeData statisticsSubscribeData);
 
         /// <summary>
-        /// Subscribe to statistics
+        /// Subscribe to statistics.
         /// </summary>
         /// <remarks>
-        /// Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
         /// <returns>Task of ApiResponse (InlineResponse2002)</returns>
         System.Threading.Tasks.Task<ApiResponse<InlineResponse2002>> SubscribeAsyncWithHttpInfo (StatisticsSubscribeData statisticsSubscribeData);
         /// <summary>
-        /// Unsubscribe from statistics.
+        /// Delete a subscription.
         /// </summary>
         /// <remarks>
-        /// Unsubscribe from the specified group of statistics.
+        /// Delete the specified subscription by closing all its statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -185,10 +185,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> UnsubscribeAsync (string subscriptionId);
 
         /// <summary>
-        /// Unsubscribe from statistics.
+        /// Delete a subscription.
         /// </summary>
         /// <remarks>
-        /// Unsubscribe from the specified group of statistics.
+        /// Delete the specified subscription by closing all its statistics.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -307,7 +307,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
+        /// Get the values of statistics in a subscription. Get the values of a set of statistics that was opened with a subscription.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -319,7 +319,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
+        /// Get the values of statistics in a subscription. Get the values of a set of statistics that was opened with a subscription.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -374,7 +374,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
+        /// Get the values of statistics in a subscription. Get the values of a set of statistics that was opened with a subscription.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -387,7 +387,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Get statistics for given subscriptionId. Get the statistics for the specified subscription ID.
+        /// Get the values of statistics in a subscription. Get the values of a set of statistics that was opened with a subscription.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -577,7 +577,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Subscribe to statistics. Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
@@ -589,7 +589,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Subscribe to statistics. Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
@@ -651,7 +651,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Subscribe to statistics. Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
@@ -664,7 +664,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to statistics Subscribe to a group of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
+        /// Subscribe to statistics. Open a subscription for the specified set of statistics. The values are returned when you request them using &#x60;/reporting/subscriptions/{subscriptionId}&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="statisticsSubscribeData">The collection of statistics you want to include in your subscription.</param>
@@ -726,7 +726,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
+        /// Delete a subscription. Delete the specified subscription by closing all its statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -738,7 +738,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
+        /// Delete a subscription. Delete the specified subscription by closing all its statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -793,7 +793,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
+        /// Delete a subscription. Delete the specified subscription by closing all its statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>
@@ -806,7 +806,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Unsubscribe from statistics. Unsubscribe from the specified group of statistics.
+        /// Delete a subscription. Delete the specified subscription by closing all its statistics.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="subscriptionId">The unique ID of the subscription.</param>

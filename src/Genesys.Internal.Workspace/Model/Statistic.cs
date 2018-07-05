@@ -38,9 +38,9 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Statistic" /> class.
         /// </summary>
-        /// <param name="ObjectId">ID of the object to get the statistic for (required).</param>
-        /// <param name="ObjectType">Type of the obejct to get the statistic for (required).</param>
-        /// <param name="Name">Name of the statistic (required).</param>
+        /// <param name="ObjectId">The ID of the object to get statistics for. (required).</param>
+        /// <param name="ObjectType">The type of object to get statistics for. (required).</param>
+        /// <param name="Name">The name of the statistic. (required).</param>
         public Statistic(string ObjectId = default(string), string ObjectType = default(string), string Name = default(string))
         {
             // to ensure "ObjectId" is required (not null)
@@ -73,23 +73,23 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// ID of the object to get the statistic for
+        /// The ID of the object to get statistics for.
         /// </summary>
-        /// <value>ID of the object to get the statistic for</value>
+        /// <value>The ID of the object to get statistics for.</value>
         [DataMember(Name="objectId", EmitDefaultValue=false)]
         public string ObjectId { get; set; }
 
         /// <summary>
-        /// Type of the obejct to get the statistic for
+        /// The type of object to get statistics for.
         /// </summary>
-        /// <value>Type of the obejct to get the statistic for</value>
+        /// <value>The type of object to get statistics for.</value>
         [DataMember(Name="objectType", EmitDefaultValue=false)]
         public string ObjectType { get; set; }
 
         /// <summary>
-        /// Name of the statistic
+        /// The name of the statistic.
         /// </summary>
-        /// <value>Name of the statistic</value>
+        /// <value>The name of the statistic.</value>
         [DataMember(Name="name", EmitDefaultValue=false)]
         public string Name { get; set; }
 

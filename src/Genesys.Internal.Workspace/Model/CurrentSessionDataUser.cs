@@ -38,13 +38,13 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataUser" /> class.
         /// </summary>
-        /// <param name="Dbid">Dbid.</param>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="LastName">LastName.</param>
-        /// <param name="UserName">UserName (required).</param>
-        /// <param name="EmployeeId">EmployeeId (required).</param>
-        /// <param name="DefaultPlace">DefaultPlace.</param>
-        /// <param name="AgentLogin">AgentLogin.</param>
+        /// <param name="Dbid">A unique identifier for the user..</param>
+        /// <param name="FirstName">The user&#39;s first name..</param>
+        /// <param name="LastName">The user&#39;s last name..</param>
+        /// <param name="UserName">The username. (required).</param>
+        /// <param name="EmployeeId">The unique employee ID. (required).</param>
+        /// <param name="DefaultPlace">The user&#39;s default place..</param>
+        /// <param name="AgentLogin">The agent&#39;s login ID..</param>
         /// <param name="UserProperties">UserProperties.</param>
         /// <param name="ActiveSession">ActiveSession.</param>
         public CurrentSessionDataUser(int? Dbid = default(int?), string FirstName = default(string), string LastName = default(string), string UserName = default(string), string EmployeeId = default(string), string DefaultPlace = default(string), string AgentLogin = default(string), List<Kvpair> UserProperties = default(List<Kvpair>), CurrentSessionDataUserActiveSession ActiveSession = default(CurrentSessionDataUserActiveSession))
@@ -77,44 +77,51 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Dbid
+        /// A unique identifier for the user.
         /// </summary>
+        /// <value>A unique identifier for the user.</value>
         [DataMember(Name="dbid", EmitDefaultValue=false)]
         public int? Dbid { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// The user&#39;s first name.
         /// </summary>
+        /// <value>The user&#39;s first name.</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// The user&#39;s last name.
         /// </summary>
+        /// <value>The user&#39;s last name.</value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets UserName
+        /// The username.
         /// </summary>
+        /// <value>The username.</value>
         [DataMember(Name="userName", EmitDefaultValue=false)]
         public string UserName { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmployeeId
+        /// The unique employee ID.
         /// </summary>
+        /// <value>The unique employee ID.</value>
         [DataMember(Name="employeeId", EmitDefaultValue=false)]
         public string EmployeeId { get; set; }
 
         /// <summary>
-        /// Gets or Sets DefaultPlace
+        /// The user&#39;s default place.
         /// </summary>
+        /// <value>The user&#39;s default place.</value>
         [DataMember(Name="defaultPlace", EmitDefaultValue=false)]
         public string DefaultPlace { get; set; }
 
         /// <summary>
-        /// Gets or Sets AgentLogin
+        /// The agent&#39;s login ID.
         /// </summary>
+        /// <value>The agent&#39;s login ID.</value>
         [DataMember(Name="agentLogin", EmitDefaultValue=false)]
         public string AgentLogin { get; set; }
 

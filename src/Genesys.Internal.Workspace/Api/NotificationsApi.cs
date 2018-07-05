@@ -103,7 +103,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Subscribe to CometD channel notification.
         /// </summary>
         /// <remarks>
-        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
@@ -113,7 +113,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Subscribe to CometD channel notification.
         /// </summary>
         /// <remarks>
-        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -219,7 +219,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Subscribe to CometD channel notification.
         /// </summary>
         /// <remarks>
-        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
@@ -229,7 +229,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Subscribe to CometD channel notification.
         /// </summary>
         /// <remarks>
-        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
@@ -850,7 +850,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns></returns>
@@ -860,7 +860,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
@@ -910,7 +910,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of void</returns>
@@ -921,7 +921,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. The following channels are available: * **_/workspace/v3/initialization** - Subscribe for initialization (login) event * **_/workspace/v3/voice** - Subscribe for call state change notification event 
+        /// Subscribe to CometD channel notification. See the [CometD documentation](https://docs.cometd.org/current/reference/#_bayeux_meta_subscribe) for details. For a list of all available channels, see the [CometD section](/reference/workspace/index.html) in the Workspace API overview. 
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>

@@ -39,8 +39,8 @@ namespace Genesys.Internal.Workspace.Model
         /// Initializes a new instance of the <see cref="SendUserEventDataData" /> class.
         /// </summary>
         /// <param name="UserData">UserData (required).</param>
-        /// <param name="CallUuid">CallUuid.</param>
-        /// <param name="ConnId">ConnId.</param>
+        /// <param name="CallUuid">The universally unique identifier associated with the call..</param>
+        /// <param name="ConnId">The connection ID for the call. This value comes from the Tlib event..</param>
         public SendUserEventDataData(List<Kvpair> UserData = default(List<Kvpair>), string CallUuid = default(string), string ConnId = default(string))
         {
             // to ensure "UserData" is required (not null)
@@ -63,14 +63,16 @@ namespace Genesys.Internal.Workspace.Model
         public List<Kvpair> UserData { get; set; }
 
         /// <summary>
-        /// Gets or Sets CallUuid
+        /// The universally unique identifier associated with the call.
         /// </summary>
+        /// <value>The universally unique identifier associated with the call.</value>
         [DataMember(Name="callUuid", EmitDefaultValue=false)]
         public string CallUuid { get; set; }
 
         /// <summary>
-        /// Gets or Sets ConnId
+        /// The connection ID for the call. This value comes from the Tlib event.
         /// </summary>
+        /// <value>The connection ID for the call. This value comes from the Tlib event.</value>
         [DataMember(Name="connId", EmitDefaultValue=false)]
         public string ConnId { get; set; }
 

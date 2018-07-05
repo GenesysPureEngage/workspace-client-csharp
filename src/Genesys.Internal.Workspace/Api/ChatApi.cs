@@ -231,7 +231,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// Send a custom notification to the specified chat.
+        /// Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -243,7 +243,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// Send a custom notification to the specified chat.
+        /// Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -366,10 +366,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SendUrlDataWithHttpInfo (string id, AcceptData2 acceptData = null);
         /// <summary>
-        /// Send a notice to modify the nickname
+        /// Update the agent&#39;s nickname.
         /// </summary>
         /// <remarks>
-        /// Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname for the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -378,10 +378,10 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse UpdateNickname (string id, UpdateNicknameData updateNicknameData = null);
 
         /// <summary>
-        /// Send a notice to modify the nickname
+        /// Update the agent&#39;s nickname.
         /// </summary>
         /// <remarks>
-        /// Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname for the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -597,7 +597,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// Send a custom notification to the specified chat.
+        /// Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -609,7 +609,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Send a custom notification.
         /// </summary>
         /// <remarks>
-        /// Send a custom notification to the specified chat.
+        /// Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -732,10 +732,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUrlDataAsyncWithHttpInfo (string id, AcceptData2 acceptData = null);
         /// <summary>
-        /// Send a notice to modify the nickname
+        /// Update the agent&#39;s nickname.
         /// </summary>
         /// <remarks>
-        /// Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname for the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -744,10 +744,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> UpdateNicknameAsync (string id, UpdateNicknameData updateNicknameData = null);
 
         /// <summary>
-        /// Send a notice to modify the nickname
+        /// Update the agent&#39;s nickname.
         /// </summary>
         /// <remarks>
-        /// Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname for the specified chat.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -2252,7 +2252,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a custom notification. Send a custom notification to the specified chat.
+        /// Send a custom notification. Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -2265,7 +2265,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a custom notification. Send a custom notification to the specified chat.
+        /// Send a custom notification. Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -2329,7 +2329,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a custom notification. Send a custom notification to the specified chat.
+        /// Send a custom notification. Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -2343,7 +2343,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a custom notification. Send a custom notification to the specified chat.
+        /// Send a custom notification. Send a custom notification to the specified chat. The notification is typically used as a trigger for some custom behavior on the recipient&#39;s end.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -3182,7 +3182,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname. Update the agent&#39;s nickname for the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -3195,7 +3195,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname. Update the agent&#39;s nickname for the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -3259,7 +3259,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname. Update the agent&#39;s nickname for the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>
@@ -3273,7 +3273,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Send a notice to modify the nickname Send a notice to modify my nickname to the specified chat.
+        /// Update the agent&#39;s nickname. Update the agent&#39;s nickname for the specified chat.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The ID of the chat interaction.</param>

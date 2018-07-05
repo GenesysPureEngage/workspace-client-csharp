@@ -38,7 +38,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="VoicecallsiddeleteuserdatapairData" /> class.
         /// </summary>
-        /// <param name="Key">Key (required).</param>
+        /// <param name="Key">The key of the data to remove. (required).</param>
         public VoicecallsiddeleteuserdatapairData(string Key = default(string))
         {
             // to ensure "Key" is required (not null)
@@ -53,8 +53,9 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Key
+        /// The key of the data to remove.
         /// </summary>
+        /// <value>The key of the data to remove.</value>
         [DataMember(Name="key", EmitDefaultValue=false)]
         public string Key { get; set; }
 

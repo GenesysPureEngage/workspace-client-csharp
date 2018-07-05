@@ -75,31 +75,6 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> AddAttachmentWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null);
         /// <summary>
-        /// Add a comment.
-        /// </summary>
-        /// <remarks>
-        /// Add a comment to the specified interaction.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse AddComment (string mediatype, string id, AddCommentData addCommentData);
-
-        /// <summary>
-        /// Add a comment.
-        /// </summary>
-        /// <remarks>
-        /// Add a comment to the specified interaction.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> AddCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
-        /// <summary>
         /// Create the interaction in UCS database
         /// </summary>
         /// <remarks>
@@ -308,7 +283,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Start monitoring an agent.
         /// </summary>
         /// <remarks>
-        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -320,7 +295,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Start monitoring an agent.
         /// </summary>
         /// <remarks>
-        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -351,10 +326,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> MediaStopMonitoringWithHttpInfo (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null);
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -363,10 +338,10 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse MediaSwicthToBargeIn (string mediatype, string id);
 
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -426,8 +401,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        ApiSuccessResponse NotReadyAgentState ();
+        ApiSuccessResponse NotReadyAgentState (NotReadyForAgentData notReadyForAgentData);
 
         /// <summary>
         /// Set the agent state to Not Ready.
@@ -436,8 +412,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        ApiResponse<ApiSuccessResponse> NotReadyAgentStateWithHttpInfo ();
+        ApiResponse<ApiSuccessResponse> NotReadyAgentStateWithHttpInfo (NotReadyForAgentData notReadyForAgentData);
         /// <summary>
         /// Set the agent state to Not Ready.
         /// </summary>
@@ -602,6 +579,31 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> RemoveMediaWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
         /// <summary>
+        /// set a comment.
+        /// </summary>
+        /// <remarks>
+        /// set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        ApiSuccessResponse SetComment (string mediatype, string id, AddCommentData addCommentData);
+
+        /// <summary>
+        /// set a comment.
+        /// </summary>
+        /// <remarks>
+        /// set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        ApiResponse<ApiSuccessResponse> SetCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
+        /// <summary>
         /// Transfer the interaction.
         /// </summary>
         /// <remarks>
@@ -703,31 +705,6 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="attachment">The file to upload. (optional)</param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddAttachmentAsyncWithHttpInfo (string mediatype, string id, System.IO.Stream attachment = null);
-        /// <summary>
-        /// Add a comment.
-        /// </summary>
-        /// <remarks>
-        /// Add a comment to the specified interaction.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> AddCommentAsync (string mediatype, string id, AddCommentData addCommentData);
-
-        /// <summary>
-        /// Add a comment.
-        /// </summary>
-        /// <remarks>
-        /// Add a comment to the specified interaction.
-        /// </remarks>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
         /// <summary>
         /// Create the interaction in UCS database
         /// </summary>
@@ -937,7 +914,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Start monitoring an agent.
         /// </summary>
         /// <remarks>
-        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -949,7 +926,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Start monitoring an agent.
         /// </summary>
         /// <remarks>
-        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -980,10 +957,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> MediaStopMonitoringAsyncWithHttpInfo (string mediatype, MediaStopMonitoringData mediaStopMonitoringData = null);
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -992,10 +969,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> MediaSwicthToBargeInAsync (string mediatype, string id);
 
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -1055,8 +1032,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync ();
+        System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync (NotReadyForAgentData notReadyForAgentData);
 
         /// <summary>
         /// Set the agent state to Not Ready.
@@ -1065,8 +1043,9 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the current agent&#39;s state to Not Ready on all media channels.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo ();
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo (NotReadyForAgentData notReadyForAgentData);
         /// <summary>
         /// Set the agent state to Not Ready.
         /// </summary>
@@ -1230,6 +1209,31 @@ namespace Genesys.Internal.Workspace.Api
         /// <param name="logoutMediaData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> RemoveMediaAsyncWithHttpInfo (string mediatype, LogoutMediaData logoutMediaData);
+        /// <summary>
+        /// set a comment.
+        /// </summary>
+        /// <remarks>
+        /// set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        System.Threading.Tasks.Task<ApiSuccessResponse> SetCommentAsync (string mediatype, string id, AddCommentData addCommentData);
+
+        /// <summary>
+        /// set a comment.
+        /// </summary>
+        /// <remarks>
+        /// set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData);
         /// <summary>
         /// Transfer the interaction.
         /// </summary>
@@ -1704,179 +1708,6 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("AddAttachment", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Add a comment. Add a comment to the specified interaction.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse AddComment (string mediatype, string id, AddCommentData addCommentData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = AddCommentWithHttpInfo(mediatype, id, addCommentData);
-             return localVarResponse.Data;
-        }
-
-        /// <summary>
-        /// Add a comment. Add a comment to the specified interaction.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > AddCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
-        {
-            // verify the required parameter 'mediatype' is set
-            if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddComment");
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddComment");
-            // verify the required parameter 'addCommentData' is set
-            if (addCommentData == null)
-                throw new ApiException(400, "Missing required parameter 'addCommentData' when calling MediaApi->AddComment");
-
-            var localVarPath = "/media/{mediatype}/interactions/{id}/add-comment";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (addCommentData != null && addCommentData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(addCommentData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = addCommentData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddComment", localVarResponse);
-                if (exception != null) throw exception;
-            }
-
-            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
-                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
-                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
-        }
-
-        /// <summary>
-        /// Add a comment. Add a comment to the specified interaction.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> AddCommentAsync (string mediatype, string id, AddCommentData addCommentData)
-        {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await AddCommentAsyncWithHttpInfo(mediatype, id, addCommentData);
-             return localVarResponse.Data;
-
-        }
-
-        /// <summary>
-        /// Add a comment. Add a comment to the specified interaction.
-        /// </summary>
-        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="mediatype">The media channel.</param>
-        /// <param name="id">The ID of the interaction.</param>
-        /// <param name="addCommentData"></param>
-        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> AddCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
-        {
-            // verify the required parameter 'mediatype' is set
-            if (mediatype == null)
-                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->AddComment");
-            // verify the required parameter 'id' is set
-            if (id == null)
-                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->AddComment");
-            // verify the required parameter 'addCommentData' is set
-            if (addCommentData == null)
-                throw new ApiException(400, "Missing required parameter 'addCommentData' when calling MediaApi->AddComment");
-
-            var localVarPath = "/media/{mediatype}/interactions/{id}/add-comment";
-            var localVarPathParams = new Dictionary<String, String>();
-            var localVarQueryParams = new Dictionary<String, String>();
-            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
-            var localVarFormParams = new Dictionary<String, String>();
-            var localVarFileParams = new Dictionary<String, FileParameter>();
-            Object localVarPostBody = null;
-
-            // to determine the Content-Type header
-            String[] localVarHttpContentTypes = new String[] {
-                "application/json"
-            };
-            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
-
-            // to determine the Accept header
-            String[] localVarHttpHeaderAccepts = new String[] {
-                "application/json"
-            };
-            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
-            if (localVarHttpHeaderAccept != null)
-                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
-
-            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
-            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
-            if (addCommentData != null && addCommentData.GetType() != typeof(byte[]))
-            {
-                localVarPostBody = Configuration.ApiClient.Serialize(addCommentData); // http body (model) parameter
-            }
-            else
-            {
-                localVarPostBody = addCommentData; // byte array
-            }
-
-
-            // make the HTTP request
-            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
-                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
-                localVarPathParams, localVarHttpContentType);
-
-            int localVarStatusCode = (int) localVarResponse.StatusCode;
-
-            if (ExceptionFactory != null)
-            {
-                Exception exception = ExceptionFactory("AddComment", localVarResponse);
                 if (exception != null) throw exception;
             }
 
@@ -3233,7 +3064,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3246,7 +3077,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3310,7 +3141,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3324,7 +3155,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
+        /// Start monitoring an agent. Start supervisor monitoring of an agent on the specified media channel. When an agent being monitored accepts a chat, the  supervisor also receives the chat and all related notifications. If the agent is currently in a chat, the supervisor is added to the agent&#39;s next chat. The supervisor can&#39;t send messages in this mode and only another supervisor can see that the monitoring supervisor joined the chat. If the monitored agent leaves the chat but another agent  is still present, the supervisor continues monitoring the chat until it&#39;s completed or placed in a queue. Once you&#39;ve enabled monitoring, you can change the monitoring mode using &#x60;/media/{mediatype}/interactions/{id}/switch-to-barge-in&#x60;,  &#x60;/media/{mediatype}/interactions/{id}/switch-to-coach&#x60;, and &#x60;/media/{mediatype}/interactions/{id}/switch-to-monitor&#x60;.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3543,7 +3374,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3556,7 +3387,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3616,7 +3447,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3630,7 +3461,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode for the specified chat. Both the agent and the  customer can see the supervisor&#39;s messages.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="mediatype">The media channel.</param>
@@ -3987,10 +3818,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>ApiSuccessResponse</returns>
-        public ApiSuccessResponse NotReadyAgentState ()
+        public ApiSuccessResponse NotReadyAgentState (NotReadyForAgentData notReadyForAgentData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = NotReadyAgentStateWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = NotReadyAgentStateWithHttpInfo(notReadyForAgentData);
              return localVarResponse.Data;
         }
 
@@ -3998,9 +3830,13 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
-        public ApiResponse< ApiSuccessResponse > NotReadyAgentStateWithHttpInfo ()
+        public ApiResponse< ApiSuccessResponse > NotReadyAgentStateWithHttpInfo (NotReadyForAgentData notReadyForAgentData)
         {
+            // verify the required parameter 'notReadyForAgentData' is set
+            if (notReadyForAgentData == null)
+                throw new ApiException(400, "Missing required parameter 'notReadyForAgentData' when calling MediaApi->NotReadyAgentState");
 
             var localVarPath = "/media/not-ready";
             var localVarPathParams = new Dictionary<String, String>();
@@ -4024,6 +3860,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (notReadyForAgentData != null && notReadyForAgentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(notReadyForAgentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = notReadyForAgentData; // byte array
+            }
 
 
             // make the HTTP request
@@ -4048,10 +3892,11 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
-        public async System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync ()
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> NotReadyAgentStateAsync (NotReadyForAgentData notReadyForAgentData)
         {
-             ApiResponse<ApiSuccessResponse> localVarResponse = await NotReadyAgentStateAsyncWithHttpInfo();
+             ApiResponse<ApiSuccessResponse> localVarResponse = await NotReadyAgentStateAsyncWithHttpInfo(notReadyForAgentData);
              return localVarResponse.Data;
 
         }
@@ -4060,9 +3905,13 @@ namespace Genesys.Internal.Workspace.Api
         /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on all media channels.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="notReadyForAgentData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
-        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo ()
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> NotReadyAgentStateAsyncWithHttpInfo (NotReadyForAgentData notReadyForAgentData)
         {
+            // verify the required parameter 'notReadyForAgentData' is set
+            if (notReadyForAgentData == null)
+                throw new ApiException(400, "Missing required parameter 'notReadyForAgentData' when calling MediaApi->NotReadyAgentState");
 
             var localVarPath = "/media/not-ready";
             var localVarPathParams = new Dictionary<String, String>();
@@ -4086,6 +3935,14 @@ namespace Genesys.Internal.Workspace.Api
             if (localVarHttpHeaderAccept != null)
                 localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
 
+            if (notReadyForAgentData != null && notReadyForAgentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(notReadyForAgentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = notReadyForAgentData; // byte array
+            }
 
 
             // make the HTTP request
@@ -5197,6 +5054,179 @@ namespace Genesys.Internal.Workspace.Api
             if (ExceptionFactory != null)
             {
                 Exception exception = ExceptionFactory("RemoveMedia", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// set a comment. set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiSuccessResponse</returns>
+        public ApiSuccessResponse SetComment (string mediatype, string id, AddCommentData addCommentData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = SetCommentWithHttpInfo(mediatype, id, addCommentData);
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// set a comment. set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>ApiResponse of ApiSuccessResponse</returns>
+        public ApiResponse< ApiSuccessResponse > SetCommentWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->SetComment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SetComment");
+            // verify the required parameter 'addCommentData' is set
+            if (addCommentData == null)
+                throw new ApiException(400, "Missing required parameter 'addCommentData' when calling MediaApi->SetComment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/set-comment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (addCommentData != null && addCommentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addCommentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addCommentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetComment", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<ApiSuccessResponse>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (ApiSuccessResponse) Configuration.ApiClient.Deserialize(localVarResponse, typeof(ApiSuccessResponse)));
+        }
+
+        /// <summary>
+        /// set a comment. set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiSuccessResponse</returns>
+        public async System.Threading.Tasks.Task<ApiSuccessResponse> SetCommentAsync (string mediatype, string id, AddCommentData addCommentData)
+        {
+             ApiResponse<ApiSuccessResponse> localVarResponse = await SetCommentAsyncWithHttpInfo(mediatype, id, addCommentData);
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// set a comment. set a comment to the specified interaction. If a comment already exists, it&#39;s overridden.
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="mediatype">The media channel.</param>
+        /// <param name="id">The ID of the interaction.</param>
+        /// <param name="addCommentData"></param>
+        /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SetCommentAsyncWithHttpInfo (string mediatype, string id, AddCommentData addCommentData)
+        {
+            // verify the required parameter 'mediatype' is set
+            if (mediatype == null)
+                throw new ApiException(400, "Missing required parameter 'mediatype' when calling MediaApi->SetComment");
+            // verify the required parameter 'id' is set
+            if (id == null)
+                throw new ApiException(400, "Missing required parameter 'id' when calling MediaApi->SetComment");
+            // verify the required parameter 'addCommentData' is set
+            if (addCommentData == null)
+                throw new ApiException(400, "Missing required parameter 'addCommentData' when calling MediaApi->SetComment");
+
+            var localVarPath = "/media/{mediatype}/interactions/{id}/set-comment";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+            if (mediatype != null) localVarPathParams.Add("mediatype", Configuration.ApiClient.ParameterToString(mediatype)); // path parameter
+            if (id != null) localVarPathParams.Add("id", Configuration.ApiClient.ParameterToString(id)); // path parameter
+            if (addCommentData != null && addCommentData.GetType() != typeof(byte[]))
+            {
+                localVarPostBody = Configuration.ApiClient.Serialize(addCommentData); // http body (model) parameter
+            }
+            else
+            {
+                localVarPostBody = addCommentData; // byte array
+            }
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.POST, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("SetComment", localVarResponse);
                 if (exception != null) throw exception;
             }
 

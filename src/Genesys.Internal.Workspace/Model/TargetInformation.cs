@@ -25,7 +25,7 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// The target to add/save.
+    /// The target to save.
     /// </summary>
     [DataContract]
     public partial class TargetInformation :  IEquatable<TargetInformation>, IValidatableObject
@@ -33,12 +33,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TargetInformation" /> class.
         /// </summary>
-        /// <param name="Type">Type.</param>
-        /// <param name="Id">Id.</param>
-        /// <param name="FirstName">FirstName.</param>
-        /// <param name="LastName">LastName.</param>
-        /// <param name="EmailAddresses">EmailAddresses.</param>
-        /// <param name="Numbers">Numbers.</param>
+        /// <param name="Type">The type of target..</param>
+        /// <param name="Id">The ID of the target..</param>
+        /// <param name="FirstName">If the target is an agent, specify the first name..</param>
+        /// <param name="LastName">If the target is an agent, specify the last name..</param>
+        /// <param name="EmailAddresses">The email addresses to save for this personal favorite..</param>
+        /// <param name="Numbers">The phone numbers to save for this personal favorite..</param>
         public TargetInformation(string Type = default(string), string Id = default(string), string FirstName = default(string), string LastName = default(string), List<string> EmailAddresses = default(List<string>), List<string> Numbers = default(List<string>))
         {
             this.Type = Type;
@@ -50,38 +50,44 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Type
+        /// The type of target.
         /// </summary>
+        /// <value>The type of target.</value>
         [DataMember(Name="type", EmitDefaultValue=false)]
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or Sets Id
+        /// The ID of the target.
         /// </summary>
+        /// <value>The ID of the target.</value>
         [DataMember(Name="id", EmitDefaultValue=false)]
         public string Id { get; set; }
 
         /// <summary>
-        /// Gets or Sets FirstName
+        /// If the target is an agent, specify the first name.
         /// </summary>
+        /// <value>If the target is an agent, specify the first name.</value>
         [DataMember(Name="firstName", EmitDefaultValue=false)]
         public string FirstName { get; set; }
 
         /// <summary>
-        /// Gets or Sets LastName
+        /// If the target is an agent, specify the last name.
         /// </summary>
+        /// <value>If the target is an agent, specify the last name.</value>
         [DataMember(Name="lastName", EmitDefaultValue=false)]
         public string LastName { get; set; }
 
         /// <summary>
-        /// Gets or Sets EmailAddresses
+        /// The email addresses to save for this personal favorite.
         /// </summary>
+        /// <value>The email addresses to save for this personal favorite.</value>
         [DataMember(Name="emailAddresses", EmitDefaultValue=false)]
         public List<string> EmailAddresses { get; set; }
 
         /// <summary>
-        /// Gets or Sets Numbers
+        /// The phone numbers to save for this personal favorite.
         /// </summary>
+        /// <value>The phone numbers to save for this personal favorite.</value>
         [DataMember(Name="numbers", EmitDefaultValue=false)]
         public List<string> Numbers { get; set; }
 

@@ -33,8 +33,8 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CallParticipants" /> class.
         /// </summary>
-        /// <param name="Number">Number.</param>
-        /// <param name="Role">Role.</param>
+        /// <param name="Number">The participant&#39;s phone number..</param>
+        /// <param name="Role">The participant&#39;s role..</param>
         public CallParticipants(string Number = default(string), string Role = default(string))
         {
             this.Number = Number;
@@ -42,14 +42,16 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Number
+        /// The participant&#39;s phone number.
         /// </summary>
+        /// <value>The participant&#39;s phone number.</value>
         [DataMember(Name="number", EmitDefaultValue=false)]
         public string Number { get; set; }
 
         /// <summary>
-        /// Gets or Sets Role
+        /// The participant&#39;s role.
         /// </summary>
+        /// <value>The participant&#39;s role.</value>
         [DataMember(Name="role", EmitDefaultValue=false)]
         public string Role { get; set; }
 

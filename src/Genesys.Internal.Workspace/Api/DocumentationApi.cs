@@ -14,6 +14,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using RestSharp;
 using Genesys.Internal.Workspace.Client;
+using Genesys.Internal.Workspace.Model;
 
 namespace Genesys.Internal.Workspace.Api
 {
@@ -42,6 +43,25 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of Object(void)</returns>
         ApiResponse<Object> SwaggerDocWithHttpInfo ();
+        /// <summary>
+        /// Returns version information
+        /// </summary>
+        /// <remarks>
+        /// Returns version information
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Info</returns>
+        Info VersionInfo ();
+
+        /// <summary>
+        /// Returns version information
+        /// </summary>
+        /// <remarks>
+        /// Returns version information
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Info</returns>
+        ApiResponse<Info> VersionInfoWithHttpInfo ();
         #endregion Synchronous Operations
         #region Asynchronous Operations
         /// <summary>
@@ -63,6 +83,25 @@ namespace Genesys.Internal.Workspace.Api
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<ApiResponse<Object>> SwaggerDocAsyncWithHttpInfo ();
+        /// <summary>
+        /// Returns version information
+        /// </summary>
+        /// <remarks>
+        /// Returns version information
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of Info</returns>
+        System.Threading.Tasks.Task<Info> VersionInfoAsync ();
+
+        /// <summary>
+        /// Returns version information
+        /// </summary>
+        /// <remarks>
+        /// Returns version information
+        /// </remarks>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (Info)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Info>> VersionInfoAsyncWithHttpInfo ();
         #endregion Asynchronous Operations
     }
 
@@ -294,6 +333,129 @@ namespace Genesys.Internal.Workspace.Api
             return new ApiResponse<Object>(localVarStatusCode,
                 localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
                 null);
+        }
+
+        /// <summary>
+        /// Returns version information Returns version information
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Info</returns>
+        public Info VersionInfo ()
+        {
+             ApiResponse<Info> localVarResponse = VersionInfoWithHttpInfo();
+             return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// Returns version information Returns version information
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>ApiResponse of Info</returns>
+        public ApiResponse< Info > VersionInfoWithHttpInfo ()
+        {
+
+            var localVarPath = "/info";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) Configuration.ApiClient.CallApi(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("VersionInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Info>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Info) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Info)));
+        }
+
+        /// <summary>
+        /// Returns version information Returns version information
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of Info</returns>
+        public async System.Threading.Tasks.Task<Info> VersionInfoAsync ()
+        {
+             ApiResponse<Info> localVarResponse = await VersionInfoAsyncWithHttpInfo();
+             return localVarResponse.Data;
+
+        }
+
+        /// <summary>
+        /// Returns version information Returns version information
+        /// </summary>
+        /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <returns>Task of ApiResponse (Info)</returns>
+        public async System.Threading.Tasks.Task<ApiResponse<Info>> VersionInfoAsyncWithHttpInfo ()
+        {
+
+            var localVarPath = "/info";
+            var localVarPathParams = new Dictionary<String, String>();
+            var localVarQueryParams = new Dictionary<String, String>();
+            var localVarHeaderParams = new Dictionary<String, String>(Configuration.DefaultHeader);
+            var localVarFormParams = new Dictionary<String, String>();
+            var localVarFileParams = new Dictionary<String, FileParameter>();
+            Object localVarPostBody = null;
+
+            // to determine the Content-Type header
+            String[] localVarHttpContentTypes = new String[] {
+                "application/json"
+            };
+            String localVarHttpContentType = Configuration.ApiClient.SelectHeaderContentType(localVarHttpContentTypes);
+
+            // to determine the Accept header
+            String[] localVarHttpHeaderAccepts = new String[] {
+                "application/json"
+            };
+            String localVarHttpHeaderAccept = Configuration.ApiClient.SelectHeaderAccept(localVarHttpHeaderAccepts);
+            if (localVarHttpHeaderAccept != null)
+                localVarHeaderParams.Add("Accept", localVarHttpHeaderAccept);
+
+
+
+            // make the HTTP request
+            IRestResponse localVarResponse = (IRestResponse) await Configuration.ApiClient.CallApiAsync(localVarPath,
+                Method.GET, localVarQueryParams, localVarPostBody, localVarHeaderParams, localVarFormParams, localVarFileParams,
+                localVarPathParams, localVarHttpContentType);
+
+            int localVarStatusCode = (int) localVarResponse.StatusCode;
+
+            if (ExceptionFactory != null)
+            {
+                Exception exception = ExceptionFactory("VersionInfo", localVarResponse);
+                if (exception != null) throw exception;
+            }
+
+            return new ApiResponse<Info>(localVarStatusCode,
+                localVarResponse.Headers.ToDictionary(x => x.Name, x => x.Value.ToString()),
+                (Info) Configuration.ApiClient.Deserialize(localVarResponse, typeof(Info)));
         }
 
     }

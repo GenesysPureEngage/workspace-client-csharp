@@ -25,39 +25,25 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediamediatypeinteractionsidaddcommentData
+    /// NotReadyForAgentData
     /// </summary>
     [DataContract]
-    public partial class MediamediatypeinteractionsidaddcommentData :  IEquatable<MediamediatypeinteractionsidaddcommentData>, IValidatableObject
+    public partial class NotReadyForAgentData :  IEquatable<NotReadyForAgentData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidaddcommentData" /> class.
+        /// Initializes a new instance of the <see cref="NotReadyForAgentData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MediamediatypeinteractionsidaddcommentData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidaddcommentData" /> class.
-        /// </summary>
-        /// <param name="Comment">The comment to add to the interaction. (required).</param>
-        public MediamediatypeinteractionsidaddcommentData(string Comment = default(string))
+        /// <param name="Data">Data.</param>
+        public NotReadyForAgentData(MedianotreadyData Data = default(MedianotreadyData))
         {
-            // to ensure "Comment" is required (not null)
-            if (Comment == null)
-            {
-                throw new InvalidDataException("Comment is a required property for MediamediatypeinteractionsidaddcommentData and cannot be null");
-            }
-            else
-            {
-                this.Comment = Comment;
-            }
+            this.Data = Data;
         }
         
         /// <summary>
-        /// The comment to add to the interaction.
+        /// Gets or Sets Data
         /// </summary>
-        /// <value>The comment to add to the interaction.</value>
-        [DataMember(Name="comment", EmitDefaultValue=false)]
-        public string Comment { get; set; }
+        [DataMember(Name="data", EmitDefaultValue=false)]
+        public MedianotreadyData Data { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -66,8 +52,8 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediamediatypeinteractionsidaddcommentData {\n");
-            sb.Append("  Comment: ").Append(Comment).Append("\n");
+            sb.Append("class NotReadyForAgentData {\n");
+            sb.Append("  Data: ").Append(Data).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -89,15 +75,15 @@ namespace Genesys.Internal.Workspace.Model
         public override bool Equals(object obj)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MediamediatypeinteractionsidaddcommentData);
+            return this.Equals(obj as NotReadyForAgentData);
         }
 
         /// <summary>
-        /// Returns true if MediamediatypeinteractionsidaddcommentData instances are equal
+        /// Returns true if NotReadyForAgentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MediamediatypeinteractionsidaddcommentData to be compared</param>
+        /// <param name="other">Instance of NotReadyForAgentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypeinteractionsidaddcommentData other)
+        public bool Equals(NotReadyForAgentData other)
         {
             // credit: http://stackoverflow.com/a/10454552/677735
             if (other == null)
@@ -105,9 +91,9 @@ namespace Genesys.Internal.Workspace.Model
 
             return 
                 (
-                    this.Comment == other.Comment ||
-                    this.Comment != null &&
-                    this.Comment.Equals(other.Comment)
+                    this.Data == other.Data ||
+                    this.Data != null &&
+                    this.Data.Equals(other.Data)
                 );
         }
 
@@ -122,8 +108,8 @@ namespace Genesys.Internal.Workspace.Model
             {
                 int hash = 41;
                 // Suitable nullity checks etc, of course :)
-                if (this.Comment != null)
-                    hash = hash * 59 + this.Comment.GetHashCode();
+                if (this.Data != null)
+                    hash = hash * 59 + this.Data.GetHashCode();
                 return hash;
             }
         }

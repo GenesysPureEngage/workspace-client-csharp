@@ -235,7 +235,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>ApiSuccessResponse</returns>
         ApiSuccessResponse DeleteUserDataPair (string id, KeyData keyData);
 
@@ -247,7 +247,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> DeleteUserDataPairWithHttpInfo (string id, KeyData keyData);
         /// <summary>
@@ -382,7 +382,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
-        /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -392,7 +392,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
-        /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -620,10 +620,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> SendUserEventWithHttpInfo (SendUserEventData userEventData);
         /// <summary>
-        /// Set the agent state to NotReady.
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -631,10 +631,10 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse SetAgentStateNotReady (NotReadyData notReadyData = null);
 
         /// <summary>
-        /// Set the agent state to NotReady.
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -830,10 +830,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         ApiResponse<ApiSuccessResponse> StopRecordingWithHttpInfo (string id);
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -842,10 +842,10 @@ namespace Genesys.Internal.Workspace.Api
         ApiSuccessResponse SwitchToBargeIn (string id, MonitoringScopeData monitoringScopeData = null);
 
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -1134,7 +1134,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         System.Threading.Tasks.Task<ApiSuccessResponse> DeleteUserDataPairAsync (string id, KeyData keyData);
 
@@ -1146,7 +1146,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteUserDataPairAsyncWithHttpInfo (string id, KeyData keyData);
         /// <summary>
@@ -1281,7 +1281,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
-        /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -1291,7 +1291,7 @@ namespace Genesys.Internal.Workspace.Api
         /// Log out of the voice channel.
         /// </summary>
         /// <remarks>
-        /// Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -1519,10 +1519,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> SendUserEventAsyncWithHttpInfo (SendUserEventData userEventData);
         /// <summary>
-        /// Set the agent state to NotReady.
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -1530,10 +1530,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> SetAgentStateNotReadyAsync (NotReadyData notReadyData = null);
 
         /// <summary>
-        /// Set the agent state to NotReady.
+        /// Set the agent state to Not Ready.
         /// </summary>
         /// <remarks>
-        /// Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -1729,10 +1729,10 @@ namespace Genesys.Internal.Workspace.Api
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> StopRecordingAsyncWithHttpInfo (string id);
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -1741,10 +1741,10 @@ namespace Genesys.Internal.Workspace.Api
         System.Threading.Tasks.Task<ApiSuccessResponse> SwitchToBargeInAsync (string id, MonitoringScopeData monitoringScopeData = null);
 
         /// <summary>
-        /// Switch to the barge in monitoring mode.
+        /// Switch to the barge-in monitoring mode.
         /// </summary>
         /// <remarks>
-        /// Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </remarks>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -3342,7 +3342,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>ApiSuccessResponse</returns>
         public ApiSuccessResponse DeleteUserDataPair (string id, KeyData keyData)
         {
@@ -3355,7 +3355,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
         public ApiResponse< ApiSuccessResponse > DeleteUserDataPairWithHttpInfo (string id, KeyData keyData)
         {
@@ -3422,7 +3422,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>Task of ApiSuccessResponse</returns>
         public async System.Threading.Tasks.Task<ApiSuccessResponse> DeleteUserDataPairAsync (string id, KeyData keyData)
         {
@@ -3436,7 +3436,7 @@ namespace Genesys.Internal.Workspace.Api
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call.</param>
-        /// <param name="keyData">The key of the data to remove.</param>
+        /// <param name="keyData"></param>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
         public async System.Threading.Tasks.Task<ApiResponse<ApiSuccessResponse>> DeleteUserDataPairAsyncWithHttpInfo (string id, KeyData keyData)
         {
@@ -4371,7 +4371,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiSuccessResponse</returns>
@@ -4382,7 +4382,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>ApiResponse of ApiSuccessResponse</returns>
@@ -4432,7 +4432,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiSuccessResponse</returns>
@@ -4444,7 +4444,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Log out of the voice channel. Logout the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
+        /// Log out of the voice channel. Log out the current agent on the voice channel. This request is typically paired with &#x60;/workspace/v3/voice/login&#x60; - together they let you login/logout an agent on the voice channel without logging out of the entire session.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <returns>Task of ApiResponse (ApiSuccessResponse)</returns>
@@ -6016,7 +6016,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to NotReady. Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -6028,7 +6028,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to NotReady. Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -6087,7 +6087,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to NotReady. Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -6100,7 +6100,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Set the agent state to NotReady. Set the current agent&#39;s state to NotReady on the voice channel.
+        /// Set the agent state to Not Ready. Set the current agent&#39;s state to Not Ready on the voice channel.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="notReadyData"> (optional)</param>
@@ -7438,7 +7438,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -7451,7 +7451,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -7515,7 +7515,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>
@@ -7529,7 +7529,7 @@ namespace Genesys.Internal.Workspace.Api
         }
 
         /// <summary>
-        /// Switch to the barge in monitoring mode. Switch to the barge in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
+        /// Switch to the barge-in monitoring mode. Switch to the barge-in monitoring mode. If the agent is currently on a call and T-Server is configured to allow barge-in, the supervisor is immediately added to the call. Both the monitored agent and the customer are able to hear and speak with the supervisor. If the target agent is not on a call at the time of the request, the supervisor is brought into the call when the agent receives a new call.
         /// </summary>
         /// <exception cref="Genesys.Internal.Workspace.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="id">The connection ID of the call being monitored.</param>

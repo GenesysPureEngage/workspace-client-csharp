@@ -33,8 +33,8 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="RecentData" /> class.
         /// </summary>
-        /// <param name="Media">Media.</param>
-        /// <param name="TimeStamp">TimeStamp.</param>
+        /// <param name="Media">The media channel where the target was recently used..</param>
+        /// <param name="TimeStamp">The date and time when the target was used..</param>
         public RecentData(string Media = default(string), decimal? TimeStamp = default(decimal?))
         {
             this.Media = Media;
@@ -42,14 +42,16 @@ namespace Genesys.Internal.Workspace.Model
         }
         
         /// <summary>
-        /// Gets or Sets Media
+        /// The media channel where the target was recently used.
         /// </summary>
+        /// <value>The media channel where the target was recently used.</value>
         [DataMember(Name="media", EmitDefaultValue=false)]
         public string Media { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeStamp
+        /// The date and time when the target was used.
         /// </summary>
+        /// <value>The date and time when the target was used.</value>
         [DataMember(Name="timeStamp", EmitDefaultValue=false)]
         public decimal? TimeStamp { get; set; }
 
