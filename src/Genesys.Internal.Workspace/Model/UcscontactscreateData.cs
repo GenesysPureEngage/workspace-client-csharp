@@ -84,30 +84,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcscontactscreateData);
+            return this.Equals(input as UcscontactscreateData);
         }
 
         /// <summary>
         /// Returns true if UcscontactscreateData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcscontactscreateData to be compared</param>
+        /// <param name="input">Instance of UcscontactscreateData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcscontactscreateData other)
+        public bool Equals(UcscontactscreateData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Properties == other.Properties ||
+                    this.Properties == input.Properties ||
                     this.Properties != null &&
-                    this.Properties.SequenceEqual(other.Properties)
+                    this.Properties.SequenceEqual(input.Properties)
                 );
         }
 
@@ -117,14 +115,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Properties != null)
-                    hash = hash * 59 + this.Properties.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Properties.GetHashCode();
+                return hashCode;
             }
         }
 

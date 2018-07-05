@@ -71,30 +71,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsinteractionsididentifycontactData);
+            return this.Equals(input as UcsinteractionsididentifycontactData);
         }
 
         /// <summary>
         /// Returns true if UcsinteractionsididentifycontactData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsinteractionsididentifycontactData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsididentifycontactData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsinteractionsididentifycontactData other)
+        public bool Equals(UcsinteractionsididentifycontactData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.CreateContactEnabled == other.CreateContactEnabled ||
-                    this.CreateContactEnabled != null &&
-                    this.CreateContactEnabled.Equals(other.CreateContactEnabled)
+                    this.CreateContactEnabled == input.CreateContactEnabled ||
+                    (this.CreateContactEnabled != null &&
+                    this.CreateContactEnabled.Equals(input.CreateContactEnabled))
                 );
         }
 
@@ -104,14 +102,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.CreateContactEnabled != null)
-                    hash = hash * 59 + this.CreateContactEnabled.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.CreateContactEnabled.GetHashCode();
+                return hashCode;
             }
         }
 

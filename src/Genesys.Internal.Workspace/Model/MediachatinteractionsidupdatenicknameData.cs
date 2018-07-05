@@ -39,22 +39,22 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum All for "All"
+            /// Enum All for value: All
             /// </summary>
             [EnumMember(Value = "All")]
-            All,
+            All = 1,
             
             /// <summary>
-            /// Enum Agent for "Agent"
+            /// Enum Agent for value: Agent
             /// </summary>
             [EnumMember(Value = "Agent")]
-            Agent,
+            Agent = 2,
             
             /// <summary>
-            /// Enum Supervisor for "Supervisor"
+            /// Enum Supervisor for value: Supervisor
             /// </summary>
             [EnumMember(Value = "Supervisor")]
-            Supervisor
+            Supervisor = 3
         }
 
         /// <summary>
@@ -121,35 +121,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MediachatinteractionsidupdatenicknameData);
+            return this.Equals(input as MediachatinteractionsidupdatenicknameData);
         }
 
         /// <summary>
         /// Returns true if MediachatinteractionsidupdatenicknameData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MediachatinteractionsidupdatenicknameData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidupdatenicknameData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidupdatenicknameData other)
+        public bool Equals(MediachatinteractionsidupdatenicknameData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Nickname == other.Nickname ||
-                    this.Nickname != null &&
-                    this.Nickname.Equals(other.Nickname)
+                    this.Nickname == input.Nickname ||
+                    (this.Nickname != null &&
+                    this.Nickname.Equals(input.Nickname))
                 ) && 
                 (
-                    this.Visibility == other.Visibility ||
-                    this.Visibility != null &&
-                    this.Visibility.Equals(other.Visibility)
+                    this.Visibility == input.Visibility ||
+                    (this.Visibility != null &&
+                    this.Visibility.Equals(input.Visibility))
                 );
         }
 
@@ -159,16 +157,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Nickname != null)
-                    hash = hash * 59 + this.Nickname.GetHashCode();
+                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
                 if (this.Visibility != null)
-                    hash = hash * 59 + this.Visibility.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Visibility.GetHashCode();
+                return hashCode;
             }
         }
 

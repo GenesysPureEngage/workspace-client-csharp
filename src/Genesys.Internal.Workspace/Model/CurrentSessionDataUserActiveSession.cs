@@ -119,55 +119,53 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentSessionDataUserActiveSession);
+            return this.Equals(input as CurrentSessionDataUserActiveSession);
         }
 
         /// <summary>
         /// Returns true if CurrentSessionDataUserActiveSession instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentSessionDataUserActiveSession to be compared</param>
+        /// <param name="input">Instance of CurrentSessionDataUserActiveSession to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionDataUserActiveSession other)
+        public bool Equals(CurrentSessionDataUserActiveSession input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AutoCompleteCall == other.AutoCompleteCall ||
-                    this.AutoCompleteCall != null &&
-                    this.AutoCompleteCall.Equals(other.AutoCompleteCall)
+                    this.AutoCompleteCall == input.AutoCompleteCall ||
+                    (this.AutoCompleteCall != null &&
+                    this.AutoCompleteCall.Equals(input.AutoCompleteCall))
                 ) && 
                 (
-                    this.CurrentPlace == other.CurrentPlace ||
-                    this.CurrentPlace != null &&
-                    this.CurrentPlace.Equals(other.CurrentPlace)
+                    this.CurrentPlace == input.CurrentPlace ||
+                    (this.CurrentPlace != null &&
+                    this.CurrentPlace.Equals(input.CurrentPlace))
                 ) && 
                 (
-                    this.Dn == other.Dn ||
-                    this.Dn != null &&
-                    this.Dn.Equals(other.Dn)
+                    this.Dn == input.Dn ||
+                    (this.Dn != null &&
+                    this.Dn.Equals(input.Dn))
                 ) && 
                 (
-                    this.Calls == other.Calls ||
+                    this.Calls == input.Calls ||
                     this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
+                    this.Calls.SequenceEqual(input.Calls)
                 ) && 
                 (
-                    this.Media == other.Media ||
-                    this.Media != null &&
-                    this.Media.Equals(other.Media)
+                    this.Media == input.Media ||
+                    (this.Media != null &&
+                    this.Media.Equals(input.Media))
                 ) && 
                 (
-                    this.Services == other.Services ||
+                    this.Services == input.Services ||
                     this.Services != null &&
-                    this.Services.SequenceEqual(other.Services)
+                    this.Services.SequenceEqual(input.Services)
                 );
         }
 
@@ -177,24 +175,22 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AutoCompleteCall != null)
-                    hash = hash * 59 + this.AutoCompleteCall.GetHashCode();
+                    hashCode = hashCode * 59 + this.AutoCompleteCall.GetHashCode();
                 if (this.CurrentPlace != null)
-                    hash = hash * 59 + this.CurrentPlace.GetHashCode();
+                    hashCode = hashCode * 59 + this.CurrentPlace.GetHashCode();
                 if (this.Dn != null)
-                    hash = hash * 59 + this.Dn.GetHashCode();
+                    hashCode = hashCode * 59 + this.Dn.GetHashCode();
                 if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
+                    hashCode = hashCode * 59 + this.Calls.GetHashCode();
                 if (this.Media != null)
-                    hash = hash * 59 + this.Media.GetHashCode();
+                    hashCode = hashCode * 59 + this.Media.GetHashCode();
                 if (this.Services != null)
-                    hash = hash * 59 + this.Services.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Services.GetHashCode();
+                return hashCode;
             }
         }
 

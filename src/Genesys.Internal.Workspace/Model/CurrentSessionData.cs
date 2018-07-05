@@ -79,35 +79,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentSessionData);
+            return this.Equals(input as CurrentSessionData);
         }
 
         /// <summary>
         /// Returns true if CurrentSessionData instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentSessionData to be compared</param>
+        /// <param name="input">Instance of CurrentSessionData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionData other)
+        public bool Equals(CurrentSessionData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.PendingLoginAsync == other.PendingLoginAsync ||
-                    this.PendingLoginAsync != null &&
-                    this.PendingLoginAsync.Equals(other.PendingLoginAsync)
+                    this.PendingLoginAsync == input.PendingLoginAsync ||
+                    (this.PendingLoginAsync != null &&
+                    this.PendingLoginAsync.Equals(input.PendingLoginAsync))
                 ) && 
                 (
-                    this.User == other.User ||
-                    this.User != null &&
-                    this.User.Equals(other.User)
+                    this.User == input.User ||
+                    (this.User != null &&
+                    this.User.Equals(input.User))
                 );
         }
 
@@ -117,16 +115,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.PendingLoginAsync != null)
-                    hash = hash * 59 + this.PendingLoginAsync.GetHashCode();
+                    hashCode = hashCode * 59 + this.PendingLoginAsync.GetHashCode();
                 if (this.User != null)
-                    hash = hash * 59 + this.User.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.User.GetHashCode();
+                return hashCode;
             }
         }
 

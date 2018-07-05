@@ -39,16 +39,16 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Call for "Call"
+            /// Enum Call for value: Call
             /// </summary>
             [EnumMember(Value = "Call")]
-            Call,
+            Call = 1,
             
             /// <summary>
-            /// Enum Agent for "Agent"
+            /// Enum Agent for value: Agent
             /// </summary>
             [EnumMember(Value = "Agent")]
-            Agent
+            Agent = 2
         }
 
         /// <summary>
@@ -92,30 +92,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MonitoringScopeDataData);
+            return this.Equals(input as MonitoringScopeDataData);
         }
 
         /// <summary>
         /// Returns true if MonitoringScopeDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MonitoringScopeDataData to be compared</param>
+        /// <param name="input">Instance of MonitoringScopeDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MonitoringScopeDataData other)
+        public bool Equals(MonitoringScopeDataData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.MonitoringScope == other.MonitoringScope ||
-                    this.MonitoringScope != null &&
-                    this.MonitoringScope.Equals(other.MonitoringScope)
+                    this.MonitoringScope == input.MonitoringScope ||
+                    (this.MonitoringScope != null &&
+                    this.MonitoringScope.Equals(input.MonitoringScope))
                 );
         }
 
@@ -125,14 +123,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.MonitoringScope != null)
-                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.MonitoringScope.GetHashCode();
+                return hashCode;
             }
         }
 

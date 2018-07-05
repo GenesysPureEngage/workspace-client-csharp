@@ -39,64 +39,22 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Mute for "Mute"
+            /// Enum Mute for value: Mute
             /// </summary>
             [EnumMember(Value = "Mute")]
-            Mute,
+            Mute = 1,
             
             /// <summary>
-            /// Enum Coach for "Coach"
+            /// Enum Coach for value: Coach
             /// </summary>
             [EnumMember(Value = "Coach")]
-            Coach,
+            Coach = 2,
             
             /// <summary>
-            /// Enum Connect for "Connect"
+            /// Enum Connect for value: Connect
             /// </summary>
             [EnumMember(Value = "Connect")]
-            Connect
-        }
-
-        /// <summary>
-        /// The monitoring call type.
-        /// </summary>
-        /// <value>The monitoring call type.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringNextCallTypeEnum
-        {
-            
-            /// <summary>
-            /// Enum OneCall for "OneCall"
-            /// </summary>
-            [EnumMember(Value = "OneCall")]
-            OneCall,
-            
-            /// <summary>
-            /// Enum AllCalls for "AllCalls"
-            /// </summary>
-            [EnumMember(Value = "AllCalls")]
-            AllCalls
-        }
-
-        /// <summary>
-        /// The monitoring scope.
-        /// </summary>
-        /// <value>The monitoring scope.</value>
-        [JsonConverter(typeof(StringEnumConverter))]
-        public enum MonitoringScopeEnum
-        {
-            
-            /// <summary>
-            /// Enum Call for "Call"
-            /// </summary>
-            [EnumMember(Value = "Call")]
-            Call,
-            
-            /// <summary>
-            /// Enum Agent for "Agent"
-            /// </summary>
-            [EnumMember(Value = "Agent")]
-            Agent
+            Connect = 3
         }
 
         /// <summary>
@@ -109,8 +67,50 @@ namespace Genesys.Internal.Workspace.Model
         /// The monitoring call type.
         /// </summary>
         /// <value>The monitoring call type.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MonitoringNextCallTypeEnum
+        {
+            
+            /// <summary>
+            /// Enum OneCall for value: OneCall
+            /// </summary>
+            [EnumMember(Value = "OneCall")]
+            OneCall = 1,
+            
+            /// <summary>
+            /// Enum AllCalls for value: AllCalls
+            /// </summary>
+            [EnumMember(Value = "AllCalls")]
+            AllCalls = 2
+        }
+
+        /// <summary>
+        /// The monitoring call type.
+        /// </summary>
+        /// <value>The monitoring call type.</value>
         [DataMember(Name="monitoringNextCallType", EmitDefaultValue=false)]
         public MonitoringNextCallTypeEnum? MonitoringNextCallType { get; set; }
+        /// <summary>
+        /// The monitoring scope.
+        /// </summary>
+        /// <value>The monitoring scope.</value>
+        [JsonConverter(typeof(StringEnumConverter))]
+        public enum MonitoringScopeEnum
+        {
+            
+            /// <summary>
+            /// Enum Call for value: Call
+            /// </summary>
+            [EnumMember(Value = "Call")]
+            Call = 1,
+            
+            /// <summary>
+            /// Enum Agent for value: Agent
+            /// </summary>
+            [EnumMember(Value = "Agent")]
+            Agent = 2
+        }
+
         /// <summary>
         /// The monitoring scope.
         /// </summary>
@@ -193,50 +193,48 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicestartmonitoringData);
+            return this.Equals(input as VoicestartmonitoringData);
         }
 
         /// <summary>
         /// Returns true if VoicestartmonitoringData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicestartmonitoringData to be compared</param>
+        /// <param name="input">Instance of VoicestartmonitoringData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestartmonitoringData other)
+        public bool Equals(VoicestartmonitoringData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumberToMonitor == other.PhoneNumberToMonitor ||
-                    this.PhoneNumberToMonitor != null &&
-                    this.PhoneNumberToMonitor.Equals(other.PhoneNumberToMonitor)
+                    this.PhoneNumberToMonitor == input.PhoneNumberToMonitor ||
+                    (this.PhoneNumberToMonitor != null &&
+                    this.PhoneNumberToMonitor.Equals(input.PhoneNumberToMonitor))
                 ) && 
                 (
-                    this.MonitoringMode == other.MonitoringMode ||
-                    this.MonitoringMode != null &&
-                    this.MonitoringMode.Equals(other.MonitoringMode)
+                    this.MonitoringMode == input.MonitoringMode ||
+                    (this.MonitoringMode != null &&
+                    this.MonitoringMode.Equals(input.MonitoringMode))
                 ) && 
                 (
-                    this.MonitoringNextCallType == other.MonitoringNextCallType ||
-                    this.MonitoringNextCallType != null &&
-                    this.MonitoringNextCallType.Equals(other.MonitoringNextCallType)
+                    this.MonitoringNextCallType == input.MonitoringNextCallType ||
+                    (this.MonitoringNextCallType != null &&
+                    this.MonitoringNextCallType.Equals(input.MonitoringNextCallType))
                 ) && 
                 (
-                    this.MonitoringScope == other.MonitoringScope ||
-                    this.MonitoringScope != null &&
-                    this.MonitoringScope.Equals(other.MonitoringScope)
+                    this.MonitoringScope == input.MonitoringScope ||
+                    (this.MonitoringScope != null &&
+                    this.MonitoringScope.Equals(input.MonitoringScope))
                 ) && 
                 (
-                    this.Location == other.Location ||
-                    this.Location != null &&
-                    this.Location.Equals(other.Location)
+                    this.Location == input.Location ||
+                    (this.Location != null &&
+                    this.Location.Equals(input.Location))
                 );
         }
 
@@ -246,22 +244,20 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.PhoneNumberToMonitor != null)
-                    hash = hash * 59 + this.PhoneNumberToMonitor.GetHashCode();
+                    hashCode = hashCode * 59 + this.PhoneNumberToMonitor.GetHashCode();
                 if (this.MonitoringMode != null)
-                    hash = hash * 59 + this.MonitoringMode.GetHashCode();
+                    hashCode = hashCode * 59 + this.MonitoringMode.GetHashCode();
                 if (this.MonitoringNextCallType != null)
-                    hash = hash * 59 + this.MonitoringNextCallType.GetHashCode();
+                    hashCode = hashCode * 59 + this.MonitoringNextCallType.GetHashCode();
                 if (this.MonitoringScope != null)
-                    hash = hash * 59 + this.MonitoringScope.GetHashCode();
+                    hashCode = hashCode * 59 + this.MonitoringScope.GetHashCode();
                 if (this.Location != null)
-                    hash = hash * 59 + this.Location.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Location.GetHashCode();
+                return hashCode;
             }
         }
 

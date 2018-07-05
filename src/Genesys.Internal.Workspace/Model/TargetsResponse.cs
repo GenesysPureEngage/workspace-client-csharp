@@ -79,35 +79,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as TargetsResponse);
+            return this.Equals(input as TargetsResponse);
         }
 
         /// <summary>
         /// Returns true if TargetsResponse instances are equal
         /// </summary>
-        /// <param name="other">Instance of TargetsResponse to be compared</param>
+        /// <param name="input">Instance of TargetsResponse to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(TargetsResponse other)
+        public bool Equals(TargetsResponse input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 ) && 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 );
         }
 
@@ -117,16 +115,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
+                return hashCode;
             }
         }
 

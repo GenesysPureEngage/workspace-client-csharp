@@ -39,34 +39,34 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum AfterCallWork for "AfterCallWork"
+            /// Enum AfterCallWork for value: AfterCallWork
             /// </summary>
             [EnumMember(Value = "AfterCallWork")]
-            AfterCallWork,
+            AfterCallWork = 1,
             
             /// <summary>
-            /// Enum AuxWork for "AuxWork"
+            /// Enum AuxWork for value: AuxWork
             /// </summary>
             [EnumMember(Value = "AuxWork")]
-            AuxWork,
+            AuxWork = 2,
             
             /// <summary>
-            /// Enum LegalGuard for "LegalGuard"
+            /// Enum LegalGuard for value: LegalGuard
             /// </summary>
             [EnumMember(Value = "LegalGuard")]
-            LegalGuard,
+            LegalGuard = 3,
             
             /// <summary>
-            /// Enum NoCallDisconnect for "NoCallDisconnect"
+            /// Enum NoCallDisconnect for value: NoCallDisconnect
             /// </summary>
             [EnumMember(Value = "NoCallDisconnect")]
-            NoCallDisconnect,
+            NoCallDisconnect = 4,
             
             /// <summary>
-            /// Enum WalkAway for "WalkAway"
+            /// Enum WalkAway for value: WalkAway
             /// </summary>
             [EnumMember(Value = "WalkAway")]
-            WalkAway
+            WalkAway = 5
         }
 
         /// <summary>
@@ -140,45 +140,43 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicenotreadyData);
+            return this.Equals(input as VoicenotreadyData);
         }
 
         /// <summary>
         /// Returns true if VoicenotreadyData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicenotreadyData to be compared</param>
+        /// <param name="input">Instance of VoicenotreadyData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicenotreadyData other)
+        public bool Equals(VoicenotreadyData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReasonCode == other.ReasonCode ||
-                    this.ReasonCode != null &&
-                    this.ReasonCode.Equals(other.ReasonCode)
+                    this.ReasonCode == input.ReasonCode ||
+                    (this.ReasonCode != null &&
+                    this.ReasonCode.Equals(input.ReasonCode))
                 ) && 
                 (
-                    this.AgentWorkMode == other.AgentWorkMode ||
-                    this.AgentWorkMode != null &&
-                    this.AgentWorkMode.Equals(other.AgentWorkMode)
+                    this.AgentWorkMode == input.AgentWorkMode ||
+                    (this.AgentWorkMode != null &&
+                    this.AgentWorkMode.Equals(input.AgentWorkMode))
                 ) && 
                 (
-                    this.Reasons == other.Reasons ||
+                    this.Reasons == input.Reasons ||
                     this.Reasons != null &&
-                    this.Reasons.SequenceEqual(other.Reasons)
+                    this.Reasons.SequenceEqual(input.Reasons)
                 ) && 
                 (
-                    this.Extensions == other.Extensions ||
+                    this.Extensions == input.Extensions ||
                     this.Extensions != null &&
-                    this.Extensions.SequenceEqual(other.Extensions)
+                    this.Extensions.SequenceEqual(input.Extensions)
                 );
         }
 
@@ -188,20 +186,18 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ReasonCode != null)
-                    hash = hash * 59 + this.ReasonCode.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReasonCode.GetHashCode();
                 if (this.AgentWorkMode != null)
-                    hash = hash * 59 + this.AgentWorkMode.GetHashCode();
+                    hashCode = hashCode * 59 + this.AgentWorkMode.GetHashCode();
                 if (this.Reasons != null)
-                    hash = hash * 59 + this.Reasons.GetHashCode();
+                    hashCode = hashCode * 59 + this.Reasons.GetHashCode();
                 if (this.Extensions != null)
-                    hash = hash * 59 + this.Extensions.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Extensions.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -84,30 +84,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InlineResponse200Data);
+            return this.Equals(input as InlineResponse200Data);
         }
 
         /// <summary>
         /// Returns true if InlineResponse200Data instances are equal
         /// </summary>
-        /// <param name="other">Instance of InlineResponse200Data to be compared</param>
+        /// <param name="input">Instance of InlineResponse200Data to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse200Data other)
+        public bool Equals(InlineResponse200Data input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Calls == other.Calls ||
+                    this.Calls == input.Calls ||
                     this.Calls != null &&
-                    this.Calls.SequenceEqual(other.Calls)
+                    this.Calls.SequenceEqual(input.Calls)
                 );
         }
 
@@ -117,14 +115,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Calls != null)
-                    hash = hash * 59 + this.Calls.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Calls.GetHashCode();
+                return hashCode;
             }
         }
 

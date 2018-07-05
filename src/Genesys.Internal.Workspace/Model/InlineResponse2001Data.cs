@@ -83,30 +83,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InlineResponse2001Data);
+            return this.Equals(input as InlineResponse2001Data);
         }
 
         /// <summary>
         /// Returns true if InlineResponse2001Data instances are equal
         /// </summary>
-        /// <param name="other">Instance of InlineResponse2001Data to be compared</param>
+        /// <param name="input">Instance of InlineResponse2001Data to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse2001Data other)
+        public bool Equals(InlineResponse2001Data input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Subscriptions == other.Subscriptions ||
+                    this.Subscriptions == input.Subscriptions ||
                     this.Subscriptions != null &&
-                    this.Subscriptions.SequenceEqual(other.Subscriptions)
+                    this.Subscriptions.SequenceEqual(input.Subscriptions)
                 );
         }
 
@@ -116,14 +114,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Subscriptions != null)
-                    hash = hash * 59 + this.Subscriptions.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Subscriptions.GetHashCode();
+                return hashCode;
             }
         }
 

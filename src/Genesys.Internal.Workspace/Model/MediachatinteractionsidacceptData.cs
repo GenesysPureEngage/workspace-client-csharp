@@ -71,30 +71,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MediachatinteractionsidacceptData);
+            return this.Equals(input as MediachatinteractionsidacceptData);
         }
 
         /// <summary>
         /// Returns true if MediachatinteractionsidacceptData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MediachatinteractionsidacceptData to be compared</param>
+        /// <param name="input">Instance of MediachatinteractionsidacceptData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediachatinteractionsidacceptData other)
+        public bool Equals(MediachatinteractionsidacceptData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Nickname == other.Nickname ||
-                    this.Nickname != null &&
-                    this.Nickname.Equals(other.Nickname)
+                    this.Nickname == input.Nickname ||
+                    (this.Nickname != null &&
+                    this.Nickname.Equals(input.Nickname))
                 );
         }
 
@@ -104,14 +102,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Nickname != null)
-                    hash = hash * 59 + this.Nickname.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Nickname.GetHashCode();
+                return hashCode;
             }
         }
 

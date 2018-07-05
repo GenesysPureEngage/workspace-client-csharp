@@ -31,42 +31,42 @@ namespace Genesys.Internal.Workspace.Model
     public partial class CurrentSessionDataPendingloginasync :  IEquatable<CurrentSessionDataPendingloginasync>, IValidatableObject
     {
         /// <summary>
-        /// Gets or Sets State
+        /// Defines State
         /// </summary>
         [JsonConverter(typeof(StringEnumConverter))]
         public enum StateEnum
         {
             
             /// <summary>
-            /// Enum NotStarted for "NotStarted"
+            /// Enum NotStarted for value: NotStarted
             /// </summary>
             [EnumMember(Value = "NotStarted")]
-            NotStarted,
+            NotStarted = 1,
             
             /// <summary>
-            /// Enum Executing for "Executing"
+            /// Enum Executing for value: Executing
             /// </summary>
             [EnumMember(Value = "Executing")]
-            Executing,
+            Executing = 2,
             
             /// <summary>
-            /// Enum Failed for "Failed"
+            /// Enum Failed for value: Failed
             /// </summary>
             [EnumMember(Value = "Failed")]
-            Failed,
+            Failed = 3,
             
             /// <summary>
-            /// Enum Complete for "Complete"
+            /// Enum Complete for value: Complete
             /// </summary>
             [EnumMember(Value = "Complete")]
-            Complete
+            Complete = 4
         }
 
         /// <summary>
         /// Gets or Sets State
         /// </summary>
         [DataMember(Name="state", EmitDefaultValue=false)]
-        public StateEnum? State { get; set; }
+        public StateEnum State { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="CurrentSessionDataPendingloginasync" /> class.
         /// </summary>
@@ -79,7 +79,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="ActualWaitTime">ActualWaitTime (required).</param>
         /// <param name="SubmittedAt">SubmittedAt (required).</param>
         /// <param name="Errors">Errors.</param>
-        public CurrentSessionDataPendingloginasync(StateEnum? State = default(StateEnum?), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
+        public CurrentSessionDataPendingloginasync(StateEnum State = default(StateEnum), int? ActualWaitTime = default(int?), string SubmittedAt = default(string), List<Kvpair> Errors = default(List<Kvpair>))
         {
             // to ensure "State" is required (not null)
             if (State == null)
@@ -158,45 +158,43 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentSessionDataPendingloginasync);
+            return this.Equals(input as CurrentSessionDataPendingloginasync);
         }
 
         /// <summary>
         /// Returns true if CurrentSessionDataPendingloginasync instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentSessionDataPendingloginasync to be compared</param>
+        /// <param name="input">Instance of CurrentSessionDataPendingloginasync to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionDataPendingloginasync other)
+        public bool Equals(CurrentSessionDataPendingloginasync input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.State == other.State ||
-                    this.State != null &&
-                    this.State.Equals(other.State)
+                    this.State == input.State ||
+                    (this.State != null &&
+                    this.State.Equals(input.State))
                 ) && 
                 (
-                    this.ActualWaitTime == other.ActualWaitTime ||
-                    this.ActualWaitTime != null &&
-                    this.ActualWaitTime.Equals(other.ActualWaitTime)
+                    this.ActualWaitTime == input.ActualWaitTime ||
+                    (this.ActualWaitTime != null &&
+                    this.ActualWaitTime.Equals(input.ActualWaitTime))
                 ) && 
                 (
-                    this.SubmittedAt == other.SubmittedAt ||
-                    this.SubmittedAt != null &&
-                    this.SubmittedAt.Equals(other.SubmittedAt)
+                    this.SubmittedAt == input.SubmittedAt ||
+                    (this.SubmittedAt != null &&
+                    this.SubmittedAt.Equals(input.SubmittedAt))
                 ) && 
                 (
-                    this.Errors == other.Errors ||
+                    this.Errors == input.Errors ||
                     this.Errors != null &&
-                    this.Errors.SequenceEqual(other.Errors)
+                    this.Errors.SequenceEqual(input.Errors)
                 );
         }
 
@@ -206,20 +204,18 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.State != null)
-                    hash = hash * 59 + this.State.GetHashCode();
+                    hashCode = hashCode * 59 + this.State.GetHashCode();
                 if (this.ActualWaitTime != null)
-                    hash = hash * 59 + this.ActualWaitTime.GetHashCode();
+                    hashCode = hashCode * 59 + this.ActualWaitTime.GetHashCode();
                 if (this.SubmittedAt != null)
-                    hash = hash * 59 + this.SubmittedAt.GetHashCode();
+                    hashCode = hashCode * 59 + this.SubmittedAt.GetHashCode();
                 if (this.Errors != null)
-                    hash = hash * 59 + this.Errors.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Errors.GetHashCode();
+                return hashCode;
             }
         }
 

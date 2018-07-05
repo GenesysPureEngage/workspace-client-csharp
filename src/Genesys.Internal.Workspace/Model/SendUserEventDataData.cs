@@ -103,40 +103,38 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as SendUserEventDataData);
+            return this.Equals(input as SendUserEventDataData);
         }
 
         /// <summary>
         /// Returns true if SendUserEventDataData instances are equal
         /// </summary>
-        /// <param name="other">Instance of SendUserEventDataData to be compared</param>
+        /// <param name="input">Instance of SendUserEventDataData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(SendUserEventDataData other)
+        public bool Equals(SendUserEventDataData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.UserData == other.UserData ||
+                    this.UserData == input.UserData ||
                     this.UserData != null &&
-                    this.UserData.SequenceEqual(other.UserData)
+                    this.UserData.SequenceEqual(input.UserData)
                 ) && 
                 (
-                    this.CallUuid == other.CallUuid ||
-                    this.CallUuid != null &&
-                    this.CallUuid.Equals(other.CallUuid)
+                    this.CallUuid == input.CallUuid ||
+                    (this.CallUuid != null &&
+                    this.CallUuid.Equals(input.CallUuid))
                 ) && 
                 (
-                    this.ConnId == other.ConnId ||
-                    this.ConnId != null &&
-                    this.ConnId.Equals(other.ConnId)
+                    this.ConnId == input.ConnId ||
+                    (this.ConnId != null &&
+                    this.ConnId.Equals(input.ConnId))
                 );
         }
 
@@ -146,18 +144,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.UserData != null)
-                    hash = hash * 59 + this.UserData.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserData.GetHashCode();
                 if (this.CallUuid != null)
-                    hash = hash * 59 + this.CallUuid.GetHashCode();
+                    hashCode = hashCode * 59 + this.CallUuid.GetHashCode();
                 if (this.ConnId != null)
-                    hash = hash * 59 + this.ConnId.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ConnId.GetHashCode();
+                return hashCode;
             }
         }
 

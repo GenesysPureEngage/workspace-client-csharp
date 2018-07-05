@@ -33,10 +33,23 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Data" /> class.
         /// </summary>
-        /// <param name="_Data">_Data.</param>
+        [JsonConstructorAttribute]
+        protected Data() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Data" /> class.
+        /// </summary>
+        /// <param name="_Data">_Data (required).</param>
         public Data(SupervisorvoiceoperationNameData _Data = default(SupervisorvoiceoperationNameData))
         {
-            this._Data = _Data;
+            // to ensure "_Data" is required (not null)
+            if (_Data == null)
+            {
+                throw new InvalidDataException("_Data is a required property for Data and cannot be null");
+            }
+            else
+            {
+                this._Data = _Data;
+            }
         }
         
         /// <summary>
@@ -70,30 +83,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Data);
+            return this.Equals(input as Data);
         }
 
         /// <summary>
         /// Returns true if Data instances are equal
         /// </summary>
-        /// <param name="other">Instance of Data to be compared</param>
+        /// <param name="input">Instance of Data to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Data other)
+        public bool Equals(Data input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this._Data == other._Data ||
-                    this._Data != null &&
-                    this._Data.Equals(other._Data)
+                    this._Data == input._Data ||
+                    (this._Data != null &&
+                    this._Data.Equals(input._Data))
                 );
         }
 
@@ -103,14 +114,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this._Data != null)
-                    hash = hash * 59 + this._Data.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this._Data.GetHashCode();
+                return hashCode;
             }
         }
 

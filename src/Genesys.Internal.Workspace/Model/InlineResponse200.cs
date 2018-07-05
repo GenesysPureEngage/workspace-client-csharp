@@ -33,11 +33,24 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
         /// </summary>
-        /// <param name="Status">Status.</param>
+        [JsonConstructorAttribute]
+        protected InlineResponse200() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="InlineResponse200" /> class.
+        /// </summary>
+        /// <param name="Status">Status (required).</param>
         /// <param name="Data">Data.</param>
         public InlineResponse200(InlineResponse200Status Status = default(InlineResponse200Status), InlineResponse200Data Data = default(InlineResponse200Data))
         {
-            this.Status = Status;
+            // to ensure "Status" is required (not null)
+            if (Status == null)
+            {
+                throw new InvalidDataException("Status is a required property for InlineResponse200 and cannot be null");
+            }
+            else
+            {
+                this.Status = Status;
+            }
             this.Data = Data;
         }
         
@@ -79,35 +92,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as InlineResponse200);
+            return this.Equals(input as InlineResponse200);
         }
 
         /// <summary>
         /// Returns true if InlineResponse200 instances are equal
         /// </summary>
-        /// <param name="other">Instance of InlineResponse200 to be compared</param>
+        /// <param name="input">Instance of InlineResponse200 to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(InlineResponse200 other)
+        public bool Equals(InlineResponse200 input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Status == other.Status ||
-                    this.Status != null &&
-                    this.Status.Equals(other.Status)
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
-                    this.Data == other.Data ||
-                    this.Data != null &&
-                    this.Data.Equals(other.Data)
+                    this.Data == input.Data ||
+                    (this.Data != null &&
+                    this.Data.Equals(input.Data))
                 );
         }
 
@@ -117,16 +128,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Status != null)
-                    hash = hash * 59 + this.Status.GetHashCode();
+                    hashCode = hashCode * 59 + this.Status.GetHashCode();
                 if (this.Data != null)
-                    hash = hash * 59 + this.Data.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Data.GetHashCode();
+                return hashCode;
             }
         }
 

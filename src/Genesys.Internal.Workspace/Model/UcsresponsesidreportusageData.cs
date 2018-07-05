@@ -39,34 +39,34 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum SystemAutoResponse for "SystemAutoResponse"
+            /// Enum SystemAutoResponse for value: SystemAutoResponse
             /// </summary>
             [EnumMember(Value = "SystemAutoResponse")]
-            SystemAutoResponse,
+            SystemAutoResponse = 1,
             
             /// <summary>
-            /// Enum SuggestedResponsesIgnored for "SuggestedResponsesIgnored"
+            /// Enum SuggestedResponsesIgnored for value: SuggestedResponsesIgnored
             /// </summary>
             [EnumMember(Value = "SuggestedResponsesIgnored")]
-            SuggestedResponsesIgnored,
+            SuggestedResponsesIgnored = 2,
             
             /// <summary>
-            /// Enum SuggestedResponseChoosen for "SuggestedResponseChoosen"
+            /// Enum SuggestedResponseChoosen for value: SuggestedResponseChoosen
             /// </summary>
             [EnumMember(Value = "SuggestedResponseChoosen")]
-            SuggestedResponseChoosen,
+            SuggestedResponseChoosen = 3,
             
             /// <summary>
-            /// Enum SuggestedResponseNotReceived for "SuggestedResponseNotReceived"
+            /// Enum SuggestedResponseNotReceived for value: SuggestedResponseNotReceived
             /// </summary>
             [EnumMember(Value = "SuggestedResponseNotReceived")]
-            SuggestedResponseNotReceived,
+            SuggestedResponseNotReceived = 4,
             
             /// <summary>
-            /// Enum AdministratorResponse for "AdministratorResponse"
+            /// Enum AdministratorResponse for value: AdministratorResponse
             /// </summary>
             [EnumMember(Value = "AdministratorResponse")]
-            AdministratorResponse
+            AdministratorResponse = 5
         }
 
         /// <summary>
@@ -133,35 +133,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsresponsesidreportusageData);
+            return this.Equals(input as UcsresponsesidreportusageData);
         }
 
         /// <summary>
         /// Returns true if UcsresponsesidreportusageData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsresponsesidreportusageData to be compared</param>
+        /// <param name="input">Instance of UcsresponsesidreportusageData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsresponsesidreportusageData other)
+        public bool Equals(UcsresponsesidreportusageData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.InteractionId == other.InteractionId ||
-                    this.InteractionId != null &&
-                    this.InteractionId.Equals(other.InteractionId)
+                    this.InteractionId == input.InteractionId ||
+                    (this.InteractionId != null &&
+                    this.InteractionId.Equals(input.InteractionId))
                 ) && 
                 (
-                    this.ResponseType == other.ResponseType ||
-                    this.ResponseType != null &&
-                    this.ResponseType.Equals(other.ResponseType)
+                    this.ResponseType == input.ResponseType ||
+                    (this.ResponseType != null &&
+                    this.ResponseType.Equals(input.ResponseType))
                 );
         }
 
@@ -171,16 +169,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.InteractionId != null)
-                    hash = hash * 59 + this.InteractionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
                 if (this.ResponseType != null)
-                    hash = hash * 59 + this.ResponseType.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ResponseType.GetHashCode();
+                return hashCode;
             }
         }
 

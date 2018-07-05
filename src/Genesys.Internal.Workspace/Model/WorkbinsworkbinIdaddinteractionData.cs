@@ -113,45 +113,43 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as WorkbinsworkbinIdaddinteractionData);
+            return this.Equals(input as WorkbinsworkbinIdaddinteractionData);
         }
 
         /// <summary>
         /// Returns true if WorkbinsworkbinIdaddinteractionData instances are equal
         /// </summary>
-        /// <param name="other">Instance of WorkbinsworkbinIdaddinteractionData to be compared</param>
+        /// <param name="input">Instance of WorkbinsworkbinIdaddinteractionData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(WorkbinsworkbinIdaddinteractionData other)
+        public bool Equals(WorkbinsworkbinIdaddinteractionData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.OwnerId == other.OwnerId ||
-                    this.OwnerId != null &&
-                    this.OwnerId.Equals(other.OwnerId)
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
                 ) && 
                 (
-                    this.InteractionId == other.InteractionId ||
-                    this.InteractionId != null &&
-                    this.InteractionId.Equals(other.InteractionId)
+                    this.InteractionId == input.InteractionId ||
+                    (this.InteractionId != null &&
+                    this.InteractionId.Equals(input.InteractionId))
                 ) && 
                 (
-                    this.Reason == other.Reason ||
-                    this.Reason != null &&
-                    this.Reason.Equals(other.Reason)
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 ) && 
                 (
-                    this.Extension == other.Extension ||
+                    this.Extension == input.Extension ||
                     this.Extension != null &&
-                    this.Extension.SequenceEqual(other.Extension)
+                    this.Extension.SequenceEqual(input.Extension)
                 );
         }
 
@@ -161,20 +159,18 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.OwnerId != null)
-                    hash = hash * 59 + this.OwnerId.GetHashCode();
+                    hashCode = hashCode * 59 + this.OwnerId.GetHashCode();
                 if (this.InteractionId != null)
-                    hash = hash * 59 + this.InteractionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
                 if (this.Reason != null)
-                    hash = hash * 59 + this.Reason.GetHashCode();
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.Extension != null)
-                    hash = hash * 59 + this.Extension.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Extension.GetHashCode();
+                return hashCode;
             }
         }
 

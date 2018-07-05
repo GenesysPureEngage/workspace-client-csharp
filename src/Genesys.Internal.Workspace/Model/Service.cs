@@ -39,30 +39,36 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum VOICE for "VOICE"
+            /// Enum VOICE for value: VOICE
             /// </summary>
             [EnumMember(Value = "VOICE")]
-            VOICE,
+            VOICE = 1,
             
             /// <summary>
-            /// Enum STATS for "STATS"
+            /// Enum STATS for value: STATS
             /// </summary>
             [EnumMember(Value = "STATS")]
-            STATS,
+            STATS = 2,
             
             /// <summary>
-            /// Enum IXN for "IXN"
+            /// Enum IXN for value: IXN
             /// </summary>
             [EnumMember(Value = "IXN")]
-            IXN,
+            IXN = 3,
             
             /// <summary>
-            /// Enum UCS for "UCS"
+            /// Enum UCS for value: UCS
             /// </summary>
             [EnumMember(Value = "UCS")]
-            UCS
+            UCS = 4
         }
 
+        /// <summary>
+        /// The name of the service.
+        /// </summary>
+        /// <value>The name of the service.</value>
+        [DataMember(Name="serviceName", EmitDefaultValue=false)]
+        public ServiceNameEnum? ServiceName { get; set; }
         /// <summary>
         /// The state of the service - AVAILABLE or UNAVAILABLE
         /// </summary>
@@ -72,24 +78,18 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum AVAILABLE for "AVAILABLE"
+            /// Enum AVAILABLE for value: AVAILABLE
             /// </summary>
             [EnumMember(Value = "AVAILABLE")]
-            AVAILABLE,
+            AVAILABLE = 1,
             
             /// <summary>
-            /// Enum UNAVAILABLE for "UNAVAILABLE"
+            /// Enum UNAVAILABLE for value: UNAVAILABLE
             /// </summary>
             [EnumMember(Value = "UNAVAILABLE")]
-            UNAVAILABLE
+            UNAVAILABLE = 2
         }
 
-        /// <summary>
-        /// The name of the service.
-        /// </summary>
-        /// <value>The name of the service.</value>
-        [DataMember(Name="serviceName", EmitDefaultValue=false)]
-        public ServiceNameEnum? ServiceName { get; set; }
         /// <summary>
         /// The state of the service - AVAILABLE or UNAVAILABLE
         /// </summary>
@@ -135,35 +135,33 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Service);
+            return this.Equals(input as Service);
         }
 
         /// <summary>
         /// Returns true if Service instances are equal
         /// </summary>
-        /// <param name="other">Instance of Service to be compared</param>
+        /// <param name="input">Instance of Service to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Service other)
+        public bool Equals(Service input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ServiceName == other.ServiceName ||
-                    this.ServiceName != null &&
-                    this.ServiceName.Equals(other.ServiceName)
+                    this.ServiceName == input.ServiceName ||
+                    (this.ServiceName != null &&
+                    this.ServiceName.Equals(input.ServiceName))
                 ) && 
                 (
-                    this.ServiceState == other.ServiceState ||
-                    this.ServiceState != null &&
-                    this.ServiceState.Equals(other.ServiceState)
+                    this.ServiceState == input.ServiceState ||
+                    (this.ServiceState != null &&
+                    this.ServiceState.Equals(input.ServiceState))
                 );
         }
 
@@ -173,16 +171,14 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ServiceName != null)
-                    hash = hash * 59 + this.ServiceName.GetHashCode();
+                    hashCode = hashCode * 59 + this.ServiceName.GetHashCode();
                 if (this.ServiceState != null)
-                    hash = hash * 59 + this.ServiceState.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ServiceState.GetHashCode();
+                return hashCode;
             }
         }
 

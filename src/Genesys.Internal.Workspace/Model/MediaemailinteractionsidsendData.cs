@@ -200,80 +200,78 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MediaemailinteractionsidsendData);
+            return this.Equals(input as MediaemailinteractionsidsendData);
         }
 
         /// <summary>
         /// Returns true if MediaemailinteractionsidsendData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MediaemailinteractionsidsendData to be compared</param>
+        /// <param name="input">Instance of MediaemailinteractionsidsendData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediaemailinteractionsidsendData other)
+        public bool Equals(MediaemailinteractionsidsendData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Queue == other.Queue ||
-                    this.Queue != null &&
-                    this.Queue.Equals(other.Queue)
+                    this.Queue == input.Queue ||
+                    (this.Queue != null &&
+                    this.Queue.Equals(input.Queue))
                 ) && 
                 (
-                    this.Body == other.Body ||
-                    this.Body != null &&
-                    this.Body.Equals(other.Body)
+                    this.Body == input.Body ||
+                    (this.Body != null &&
+                    this.Body.Equals(input.Body))
                 ) && 
                 (
-                    this.BodyAsPlainText == other.BodyAsPlainText ||
-                    this.BodyAsPlainText != null &&
-                    this.BodyAsPlainText.Equals(other.BodyAsPlainText)
+                    this.BodyAsPlainText == input.BodyAsPlainText ||
+                    (this.BodyAsPlainText != null &&
+                    this.BodyAsPlainText.Equals(input.BodyAsPlainText))
                 ) && 
                 (
-                    this.Mime == other.Mime ||
-                    this.Mime != null &&
-                    this.Mime.Equals(other.Mime)
+                    this.Mime == input.Mime ||
+                    (this.Mime != null &&
+                    this.Mime.Equals(input.Mime))
                 ) && 
                 (
-                    this.Subject == other.Subject ||
-                    this.Subject != null &&
-                    this.Subject.Equals(other.Subject)
+                    this.Subject == input.Subject ||
+                    (this.Subject != null &&
+                    this.Subject.Equals(input.Subject))
                 ) && 
                 (
-                    this.Comment == other.Comment ||
-                    this.Comment != null &&
-                    this.Comment.Equals(other.Comment)
+                    this.Comment == input.Comment ||
+                    (this.Comment != null &&
+                    this.Comment.Equals(input.Comment))
                 ) && 
                 (
-                    this.From == other.From ||
-                    this.From != null &&
-                    this.From.Equals(other.From)
+                    this.From == input.From ||
+                    (this.From != null &&
+                    this.From.Equals(input.From))
                 ) && 
                 (
-                    this.To == other.To ||
+                    this.To == input.To ||
                     this.To != null &&
-                    this.To.SequenceEqual(other.To)
+                    this.To.SequenceEqual(input.To)
                 ) && 
                 (
-                    this.Cc == other.Cc ||
+                    this.Cc == input.Cc ||
                     this.Cc != null &&
-                    this.Cc.SequenceEqual(other.Cc)
+                    this.Cc.SequenceEqual(input.Cc)
                 ) && 
                 (
-                    this.Bcc == other.Bcc ||
+                    this.Bcc == input.Bcc ||
                     this.Bcc != null &&
-                    this.Bcc.SequenceEqual(other.Bcc)
+                    this.Bcc.SequenceEqual(input.Bcc)
                 ) && 
                 (
-                    this.UseReviewer == other.UseReviewer ||
-                    this.UseReviewer != null &&
-                    this.UseReviewer.Equals(other.UseReviewer)
+                    this.UseReviewer == input.UseReviewer ||
+                    (this.UseReviewer != null &&
+                    this.UseReviewer.Equals(input.UseReviewer))
                 );
         }
 
@@ -283,34 +281,32 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Queue != null)
-                    hash = hash * 59 + this.Queue.GetHashCode();
+                    hashCode = hashCode * 59 + this.Queue.GetHashCode();
                 if (this.Body != null)
-                    hash = hash * 59 + this.Body.GetHashCode();
+                    hashCode = hashCode * 59 + this.Body.GetHashCode();
                 if (this.BodyAsPlainText != null)
-                    hash = hash * 59 + this.BodyAsPlainText.GetHashCode();
+                    hashCode = hashCode * 59 + this.BodyAsPlainText.GetHashCode();
                 if (this.Mime != null)
-                    hash = hash * 59 + this.Mime.GetHashCode();
+                    hashCode = hashCode * 59 + this.Mime.GetHashCode();
                 if (this.Subject != null)
-                    hash = hash * 59 + this.Subject.GetHashCode();
+                    hashCode = hashCode * 59 + this.Subject.GetHashCode();
                 if (this.Comment != null)
-                    hash = hash * 59 + this.Comment.GetHashCode();
+                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
                 if (this.From != null)
-                    hash = hash * 59 + this.From.GetHashCode();
+                    hashCode = hashCode * 59 + this.From.GetHashCode();
                 if (this.To != null)
-                    hash = hash * 59 + this.To.GetHashCode();
+                    hashCode = hashCode * 59 + this.To.GetHashCode();
                 if (this.Cc != null)
-                    hash = hash * 59 + this.Cc.GetHashCode();
+                    hashCode = hashCode * 59 + this.Cc.GetHashCode();
                 if (this.Bcc != null)
-                    hash = hash * 59 + this.Bcc.GetHashCode();
+                    hashCode = hashCode * 59 + this.Bcc.GetHashCode();
                 if (this.UseReviewer != null)
-                    hash = hash * 59 + this.UseReviewer.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UseReviewer.GetHashCode();
+                return hashCode;
             }
         }
 

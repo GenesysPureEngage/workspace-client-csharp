@@ -84,30 +84,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as VoicestopmonitoringData);
+            return this.Equals(input as VoicestopmonitoringData);
         }
 
         /// <summary>
         /// Returns true if VoicestopmonitoringData instances are equal
         /// </summary>
-        /// <param name="other">Instance of VoicestopmonitoringData to be compared</param>
+        /// <param name="input">Instance of VoicestopmonitoringData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(VoicestopmonitoringData other)
+        public bool Equals(VoicestopmonitoringData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.PhoneNumber == other.PhoneNumber ||
-                    this.PhoneNumber != null &&
-                    this.PhoneNumber.Equals(other.PhoneNumber)
+                    this.PhoneNumber == input.PhoneNumber ||
+                    (this.PhoneNumber != null &&
+                    this.PhoneNumber.Equals(input.PhoneNumber))
                 );
         }
 
@@ -117,14 +115,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.PhoneNumber != null)
-                    hash = hash * 59 + this.PhoneNumber.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.PhoneNumber.GetHashCode();
+                return hashCode;
             }
         }
 

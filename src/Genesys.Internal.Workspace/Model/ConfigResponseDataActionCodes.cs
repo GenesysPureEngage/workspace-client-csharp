@@ -88,40 +88,38 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as ConfigResponseDataActionCodes);
+            return this.Equals(input as ConfigResponseDataActionCodes);
         }
 
         /// <summary>
         /// Returns true if ConfigResponseDataActionCodes instances are equal
         /// </summary>
-        /// <param name="other">Instance of ConfigResponseDataActionCodes to be compared</param>
+        /// <param name="input">Instance of ConfigResponseDataActionCodes to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(ConfigResponseDataActionCodes other)
+        public bool Equals(ConfigResponseDataActionCodes input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 ) && 
                 (
-                    this.Code == other.Code ||
-                    this.Code != null &&
-                    this.Code.Equals(other.Code)
+                    this.Code == input.Code ||
+                    (this.Code != null &&
+                    this.Code.Equals(input.Code))
                 ) && 
                 (
-                    this.UserProperties == other.UserProperties ||
+                    this.UserProperties == input.UserProperties ||
                     this.UserProperties != null &&
-                    this.UserProperties.SequenceEqual(other.UserProperties)
+                    this.UserProperties.SequenceEqual(input.UserProperties)
                 );
         }
 
@@ -131,18 +129,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
                 if (this.Code != null)
-                    hash = hash * 59 + this.Code.GetHashCode();
+                    hashCode = hashCode * 59 + this.Code.GetHashCode();
                 if (this.UserProperties != null)
-                    hash = hash * 59 + this.UserProperties.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.UserProperties.GetHashCode();
+                return hashCode;
             }
         }
 

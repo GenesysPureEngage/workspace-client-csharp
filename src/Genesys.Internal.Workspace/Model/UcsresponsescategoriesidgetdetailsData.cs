@@ -91,40 +91,38 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsresponsescategoriesidgetdetailsData);
+            return this.Equals(input as UcsresponsescategoriesidgetdetailsData);
         }
 
         /// <summary>
         /// Returns true if UcsresponsescategoriesidgetdetailsData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsresponsescategoriesidgetdetailsData to be compared</param>
+        /// <param name="input">Instance of UcsresponsescategoriesidgetdetailsData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsresponsescategoriesidgetdetailsData other)
+        public bool Equals(UcsresponsescategoriesidgetdetailsData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ReturnChildrenCategories == other.ReturnChildrenCategories ||
-                    this.ReturnChildrenCategories != null &&
-                    this.ReturnChildrenCategories.Equals(other.ReturnChildrenCategories)
+                    this.ReturnChildrenCategories == input.ReturnChildrenCategories ||
+                    (this.ReturnChildrenCategories != null &&
+                    this.ReturnChildrenCategories.Equals(input.ReturnChildrenCategories))
                 ) && 
                 (
-                    this.ReturnChildrenSRInfo == other.ReturnChildrenSRInfo ||
-                    this.ReturnChildrenSRInfo != null &&
-                    this.ReturnChildrenSRInfo.Equals(other.ReturnChildrenSRInfo)
+                    this.ReturnChildrenSRInfo == input.ReturnChildrenSRInfo ||
+                    (this.ReturnChildrenSRInfo != null &&
+                    this.ReturnChildrenSRInfo.Equals(input.ReturnChildrenSRInfo))
                 ) && 
                 (
-                    this.Approved == other.Approved ||
-                    this.Approved != null &&
-                    this.Approved.Equals(other.Approved)
+                    this.Approved == input.Approved ||
+                    (this.Approved != null &&
+                    this.Approved.Equals(input.Approved))
                 );
         }
 
@@ -134,18 +132,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ReturnChildrenCategories != null)
-                    hash = hash * 59 + this.ReturnChildrenCategories.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReturnChildrenCategories.GetHashCode();
                 if (this.ReturnChildrenSRInfo != null)
-                    hash = hash * 59 + this.ReturnChildrenSRInfo.GetHashCode();
+                    hashCode = hashCode * 59 + this.ReturnChildrenSRInfo.GetHashCode();
                 if (this.Approved != null)
-                    hash = hash * 59 + this.Approved.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Approved.GetHashCode();
+                return hashCode;
             }
         }
 

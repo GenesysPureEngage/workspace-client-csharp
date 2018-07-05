@@ -84,30 +84,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsinteractionsidsetcommentData);
+            return this.Equals(input as UcsinteractionsidsetcommentData);
         }
 
         /// <summary>
         /// Returns true if UcsinteractionsidsetcommentData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsinteractionsidsetcommentData to be compared</param>
+        /// <param name="input">Instance of UcsinteractionsidsetcommentData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsinteractionsidsetcommentData other)
+        public bool Equals(UcsinteractionsidsetcommentData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Comment == other.Comment ||
-                    this.Comment != null &&
-                    this.Comment.Equals(other.Comment)
+                    this.Comment == input.Comment ||
+                    (this.Comment != null &&
+                    this.Comment.Equals(input.Comment))
                 );
         }
 
@@ -117,14 +115,12 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Comment != null)
-                    hash = hash * 59 + this.Comment.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Comment.GetHashCode();
+                return hashCode;
             }
         }
 

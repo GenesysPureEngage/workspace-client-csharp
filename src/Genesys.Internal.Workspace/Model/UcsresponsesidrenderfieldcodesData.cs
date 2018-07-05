@@ -114,45 +114,43 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as UcsresponsesidrenderfieldcodesData);
+            return this.Equals(input as UcsresponsesidrenderfieldcodesData);
         }
 
         /// <summary>
         /// Returns true if UcsresponsesidrenderfieldcodesData instances are equal
         /// </summary>
-        /// <param name="other">Instance of UcsresponsesidrenderfieldcodesData to be compared</param>
+        /// <param name="input">Instance of UcsresponsesidrenderfieldcodesData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(UcsresponsesidrenderfieldcodesData other)
+        public bool Equals(UcsresponsesidrenderfieldcodesData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.InteractionId == other.InteractionId ||
-                    this.InteractionId != null &&
-                    this.InteractionId.Equals(other.InteractionId)
+                    this.InteractionId == input.InteractionId ||
+                    (this.InteractionId != null &&
+                    this.InteractionId.Equals(input.InteractionId))
                 ) && 
                 (
-                    this.UsePlainText == other.UsePlainText ||
-                    this.UsePlainText != null &&
-                    this.UsePlainText.Equals(other.UsePlainText)
+                    this.UsePlainText == input.UsePlainText ||
+                    (this.UsePlainText != null &&
+                    this.UsePlainText.Equals(input.UsePlainText))
                 ) && 
                 (
-                    this.CustomProperties == other.CustomProperties ||
+                    this.CustomProperties == input.CustomProperties ||
                     this.CustomProperties != null &&
-                    this.CustomProperties.SequenceEqual(other.CustomProperties)
+                    this.CustomProperties.SequenceEqual(input.CustomProperties)
                 ) && 
                 (
-                    this.AgentCustomProperties == other.AgentCustomProperties ||
+                    this.AgentCustomProperties == input.AgentCustomProperties ||
                     this.AgentCustomProperties != null &&
-                    this.AgentCustomProperties.SequenceEqual(other.AgentCustomProperties)
+                    this.AgentCustomProperties.SequenceEqual(input.AgentCustomProperties)
                 );
         }
 
@@ -162,20 +160,18 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.InteractionId != null)
-                    hash = hash * 59 + this.InteractionId.GetHashCode();
+                    hashCode = hashCode * 59 + this.InteractionId.GetHashCode();
                 if (this.UsePlainText != null)
-                    hash = hash * 59 + this.UsePlainText.GetHashCode();
+                    hashCode = hashCode * 59 + this.UsePlainText.GetHashCode();
                 if (this.CustomProperties != null)
-                    hash = hash * 59 + this.CustomProperties.GetHashCode();
+                    hashCode = hashCode * 59 + this.CustomProperties.GetHashCode();
                 if (this.AgentCustomProperties != null)
-                    hash = hash * 59 + this.AgentCustomProperties.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.AgentCustomProperties.GetHashCode();
+                return hashCode;
             }
         }
 

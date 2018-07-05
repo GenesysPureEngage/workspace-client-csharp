@@ -170,70 +170,68 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as CurrentSessionDataUser);
+            return this.Equals(input as CurrentSessionDataUser);
         }
 
         /// <summary>
         /// Returns true if CurrentSessionDataUser instances are equal
         /// </summary>
-        /// <param name="other">Instance of CurrentSessionDataUser to be compared</param>
+        /// <param name="input">Instance of CurrentSessionDataUser to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CurrentSessionDataUser other)
+        public bool Equals(CurrentSessionDataUser input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.Dbid == other.Dbid ||
-                    this.Dbid != null &&
-                    this.Dbid.Equals(other.Dbid)
+                    this.Dbid == input.Dbid ||
+                    (this.Dbid != null &&
+                    this.Dbid.Equals(input.Dbid))
                 ) && 
                 (
-                    this.FirstName == other.FirstName ||
-                    this.FirstName != null &&
-                    this.FirstName.Equals(other.FirstName)
+                    this.FirstName == input.FirstName ||
+                    (this.FirstName != null &&
+                    this.FirstName.Equals(input.FirstName))
                 ) && 
                 (
-                    this.LastName == other.LastName ||
-                    this.LastName != null &&
-                    this.LastName.Equals(other.LastName)
+                    this.LastName == input.LastName ||
+                    (this.LastName != null &&
+                    this.LastName.Equals(input.LastName))
                 ) && 
                 (
-                    this.UserName == other.UserName ||
-                    this.UserName != null &&
-                    this.UserName.Equals(other.UserName)
+                    this.UserName == input.UserName ||
+                    (this.UserName != null &&
+                    this.UserName.Equals(input.UserName))
                 ) && 
                 (
-                    this.EmployeeId == other.EmployeeId ||
-                    this.EmployeeId != null &&
-                    this.EmployeeId.Equals(other.EmployeeId)
+                    this.EmployeeId == input.EmployeeId ||
+                    (this.EmployeeId != null &&
+                    this.EmployeeId.Equals(input.EmployeeId))
                 ) && 
                 (
-                    this.DefaultPlace == other.DefaultPlace ||
-                    this.DefaultPlace != null &&
-                    this.DefaultPlace.Equals(other.DefaultPlace)
+                    this.DefaultPlace == input.DefaultPlace ||
+                    (this.DefaultPlace != null &&
+                    this.DefaultPlace.Equals(input.DefaultPlace))
                 ) && 
                 (
-                    this.AgentLogin == other.AgentLogin ||
-                    this.AgentLogin != null &&
-                    this.AgentLogin.Equals(other.AgentLogin)
+                    this.AgentLogin == input.AgentLogin ||
+                    (this.AgentLogin != null &&
+                    this.AgentLogin.Equals(input.AgentLogin))
                 ) && 
                 (
-                    this.UserProperties == other.UserProperties ||
+                    this.UserProperties == input.UserProperties ||
                     this.UserProperties != null &&
-                    this.UserProperties.SequenceEqual(other.UserProperties)
+                    this.UserProperties.SequenceEqual(input.UserProperties)
                 ) && 
                 (
-                    this.ActiveSession == other.ActiveSession ||
-                    this.ActiveSession != null &&
-                    this.ActiveSession.Equals(other.ActiveSession)
+                    this.ActiveSession == input.ActiveSession ||
+                    (this.ActiveSession != null &&
+                    this.ActiveSession.Equals(input.ActiveSession))
                 );
         }
 
@@ -243,30 +241,28 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.Dbid != null)
-                    hash = hash * 59 + this.Dbid.GetHashCode();
+                    hashCode = hashCode * 59 + this.Dbid.GetHashCode();
                 if (this.FirstName != null)
-                    hash = hash * 59 + this.FirstName.GetHashCode();
+                    hashCode = hashCode * 59 + this.FirstName.GetHashCode();
                 if (this.LastName != null)
-                    hash = hash * 59 + this.LastName.GetHashCode();
+                    hashCode = hashCode * 59 + this.LastName.GetHashCode();
                 if (this.UserName != null)
-                    hash = hash * 59 + this.UserName.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserName.GetHashCode();
                 if (this.EmployeeId != null)
-                    hash = hash * 59 + this.EmployeeId.GetHashCode();
+                    hashCode = hashCode * 59 + this.EmployeeId.GetHashCode();
                 if (this.DefaultPlace != null)
-                    hash = hash * 59 + this.DefaultPlace.GetHashCode();
+                    hashCode = hashCode * 59 + this.DefaultPlace.GetHashCode();
                 if (this.AgentLogin != null)
-                    hash = hash * 59 + this.AgentLogin.GetHashCode();
+                    hashCode = hashCode * 59 + this.AgentLogin.GetHashCode();
                 if (this.UserProperties != null)
-                    hash = hash * 59 + this.UserProperties.GetHashCode();
+                    hashCode = hashCode * 59 + this.UserProperties.GetHashCode();
                 if (this.ActiveSession != null)
-                    hash = hash * 59 + this.ActiveSession.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.ActiveSession.GetHashCode();
+                return hashCode;
             }
         }
 

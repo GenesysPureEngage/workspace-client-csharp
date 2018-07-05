@@ -120,40 +120,38 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as Statistic);
+            return this.Equals(input as Statistic);
         }
 
         /// <summary>
         /// Returns true if Statistic instances are equal
         /// </summary>
-        /// <param name="other">Instance of Statistic to be compared</param>
+        /// <param name="input">Instance of Statistic to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(Statistic other)
+        public bool Equals(Statistic input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.ObjectId == other.ObjectId ||
-                    this.ObjectId != null &&
-                    this.ObjectId.Equals(other.ObjectId)
+                    this.ObjectId == input.ObjectId ||
+                    (this.ObjectId != null &&
+                    this.ObjectId.Equals(input.ObjectId))
                 ) && 
                 (
-                    this.ObjectType == other.ObjectType ||
-                    this.ObjectType != null &&
-                    this.ObjectType.Equals(other.ObjectType)
+                    this.ObjectType == input.ObjectType ||
+                    (this.ObjectType != null &&
+                    this.ObjectType.Equals(input.ObjectType))
                 ) && 
                 (
-                    this.Name == other.Name ||
-                    this.Name != null &&
-                    this.Name.Equals(other.Name)
+                    this.Name == input.Name ||
+                    (this.Name != null &&
+                    this.Name.Equals(input.Name))
                 );
         }
 
@@ -163,18 +161,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.ObjectId != null)
-                    hash = hash * 59 + this.ObjectId.GetHashCode();
+                    hashCode = hashCode * 59 + this.ObjectId.GetHashCode();
                 if (this.ObjectType != null)
-                    hash = hash * 59 + this.ObjectType.GetHashCode();
+                    hashCode = hashCode * 59 + this.ObjectType.GetHashCode();
                 if (this.Name != null)
-                    hash = hash * 59 + this.Name.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.Name.GetHashCode();
+                return hashCode;
             }
         }
 

@@ -39,24 +39,30 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum Monitor for "Monitor"
+            /// Enum Monitor for value: Monitor
             /// </summary>
             [EnumMember(Value = "Monitor")]
-            Monitor,
+            Monitor = 1,
             
             /// <summary>
-            /// Enum Coach for "Coach"
+            /// Enum Coach for value: Coach
             /// </summary>
             [EnumMember(Value = "Coach")]
-            Coach,
+            Coach = 2,
             
             /// <summary>
-            /// Enum Bargin for "Bargin"
+            /// Enum Bargin for value: Bargin
             /// </summary>
             [EnumMember(Value = "Bargin")]
-            Bargin
+            Bargin = 3
         }
 
+        /// <summary>
+        /// The monitoring mode.
+        /// </summary>
+        /// <value>The monitoring mode.</value>
+        [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
+        public MonitoringModeEnum MonitoringMode { get; set; }
         /// <summary>
         /// The monitoring interaction type.
         /// </summary>
@@ -66,30 +72,24 @@ namespace Genesys.Internal.Workspace.Model
         {
             
             /// <summary>
-            /// Enum NextInteraction for "NextInteraction"
+            /// Enum NextInteraction for value: NextInteraction
             /// </summary>
             [EnumMember(Value = "NextInteraction")]
-            NextInteraction,
+            NextInteraction = 1,
             
             /// <summary>
-            /// Enum AllInteractions for "AllInteractions"
+            /// Enum AllInteractions for value: AllInteractions
             /// </summary>
             [EnumMember(Value = "AllInteractions")]
-            AllInteractions
+            AllInteractions = 2
         }
 
-        /// <summary>
-        /// The monitoring mode.
-        /// </summary>
-        /// <value>The monitoring mode.</value>
-        [DataMember(Name="monitoringMode", EmitDefaultValue=false)]
-        public MonitoringModeEnum? MonitoringMode { get; set; }
         /// <summary>
         /// The monitoring interaction type.
         /// </summary>
         /// <value>The monitoring interaction type.</value>
         [DataMember(Name="monitoringNextInterationType", EmitDefaultValue=false)]
-        public MonitoringNextInterationTypeEnum? MonitoringNextInterationType { get; set; }
+        public MonitoringNextInterationTypeEnum MonitoringNextInterationType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="MediamediatypestartmonitoringData" /> class.
         /// </summary>
@@ -101,7 +101,7 @@ namespace Genesys.Internal.Workspace.Model
         /// <param name="AgentId">The unique ID of the agent to monitor. (required).</param>
         /// <param name="MonitoringMode">The monitoring mode. (required).</param>
         /// <param name="MonitoringNextInterationType">The monitoring interaction type. (required).</param>
-        public MediamediatypestartmonitoringData(string AgentId = default(string), MonitoringModeEnum? MonitoringMode = default(MonitoringModeEnum?), MonitoringNextInterationTypeEnum? MonitoringNextInterationType = default(MonitoringNextInterationTypeEnum?))
+        public MediamediatypestartmonitoringData(string AgentId = default(string), MonitoringModeEnum MonitoringMode = default(MonitoringModeEnum), MonitoringNextInterationTypeEnum MonitoringNextInterationType = default(MonitoringNextInterationTypeEnum))
         {
             // to ensure "AgentId" is required (not null)
             if (AgentId == null)
@@ -168,40 +168,38 @@ namespace Genesys.Internal.Workspace.Model
         /// <summary>
         /// Returns true if objects are equal
         /// </summary>
-        /// <param name="obj">Object to be compared</param>
+        /// <param name="input">Object to be compared</param>
         /// <returns>Boolean</returns>
-        public override bool Equals(object obj)
+        public override bool Equals(object input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            return this.Equals(obj as MediamediatypestartmonitoringData);
+            return this.Equals(input as MediamediatypestartmonitoringData);
         }
 
         /// <summary>
         /// Returns true if MediamediatypestartmonitoringData instances are equal
         /// </summary>
-        /// <param name="other">Instance of MediamediatypestartmonitoringData to be compared</param>
+        /// <param name="input">Instance of MediamediatypestartmonitoringData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypestartmonitoringData other)
+        public bool Equals(MediamediatypestartmonitoringData input)
         {
-            // credit: http://stackoverflow.com/a/10454552/677735
-            if (other == null)
+            if (input == null)
                 return false;
 
             return 
                 (
-                    this.AgentId == other.AgentId ||
-                    this.AgentId != null &&
-                    this.AgentId.Equals(other.AgentId)
+                    this.AgentId == input.AgentId ||
+                    (this.AgentId != null &&
+                    this.AgentId.Equals(input.AgentId))
                 ) && 
                 (
-                    this.MonitoringMode == other.MonitoringMode ||
-                    this.MonitoringMode != null &&
-                    this.MonitoringMode.Equals(other.MonitoringMode)
+                    this.MonitoringMode == input.MonitoringMode ||
+                    (this.MonitoringMode != null &&
+                    this.MonitoringMode.Equals(input.MonitoringMode))
                 ) && 
                 (
-                    this.MonitoringNextInterationType == other.MonitoringNextInterationType ||
-                    this.MonitoringNextInterationType != null &&
-                    this.MonitoringNextInterationType.Equals(other.MonitoringNextInterationType)
+                    this.MonitoringNextInterationType == input.MonitoringNextInterationType ||
+                    (this.MonitoringNextInterationType != null &&
+                    this.MonitoringNextInterationType.Equals(input.MonitoringNextInterationType))
                 );
         }
 
@@ -211,18 +209,16 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Hash code</returns>
         public override int GetHashCode()
         {
-            // credit: http://stackoverflow.com/a/263416/677735
             unchecked // Overflow is fine, just wrap
             {
-                int hash = 41;
-                // Suitable nullity checks etc, of course :)
+                int hashCode = 41;
                 if (this.AgentId != null)
-                    hash = hash * 59 + this.AgentId.GetHashCode();
+                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
                 if (this.MonitoringMode != null)
-                    hash = hash * 59 + this.MonitoringMode.GetHashCode();
+                    hashCode = hashCode * 59 + this.MonitoringMode.GetHashCode();
                 if (this.MonitoringNextInterationType != null)
-                    hash = hash * 59 + this.MonitoringNextInterationType.GetHashCode();
-                return hash;
+                    hashCode = hashCode * 59 + this.MonitoringNextInterationType.GetHashCode();
+                return hashCode;
             }
         }
 
