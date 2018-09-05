@@ -4,7 +4,7 @@ Workspace API
 
 Agent API
 
-OpenAPI spec version: v9.0.000.20.2204
+OpenAPI spec version: 9.0.000.21.2241
 
 -->
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
@@ -12,7 +12,7 @@ OpenAPI spec version: v9.0.000.20.2204
     
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7F22AA94-7124-4A7E-BE99-49D82DD090BB}</ProjectGuid>
+    <ProjectGuid>{076AB604-6170-4F06-8869-914CD6809121}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Genesys.Internal.Workspace</RootNamespace>
