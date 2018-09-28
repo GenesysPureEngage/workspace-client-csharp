@@ -25,46 +25,50 @@ using SwaggerDateConverter = Genesys.Internal.Workspace.Client.SwaggerDateConver
 namespace Genesys.Internal.Workspace.Model
 {
     /// <summary>
-    /// MediamediatypeinteractionsidtransferagentData
+    /// MediamediatypeinteractionsidpullData
     /// </summary>
     [DataContract]
-    public partial class MediamediatypeinteractionsidtransferagentData :  IEquatable<MediamediatypeinteractionsidtransferagentData>, IValidatableObject
+    public partial class MediamediatypeinteractionsidpullData :  IEquatable<MediamediatypeinteractionsidpullData>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidtransferagentData" /> class.
+        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidpullData" /> class.
         /// </summary>
-        [JsonConstructorAttribute]
-        protected MediamediatypeinteractionsidtransferagentData() { }
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediamediatypeinteractionsidtransferagentData" /> class.
-        /// </summary>
-        /// <param name="AgentId">The unique ID of the agent. (required).</param>
-        /// <param name="Extension">A collection of key/value pairs..</param>
-        public MediamediatypeinteractionsidtransferagentData(string AgentId = default(string), List<Kvpair> Extension = default(List<Kvpair>))
+        /// <param name="OwnerId">Id of the owner of the workbin.</param>
+        /// <param name="WorkbinId">Id of the workbin.</param>
+        /// <param name="Reason">Reason.</param>
+        /// <param name="Extension">A key/value pairs list of additional data..</param>
+        public MediamediatypeinteractionsidpullData(string OwnerId = default(string), string WorkbinId = default(string), IxnReasonCode Reason = default(IxnReasonCode), List<Kvpair> Extension = default(List<Kvpair>))
         {
-            // to ensure "AgentId" is required (not null)
-            if (AgentId == null)
-            {
-                throw new InvalidDataException("AgentId is a required property for MediamediatypeinteractionsidtransferagentData and cannot be null");
-            }
-            else
-            {
-                this.AgentId = AgentId;
-            }
+            this.OwnerId = OwnerId;
+            this.WorkbinId = WorkbinId;
+            this.Reason = Reason;
             this.Extension = Extension;
         }
         
         /// <summary>
-        /// The unique ID of the agent.
+        /// Id of the owner of the workbin
         /// </summary>
-        /// <value>The unique ID of the agent.</value>
-        [DataMember(Name="agentId", EmitDefaultValue=false)]
-        public string AgentId { get; set; }
+        /// <value>Id of the owner of the workbin</value>
+        [DataMember(Name="ownerId", EmitDefaultValue=false)]
+        public string OwnerId { get; set; }
 
         /// <summary>
-        /// A collection of key/value pairs.
+        /// Id of the workbin
         /// </summary>
-        /// <value>A collection of key/value pairs.</value>
+        /// <value>Id of the workbin</value>
+        [DataMember(Name="workbinId", EmitDefaultValue=false)]
+        public string WorkbinId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Reason
+        /// </summary>
+        [DataMember(Name="reason", EmitDefaultValue=false)]
+        public IxnReasonCode Reason { get; set; }
+
+        /// <summary>
+        /// A key/value pairs list of additional data.
+        /// </summary>
+        /// <value>A key/value pairs list of additional data.</value>
         [DataMember(Name="extension", EmitDefaultValue=false)]
         public List<Kvpair> Extension { get; set; }
 
@@ -75,8 +79,10 @@ namespace Genesys.Internal.Workspace.Model
         public override string ToString()
         {
             var sb = new StringBuilder();
-            sb.Append("class MediamediatypeinteractionsidtransferagentData {\n");
-            sb.Append("  AgentId: ").Append(AgentId).Append("\n");
+            sb.Append("class MediamediatypeinteractionsidpullData {\n");
+            sb.Append("  OwnerId: ").Append(OwnerId).Append("\n");
+            sb.Append("  WorkbinId: ").Append(WorkbinId).Append("\n");
+            sb.Append("  Reason: ").Append(Reason).Append("\n");
             sb.Append("  Extension: ").Append(Extension).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -98,24 +104,34 @@ namespace Genesys.Internal.Workspace.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as MediamediatypeinteractionsidtransferagentData);
+            return this.Equals(input as MediamediatypeinteractionsidpullData);
         }
 
         /// <summary>
-        /// Returns true if MediamediatypeinteractionsidtransferagentData instances are equal
+        /// Returns true if MediamediatypeinteractionsidpullData instances are equal
         /// </summary>
-        /// <param name="input">Instance of MediamediatypeinteractionsidtransferagentData to be compared</param>
+        /// <param name="input">Instance of MediamediatypeinteractionsidpullData to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(MediamediatypeinteractionsidtransferagentData input)
+        public bool Equals(MediamediatypeinteractionsidpullData input)
         {
             if (input == null)
                 return false;
 
             return 
                 (
-                    this.AgentId == input.AgentId ||
-                    (this.AgentId != null &&
-                    this.AgentId.Equals(input.AgentId))
+                    this.OwnerId == input.OwnerId ||
+                    (this.OwnerId != null &&
+                    this.OwnerId.Equals(input.OwnerId))
+                ) && 
+                (
+                    this.WorkbinId == input.WorkbinId ||
+                    (this.WorkbinId != null &&
+                    this.WorkbinId.Equals(input.WorkbinId))
+                ) && 
+                (
+                    this.Reason == input.Reason ||
+                    (this.Reason != null &&
+                    this.Reason.Equals(input.Reason))
                 ) && 
                 (
                     this.Extension == input.Extension ||
@@ -133,8 +149,12 @@ namespace Genesys.Internal.Workspace.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.AgentId != null)
-                    hashCode = hashCode * 59 + this.AgentId.GetHashCode();
+                if (this.OwnerId != null)
+                    hashCode = hashCode * 59 + this.OwnerId.GetHashCode();
+                if (this.WorkbinId != null)
+                    hashCode = hashCode * 59 + this.WorkbinId.GetHashCode();
+                if (this.Reason != null)
+                    hashCode = hashCode * 59 + this.Reason.GetHashCode();
                 if (this.Extension != null)
                     hashCode = hashCode * 59 + this.Extension.GetHashCode();
                 return hashCode;
